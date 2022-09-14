@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Parameter Ontology Project from Jonathan Gregory on 2006-09-25 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] Parameter Ontology Project" />
-<meta name="Date" content="2006-09-25" />
+<title>[CF-metadata] Timeseries of station data from Schmidli Juerg on 2003-07-25 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Schmidli Juerg (schmidli)" />
+<meta name="Subject" content="[CF-metadata] Timeseries of station data" />
+<meta name="Date" content="2003-07-25" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0224.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0226.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Parameter Ontology Project</h1>
-<!-- received="Mon Sep 25 08:52:48 2006" -->
-<!-- isoreceived="20060925075248" -->
-<!-- sent="Mon, 25 Sep 2006 15:52:48 +0100" -->
-<!-- isosent="20060925145248" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] Parameter Ontology Project" -->
-<!-- id="20060925145248.GA25838_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0224.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0226.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Timeseries of station data</h1>
+<!-- received="Fri Jul 25 01:50:37 2003" -->
+<!-- isoreceived="20030725005037" -->
+<!-- sent="Fri, 25 Jul 2003 09:50:37 +0200" -->
+<!-- isosent="20030725075037" -->
+<!-- name="Schmidli Juerg" -->
+<!-- email="schmidli" -->
+<!-- subject="[CF-metadata] Timeseries of station data" -->
+<!-- id="3F20E14D.5F6FC0E2_at_geo.umnw.ethz.ch" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0226.html" accesskey="d" title="Pamment, JA: &quot;[CF-metadata] Standard names  added&quot;">Next message</a> ]
-[ <a href="./0224.html" title="Kyle Halliday: &quot;[CF-metadata] Parameter Ontology Project&quot;">Previous message</a> ]
+[ <a href="./0226.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Timeseries of station data&quot;">Next message</a> ]
+[ <a href="./0224.html" title="Jonathan Gregory: &quot;[CF-metadata] Vertical Coordinate Systems&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,16 +68,68 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Parameter%20Ontology%20Project">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Schmidli Juerg &lt;<a href="mailto:schmidli?Subject=Re%3A%20%5BCF-metadata%5D%20Timeseries%20of%20station%20data">schmidli</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 25 Sep 2006 15:52:48 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 25 Jul 2003 09:50:37 +0200</span><br />
 </address>
 <br />
-I expect we would like to have a fixed URL for the latest standard name table
+Dear Jonathan
 <br />
-as well, wouldn't we? Jonathan
+<br />Would the following use of a scalar coordinate variable
 <br />
-<span id="received"><dfn>Received on</dfn> Mon Sep 25 2006 - 08:52:48 BST</span>
+to identify the station dimension as a generic spatial
+<br />
+dimension, and to differentiate it from the non
+<br />
+spatiotemporal dimension max_len_id, be CF-conform?
+<br />
+&nbsp;
+<br />
+netcdf test {
+<br />
+dimensions:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;station = 11 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pressure = 3;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time = 2 ;        
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;max_len_id = 10 ;
+<br />
+variables:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float station ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;station:axis = 'X' ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short lon(station) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon:long_name = &quot;station longitude&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon:units = &quot;degrees_east&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short lat(station) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat:long_name = &quot;station latitude&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat:units = &quot;degrees_north&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float pre(time,pressure,station) ;
+<br />
+...
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char station_id(station, max_len_id) ;
+<br />
+...
+<br />
+}
+<br />
+<br />Best wishes
+<br />
+<br />Juerg
+<br />
+<span id="received"><dfn>Received on</dfn> Fri Jul 25 2003 - 01:50:37 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -85,8 +137,8 @@ as well, wouldn't we? Jonathan
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start225">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0226.html" title="Next message in the list">Pamment, JA: "[CF-metadata] Standard names  added"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0224.html" title="Previous message in the list">Kyle Halliday: "[CF-metadata] Parameter Ontology Project"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0226.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Timeseries of station data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0224.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Vertical Coordinate Systems"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -98,7 +150,7 @@ as well, wouldn't we? Jonathan
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:46 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0224.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0226.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

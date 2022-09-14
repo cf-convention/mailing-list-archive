@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] some concerns about the &quot;ensemble axis&quot; proposal from Kettleborough, Jamie on 2007-02-23 (mailing-list-archive)</title>
-<meta name="Author" content="Kettleborough, Jamie (jamie.kettleborough)" />
-<meta name="Subject" content="[CF-metadata] some concerns about the &quot;ensemble axis&quot; proposal" />
-<meta name="Date" content="2007-02-23" />
+<title>[CF-metadata] staggered grid from V. Balaji on 2005-08-19 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="V. Balaji (v.balaji)" />
+<meta name="Subject" content="[CF-metadata] staggered grid" />
+<meta name="Date" content="2005-08-19" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0722.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0724.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] some concerns about the &quot;ensemble axis&quot; proposal</h1>
-<!-- received="Fri Feb 23 05:58:07 2007" -->
-<!-- isoreceived="20070223055807" -->
-<!-- sent="Fri, 23 Feb 2007 12:58:07 +0000" -->
-<!-- isosent="20070223125807" -->
-<!-- name="Kettleborough, Jamie" -->
-<!-- email="jamie.kettleborough" -->
-<!-- subject="[CF-metadata] some concerns about the &quot;ensemble axis&quot; proposal" -->
-<!-- id="1172235487.18063.166.camel_at_eld408.desktop.frd.metoffice.com" -->
+<a style="text-decoration:none" href="./0722.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0724.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] staggered grid</h1>
+<!-- received="Fri Aug 19 15:15:32 2005" -->
+<!-- isoreceived="20050819141532" -->
+<!-- sent="Fri, 19 Aug 2005 17:15:32 -0400 (EDT)" -->
+<!-- isosent="20050819211532" -->
+<!-- name="V. Balaji" -->
+<!-- email="v.balaji" -->
+<!-- subject="[CF-metadata] staggered grid" -->
+<!-- id="Pine.LNX.4.63.0508191714100.4315_at_vbpc.gfdl.noaa.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="45DE7C7A.4080704_at_noaa.gov" -->
+<!-- inreplyto="20050817113221.GA2954_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0724.html" accesskey="d" title="Francisco Doblas-Reyes: &quot;[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal&quot;">Next message</a> ]
-[ <a href="./0722.html" title="Steve Hankin: &quot;[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal&quot;">Previous message</a> ]
-[ <a href="./0722.html" title="Steve Hankin: &quot;[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal&quot;">In reply to</a> ]
+[ <a href="./0724.html" accesskey="d" title="Frederique Blanc: &quot;[CF-metadata] gaussian grid&quot;">Next message</a> ]
+[ <a href="./0722.html" title="Karl Taylor: &quot;[CF-metadata] high cloud amount&quot;">Previous message</a> ]
+[ <a href="./0720.html" title="Jonathan Gregory: &quot;[CF-metadata] staggered grid&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0728.html" accesskey="t" title="V. Balaji: &quot;[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,52 +70,43 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Kettleborough, Jamie &lt;<a href="mailto:jamie.kettleborough?Subject=Re%3A%20%5BCF-metadata%5D%20some%20concerns%20about%20the%20%22ensemble%20axis%22%20proposal">jamie.kettleborough</a>&gt;
+<dfn>From</dfn>: V. Balaji &lt;<a href="mailto:v.balaji?Subject=Re%3A%20%5BCF-metadata%5D%20staggered%20grid">v.balaji</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 23 Feb 2007 12:58:07 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 19 Aug 2005 17:15:32 -0400 (EDT)</span><br />
 </address>
 <br />
-Hello Steve, Balaji,
+Jonathan Gregory writes:
 <br />
-<br />I think there are two problems here...
+<br /><em class="quotelev1">&gt; Each field describes its own grid (T or v) separately as usual. The issue is
+</em><br />
+<em class="quotelev1">&gt; the higher-level one of *also* describing (redundantly) how the two grids are
+</em><br />
+<em class="quotelev1">&gt; related. Balaji will make a proposal on this issue, which he showed at the
+</em><br />
+<em class="quotelev1">&gt; recent GO-ESSP meeting. So far CF does not have a convention for it, as you
+</em><br />
+<em class="quotelev1">&gt; say.
+</em><br />
+<br />This is the second time this issue has come up since the talk.
 <br />
-<br />Problem 1) Representation of geo-referenced probability distribution
+<br />Until I am ready with a formal proposal, let me post the slides from the
 <br />
-functions, e.g. the probability distribution of bath tub vortex strength
+GO-ESSP talk itself...
 <br />
-as a function of latitude. (Not necessarily about models, not
-<br />
-necessarily about forecasts).  In particular the representation based on
-<br />
-a set of sample points, where not all sample points have the same
-<br />
-'weight'.
-<br />
-<br />In CF context this could be time sampled, BUT we also have to take into
-<br />
-account the fact that there are other ways of sampling - which include
-<br />
-running lots of models.
-<br />
-<br />Problem 2) model ensemble aggregations - which can be a special case of
-<br />
-the first problem - but only after the models have been re-gridded in
-<br />
-some way onto the same grid (space and time).
-<br />
-<br />You think that we can not deal with Problem 2) in a general sense under
-<br />
-NetCDF-3 and CF-1.  Do you think we can still make progress with Problem
-<br />
-1?  (I think/hope we can - I know I still have some use cases to write
-<br />
-out.)  This case can be accommodated under the NetCDF-3 data model - it
-<br />
-does, however, introduce that 5th dimension.
-<br />
-<br />Jamie
-<br />
-<span id="received"><dfn>Received on</dfn> Fri Feb 23 2007 - 05:58:07 GMT</span>
+<br /><pre>
+-- 
+V. Balaji                               Office:  +1-609-452-6516
+Head, Modeling Systems Group, GFDL      Home:    +1-212-253-6662
+Princeton University                    Email: v.balaji at noaa.gov
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: gridmeta2005.pdf
+Type: application/pdf
+Size: 806118 bytes
+Desc: 
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20050819/855db93c/attachment.pdf">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20050819/855db93c/attachment.pdf</a>&gt;
+</pre>
+<span id="received"><dfn>Received on</dfn> Fri Aug 19 2005 - 15:15:32 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -125,13 +114,10 @@ does, however, introduce that 5th dimension.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start723">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0724.html" title="Next message in the list">Francisco Doblas-Reyes: "[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0722.html" title="Previous message in the list">Steve Hankin: "[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0722.html" title="Message to which this message replies">Steve Hankin: "[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0724.html" title="Next message in the list">Frederique Blanc: "[CF-metadata] gaussian grid"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0722.html" title="Previous message in the list">Karl Taylor: "[CF-metadata] high cloud amount"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0720.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] staggered grid"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0728.html" title="Next message in this discussion thread">V. Balaji: "[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0728.html" title="Message sent in reply to this message">V. Balaji: "[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -142,7 +128,7 @@ does, however, introduce that 5th dimension.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:54 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0722.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0724.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

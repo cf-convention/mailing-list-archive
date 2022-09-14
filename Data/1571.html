@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] fixed sensors, depth, datum from Jonathan Gregory on 2008-09-29 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] fixed sensors, depth, datum" />
-<meta name="Date" content="2008-09-29" />
+<title>[CF-metadata] unique identifiers from Godin, Michael on 2007-03-22 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Godin, Michael (Godin)" />
+<meta name="Subject" content="[CF-metadata] unique identifiers" />
+<meta name="Date" content="2007-03-22" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1570.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1572.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] fixed sensors, depth, datum</h1>
-<!-- received="Mon Sep 29 02:10:36 2008" -->
-<!-- isoreceived="20080929011036" -->
-<!-- sent="Mon, 29 Sep 2008 09:10:36 +0100" -->
-<!-- isosent="20080929081036" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] fixed sensors, depth, datum" -->
-<!-- id="20080929081036.GA9646_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./1570.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1572.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] unique identifiers</h1>
+<!-- received="Thu Mar 22 13:18:33 2007" -->
+<!-- isoreceived="20070322131833" -->
+<!-- sent="Thu, 22 Mar 2007 12:18:33 -0700" -->
+<!-- isosent="20070322191833" -->
+<!-- name="Godin, Michael" -->
+<!-- email="Godin" -->
+<!-- subject="[CF-metadata] unique identifiers" -->
+<!-- id="DA82364018466D4D842186D5356746B101002518_at_ice.shore.mbari.org" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="59B87682-4166-4FAB-AFC2-A541DFBD677A_at_mbari.org" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1572.html" accesskey="d" title="Jon Blower: &quot;[CF-metadata] fixed sensors, depth, datum&quot;">Next message</a> ]
-[ <a href="./1570.html" title="Ethan Davis: &quot;[CF-metadata] fixed sensors, depth, datum&quot;">Previous message</a> ]
+[ <a href="./1572.html" accesskey="d" title="Kyle Halliday: &quot;[CF-metadata] unique identifiers&quot;">Next message</a> ]
+[ <a href="./1570.html" title="Luis Bermudez: &quot;[CF-metadata] unique identifiers&quot;">Previous message</a> ]
+[ <a href="./1570.html" title="Luis Bermudez: &quot;[CF-metadata] unique identifiers&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./1572.html" accesskey="t" title="Jon Blower: &quot;[CF-metadata] fixed sensors, depth, datum&quot;">Next in thread</a> ]
+[ <a href="./1572.html" accesskey="t" title="Kyle Halliday: &quot;[CF-metadata] unique identifiers&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,78 +72,120 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20fixed%20sensors%2C%20depth%2C%20datum">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Godin, Michael &lt;<a href="mailto:Godin?Subject=Re%3A%20%5BCF-metadata%5D%20unique%20identifiers">Godin</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 29 Sep 2008 09:10:36 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 22 Mar 2007 12:18:33 -0700</span><br />
 </address>
 <br />
-Dear Ethan
+Building on Luis's suggestion of &quot;doing it right&quot;, perhaps a reasonable namespace for CF-Metadata standard names is:
 <br />
-<br />I agree that different definitions of the reference ellipsoid do not constitute
+<br /><a href="http://www.cfconventions.org/documents/cf-standard-names/current/cf-standard-name-table.html">http://www.cfconventions.org/documents/cf-standard-names/current/cf-standard-name-table.html</a>
 <br />
-different geophysical quantities. Likewise different definitions of the geoid
+<br />Which allows one to append &quot;#&quot; and a standard name to get a unique reference within the document.  For the air_density example, the following URL will direct most browsers to the air_density entry in the table (which offers more information about the entry -- unless it has been deprecated to an alias):
 <br />
-all give the same geophysical quantity. Therefore I agree that the geoid should
+<br /><a href="http://www.cfconventions.org/documents/cf-standard-names/current/cf-standard-name-table.html#air_density">http://www.cfconventions.org/documents/cf-standard-names/current/cf-standard-name-table.html#air_density</a>
 <br />
-be identified as part of the CRS (naming it in the grid_mapping would be
+<br />However, will the above URL be in existence for the foreseeable future?  Perhaps not -- but the likelihood of some other group appropriating the cfconventions.org domain and populating an identical path with contradictory information is probably quite low.  So it seems like a reasonably safe namespace URI; one that will be self-describing to human readers in the immediate future, and will be unique into the foreseeable future.  I just wish it was shorter!
 <br />
-convenient), just as the ellipsoid is identified as part of the CRS (we added
+<br />Mike
 <br />
-the parameters specifying the ellipsoid to the grid_mapping as part of Phil
+<br />-----Original Message-----
 <br />
-Bentley's change to the conventions). I agree too that the definition of the
+From: cf-metadata-bounces at cgd.ucar.edu [mailto:cf-metadata-bounces at cgd.ucar.edu] On Behalf Of Luis Bermudez
 <br />
-vertical CRS is relevant both to coordinate variables and data variables. That
+Sent: Thursday, March 22, 2007 11:20 AM
 <br />
-is another reason why it would make sense to put it in the grid_mapping.
+To: Jonathan Gregory
 <br />
-<br />I do not agree that the geoid and the ellipsoid are geophysically equivalent.
+Cc: cf-metadata at cgd.ucar.edu
 <br />
-It is quite likely that you might want to have data variables in the same file
+Subject: Re: [CF-metadata] unique identifiers
 <br />
-for both height above geoid and height above ellipsoid, just as you might also
+<br />Brian, et al.
 <br />
-want to have height above the surface and height above mean sea level. These
+<br />I agree with Brian about the best approach for humans, which is pattern very much use in the Semantic Web.
 <br />
-are all heights wrt to surfaces which are defined as a function of lat and lon.
+<br />2 points:
 <br />
-All of these surfaces therefore depend on the horizontal CRS, as you say. But
+<br />a) About unintelligible identifier: &quot;Agents making use of URIs SHOULD NOT attempt to infer properties of the referenced resource.&quot; http:// www.w3.org/TR/webarch/#uri-opacity .
 <br />
-these surfaces are all geophysically distinct. The reference ellipsoid is
+But a little help in the URI construct about its semantics is good for all.
 <br />
-&quot;just&quot; a matter of definition, but the others (geoid, surface = bottom of atmos
+<br />b) Resolvability of URLs
 <br />
-and mean sea level) are not matters of definition: they are complicated facts
+&quot;Although many URI schemes are named after protocols, this does not imply that use of such a URI will necessarily result in access to the resource via the named protocol&quot; <a href="http://www.w3.org/TR/webarch/">http://www.w3.org/TR/webarch/</a> #dereference-uri
 <br />
-about the real world that have to be measured. Wikipedia says
+<br />&quot;although many URI schemes (e.g. URLs) are named after protocols, this does not imply that use of these URIs will result in access to the resource via the named protocol. URIs are often used simply for the sake of identification&quot; <a href="http://www.ietf.org/rfc/rfc3986.txt">http://www.ietf.org/rfc/rfc3986.txt</a>
 <br />
-&quot;The geoid surface is irregular, unlike the reference ellipsoids often used to
+<br />So we can use URLs only for identification. But common if we do it right (resolvable URL) - this will be easier for everyone.
 <br />
-approximate the shape of the physical Earth, but considerably smoother than
+<br /><br />-Luis
 <br />
-Earth's physical surface.&quot;
+<br /><br />On Mar 22, 2007, at 10:40 AM, Jonathan Gregory wrote:
 <br />
-<br />These surfaces have different physical meanings. For instance, surfaces with
+<br /><em class="quotelev1">&gt; Dear John
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; The argument appears to be than an unintelligible identifier (i.e.  
+</em><br />
+<em class="quotelev1">&gt; one without
+</em><br />
+<em class="quotelev1">&gt; semantic content) is good because it is in itself meaningless, so you 
+</em><br />
+<em class="quotelev1">&gt; have to look it up to find out what it means, whereas if you use 
+</em><br />
+<em class="quotelev1">&gt; intelligible names, you might be misled by misunderstand them. Is that 
+</em><br />
+<em class="quotelev1">&gt; right? I appreciate that this is rational, but I'm not convinced it is 
+</em><br />
+<em class="quotelev1">&gt; the most helpful approach for humans. That would be an argument 
+</em><br />
+<em class="quotelev1">&gt; against self-describing netCDF files, for example. It would argue that 
+</em><br />
+<em class="quotelev1">&gt; the metadata in the files should be totally cryptic to humans, so that 
+</em><br />
+<em class="quotelev1">&gt; you had the use the latest version of an approved translator to tell 
+</em><br />
+<em class="quotelev1">&gt; you what it means. That has some attraction, but I'm not sure it 
+</em><br />
+<em class="quotelev1">&gt; really solves the problem. The translator will use its own idioms, 
+</em><br />
+<em class="quotelev1">&gt; which the human user will get used to, and if a new version of the 
+</em><br />
+<em class="quotelev1">&gt; translator gives new meanings to the words it uses, you are back in 
+</em><br />
+<em class="quotelev1">&gt; the same problem.
+</em><br />
+<em class="quotelev1">&gt; It seems to me better to admit that one always has be careful at some 
+</em><br />
+<em class="quotelev1">&gt; level, and use names that have some apparent meaning.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Best wishes
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Jonathan
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<br /><br />_______________________________________________
 <br />
-constant height above the geoid (geopotential surfaces) are those on which
+CF-metadata mailing list
 <br />
-there is zero gravitational/centrifugal force; this not true of other surfaces.
+CF-metadata at cgd.ucar.edu
 <br />
-Height above these various surfaces has different geophysical meaning. You
+<a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 <br />
-would not want to replace height above geoid with height above ellipsoid by
-<br />
-changing the definition of the CRS. They should remain distinct quantities,
-<br />
-regardless of the definition of geoid and ellipsoid in the CRS. Hence I think
-<br />
-they need different standard names.
-<br />
-<br />Best wishes
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Mon Sep 29 2008 - 02:10:36 BST</span>
+<span id="received"><dfn>Received on</dfn> Thu Mar 22 2007 - 13:18:33 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -149,13 +193,14 @@ they need different standard names.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1571">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1572.html" title="Next message in the list">Jon Blower: "[CF-metadata] fixed sensors, depth, datum"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1570.html" title="Previous message in the list">Ethan Davis: "[CF-metadata] fixed sensors, depth, datum"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1572.html" title="Next message in the list">Kyle Halliday: "[CF-metadata] unique identifiers"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1570.html" title="Previous message in the list">Luis Bermudez: "[CF-metadata] unique identifiers"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./1570.html" title="Message to which this message replies">Luis Bermudez: "[CF-metadata] unique identifiers"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./1572.html" title="Next message in this discussion thread">Jon Blower: "[CF-metadata] fixed sensors, depth, datum"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./1572.html" title="Next message in this discussion thread">Kyle Halliday: "[CF-metadata] unique identifiers"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./1572.html" title="Message sent in reply to this message">Jon Blower: "[CF-metadata] fixed sensors, depth, datum"</a></li>
-<li><dfn>Reply</dfn>: <a href="./1575.html" title="Message sent in reply to this message">Philip Bentley: "[CF-metadata] fixed sensors, depth, datum"</a></li>
+<dfn>Reply</dfn>: <a href="./1572.html" title="Message sent in reply to this message">Kyle Halliday: "[CF-metadata] unique identifiers"</a></li>
+<li><dfn>Reply</dfn>: <a href="./1573.html" title="Message sent in reply to this message">Luis Bermudez: "[CF-metadata] unique identifiers"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -166,7 +211,7 @@ they need different standard names.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:09 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1570.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1572.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Same parameter, different meaning	(pressure) from Nan Galbraith on 2008-08-19 (mailing-list-archive)</title>
-<meta name="Author" content="Nan Galbraith (ngalbraith)" />
-<meta name="Subject" content="[CF-metadata] Same parameter, different meaning	(pressure)" />
-<meta name="Date" content="2008-08-19" />
+<title>[CF-metadata] CF and a representation of probalistic forecasts from Kettleborough, Jamie on 2007-01-15 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Kettleborough, Jamie (jamie.kettleborough)" />
+<meta name="Subject" content="[CF-metadata] CF and a representation of probalistic forecasts" />
+<meta name="Date" content="2007-01-15" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1489.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1491.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Same parameter, different meaning	(pressure)</h1>
-<!-- received="Tue Aug 19 06:42:34 2008" -->
-<!-- isoreceived="20080819054234" -->
-<!-- sent="Tue, 19 Aug 2008 08:42:34 -0400" -->
-<!-- isosent="20080819124234" -->
-<!-- name="Nan Galbraith" -->
-<!-- email="ngalbraith" -->
-<!-- subject="[CF-metadata] Same parameter, different meaning	(pressure)" -->
-<!-- id="48AABFBA.7050604_at_whoi.edu" -->
+<a style="text-decoration:none" href="./1489.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1491.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF and a representation of probalistic forecasts</h1>
+<!-- received="Mon Jan 15 06:26:19 2007" -->
+<!-- isoreceived="20070115062619" -->
+<!-- sent="Mon, 15 Jan 2007 13:26:19 +0000" -->
+<!-- isosent="20070115132619" -->
+<!-- name="Kettleborough, Jamie" -->
+<!-- email="jamie.kettleborough" -->
+<!-- subject="[CF-metadata] CF and a representation of probalistic forecasts" -->
+<!-- id="1168867579.30345.102.camel_at_eld408.desktop.frd.metoffice.com" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="s8aa7e02.007_at_wpo.nerc.ac.uk" -->
+<!-- inreplyto="1146648600.23138.70.camel_at_eld408.desktop.frd.metoffice.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1491.html" accesskey="d" title="Velimir Mlaker1: &quot;[CF-metadata] Standardized region names&quot;">Next message</a> ]
-[ <a href="./1489.html" title="Roy Lowry: &quot;[CF-metadata] Standardized region names&quot;">Previous message</a> ]
-[ <a href="./1487.html" title="Roy Lowry: &quot;[CF-metadata] Samve parameter, different meaning	(pressure)&quot;">In reply to</a> ]
+[ <a href="./1491.html" accesskey="d" title="Nan Galbraith: &quot;[CF-metadata] Indicating data lineage or provenance&quot;">Next message</a> ]
+[ <a href="./1489.html" title="Pamment, JA: &quot;[CF-metadata] aerosol and chemistry names - continuation&quot;">Previous message</a> ]
+[ <a href="./0947.html" title="Kettleborough, Jamie: &quot;[CF-metadata] CF and a representation of probalistic forecasts&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,161 +70,240 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Nan Galbraith &lt;<a href="mailto:ngalbraith?Subject=Re%3A%20%5BCF-metadata%5D%20Same%20parameter%2C%20different%20meaning%09(pressure)">ngalbraith</a>&gt;
+<dfn>From</dfn>: Kettleborough, Jamie &lt;<a href="mailto:jamie.kettleborough?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20and%20a%20representation%20of%20probalistic%20forecasts">jamie.kettleborough</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 19 Aug 2008 08:42:34 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 15 Jan 2007 13:26:19 +0000</span><br />
 </address>
 <br />
-Hi Roy and all -
+Hello,
 <br />
-<br />This is really the same physical parameter, so I think we should 
+<br />I think we need to return to this posting
 <br />
-use the normal standard name and provide the additional information
+(<a href="http://www.cgd.ucar.edu/pipermail/cf-metadata/2006/000947.html">http://www.cgd.ucar.edu/pipermail/cf-metadata/2006/000947.html</a>) as I
 <br />
-about how its position in the water column is defined - keeping
+don't think it covers everything it needs to.  This is the posting that
 <br />
-the specific deployment information separate from the id of the
+is the precursor for the whole ensemble debate. It introduced the
 <br />
-parameter being output by an instrument.
+'realization' dimension (though the original post called it 'sample'),
 <br />
-<br />I can appreciate that BODC puts more information into a standard
+though it may have done it in an 'under the radar' way.
 <br />
-name than NetCDF would do, so I'd take Roy's example (Thanks,
+<br />My attempt at the requirements would go something like:
 <br />
-Roy!) and see what parts need to be replicated.  The &quot;corrected to
+<br />1. A common way of representing probability distribution is through a
 <br />
-read zero at sea level&quot; would be an attribute of the measurement,
+set of sample points with an associated weight on each sample point.  CF
 <br />
-but it seems more logical to provide the &quot;fixed/tethered&quot;  info as a
+needs a way to accommodate this representation of probability
 <br />
-modifier to the measurement's depth coordinate. 
+distributions in support of uncertainty analysis (e.g. of a weather and
 <br />
-<br />Reading through the CF documentation, I thought I was close to
+climate forecasts [though there may be other applications in
 <br />
-an answer, but didn't find anything that used reference levels other
+representation of non-gaussian errors in obs in data assimilation? - I
 <br />
-than sea surface. IMHO, that's the key to making the distinction
+don't know much about this, but suspect there _may_ be overlap])
 <br />
-in the meaning of the data.  There are a lot of levels defined, but I
+2. The distributions can be multi variate (e.g. be a joint pdf on
 <br />
-wasn't able to find anything about the sea floor. (Then again, it
+temperature and precipitation).
 <br />
-was late ...)
+3. There are different methods for calculating weights and data
 <br />
-<br />If at all possible, I'd like to do it in a way that will be clear outside
+producers may provide more than one set of weights (e.g. based on
 <br />
-the oceansites users, so even though the CF community isn't
+different sets of observations), or data users may want to use there own
 <br />
-especially focused on sea floor measurements, this seems like
+sets of weights.
 <br />
-the group to ask.
+4. The representation should provide the information required so that
 <br />
-<br />This sort of info is also important for ADCPs and possibly some
+applications can calculate the distribution moments (mean, variance,
 <br />
-other instruments that are sometimes set on the bottom and sometimes
+etc.), summary statistics (mode, quartiles) etc. (Steve's requirement 4.
 <br />
-on a mooring line - facing down or up. Having a standard way to
+in <a href="http://www.cgd.ucar.edu/pipermail/cf-metadata/2006/001403.html">http://www.cgd.ucar.edu/pipermail/cf-metadata/2006/001403.html</a>),
 <br />
-describe this deployment information within CF would be really useful
+though I think this functionality actually drops out of choosing to
 <br />
-to us.
+represent the pdf as a set of sample points and weights - and is not
 <br />
-<br />Thanks -
+really dependant on how you represent these within CF - though of course
 <br />
-Nan
+some ways will be easier to handle and more efficient than others)
 <br />
-&nbsp;
+<br />(I think this is (at least logically) a super set of the ensemble
 <br />
-<br /><em class="quotelev1">&gt; Hi Nan,
+problem: ensembles are just a special case of these pdf representations
+<br />
+with additional requirements related to data provenance and the ability
+<br />
+to sub select samples based on their provenance - and of course these
+<br />
+issues introduce their own requirements e.g. related to distributed data
+<br />
+sets and data set aggregation.)
+<br />
+<br />The thing I missed in the original posting is that the pdfs can be
+<br />
+multivariate involving two (or more) quantities with different standard
+<br />
+names.  This means we may have to support standard names of the form
+<br />
+<br />&nbsp;&nbsp;&nbsp;weight:standard_name=&quot;air_temperature precipitation_amount
+<br />
+realization_weight&quot;;
+<br />
+<br />This could get unwieldy as you deal with joint distributions of many
+<br />
+quantities.  I guess this also has implications for the standard_name
+<br />
+table - so thought it was worth raising.
+<br />
+<br />Jamie
+<br />
+<br /><br />On Wed, 2006-05-03 at 10:30 +0100, Kettleborough, Jamie wrote:
+<br />
+<em class="quotelev1">&gt; Hello,
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; All I can do is tell you what we do.  In P011 parameter vocabulary there are the following terms:
+<em class="quotelev1">&gt; there are a couple of projects (Hadley Centre QUMP project and climateprediction.net) that will be distributing
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; probabilistic forecasts of climate change based on ensembles of model runs.  One way of representing  these 
 </em><br />
-<em class="quotelev1">&gt; tethered mooring pressure sensor - Pressure (measured variable) exerted by the water column by semi-fixed in-situ pressure sensor
+<em class="quotelev1">&gt; results will be a set of model runs and a set of weights that should be applied to each model run.
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; I think this  can be accommodated straight forwardly, and reasonably generally, in the CF standard
 </em><br />
-<em class="quotelev1">&gt; seafloor of oilrig leg mounted pressure sensor - Pressure (measured variable) exerted by the water column by fixed in-situ pressure sensor and corrected to read zero at sea level 
+<em class="quotelev1">&gt; using 'ancillary_variables' and the addition of
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; Initially this was just 'Pressure (measured variable) exerted by the water column by fixed in-situ pressure sensor' but our data scientists had trouble seeing the difference between that and 'Pressure (measured variable) exerted by the water column plus atmosphere by fixed in-situ pressure sensor' - what I use for total pressure: approx 10 db at sea level).  So, I said the same thing twice at different leveles of subtlety to make sure the message got across.
+<em class="quotelev1">&gt; 1) New standard name 'sample' used to label a dimension that can be thought
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt;                                         of as a statistical sample (e.g. ensemble)
 </em><br />
-<em class="quotelev1">&gt; I also have:
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; 2) New standard name modifier 'sample_weight' used to label variables that are acting
 </em><br />
-<em class="quotelev1">&gt; CTD pressure sensor - Pressure (spatial co-ordinate) exerted by the water column by profiling pressure sensor and corrected to read zero at sea level
+<em class="quotelev1">&gt;                                         as weights for other quantities
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; I admit that this is inelegant and verbose, but it seems to work in BODC.
+<em class="quotelev1">&gt; e.g. course map of predictions of 21st century temperature change
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; In this example temperature is dimensioned by sample as well as the normal space and time dimensions.  Each
 </em><br />
-<em class="quotelev1">&gt; Cheers, Roy. 
+<em class="quotelev1">&gt; sample is the result of one model run.  Some models are less realistic than others and so should be down weighted 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; in any subsequent analysis.  The weights variable gives the weight for each ensemble member.
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;   
+<em class="quotelev1">&gt; dimensions:
 </em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; Nan Galbraith &lt;ngalbraith at whoi.edu&gt; 8/19/2008 2:13 am &gt;&gt;&gt;
+<em class="quotelev1">&gt;   lat = 18 ;
 </em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;         
+<em class="quotelev1">&gt;   lon = 36 ;
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt;   time = 10 ;
 </em><br />
-<em class="quotelev1">&gt; I'm pasing along this question from a discussion going
+<em class="quotelev1">&gt;   sample = 10000 ; // sample points 
 </em><br />
-<em class="quotelev1">&gt; on among OceanSITES participants.
+<em class="quotelev1">&gt; variables: 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt;   float temp(sample,time,lat,lon) ; // each sample is the result from one ensemble member
 </em><br />
-<em class="quotelev1">&gt; Can (or should) the CF standard differentiate between these
+<em class="quotelev1">&gt;     temp:long_name = &quot;Temperature at 1.5m&quot; ;
 </em><br />
-<em class="quotelev1">&gt; two very different measurements of sea water pressure:
+<em class="quotelev1">&gt;     temp:standard_name = &quot;air_temperature&quot; ;
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt;     temp:ancillary_variables = &quot;weights&quot; ; 
 </em><br />
-<em class="quotelev1">&gt; 1. A mooring with pressure sensors at various depths along
+<em class="quotelev1">&gt;     temp:source = &quot;perturbed physics ensemble of HadSM3&quot; ;
 </em><br />
-<em class="quotelev1">&gt; the wire, where the pressure values give information about
+<em class="quotelev1">&gt;   float weights(sample) ;  // the weight applied to each ensemble memeber
 </em><br />
-<em class="quotelev1">&gt; how the mooring was tilted by ambient currents.
+<em class="quotelev1">&gt;     weights:long_name = &quot;likelihood weights for 1.5m air temperature&quot; ;
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt;     weights:standard_name = &quot;air_temperature sample_weights&quot; ;
 </em><br />
-<em class="quotelev1">&gt; 2. Bottom pressure sensors, e.g. mounted rigidly at a fixed
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; location at or above the seafloor, where the pressure values
+<em class="quotelev1">&gt; Notes:
 </em><br />
-<em class="quotelev1">&gt; are a dynamically important quantity that integrates water
+<em class="quotelev1">&gt; 1. The sample points can be generated from a perturbed physics ensemble or a detection attribution
 </em><br />
-<em class="quotelev1">&gt; column weight (cf. air pressure on weather charts).
+<em class="quotelev1">&gt;  exercise (or possibly some other statistical method) so don't think you want to explicitly use the term
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt;  'ensemble'. 'sample' is better. (though potentially confusing with grab samples or bucket samples? 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt;   - maybe 'distribution_sample is a better name?)
 </em><br />
-<em class="quotelev1">&gt;   
+<em class="quotelev1">&gt; 2. If the sample dimension is not identified by its standard name then there is an implied rule that
 </em><br />
-<br /><br /><pre>
--- 
-*******************************************************
-* Nan Galbraith                        (508) 289-2444 *
-* Upper Ocean Processes Group            Mail Stop 29 *
-* Woods Hole Oceanographic Institution                *
-* Woods Hole, MA 02543                                *
-*******************************************************
-</pre>
-<span id="received"><dfn>Received on</dfn> Tue Aug 19 2008 - 06:42:34 BST</span>
+<em class="quotelev1">&gt;  the software has to infer which dimension to apply the weights to based on the common dimension.
+</em><br />
+<em class="quotelev1">&gt; 3. sample_weight variables have an implied valid_min=0, and valid_max=1.
+</em><br />
+<em class="quotelev1">&gt;   (although the valid_max may be relaxed if you are prepared to renormalise later) 
+</em><br />
+<em class="quotelev1">&gt; 4. The 'ancillary_variable' attribute may point to more than one sample_weight. This might represent
+</em><br />
+<em class="quotelev1">&gt;  different sensitivity studies, different observations used for skill scores, or different methodologies. 
+</em><br />
+<em class="quotelev1">&gt;  In this case each sample_weight should be thought of as applied stand alone. They are not applied in sequence.
+</em><br />
+<em class="quotelev1">&gt; 5. The same sample_weight variable can be referenced by more than one variable. This is useful for forming
+</em><br />
+<em class="quotelev1">&gt;  joint (multidimensional) pdfs between variables. In this case although the ordering of the samples is
+</em><br />
+<em class="quotelev1">&gt;  arbitrary it must be used consistently: the same order should be used for all variables in the file.
+</em><br />
+<em class="quotelev1">&gt; 6. The creation method of the sample points and associated weights should be left to description in 
+</em><br />
+<em class="quotelev1">&gt;  'source' attribute (which may refer to URL for more information).  In the case of perturbed physics 
+</em><br />
+<em class="quotelev1">&gt;  ensembles the derivation of weights can be complex so reference to external documents to describe the method
+</em><br />
+<em class="quotelev1">&gt;  will avoid unnecessarily overloading the usage metadata.
+</em><br />
+<em class="quotelev1">&gt; 7. in other examples the weights might be a function of space and time as well as sample member.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; I hope this all makes enough sense for people to make a judgement on whether this should be accepted or not.
+</em><br />
+<em class="quotelev1">&gt; Obviously if I've been unclear let me know and I'll try and be more eloquent.  If this all makes sense there
+</em><br />
+<em class="quotelev1">&gt; will be a few follow up e-mails with specific requests for standard names.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; There are a couple of other representations of probabilistic forecast that might be used.  These can be posted 
+</em><br />
+<em class="quotelev1">&gt; as separate suggestions as and when needed.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Thanks,
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Jamie
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<span id="received"><dfn>Received on</dfn> Mon Jan 15 2007 - 06:26:19 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -232,9 +311,9 @@ Nan
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1490">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1491.html" title="Next message in the list">Velimir Mlaker1: "[CF-metadata] Standardized region names"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1489.html" title="Previous message in the list">Roy Lowry: "[CF-metadata] Standardized region names"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./1487.html" title="Message to which this message replies">Roy Lowry: "[CF-metadata] Samve parameter, different meaning	(pressure)"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1491.html" title="Next message in the list">Nan Galbraith: "[CF-metadata] Indicating data lineage or provenance"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1489.html" title="Previous message in the list">Pamment, JA: "[CF-metadata] aerosol and chemistry names - continuation"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0947.html" title="Message to which this message replies">Kettleborough, Jamie: "[CF-metadata] CF and a representation of probalistic forecasts"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -246,7 +325,7 @@ Nan
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:07 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1489.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1491.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

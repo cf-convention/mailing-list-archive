@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF and ISO19115 from Ted Habermann on 2011-02-24 (mailing-list-archive)</title>
-<meta name="Author" content="Ted Habermann (Ted.Habermann)" />
-<meta name="Subject" content="[CF-metadata] CF and ISO19115" />
-<meta name="Date" content="2011-02-24" />
+<title>[CF-metadata] Some questions about 360-day calendars from Dominic Lowe on 2010-02-04 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Dominic Lowe (dominic.lowe)" />
+<meta name="Subject" content="[CF-metadata] Some questions about 360-day calendars" />
+<meta name="Date" content="2010-02-04" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./3226.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3228.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF and ISO19115</h1>
-<!-- received="Thu Feb 24 09:06:19 2011" -->
-<!-- isoreceived="20110224090619" -->
-<!-- sent="Thu, 24 Feb 2011 09:06:19 -0700" -->
-<!-- isosent="20110224160619" -->
-<!-- name="Ted Habermann" -->
-<!-- email="Ted.Habermann" -->
-<!-- subject="[CF-metadata] CF and ISO19115" -->
-<!-- id="4D6681FB.7040109_at_noaa.gov" -->
+<a style="text-decoration:none" href="./3226.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3228.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Some questions about 360-day calendars</h1>
+<!-- received="Thu Feb  4 08:37:06 2010" -->
+<!-- isoreceived="20100204083706" -->
+<!-- sent="Thu, 04 Feb 2010 15:37:06 +0000" -->
+<!-- isosent="20100204153706" -->
+<!-- name="Dominic Lowe" -->
+<!-- email="dominic.lowe" -->
+<!-- subject="[CF-metadata] Some questions about 360-day calendars" -->
+<!-- id="4B6AE9A2.7060802_at_stfc.ac.uk" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="7CD7F00F17085C4EBB045A35177C85FDB9C8B6_at_VIME-VS1.rdg-home.ad.rdg.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./3228.html" accesskey="d" title="Karl Taylor: &quot;[CF-metadata] CF Standards&quot;">Next message</a> ]
-[ <a href="./3226.html" title="Schultz, Martin: &quot;[CF-metadata] standard_name modifiers&quot;">Previous message</a> ]
+[ <a href="./3228.html" accesskey="d" title="Nan Galbraith: &quot;[CF-metadata] seeking CF name for total water column height&quot;">Next message</a> ]
+[ <a href="./3226.html" title="Bryan Lawrence: &quot;[CF-metadata] Some questions about 360-day calendars&quot;">Previous message</a> ]
+[ <a href="./3225.html" title="Jonathan Blower: &quot;[CF-metadata] Some questions about 360-day calendars&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./3240.html" accesskey="t" title="Steve Hankin: &quot;[CF-metadata] CF and ISO19115&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
+[ <a href="./3241.html" accesskey="t" title="john caron: &quot;[CF-metadata] Some questions about 360-day calendars&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,76 +71,42 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Ted Habermann &lt;<a href="mailto:Ted.Habermann?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20and%20ISO19115">Ted.Habermann</a>&gt;
+<dfn>From</dfn>: Dominic Lowe &lt;<a href="mailto:dominic.lowe?Subject=Re%3A%20%5BCF-metadata%5D%20Some%20questions%20about%20360-day%20calendars">dominic.lowe</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 24 Feb 2011 09:06:19 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 04 Feb 2010 15:37:06 +0000</span><br />
 </address>
 <br />
-Hello all,
+Hi Jon
 <br />
-<br />There was some recent discussion about challenges related to adding ISO 
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; 4) Finally on practical note: I seem to remember that someone has
+</em><br />
+<em class="quotelev1">&gt; implemented the 360-day calendar using the Java library joda-time?  Is
+</em><br />
+<em class="quotelev1">&gt; this code available for re-use?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<br />I don't know about joda-time, but there is a python implementation in 
 <br />
-metadata to netCDF files. Rich Signell mentioned some work my group has 
+the CDMS cdtime module:
 <br />
-been doing recently and John Graybeal pointed out that initially that 
+<br /><a href="http://esg.llnl.gov/cdat/cdms_html/cdms-3.htm">http://esg.llnl.gov/cdat/cdms_html/cdms-3.htm</a>
 <br />
-work has focused on the NcML &gt; ISO side of the equation. We have also 
+<br />Cheers,
 <br />
-focused on the Data Discovery Conventions more than the more use 
+Dom
 <br />
-oriented CF-Conventions.
-<br />
-<br />As Martin Schultz pointed out initially, the problem is meshing the well 
-<br />
-developed ISO structure with the parameter-value tradition of netCDF. 
-<br />
-The current approach I am experimenting with involves creating 
-<br />
-components of ISO documentation that are identified by UUID's and 
-<br />
-embedding those UUID's as values for attributes with standard names in 
-<br />
-the netCDF, possibly in a special group called ISO_Metadata (whatever). 
-<br />
-The names of these attributes would indicate their location in the full 
-<br />
-ISO record and they would be inserted into the record during a 
-<br />
-translation step. This would create a record with references that could 
-<br />
-then be resolved at the users request. There is a discussion of this 
-<br />
-general approach to the ISO at 
-<br />
-<a href="https://geo-ide.noaa.gov/wiki/index.php?title=ISO_Components">https://geo-ide.noaa.gov/wiki/index.php?title=ISO_Components</a>. It may be 
-<br />
-a step in the right direction...?
-<br />
-<br />BTW, there are also some revisions to 19115 that are in the pipeline and 
-<br />
-will help with the CF-&gt;ISO translation. These are described at 
-<br />
-<a href="https://geo-ide.noaa.gov/wiki/index.php?title=Coverages_and_ISO_Metadata">https://geo-ide.noaa.gov/wiki/index.php?title=Coverages_and_ISO_Metadata</a>
-<br />
-<br />Ted Habermann
-<br />
-<br /><br /><br /><br /><pre>
--- 
-==== Ted Habermann ===========================
-      Enterprise Data Systems Group Leader
-      NOAA, National Geophysical Data Center
-      V: 303.497.6472   F: 303.497.6513
-      &quot;I entreat you, I implore you, I exhort you,
-      I challenge you: To speak with conviction.
-      To say what you believe in a manner that bespeaks
-      the determination with which you believe it.
-      Because contrary to the wisdom of the bumper sticker,
-      it is not enough these days to simply QUESTION AUTHORITY.
-      You have to speak with it, too.&quot;
-      Taylor Mali, www.taylormali.com
-==== Ted.Habermann at noaa.gov ==================
-</pre>
-<span id="received"><dfn>Received on</dfn> Thu Feb 24 2011 - 09:06:19 GMT</span>
+<br /><br /><em class="quotelev1">&gt; Thanks in advance,
+</em><br />
+<em class="quotelev1">&gt; Jon
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; --
+</em><br />
+<span id="received"><dfn>Received on</dfn> Thu Feb 04 2010 - 08:37:06 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -147,12 +114,11 @@ will help with the CF-&gt;ISO translation. These are described at
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start3227">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./3228.html" title="Next message in the list">Karl Taylor: "[CF-metadata] CF Standards"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./3226.html" title="Previous message in the list">Schultz, Martin: "[CF-metadata] standard_name modifiers"</a></li>
+<li><dfn>Next message</dfn>: <a href="./3228.html" title="Next message in the list">Nan Galbraith: "[CF-metadata] seeking CF name for total water column height"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./3226.html" title="Previous message in the list">Bryan Lawrence: "[CF-metadata] Some questions about 360-day calendars"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./3225.html" title="Message to which this message replies">Jonathan Blower: "[CF-metadata] Some questions about 360-day calendars"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./3240.html" title="Next message in this discussion thread">Steve Hankin: "[CF-metadata] CF and ISO19115"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./3240.html" title="Message sent in reply to this message">Steve Hankin: "[CF-metadata] CF and ISO19115"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./3241.html" title="Next message in this discussion thread">john caron: "[CF-metadata] Some questions about 360-day calendars"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -163,7 +129,7 @@ will help with the CF-&gt;ISO translation. These are described at
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:41 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./3226.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3228.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

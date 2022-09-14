@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] packed flags from Ed Hartnett on 2006-11-14 (mailing-list-archive)</title>
-<meta name="Author" content="Ed Hartnett (ed)" />
-<meta name="Subject" content="[CF-metadata] packed flags" />
-<meta name="Date" content="2006-11-14" />
+<title>[CF-metadata] from Bob Bane on 2004-08-03 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Bob Bane (bob.bane)" />
+<meta name="Subject" content="[CF-metadata]" />
+<meta name="Date" content="2004-08-03" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0429.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0431.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] packed flags</h1>
-<!-- received="Tue Nov 14 08:10:21 2006" -->
-<!-- isoreceived="20061114081021" -->
-<!-- sent="Tue, 14 Nov 2006 08:10:21 -0700" -->
-<!-- isosent="20061114151021" -->
-<!-- name="Ed Hartnett" -->
-<!-- email="ed" -->
-<!-- subject="[CF-metadata] packed flags" -->
-<!-- id="wrxirhiawte.fsf_at_shecky.unidata.ucar.edu" -->
+<a style="text-decoration:none" href="./0429.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0431.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]</h1>
+<!-- received="Tue Aug  3 08:23:21 2004" -->
+<!-- isoreceived="20040803072321" -->
+<!-- sent="Tue, 3 Aug 2004 10:23:21 -0400" -->
+<!-- isosent="20040803142321" -->
+<!-- name="Bob Bane" -->
+<!-- email="bob.bane" -->
+<!-- subject="[CF-metadata]" -->
+<!-- id="A0F7EBCCC8A02B4FB1677882DCBCDA3AA7F070_at_msx1.gst.com" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20061114134256.GC11373_at_met.reading.ac.uk" -->
+<!-- inreplyto="410E782E.59C31DA0&#64;noaa.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0431.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] aerosol water&quot;">Next message</a> ]
-[ <a href="./0429.html" title="Jonathan Gregory: &quot;[CF-metadata] axis attribute&quot;">Previous message</a> ]
-[ <a href="./0428.html" title="Jonathan Gregory: &quot;[CF-metadata] packed flags&quot;">In reply to</a> ]
+[ <a href="./0431.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]&quot;">Next message</a> ]
+[ <a href="./0429.html" title="Roy Lowry: &quot;[CF-metadata] Radiation standard names&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0447.html" accesskey="t" title="Richard Ullman: &quot;[CF-metadata] packed flags&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,80 +69,161 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Ed Hartnett &lt;<a href="mailto:ed?Subject=Re%3A%20%5BCF-metadata%5D%20packed%20flags">ed</a>&gt;
+<dfn>From</dfn>: Bob Bane &lt;<a href="mailto:bob.bane?Subject=Re%3A%20%5BCF-metadata%5D">bob.bane</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 14 Nov 2006 08:10:21 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 3 Aug 2004 10:23:21 -0400</span><br />
 </address>
 <br />
-Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt; writes:
+The increment and offset are scalars.  In HDF-EOS, by convention either both of them are positive (meaning a small geolocation dimension -&gt; larger data dimension) or both negative (large geolocation -&gt; smaller data - I think they threw that one in for generality, not that they ever expect to see it implemented).
 <br />
-<br /><em class="quotelev1">&gt; Dear Richard
+<br />If you have an offset of 1 and an increment of 2, then
+<br />
+<br />Geoloc[0] has the value for Data[1] (0 * 2 + 1)
+<br />
+Geoloc[1] has the value for Data[3] (1 * 2 + 1)
+<br />
+Geoloc[2] has the value for Data[5] (2 * 2 + 1)
+<br />
+etc. ...
+<br />
+<br />This gets nasty when you want to geolocate (say) Data[2] - I was going to punt and do a linear interpolation, but my coworkers say I should consider some sort of curve fit over more points.
+<br />
+<br />Also, this is just the one-dimensional case - two-D will be most common, and the HDF-EOS API supports N-dimensions.  My head hurts...
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;- Bob
+<br />
+<br /><br /><br />-----Original Message-----
+<br />
+From: Steve Hankin [mailto:Steven.C.Hankin at noaa.gov]
+<br />
+Sent: Mon 8/2/2004 1:21 PM
+<br />
+To: Bob Bane
+<br />
+Cc: cf-metadata at cgd.ucar.edu
+<br />
+Subject: Re: [CF-metadata]
+<br />
+&nbsp;
+<br />
+Hi Bob,
+<br />
+<br />I'll start the conversation going, because I believe that several of the
+<br />
+principals are off on vacations ...
+<br />
+<br />Can you clarify the key statement
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Swaths let you map data variables to geolocation variables,
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;but they also allow the geolocation dimensions to be different
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sizes than the data dimensions - the mapping between the
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dimensions contain offset and increment values so that, in the
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;one-dimensional case:
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Geoloc(i) is mapped to Data(i * increment + offset)&quot;
+<br />
+<br />In the example that you have given (&quot;Data(i * increment + offset)&quot;) the
+<br />
+transformation does not appear to have changed the dimensionality --
+<br />
+there is still the single index &quot;i&quot;.  Are &quot;increment&quot; or &quot;offset&quot; arrays
+<br />
+rather than scalars?
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;thanks - steve
+<br />
+<br />======================================================================
+<br />
+<br />Bob Bane wrote:
+<br />
+<br /><em class="quotelev1">&gt; I'm in the middle of updating a program that converts HDF-EOS files to
+</em><br />
+<em class="quotelev1">&gt; netCDF.  The old version is available here:
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; I am not sure I quite understand what you are saying. Is the problem that
-</em><br />
-<em class="quotelev1">&gt; you want to use less than a byte for your flags and pack them into words,
-</em><br />
-<em class="quotelev1">&gt; but that CF does not provide a convention for packing that handles less
-</em><br />
-<em class="quotelev1">&gt; than a byte? Does HDF allow you to define datatypes of n bits? If so, perhaps
-</em><br />
-<em class="quotelev1">&gt; netCDF is going to support this at some point.
-</em><br />
-<br />Sorry, no. HDF5 does not support the creation of types other than 8,
-<br />
-16, 32, and 64 bits. (There is a way to &quot;fake&quot; it, but behind the
-<br />
-scenes, if you define an 11-bit data type, HDF5 will round up the size
-<br />
-and store each value in 16 bits anyway.
-<br />
-<br />HDF5 (and netCDF-4) has a way of defining data types of n bytes (the
-<br />
-opaque type), but not n bits.
-<br />
-<br /><em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; This strikes me as a problem it would be awkward to deal with in CF. It's not
-</em><br />
-<em class="quotelev1">&gt; a metadata limitation, but one which refers to file format. CF is based on
-</em><br />
-<em class="quotelev1">&gt; netCDF variables, and in this case you want to pack several variables into one,
-</em><br />
-<em class="quotelev1">&gt; which &quot;breaks&quot; the logical model.
+<em class="quotelev1">&gt; <a href="http://hdfeos.gsfc.nasa.gov/hdfeos/details.cfm?swID=84">http://hdfeos.gsfc.nasa.gov/hdfeos/details.cfm?swID=84</a>
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<br />I didn't quite follow the original message either. Is the intention to
-<br />
-do this to save disk space?
-<br />
-<br />I have to wonder whether the use of compression might be almost as
-<br />
-useful for saving space, but considerably easier for everyone to
-<br />
-program with!
-<br />
-<br />One could use gzip on netCDF-3 files, and one can turn on compression
-<br />
-in netCDF-4 on a per variable basis (that is, turn it on for some and
-<br />
-not for others.)
-<br />
-<br />I also wonder if the netCDF-4 compound type might be useful here. It
-<br />
-allows a user-defined data type like a C struct...
-<br />
-<br />Thanks,
-<br />
-<br />Ed
-<br />
+<em class="quotelev1">&gt; It converts HDF-EOS5 files to netCDF, and attempts to preserve COARDS
+</em><br />
+<em class="quotelev1">&gt; compliance (if the original file had COARDS-compatible metadata, so
+</em><br />
+<em class="quotelev1">&gt; will the new one).
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; The updated version is going to handle both HDF-EOS2 and HDF-EOS5
+</em><br />
+<em class="quotelev1">&gt; (which already works), and I now want to make it CF-compatible.  The
+</em><br />
+<em class="quotelev1">&gt; auxiliary coordinate variables conventions in particular look like a
+</em><br />
+<em class="quotelev1">&gt; good fit for the HDF-EOS Swath datatype, except for one thing.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Swaths let you map data variables to geolocation variables, but they
+</em><br />
+<em class="quotelev1">&gt; also allow the geolocation dimensions to be different sizes than the
+</em><br />
+<em class="quotelev1">&gt; data dimensions - the mapping between the dimensions contain offset
+</em><br />
+<em class="quotelev1">&gt; and increment values so that, in the one-dimensional case:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Geoloc(i) is mapped to Data(i * increment + offset)
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; As near as I can tell from the CF spec, auxiliary coordinate variables
+</em><br />
+<em class="quotelev1">&gt; must have the same size dimensions as their corresponding data
+</em><br />
+<em class="quotelev1">&gt; variables, so there's no way to translate a Swath to CF-compliant
+</em><br />
+<em class="quotelev1">&gt; netCDF without expanding and interpolating the gelocation variables to
+</em><br />
+<em class="quotelev1">&gt; make them match the data dimensions.  Does this make sense, or am I
+</em><br />
+<em class="quotelev1">&gt; missing something?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;     - Bob
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;    ----------------------------------------------------------------
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
 <pre>
--- 
-Ed Hartnett  -- ed at unidata.ucar.edu
+--
+Steve Hankin, NOAA/PMEL -- Steven.C.Hankin at noaa.gov
+7600 Sand Point Way NE, Seattle, WA 98115-0070
+ph. (206) 526-6080, FAX (206) 526-6744
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20040803/196a168e/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20040803/196a168e/attachment.html</a>&gt;
 </pre>
-<span id="received"><dfn>Received on</dfn> Tue Nov 14 2006 - 08:10:21 GMT</span>
+<span id="received"><dfn>Received on</dfn> Tue Aug 03 2004 - 08:23:21 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -153,13 +231,9 @@ Ed Hartnett  -- ed at unidata.ucar.edu
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start430">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0431.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] aerosol water"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0429.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] axis attribute"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0428.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] packed flags"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0431.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0429.html" title="Previous message in the list">Roy Lowry: "[CF-metadata] Radiation standard names"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0447.html" title="Next message in this discussion thread">Richard Ullman: "[CF-metadata] packed flags"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0447.html" title="Message sent in reply to this message">Richard Ullman: "[CF-metadata] packed flags"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -170,7 +244,7 @@ Ed Hartnett  -- ed at unidata.ucar.edu
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:50 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0429.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0431.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

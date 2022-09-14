@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Pre-proposal for &quot;charset&quot; from Bob Simons - NOAA Federal on 2017-02-22 (mailing-list-archive)</title>
-<meta name="Author" content="Bob Simons - NOAA Federal (bob.simons)" />
-<meta name="Subject" content="[CF-metadata] Pre-proposal for &quot;charset&quot;" />
-<meta name="Date" content="2017-02-22" />
+<title>[CF-metadata] How to define time coordinate in GPS? from Karl Taylor on 2015-07-13 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Karl Taylor (taylor13)" />
+<meta name="Subject" content="[CF-metadata] How to define time coordinate in GPS?" />
+<meta name="Date" content="2015-07-13" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./8027.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8029.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Pre-proposal for &quot;charset&quot;</h1>
-<!-- received="Wed Feb 22 11:44:21 2017" -->
-<!-- isoreceived="20170222114421" -->
-<!-- sent="Wed, 22 Feb 2017 10:44:21 -0800" -->
-<!-- isosent="20170222184421" -->
-<!-- name="Bob Simons - NOAA Federal" -->
-<!-- email="bob.simons" -->
-<!-- subject="[CF-metadata] Pre-proposal for &quot;charset&quot;" -->
-<!-- id="CAG=jf3dB61xQZHax0uP-6jAfhdOsQX8KJPJT7Z5PM02x502nJw_at_mail.gmail.com" -->
+<a style="text-decoration:none" href="./8027.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8029.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] How to define time coordinate in GPS?</h1>
+<!-- received="Mon Jul 13 14:36:51 2015" -->
+<!-- isoreceived="20150713133651" -->
+<!-- sent="Mon, 13 Jul 2015 13:36:51 -0700" -->
+<!-- isosent="20150713203651" -->
+<!-- name="Karl Taylor" -->
+<!-- email="taylor13" -->
+<!-- subject="[CF-metadata] How to define time coordinate in GPS?" -->
+<!-- id="55A42163.6040504_at_llnl.gov" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20150713164510.GB28608_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,9 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./8029.html" accesskey="d" title="Chris Barker: &quot;[CF-metadata] Pre-proposal for &#0034;charset&#0034;&quot;">Next message</a> ]
-[ <a href="./8027.html" title="Bob Simons - NOAA Federal: &quot;[CF-metadata] Pre-proposal for &#0034;charset&#0034;&quot;">Previous message</a> ]
+[ <a href="./8029.html" accesskey="d" title="Jim Biard: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">Next message</a> ]
+[ <a href="./8027.html" title="Kennelly, Edward: &quot;[CF-metadata] New reflectance standard names [SEC=UNCLASSIFIED]&quot;">Previous message</a> ]
+[ <a href="./8026.html" title="Jonathan Gregory: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./8029.html" accesskey="t" title="Jim Biard: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,56 +72,212 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Bob Simons - NOAA Federal &lt;<a href="mailto:bob.simons?Subject=Re%3A%20%5BCF-metadata%5D%20Pre-proposal%20for%20%22charset%22">bob.simons</a>&gt;
+<dfn>From</dfn>: Karl Taylor &lt;<a href="mailto:taylor13?Subject=Re%3A%20%5BCF-metadata%5D%20How%20to%20define%20time%20coordinate%20in%20GPS%3F">taylor13</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 22 Feb 2017 10:44:21 -0800</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 13 Jul 2015 13:36:51 -0700</span><br />
 </address>
 <br />
-No. CF section 9.5 says: &quot;The variable carrying the cf_role attribute may
+Dear Jim and Jonathan,
 <br />
-have any data type.&quot;
+<br />Having tried to learn about UTC and GPS time systems, I think we'll need 
 <br />
-And that makes sense, because some profile_id might be an integer and
+to find a way to explain to CF users in a simple way what calendar they 
 <br />
-theoretically could be a single char.
+should use and when.
 <br />
-<br />Date: Wed, 22 Feb 2017 18:15:46 +0000
+<br />The GPS system relies on &quot;24-hour (exactly 86400 sec) wall-clock&quot; 
 <br />
-<em class="quotelev1">&gt; From: Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt;
-</em><br />
-<em class="quotelev1">&gt; To: cf-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; Subject: Re: [CF-metadata] Pre-proposal for &quot;charset&quot;
-</em><br />
-<em class="quotelev1">&gt; Message-ID: &lt;20170222181546.GD8105 at met.reading.ac.uk&gt;
-</em><br />
-<em class="quotelev1">&gt; Content-Type: text/plain; charset=us-ascii
+without leap seconds added, which means the phase of the solar day 
+<br />
+(defined by the Sun's position in the sky) slowly gets out of sync with 
+<br />
+the clock.  The phase shifts primarily because on average the earth 
+<br />
+takes about 86400.002 seconds to complete a rotation (relative to the 
+<br />
+position of the sun), which implies a drift of  1 second per 2 years on 
+<br />
+average, but with some variation around this drift rate because the 
+<br />
+earth's rotation rate is not constant.   [So we shouldn't say &quot;GPS 
+<br />
+assumes an 86400 sec *day*&quot;;  it assumes a 86400 sec *clock*, which 
+<br />
+implies that for our earth, the  phase of the day gets out of sync with 
+<br />
+the clock.]
+<br />
+<br />Under the UTC system, leap seconds are added (or removed) when necessary 
+<br />
+(about every 2 years) to keep the clock in sync with sun. Under the UTC 
+<br />
+system the sun rises and sets at a UTC time which (to within about a 
+<br />
+second) depends only on one's location on earth and the orbital 
+<br />
+longitude (not the year).  This is not the case under the GPS system 
+<br />
+where there is a slow, somewhat uneven, drift in these times.
+<br />
+<br />For models, we have a different case from either of these:  the earth 
+<br />
+rotates once in exactly 86400 seconds (not 86400.002 sec), and so a 
+<br />
+GPS-like wall clock (without leap seconds) remains in sync with the 
+<br />
+sun's position in the sky.  This means that our model clock behaves like 
+<br />
+a UTC clock (by staying in phase), but like a GPS clock in that there 
+<br />
+are no leap seconds.
+<br />
+<br />If we had discussed this at the beginning of CF, we could have come up 
+<br />
+with a simple system:
+<br />
+<br />&quot;gregorian&quot; representing the model's approximation of nature (by 
+<br />
+rounding the length of the mean solar day from 86400.002 to 86400) and 
+<br />
+the use of a clock without a need for leap seconds.  [This is in 
+<br />
+addition to assuming days follow the gregorian calendar and the rules of 
+<br />
+when leap years occur.]  By construction, this calendar would only apply 
+<br />
+to models.
+<br />
+<br />&quot;gregorian_utc&quot;  used for earth measurements to specify a reference time 
+<br />
+expressed according to the UTC time-system (and elapsed time correctly 
+<br />
+recorded).
+<br />
+<br />&quot;gregorian_gps&quot; used for earth measurements to specify a reference time 
+<br />
+expressed according to the GPS time-system (and elapsed time correctly 
+<br />
+recorded).
+<br />
+<br />In trying to retrofit CF, there are, however, two problems with the 
+<br />
+above system:
+<br />
+<br />1)  &quot;gregorian&quot; has in the past, at least, been used for earth 
+<br />
+measurements (where the day is 86400.002 seconds long)
+<br />
+2)  In the future some folks may want to specify (incorrectly or 
+<br />
+imprecisely at least) a reference time expressed according to the UTC 
+<br />
+time-system but with wall-clock times converted to elapsed time omitting 
+<br />
+leap seconds.
+<br />
+<br />As I understand it, our proposed solution is to
+<br />
+<br />A)  define &quot;gregorian&quot; to be a time-system without leap seconds, with 
+<br />
+reference times (part of the units)  and elapsed time being somewhat 
+<br />
+imprecise, so that one can not determine the phase of the diurnal cycle 
+<br />
+to within better than about 16 seconds (of time) and when comparing two 
+<br />
+different datasets, time-coordinates that are identical may in fact 
+<br />
+represent times differing by as much as 16 seconds.  This definition 
+<br />
+makes gregorian backward compatible in our conventions.
+<br />
+<br />B)  define &quot;gregorian_utc_nls for a case where the reference time is 
+<br />
+expressed correctly according to the UTC time-system, *but* elapsed time 
+<br />
+is given following an algorithm that omits leap seconds (and thus 
+<br />
+elapsed time may be off by up to 16 seconds).   This would be used only 
+<br />
+for observational data.
+<br />
+<br />C)  define &quot;gregorian_nls&quot; for a case where the solar day is exactly 
+<br />
+86400 seconds long.  This would only be used for models (replacing 
+<br />
+&quot;gregorian&quot; which was used in the past), but which would exclude the 
+<br />
+imprecise specification we now propose for &quot;gregorian&quot;).
+<br />
+<br />Personally, I wouldn't bother with C), at least not now, because with 
+<br />
+models, I think we can count on the solar day being 86400 seconds long.
+<br />
+<br />Under my proposal, &quot;gregorian&quot; without a suffix would imply:
+<br />
+<br />1) if model data, the solar day should be assumed to be 86400 seconds long.
+<br />
+2) If observational data, one should not rely on the time coordinate 
+<br />
+being accurate to within better than 16 seconds.
+<br />
+<br />I also wouldn't bother with B).  If a provider of observational data 
+<br />
+wants to precisely specify time, then they should follow either 
+<br />
+&quot;gregorian_nls&quot; or &quot;gregorian_utc&quot;.  Otherwise they should specify 
+<br />
+&quot;gregorian&quot; which means their coordinate values may be off by as much as 
+<br />
+16 seconds.
+<br />
+<br />Best regards,
+<br />
+Karl
+<br />
+<br /><br />On 7/13/15 9:45 AM, Jonathan Gregory wrote:
+<br />
+<em class="quotelev1">&gt; Dear Jim
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Dear Bob
+<em class="quotelev2">&gt;&gt; If the input times were GPS times, would you - as a modeler
+</em><br />
+<em class="quotelev2">&gt;&gt; - feel the need to convert those times to UTC times before using
+</em><br />
+<em class="quotelev2">&gt;&gt; them in your model?
+</em><br />
+<em class="quotelev1">&gt; No.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Thnaks for the helpful example. Yes, I agree that on the basis of netCDF
+<em class="quotelev2">&gt;&gt; I've never dealt with weather or climate models, but it seems to me
 </em><br />
-<em class="quotelev1">&gt; alone
+<em class="quotelev2">&gt;&gt; that while models are precise regarding time, they may not be
 </em><br />
-<em class="quotelev1">&gt; you can't tell whether it's a string or a 10-char array. However, the
+<em class="quotelev2">&gt;&gt; accurate - in that having your inputs off by 15 seconds won't make a
 </em><br />
-<em class="quotelev1">&gt; cf_role
+<em class="quotelev2">&gt;&gt; material difference in your outputs.
 </em><br />
-<em class="quotelev1">&gt; is a string-valued attribute, according to the CF convention, so it must
+<em class="quotelev1">&gt; That is quite true. In that sense it is inaccurate, like the gregorian case.
 </em><br />
-<em class="quotelev1">&gt; be a
+<em class="quotelev1">&gt; However, unlike the gregorian case, it is precise once the data is transplanted
 </em><br />
-<em class="quotelev1">&gt; string. I expect that for contents of netCDF files that follow the CF con-
+<em class="quotelev1">&gt; to the model world. In the output, I wish to encode a time coordinate of
 </em><br />
-<em class="quotelev1">&gt; vention this ambiguity shouldn't arise - but if there are cases where it
+<em class="quotelev1">&gt; exactly midnight on 2015-7-13, for instance, and I want my calendar attribute
 </em><br />
-<em class="quotelev1">&gt; does
+<em class="quotelev1">&gt; to describe this as being in the no-leap-second world, precisely. This means
 </em><br />
-<em class="quotelev1">&gt; we should consider them.
+<em class="quotelev1">&gt; the data-user will decode my time coordinate precisely correctly. It would
+</em><br />
+<em class="quotelev1">&gt; be surprising or confusing if the data-user decoded with leap seconds, getting
+</em><br />
+<em class="quotelev1">&gt; a timestamp a quarter of a minute wrong, and &quot;gregorian&quot; would permit that
+</em><br />
+<em class="quotelev1">&gt; option. Also, the user can depend on every day having 86400 seconds, if the
+</em><br />
+<em class="quotelev1">&gt; coords are used as elapsed times.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
@@ -127,45 +287,15 @@ theoretically could be a single char.
 </em><br />
 <em class="quotelev1">&gt; Jonathan
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; _______________________________________________
 </em><br />
-<em class="quotelev1">&gt; --
+<em class="quotelev1">&gt; CF-metadata mailing list
 </em><br />
-Sincerely,
-<br />
-<br />Bob Simons
-<br />
-IT Specialist
-<br />
-Environmental Research Division
-<br />
-NOAA Southwest Fisheries Science Center
-<br />
-99 Pacific St., Suite 255A      (New!)
-<br />
-Monterey, CA 93940               (New!)
-<br />
-Phone: (831)333-9878            (New!)
-<br />
-Fax:   (831)648-8440
-<br />
-Email: bob.simons at noaa.gov
-<br />
-<br />The contents of this message are mine personally and
-<br />
-do not necessarily reflect any position of the
-<br />
-Government or the National Oceanic and Atmospheric Administration.
-<br />
-&lt;&gt;&lt; &lt;&gt;&lt; &lt;&gt;&lt; &lt;&gt;&lt; &lt;&gt;&lt; &lt;&gt;&lt; &lt;&gt;&lt; &lt;&gt;&lt; &lt;&gt;&lt;
-<br />
--------------- next part --------------
-<br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20170222/aa27e767/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20170222/aa27e767/attachment.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Wed Feb 22 2017 - 11:44:21 GMT</span>
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<span id="received"><dfn>Received on</dfn> Mon Jul 13 2015 - 14:36:51 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -173,9 +303,13 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start8028">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./8029.html" title="Next message in the list">Chris Barker: "[CF-metadata] Pre-proposal for &#0034;charset&#0034;"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./8027.html" title="Previous message in the list">Bob Simons - NOAA Federal: "[CF-metadata] Pre-proposal for &#0034;charset&#0034;"</a></li>
+<li><dfn>Next message</dfn>: <a href="./8029.html" title="Next message in the list">Jim Biard: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./8027.html" title="Previous message in the list">Kennelly, Edward: "[CF-metadata] New reflectance standard names [SEC=UNCLASSIFIED]"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./8026.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./8029.html" title="Next message in this discussion thread">Jim Biard: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./8029.html" title="Message sent in reply to this message">Jim Biard: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -186,7 +320,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:09 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./8027.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8029.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Support for sinusoidal projections in CF? from Jon Blower on 2014-08-18 (mailing-list-archive)</title>
-<meta name="Author" content="Jon Blower (j.d.blower)" />
-<meta name="Subject" content="[CF-metadata] Support for sinusoidal projections in CF?" />
-<meta name="Date" content="2014-08-18" />
+<title>[CF-metadata] how to represent a non-standard error from rhorne at excaliburlabs.com on 2013-07-05 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="rhorne at excaliburlabs.com (rhorne)" />
+<meta name="Subject" content="[CF-metadata] how to represent a non-standard error" />
+<meta name="Date" content="2013-07-05" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./6419.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6421.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Support for sinusoidal projections in CF?</h1>
-<!-- received="Mon Aug 18 09:14:09 2014" -->
-<!-- isoreceived="20140818081409" -->
-<!-- sent="Mon, 18 Aug 2014 15:14:09 +0000" -->
-<!-- isosent="20140818151409" -->
-<!-- name="Jon Blower" -->
-<!-- email="j.d.blower" -->
-<!-- subject="[CF-metadata] Support for sinusoidal projections in CF?" -->
-<!-- id="AAEB3A5F-27CF-442A-9B8D-98CBCF41963E_at_reading.ac.uk" -->
+<a style="text-decoration:none" href="./6419.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6421.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] how to represent a non-standard error</h1>
+<!-- received="Fri Jul  5 11:43:25 2013" -->
+<!-- isoreceived="20130705104325" -->
+<!-- sent="Fri, 5 Jul 2013 13:43:25 -0400" -->
+<!-- isosent="20130705174325" -->
+<!-- name="rhorne at excaliburlabs.com" -->
+<!-- email="rhorne" -->
+<!-- subject="[CF-metadata] how to represent a non-standard error" -->
+<!-- id="b3a0bb1$2e5d2db2$499cd3e0$_at_excaliburlabs.com" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./6421.html" accesskey="d" title="Nan Galbraith: &quot;[CF-metadata] web page&quot;">Next message</a> ]
-[ <a href="./6419.html" title="John Graybeal: &quot;[CF-metadata] web page&quot;">Previous message</a> ]
+[ <a href="./6421.html" accesskey="d" title="Schultz, Martin: &quot;[CF-metadata] Request for a new standard_name: barometric_altitude&quot;">Next message</a> ]
+[ <a href="./6419.html" title="Jim Biard: &quot;[CF-metadata] how to represent a non-standard error&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,36 +68,262 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jon Blower &lt;<a href="mailto:j.d.blower?Subject=Re%3A%20%5BCF-metadata%5D%20Support%20for%20sinusoidal%20projections%20in%20CF%3F">j.d.blower</a>&gt;
+<dfn>From</dfn>: rhorne at excaliburlabs.com &lt;<a href="mailto:rhorne?Subject=Re%3A%20%5BCF-metadata%5D%20how%20to%20represent%20a%20non-standard%20error">rhorne</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 18 Aug 2014 15:14:09 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 5 Jul 2013 13:43:25 -0400</span><br />
 </address>
 <br />
-Hi all,
+Jim: 
 <br />
-<br />According to ticket 77 [1], support for sinusoidal projections has been accepted into CF. However, I can?t see any reference to this in the latest conventions document [2]. Is there a separate canonical list of supported projections?
+<br />&nbsp;&nbsp;
 <br />
-<br />(If the CF documents need to be updated it would be useful if they could contain a reference to the formulation of the projection too.)
+<br />An expected error value is individually calculated for EACH wind vector in 
 <br />
-<br />Regards,
+the product file based on the factors I identified a few emails back. 
 <br />
-Jon
+<br />&nbsp;&nbsp;
 <br />
-<br />[1] <a href="http://kitt.llnl.gov/trac/ticket/77">http://kitt.llnl.gov/trac/ticket/77</a>
+<br />This expected error allows the users of the GOES-R derived motion wind 
 <br />
-[2] <a href="http://cfconventions.org/Data/cf-conventions/cf-conventions-1.6/build/cf-conventions.html">http://cfconventions.org/Data/cf-conventions/cf-conventions-1.6/build/cf-conventions.html</a>
+products to know what the error is for each wind vector in the product 
 <br />
-<br /><pre>
---
-Dr Jon Blower,
-Technical Director, Reading e-Science Centre,
-MELODIES project coordinator,
-School of Mathematical and Physical Sciences,
-University of Reading
-Tel: +44 118 378 5213
-Email: j.d.blower at reading.ac.uk
-</pre>
-<span id="received"><dfn>Received on</dfn> Mon Aug 18 2014 - 09:14:09 BST</span>
+file.  I think there are weather prediction models that make use of these 
+<br />
+error values.  There may be other uses, but I don't know for sure. 
+<br />
+<br />&nbsp;&nbsp;
+<br />
+<br />&nbsp;&nbsp;
+<br />
+<br />very respectfully, 
+<br />
+<br />&nbsp;&nbsp;
+<br />
+<br />randy
+<br />
+<br />----------------------------------------
+<br />
+&nbsp;From: &quot;Jim Biard&quot; &lt;jim.biard at noaa.gov&gt;
+<br />
+Sent: Friday, July 05, 2013 1:22 PM
+<br />
+To: &quot;cf-metadata at cgd.ucar.edu List&quot; &lt;cf-metadata at cgd.ucar.edu&gt;
+<br />
+Cc: &quot;rhorne at excaliburlabs.com Horne&quot; &lt;rhorne at excaliburlabs.com&gt;
+<br />
+Subject: Re: [CF-metadata] how to represent a non-standard error
+<br />
+<br />Randy, 
+<br />
+&nbsp;Thanks.  I guess I'm still wondering how you can validly assign a label 
+<br />
+such as &quot;error&quot; to a number that doesn't somehow tell you the likelihood of 
+<br />
+the variable value being within some sort of interval.  Without getting too 
+<br />
+hung up on statistical formalisms, can you explain what use this number is 
+<br />
+to you? 
+<br />
+&nbsp;Grace and peace, 
+<br />
+&nbsp;Jim  
+<br />
+&nbsp;&nbsp;Jim Biard
+<br />
+Research Scholar
+<br />
+&nbsp;Cooperative Institute for Climate and Satellites
+<br />
+Remote Sensing and Applications Division
+<br />
+&nbsp;National Climatic Data Center
+<br />
+151 Patton Ave, Asheville, NC 28801-5001 
+<br />
+<br />jim.biard at noaa.gov
+<br />
+828-271-4900  
+<br />
+&nbsp;Follow us on Facebook! 
+<br />
+&nbsp;On Jul 5, 2013, at 1:13 PM, rhorne at excaliburlabs.com wrote:  
+<br />
+<br />Jim:   
+<br />
+<br />The magnitude of the Expected Error is a function of the calculated wind 
+<br />
+speed.   
+<br />
+<br />In perusing the Expected Error algorithm documentation to compose the last 
+<br />
+email, it appears the algorithm does not assume any type of an error 
+<br />
+distribution (normal or otherwise).  The error estimate is absolute and is 
+<br />
+not associated with a confidence level.   
+<br />
+<br />The use of this algorithm is based on the results it has achieved on 
+<br />
+predecessor weather satellite programs (empirical data has been used to 
+<br />
+determine its effectiveness.)  I can provide you additional information on 
+<br />
+the Expected Error algorithm if you are interested,   
+<br />
+<br />The point I am trying to make is that this is a specific error estimation 
+<br />
+approach that is unrelated to a sampling distribution.   I would think 
+<br />
+there are others.   
+<br />
+<br />very respectfully,   
+<br />
+<br />randy     
+<br />
+<br />From: &quot;Jim Biard&quot; &lt;jim.biard at noaa.gov&gt;
+<br />
+Sent: Friday, July 05, 2013 11:22 AM
+<br />
+To: &quot;cf-metadata at cgd.ucar.edu List&quot; &lt;cf-metadata at cgd.ucar.edu&gt;
+<br />
+Cc: &quot;rhorne at excaliburlabs.com Horne&quot; &lt;rhorne at excaliburlabs.com&gt;
+<br />
+Subject: Re: [CF-metadata] Fwd: how to represent a non-standard error
+<br />
+<br />Randy, 
+<br />
+&nbsp;Could you help me understand a touch more about this?  You say it is an 
+<br />
+error that comes from a custom algorithm, but what defines what magnitude 
+<br />
+it has?  How do you relate it to anything?  Does it represent some sort of 
+<br />
+confidence interval? 
+<br />
+&nbsp;Grace and peace, 
+<br />
+&nbsp;Jim 
+<br />
+&nbsp;&nbsp;Jim Biard
+<br />
+Research Scholar
+<br />
+&nbsp;Cooperative Institute for Climate and Satellites
+<br />
+Remote Sensing and Applications Division
+<br />
+&nbsp;National Climatic Data Center
+<br />
+151 Patton Ave, Asheville, NC 28801-5001 
+<br />
+<br />jim.biard at noaa.gov
+<br />
+828-271-4900  
+<br />
+&nbsp;&lt;CicsLogoTiny.png&gt;Follow us on Facebook! 
+<br />
+&nbsp;On Jul 5, 2013, at 9:28 AM, &quot;rhorne at excaliburlabs.com&quot; 
+<br />
+&lt;rhorne at excaliburlabs.com&gt; wrote:    
+<br />
+<br />Dear Jonathan:   
+<br />
+<br />In the case of the GOES-R derived motion winds product, the error estimate 
+<br />
+(i.e. more formally referred to as Expected Error) is based on a custom 
+<br />
+algorithm.   
+<br />
+<br />This expected error algorithm is specific to atmospheric wind vectors 
+<br />
+derived from satellte data.  The overarching concept of the wind algorithms 
+<br />
+generated from satellite data is doing pattern matching of phenomena (like 
+<br />
+clouds) across multiple images of the same region separated by some period 
+<br />
+of time    
+<br />
+<br />The GOES-R incarnation of this Expected Error approach makes use of a set 
+<br />
+of error predictors including (1) NWP model data (wind shear, temperature 
+<br />
+gradient), (2) wind speed, direction, and consistency quality indicators 
+<br />
+output from the winds algorithm proper, and (3) a wavelength dependent 
+<br />
+constants (GOES-R generates sets of wind vectors from a visible and several 
+<br />
+emissive bands)   
+<br />
+<br />I also found an article on the web that discusses it:   
+<br />
+<br /><a href="https://www.eumetsat.int/cs/idcplg?IdcService=GET_FILE&amp;dDocName=pdf_conf_p42">https://www.eumetsat.int/cs/idcplg?IdcService=GET_FILE&amp;dDocName=pdf_conf_p42</a>
+<br />
+_s2_le_marshall&amp;allowInterrupt=1&amp;noSaveAs=1&amp;RevisionSelectionMethod=LatestRe
+<br />
+leased   
+<br />
+<br />very respectfully,   
+<br />
+<br />randy             
+<br />
+<br />Dear all
+<br />
+<br />OK, I agree that if it's useful to compare them, then they should be 
+<br />
+described
+<br />
+in a standardised way.
+<br />
+<br />Why is this *not* a standard error? I suppose that to be described as a
+<br />
+standard error it should be a number you could regard as the standard 
+<br />
+deviation
+<br />
+of the true value around the stated value. If it's not that, are there 
+<br />
+other
+<br />
+ways you would use such a number?
+<br />
+<br />Best wishes
+<br />
+<br />Jonathan
+<br />
+<br />&nbsp;_______________________________________________
+<br />
+CF-metadata mailing list
+<br />
+CF-metadata at cgd.ucar.edu
+<br />
+<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+<br />
+<br />&lt;CicsLogoTiny.png&gt;
+<br />
+<br /><br />-------------- next part --------------
+<br />
+An HTML attachment was scrubbed...
+<br />
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130705/11ab8bd0/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130705/11ab8bd0/attachment-0001.html</a>&gt;
+<br />
+-------------- next part --------------
+<br />
+A non-text attachment was scrubbed...
+<br />
+Name: CicsLogoTiny.png
+<br />
+Type: application/octet-stream
+<br />
+Size: 15784 bytes
+<br />
+Desc: not available
+<br />
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130705/11ab8bd0/attachment-0001.obj">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130705/11ab8bd0/attachment-0001.obj</a>&gt;
+<br />
+<span id="received"><dfn>Received on</dfn> Fri Jul 05 2013 - 11:43:25 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -105,8 +331,8 @@ Email: j.d.blower at reading.ac.uk
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start6420">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./6421.html" title="Next message in the list">Nan Galbraith: "[CF-metadata] web page"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./6419.html" title="Previous message in the list">John Graybeal: "[CF-metadata] web page"</a></li>
+<li><dfn>Next message</dfn>: <a href="./6421.html" title="Next message in the list">Schultz, Martin: "[CF-metadata] Request for a new standard_name: barometric_altitude"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./6419.html" title="Previous message in the list">Jim Biard: "[CF-metadata] how to represent a non-standard error"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -118,7 +344,7 @@ Email: j.d.blower at reading.ac.uk
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:45 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./6419.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6421.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

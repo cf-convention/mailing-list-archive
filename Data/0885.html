@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] &quot;positive&quot; attribute from Jonathan Gregory on 2007-06-28 (mailing-list-archive)</title>
+<title>[CF-metadata] CF convention for vector quantities from Jonathan Gregory on 2006-03-20 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] &quot;positive&quot; attribute" />
-<meta name="Date" content="2007-06-28" />
+<meta name="Subject" content="[CF-metadata] CF convention for vector quantities" />
+<meta name="Date" content="2006-03-20" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0884.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0886.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] &quot;positive&quot; attribute</h1>
-<!-- received="Thu Jun 28 10:57:05 2007" -->
-<!-- isoreceived="20070628095705" -->
-<!-- sent="Thu, 28 Jun 2007 17:57:05 +0100" -->
-<!-- isosent="20070628165705" -->
+<a style="text-decoration:none" href="./0884.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0886.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF convention for vector quantities</h1>
+<!-- received="Mon Mar 20 01:58:24 2006" -->
+<!-- isoreceived="20060320015824" -->
+<!-- sent="Mon, 20 Mar 2006 08:58:24 +0000" -->
+<!-- isosent="20060320085824" -->
 <!-- name="Jonathan Gregory" -->
 <!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] &quot;positive&quot; attribute" -->
-<!-- id="20070628165705.GA12559_at_met.reading.ac.uk" -->
+<!-- subject="[CF-metadata] CF convention for vector quantities" -->
+<!-- id="20060320085824.GB1025_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0886.html" accesskey="d" title="Godin, Michael: &quot;[CF-metadata] &#0034;positive&#0034; attribute&quot;">Next message</a> ]
-[ <a href="./0884.html" title="John Caron: &quot;[CF-metadata] &#0034;positive&#0034; attribute&quot;">Previous message</a> ]
+[ <a href="./0886.html" accesskey="d" title="Julien Demaria: &quot;[CF-metadata] Integerized Sinusoidal Grid&quot;">Next message</a> ]
+[ <a href="./0884.html" title="Jonathan Gregory: &quot;[CF-metadata] change_in&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0887.html" accesskey="t" title="Bert Jagers: &quot;[CF-metadata] CF convention for vector quantities&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,62 +70,112 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%22positive%22%20attribute">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20convention%20for%20vector%20quantities">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 28 Jun 2007 17:57:05 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 20 Mar 2006 08:58:24 +0000</span><br />
 </address>
 <br />
-Dear all
+Dear Bert
 <br />
-<br />I'm not arguing for inertia per se. My argument is that we haven't got a
+<br /><em class="quotelev2">&gt; &gt; (2) The variables are systematically named already. You can derive an
+</em><br />
+<em class="quotelev1">&gt; northward
+</em><br />
+<em class="quotelev2">&gt; &gt; from a eastward name easily, for instance, with s/eastward/northward/. One
+</em><br />
+<em class="quotelev2">&gt; &gt; solution might be for your program to expect the user to specify the
+</em><br />
+<em class="quotelev1">&gt; vector
+</em><br />
+<em class="quotelev2">&gt; &gt; quantity by the name of either of its components rather than generically.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; My program works the other way around. You select a quantity and then you
+</em><br />
+<em class="quotelev1">&gt; press plot
+</em><br />
+<br />If your program offers the user a list of what is in the file, or of stdnames
 <br />
-problem with the present approach. Despite the philosophy about not trying to
+available, why can't it produce a vector plot whenever either of the components
 <br />
-design the future, I do also agree that we should look forward to obvious
+is selected? Given one of them, the program can find the other easily.
 <br />
-developments.
+<br /><em class="quotelev1">&gt; I don't think that I said anything about requiring files to define
+</em><br />
+<em class="quotelev1">&gt; vector quantities.
+</em><br />
+<br />Quite right, you didn't. I had incorrectly assumed you were talking about
 <br />
-<br />So far as I can see the future (not very far, perhaps :-) it doesn't look like
+putting the component as a dimension, but actually you were talking about
 <br />
-this is going to be a problem for carbon-cycle or chemistry names. We have
+taking it out of the standard name and putting it in a separate attribute.
 <br />
-already had quite a lot of discussion of chemistry names. The concepts that
+However, I feel the same. Why should we make a special case for this? There
 <br />
-have so far been discussed, such as emission and deposition, don't need their
+are lots of ways the standard name could be factorised and associations that
 <br />
-sign-convention stated, any more than we need to state the sign for
+can be made between sets of standard names. These associations are properties
 <br />
-evaporation, precipitation, air pressure, windspeed or temperature. I think
+of how you use the data, I think, than intrinsically of the data, so they are
 <br />
-this is the case for most quantities, so we can just make it clear for ones
+the responsibility of the data-reader rather than the data-writer. I don't
 <br />
-that are ambiguous. If we change our minds later, we can do so using aliases.
+see why the relationship between the components of a stress tensor (six of
 <br />
-<br />Another point is that there is no generic concept of a sign convention. For
+them if it is symmetric) is less fundamental than the one you point out.
 <br />
-vertical fluxes it is up/down, for zonal quantities east/west, for the
+<br /><em class="quotelev1">&gt; No, I don't have any problem with these definitions; they all have their
+</em><br />
+<em class="quotelev1">&gt; advantages. However, why is it
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; eastward_sea_water_velocity
+</em><br />
+<em class="quotelev1">&gt; northward_sea_water_velocity
+</em><br />
+<em class="quotelev1">&gt; (component naming at the start of the names)
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; sea_water_x_velocity
+</em><br />
+<em class="quotelev1">&gt; sea_water_y_velocity
+</em><br />
+<em class="quotelev1">&gt; (component naming at the end of the names)
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; sea_water_speed
+</em><br />
+<em class="quotelev1">&gt; direction_of_sea_water_velocity
+</em><br />
+<em class="quotelev1">&gt; (component naming mixed at start and end of the names)
+</em><br />
+<br />Mostly it is to do with what seemed clearest and most natural. I don't think
 <br />
-biosphere it is in/out, for the atmosphere the same carbon fluxes would
+we can expect to achieve a naming scheme based on any human language which is
 <br />
-be out/in, for bearings it is clockwise/anticlockwise, for tensors there are
+going to be completely consistent, though we are trying hard to be as
 <br />
-two signs. Hence the permitted values of a sign attribute would depend on the
+consistent as possible while still intelligible!
 <br />
-standard name. This is not a category which can be cleanly factorised (unlike
+<br /><em class="quotelev1">&gt; By the way, are these eularian or lagrangian velocities to be
+</em><br />
+<em class="quotelev1">&gt; precise? I.e. is the Stokes drift of waves included?
+</em><br />
+<br />That precision hasn't been requested yet. If you have an application where we
 <br />
-cell_methods and coordinates).
+need to distinguish, please propose new names. We can accommodate names which
 <br />
-<br />Indeed files can be repaired after they have written, whether that it is to
-<br />
-change standard names or add an attribute. But that is more work which might
-<br />
-well not be done. CF compliance is not legally enforceable, after all.
+are more or less discriminating, appropriate for different users.
 <br />
 <br />Best wishes
 <br />
 <br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Thu Jun 28 2007 - 10:57:05 BST</span>
+<span id="received"><dfn>Received on</dfn> Mon Mar 20 2006 - 01:58:24 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -131,9 +183,12 @@ well not be done. CF compliance is not legally enforceable, after all.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start885">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0886.html" title="Next message in the list">Godin, Michael: "[CF-metadata] &#0034;positive&#0034; attribute"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0884.html" title="Previous message in the list">John Caron: "[CF-metadata] &#0034;positive&#0034; attribute"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0886.html" title="Next message in the list">Julien Demaria: "[CF-metadata] Integerized Sinusoidal Grid"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0884.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] change_in"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0887.html" title="Next message in this discussion thread">Bert Jagers: "[CF-metadata] CF convention for vector quantities"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0887.html" title="Message sent in reply to this message">Bert Jagers: "[CF-metadata] CF convention for vector quantities"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -144,7 +199,7 @@ well not be done. CF compliance is not legally enforceable, after all.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:57 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0884.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0886.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

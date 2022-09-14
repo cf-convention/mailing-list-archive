@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] COARDS name for a time offset from Jonathan Gregory on 2007-01-15 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] COARDS name for a time offset" />
-<meta name="Date" content="2007-01-15" />
+<title>[CF-metadata] swath data format from chelle gentemann on 2005-06-17 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="chelle gentemann (gentemann)" />
+<meta name="Subject" content="[CF-metadata] swath data format" />
+<meta name="Date" content="2005-06-17" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0676.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0678.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] COARDS name for a time offset</h1>
-<!-- received="Mon Jan 15 01:29:17 2007" -->
-<!-- isoreceived="20070115012917" -->
-<!-- sent="Mon, 15 Jan 2007 08:29:17 +0000" -->
-<!-- isosent="20070115082917" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] COARDS name for a time offset" -->
-<!-- id="20070115082917.GA29721_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0676.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0678.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] swath data format</h1>
+<!-- received="Fri Jun 17 12:43:40 2005" -->
+<!-- isoreceived="20050617114340" -->
+<!-- sent="Fri, 17 Jun 2005 11:43:40 -0700" -->
+<!-- isosent="20050617184340" -->
+<!-- name="chelle gentemann" -->
+<!-- email="gentemann" -->
+<!-- subject="[CF-metadata] swath data format" -->
+<!-- id="6.1.2.0.2.20050617112447.05515050_at_mail.remss.com" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0678.html" accesskey="d" title="Pamment, JA: &quot;[CF-metadata] aerosol and chemistry names - continuation&quot;">Next message</a> ]
-[ <a href="./0676.html" title="Jonathan Gregory: &quot;[CF-metadata] NMAT&quot;">Previous message</a> ]
+[ <a href="./0678.html" accesskey="d" title="Derrick Snowden: &quot;[CF-metadata] udunits for OTS and CF&quot;">Next message</a> ]
+[ <a href="./0676.html" title="Luis Bermudez: &quot;[CF-metadata] stations and trajectories  (the OTS standard)&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,100 +68,152 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20COARDS%20name%20for%20a%20time%20offset">j.m.gregory</a>&gt;
+<dfn>From</dfn>: chelle gentemann &lt;<a href="mailto:gentemann?Subject=Re%3A%20%5BCF-metadata%5D%20swath%20data%20format">gentemann</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 15 Jan 2007 08:29:17 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 17 Jun 2005 11:43:40 -0700</span><br />
 </address>
 <br />
-Dear Ed and John
+I have two separate questions:
 <br />
-<br />Ed, the procedure for requesting a new standard_name is simply to post to this
+<br />1)I would like to verify the proper CF compliant / COARDS compliant format 
 <br />
-this with a definition.
+for swath data:
 <br />
-<br />----- Forwarded message from John Caron &lt;caron at unidata.ucar.edu&gt; -----
+<br />For example, swath data for SST (sea surface temperature) usually is just 
 <br />
-<em class="quotelev1">&gt; since the swath data occurs at the same lat/lon pixels, it is useful to 
-</em><br />
-<em class="quotelev1">&gt; make these into 3D variables:
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt;   variable[t, y, x]
-</em><br />
-<em class="quotelev1">&gt;     
-</em><br />
-<em class="quotelev1">&gt; which have coordinates:
-</em><br />
-<em class="quotelev1">&gt;   lat[y,x]
-</em><br />
-<em class="quotelev1">&gt;   lon[y,x]
-</em><br />
-<em class="quotelev1">&gt;   time_for_variable[t,y,x]
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; the times for different variables may be different.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; to save space, we want to calculate the time variables, instead of 
-</em><br />
-<em class="quotelev1">&gt; storing them,  as:
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt;  time_for_variable[t, y, x] =  reference_time[t] + sst_dtime[t,y,x] + 
-</em><br />
-<em class="quotelev1">&gt; time_offset_for_variable
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; or is it
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt;  time_for_variable[t, y, x] =  reference_time[t] + sst_dtime[t,y,x] + 
-</em><br />
-<em class="quotelev1">&gt; time_offset_for_variable[y,x]
-</em><br />
-<br />Good question - I may have misunderstood. However, both are plausible, and
+stored by
 <br />
-other things might be proposed. My question is therefore how much of this we
+cell position and scan line.  So, usually something like:
 <br />
-want to standardise in CF. Would it be sufficient, for instance, to provide
+<br />&nbsp;&nbsp;&nbsp;&nbsp;double sea_surface_temperature(nj,ni);
 <br />
-the standard_name of time_offset and for GHRSST to have its own additional
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:long_name= &quot;sea surface temperature&quot;;
 <br />
-convention on how to combine the 1D time coordinate with the auxiliary time
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:units= &quot;kelvin&quot;;
 <br />
-coordinates? A generic application would then not be able to work it out; it
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:coordinates=&quot;lon lat&quot;;
 <br />
-would use the 1D reference_time as its time coordinate, which is a sensible
+<br />Should a time (with dimension one) be included ?  I have read the CF 
 <br />
-thing to do. A GHRSST-aware application would behave differently.
+conventions document and it seems to indicate that the example above is 
 <br />
-<br /><em class="quotelev1">&gt; if so, and we want to proceed, perhaps a &quot;formula&quot; attribute (a la 
-</em><br />
-<em class="quotelev1">&gt; grid_mapping)  would be a good generalized way to do these calculations?
-</em><br />
-<br />We could certainly devise such a convention, but I question whether it would
+correct when there is no averaging in time.  The model below would be 
 <br />
-be any more useful than recording the formulae in comment attributes. We only
+correct if at each measurement there was some sort of averaging in time?
 <br />
-need a new convention if there is a serious possibility that a generic
+<br />&nbsp;&nbsp;&nbsp;&nbsp;double sea_surface_temperature(time,nj,ni);
 <br />
-application might want to decode and use it, or if this is likely to become
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:long_name= &quot;sea surface temperature&quot;;
 <br />
-a commonly used convention. Otherwise the information needs only to be human-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:units= &quot;kelvin&quot;;
 <br />
-readable. What do you think?
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:coordinates=&quot;lon lat&quot;;
 <br />
-<br />Best wishes
+<br /><br />Question 2)
 <br />
-<br />Jonathan
+In the CF conventions document there are variables and indices with the 
 <br />
-<span id="received"><dfn>Received on</dfn> Mon Jan 15 2007 - 01:29:17 GMT</span>
+same name.  For example
+<br />
+<br />variables:
+<br />
+&nbsp;&nbsp;&nbsp;double time(time);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:units = &quot;days since 1968-5-23&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:long_name = &quot;modified julian day (ROMS-style)&quot;;
+<br />
+<br />I also see lat(lat) and lon(lon).
+<br />
+<br />In writing out swath data, I have a variable:
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;double time(1);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:long_name= &quot;reference time of sst file&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:units= &quot;seconds since 1981-01-01 00:00:00&quot;;
+<br />
+<br /><br />If I then were to use time as an indice, as in the second example in 
+<br />
+question 1.
+<br />
+<br />sea_surface_temperature(time,nj,ni)
+<br />
+<br />Fortran routines have a hard time handling this unless I know that there is 
+<br />
+an indice and variable with the same name before I try to read it.  If I 
+<br />
+run something like cdf2fortran (which will automatically create fortran 
+<br />
+code for reading any given netcdf file) it creates code that won't 
+<br />
+compile.  I tested this by creating 2 netcdf files.  The first used 'ntime' 
+<br />
+as an indice and the second used 'time' as an indice.  'time' was also 
+<br />
+defined as a 1 dimensional array.  I ran cdf2fortran on both files and 
+<br />
+tried to compile the resulting code.  The first file (using ntime) compiled 
+<br />
+successfully and can read the file into memory.  The second file (using 
+<br />
+time) did not compile because of the indice/variable having the same 
+<br />
+name.  This can also easily be check by simply trying to compile a short 
+<br />
+program like;
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parameter      (time =      1)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;real*8         time(time)
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time=0;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end
+<br />
+<br />Is this a known incompatiblity?  I guess I don't understand why definitions 
+<br />
+like time(time), lon(lon), lat(lat) are specified since they will result in 
+<br />
+difficulties reading the data in fortran unless you have prior knowledge 
+<br />
+about the data contained in the file (if I know time is an indice and an 
+<br />
+array, I can re-write the code to read in the time indice into a parameter 
+<br />
+ntime).  But, trying to get data out to large numbers of people and having 
+<br />
+to convey this is difficult...
+<br />
+<br />Thank you,
+<br />
+Chelle
+<br />
+<br /><br /><br /><br /><br /><br /><br /><br />-----------------------------------
+<br />
+Chelle Gentemann - Remote Sensing Systems
+<br />
+438 First Street, Suite 200
+<br />
+Santa Rosa, CA  95401
+<br />
+Voice:  707-545-2904 Ext. 14
+<br />
+FAX:  707-545-2906
+<br />
+<a href="http://www.ssmi.com">http://www.ssmi.com</a>
+<br />
+gentemann at remss.com
+<br />
+-----------------------------------
+<br />
+-------------- next part --------------
+<br />
+An HTML attachment was scrubbed...
+<br />
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20050617/ffe44ce8/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20050617/ffe44ce8/attachment.html</a>&gt;
+<br />
+<span id="received"><dfn>Received on</dfn> Fri Jun 17 2005 - 12:43:40 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -169,8 +221,8 @@ readable. What do you think?
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start677">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0678.html" title="Next message in the list">Pamment, JA: "[CF-metadata] aerosol and chemistry names - continuation"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0676.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] NMAT"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0678.html" title="Next message in the list">Derrick Snowden: "[CF-metadata] udunits for OTS and CF"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0676.html" title="Previous message in the list">Luis Bermudez: "[CF-metadata] stations and trajectories  (the OTS standard)"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -182,7 +234,7 @@ readable. What do you think?
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:54 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0676.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0678.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

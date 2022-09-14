@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] defects in example 7.11, 7.12 from Jonathan Gregory on 2012-02-29 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] defects in example 7.11, 7.12" />
-<meta name="Date" content="2012-02-29" />
+<title>[CF-metadata] udunits time unit question from Christopher Barker on 2011-03-31 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Christopher Barker (Chris.Barker)" />
+<meta name="Subject" content="[CF-metadata] udunits time unit question" />
+<meta name="Date" content="2011-03-31" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4180.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4182.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] defects in example 7.11, 7.12</h1>
-<!-- received="Wed Feb 29 10:48:51 2012" -->
-<!-- isoreceived="20120229104851" -->
-<!-- sent="Wed, 29 Feb 2012 17:48:51 +0000" -->
-<!-- isosent="20120229174851" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] defects in example 7.11, 7.12" -->
-<!-- id="20120229174851.GA16315_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./4180.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4182.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] udunits time unit question</h1>
+<!-- received="Thu Mar 31 11:18:09 2011" -->
+<!-- isoreceived="20110331101809" -->
+<!-- sent="Thu, 31 Mar 2011 10:18:09 -0700" -->
+<!-- isosent="20110331171809" -->
+<!-- name="Christopher Barker" -->
+<!-- email="Chris.Barker" -->
+<!-- subject="[CF-metadata] udunits time unit question" -->
+<!-- id="4D94B751.2060008_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4F4AB91B.700_at_unidata.ucar.edu" -->
+<!-- inreplyto="40829B0E077C1145A6DE44D39B3830A91FFC253F74_at_nerckwmb1.ad.nerc.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4182.html" accesskey="d" title="Lynnes, Christopher S.: &quot;[CF-metadata] machine-accessible CF compliance checker?&quot;">Next message</a> ]
-[ <a href="./4180.html" title="Jonathan Gregory: &quot;[CF-metadata] CF point observation Conventions&quot;">Previous message</a> ]
-[ <a href="./4170.html" title="John Caron: &quot;[CF-metadata] defects in example 7.11, 7.12&quot;">In reply to</a> ]
+[ <a href="./4182.html" accesskey="d" title="Seth McGinnis: &quot;[CF-metadata] udunits time unit question&quot;">Next message</a> ]
+[ <a href="./4180.html" title="Lowry, Roy K.: &quot;[CF-metadata] physical vs dimensional units&quot;">Previous message</a> ]
+[ <a href="./4178.html" title="Lowry, Roy K.: &quot;[CF-metadata] udunits time unit question&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./4182.html" accesskey="t" title="Seth McGinnis: &quot;[CF-metadata] udunits time unit question&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,80 +71,46 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20defects%20in%20example%207.11%2C%207.12">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Christopher Barker &lt;<a href="mailto:Chris.Barker?Subject=Re%3A%20%5BCF-metadata%5D%20udunits%20time%20unit%20question">Chris.Barker</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 29 Feb 2012 17:48:51 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 31 Mar 2011 10:18:09 -0700</span><br />
 </address>
 <br />
-Dear John
+On 3/31/11 12:42 AM, Lowry, Roy K. wrote:
 <br />
-<br /><em class="quotelev1">&gt; 1) Example 7.11. Extreme statistics and spell-lengths
+<em class="quotelev1">&gt; Dear All,
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;  climatology_bounds=&quot;2007-12-1 6:00&quot;, &quot;2000-8-2 6:00&quot;;
+<em class="quotelev1">&gt; This debate between Chris and Benno hinges upon how one determines the sampling interval for a time series.  Benno depends upon semantics encoded in the units of measure field - something I have done in the past although I am now convinced that it is not best practice.  Chris advocates obtaining it by analysis of the time channel.
 </em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; should be
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt;  climatology_bounds=&quot;2007-12-1 6:00&quot;, &quot;2008-3-1 6:00&quot;;
-</em><br />
-<br />I agree. 
+<br />Yes, I think that does sum it up well.
 <br />
-<br /><em class="quotelev1">&gt; perhaps clearer as
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt;  climatology_bounds=&quot;2007-12-1&quot;, &quot;2008-3-1&quot;;
-</em><br />
-<br />Could be, but of course that's not the same thing. The original example does
+<br />If nothing else, there is a clear need for a little more detail (or a 
 <br />
-illustrate the point that climatological days do not have to start at 0:00.
+reference) for the calendar definition in the CF docs:
 <br />
-<br /><em class="quotelev1">&gt; 2) flip order of 7.11 and 7.12, since 7.12 refers to 7.10.
-</em><br />
-<br />Yes, that would be better.
+<br /><a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.1/ch04s04.html">http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.1/ch04s04.html</a>
 <br />
-<br /><em class="quotelev1">&gt; 3) 7.12 Temperature for each hour of the typical climatological day
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt;  temperature:cell_methods=&quot;time: mean within days &quot;,
-</em><br />
-<em class="quotelev1">&gt;       &quot;time: mean over days time: mean over years&quot;;
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; may be confused with array of strings, perhaps should be:
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt;  temperature:cell_methods=&quot;time: mean within days time: mean over
-</em><br />
-<em class="quotelev1">&gt; days time: mean over years&quot;;
-</em><br />
-<br />Can you have a multidimensional character array as an attribute anyway? I
+<br />Perhaps things like &quot;360_day&quot; calendar are standard enough in the 
 <br />
-find that if I process the example with ncgen and ncdump I get back a
+climate modeling community that they don't nee definition, but these 
 <br />
-single string, as in your revised version. I think they must be equivalent.
+brief descriptions are terrible unclear/imprecise for folks like me.
 <br />
-<br />I would have to search the emails, but I feel certain that we agreed that
+<br />-Chris
 <br />
-the threshold would be specified as a coord var (scalar in this case) for
-<br />
-statistics like this. In the definition of the relevant standard_names it
-<br />
-actually says this is a requirement. Does this present a problem?
-<br />
-<br />Best wishes
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Wed Feb 29 2012 - 10:48:51 GMT</span>
+<br /><br /><br /><br /><pre>
+-- 
+Christopher Barker, Ph.D.
+Oceanographer
+Emergency Response Division
+NOAA/NOS/OR&amp;R            (206) 526-6959   voice
+7600 Sand Point Way NE   (206) 526-6329   fax
+Seattle, WA  98115       (206) 526-6317   main reception
+Chris.Barker at noaa.gov
+</pre>
+<span id="received"><dfn>Received on</dfn> Thu Mar 31 2011 - 11:18:09 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -151,10 +118,11 @@ actually says this is a requirement. Does this present a problem?
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4181">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4182.html" title="Next message in the list">Lynnes, Christopher S.: "[CF-metadata] machine-accessible CF compliance checker?"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4180.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] CF point observation Conventions"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./4170.html" title="Message to which this message replies">John Caron: "[CF-metadata] defects in example 7.11, 7.12"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4182.html" title="Next message in the list">Seth McGinnis: "[CF-metadata] udunits time unit question"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4180.html" title="Previous message in the list">Lowry, Roy K.: "[CF-metadata] physical vs dimensional units"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./4178.html" title="Message to which this message replies">Lowry, Roy K.: "[CF-metadata] udunits time unit question"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./4182.html" title="Next message in this discussion thread">Seth McGinnis: "[CF-metadata] udunits time unit question"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -165,7 +133,7 @@ actually says this is a requirement. Does this present a problem?
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:58 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4180.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4182.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

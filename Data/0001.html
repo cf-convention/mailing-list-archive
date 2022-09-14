@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] cf2 progress from Bryan Lawrence on 2006-01-10 (mailing-list-archive)</title>
-<meta name="Author" content="Bryan Lawrence (b.n.lawrence)" />
-<meta name="Subject" content="[CF-metadata] cf2 progress" />
-<meta name="Date" content="2006-01-10" />
+<title>[CF-metadata] Re: CF NetCDF Conventions from Brian Eaton on 2002-03-21 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Brian Eaton (eaton)" />
+<meta name="Subject" content="[CF-metadata] Re: CF NetCDF Conventions" />
+<meta name="Date" content="2002-03-21" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0000.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0002.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] cf2 progress</h1>
-<!-- received="Tue Jan 10 09:27:36 2006" -->
-<!-- isoreceived="20060110092736" -->
-<!-- sent="Tue, 10 Jan 2006 16:27:36 +0000" -->
-<!-- isosent="20060110162736" -->
-<!-- name="Bryan Lawrence" -->
-<!-- email="b.n.lawrence" -->
-<!-- subject="[CF-metadata] cf2 progress" -->
-<!-- id="200601101627.36339.b.n.lawrence_at_rl.ac.uk" -->
+<a style="text-decoration:none" href="./0000.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0002.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Re: CF NetCDF Conventions</h1>
+<!-- received="Thu Mar 21 11:29:08 2002" -->
+<!-- isoreceived="20020321112908" -->
+<!-- sent="Thu, 21 Mar 2002 11:29:08 -0700 (MST)" -->
+<!-- isosent="20020321182908" -->
+<!-- name="Brian Eaton" -->
+<!-- email="eaton" -->
+<!-- subject="[CF-metadata] Re: CF NetCDF Conventions" -->
+<!-- id="Pine.GSO.4.30.0203211121160.5922-100000_at_siskiyou.cgd.ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="200203152313.g2FNDV16001564_at_ajax.nrlssc.navy.mil" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,11 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0002.html" accesskey="d" title="Steve Hankin: &quot;[CF-metadata] cf2 progress&quot;">Next message</a> ]
-[ <a href="./0000.html" title="Alexander C Ruane: &quot;[CF-metadata] New standard names proposal for ECPC CEOP data&quot;">Previous message</a> ]
+[ <a href="./0002.html" accesskey="d" title="Brian Eaton: &quot;[CF-metadata] Re: CF Standard Names&quot;">Next message</a> ]
+[ <a href="./0000.html" title="Brian Eaton: &quot;[CF-metadata] test&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0002.html" accesskey="t" title="Steve Hankin: &quot;[CF-metadata] cf2 progress&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,48 +69,206 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Bryan Lawrence &lt;<a href="mailto:b.n.lawrence?Subject=Re%3A%20%5BCF-metadata%5D%20cf2%20progress">b.n.lawrence</a>&gt;
+<dfn>From</dfn>: Brian Eaton &lt;<a href="mailto:eaton?Subject=Re%3A%20%5BCF-metadata%5D%20Re%3A%20CF%20NetCDF%20Conventions">eaton</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 10 Jan 2006 16:27:36 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 21 Mar 2002 11:29:08 -0700 (MST)</span><br />
 </address>
 <br />
-Hi Folks
+Hi Alan,
 <br />
-<br />I thought I should report that I hope to summarise the feedback on the 
+<br />Thanks for your comments.  I've responded to each of your points below.
 <br />
-whitepaper very shortly ...
+<br />CF co-authors: points a) and d) contain changes that I'd like to make to
 <br />
-<br />Meanwhile, the BADC is taking a few steps forward: Alison Pamment will be 
+the document.  Please let me know whether or not you agree.
 <br />
-taking responsibility here for the CF name management (to try and relieve 
+<br />a) I like this suggestion.  I think it's more robust to have 1-D alternate
 <br />
-Jonathan).  She'll be beginning one day a week from February, working up to 
+coordinates attached to the appropriate coordinate variable rather than to
 <br />
-three days a week in April. 
+the data variable.  Consider the example in section 6.2.  If an application
 <br />
-<br />Her first activities will be: 
+takes a horizontal slice of the xwind variable and produces an new
 <br />
-* Educating herself on CF, 
+variable, say xwind1(sig1,lat), then the coordinates attribute of xwind is
 <br />
-* Understanding how Jonathan has managed CF standard name evolution 
+no longer appropriate for xwind1.  But applications generally just copy
 <br />
-<br />and in March we will move the standard name part of CF to the BADC (unless 
+the attributes of the input variable to the output variable, which in this
 <br />
-anyone has violent objections).
+case is not the right thing to do.  This problem is avoided by attaching
 <br />
-<br />Cheers
+the coordinates attribute to the sigma variable rather than to xwind.
 <br />
-Bryan
+Ideally of course the applications will be smart enough to slice the
 <br />
-<br /><pre>
--- 
-Bryan Lawrence
-Director of Environmental Archival and Associated Research
-Head of the NCAS/British Atmospheric Data Centre
-CCLRC, Rutherford Appleton Laboratory
-Phone +44 1235 445012; Fax ... 5848; Web: home.badc.rl.ac.uk/lawrence
-</pre>
-<span id="received"><dfn>Received on</dfn> Tue Jan 10 2006 - 09:27:36 GMT</span>
+alternate coordinates as well.  But in the meantime...
+<br />
+<br />b) As you observed, the cell_method is a property of the data and not of
+<br />
+the axis.  An axis with a bounds attribute may be used by data variables
+<br />
+that are representing point values as well as by other data variables that
+<br />
+represent various cell properties.
+<br />
+<br />The interpretation of cell_method is already complicated by the fact that
+<br />
+the default methods depend on whether the data variable is an extensive or
+<br />
+intensive quantity of the cell.  My feeling is that providing another layer
+<br />
+of possible default values adds to the complexity without adding any
+<br />
+descriptive power to the convention.  I understand that the suggestion is
+<br />
+to add convenience, and not descriptive power.  But in this case the
+<br />
+convenience must be traded off against adding complexity.
+<br />
+<br />c) We agonized over this.  In the end the decision was made that
+<br />
+conformance to COARDS was more important than the added convenience of the
+<br />
+new time representation.  We decided that the convenience of the calendar
+<br />
+based time representations should be addressed by the utilities that read
+<br />
+and write the data.  Admittedly it will take some time before these
+<br />
+utilities are developed.
+<br />
+<br />d) I have no objection to adding the &quot;all_leap&quot; calendar.
+<br />
+<br />After discussion with the ferret developers we decided to change &quot;360&quot; to
+<br />
+&quot;360_day&quot;.  They raised &quot;sematic objections&quot; to using a pure number as a
+<br />
+calendar name.  My preference would be not to reintroduce pure numbers as
+<br />
+calendar names.  But I have no objection to allowing &quot;366_day&quot; as an alias
+<br />
+for &quot;all_leap&quot;, and &quot;365_day&quot; as an alias for &quot;noleap&quot;.
+<br />
+<br />e) I'll let Steve comment on the Ferret aspects of this question.
+<br />
+<br />The &quot;days since 0000-...&quot; convention for indicating climatological data
+<br />
+comes from COARDS.  The CF convention offers alternatives that allow a much
+<br />
+more precise description of the data used to compute the climatology, and
+<br />
+we have deprecated the &quot;days since 0000-...&quot; convention.  The section on
+<br />
+climatological statistics has been significantly updated and, we hope,
+<br />
+improved from the previously released 1.0-beta3 version.  The working
+<br />
+version is available from the CF metadata home page which I've just put
+<br />
+together at <a href="http://www.cgd.ucar.edu/cms/eaton/cf-metadata/">http://www.cgd.ucar.edu/cms/eaton/cf-metadata/</a>.  Please check
+<br />
+it out and send us your feedback.
+<br />
+<br />Best regards,
+<br />
+Brian
+<br />
+<br />On Fri, 15 Mar 2002, Alan Wallcraft wrote:
+<br />
+<br /><em class="quotelev1">&gt; The CF conventions are a significant advance over previous efforts, but
+</em><br />
+<em class="quotelev1">&gt; I have a few comments:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; a) All the examples apply the &quot;coordinates&quot; attribute to data variables.
+</em><br />
+<em class="quotelev1">&gt; This is obviously required for two-dimensional cases (latitude, longitude),
+</em><br />
+<em class="quotelev1">&gt; but a one dimensional alternative coordinate could presumably be applied
+</em><br />
+<em class="quotelev1">&gt; to the coordinate variable and inherited by any data variable that used
+</em><br />
+<em class="quotelev1">&gt; this axis.  Is this allowed?  If so, there should be examples and a
+</em><br />
+<em class="quotelev1">&gt; discussion of this approach.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; b) Similarly, cell_method is applied to data variables but could be
+</em><br />
+<em class="quotelev1">&gt; inherited along with a coordinate variable.  This is less obviously
+</em><br />
+<em class="quotelev1">&gt; appropriate than the 1-D alternative coordinate, since the method is
+</em><br />
+<em class="quotelev1">&gt; being applied to the data not the axis, but I think it is still a
+</em><br />
+<em class="quotelev1">&gt; worthwhile convention for the default cell_method to be from the
+</em><br />
+<em class="quotelev1">&gt; coordinate variable (possibly replaced by an explicit cell_method for
+</em><br />
+<em class="quotelev1">&gt; a particular data set).  The example I am thinking of is when the
+</em><br />
+<em class="quotelev1">&gt; time axis represents (say) monthly means.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; c) I like the GDT absolute time convention, particularly &quot;day as %Y%m%d.%f&quot;.
+</em><br />
+<em class="quotelev1">&gt; This is much easier for humans to interpret than &quot;days since ....&quot;.  My
+</em><br />
+<em class="quotelev1">&gt; only problem with &quot;day as %Y%m%d.%f&quot; is that the &quot;%f&quot; isn't in (say) Unix
+</em><br />
+<em class="quotelev1">&gt; strftime.  I suggest adding this to CF, perhaps only as an alternative
+</em><br />
+<em class="quotelev1">&gt; coordinate for relative time dimensions (and perhaps only the &quot;day as ..&quot;
+</em><br />
+<em class="quotelev1">&gt; case for simplicity).
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; d) I suggest adding a new calendar: &quot;all_leap&quot; for perpetual modern leap
+</em><br />
+<em class="quotelev1">&gt; years.  Also &quot;365&quot; and &quot;366&quot; as alternative names for &quot;noleap&quot; and
+</em><br />
+<em class="quotelev1">&gt; &quot;all_leap&quot;.  We run several ocean models that use a 366-day model year
+</em><br />
+<em class="quotelev1">&gt; when forced with climatological winds.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; e) Ferret Release_Notes imply that &quot;360&quot; should be &quot;360day&quot; and that
+</em><br />
+<em class="quotelev1">&gt; &quot;days since 0001-...&quot; can only be used for a climatology (CF says this
+</em><br />
+<em class="quotelev1">&gt; must be &quot;days since 0000-...&quot;, and we use &quot;days since 0001-...&quot; for
+</em><br />
+<em class="quotelev1">&gt; ocean models forced by climatological winds).  Is this just a case of
+</em><br />
+<em class="quotelev1">&gt; Ferret tracking old versions of CF?  Are there any other general
+</em><br />
+<em class="quotelev1">&gt; purpose packages that already support, or will support, the CF
+</em><br />
+<em class="quotelev1">&gt; conventions?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Alan.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<br />-----------------------------------------------------------------
+<br />
+Brian Eaton                               | email: eaton at ucar.edu
+<br />
+Climate Modeling Section                  |
+<br />
+National Center for Atmospheric Research  |
+<br />
+P.O. Box 3000, Boulder, CO  80307         |
+<br />
+<span id="received"><dfn>Received on</dfn> Thu Mar 21 2002 - 11:29:08 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -119,13 +276,9 @@ Phone +44 1235 445012; Fax ... 5848; Web: home.badc.rl.ac.uk/lawrence
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0002.html" title="Next message in the list">Steve Hankin: "[CF-metadata] cf2 progress"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0000.html" title="Previous message in the list">Alexander C Ruane: "[CF-metadata] New standard names proposal for ECPC CEOP data"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0002.html" title="Next message in the list">Brian Eaton: "[CF-metadata] Re: CF Standard Names"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0000.html" title="Previous message in the list">Brian Eaton: "[CF-metadata] test"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0002.html" title="Next message in this discussion thread">Steve Hankin: "[CF-metadata] cf2 progress"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0002.html" title="Message sent in reply to this message">Steve Hankin: "[CF-metadata] cf2 progress"</a></li>
-<li><dfn>Reply</dfn>: <a href="./0008.html" title="Message sent in reply to this message">Bryan Lawrence: "[CF-metadata] cf2 progress"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -136,7 +289,7 @@ Phone +44 1235 445012; Fax ... 5848; Web: home.badc.rl.ac.uk/lawrence
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:42 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0000.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0002.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

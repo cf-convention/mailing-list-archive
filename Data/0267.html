@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] FGDC projection parameters not well documented from John Caron on 2006-10-04 (mailing-list-archive)</title>
-<meta name="Author" content="John Caron (caron)" />
-<meta name="Subject" content="[CF-metadata] FGDC projection parameters not well documented" />
-<meta name="Date" content="2006-10-04" />
+<title>[CF-metadata] proposed first non-beta version of CF from Brian Eaton on 2003-09-18 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Brian Eaton (eaton)" />
+<meta name="Subject" content="[CF-metadata] proposed first non-beta version of CF" />
+<meta name="Date" content="2003-09-18" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0266.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0268.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] FGDC projection parameters not well documented</h1>
-<!-- received="Wed Oct  4 13:43:39 2006" -->
-<!-- isoreceived="20061004124339" -->
-<!-- sent="Wed, 04 Oct 2006 13:43:39 -0600" -->
-<!-- isosent="20061004194339" -->
-<!-- name="John Caron" -->
-<!-- email="caron" -->
-<!-- subject="[CF-metadata] FGDC projection parameters not well documented" -->
-<!-- id="45240EEB.4020102_at_unidata.ucar.edu" -->
+<a style="text-decoration:none" href="./0266.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0268.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] proposed first non-beta version of CF</h1>
+<!-- received="Thu Sep 18 08:39:00 2003" -->
+<!-- isoreceived="20030918073900" -->
+<!-- sent="Thu, 18 Sep 2003 08:39:00 -0600" -->
+<!-- isosent="20030918143900" -->
+<!-- name="Brian Eaton" -->
+<!-- email="eaton" -->
+<!-- subject="[CF-metadata] proposed first non-beta version of CF" -->
+<!-- id="20030918143900.GP12280_at_ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="49F73BEED865D3119F8700902773C9F902D19294_at_exchange09.rl.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,9 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0268.html" accesskey="d" title="John Caron: &quot;[CF-metadata] question and time and standard_name...&quot;">Next message</a> ]
-[ <a href="./0266.html" title="Jonathan Gregory: &quot;[CF-metadata] question and time and standard_name...&quot;">Previous message</a> ]
+[ <a href="./0268.html" accesskey="d" title="Stephens, A: &quot;[CF-metadata] proposed first non-beta version of CF&quot;">Next message</a> ]
+[ <a href="./0266.html" title="Stephens, A: &quot;[CF-metadata] proposed first non-beta version of CF&quot;">Previous message</a> ]
+[ <a href="./0266.html" title="Stephens, A: &quot;[CF-metadata] proposed first non-beta version of CF&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0269.html" accesskey="t" title="John Caron: &quot;[CF-metadata] proposed first non-beta version of CF&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,52 +71,178 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20FGDC%20projection%20parameters%20not%20well%20documented">caron</a>&gt;
+<dfn>From</dfn>: Brian Eaton &lt;<a href="mailto:eaton?Subject=Re%3A%20%5BCF-metadata%5D%20proposed%20first%20non-beta%20version%20of%20CF">eaton</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 04 Oct 2006 13:43:39 -0600</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 18 Sep 2003 08:39:00 -0600</span><br />
 </address>
 <br />
-I know that we decided to use FGDC names for projection parameters, but there doesnt seem to be any further documentation or references in the FGDC-STD-001-1998 doc to explain them.
+Hi Ag,
 <br />
-<br />For example:
+<br />There is nothing missing from the convention for associating both forecast
 <br />
-<br />Polar stereographic
+and analysis times with a variable.  The only thing missing are some of the
 <br />
-<br />Map parameters:
+examples.  I did include one example in the new section 5.7 on scalar
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;* straight_vertical_longitude_from_pole
+coordinate variables.  That is (I think) the only new feature of relevance
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;* latitude_of_projection_origin - Either +90. or -90.
+for expressing forecast/analysis times.
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;* Either standard_parallel or scale_factor_at_projection_origin
+<br />Brian
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;* false_easting
+<br /><br />On Thu, Sep 18, 2003 at 09:05:44AM +0100, Stephens, A (Ag)  wrote:
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;* false_northing
-<br />
-<br /><br />The first parameter doesnt exactly match any proj4 names:
-<br />
-<br />Name 	Polar Stereographic
-<br />
-<br />Projection Parameters
-<br />
-<br />Latitude of natural origin 	1 	NatOriginLat 	latitude_of_origin 	Angular 	
-<br />
-Longitude of natural origin 	2 	StraightVertPoleLong 	central_meridian 	Angular 	
-<br />
-Scale factor at natural origin 	5 	ScaleAtNatOrigin 	scale_factor 	Unitless 	Not in original GeoTIFF ... I added for similarity with EPSG. Defaults to 1.0.
-<br />
-False Easting 	6 	FalseEasting 	false_easting 	Linear 	
-<br />
-False Northing 	7 	FalseNorthing 	false_northing 	Linear 	
-<br />
-<br /><br />I would assume &quot;straight_vertical_longitude_from_pole&quot; = &quot;Longitude of natural origin&quot; but the FGDC name seems poorly chosen, whats a &quot;vertical longitude?&quot;
-<br />
-<br />Also, one must choose &quot;standard_parallel&quot; or &quot;scale_factor_at_projection_origin&quot;. I would assume that one finds the scale factor that makes the distortion  at the standard_parallel = 1.0, but theres no docs that would explain that. Someone else might make a different assumption.
-<br />
-<br />Im thinking we need to start annotating the CF spec, unless someone knows where FGDC has documented all of this.
-<br />
-<span id="received"><dfn>Received on</dfn> Wed Oct 04 2006 - 13:43:39 BST</span>
+<em class="quotelev1">&gt; Dear Jonathan,
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Can I ask why the forecast time definition is not being included in this
+</em><br />
+<em class="quotelev1">&gt; release of CF?
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Kind regards,
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Ag
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; -----Original Message-----
+</em><br />
+<em class="quotelev2">&gt; &gt; From: Jonathan Gregory [mailto:j.m.gregory at reading.ac.uk]
+</em><br />
+<em class="quotelev2">&gt; &gt; Sent: 14 September 2003 07:45
+</em><br />
+<em class="quotelev2">&gt; &gt; To: cf-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt; &gt; Subject: [CF-metadata] proposed first non-beta version of CF
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; A new beta-release (1.0-beta5) of the CF standards document 
+</em><br />
+<em class="quotelev2">&gt; &gt; is now complete.
+</em><br />
+<em class="quotelev2">&gt; &gt; We propose that this version should become the first non-beta 
+</em><br />
+<em class="quotelev2">&gt; &gt; release of CF,
+</em><br />
+<em class="quotelev2">&gt; &gt; in early October. If you have any comments on things which 
+</em><br />
+<em class="quotelev2">&gt; &gt; should be corrected
+</em><br />
+<em class="quotelev2">&gt; &gt; or changed in this version, please make them to the email 
+</em><br />
+<em class="quotelev2">&gt; &gt; list by the end of
+</em><br />
+<em class="quotelev2">&gt; &gt; September. Once we have made a non-beta release, presumably 
+</em><br />
+<em class="quotelev2">&gt; &gt; we will not want
+</em><br />
+<em class="quotelev2">&gt; &gt; to make any backward-incompatible changes.
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; However, additions to the standard will of course continue. 
+</em><br />
+<em class="quotelev2">&gt; &gt; In beta5, many of
+</em><br />
+<em class="quotelev2">&gt; &gt; the changes which have been discussed and agreed on the email 
+</em><br />
+<em class="quotelev2">&gt; &gt; list have been
+</em><br />
+<em class="quotelev2">&gt; &gt; implemented, as described in the document listing changes 
+</em><br />
+<em class="quotelev2">&gt; &gt; between beta4 and
+</em><br />
+<em class="quotelev2">&gt; &gt; beta5, which can be found under the CF home page
+</em><br />
+<em class="quotelev2">&gt; &gt; (<a href="http://www.cgd.ucar.edu/cms/eaton/cf-metadata/">http://www.cgd.ucar.edu/cms/eaton/cf-metadata/</a>).
+</em><br />
+<em class="quotelev2">&gt; &gt; There remain some to be incorporated, in particular the 
+</em><br />
+<em class="quotelev2">&gt; &gt; treatment of forecast
+</em><br />
+<em class="quotelev2">&gt; &gt; time, and how to record operations such as covariance in 
+</em><br />
+<em class="quotelev2">&gt; &gt; cell_methods. There
+</em><br />
+<em class="quotelev2">&gt; &gt; are also some grid mappings which have to be added. Proposals 
+</em><br />
+<em class="quotelev2">&gt; &gt; for further
+</em><br />
+<em class="quotelev2">&gt; &gt; additions are welcome as usual on the email list. Work will 
+</em><br />
+<em class="quotelev2">&gt; &gt; start on a new
+</em><br />
+<em class="quotelev2">&gt; &gt; release once 1.0 is agreed.
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; The standard name table is now available in XML and linked 
+</em><br />
+<em class="quotelev2">&gt; &gt; from the standards
+</em><br />
+<em class="quotelev2">&gt; &gt; document. Its contents are the same as those of the HTML 
+</em><br />
+<em class="quotelev2">&gt; &gt; version under the
+</em><br />
+<em class="quotelev2">&gt; &gt; home page. The HTML version also has links to the guidelines for the
+</em><br />
+<em class="quotelev2">&gt; &gt; construction of standard names, and to tables of equivalences 
+</em><br />
+<em class="quotelev2">&gt; &gt; of standard
+</em><br />
+<em class="quotelev2">&gt; &gt; names with GRIB codes and AMIP names. The table will continue 
+</em><br />
+<em class="quotelev2">&gt; &gt; to be added to
+</em><br />
+<em class="quotelev2">&gt; &gt; as requested through the email list. There are a few standard 
+</em><br />
+<em class="quotelev2">&gt; &gt; names soon to be
+</em><br />
+<em class="quotelev2">&gt; &gt; added (on radiance and radiative forcing). There will be a 
+</em><br />
+<em class="quotelev2">&gt; &gt; large number of
+</em><br />
+<em class="quotelev2">&gt; &gt; additions arising from the EU PRISM project in the next few months.
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; Comments on this process or any aspect of the development of 
+</em><br />
+<em class="quotelev2">&gt; &gt; CF are welcome.
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; Jonathan Gregory
+</em><br />
+<em class="quotelev2">&gt; &gt; Brian Eaton
+</em><br />
+<em class="quotelev2">&gt; &gt; _______________________________________________
+</em><br />
+<em class="quotelev2">&gt; &gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev2">&gt; &gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt; &gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<span id="received"><dfn>Received on</dfn> Thu Sep 18 2003 - 08:39:00 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -121,9 +250,11 @@ False Northing 	7 	FalseNorthing 	false_northing 	Linear
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start267">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0268.html" title="Next message in the list">John Caron: "[CF-metadata] question and time and standard_name..."</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0266.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] question and time and standard_name..."</a></li>
+<li><dfn>Next message</dfn>: <a href="./0268.html" title="Next message in the list">Stephens, A: "[CF-metadata] proposed first non-beta version of CF"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0266.html" title="Previous message in the list">Stephens, A: "[CF-metadata] proposed first non-beta version of CF"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0266.html" title="Message to which this message replies">Stephens, A: "[CF-metadata] proposed first non-beta version of CF"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0269.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] proposed first non-beta version of CF"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -134,7 +265,7 @@ False Northing 	7 	FalseNorthing 	false_northing 	Linear
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:47 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0266.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0268.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

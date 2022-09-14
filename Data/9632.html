@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] same attribute name in variable and in global from David Hassell on 2019-03-27 (mailing-list-archive)</title>
-<meta name="Author" content="David Hassell (david.hassell)" />
-<meta name="Subject" content="[CF-metadata] same attribute name in variable and in global" />
-<meta name="Date" content="2019-03-27" />
+<title>[CF-metadata] how to	use ocean_mixed_layer_thickness_defined_by_* from Sebastien Villaume on 2018-04-10 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Sebastien Villaume (sebastien.villaume)" />
+<meta name="Subject" content="[CF-metadata] how to	use ocean_mixed_layer_thickness_defined_by_*" />
+<meta name="Date" content="2018-04-10" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./9631.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./9633.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] same attribute name in variable and in global</h1>
-<!-- received="Wed Mar 27 08:22:46 2019" -->
-<!-- isoreceived="20190327082246" -->
-<!-- sent="Wed, 27 Mar 2019 14:22:46 +0000" -->
-<!-- isosent="20190327142246" -->
-<!-- name="David Hassell" -->
-<!-- email="david.hassell" -->
-<!-- subject="[CF-metadata] same attribute name in variable and in global" -->
-<!-- id="CAEMt9PMca_+gsW3P-m2fc+xtK4MhrPqHxNZHzY7ht7=+-irjgA_at_mail.gmail.com" -->
+<a style="text-decoration:none" href="./9631.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./9633.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] how to	use ocean_mixed_layer_thickness_defined_by_*</h1>
+<!-- received="Tue Apr 10 04:36:21 2018" -->
+<!-- isoreceived="20180410033621" -->
+<!-- sent="Tue, 10 Apr 2018 10:36:21 +0000 (GMT-00:00)" -->
+<!-- isosent="20180410103621" -->
+<!-- name="Sebastien Villaume" -->
+<!-- email="sebastien.villaume" -->
+<!-- subject="[CF-metadata] how to	use ocean_mixed_layer_thickness_defined_by_*" -->
+<!-- id="328298765.3712474.1523356581797.JavaMail.zimbra_at_ecmwf.int" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="02047865DE893F45802A039AA761834E018F550432_at_WINVMSERV463.ad.smhi.se" -->
+<!-- inreplyto="20180406132418.GE11569_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./9633.html" accesskey="d" title="B&#0228;rring Lars: &quot;[CF-metadata] same attribute name in variable and in global&quot;">Next message</a> ]
-[ <a href="./9631.html" title="Signell, Richard: &quot;[CF-metadata] proposed migration of these discussions to GitHub&quot;">Previous message</a> ]
-[ <a href="./9618.html" title="B&#0228;rring Lars: &quot;[CF-metadata] same attribute name in variable and in global&quot;">In reply to</a> ]
+[ <a href="./9633.html" accesskey="d" title="Snaith, Helen M.: &quot;[CF-metadata] proposed new standard name for storm surge residual&quot;">Next message</a> ]
+[ <a href="./9631.html" title="Ethan Davis: &quot;[CF-metadata] Units of projection_x_coordinate values in &#0034;Geospatial projection&#0034;&quot;">Previous message</a> ]
+[ <a href="./9623.html" title="Jonathan Gregory: &quot;[CF-metadata] how to	use ocean_mixed_layer_thickness_defined_by_*&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./9633.html" accesskey="t" title="B&#0228;rring Lars: &quot;[CF-metadata] same attribute name in variable and in global&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,214 +70,546 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: David Hassell &lt;<a href="mailto:david.hassell?Subject=Re%3A%20%5BCF-metadata%5D%20same%20attribute%20name%20in%20variable%20and%20in%20global">david.hassell</a>&gt;
+<dfn>From</dfn>: Sebastien Villaume &lt;<a href="mailto:sebastien.villaume?Subject=Re%3A%20%5BCF-metadata%5D%20how%20to%09use%20ocean_mixed_layer_thickness_defined_by_*">sebastien.villaume</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 27 Mar 2019 14:22:46 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 10 Apr 2018 10:36:21 +0000 (GMT-00:00)</span><br />
 </address>
 <br />
-Hi Lars,
+Dear CF list,
 <br />
-<br />Thanks for bringing this up. Here is the background, as I understand it, to
+<br />I took a bit longer to write down the proposed definitions of these 3 standard names.
 <br />
-the data model description of global attributes.
+<br /><br />standard name: sea_water_temperature_difference 
 <br />
-<br />The conventions do not state rules for combining attributes that appear
+units: K
 <br />
-both globally and on variables; rightly so, because there is no generically
+description:
 <br />
-correct way to do it, even assuming that they are consistent. Which order
+Sea water temperature is the in situ temperature of the sea water. The standard name &quot;sea_water_temperature_difference&quot; can be used (as an auxiliary coordinate) together with the standard name &quot;ocean_mixed_layer_thickness_defined_by_temperature&quot; to define its temperature criterion.
 <br />
-to you concatenate strings? What if the attributes are numbers? Bearing
+<br /><br />standard name: sea_water_sigma_theta_difference
 <br />
-this in mind, and noting that i) variable attributes take precedence
+units: kg/m3
 <br />
-(whatever that means!) and ii) the data model has no concept of a file
+description:
 <br />
-(this is deliberate, as one of the aims of the data model is to transcend
+Sigma-theta of sea water is the potential density (i.e. the density when moved adiabatically to a reference pressure) of water having the same temperature and salinity, minus 1000 kg m-3. The standard name &quot;sea_water_sigma_theta_difference&quot; can be used (as an auxiliary coordinate) together with the standard name &quot;ocean_mixed_layer_thickness_defined_by_sigma_theta&quot; to define its sigma_theta criterion.
 <br />
-the file format), leads to the data model saying that &quot;*netCDF global file
+<br />standard name: sea_water_sigma_t_difference
 <br />
-attributes apply to every data variable in the file, except where they are
+units: kg/m3
 <br />
-superseded by netCDF data variable attributes with the same name.*&quot;
+description:
 <br />
-<br />There was some of interesting discussion on this, around 6 years ago, in
+Sigma-t of sea water is the density of water at atmospheric pressure (i.e. the surface) having the same temperature and salinity, minus 1000 kg m-3. The standard name &quot;sea_water_sigma_t_difference&quot; can be used (as an auxiliary coordinate) together with the standard name  &quot;ocean_mixed_layer_thickness_defined_by_sigma_t&quot; to define its sigma_t criterion.
 <br />
-Trac ticket #95 (starting at
+<br /><br />Alternatively, we could move the last sentence of each description to the respective &quot;ocean_mixed_layer_thickness_defined_by_*&quot; standard names to make that specific usage more explicit. We then keep a more general description for the new &quot;*_difference&quot; standard names.
 <br />
-<a href="https://cf-trac.llnl.gov/trac/ticket/95#comment:59">https://cf-trac.llnl.gov/trac/ticket/95#comment:59</a>). The current
+<br />/S?bastien
 <br />
-discussion, and the one in the Trac ticket, highlights that there are
+<br />----- Original Message -----
 <br />
-multiple interpretations of the conventions in common use, and that not all
-<br />
-of these interpretations are suitable for all users.
-<br />
-<br />Even though the data model interpretation has to be as described, this does
-<br />
-not preclude a software implementation of the data model from adding extra
-<br />
-functionality to record the provenance of attributes, or even combing
-<br />
-global/variable attributes in a particular manner. Software does this sort
-<br />
-of thing all the time, for example in remembering netCDF variable names,
-<br />
-which are also not part of the data model. For example, the cf-python
-<br />
-library will note which field properties were global attributes in a file
-<br />
-that it has read, so when you write the field back to disk it can create
-<br />
-the same global attributes (assuming there that no inconsistencies have
-<br />
-been introduced after the read ...).
-<br />
-<br />I hope this is useful,
-<br />
-<br />All the best,
-<br />
-David
-<br />
-<br />On Fri, 15 Mar 2019 at 12:48, B?rring Lars &lt;Lars.Barring at smhi.se&gt; wrote:
-<br />
-<br /><em class="quotelev1">&gt; Dear all,
+<em class="quotelev1">&gt; From: &quot;Jonathan Gregory&quot; &lt;j.m.gregory at reading.ac.uk&gt;
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; To: &quot;Sebastien Villaume&quot; &lt;sebastien.villaume at ecmwf.int&gt;
 </em><br />
-<em class="quotelev1">&gt; I have come across many CMIP5 files that have the same attribute [name]
+<em class="quotelev1">&gt; Cc: cf-metadata at cgd.ucar.edu, &quot;Lowry, Roy K.&quot; &lt;rkl at bodc.ac.uk&gt;
 </em><br />
-<em class="quotelev1">&gt; attached to the data variable as found in the globals.
+<em class="quotelev1">&gt; Sent: Friday, 6 April, 2018 14:24:18
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; Subject: Re: [CF-metadata] how to	use ocean_mixed_layer_thickness_defined_by_*
 </em><br />
-<em class="quotelev1">&gt; In particular it seems that CMOR was writing variable processing history
+<br /><em class="quotelev1">&gt; Dear Sebastien and Roy
 </em><br />
-<em class="quotelev1">&gt; attached to the variable, and more general file processing in the global
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; history.
+<em class="quotelev1">&gt; Thanks. I agree that it's a good idea to include sea_water_.
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; I have also seen that &quot;comment&quot; sometimes occur both as global and as
+<em class="quotelev1">&gt; Best wishes
 </em><br />
-<em class="quotelev1">&gt; variable attribute.
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; Jonathan
 </em><br />
-<em class="quotelev1">&gt; If such a duplication occurs, CF writes:
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; &quot;When an attribute appears both globally and as a variable attribute, the
+<em class="quotelev1">&gt; On Thu, Apr 05, 2018 at 07:04:26PM +0000, Sebastien Villaume wrote:
 </em><br />
-<em class="quotelev1">&gt; variable?s version has precedence.&quot;
+<em class="quotelev2">&gt;&gt; Date: Thu, 5 Apr 2018 19:04:26 +0000 (GMT-00:00)
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev2">&gt;&gt; From: Sebastien Villaume &lt;sebastien.villaume at ecmwf.int&gt;
 </em><br />
-<em class="quotelev1">&gt; My interpretation of this is that if there are contradictory information
+<em class="quotelev2">&gt;&gt; To: cf-metadata at cgd.ucar.edu
 </em><br />
-<em class="quotelev1">&gt; then the variable's attribute has precedence, but otherwise it does not
+<em class="quotelev2">&gt;&gt; Cc: Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt;, &quot;Lowry, Roy K.&quot;
 </em><br />
-<em class="quotelev1">&gt; invalidate or overshadows what is in the global attribute.
+<em class="quotelev2">&gt;&gt;  &lt;rkl at bodc.ac.uk&gt;
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev2">&gt;&gt; Subject: Re: [CF-metadata] how to	use
 </em><br />
-<em class="quotelev1">&gt; However, the data model presented in the GMD paper (
+<em class="quotelev2">&gt;&gt;  ocean_mixed_layer_thickness_defined_by_*
 </em><br />
-<em class="quotelev1">&gt; <a href="https://www.geosci-model-dev.net/10/4619/2017/">https://www.geosci-model-dev.net/10/4619/2017/</a> page 4629, [page 11],
+<em class="quotelev2">&gt;&gt; X-Mailer: Zimbra 8.6.0_GA_1200 (ZimbraWebClient - FF59
 </em><br />
-<em class="quotelev1">&gt; under &quot;4.1 The field construct&quot;) presents a more restrictive
+<em class="quotelev2">&gt;&gt;  (Linux)/8.6.0_GA_1200)
 </em><br />
-<em class="quotelev1">&gt; interpretation:
+<em class="quotelev2">&gt;&gt; 
 </em><br />
-<em class="quotelev1">&gt; &quot;In the data model, we consider that netCDF global file attributes apply
+<em class="quotelev2">&gt;&gt; Dear Jonathan and Roy,
 </em><br />
-<em class="quotelev1">&gt; to every data variable in the file, except where they are superseded by
+<em class="quotelev2">&gt;&gt; 
 </em><br />
-<em class="quotelev1">&gt; netCDF data variable attributes with the same name.&quot;
+<em class="quotelev2">&gt;&gt; thank you for your suggestions.
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev2">&gt;&gt; 
 </em><br />
-<em class="quotelev1">&gt; I understand this to mean that if the same attributes (e.g. comment or
+<em class="quotelev2">&gt;&gt; I am happy to go with a set of general standard names if it is fine with
 </em><br />
-<em class="quotelev1">&gt; history) is present both as global and variable attribute, then the global
+<em class="quotelev2">&gt;&gt; everyone. I find it actually useful to make the standard names reusable by not
 </em><br />
-<em class="quotelev1">&gt; attribute is overshadowed (as if it did not exist at all)?
+<em class="quotelev2">&gt;&gt; hard-coding one of the reference. It is pretty clear from the mixed layer
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev2">&gt;&gt; definition that it is a difference with respect to the sea surface.
 </em><br />
-<em class="quotelev1">&gt; Is this correct? If so, is this the best solution?
+<em class="quotelev2">&gt;&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev2">&gt;&gt; I am also happy to prefix sigma_theta and sigma_t with sea_water:
 </em><br />
-<em class="quotelev1">&gt; Would not concatenating the information contained in each (putting the
+<em class="quotelev2">&gt;&gt; 
 </em><br />
-<em class="quotelev1">&gt; variable text first) be a more appropriate way to resolve the situation
+<em class="quotelev2">&gt;&gt; sea_water_temperature_difference (K)
 </em><br />
-<em class="quotelev1">&gt; (and thus specify in the data model)?
+<em class="quotelev2">&gt;&gt; sea_water_sigma_theta_difference (kg/m3)
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev2">&gt;&gt; sea_water_sigma_t_difference (kg/m3)
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev2">&gt;&gt; 
 </em><br />
-<em class="quotelev1">&gt; Kind regards,
+<em class="quotelev2">&gt;&gt; I will draft some definitions for tomorrow.
 </em><br />
-<em class="quotelev1">&gt; Lars
+<em class="quotelev2">&gt;&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev2">&gt;&gt; thanks!
 </em><br />
-<em class="quotelev1">&gt; --
+<em class="quotelev2">&gt;&gt; 
 </em><br />
-<em class="quotelev1">&gt; Lars B?rring
+<em class="quotelev2">&gt;&gt; /S?bastien
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev2">&gt;&gt; 
 </em><br />
-<em class="quotelev1">&gt; FDr, Forskare
+<em class="quotelev2">&gt;&gt; ----- Original Message -----
 </em><br />
-<em class="quotelev1">&gt; PhD, Research Scientist
+<em class="quotelev3">&gt;&gt; &gt; From: &quot;Lowry, Roy K.&quot; &lt;rkl at bodc.ac.uk&gt;
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev3">&gt;&gt; &gt; To: cf-metadata at cgd.ucar.edu, &quot;Jonathan Gregory&quot; &lt;j.m.gregory at reading.ac.uk&gt;
 </em><br />
-<em class="quotelev1">&gt; SMHI  /  Swedish Meteorological and Hydrological Institute
+<em class="quotelev3">&gt;&gt; &gt; Sent: Thursday, 5 April, 2018 18:34:48
 </em><br />
-<em class="quotelev1">&gt; Rossby Centre
+<em class="quotelev3">&gt;&gt; &gt; Subject: Re: [CF-metadata] how to	use	ocean_mixed_layer_thickness_defined_by_*
 </em><br />
-<em class="quotelev1">&gt; SE - 601 76 NORRK?PING
+<em class="quotelev2">&gt;&gt; 
 </em><br />
-<em class="quotelev1">&gt; <a href="http://www.smhi.se">http://www.smhi.se</a>
+<em class="quotelev3">&gt;&gt; &gt; Dear Jonathan and Sebastien,
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev3">&gt;&gt; &gt; 
 </em><br />
-<em class="quotelev1">&gt; E-post / Email: lars.barring at smhi.se
+<em class="quotelev3">&gt;&gt; &gt; 
 </em><br />
-<em class="quotelev1">&gt; Tel / Phone: +46 (0)11 495 8604
+<em class="quotelev3">&gt;&gt; &gt; 
 </em><br />
-<em class="quotelev1">&gt; Fax: +46 (0)11 495 8001
+<em class="quotelev3">&gt;&gt; &gt; 
 </em><br />
-<em class="quotelev1">&gt; Bes?ksadress / Visiting address: Folkborgsv?gen 17
+<em class="quotelev3">&gt;&gt; &gt; I was initially thinking of not including ' _defining_mixed_layer' in my
 </em><br />
-<em class="quotelev1">&gt; _______________________________________________
+<em class="quotelev3">&gt;&gt; &gt; suggestion and am certainly happy with leaving it out. However, I still think
 </em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
+<em class="quotelev3">&gt;&gt; &gt; sigma_t and sigma_theta should be prefixed with 'sea_water'. This would give:
 </em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+<em class="quotelev3">&gt;&gt; &gt; 
 </em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+<em class="quotelev3">&gt;&gt; &gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev3">&gt;&gt; &gt; 
 </em><br />
-<br /><br /><pre>
--- 
-David Hassell
-National Centre for Atmospheric Science
-Department of Meteorology, University of Reading,
-Earley Gate, PO Box 243, Reading RG6 6BB
-Tel: +44 118 3785183
-<a href="http://www.met.reading.ac.uk/">http://www.met.reading.ac.uk/</a>
--------------- next part --------------
-An HTML attachment was scrubbed...
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20190327/3504e7b2/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20190327/3504e7b2/attachment.html</a>&gt;
-</pre>
-<span id="received"><dfn>Received on</dfn> Wed Mar 27 2019 - 08:22:46 GMT</span>
+<em class="quotelev3">&gt;&gt; &gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; sea_water_temperature_difference
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; sea_water_sigma_theta_difference
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; sea_water_sigma_t_difference
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; Cheers, Roy.
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; Please note that I partially retired on 01/11/2015. I am now only working 7.5
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; hours a week and can only guarantee e-mail response on Wednesdays, my day in
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; the office. All vocabulary queries should be sent to enquiries at bodc.ac.uk.
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; Please also use this e-mail if your requirement is urgent.
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; From: CF-metadata &lt;cf-metadata-bounces at cgd.ucar.edu&gt; on behalf of Jonathan
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; Gregory &lt;j.m.gregory at reading.ac.uk&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; Sent: 05 April 2018 18:28
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; To: cf-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; Subject: Re: [CF-metadata] how to use ocean_mixed_layer_thickness_defined_by_*
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; Dear Sebastien
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; It's interesting that this question hasn't been raised before. Thanks for doing
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; so now. I agree that new standard names would be appropriate. There are already
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; some standard names containing &quot;difference&quot; in various ways. I would suggest
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; that for your purpose the names don't have to be so specific. You could use
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; sea_water_temperature_difference
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; sigma_theta_difference
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; sigma_t_difference
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; because in the context of your use of them it is obvious what difference you
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; mean. That would make these names perhaps useful for other purposes too. This
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; is like the rather generic name
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; air_temperature_threshold
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; which doesn't indicate what the threshold can be used for. I would also suggest
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; that the definitions of the three kinds of mixed layer depth should have a
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; sentence added to say that the threshold should be stored in a coordinate var,
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; e.g. like the sentence for number_of_days_with_air_temperature_above_threshold.
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; Best wishes
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; Jonathan
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; ----- Forwarded message from Sebastien Villaume &lt;sebastien.villaume at ecmwf.int&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; -----
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; Date: Thu, 5 Apr 2018 13:55:50 +0000
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; From: Sebastien Villaume &lt;sebastien.villaume at ecmwf.int&gt;
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; To: CF Metadata &lt;cf-metadata at cgd.ucar.edu&gt;
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; Subject: Re: [CF-metadata] how to use
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; ocean_mixed_layer_thickness_defined_by_*
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; X-Mailer: Zimbra 8.6.0_GA_1200 (ZimbraWebClient - FF52 (Linux)/8.6.0_GA_1200)
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; Hi all,
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; It seems that my question did not attract much response. :(
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; Is it because no one knows how to use these standard names and properly encode
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; the &quot;quantity that differs from its surface value by a certain amount&quot;?
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; Giving it more thoughts I feel that I need new standard names to describe this
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; properly.
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; Would it make sense to describe it this way:
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; float swtd ;
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; swtd:standard_name = &quot;sea_water_temperature_difference_wrt_sea_surface&quot; ;
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; swtd:units = &quot;degC&quot; ;
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; swtd:axis = &quot;Z&quot; ;
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; swtd:positive = &quot;down&quot; ;
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; swtd:long_name = &quot;temperature difference wrt its surface value&quot;
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; float omlt(t, j, i) ;
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; omlt:standard_name = &quot;ocean_mixed_layer_thickness_defined_by_temperature&quot; ;
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; omlt:units = &quot;m&quot; ;
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; omlt:coordinates = &quot;time swtd1 latitude longitude&quot; ;
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; omlt:long_name = &quot;ocean mixed layer defined by difference of temperature from
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; surface&quot;
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; and the scalar value swtd can be 0.5 degC, 1.0 degC, etc.
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; In this case, I need standard names working with temperature, sigma_theta and
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; sigma_t:
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; sea_water_temperature_difference_wrt_sea_surface
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; sigma_theta_difference_wrt_sea_surface
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; sigma_t_difference_wrt_sea_surface
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; any quick suggestions are very welcome!
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; thanks
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; /S?bastien
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; ----- Original Message -----
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; From: &quot;Sebastien Villaume&quot; &lt;sebastien.villaume at ecmwf.int&gt;
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; To: &quot;CF Metadata&quot; &lt;cf-metadata at cgd.ucar.edu&gt;
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; Sent: Wednesday, 4 April, 2018 14:04:42
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; Subject: [CF-metadata] how to use ocean_mixed_layer_thickness_defined_by_*
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; 
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; Dear list,
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; 
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; I have a question regarding the use of the standard names of the form
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; ocean_mixed_layer_thickness_defined_by_*
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; 
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; the definition from the official standard name table is:
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; 
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; &quot;The ocean mixed layer is the upper part of the ocean, regarded as being
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; well-mixed. The base of the mixed layer defined by temperature, sigma or
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; sigma_theta is the level at which the quantity indicated differs from its
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; surface value by a certain amount.&quot;
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; 
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; From what I understand, in the case of
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; ocean_mixed_layer_thickness_defined_by_temperature, I should specify some
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; quantity as a scalar (Z axis), but it is actually a temperature difference that
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; I need to encode, not a plain temperature : temp_surf - temp_base_level =
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; temp_delta_defining_mixed_layer_thickness
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; 
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; if it was simply a temperature I would maybe use:
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; 
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; float swpt ;
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; swpt:standard_name = &quot;sea_water_potential_temperature&quot; ;
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; swpt:units = &quot;degC&quot; ;
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; swpt:axis = &quot;Z&quot; ;
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; swpt:positive = &quot;down&quot; ;
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; 
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; but what I really want to encode is a temperature difference. How can I specify
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; that? Is &quot;sea_water_potential_temperature&quot; the correct standard name to use?
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; 
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; 
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; same question for ocean_mixed_layer_thickness_defined_by_sigma_theta, how do I
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; encode a &quot;difference&quot; in sigma_theta?
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; 
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; thanks,
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; 
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; ____________________________________
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; 
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; Dr. S?bastien Villaume
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; 
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; M.A.R.S. Analyst
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; ECMWF Data Governance facilitator
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; 
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; ECMWF
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; Shinfield Park,
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; Reading RG2 9AX, UK
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; +44 (0)118 949 9301
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; +44 (0)7825 521592
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; sebastien.villaume at ecmwf.int
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; ____________________________________
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt;&gt; &gt;&gt; &gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt;	
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; CF-metadata Info Page - mailman.cgd.ucar.edu
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; mailman.cgd.ucar.edu
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; This is an unmoderated list for discussions about interpretation, clarification,
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; and proposals for extensions or change to the CF conventions.
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; _______________________________________________
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev4">&gt;&gt; &gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; ----- End forwarded message -----
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; _______________________________________________
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; This message (and any attachments) is for the recipient only. NERC is subject to
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; the Freedom of Information Act 2000 and the contents of this email and any
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; reply you make may be disclosed by NERC unless it is exempt from release under
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; the Act. Any material supplied to NERC may be stored in an electronic records
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; management system .
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; _______________________________________________
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev3">&gt;&gt; &gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<span id="received"><dfn>Received on</dfn> Tue Apr 10 2018 - 04:36:21 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -287,13 +617,10 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start9632">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./9633.html" title="Next message in the list">B&#0228;rring Lars: "[CF-metadata] same attribute name in variable and in global"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./9631.html" title="Previous message in the list">Signell, Richard: "[CF-metadata] proposed migration of these discussions to GitHub"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./9618.html" title="Message to which this message replies">B&#0228;rring Lars: "[CF-metadata] same attribute name in variable and in global"</a></li>
+<li><dfn>Next message</dfn>: <a href="./9633.html" title="Next message in the list">Snaith, Helen M.: "[CF-metadata] proposed new standard name for storm surge residual"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./9631.html" title="Previous message in the list">Ethan Davis: "[CF-metadata] Units of projection_x_coordinate values in &#0034;Geospatial projection&#0034;"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./9623.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] how to	use ocean_mixed_layer_thickness_defined_by_*"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./9633.html" title="Next message in this discussion thread">B&#0228;rring Lars: "[CF-metadata] same attribute name in variable and in global"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./9633.html" title="Message sent in reply to this message">B&#0228;rring Lars: "[CF-metadata] same attribute name in variable and in global"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -304,7 +631,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:34 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./9631.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./9633.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] what standard names are for from John Graybeal on 2008-04-10 (mailing-list-archive)</title>
-<meta name="Author" content="John Graybeal (graybeal)" />
-<meta name="Subject" content="[CF-metadata] what standard names are for" />
-<meta name="Date" content="2008-04-10" />
+<title>[CF-metadata] curvilinear cartesian coordinates case from Bert Jagers on 2006-11-28 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Bert Jagers (Bert.Jagers)" />
+<meta name="Subject" content="[CF-metadata] curvilinear cartesian coordinates case" />
+<meta name="Date" content="2006-11-28" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1313.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1315.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] what standard names are for</h1>
-<!-- received="Thu Apr 10 07:56:49 2008" -->
-<!-- isoreceived="20080410065649" -->
-<!-- sent="Thu, 10 Apr 2008 06:56:49 -0700" -->
-<!-- isosent="20080410135649" -->
-<!-- name="John Graybeal" -->
-<!-- email="graybeal" -->
-<!-- subject="[CF-metadata] what standard names are for" -->
-<!-- id="p06240844c423c982c3e8_at_[134.89.11.100]" -->
+<a style="text-decoration:none" href="./1313.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1315.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] curvilinear cartesian coordinates case</h1>
+<!-- received="Tue Nov 28 00:33:34 2006" -->
+<!-- isoreceived="20061128003334" -->
+<!-- sent="Tue, 28 Nov 2006 08:33:34 +0100" -->
+<!-- isosent="20061128073334" -->
+<!-- name="Bert Jagers" -->
+<!-- email="Bert.Jagers" -->
+<!-- subject="[CF-metadata] curvilinear cartesian coordinates case" -->
+<!-- id="004001c712bf$831f5270$22e40991_at_wl06377" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20080410073736.GA2127_at_met.reading.ac.uk" -->
+<!-- inreplyto="20061127212708.GE16920&#64;ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1315.html" accesskey="d" title="Roy Lowry: &quot;[CF-metadata] what standard names are for&quot;">Next message</a> ]
-[ <a href="./1313.html" title="Pamment, JA: &quot;[CF-metadata] Standard name table update 8 April 2008&quot;">Previous message</a> ]
-[ <a href="./1311.html" title="Jonathan Gregory: &quot;[CF-metadata] what standard names are for&quot;">In reply to</a> ]
+[ <a href="./1315.html" accesskey="d" title="Francisco Doblas-Reyes: &quot;[CF-metadata] Getting back to ensembles&quot;">Next message</a> ]
+[ <a href="./1313.html" title="Ethan Davis: &quot;[CF-metadata] Need help writing point netCDF 3 dataset&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./1320.html" accesskey="t" title="Steve Hankin: &quot;[CF-metadata] what standard names are for&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,121 +69,170 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: John Graybeal &lt;<a href="mailto:graybeal?Subject=Re%3A%20%5BCF-metadata%5D%20what%20standard%20names%20are%20for">graybeal</a>&gt;
+<dfn>From</dfn>: Bert Jagers &lt;<a href="mailto:Bert.Jagers?Subject=Re%3A%20%5BCF-metadata%5D%20curvilinear%20cartesian%20coordinates%20case">Bert.Jagers</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 10 Apr 2008 06:56:49 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 28 Nov 2006 08:33:34 +0100</span><br />
 </address>
 <br />
-Martin,
+Hi Brian,
 <br />
-<br />Roy's approach is of course practical and I should have thought to suggest it myself.
+<br /><em class="quotelev1">&gt; Thanks for the clarification.  We had not envisioned the case of the
+</em><br />
+<em class="quotelev1">&gt; projection coordinates being represented by auxiliary coordinate 
+</em><br />
+<em class="quotelev1">&gt; variables.
+</em><br />
+<em class="quotelev1">&gt; To support this use case I agree with your recommendation to move the
+</em><br />
+<em class="quotelev1">&gt; grid_mapping attribute to the appropriate auxiliary coordinate variables.
+</em><br />
+<em class="quotelev1">&gt; If this were done then the coordinates attribute of data variables can
+</em><br />
+<em class="quotelev1">&gt; point to all applicable coordinates.  For example:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; float waterlevel(TIME,M,N);
+</em><br />
+<em class="quotelev1">&gt;   waterlevel:long_name = &quot;water level&quot; ;
+</em><br />
+<em class="quotelev1">&gt;   waterlevel:units = &quot;M&quot; ;
+</em><br />
+<em class="quotelev1">&gt;   waterlevel:standard_name = &quot;sea_surface_height&quot; ;
+</em><br />
+<em class="quotelev1">&gt;   waterlevel:positive = &quot;up&quot; ;
+</em><br />
+<em class="quotelev1">&gt;   waterlevel:coordinates = &quot;z_lat z_lon zgrid_y_nl zgrid_x_nl zgrid_y_de 
+</em><br />
+<em class="quotelev1">&gt; zgrid_x_de&quot;;
+</em><br />
+<br /><br />Indeed, the CF conventions state that the true latitude and longitude 
 <br />
-<br />I may have misstated things in my earlier communication with you. I should have said 'if a term changes on either side, you'd have to relink that term; or if you have pointed to a particular version and wanted to be more current, you would have to repoint to the new version.'  While currently our OWL copies of the CF vocabulary are set up with respect to specific versions, it is also entirely possible to create a persisting relationship to a given term, if that needs to be supported.  (It's like a link to the nytimes.com site -- whenever you visit the page, you get _today's_ copy of the paper, not the copy from the day the link was made.)  You are obviously correct that this is most useful to many users.
+coordinates be supplied via the coordinates attribute, i.e. not the local 
 <br />
-<br />Roy, could you clarify whether your vocabulary mapping service links to specific versions of a vocabulary, to a 'generic' vocabulary, or is it the user's choice?
+coordinates. Basically, there are two options:
 <br />
-<br />As a general observation, I agree with Jonathan's architectural summary. It is possible to provide good and widely used mapping facilities from a central mapping service. It is much less likely that every community vocabulary provider (and there are many) can provide a wide variety of services that are needed by the vocabulary users.
+<br />1) as you indicate by specifying all auxiliary coordinates (according 
 <br />
-<br />John
+terminology section 1.2 of the conventions, also z_lat and z_lon are 
 <br />
-<br />At 8:37 AM +0100 4/10/08, Jonathan Gregory wrote:
+auxiliary coordinates) as part of the coordinates attribute. The 
 <br />
-<em class="quotelev1">&gt;Dear Martin
+grid_mapping associated with the coordinates should be used to uniquely 
+<br />
+identify coordinate pairs.
+<br />
+<br />2) let the reader search for compatible coordinates (dimensions match data) 
+<br />
+based on standard_names. The grid_mapping associated with the coordinates 
+<br />
+should be used to uniquely identify coordinate pairs.
+<br />
+<br />The first, approach would help the reader to find the relevant coordinate 
+<br />
+variables, but will probably break some of the current implementations 
+<br />
+(assuming only one coordinate pair in the coordinates attribute). The second 
+<br />
+option would require more effort by reader, but would allow you to keep the 
+<br />
+coordinates attribute to point to only the lat lon pair.
+<br />
+<br /><em class="quotelev1">&gt; and the projection coordinates are explicity associated with the
+</em><br />
+<em class="quotelev1">&gt; appropriate mapping, for example
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;I believe there used to be an xsd file for the standard_name xml file. Perhaps
+<em class="quotelev1">&gt; double zgrid_x_nl(M,N);
 </em><br />
-<em class="quotelev1">&gt;Velimir (copied) knows where it is?
+<em class="quotelev1">&gt;   zgrid_x_nl:long_name = &quot;grid cell centres, x-coordinate, EPSG19914&quot; ;
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt;   zgrid_x_nl:units = &quot;M&quot; ;
 </em><br />
-<em class="quotelev1">&gt;I sympathise with the need for equivalences to CF metadata and that is of
+<em class="quotelev1">&gt;   zgrid_x_nl:standard_name = &quot;projection_x_coordinate&quot; ;
 </em><br />
-<em class="quotelev1">&gt;course why the PCMDI and GRIB equivalences were set up in the first place.
+<em class="quotelev1">&gt;   zgrid_x_nl:grid_mapping = &quot;EPSG19914&quot; ;
 </em><br />
-<em class="quotelev1">&gt;However, I would say there are two reasons why putting equivalences in the
+<em class="quotelev1">&gt; double zgrid_y_nl(M,N);
 </em><br />
-<em class="quotelev1">&gt;standard_name xml file is not the best approach:
+<em class="quotelev1">&gt;   zgrid_y_nl:long_name = &quot;grid cell centres, y-coordinate, EPSG19914&quot; ;
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt;   zgrid_y_nl:units = &quot;M&quot; ;
 </em><br />
-<em class="quotelev1">&gt;* There is probably not a one-to-one correspondence between your variables
+<em class="quotelev1">&gt;   zgrid_y_nl:standard_name = &quot;projection_y_coordinate&quot; ;
 </em><br />
-<em class="quotelev1">&gt;and standard names. I expect some of your variables might imply other CF
+<em class="quotelev1">&gt;   zgrid_y_nl:grid_mapping = &quot;EPSG19914&quot; ;
 </em><br />
-<em class="quotelev1">&gt;metadata as well, as is the case with some of the PCMDI and GRIB codes. This
+<em class="quotelev1">&gt; double zgrid_x_de(M,N);
 </em><br />
-<em class="quotelev1">&gt;is not recorded in the standard_name xml file, but it is noted in the separate
+<em class="quotelev1">&gt;   zgrid_x_de:long_name = &quot;grid cell centres, x-coordinate, EPSG16362&quot; ;
 </em><br />
-<em class="quotelev1">&gt;tables for GRIB codes and PCMDI names at
+<em class="quotelev1">&gt;   zgrid_x_de:units = &quot;M&quot; ;
 </em><br />
-<em class="quotelev1">&gt;<a href="http://cf-pcmdi.llnl.gov/documents/cf-standard-names/">http://cf-pcmdi.llnl.gov/documents/cf-standard-names/</a>
+<em class="quotelev1">&gt;   zgrid_x_de:standard_name = &quot;projection_x_coordinate&quot; ;
 </em><br />
-<em class="quotelev1">&gt;e.g. tas means not just air_temperature, but implies a vertical coordinate.
+<em class="quotelev1">&gt;   zgrid_x_de:grid_mapping = &quot;EPSG16362&quot; ;
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; double zgrid_y_de(M,N);
 </em><br />
-<em class="quotelev1">&gt;* The equivalence between your variables and CF metadata is not really part
+<em class="quotelev1">&gt;   zgrid_y_de:long_name = &quot;grid cell centres, y-coordinate, EPSG16362&quot; ;
 </em><br />
-<em class="quotelev1">&gt;of the CF convention, although it facilitates the use of CF, and it seems a
+<em class="quotelev1">&gt;   zgrid_y_de:units = &quot;M&quot; ;
 </em><br />
-<em class="quotelev1">&gt;arbitrary to include equivalences to a selection of other conventions.
+<em class="quotelev1">&gt;   zgrid_y_de:standard_name = &quot;projection_y_coordinate&quot; ;
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt;   zgrid_y_de:grid_mapping = &quot;EPSG16362&quot; ;
 </em><br />
-<em class="quotelev1">&gt;As I mentioned, for these reasons I think we should remove the AMIP and PCMDI
+<br />That should work indeed.
+<br />
+<br /><em class="quotelev2">&gt;&gt; By the way should x_sea_water_velocity and y_sea_water_velocity be 
 </em><br />
-<em class="quotelev1">&gt;equivalences from the table. In any case, they are not being maintained and
+<em class="quotelev2">&gt;&gt; velocity
 </em><br />
-<em class="quotelev1">&gt;are out of date, and probably wrong for some GRIB codes.
+<em class="quotelev2">&gt;&gt; components in lat, lon directions or projection_x_coordinate and
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev2">&gt;&gt; projection_y_coordinate directions? I guess the former, if so, I would
 </em><br />
-<em class="quotelev1">&gt;I feel that a better approach is to have a separate xml/html table for the
+<em class="quotelev2">&gt;&gt; suggest renaming the components to east_sea_water_velocity and
 </em><br />
-<em class="quotelev1">&gt;equivalence between CF metadata (not just standard names, but standard name
-</em><br />
-<em class="quotelev1">&gt;+ other metadata, more like common concepts) and other metadata, one for each
-</em><br />
-<em class="quotelev1">&gt;standard (GRIB, AMIP, HTAP, aerocom, etc.). These tables could be linked to
-</em><br />
-<em class="quotelev1">&gt;the CF site and would not be upset by updates to the standard name table,
-</em><br />
-<em class="quotelev1">&gt;because we never *delete* standard names, so the equivalences would always
-</em><br />
-<em class="quotelev1">&gt;remain valid.  Do you think that would work?
+<em class="quotelev2">&gt;&gt; north_sea_water_velocity.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;I am sure that others have good ideas about this, having thought about mappings
+<em class="quotelev1">&gt; The x/y vector components refer to some rectangular grid other than a
 </em><br />
-<em class="quotelev1">&gt;and ontologies and how they should be maintained.
+<em class="quotelev1">&gt; lat/lon grid.  Since you've provided multiple projection coordinates for
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; the same values of the vector components I would guess that the vector
 </em><br />
-<em class="quotelev1">&gt;Best wishes
+<em class="quotelev1">&gt; component are relative to lat/lon coordinates rather than relative to one
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; of the two projection coordinates.  In this case the appropriate standard
 </em><br />
-<em class="quotelev1">&gt;Jonathan
+<em class="quotelev1">&gt; names are eastward_sea_water_velocity and westward_sea_water_velocity (but
 </em><br />
-<em class="quotelev1">&gt;_______________________________________________
+<em class="quotelev1">&gt; westward_sea_water_velocity is missing from the standard name table). 
 </em><br />
-<em class="quotelev1">&gt;CF-metadata mailing list
+<em class="quotelev1">&gt; Note
 </em><br />
-<em class="quotelev1">&gt;CF-metadata at cgd.ucar.edu
+<em class="quotelev1">&gt; also that the names x_sea_water_velocity and y_sea_water_velocity have 
 </em><br />
-<em class="quotelev1">&gt;<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+<em class="quotelev1">&gt; been
 </em><br />
-<br /><br /><pre>
--- 
-----------
-John Graybeal   &lt;mailto:graybeal at mbari.org&gt;  -- 831-775-1956
-Monterey Bay Aquarium Research Institute
-Marine Metadata Initiative: <a href="http://marinemetadata.org">http://marinemetadata.org</a>   ||  Shore Side Data System: <a href="http://www.mbari.org/ssds">http://www.mbari.org/ssds</a>
-</pre>
-<span id="received"><dfn>Received on</dfn> Thu Apr 10 2008 - 07:56:49 BST</span>
+<em class="quotelev1">&gt; updated to sea_water_x_velocity and sea_water_y_velocity.
+</em><br />
+<br />Okay thanks, great. I just realized there was an issue when I asked the 
+<br />
+question yesterday.
+<br />
+I should have checked the standard name list first.
+<br />
+<br />Best regards,
+<br />
+<br />Bert
+<br />
+<span id="received"><dfn>Received on</dfn> Tue Nov 28 2006 - 00:33:34 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -194,13 +240,9 @@ Marine Metadata Initiative: <a href="http://marinemetadata.org">http://marinemet
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1314">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1315.html" title="Next message in the list">Roy Lowry: "[CF-metadata] what standard names are for"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1313.html" title="Previous message in the list">Pamment, JA: "[CF-metadata] Standard name table update 8 April 2008"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./1311.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] what standard names are for"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1315.html" title="Next message in the list">Francisco Doblas-Reyes: "[CF-metadata] Getting back to ensembles"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1313.html" title="Previous message in the list">Ethan Davis: "[CF-metadata] Need help writing point netCDF 3 dataset"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./1320.html" title="Next message in this discussion thread">Steve Hankin: "[CF-metadata] what standard names are for"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./1320.html" title="Message sent in reply to this message">Steve Hankin: "[CF-metadata] what standard names are for"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -211,7 +253,7 @@ Marine Metadata Initiative: <a href="http://marinemetadata.org">http://marinemet
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:03 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1313.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1315.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

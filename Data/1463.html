@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] vertical coordinates from Ethan Davis on 2008-08-07 (mailing-list-archive)</title>
-<meta name="Author" content="Ethan Davis (edavis)" />
-<meta name="Subject" content="[CF-metadata] vertical coordinates" />
-<meta name="Date" content="2008-08-07" />
+<title>[CF-metadata] Indicating data lineage or provenance from Roy Lowry on 2007-01-06 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Roy Lowry (rkl)" />
+<meta name="Subject" content="[CF-metadata] Indicating data lineage or provenance" />
+<meta name="Date" content="2007-01-06" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1462.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1464.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] vertical coordinates</h1>
-<!-- received="Wed Aug  6 23:31:08 2008" -->
-<!-- isoreceived="20080806223108" -->
-<!-- sent="Wed, 06 Aug 2008 23:31:08 -0600" -->
-<!-- isosent="20080807053108" -->
-<!-- name="Ethan Davis" -->
-<!-- email="edavis" -->
-<!-- subject="[CF-metadata] vertical coordinates" -->
-<!-- id="489A889C.4030303_at_unidata.ucar.edu" -->
+<a style="text-decoration:none" href="./1462.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1464.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Indicating data lineage or provenance</h1>
+<!-- received="Sat Jan  6 09:20:15 2007" -->
+<!-- isoreceived="20070106092015" -->
+<!-- sent="Sat, 06 Jan 2007 16:20:15 +0000" -->
+<!-- isosent="20070106162015" -->
+<!-- name="Roy Lowry" -->
+<!-- email="rkl" -->
+<!-- subject="[CF-metadata] Indicating data lineage or provenance" -->
+<!-- id="s59fcc58.067_at_wpo.nerc.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="2bb6ee950808061405j41f42c09je2cde01029ac63ef_at_mail.gmail.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,10 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1464.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] vertical coordinates&quot;">Next message</a> ]
-[ <a href="./1462.html" title="Rich Signell: &quot;[CF-metadata] vertical coordinates&quot;">Previous message</a> ]
-[ <a href="./1460.html" title="Jon Blower: &quot;[CF-metadata] vertical coordinates&quot;">In reply to</a> ]
+[ <a href="./1464.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] aerosol and chemistry names - continuation&quot;">Next message</a> ]
+[ <a href="./1462.html" title="Francisco Doblas-Reyes: &quot;[CF-metadata] Getting back to ensembles&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./1465.html" accesskey="t" title="John Graybeal: &quot;[CF-metadata] Indicating data lineage or provenance&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,139 +70,121 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Ethan Davis &lt;<a href="mailto:edavis?Subject=Re%3A%20%5BCF-metadata%5D%20vertical%20coordinates">edavis</a>&gt;
+<dfn>From</dfn>: Roy Lowry &lt;<a href="mailto:rkl?Subject=Re%3A%20%5BCF-metadata%5D%20Indicating%20data%20lineage%20or%20provenance">rkl</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 06 Aug 2008 23:31:08 -0600</span><br />
+<span id="date"><dfn>Date</dfn>: Sat, 06 Jan 2007 16:20:15 +0000</span><br />
 </address>
 <br />
-Hi Jon,
+Dear All,
 <br />
-<br />I agree with your reading of the spec (that there is currently no way to 
+<br />This issue is also of great concern to the SeaDataNet project, particularly in the case where multiple operational centres have grabbed a common raw dataset off the GTS and processed it independently creating 'near duplicates', which are difficult to identify.  Standardised encoded provenance metadata has occurred to me as a possible solution tothis problem.
 <br />
-relate a vertical coordinate variable with a vertical datum) and Rich's 
+<br />We all seem to need the same thing, so I think collaboration is the order of the day.  Could this be a candidate for a CF Twiki project advertised to other interested communities?
 <br />
-suggestion that we need a new ticket for vertical datum.
+<br />Cheers, Roy.
 <br />
-<br />It seems there are (at least?) two ways to capture the vertical datum 
+<br /><em class="quotelev3">&gt;&gt;&gt; John Graybeal &lt;graybeal at mbari.org&gt; 01/05/07 12:47 AM &gt;&gt;&gt;
+</em><br />
+To provide some data in response to Mike's question, and then a question of my own:
 <br />
-information:
+<br />I, along with Maureen Edwards of the UK, are tasked by OceanSITES with presenting a nominal solution to provenance in netCDF. How far we can get, and how quickly, is definitely TBD, but the notion I have devolves to separate files. (Yes I do hate that, but provenance on a whole mooring system is pretty complicated to put into a netCDF file).  So I'd probably suggest a link (URL) from netCDF to a registered SensorML instance (registrations of which are being pursued on another project I'm involved with).  Similar to Mike's solution but with important differences.
 <br />
-<br />1) Extend the existing grid mapping/projection/CRS framework to include 
+<br />One point being, this is a more general problem than just model provenance. Observation and processing provenance is also desirable to represent in netCDF files.
 <br />
-a vertical datum id/name.
+<br />So the question is, how much of this does the CF standard want to take on directly, and how much does it want to defer to other standards or efforts?
 <br />
-2) Extend the existing vertical coordinate set of attributes to include 
+<br />(No I really didn't put Mike up to this, and he really is only 8 doors from me.  But neither of us knew...)
 <br />
-a vertical datum id/name.
+<br />John
 <br />
-<br />I prefer the second option because it keeps all the vertical information 
+<br />At 4:31 PM -0800 1/4/07, Godin, Michael wrote:
 <br />
-in one place and it also more easily allows two or more variables to be 
-<br />
-on the same horizontal CRS but different vertical CRS.
-<br />
-<br />However, the first option seems appealing in that the entire CRS would 
-<br />
-be in one location and if the vertical datum is an ellipsoid the 
-<br />
-existing attributes can be used (as Seth suggested).
-<br />
-<br />[Has anyone thought about how time might fit into all this CRS 
-<br />
-discussion? I haven't looked at ISO 19108 in awhile but it seems 
-<br />
-relevant if we want to consider temporal CRS. Should we consider that at 
-<br />
-the same time as vertical? Or should we keep that separate in the 
-<br />
-interest of not slowing down vertical CRS?]
-<br />
-<br />Ethan
-<br />
-<br />Jon Blower wrote:
-<br />
-<em class="quotelev1">&gt; Hi all,
+<em class="quotelev1">&gt;Content-class: urn:content-classes:message
+</em><br />
+<em class="quotelev1">&gt;Content-Type: multipart/alternative;
+</em><br />
+<em class="quotelev1">&gt;	boundary=&quot;=_reb-r50C4DCF4-t459D9D0C&quot;
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Looking through the CF conventions document (1.3) there seems to be no
+<em class="quotelev1">&gt;I am heartened by all the work this group has put into standardizing the metadata for representing multiple models as an ensemble.  However, a particularly thorny issue has been for the most part ignored (I think it has been called a &quot;nightmare&quot;), so I'd like to see if some of the list participants would be willing to work together to form a proposal for indicating the provenance of derived data (for example, initial conditions, larger nested grids, and assimilated data that go into models).
 </em><br />
-<em class="quotelev1">&gt; way to distinguish some of the possible vertical coordinate systems.
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; CF distinguishes dimensioned vertical coordinates (e.g. height or
+<em class="quotelev1">&gt;So here are the (draft) requirements that I believe need to be addressed:
 </em><br />
-<em class="quotelev1">&gt; depth in metres) from dimensionless coordinates (e.g. sigma) but does
+<em class="quotelev1">&gt;- derived data users need to be provided the information they need to understand the differences between data (covering the same temporal/spatial region) from different models and different realizations of the same model.
 </em><br />
-<em class="quotelev1">&gt; not seem to distinguish between the different possible heights/depths.
+<em class="quotelev1">&gt;- skeptics (public, governmental, other modelers, observationalists) should be able to request specific observational data that went into a model realization (granted, the request may be for data that would not otherwise be made publicly available).
 </em><br />
-<em class="quotelev1">&gt;  Here are a few possibilities that I think can't be distinguished in
+<em class="quotelev1">&gt;- the specification of source data should not only indicate the source data files (or URLs) and variables, but also the temporal/spatial/realization bounds on the supplied data. 
 </em><br />
-<em class="quotelev1">&gt; CF:
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt;I don't know if such a set of requirements can be addressed in a netCDF file, or if it would require a link to an external XML (or other format) file.  I am also unsure if any other community has solved the above set of requirements - both the OGC's Layer definition within their Web Map Context Document standard, and the FGDC's Lineage definition within their Content Standard for Digital Geospatial Metadata allow one to specify a lot of metadata about lineage and provenance, but neither really meets the requirements above. 
 </em><br />
-<em class="quotelev1">&gt; - Depth below the geoid (also, which geoid?)
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; - Depth below an ellipsoidal approximation of the earth (e.g. WGS84)
+<em class="quotelev1">&gt;My initial thought for doing this within a netCDF file would be to specify a global multi-line string attribute called something like &quot;lineage&quot; or &quot;provenance&quot; and populate it with a series of DAP2.0-like URIs (of course, this would not be global in the case of ensembles -- it would have to be a 3D set of strings!).  The DAP2.0 URIs would not have to be publicly accessible, and the syntax would have to allow combinations of hyperslab operators and queries -- which I do not believe any DAP server actually allows -- but would allow one to specify precise data ranges. 
 </em><br />
-<em class="quotelev1">&gt; - Depth below instantaneous sea surface (e.g. where depth is inferred
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; from pressure)
+<em class="quotelev1">&gt;Thanks for your consideration,
 </em><br />
-<em class="quotelev1">&gt; - Depth below a spherical approximation of the earth (used in many
-</em><br />
-<em class="quotelev1">&gt; models, I believe)
+<em class="quotelev1">&gt;Mike
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; (the same goes for heights of course)  Am I right or have I
-</em><br />
-<em class="quotelev1">&gt; misunderstood something?  To provide a case study, a colleague of mine
-</em><br />
-<em class="quotelev1">&gt; is combining ocean model results with other GIS data sources in order
-</em><br />
-<em class="quotelev1">&gt; to drive a high-resolution (50m in the horizontal) model of an
-</em><br />
-<em class="quotelev1">&gt; estuary.  The ocean model data files (which I think are CF-compliant)
-</em><br />
-<em class="quotelev1">&gt; don't give a vertical datum, and this leads to an uncertainty in
-</em><br />
-<em class="quotelev1">&gt; *horizontal* positioning of around 100m, which is two whole grid
-</em><br />
-<em class="quotelev1">&gt; cells!
+<em class="quotelev1">&gt;_____________________________________________
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; This problem is most marked, of course, in very high-resolution
-</em><br />
-<em class="quotelev1">&gt; studies - it's not likely to be too important for larger-scale work,
-</em><br />
-<em class="quotelev1">&gt; although it does seem important to be able to describe vertical
-</em><br />
-<em class="quotelev1">&gt; positioning as accurately as we can describe horizontal and temporal
-</em><br />
-<em class="quotelev1">&gt; positioning.
+<em class="quotelev1">&gt;Michael A. Godin
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Any thoughts?
-</em><br />
-<em class="quotelev1">&gt; Jon
+<em class="quotelev1">&gt;Software Engineer
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;   
+<em class="quotelev1">&gt;Monterey Bay Aquarium Research Institute
 </em><br />
-<br /><pre>
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;Phone: 831-775-2063  &lt;<a href="http://www.mbari.org/">http://www.mbari.org/</a>&gt;<a href="http://www.mbari.org">http://www.mbari.org</a>
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;_______________________________________________
+</em><br />
+<em class="quotelev1">&gt;CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt;CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt;<a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<br /><br /><pre>
 -- 
-Ethan R. Davis                                Telephone: (303) 497-8155
-Software Engineer                             Fax:       (303) 497-8690
-UCAR Unidata Program Center                   E-mail:    edavis at ucar.edu
-P.O. Box 3000
-Boulder, CO  80307-3000                       <a href="http://www.unidata.ucar.edu/">http://www.unidata.ucar.edu/</a>
----------------------------------------------------------------------------
+----------
+John Graybeal   &lt;mailto:graybeal at mbari.org&gt;  -- 831-775-1956
+Monterey Bay Aquarium Research Institute
+Marine Metadata Initiative: <a href="http://marinemetadata.org">http://marinemetadata.org</a>   ||  Shore Side Data System: <a href="http://www.mbari.org/ssds">http://www.mbari.org/ssds</a>
+_______________________________________________
+CF-metadata mailing list
+CF-metadata at cgd.ucar.edu
+<a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+-- 
+This message (and any attachments) is for the recipient only. NERC
+is subject to the Freedom of Information Act 2000 and the contents
+of this email and any reply you make may be disclosed by NERC unless
+it is exempt from release under the Act. Any material supplied to
+NERC may be stored in an electronic records management system.
 </pre>
-<span id="received"><dfn>Received on</dfn> Wed Aug 06 2008 - 23:31:08 BST</span>
+<span id="received"><dfn>Received on</dfn> Sat Jan 06 2007 - 09:20:15 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -210,10 +192,12 @@ Boulder, CO  80307-3000                       <a href="http://www.unidata.ucar.e
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1463">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1464.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] vertical coordinates"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1462.html" title="Previous message in the list">Rich Signell: "[CF-metadata] vertical coordinates"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./1460.html" title="Message to which this message replies">Jon Blower: "[CF-metadata] vertical coordinates"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1464.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] aerosol and chemistry names - continuation"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1462.html" title="Previous message in the list">Francisco Doblas-Reyes: "[CF-metadata] Getting back to ensembles"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./1465.html" title="Next message in this discussion thread">John Graybeal: "[CF-metadata] Indicating data lineage or provenance"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./1465.html" title="Message sent in reply to this message">John Graybeal: "[CF-metadata] Indicating data lineage or provenance"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -224,7 +208,7 @@ Boulder, CO  80307-3000                       <a href="http://www.unidata.ucar.e
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:07 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1462.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1464.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

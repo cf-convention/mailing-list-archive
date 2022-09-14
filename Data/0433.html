@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] species as species in chemical and	aerosol	names - &quot;mercury&quot; from Steve Hankin on 2006-11-14 (mailing-list-archive)</title>
+<title>[CF-metadata] from Steve Hankin on 2004-08-03 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="Steve Hankin (Steven.C.Hankin)" />
-<meta name="Subject" content="[CF-metadata] species as species in chemical and	aerosol	names - &quot;mercury&quot;" />
-<meta name="Date" content="2006-11-14" />
+<meta name="Subject" content="[CF-metadata]" />
+<meta name="Date" content="2004-08-03" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0432.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0434.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] species as species in chemical and	aerosol	names - &quot;mercury&quot;</h1>
-<!-- received="Tue Nov 14 11:31:59 2006" -->
-<!-- isoreceived="20061114113159" -->
-<!-- sent="Tue, 14 Nov 2006 10:31:59 -0800" -->
-<!-- isosent="20061114183159" -->
+<a style="text-decoration:none" href="./0432.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0434.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]</h1>
+<!-- received="Tue Aug  3 10:35:30 2004" -->
+<!-- isoreceived="20040803093530" -->
+<!-- sent="Tue, 03 Aug 2004 09:35:30 -0700" -->
+<!-- isosent="20040803163530" -->
 <!-- name="Steve Hankin" -->
 <!-- email="Steven.C.Hankin" -->
-<!-- subject="[CF-metadata] species as species in chemical and	aerosol	names - &quot;mercury&quot;" -->
-<!-- id="455A0B9F.4050505_at_noaa.gov" -->
+<!-- subject="[CF-metadata]" -->
+<!-- id="410FBED2.8E6154D9_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="s559775d.083_at_wpo.nerc.ac.uk" -->
+<!-- inreplyto="A0F7EBCCC8A02B4FB1677882DCBCDA3AA7F070&#64;msx1.gst.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +54,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0434.html" accesskey="d" title="Roy Lowry: &quot;[CF-metadata] species as species in chemical and	aerosol	names - &#0034;mercury&#0034;&quot;">Next message</a> ]
-[ <a href="./0432.html" title="Christiane Textor: &quot;[CF-metadata] aerosol water&quot;">Previous message</a> ]
-[ <a href="./0427.html" title="Roy Lowry: &quot;[CF-metadata] species as species in chemical and aerosol	names - &#0034;mercury&#0034;&quot;">In reply to</a> ]
+[ <a href="./0434.html" accesskey="d" title="John Caron: &quot;[CF-metadata] Units: absolute vs difference&quot;">Next message</a> ]
+[ <a href="./0432.html" title="Bob Bane: &quot;[CF-metadata]&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,282 +69,282 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Steve Hankin &lt;<a href="mailto:Steven.C.Hankin?Subject=Re%3A%20%5BCF-metadata%5D%20species%20as%20species%20in%20chemical%20and%09aerosol%09names%20-%20%22mercury%22">Steven.C.Hankin</a>&gt;
+<dfn>From</dfn>: Steve Hankin &lt;<a href="mailto:Steven.C.Hankin?Subject=Re%3A%20%5BCF-metadata%5D">Steven.C.Hankin</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 14 Nov 2006 10:31:59 -0800</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 03 Aug 2004 09:35:30 -0700</span><br />
 </address>
 <br />
-Hi Roy,
+Hi Bob,
 <br />
-<br />You've raised a question below that seems to merit further 
+<br />My impulse is to agree with Jonathan Gregory -- that in the conversion
 <br />
-conversation.  Has there been a systematic discussion of the trade-offs 
+to CF the auxiliary coordinate variables must become explicit and share
 <br />
-regarding name length?  While long names may add clarity in many cases 
+the dimension sizes with the measured variables.  Could your conversion
 <br />
-for purposes of data discovery and for simple interactions with the 
+program perform this calculation?  The down side is that the coordinate
 <br />
-data, they are a nuisance impediment to clarity when one starts to 
+variables may plump up in size to exceed the measured variable(s).
 <br />
-perform analysis on the data.  For example, even a simple ratio of two 
+<br />The issue highlights the compromises that occur when a single format is
 <br />
-variables becomes a confusing jumble of characters if the combined 
+conceived for both archival and interchange.  A solution in this case (a
 <br />
-expression is 800 characters long.  Very long names can make it 
+thought exercise) might be to build an OPeNDAP server that would read
 <br />
-difficult for a human to scan a long list of names, too.
+the HDF-EOS files (with in-built compression mechanisms such as the one
 <br />
-<br />You mention the use of a 50-byte-max abbreviation/alias.  Is such an 
+under discussion for efficient archival) and would output a CF-compliant
 <br />
-abbreviation required whenever the variable name length exceeds some 
+DAP representation (that can be read by the standard netCDF client API).
 <br />
-threshold?  If not, then should it be required?  (In the case of a CF 
+<br />&nbsp;&nbsp;&nbsp;&nbsp;- steve
 <br />
-file, this discussion may be framed a little differently.  As long as 
+<br />=============================================
 <br />
-the 400-character name is the &quot;standard_name&quot;, then an abbreviation 
+<br />Bob Bane wrote:
 <br />
-becomes implicit as the name of the variable, itself.  Maybe some 
-<br />
-good-practice style guidelines are in order ...)
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;- Steve
-<br />
-<br />==============================================
-<br />
-<br />Roy Lowry wrote:
-<br />
-<em class="quotelev1">&gt; Hi Christiane,
+<br /><em class="quotelev1">&gt; The increment and offset are scalars.  In HDF-EOS, by convention
+</em><br />
+<em class="quotelev1">&gt; either both of them are positive (meaning a small geolocation
+</em><br />
+<em class="quotelev1">&gt; dimension -&gt; larger data dimension) or both negative (large
+</em><br />
+<em class="quotelev1">&gt; geolocation -&gt; smaller data - I think they threw that one in for
+</em><br />
+<em class="quotelev1">&gt; generality, not that they ever expect to see it implemented).
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; In my experience attempts at brevity when describing complexity results in misunderstandings. Your example:
+<em class="quotelev1">&gt; If you have an offset of 1 and an increment of 2, then
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; surface_dry_deposition_mass_flux_of_particulate_organic_matter_dry_aerosol 
+<em class="quotelev1">&gt; Geoloc[0] has the value for Data[1] (0 * 2 + 1)
 </em><br />
-<em class="quotelev1">&gt; _expressed_as_mass_of_particulate_organic_matter
+<em class="quotelev1">&gt; Geoloc[1] has the value for Data[3] (1 * 2 + 1)
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; Geoloc[2] has the value for Data[5] (2 * 2 + 1)
 </em><br />
-<em class="quotelev1">&gt; appeals to me because I instantly feel I have an understanding of the parameter that is being described, whereas with more compact syntax I find myself asking the 'What is meant by....?' question.  I currently work with a 400-byte limit on full parameter discriptions accompanied by a 50-byte abbreviation.  The abbreviation is only used in situations where there is an inflexible limit on display space and wherever possible techniques such as hover text are used to provide access to the full name.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Cheers, Roy.
+<em class="quotelev1">&gt; etc. ...
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;   
+<em class="quotelev1">&gt; This gets nasty when you want to geolocate (say) Data[2] - I was going
 </em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; christiane.textor at gmx.de 11/14/2006 7:16 am &gt;&gt;&gt;
+<em class="quotelev1">&gt; to punt and do a linear interpolation, but my coworkers say I should
 </em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;         
-</em><br />
-<em class="quotelev1">&gt; Hi all,
+<em class="quotelev1">&gt; consider some sort of curve fit over more points.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Here is an explanation how the name was constructed: 
+<em class="quotelev1">&gt; Also, this is just the one-dimensional case - two-D will be most
 </em><br />
-<em class="quotelev1">&gt; surface_dry_deposition_mass_flux_of_mercury_expressed_as_mercury_dry_aerosol
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; substance (mercury_dry_aerosol)
-</em><br />
-<em class="quotelev1">&gt; process (surface dry deposition mass flux)
-</em><br />
-<em class="quotelev1">&gt; measure of mass (expressed as such, or expressed as mercury)
+<em class="quotelev1">&gt; common, and the HDF-EOS API supports N-dimensions.  My head hurts...
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;  &gt; surface_dry_deposition_mass_flux_of_mercury_via_dry_aerosol ?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; 'via' is not applicable here, because it refers to the deposition 
-</em><br />
-<em class="quotelev1">&gt; pathway, not to the substance.
+<em class="quotelev1">&gt;     - Bob
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;  &gt; replacing 'dry_aerosol' by 'in_dry_aerosol_phase' make the meaning 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; clearer?
+<em class="quotelev1">&gt; -----Original Message-----
+</em><br />
+<em class="quotelev1">&gt; From: Steve Hankin [mailto:Steven.C.Hankin at noaa.gov]
+</em><br />
+<em class="quotelev1">&gt; Sent: Mon 8/2/2004 1:21 PM
+</em><br />
+<em class="quotelev1">&gt; To: Bob Bane
+</em><br />
+<em class="quotelev1">&gt; Cc: cf-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; Subject: Re: [CF-metadata]
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; This suggests, that the component of interest (here mercury) is only a 
-</em><br />
-<em class="quotelev1">&gt; minor species within the total aerosol mass. This might apply to mercury 
-</em><br />
-<em class="quotelev1">&gt; but not to other species, e.g. sulfate. Therefore I would like to keep 
-</em><br />
-<em class="quotelev1">&gt; the name as it is.
+<em class="quotelev1">&gt; Hi Bob,
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;  &gt; mercury_dry_aerosol_expressed_as_such
+<em class="quotelev1">&gt; I'll start the conversation going, because I believe that several of
+</em><br />
+<em class="quotelev1">&gt; the
+</em><br />
+<em class="quotelev1">&gt; principals are off on vacations ...
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; I like this suggestion, but from the HTAP exercise I realize that there 
-</em><br />
-<em class="quotelev1">&gt; are still problems with the expression 'as_such'. I think it should 
-</em><br />
-<em class="quotelev1">&gt; rather be expressed_as_mass_of_mercury
+<em class="quotelev1">&gt; Can you clarify the key statement
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; surface_dry_deposition_mass_flux_of_mercury_dry_aerosol_expressed_as_mass_of_mercury
+<em class="quotelev1">&gt;      &quot;Swaths let you map data variables to geolocation variables,
+</em><br />
+<em class="quotelev1">&gt;      but they also allow the geolocation dimensions to be different
+</em><br />
+<em class="quotelev1">&gt;      sizes than the data dimensions - the mapping between the
+</em><br />
+<em class="quotelev1">&gt;      dimensions contain offset and increment values so that, in the
+</em><br />
+<em class="quotelev1">&gt;      one-dimensional case:
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; another expample
-</em><br />
-<em class="quotelev1">&gt; surface_dry_deposition_mass_flux_of_all_nitrogen_oxides_expressed_as_mass_of_nitrogen
+<em class="quotelev1">&gt;      Geoloc(i) is mapped to Data(i * increment + offset)&quot;
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; this can lead to very long names, e.g.
+<em class="quotelev1">&gt; In the example that you have given (&quot;Data(i * increment + offset)&quot;)
 </em><br />
-<em class="quotelev1">&gt; surface_dry_deposition_mass_flux_of_particulate_organic_matter_dry_aerosol 
+<em class="quotelev1">&gt; the
 </em><br />
-<em class="quotelev1">&gt; _expressed_as_mass_of_particulate_organic_matter
+<em class="quotelev1">&gt; transformation does not appear to have changed the dimensionality --
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; there is still the single index &quot;i&quot;.  Are &quot;increment&quot; or &quot;offset&quot;
 </em><br />
-<em class="quotelev1">&gt; but is very clear. What do you think?
+<em class="quotelev1">&gt; arrays
 </em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Christiane
+<em class="quotelev1">&gt; rather than scalars?
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;   
-</em><br />
-<em class="quotelev2">&gt;&gt; yours,
-</em><br />
-<em class="quotelev2">&gt;&gt; Ian
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Roy Lowry wrote:
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Might replacing 'dry_aerosol' by 'in_dry_aerosol_phase' make the meaning clearer?
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Roy.
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;   
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt;&gt;&gt;&gt;&gt; Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt; 11/11/2006 2:21 pm &gt;&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;&gt;&gt;&gt;&gt;         
-</em><br />
-<em class="quotelev2">&gt;&gt;&gt;&gt;&gt;&gt;             
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Dear Christiane
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;   
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; If I am interpreting the term &quot;expressed_as&quot; correctly, maybe this
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; should be:
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; surface_dry_deposition_mass_flux_of_mercury_dry_aerosol_expressed_as_mercury
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;&gt;           
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; when I wrote 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; mercury_expressed_as_such_dry_aerosol I was referring to the total 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; aerosol mass, not only the mercury contained in it. Is this unclear? 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;     
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;         
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Yes, I find &quot;expressed_as_such_dry_aerosol&quot; to be unclear. Now I understand
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; what you mean, though. But could you not just say
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; mercury_dry_aerosol_expressed_as_such?
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; I suppose that &quot;mercury dry aerosol&quot; is the name of a substance, and then
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; &quot;expressed_as_such&quot; is saying that you are measuring the mass of that
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; substance, which contrasts with &quot;expressed_as_mercury&quot;, when you are measuring
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; the mass of mercury it contains.
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; I wonder if that makes sense to other people.
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Best wishes
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Jonathan
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; _______________________________________________
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; CF-metadata at cgd.ucar.edu 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a> 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;   
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
+<em class="quotelev1">&gt;     thanks - steve
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
+<em class="quotelev1">&gt; ======================================================================
+</em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;   
+<em class="quotelev1">&gt; Bob Bane wrote:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; I'm in the middle of updating a program that converts HDF-EOS files
+</em><br />
+<em class="quotelev1">&gt; to
+</em><br />
+<em class="quotelev2">&gt; &gt; netCDF.  The old version is available here:
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; <a href="http://hdfeos.gsfc.nasa.gov/hdfeos/details.cfm?swID=84">http://hdfeos.gsfc.nasa.gov/hdfeos/details.cfm?swID=84</a>
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; It converts HDF-EOS5 files to netCDF, and attempts to preserve
+</em><br />
+<em class="quotelev1">&gt; COARDS
+</em><br />
+<em class="quotelev2">&gt; &gt; compliance (if the original file had COARDS-compatible metadata, so
+</em><br />
+<em class="quotelev2">&gt; &gt; will the new one).
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; The updated version is going to handle both HDF-EOS2 and HDF-EOS5
+</em><br />
+<em class="quotelev2">&gt; &gt; (which already works), and I now want to make it CF-compatible.  The
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; auxiliary coordinate variables conventions in particular look like a
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; good fit for the HDF-EOS Swath datatype, except for one thing.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; Swaths let you map data variables to geolocation variables, but they
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; also allow the geolocation dimensions to be different sizes than the
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; data dimensions - the mapping between the dimensions contain offset
+</em><br />
+<em class="quotelev2">&gt; &gt; and increment values so that, in the one-dimensional case:
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; Geoloc(i) is mapped to Data(i * increment + offset)
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; As near as I can tell from the CF spec, auxiliary coordinate
+</em><br />
+<em class="quotelev1">&gt; variables
+</em><br />
+<em class="quotelev2">&gt; &gt; must have the same size dimensions as their corresponding data
+</em><br />
+<em class="quotelev2">&gt; &gt; variables, so there's no way to translate a Swath to CF-compliant
+</em><br />
+<em class="quotelev2">&gt; &gt; netCDF without expanding and interpolating the gelocation variables
+</em><br />
+<em class="quotelev1">&gt; to
+</em><br />
+<em class="quotelev2">&gt; &gt; make them match the data dimensions.  Does this make sense, or am I
+</em><br />
+<em class="quotelev2">&gt; &gt; missing something?
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;     - Bob
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;    ----------------------------------------------------------------
+</em><br />
+<em class="quotelev2">&gt; &gt; _______________________________________________
+</em><br />
+<em class="quotelev2">&gt; &gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev2">&gt; &gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt; &gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev1">&gt; --
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Steve Hankin, NOAA/PMEL -- Steven.C.Hankin at noaa.gov
+</em><br />
+<em class="quotelev1">&gt; 7600 Sand Point Way NE, Seattle, WA 98115-0070
+</em><br />
+<em class="quotelev1">&gt; ph. (206) 526-6080, FAX (206) 526-6744
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
 </em><br />
 <br /><pre>
--- 
 --
 Steve Hankin, NOAA/PMEL -- Steven.C.Hankin at noaa.gov
 7600 Sand Point Way NE, Seattle, WA 98115-0070
 ph. (206) 526-6080, FAX (206) 526-6744
 -------------- next part --------------
 An HTML attachment was scrubbed...
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20061114/7f0dd8f2/attachment-0002.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20061114/7f0dd8f2/attachment-0002.html</a>&gt;
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20040803/24c319f3/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20040803/24c319f3/attachment.html</a>&gt;
+-------------- next part --------------
+An embedded message was scrubbed...
+From: Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt;
+Subject: RE: [CF-metadata]
+Date: Tue, 3 Aug 2004 16:18:37 +0100
+Size: 4088
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20040803/24c319f3/attachment.mht">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20040803/24c319f3/attachment.mht</a>&gt;
 </pre>
-<span id="received"><dfn>Received on</dfn> Tue Nov 14 2006 - 11:31:59 GMT</span>
+<span id="received"><dfn>Received on</dfn> Tue Aug 03 2004 - 10:35:30 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -353,9 +352,8 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start433">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0434.html" title="Next message in the list">Roy Lowry: "[CF-metadata] species as species in chemical and	aerosol	names - &#0034;mercury&#0034;"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0432.html" title="Previous message in the list">Christiane Textor: "[CF-metadata] aerosol water"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0427.html" title="Message to which this message replies">Roy Lowry: "[CF-metadata] species as species in chemical and aerosol	names - &#0034;mercury&#0034;"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0434.html" title="Next message in the list">John Caron: "[CF-metadata] Units: absolute vs difference"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0432.html" title="Previous message in the list">Bob Bane: "[CF-metadata]"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -367,7 +365,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:50 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0432.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0434.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

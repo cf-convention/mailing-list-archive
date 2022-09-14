@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] COARDS name for a time offset from John Caron on 2006-12-27 (mailing-list-archive)</title>
-<meta name="Author" content="John Caron (caron)" />
-<meta name="Subject" content="[CF-metadata] COARDS name for a time offset" />
-<meta name="Date" content="2006-12-27" />
+<title>[CF-metadata] What do models assume for the shape of the Eart h? from McCann, Mike on 2005-04-12 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="McCann, Mike (mccann)" />
+<meta name="Subject" content="[CF-metadata] What do models assume for the shape of the Eart h?" />
+<meta name="Date" content="2005-04-12" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0623.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0625.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] COARDS name for a time offset</h1>
-<!-- received="Wed Dec 27 15:06:56 2006" -->
-<!-- isoreceived="20061227150656" -->
-<!-- sent="Wed, 27 Dec 2006 14:06:56 -0800" -->
-<!-- isosent="20061227220656" -->
-<!-- name="John Caron" -->
-<!-- email="caron" -->
-<!-- subject="[CF-metadata] COARDS name for a time offset" -->
-<!-- id="4592EE80.8060008_at_unidata.ucar.edu" -->
+<a style="text-decoration:none" href="./0623.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0625.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] What do models assume for the shape of the Eart h?</h1>
+<!-- received="Tue Apr 12 11:17:59 2005" -->
+<!-- isoreceived="20050412101759" -->
+<!-- sent="Tue, 12 Apr 2005 10:17:59 -0700" -->
+<!-- isosent="20050412171759" -->
+<!-- name="McCann, Mike" -->
+<!-- email="mccann" -->
+<!-- subject="[CF-metadata] What do models assume for the shape of the Eart h?" -->
+<!-- id="4563BD9694236148B04C5A220ADBD48B0145BA88_at_stratus.shore.mbari.org" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20061223192319.GB12784_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0625.html" accesskey="d" title="John Caron: &quot;[CF-metadata] axis attribute&quot;">Next message</a> ]
-[ <a href="./0623.html" title="Jonathan Gregory: &quot;[CF-metadata] Getting back to ensembles&quot;">Previous message</a> ]
-[ <a href="./0617.html" title="Jonathan Gregory: &quot;[CF-metadata] COARDS name for a time offset&quot;">In reply to</a> ]
+[ <a href="./0625.html" accesskey="d" title="Gross, Tom: &quot;[CF-metadata] CF compliant Graphics?&quot;">Next message</a> ]
+[ <a href="./0623.html" title="John Caron: &quot;[CF-metadata] What do models assume for the shape of the Earth?&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0665.html" accesskey="t" title="Ed Armstrong: &quot;[CF-metadata] COARDS name for a time offset&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,132 +68,110 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20COARDS%20name%20for%20a%20time%20offset">caron</a>&gt;
+<dfn>From</dfn>: McCann, Mike &lt;<a href="mailto:mccann?Subject=Re%3A%20%5BCF-metadata%5D%20What%20do%20models%20assume%20for%20the%20shape%20of%20the%20Eart%20h%3F">mccann</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 27 Dec 2006 14:06:56 -0800</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 12 Apr 2005 10:17:59 -0700</span><br />
 </address>
 <br />
-Sorry my previous post was incomplete (trying to finish it as I walked 
+&nbsp;
 <br />
-out the door).
+<em class="quotelev1">&gt; Ok, so heres a summary of what I understand so far about this issue:
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 1. For geolocation of model data, calculating location using 
+</em><br />
+<em class="quotelev1">&gt; geodetic/geographic latitude which uses an ellipsoidal earth, 
+</em><br />
+<em class="quotelev1">&gt; versus using geocentric latitude which uses a spherical 
+</em><br />
+<em class="quotelev1">&gt; earth, can differ up to 20 km at mid-latitude. Differences of 
+</em><br />
+<em class="quotelev1">&gt; location using different ellispoids/datums can be as much as 
+</em><br />
+<em class="quotelev1">&gt; 300-500 m.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 2. Global models generally are not accurate enough to worry 
+</em><br />
+<em class="quotelev1">&gt; about these differences, and so can use any reasonable Earth 
+</em><br />
+<em class="quotelev1">&gt; shape. Since input data probably use geographic lat/lon 
+</em><br />
+<em class="quotelev1">&gt; locations, there may be some good reasons to prefer an 
+</em><br />
+<em class="quotelev1">&gt; ellisoidal model as default, such as WGS80.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 3. For regional and local models that need to be accurate at 
+</em><br />
+<em class="quotelev1">&gt; these resolutions, the assumed earth shape should be 
+</em><br />
+<em class="quotelev1">&gt; specified in the file metadata. CF intends to specify a 
+</em><br />
+<em class="quotelev1">&gt; standard for this.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Now to switch to more of my own thoughts:
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 1. Tentatively, i will probably assume WGS80 if not 
+</em><br />
+<em class="quotelev1">&gt; explicitly specified.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 2. We had already talked about adding some FGDC compliant 
+</em><br />
+<em class="quotelev1">&gt; &quot;earth shape&quot; 
+</em><br />
+<em class="quotelev1">&gt; parameters like semimajor axis and inverse flattening. this 
+</em><br />
+<em class="quotelev1">&gt; is worth finishing. These would be attached to the 
+</em><br />
+<em class="quotelev1">&gt; &quot;grid-mapping&quot; dummy variable that specifies the projection.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 3. We should allow an attribute that refers to the EPSG codes 
+</em><br />
+<em class="quotelev1">&gt; in the same place, whose value is any valid code from the EPSG table. 
+</em><br />
+<em class="quotelev1">&gt; Specialized clients will know how to interpret these codes. 
+</em><br />
+<em class="quotelev1">&gt; Best practice would be to also include explicitly the 
+</em><br />
+<em class="quotelev1">&gt; semimajor axis and inverse flattening, so less specialized 
+</em><br />
+<em class="quotelev1">&gt; clients can still get &quot;pretty good&quot; accuracy.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<br />John,
 <br />
-Try it again:
+<br />This all sounds good, but I think it's &quot;WGS84&quot; not &quot;WGS80&quot;.
 <br />
-<br />heres a Grid with 1D coordinates (list coordinates explicitly for clarity):
+<br />Should we make any effort in reusing some of the terminology for spatial reference frame and ellipsoid abbreviations that may be in use elsewhere?
 <br />
-<br />1)   short sea_surface_temperature(time, lat, lon) ;
+<br />We did this for GeoVRML and it has helped with allowing client applications to properly interpret the data.  Please see: <a href="http://www.geovrml.org/1.1/doc/defs.html">http://www.geovrml.org/1.1/doc/defs.html</a>.
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sea_surface_temperature:coordinates = &quot;lon lat time&quot; ;
+<br />-Mike
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float lat(lat) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float lon(lon) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int time(time) ;
-<br />
-<br />heres a Grid with 2D lat/lon coordinates:
-<br />
-<br />2)    short sea_surface_temperature( time, nj, ni) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sea_surface_temperature:coordinates = &quot;lon lat time&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float lat(nj, ni) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float lon(nj, ni) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int time(time) ;
-<br />
-<br />we were thinking that this is a Swath:
-<br />
-<br />3)    short sea_surface_temperature( nj, ni) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sea_surface_temperature:coordinates = &quot;lon lat time&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float lat(nj, ni) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float lon(nj, ni) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int time(nj, ni) ;
-<br />
-<br />the difference being that Swaths have a 2D time coordinate.
-<br />
-<br />Now consider
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short sea_surface_temperature( timeRef, nj, ni) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sea_surface_temperature:coordinates = &quot;lon lat&quot; ;
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int timeRef(timeRef) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timeRef:long_name = &quot;reference time of sst file&quot; ;
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short sst_dtime(time, nj, ni) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sst_dtime:long_name = &quot;time difference from reference 
-<br />
-time&quot; ;
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float lat(nj, ni) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float lon(nj, ni) ;
-<br />
-<br />As it is written, the coordinate system for sea_surface_temperature is 
-<br />
-(lat, lon, timeRef). This looks like a Grid with 2D lat/lon coordinates 
-<br />
-(case 2 above). There is no reference to sst_dtime
-<br />
-<br />But I suppose its more accurate to see it as a swath:
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short sea_surface_temperature( nj, ni) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sea_surface_temperature:coordinates = &quot;lon lat sst_dtime&quot; ;
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short sst_dtime(time, nj, ni) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sst_dtime:long_name = &quot;time difference from reference time&quot;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sst_dtime:formula = &quot;timeRef + sst_dtime&quot; ;
-<br />
-<br />where I have imagined that we have come up with some convention for 
-<br />
-calculating the time coordinate values.
-<br />
-<br />Im guessing it is useful to see it as a Grid (ignore 2D time) or a Swath 
-<br />
-(ignore 1D time). Because the lat/lon coordinates are the same for each 
-<br />
-timeRef coordinate, it seems to me to really be a hybrid of the 2.
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short sea_surface_temperature( timeRef, nj, ni) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sea_surface_temperature:coordinates = &quot;lon lat timeRef 
-<br />
-sst_dtime&quot; ;
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int timeRef(timeRef) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timeRef:long_name = &quot;reference time of sst file&quot; ;
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short sst_dtime(time, nj, ni) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sst_dtime:long_name = &quot;time difference from reference 
-<br />
-time&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sst_dtime:formula = &quot;timeRef + sst_dtime&quot; ;
-<br />
-<br />It would seem that there are 2 time coordinates, an approximate time for 
-<br />
-showing the data as a Grid, and an actual &quot;pixel-by-pixel&quot; time.
-<br />
-<br />Ed, can you tell us more about this dataset? Its derived from Swath 
-<br />
-data, and resampled? to a fixed lat/lon array? What causes the constant 
-<br />
-offsets of different variables? Does each variable have a different offset?
-<br />
-<span id="received"><dfn>Received on</dfn> Wed Dec 27 2006 - 15:06:56 GMT</span>
+<br /><pre>
+--
+Mike McCann (mccann at mbaridotorg)
+GeoSpatial working group, Web 3D Consortium
+Monterey Bay Aquarium Research Institute
+7700 Sandholdt Road
+Moss Landing, CA 95039-9644
+Voice: (831) 775-1769  <a href="http://www.web3d.org/">http://www.web3d.org/</a>
+ 
+</pre>
+<span id="received"><dfn>Received on</dfn> Tue Apr 12 2005 - 11:17:59 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -205,13 +179,9 @@ offsets of different variables? Does each variable have a different offset?
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start624">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0625.html" title="Next message in the list">John Caron: "[CF-metadata] axis attribute"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0623.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Getting back to ensembles"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0617.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] COARDS name for a time offset"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0625.html" title="Next message in the list">Gross, Tom: "[CF-metadata] CF compliant Graphics?"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0623.html" title="Previous message in the list">John Caron: "[CF-metadata] What do models assume for the shape of the Earth?"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0665.html" title="Next message in this discussion thread">Ed Armstrong: "[CF-metadata] COARDS name for a time offset"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0665.html" title="Message sent in reply to this message">Ed Armstrong: "[CF-metadata] COARDS name for a time offset"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -222,7 +192,7 @@ offsets of different variables? Does each variable have a different offset?
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:53 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0623.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0625.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

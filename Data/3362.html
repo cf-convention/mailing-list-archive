@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] udunits time unit question from John Caron on 2011-03-25 (mailing-list-archive)</title>
-<meta name="Author" content="John Caron (caron)" />
-<meta name="Subject" content="[CF-metadata] udunits time unit question" />
-<meta name="Date" content="2011-03-25" />
+<title>[CF-metadata]  Units micro prefix &quot;u&quot; deprecated in udunits-2 from Julien Demaria on 2010-03-26 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Julien Demaria (julien.demaria)" />
+<meta name="Subject" content="[CF-metadata]  Units micro prefix &quot;u&quot; deprecated in udunits-2" />
+<meta name="Date" content="2010-03-26" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./3361.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3363.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] udunits time unit question</h1>
-<!-- received="Fri Mar 25 16:54:16 2011" -->
-<!-- isoreceived="20110325165416" -->
-<!-- sent="Fri, 25 Mar 2011 22:54:16 -0000" -->
-<!-- isosent="20110325225416" -->
-<!-- name="John Caron" -->
-<!-- email="caron" -->
-<!-- subject="[CF-metadata] udunits time unit question" -->
-<!-- id="4D8D1D15.9080209_at_unidata.ucar.edu" -->
+<a style="text-decoration:none" href="./3361.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3363.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  Units micro prefix &quot;u&quot; deprecated in udunits-2</h1>
+<!-- received="Fri Mar 26 05:38:03 2010" -->
+<!-- isoreceived="20100326053803" -->
+<!-- sent="Fri, 26 Mar 2010 12:38:03 +0100" -->
+<!-- isosent="20100326113803" -->
+<!-- name="Julien Demaria" -->
+<!-- email="julien.demaria" -->
+<!-- subject="[CF-metadata]  Units micro prefix &quot;u&quot; deprecated in udunits-2" -->
+<!-- id="4BAC9C9B.4050802_at_acri-st.fr" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4D889BC0.5010104_at_unidata.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +53,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./3363.html" accesskey="d" title="John Caron: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">Next message</a> ]
-[ <a href="./3361.html" title="Steve Hankin: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">Previous message</a> ]
-[ <a href="./3346.html" title="John Caron: &quot;[CF-metadata] udunits time unit question&quot;">In reply to</a> ]
+[ <a href="./3363.html" accesskey="d" title="Andrew Clegg: &quot;[CF-metadata] Units micro prefix &#0034;u&#0034; deprecated in udunits-2&quot;">Next message</a> ]
+[ <a href="./3361.html" title="beate.geyer at gkss.de: &quot;[CF-metadata] proposals for two new standard_names&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./3364.html" accesskey="t" title="Benno Blumenthal: &quot;[CF-metadata] udunits time unit question&quot;">Next in thread</a> ]
+[ <a href="./3363.html" accesskey="t" title="Andrew Clegg: &quot;[CF-metadata] Units micro prefix &#0034;u&#0034; deprecated in udunits-2&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,62 +70,40 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20udunits%20time%20unit%20question">caron</a>&gt;
+<dfn>From</dfn>: Julien Demaria &lt;<a href="mailto:julien.demaria?Subject=Re%3A%20%5BCF-metadata%5D%20%20Units%20micro%20prefix%20%22u%22%20deprecated%20in%20udunits-2">julien.demaria</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 25 Mar 2011 22:54:16 -0000</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 26 Mar 2010 12:38:03 +0100</span><br />
 </address>
 <br />
-On 3/22/2011 6:53 AM, John Caron wrote:
+Hi,
 <br />
-<em class="quotelev1">&gt; Consider:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;    int time(sample=1001);
-</em><br />
-<em class="quotelev1">&gt;      :long_name = &quot;Measurement time&quot;;
-</em><br />
-<em class="quotelev1">&gt;      :standard_name = &quot;time&quot;;
-</em><br />
-<em class="quotelev1">&gt;      :units = &quot;days since 1970-01-01&quot;;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; vs
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;    int time(sample=1001);
-</em><br />
-<em class="quotelev1">&gt;      :long_name = &quot;Measurement time&quot;;
-</em><br />
-<em class="quotelev1">&gt;      :standard_name = &quot;time&quot;;
-</em><br />
-<em class="quotelev1">&gt;      :units = &quot;3 days since 1970-01-01&quot;;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; values = 1, 2, 3, ...
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; are these equivalent or does the second one mean every 3 days ? Is the 
-</em><br />
-<em class="quotelev1">&gt; second one illegal ?
-</em><br />
-<br />Im am going to assume that the second form is illegal, that is, you may 
+<br />I found the &quot;u&quot; micro prefix abbreviation in the current CF-1.4 
 <br />
-not have a number in front of the unit in a &quot;time coordinate unit&quot; (CF 
+documentation on units:
 <br />
-section 4.4)
+<a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.4/cf-conventions.html#units">http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.4/cf-conventions.html#units</a>
 <br />
--------------- next part --------------
+<br />but it seems this prefix is not available in the last udunits-2 
 <br />
-An HTML attachment was scrubbed...
+(udunits-1 is now deprecated)
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20110325/2619f0a3/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20110325/2619f0a3/attachment-0001.html</a>&gt;
+<br />and in udunits-2 they break backward compatibility because the &quot;u&quot; 
 <br />
-<span id="received"><dfn>Received on</dfn> Fri Mar 25 2011 - 16:54:16 GMT</span>
+symbol is now used for a new unit &quot;unified_atomic_mass_unit&quot;, see in
+<br />
+<a href="http://www.unidata.ucar.edu/software/udunits/udunits-2/udunits2-accepted.xml">http://www.unidata.ucar.edu/software/udunits/udunits-2/udunits2-accepted.xml</a>
+<br />
+<a href="http://www.unidata.ucar.edu/software/udunits/udunits-2/udunits2-prefixes.xml">http://www.unidata.ucar.edu/software/udunits/udunits-2/udunits2-prefixes.xml</a>
+<br />
+<br />So what is the position of the CF community concerning this point, is 
+<br />
+the &quot;u&quot; micro prefix CF-1.4 compliant or not?
+<br />
+<br /><br />Thanks in advance,
+<br />
+<br />Julien
+<br />
+<span id="received"><dfn>Received on</dfn> Fri Mar 26 2010 - 05:38:03 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -135,14 +111,12 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start3362">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./3363.html" title="Next message in the list">John Caron: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./3361.html" title="Previous message in the list">Steve Hankin: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./3346.html" title="Message to which this message replies">John Caron: "[CF-metadata] udunits time unit question"</a></li>
+<li><dfn>Next message</dfn>: <a href="./3363.html" title="Next message in the list">Andrew Clegg: "[CF-metadata] Units micro prefix &#0034;u&#0034; deprecated in udunits-2"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./3361.html" title="Previous message in the list">beate.geyer at gkss.de: "[CF-metadata] proposals for two new standard_names"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./3364.html" title="Next message in this discussion thread">Benno Blumenthal: "[CF-metadata] udunits time unit question"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./3363.html" title="Next message in this discussion thread">Andrew Clegg: "[CF-metadata] Units micro prefix &#0034;u&#0034; deprecated in udunits-2"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./3364.html" title="Message sent in reply to this message">Benno Blumenthal: "[CF-metadata] udunits time unit question"</a></li>
-<li><dfn>Reply</dfn>: <a href="./3386.html" title="Message sent in reply to this message">Don Murray: "[CF-metadata] udunits time unit question"</a></li>
+<dfn>Reply</dfn>: <a href="./3363.html" title="Message sent in reply to this message">Andrew Clegg: "[CF-metadata] Units micro prefix &#0034;u&#0034; deprecated in udunits-2"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -153,7 +127,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:43 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./3361.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3363.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

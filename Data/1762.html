@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF standard names for echam5-hammoz model (aerosol-chemistry-climate) from Jonathan Gregory on 2008-11-07 (mailing-list-archive)</title>
+<title>[CF-metadata]  CF-metadata Digest - cell method change... from Jonathan Gregory on 2007-07-12 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] CF standard names for echam5-hammoz model (aerosol-chemistry-climate)" />
-<meta name="Date" content="2008-11-07" />
+<meta name="Subject" content="[CF-metadata]  CF-metadata Digest - cell method change..." />
+<meta name="Date" content="2007-07-12" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1761.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1763.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF standard names for echam5-hammoz model (aerosol-chemistry-climate)</h1>
-<!-- received="Fri Nov  7 12:58:17 2008" -->
-<!-- isoreceived="20081107125817" -->
-<!-- sent="Fri, 7 Nov 2008 19:58:17 +0000" -->
-<!-- isosent="20081107195817" -->
+<a style="text-decoration:none" href="./1761.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1763.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  CF-metadata Digest - cell method change...</h1>
+<!-- received="Thu Jul 12 01:56:54 2007" -->
+<!-- isoreceived="20070712005654" -->
+<!-- sent="Thu, 12 Jul 2007 08:56:54 +0100" -->
+<!-- isosent="20070712075654" -->
 <!-- name="Jonathan Gregory" -->
 <!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] CF standard names for echam5-hammoz model (aerosol-chemistry-climate)" -->
-<!-- id="20081107195817.GE10635_at_met.reading.ac.uk" -->
+<!-- subject="[CF-metadata]  CF-metadata Digest - cell method change..." -->
+<!-- id="20070712075654.GA1221_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1763.html" accesskey="d" title="Philip J. Cameronsmith1: &quot;[CF-metadata] Modification of some existing CF standard names for chemical constituents&quot;">Next message</a> ]
-[ <a href="./1761.html" title="Jonathan Gregory: &quot;[CF-metadata]  medium &#0039;atmosphere&#0039;&quot;">Previous message</a> ]
+[ <a href="./1763.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] CF standard names for mercury in the gas phase&quot;">Next message</a> ]
+[ <a href="./1761.html" title="Jonathan Gregory: &quot;[CF-metadata] standard_names for aerosols and chemistry for HTAP: sources/sinks&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,48 +68,38 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20standard%20names%20for%20echam5-hammoz%20model%20(aerosol-chemistry-climate)">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20CF-metadata%20Digest%20-%20cell%20method%20change...">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 7 Nov 2008 19:58:17 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 12 Jul 2007 08:56:54 +0100</span><br />
 </address>
 <br />
-Dear Heinke
+Dear Martin
 <br />
-<br /><em class="quotelev1">&gt; New physical parameter would be:
-</em><br />
-<em class="quotelev1">&gt; atmosphere_number_content_of_X or atmosphere_X_number_content ?
-</em><br />
-<br />On grounds of intelligibility, I tend to think atmosphere_number_content_of_X
+<br />I agree with Karl and Seth. The concepts of a change over 3 h, and a rate of
 <br />
-would be better. It would also be consistent with atmosphere_mass_content_of_X.
+change averaged over 3 h, have the same practical purpose but they are not
 <br />
-<br /><em class="quotelev1">&gt; total_aerosol_ambient_absorption_optical_depth_at_550_nm
-</em><br />
-<br />I think that the 550 nm should not be in the standard name. We don't have
+identical in principle. The difference in principle is that the former is
 <br />
-numerical parameters in existing names because they can be put instead in
+extensive in time and the latter intensive. It's the same as the distinction
 <br />
-coordinate variables or scalar coordinate variables. In this case you could
+between a precipitation amount (kg m-2), which is extensive in time, and a
 <br />
-have a (scalar) coord var of radiation_wavelength to specify 550 nm.
+precipitation flux (kg m-2 s-1), which is intensive. In practice I think it
 <br />
-<br />Existing names have optical_thickness, not optical_depth. We have various
+is much clearer to use rates rather than changes, because amounts are not
 <br />
-names already in the table for optical thickness due to aerosol.
+at all useful unless you know the length of time involved. However for
 <br />
-<br />What is the significance of &quot;total&quot; in this proposed name?
+precipitation, at least, both rates and changes are in use, so we have to
 <br />
-<br /><em class="quotelev1">&gt; _due_to_sedimentation
-</em><br />
-<br />You define this as meaning deposition by gravitational settling. I would
+have clear ways to describe and distinguish them.
 <br />
-suggest that _due_to_gravitational_settling is a more understandable phrase.
-<br />
-<br />Best wishes
+<br />Cheers
 <br />
 <br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Fri Nov 07 2008 - 12:58:17 GMT</span>
+<span id="received"><dfn>Received on</dfn> Thu Jul 12 2007 - 01:56:54 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -117,8 +107,8 @@ suggest that _due_to_gravitational_settling is a more understandable phrase.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1762">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1763.html" title="Next message in the list">Philip J. Cameronsmith1: "[CF-metadata] Modification of some existing CF standard names for chemical constituents"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1761.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]  medium &#0039;atmosphere&#0039;"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1763.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] CF standard names for mercury in the gas phase"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1761.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] standard_names for aerosols and chemistry for HTAP: sources/sinks"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -130,7 +120,7 @@ suggest that _due_to_gravitational_settling is a more understandable phrase.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:12 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1761.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1763.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

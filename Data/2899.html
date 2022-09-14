@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] New standard names for satellite obs data from Russ Rew on 2010-10-20 (mailing-list-archive)</title>
-<meta name="Author" content="Russ Rew (russ)" />
-<meta name="Subject" content="[CF-metadata] New standard names for satellite obs data" />
-<meta name="Date" content="2010-10-20" />
+<title>[CF-metadata] dataset with both several vertical axis and timesteps from andrea antonello on 2009-06-10 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="andrea antonello (andrea.antonello)" />
+<meta name="Subject" content="[CF-metadata] dataset with both several vertical axis and timesteps" />
+<meta name="Date" content="2009-06-10" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2898.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2900.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] New standard names for satellite obs data</h1>
-<!-- received="Wed Oct 20 09:00:54 2010" -->
-<!-- isoreceived="20101020080054" -->
-<!-- sent="Wed, 20 Oct 2010 09:00:54 -0600" -->
-<!-- isosent="20101020150054" -->
-<!-- name="Russ Rew" -->
-<!-- email="russ" -->
-<!-- subject="[CF-metadata] New standard names for satellite obs data" -->
-<!-- id="4193.1287586854_at_buddy.unidata.ucar.edu" -->
+<a style="text-decoration:none" href="./2898.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2900.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] dataset with both several vertical axis and timesteps</h1>
+<!-- received="Wed Jun 10 07:05:06 2009" -->
+<!-- isoreceived="20090610060506" -->
+<!-- sent="Wed, 10 Jun 2009 15:05:06 +0200" -->
+<!-- isosent="20090610130506" -->
+<!-- name="andrea antonello" -->
+<!-- email="andrea.antonello" -->
+<!-- subject="[CF-metadata] dataset with both several vertical axis and timesteps" -->
+<!-- id="116eb44a0906100605n3f35ea29r891d4d7731c8180c_at_mail.gmail.com" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="ben.a.hetland_at_sintef.no" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2900.html" accesskey="d" title="Nan Galbraith: &quot;[CF-metadata] New standard names for satellite obs data&quot;">Next message</a> ]
-[ <a href="./2898.html" title="John Caron: &quot;[CF-metadata] New standard names for satellite obs data&quot;">Previous message</a> ]
+[ <a href="./2900.html" accesskey="d" title="andrea antonello: &quot;[CF-metadata] dataset with both several vertical axis and timesteps&quot;">Next message</a> ]
+[ <a href="./2898.html" title="Pamment, JA: &quot;[CF-metadata] sea_water_temperature&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./2900.html" accesskey="t" title="andrea antonello: &quot;[CF-metadata] dataset with both several vertical axis and timesteps&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -69,38 +70,46 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Russ Rew &lt;<a href="mailto:russ?Subject=Re%3A%20%5BCF-metadata%5D%20New%20standard%20names%20for%20satellite%20obs%20data">russ</a>&gt;
+<dfn>From</dfn>: andrea antonello &lt;<a href="mailto:andrea.antonello?Subject=Re%3A%20%5BCF-metadata%5D%20dataset%20with%20both%20several%20vertical%20axis%20and%20timesteps">andrea.antonello</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 20 Oct 2010 09:00:54 -0600</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 10 Jun 2009 15:05:06 +0200</span><br />
 </address>
 <br />
-&nbsp;Ben Hetland wrote:
+Hi all, I am quite new to this list.
 <br />
-<em class="quotelev1">&gt; One may argue, though, that an option to output time values formatted as
-</em><br />
-<em class="quotelev1">&gt; ISO8601 would be very useful in tools like 'ncdump'. In that case it
-</em><br />
-<em class="quotelev1">&gt; should be optional as I believe the basic idea is to &quot;dump&quot; the internal
-</em><br />
-<em class="quotelev1">&gt; values as directly as possible from how they are actually stored
-</em><br />
-<em class="quotelev1">&gt; internally. (And of course, if 'ncdump' does it, then 'ncgen' must be
-</em><br />
-<em class="quotelev1">&gt; equally able to parse them, so that the two tools are fully
-</em><br />
-<em class="quotelev1">&gt; &quot;symmetrical&quot; to each other.)
-</em><br />
-<br />The &quot;-t&quot; option to ncdump provides this functionality in recent versions
+I am currently integrating netcdf support in the open source GIS
 <br />
-of netCDF.  It also respects the &quot;calendar&quot; variable attribute in
+JGrass (extention to uDig) as a google sponsored summer of code
 <br />
-translating the numerical value to a string.
+project.
 <br />
-<br />The ncgen utility doesn't provide the inverse yet ...
+Interested people could look here:
 <br />
-<br />--Russ
+<a href="http://jgrass.wiki.software.bz.it/jgrass/description_of_the_project">http://jgrass.wiki.software.bz.it/jgrass/description_of_the_project</a>
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Oct 20 2010 - 09:00:54 BST</span>
+<br />I have downloaded the various datasets that are available on the
+<br />
+netcdf site, but wasn't able to find one set that contains 4
+<br />
+dimensional data.
+<br />
+I mean, most of them have both vertical axis and time, but one of the
+<br />
+two is always of 1 single layer.
+<br />
+<br />Can someone link me to a dataset that contains several layers of both
+<br />
+vertical axis and time? Such a dataset would be of great help for
+<br />
+development purposes.
+<br />
+<br />Any suggestions (also to the project obviously) are very appreciated.
+<br />
+<br />Thanks,
+<br />
+Andrea
+<br />
+<span id="received"><dfn>Received on</dfn> Wed Jun 10 2009 - 07:05:06 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -108,9 +117,12 @@ translating the numerical value to a string.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2899">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2900.html" title="Next message in the list">Nan Galbraith: "[CF-metadata] New standard names for satellite obs data"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2898.html" title="Previous message in the list">John Caron: "[CF-metadata] New standard names for satellite obs data"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2900.html" title="Next message in the list">andrea antonello: "[CF-metadata] dataset with both several vertical axis and timesteps"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2898.html" title="Previous message in the list">Pamment, JA: "[CF-metadata] sea_water_temperature"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./2900.html" title="Next message in this discussion thread">andrea antonello: "[CF-metadata] dataset with both several vertical axis and timesteps"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./2900.html" title="Message sent in reply to this message">andrea antonello: "[CF-metadata] dataset with both several vertical axis and timesteps"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -121,7 +133,7 @@ translating the numerical value to a string.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:34 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2898.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2900.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

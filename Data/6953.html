@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="US-ASCII"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Ancillary variables in coordinate variables (latitude, longitude, ...) from Kristian Sebastián on 2015-05-07 (mailing-list-archive)</title>
-<meta name="Author" content="Kristian Sebastián (ksebastian)" />
-<meta name="Subject" content="[CF-metadata] Ancillary variables in coordinate variables (latitude, longitude, ...)" />
-<meta name="Date" content="2015-05-07" />
+<title>[CF-metadata] Vertical datums (again) from Signell, Richard on 2014-03-11 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Signell, Richard (rsignell)" />
+<meta name="Subject" content="[CF-metadata] Vertical datums (again)" />
+<meta name="Date" content="2014-03-11" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./6952.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6954.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Ancillary variables in coordinate variables (latitude, longitude, ...)</h1>
-<!-- received="Thu May  7 00:59:46 2015" -->
-<!-- isoreceived="20150506235946" -->
-<!-- sent="Thu, 7 May 2015 08:59:46 +0200" -->
-<!-- isosent="20150507065946" -->
-<!-- name="Kristian Sebastián" -->
-<!-- email="ksebastian" -->
-<!-- subject="[CF-metadata] Ancillary variables in coordinate variables (latitude, longitude, ...)" -->
-<!-- id="CAGfa=MD0u4gHpOxJJD_Z-9F0QZjmn0WCUWnZzz=c4suYasFdMw_at_mail.gmail.com" -->
-<!-- charset="UTF-8" -->
-<!-- inreplyto="554A5898.8030800_at_cicsnc.org" -->
+<a style="text-decoration:none" href="./6952.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6954.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Vertical datums (again)</h1>
+<!-- received="Tue Mar 11 06:12:09 2014" -->
+<!-- isoreceived="20140311061209" -->
+<!-- sent="Tue, 11 Mar 2014 08:12:09 -0400" -->
+<!-- isosent="20140311121209" -->
+<!-- name="Signell, Richard" -->
+<!-- email="rsignell" -->
+<!-- subject="[CF-metadata] Vertical datums (again)" -->
+<!-- id="CAFhraUx4gEMdWHZ1hpdZcXsPKeMukHenNsscmod3fa_GUCPDsA_at_mail.gmail.com" -->
+<!-- charset="US-ASCII" -->
+<!-- inreplyto="20140219091654.GA19546_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./6954.html" accesskey="d" title="David Hassell: &quot;[CF-metadata] Ancillary variables in coordinate variables (latitude, longitude, ...)&quot;">Next message</a> ]
-[ <a href="./6952.html" title="John Caron: &quot;[CF-metadata] Fwd:  Geos grid mapping&quot;">Previous message</a> ]
-[ <a href="./6949.html" title="Jim Biard: &quot;[CF-metadata] Ancillary variables in coordinate variables (latitude, longitude, ...)&quot;">In reply to</a> ]
+[ <a href="./6954.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Vertical datums (again)&quot;">Next message</a> ]
+[ <a href="./6952.html" title="Bryan Lawrence: &quot;[CF-metadata] Editing/publishing workflow&quot;">Previous message</a> ]
+[ <a href="./6901.html" title="Jonathan Gregory: &quot;[CF-metadata]  Vertical datums (again)&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./6954.html" accesskey="t" title="David Hassell: &quot;[CF-metadata] Ancillary variables in coordinate variables (latitude, longitude, ...)&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -71,296 +70,164 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Kristian Sebastián &lt;<a href="mailto:ksebastian?Subject=Re%3A%20%5BCF-metadata%5D%20Ancillary%20variables%20in%20coordinate%20variables%20(latitude%2C%20longitude%2C%20...)">ksebastian</a>&gt;
+<dfn>From</dfn>: Signell, Richard &lt;<a href="mailto:rsignell?Subject=Re%3A%20%5BCF-metadata%5D%20Vertical%20datums%20(again)">rsignell</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 7 May 2015 08:59:46 +0200</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 11 Mar 2014 08:12:09 -0400</span><br />
 </address>
 <br />
-Sorry Jonathan, I misunderstood you. Thanks for your explanation and clear
+Folks,
 <br />
-up my question.
+<br />I'd like to see if we can move forward on concrete proposal for how to
 <br />
-<br />Best regards Jonathan and Jim,
+handle vertical coordinate systems.   Maybe we could mimic how ESRI,
 <br />
-<br />Kristian
+probably the largest vendor of geospatial software does it:
 <br />
-<br /><br /><br />On 6 May 2015 at 20:08, Jim Biard &lt;jbiard at cicsnc.org&gt; wrote:
+(lifted from <a href="http://resources.arcgis.com/en/help/main/10.1/index.html#//003r00000015000000">http://resources.arcgis.com/en/help/main/10.1/index.html#//003r00000015000000</a>)
 <br />
-<br /><em class="quotelev1">&gt;  I'm in agreement with Jonathan!
+<br />---------------------------------------begin esri
+<br />
+text---------------------------
+<br />
+A gravity-related VCS will include a vertical datum as part of its
+<br />
+definition. An example is shown below:
+<br />
+<br />VERTCS[&quot;National_Geodetic_Vertical_Datum_1929&quot;,VDATUM[&quot;NGVD_1929&quot;],PARAMETER[&quot;Vertical_Shift&quot;,0.0],PARAMETER[&quot;Direction&quot;,1.0],UNIT[&quot;Meter&quot;,1.0]]
+<br />
+<br />A spheroidal VCS defines heights that are referenced to a spheroid of
+<br />
+a geographic coordinate system. A Global Positioning System (GPS) unit
+<br />
+natively reports heights relative to the World Geodetic System of 1984
+<br />
+(WGS84) ellipsoid. An onboard geoid model (discussed below) in the GPS
+<br />
+unit converts the ellipsoidal heights to gravity-related elevations. A
+<br />
+spheroidal height is a geometry quantity and does not have a physical
+<br />
+sense, as a geographic coordinate system's spheroid may fall above or
+<br />
+below the actual earth surface. Spheroidal heights for an area may not
+<br />
+reflect movement due to gravity, that is, the flow of water. Water can
+<br />
+run uphill when working with spheroidal heights.
+<br />
+<br />A VCS with heights or depths that are referenced to the spheroid will
+<br />
+include a datum, rather than a vertical datum, definition. An example
+<br />
+is shown below:
+<br />
+<br />VERTCS[&quot;WGS_1984&quot;,DATUM[&quot;D_WGS_1984&quot;,SPHEROID[&quot;WGS_1984&quot;,6378137.0,298.257223563]],PARAMETER[&quot;Vertical_Shift&quot;,0.0],PARAMETER[&quot;Direction&quot;,1.0],UNIT[&quot;Meter&quot;,1.0]]
+<br />
+-------------------------------------end of esri
+<br />
+text-----------------------------
+<br />
+<br />In CF, we have some of these parameters of the vertical coordinate
+<br />
+system specified with the &quot;units&quot; and &quot;positive&quot; attributes. And we
+<br />
+already have &quot;add_offset&quot; that could be used for the vertical shift.
+<br />
+<br />So that just leaves the geoid-based &quot;Vertical Datum&quot; or spheroid-based
+<br />
+&quot;Datum&quot;, where the spheroid can be specified with parameters.
+<br />
+<br />Jonathan, would this address your concerns?
+<br />
+<br />Thanks,
+<br />
+Rich
+<br />
+<br />On Wed, Feb 19, 2014 at 4:16 AM, Jonathan Gregory
+<br />
+&lt;j.m.gregory at reading.ac.uk&gt; wrote:
+<br />
+<em class="quotelev1">&gt; Dear John and Jim
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; Thanks for your comments. John, I agree with your classification. I think the
 </em><br />
-<em class="quotelev1">&gt; On 5/6/15 1:09 PM, Jonathan Gregory wrote:
+<em class="quotelev1">&gt; concepts to which we give standard names are really quite simple. They are
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; distances above or below a reference surface (i.e. a surface which is a 2D
 </em><br />
-<em class="quotelev1">&gt; Dear Kristian
+<em class="quotelev1">&gt; function of geographical position). The distance is signed and we consistently
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; use &quot;height&quot; to mean positive up and &quot;depth&quot; to mean positive down. It appears
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; from Jim's email that orthometric, geodetic and geometric indicate which
 </em><br />
-<em class="quotelev1">&gt;  In these case the feature type is a trajectory, so
+<em class="quotelev1">&gt; reference surface is being used. Hence we don't need those words, because
 </em><br />
-<em class="quotelev1">&gt; the latitude and longitude are auxiliary coordinates.
+<em class="quotelev1">&gt; they are redundant if we say explicitly which surface is being used. I think it
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; is better to be explicit because it's more self-describing, which is a
 </em><br />
-<em class="quotelev1">&gt; You said that for auxiliary coordinates it could be ok, Would this mean
+<em class="quotelev1">&gt; principle of CF metadata. However, it would be useful to mention these words in
 </em><br />
-<em class="quotelev1">&gt; that it could be added to the CF conventions?
+<em class="quotelev1">&gt; the definitions of the standard names as additional information to relate the
 </em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  I don't think any change would be needed to the CF convention. CF allows a
-</em><br />
-<em class="quotelev1">&gt; given netCDF variable to serve as both a data variable in its own right and
-</em><br />
-<em class="quotelev1">&gt; an aux coord var of another data variable. An example of where this might be
-</em><br />
-<em class="quotelev1">&gt; useful is for an ocean model on density levels, in which depth as a function
-</em><br />
-<em class="quotelev1">&gt; of density is of interest as a data variable, but could also be an auxiliary
-</em><br />
-<em class="quotelev1">&gt; coordinate variable for other data variables. Therefore I think it would be
-</em><br />
-<em class="quotelev1">&gt; legal for your aux coord vars to have ancillary vars. Since the lat and lon
-</em><br />
-<em class="quotelev1">&gt; along a trajectory are actually dependent data variables, this feels quite
-</em><br />
-<em class="quotelev1">&gt; reasonable to me for your case. I wonder what others think.
+<em class="quotelev1">&gt; standard names to other terminology.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Cheers
+<em class="quotelev1">&gt; Therefore I don't think there is anything incorrect in the existing standard
+</em><br />
+<em class="quotelev1">&gt; names, actually. However if they are potentially misleading (in case users
+</em><br />
+<em class="quotelev1">&gt; don't read the definitions) we can consider clarifying them. That's what I
+</em><br />
+<em class="quotelev1">&gt; meant in my previous email. In particular, we could rename altitude as
+</em><br />
+<em class="quotelev1">&gt; height_above_geoid, using aliases. There are 14 standard names which use the
+</em><br />
+<em class="quotelev1">&gt; word altitude, all meaning height_above_geoid. Is that worth doing or not?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; My own opinion is that there is no need to rename plain &quot;height&quot; or &quot;depth&quot;
+</em><br />
+<em class="quotelev1">&gt; (without &quot;above_X&quot; or &quot;below_X&quot;) which are defined to mean relative to the
+</em><br />
+<em class="quotelev1">&gt; surface. There is also no need to rename plain &quot;surface&quot; i.e. the bottom of the
+</em><br />
+<em class="quotelev1">&gt; atmosphere, which is used in dozens or hundreds of existing standard names in
+</em><br />
+<em class="quotelev1">&gt; that sense.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; in answer to your question about geoids, WKT has a clause ?VERT_CS? where a vertical datum is defined.  A geoid is, in most cases, realized as a lat/lon grid in one or more files (often tiled), and is only identified by name.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Thanks. Yes, I appreciate it can only be identified by name, because it is
+</em><br />
+<em class="quotelev1">&gt; a non-mathematical 2D dataset, unlike the ellipsoid, which is a 2D function of
+</em><br />
+<em class="quotelev1">&gt; position specified by a couple of parameters. So your answer suggests that
+</em><br />
+<em class="quotelev1">&gt; WKT does not indicate whether the vertical datum includes a geoid definition or
+</em><br />
+<em class="quotelev1">&gt; not. Is that right? It just gives a name, and the user or the software has to
+</em><br />
+<em class="quotelev1">&gt; know whether this name implies a particular geoid, or is only a reference
+</em><br />
+<em class="quotelev1">&gt; ellipsoid. Correct?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Best wishes and thanks
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
 <em class="quotelev1">&gt; Jonathan
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  On 5 May 2015 at 18:58, Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt; &lt;j.m.gregory at reading.ac.uk&gt; wrote:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  Dear Kristian
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Ancillary variables are only for data variables in the current convention.
-</em><br />
-<em class="quotelev1">&gt; It wouldn't be illegal to use the attribute on coord variables, but CF
-</em><br />
-<em class="quotelev1">&gt; doesn't define what that would mean. (CF always permits any
-</em><br />
-<em class="quotelev1">&gt; non-standardised
-</em><br />
-<em class="quotelev1">&gt; attributes.)
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; I wonder whether these are 1D coord variables (in the Unidata sense) or
-</em><br />
-<em class="quotelev1">&gt; aux coord vars (named by the coordinates attribute)? In the latter case, it
-</em><br />
-<em class="quotelev1">&gt; could be OK, because other data variables could be named as aux coord vars.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Best wishes
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Jonathan
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; ----- Forwarded message from Kristian Sebasti??n &lt;ksebastian at socib.es&gt; &lt;ksebastian at socib.es&gt;
-</em><br />
-<em class="quotelev1">&gt; -----
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  Date: Thu, 30 Apr 2015 08:43:54 +0200
-</em><br />
-<em class="quotelev1">&gt; From: Kristian Sebasti??n &lt;ksebastian at socib.es&gt; &lt;ksebastian at socib.es&gt;
-</em><br />
-<em class="quotelev1">&gt; To: cf-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; Subject: [CF-metadata] Ancillary variables in coordinate variables
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  (latitude,
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;        longitude, ...)
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Dear CF community,
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; We have some dataset with quality controls applied to the coordinate
-</em><br />
-<em class="quotelev1">&gt; variables, such as latitude and longitude coordinate. The result are
-</em><br />
-<em class="quotelev1">&gt; quality control variables that we associate as ancillary variables of the
-</em><br />
-<em class="quotelev1">&gt; coordinate variables with the ancillary_variables attribute. For example,
-</em><br />
-<em class="quotelev1">&gt; the LAT coordinate variable has the ancillary variable QC_LAT. The
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  dataset
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;   <a href="http://thredds.socib.es/thredds/dodsC/drifter/surface_drifter/drifter_svp052-ime_svp017/L1/2014/dep0001_drifter-svp052_ime-svp017_L1_2014-05-25.nc">http://thredds.socib.es/thredds/dodsC/drifter/surface_drifter/drifter_svp052-ime_svp017/L1/2014/dep0001_drifter-svp052_ime-svp017_L1_2014-05-25.nc</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  The cf-conventions clarifies the use of the ancillary_variables attribute
-</em><br />
-<em class="quotelev1">&gt; for data variables but not for coordinate variables. My question is, Is
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  the
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  ancillary_variables attribute in coordinates variables compliant with the
-</em><br />
-<em class="quotelev1">&gt; cf-conventions?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Best regards,
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Kristian
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; --
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Kristian Sebastian Blalid
-</em><br />
-<em class="quotelev1">&gt; SOS Division: Data Center Technical
-</em><br />
-<em class="quotelev1">&gt; Tel: 971439860 - Fax: 971439979
-</em><br />
-<em class="quotelev1">&gt; E-mail: kristian.sebastian at socib.es
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing listCF-metadata at cgd.ucar.edu<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; ----- End forwarded message -----
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing listCF-metadata at cgd.ucar.edu<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; --
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Kristian Sebastian Blalid
-</em><br />
-<em class="quotelev1">&gt; SOS Division: Data Center Technical
-</em><br />
-<em class="quotelev1">&gt; Tel: 971439860 - Fax: 971439979
-</em><br />
-<em class="quotelev1">&gt; E-mail: kristian.sebastian at socib.es
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; ----- End forwarded message -----
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing listCF-metadata at cgd.ucar.edu<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; --
-</em><br />
-<em class="quotelev1">&gt;       [image: CICS-NC] &lt;<a href="http://www.cicsnc.org/">http://www.cicsnc.org/</a>&gt; Visit us on
-</em><br />
-<em class="quotelev1">&gt;  Facebook &lt;<a href="http://www.facebook.com/cicsnc">http://www.facebook.com/cicsnc</a>&gt;   *Jim Biard*
-</em><br />
-<em class="quotelev1">&gt; *Research Scholar*
-</em><br />
-<em class="quotelev1">&gt;  Cooperative Institute for Climate and Satellites NC &lt;<a href="http://cicsnc.org/">http://cicsnc.org/</a>&gt;
-</em><br />
-<em class="quotelev1">&gt;  North Carolina State University &lt;<a href="http://ncsu.edu/">http://ncsu.edu/</a>&gt;
-</em><br />
-<em class="quotelev1">&gt;  NOAA National Centers for Environmental Information
-</em><br />
-<em class="quotelev1">&gt; &lt;<a href="http://ncdc.noaa.gov/">http://ncdc.noaa.gov/</a>&gt;
-</em><br />
-<em class="quotelev1">&gt; *formerly NOAA?s National Climatic Data Center*
-</em><br />
-<em class="quotelev1">&gt; 151 Patton Ave, Asheville, NC 28801
-</em><br />
-<em class="quotelev1">&gt; e: jbiard at cicsnc.org
-</em><br />
-<em class="quotelev1">&gt; o: +1 828 271 4900
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; *We will be updating our social media soon. Follow our current Facebook
-</em><br />
-<em class="quotelev1">&gt; (NOAA National Climatic Data Center
-</em><br />
-<em class="quotelev1">&gt; &lt;<a href="https://www.facebook.com/NOAANationalClimaticDataCenter">https://www.facebook.com/NOAANationalClimaticDataCenter</a>&gt; and NOAA National
-</em><br />
-<em class="quotelev1">&gt; Oceanographic Data Center &lt;<a href="https://www.facebook.com/noaa.nodc">https://www.facebook.com/noaa.nodc</a>&gt;) and Twitter
-</em><br />
-<em class="quotelev1">&gt; (_at_NOAANCDC &lt;<a href="https://twitter.com/NOAANCDC">https://twitter.com/NOAANCDC</a>&gt; and @NOAAOceanData
-</em><br />
-<em class="quotelev1">&gt; &lt;<a href="https://twitter.com/NOAAOceanData">https://twitter.com/NOAAOceanData</a>&gt;) accounts for the latest information.*
-</em><br />
-<em class="quotelev1">&gt;
 </em><br />
 <em class="quotelev1">&gt; _______________________________________________
 </em><br />
@@ -370,35 +237,13 @@ up my question.
 </em><br />
 <em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<br /><br /><pre>
+<br /><br /><br /><pre>
 -- 
-Kristian Sebastian Blalid
-SOS Division: Data Center Technical
-Tel: 971439860 - Fax: 971439979
-E-mail: kristian.sebastian at socib.es
--------------- next part --------------
-An HTML attachment was scrubbed...
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150507/d0649576/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150507/d0649576/attachment-0001.html</a>&gt;
--------------- next part --------------
-A non-text attachment was scrubbed...
-Name: LogoSocibPosit_150x62_fondoClaro.png
-Type: image/png
-Size: 9452 bytes
-Desc: not available
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150507/d0649576/attachment-0002.png">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150507/d0649576/attachment-0002.png</a>&gt;
--------------- next part --------------
-A non-text attachment was scrubbed...
-Name: CicsLogoTiny.png
-Type: image/png
-Size: 15784 bytes
-Desc: not available
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150507/d0649576/attachment-0003.png">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150507/d0649576/attachment-0003.png</a>&gt;
+Dr. Richard P. Signell   (508) 457-2229
+USGS, 384 Woods Hole Rd.
+Woods Hole, MA 02543-1598
 </pre>
-<span id="received"><dfn>Received on</dfn> Thu May 07 2015 - 00:59:46 BST</span>
+<span id="received"><dfn>Received on</dfn> Tue Mar 11 2014 - 06:12:09 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -406,11 +251,10 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start6953">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./6954.html" title="Next message in the list">David Hassell: "[CF-metadata] Ancillary variables in coordinate variables (latitude, longitude, ...)"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./6952.html" title="Previous message in the list">John Caron: "[CF-metadata] Fwd:  Geos grid mapping"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./6949.html" title="Message to which this message replies">Jim Biard: "[CF-metadata] Ancillary variables in coordinate variables (latitude, longitude, ...)"</a></li>
+<li><dfn>Next message</dfn>: <a href="./6954.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Vertical datums (again)"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./6952.html" title="Previous message in the list">Bryan Lawrence: "[CF-metadata] Editing/publishing workflow"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./6901.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata]  Vertical datums (again)"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./6954.html" title="Next message in this discussion thread">David Hassell: "[CF-metadata] Ancillary variables in coordinate variables (latitude, longitude, ...)"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -421,7 +265,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:54 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./6952.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6954.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

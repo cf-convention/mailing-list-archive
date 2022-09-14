@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Use of Standard Names and Coordinate Variables (relevant to the aerosol discussion) from Jonathan Gregory on 2006-10-08 (mailing-list-archive)</title>
+<title>Fwd: [CF-metadata] Surface Air Temperature from Jonathan Gregory on 2003-10-30 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] Use of Standard Names and Coordinate Variables (relevant to the aerosol discussion)" />
-<meta name="Date" content="2006-10-08" />
+<meta name="Subject" content="Fwd: [CF-metadata] Surface Air Temperature" />
+<meta name="Date" content="2003-10-30" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0296.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0298.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Use of Standard Names and Coordinate Variables (relevant to the aerosol discussion)</h1>
-<!-- received="Sun Oct  8 10:07:32 2006" -->
-<!-- isoreceived="20061008090732" -->
-<!-- sent="Sun, 8 Oct 2006 17:07:32 +0100" -->
-<!-- isosent="20061008160732" -->
+<a style="text-decoration:none" href="./0296.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0298.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>Fwd: [CF-metadata] Surface Air Temperature</h1>
+<!-- received="Thu Oct 30 11:05:00 2003" -->
+<!-- isoreceived="20031030110500" -->
+<!-- sent="Thu, 30 Oct 2003 18:05:00 +0000" -->
+<!-- isosent="20031030180500" -->
 <!-- name="Jonathan Gregory" -->
 <!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] Use of Standard Names and Coordinate Variables (relevant to the aerosol discussion)" -->
-<!-- id="20061008160732.GB19754_at_met.reading.ac.uk" -->
+<!-- subject="Fwd: [CF-metadata] Surface Air Temperature" -->
+<!-- id="20031030180500.GA17766_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0298.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] species as species in chemical and aerosol names&quot;">Next message</a> ]
-[ <a href="./0296.html" title="Jonathan Gregory: &quot;[CF-metadata] aerosol water&quot;">Previous message</a> ]
+[ <a href="./0298.html" accesskey="d" title="Karl Taylor: &quot;[CF-metadata] missing_value vs. _FillValue&quot;">Next message</a> ]
+[ <a href="./0296.html" title="John Caron: &quot;[CF-metadata] WRF staggered grids and vertical coordinates&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,84 +68,54 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Use%20of%20Standard%20Names%20and%20Coordinate%20Variables%20(relevant%20to%20the%20aerosol%20discussion)">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20Fwd%3A%20%5BCF-metadata%5D%20Surface%20Air%20Temperature">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Sun, 8 Oct 2006 17:07:32 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 30 Oct 2003 18:05:00 +0000</span><br />
 </address>
 <br />
-Dear Christiane
+Dear Roy
 <br />
-<br /><em class="quotelev1">&gt; It does not make sense to use coordinate variables, if 
-</em><br />
-<em class="quotelev1">&gt; there are only very few used (like pm? for particle size). Maybe a 
-</em><br />
-<em class="quotelev1">&gt; minimum of probable values for the coordinate variables could be 10. 
-</em><br />
-<br />I think it also depends, as Bryan suggested, on whether it &quot;feels&quot; like a
+<br />Sorry I've been slow in replying to this. I have been thinking about it but
 <br />
-coordinate variable. Aerosols with different particle size presumably are
+haven't really got any profound conclusions. In general I agree with you that
 <br />
-more like different chemical species, rather than something with a variable
+it would be good not to have such an imprecise term as sea_surface_temperature,
 <br />
-dimension. Hence you put them in the standard name.
+meaning the bulk temperature, not the skin temperature. For model results,
 <br />
-<br /><em class="quotelev1">&gt; -standardization of the rel. humidity RH at which the particle size is 
-</em><br />
-<em class="quotelev1">&gt; given is desirable, and as little as possible values should be used in 
-</em><br />
-<em class="quotelev1">&gt; the community. Hence, the RH should be part of the standard_name.
-</em><br />
-<br />That doesn't seem necessary to me. If this is a standard value, I don't think
+what is called SST is often actually the temperature of the top model layer,
 <br />
-it needs to be stated in the standard name. It should be part of the definition
+and in that case it should *not* be called SST but sea_water_temperature with
 <br />
-of the quantity, like the reference pressure used for potential temperature,
+a depth coordinate (e.g. 5 m, the centre of the top layer in HadCM3), as you
 <br />
-and the reference power level used for quantities in dB. (However, we have
+would prefer. The help for SST in the standard name table says this. SST is
 <br />
-many times raised the need for recording optionally what such values are that
+more likely to be used for observationally based datasets used for comparison
 <br />
-further define standard names, and not decided on what mechanism to use. So
+with models. For a data synthesis, it would not really possible to identify a
 <br />
-far it has not become critical because in the cases encountered there is only
+particular depth, would it.
 <br />
-one standard value for the parameter, as in your case.)
+<br />As for the surface_temperature (i.e. the skin temperature, which must be the
 <br />
-<br /><em class="quotelev1">&gt; -sensitivity studies/tagged tracers
-</em><br />
-<em class="quotelev1">&gt; Sensitivity studies with tagged tracers are widely used in 
-</em><br />
-<em class="quotelev1">&gt; model studies and it seems to me, that is is useful to define a suitable 
-</em><br />
-<em class="quotelev1">&gt; strategie for CF.
-</em><br />
-<br />I agree that could be useful. The consequence of this approach is that the
+same for the air and the water, I believe), I think it's more convenient to
 <br />
-values of the tag name would not be standardised, but presumably defined only
+identify this by name, than to insist on the presence of a depth coordinate
 <br />
-for the purposes of the project. That is a similar situation to the land cover
+of zero. The latter is also less reliable as an indicator, because many
 <br />
-types, for instance, where we have defined a standard name and hence a
+equivalent choices could be made e.g. depth=0 m, height=0 m. CF has several
 <br />
-mechanism to facilitate intercomparison, but we have not (yet) defined what
+named &quot;surfaces&quot; in the standard names, among which &quot;the&quot; surface is one
 <br />
-values it can take. To be more specific than &quot;tag&quot;, perhaps it could be called
+(others are tropopause, top of atmosphere).
 <br />
-tracer_name?
-<br />
-<br /><em class="quotelev1">&gt; -wavelength for aerosol optical depth
-</em><br />
-<em class="quotelev1">&gt; A coordinate variable could probably be used in this case, as many 
-</em><br />
-<em class="quotelev1">&gt; wavelengths can be used.
-</em><br />
-Good.
-<br />
-<br />Cheers
+<br />Best wishes
 <br />
 <br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Sun Oct 08 2006 - 10:07:32 BST</span>
+<span id="received"><dfn>Received on</dfn> Thu Oct 30 2003 - 11:05:00 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -153,8 +123,8 @@ Good.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start297">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0298.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] species as species in chemical and aerosol names"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0296.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] aerosol water"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0298.html" title="Next message in the list">Karl Taylor: "[CF-metadata] missing_value vs. _FillValue"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0296.html" title="Previous message in the list">John Caron: "[CF-metadata] WRF staggered grids and vertical coordinates"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -166,7 +136,7 @@ Good.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:47 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0296.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0298.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

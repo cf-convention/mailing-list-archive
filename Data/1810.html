@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] new names for AeroCom - cloud properties from Christiane Textor on 2008-11-23 (mailing-list-archive)</title>
-<meta name="Author" content="Christiane Textor (christiane.textor)" />
-<meta name="Subject" content="[CF-metadata] new names for AeroCom - cloud properties" />
-<meta name="Date" content="2008-11-23" />
+<title>[CF-metadata] Seeking example program for storing surface obs in CF convention from Don Morton on 2007-08-05 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Don Morton (donaldjmorton)" />
+<meta name="Subject" content="[CF-metadata] Seeking example program for storing surface obs in CF convention" />
+<meta name="Date" content="2007-08-05" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1809.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1811.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new names for AeroCom - cloud properties</h1>
-<!-- received="Sun Nov 23 13:58:26 2008" -->
-<!-- isoreceived="20081123135826" -->
-<!-- sent="Sun, 23 Nov 2008 21:58:26 +0100" -->
-<!-- isosent="20081123205826" -->
-<!-- name="Christiane Textor" -->
-<!-- email="christiane.textor" -->
-<!-- subject="[CF-metadata] new names for AeroCom - cloud properties" -->
-<!-- id="4929C3F2.7090605_at_lsce.ipsl.fr" -->
+<a style="text-decoration:none" href="./1809.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1811.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Seeking example program for storing surface obs in CF convention</h1>
+<!-- received="Sun Aug  5 11:05:50 2007" -->
+<!-- isoreceived="20070805100550" -->
+<!-- sent="Sun, 5 Aug 2007 17:05:50 +0000" -->
+<!-- isosent="20070805170550" -->
+<!-- name="Don Morton" -->
+<!-- email="donaldjmorton" -->
+<!-- subject="[CF-metadata] Seeking example program for storing surface obs in CF convention" -->
+<!-- id="237e74280708051005w67770fc7k6fac08e11a631ce7_at_mail.gmail.com" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1811.html" accesskey="d" title="Christiane Textor: &quot;[CF-metadata] new names for AeroCom - mass / mole / number&quot;">Next message</a> ]
-[ <a href="./1809.html" title="Christiane Textor: &quot;[CF-metadata] new names for AeroCom - optcial properties&quot;">Previous message</a> ]
+[ <a href="./1811.html" accesskey="d" title="Schultz, Martin: &quot;[CF-metadata] Common names for chemical species&quot;">Next message</a> ]
+[ <a href="./1809.html" title="Ethan Davis: &quot;[CF-metadata] Time for 1.0 revision xxx or version 1.1 ?&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./1817.html" accesskey="t" title="Nan Galbraith: &quot;[CF-metadata] Seeking example program for storing surface obs in CF	convention&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,61 +70,55 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Christiane Textor &lt;<a href="mailto:christiane.textor?Subject=Re%3A%20%5BCF-metadata%5D%20new%20names%20for%20AeroCom%20-%20cloud%20properties">christiane.textor</a>&gt;
+<dfn>From</dfn>: Don Morton &lt;<a href="mailto:donaldjmorton?Subject=Re%3A%20%5BCF-metadata%5D%20Seeking%20example%20program%20for%20storing%20surface%20obs%20in%20CF%20convention">donaldjmorton</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Sun, 23 Nov 2008 21:58:26 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Sun, 5 Aug 2007 17:05:50 +0000</span><br />
 </address>
 <br />
-Dear all,
+Hello,
 <br />
-<br />I would like to suggest new names for aerosol model intercomparisons in 
+<br />I apologize if this question is too elementary, or not &quot;directly&quot; applicable
 <br />
-the frame works of AeroCom, HTAP and AC&amp;C.
+to this list, but I've Googled and searched around a bit, and this seems
 <br />
-<br />In this second email names related to cloud properties are listed:
+like my best avenue.
 <br />
-<br />cloud_droplet_effective_radius_at_liquid_water_cloud_top
+<br />I am interested in taking lots of surface obs (currently in flat ASCII files -
 <br />
-cloud_crystal_effective_radius_at_ice_cloud_top
+one file per station, records sorted by obs time) and putting them in a
 <br />
--&gt; or
+netCDF format.  I'd also like to do this only once, and it appears that maybe
 <br />
-effective_radius_of_cloud_droplets_at_liquid_water_cloud_top
+CF is the convention I should adhere to.
 <br />
-effective_radius_of_cloud_crystal_at_ice_cloud_top
+<br />I'm wondering if there are example scripts or programs out there that
 <br />
--&gt; is the prefix atmosphere_ needed?
+demonstrate
 <br />
-<br />atmosphere_number_concentration_of_condensation_nuclei_in_air_at_liquid_water_cloud_top
+the writing of time series of surface obs (e.g. METARs) into a CF-compliant
 <br />
-atmosphere_number_concentration_of_condensation_nuclei_in_air
+netCDF file.  I don't need any hand-holding (I hope);   I've used netCDF API in
 <br />
-atmosphere_number_concentration_of_cloud_droplets_in_liquid_water_clouds
+Fortran before (for simple stuff), and am just hoping I can find some example
 <br />
-<br />liquid_water_cloud_area_fraction
+that shows how the variables are written into the file, what
 <br />
-ice_cloud_area_fraction
+atrributes are attached,
 <br />
-<br />Best regards,
+etc.  I've seen the CF 1.0 document, but just feel like an example would be so
 <br />
-Christiane
+much more helpful.
+<br />
+<br />Thanks for any help,
+<br />
+<br />Don Morton
 <br />
 <pre>
 -- 
-======================================================================
-Christiane Textor
-Laboratoire des Sciences du Climat et de l'Environnement
-Unite Mixte de Recherche CEA-CNRS-UVSQ
-LSCE/IPSL, CEA Saclay, Orme des Merisiers,
-Bat. 701, Piece 3b, Point Courrier 129
-F-91191 Gif-sur-Yvette Cedex
-FRANCE
-mailto: christiane.textor at lsce.ipsl.fr
-Tel ++33 1 69 08 34 07 Fax ++33 1 69 08 77 16
-GEOmon scientific coordinator <a href="http://www.geomon.eu">http://www.geomon.eu</a>
-======================================================================
+Arctic Region Supercomputing Center
+<a href="http://weather.arsc.edu/">http://weather.arsc.edu/</a>
 </pre>
-<span id="received"><dfn>Received on</dfn> Sun Nov 23 2008 - 13:58:26 GMT</span>
+<span id="received"><dfn>Received on</dfn> Sun Aug 05 2007 - 11:05:50 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -130,9 +126,14 @@ GEOmon scientific coordinator <a href="http://www.geomon.eu">http://www.geomon.e
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1810">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1811.html" title="Next message in the list">Christiane Textor: "[CF-metadata] new names for AeroCom - mass / mole / number"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1809.html" title="Previous message in the list">Christiane Textor: "[CF-metadata] new names for AeroCom - optcial properties"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1811.html" title="Next message in the list">Schultz, Martin: "[CF-metadata] Common names for chemical species"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1809.html" title="Previous message in the list">Ethan Davis: "[CF-metadata] Time for 1.0 revision xxx or version 1.1 ?"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./1817.html" title="Next message in this discussion thread">Nan Galbraith: "[CF-metadata] Seeking example program for storing surface obs in CF	convention"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./1817.html" title="Message sent in reply to this message">Nan Galbraith: "[CF-metadata] Seeking example program for storing surface obs in CF	convention"</a></li>
+<li><dfn>Reply</dfn>: <a href="./1819.html" title="Message sent in reply to this message">V. Balaji: "[CF-metadata] Seeking example program for storing surface obs in CF	convention"</a></li>
+<li><dfn>Reply</dfn>: <a href="./1820.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] Seeking example program for storing surface obs in CF	convention"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -143,7 +144,7 @@ GEOmon scientific coordinator <a href="http://www.geomon.eu">http://www.geomon.e
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:13 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1809.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1811.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

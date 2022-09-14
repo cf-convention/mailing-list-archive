@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] fixed sensors, depth, datum from Jonathan Gregory on 2008-09-11 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] fixed sensors, depth, datum" />
-<meta name="Date" content="2008-09-11" />
+<title>[CF-metadata] CF and a representation of probalistic forecasts from Steve Hankin on 2007-02-16 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Steve Hankin (Steven.C.Hankin)" />
+<meta name="Subject" content="[CF-metadata] CF and a representation of probalistic forecasts" />
+<meta name="Date" content="2007-02-16" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1519.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1521.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] fixed sensors, depth, datum</h1>
-<!-- received="Thu Sep 11 10:36:51 2008" -->
-<!-- isoreceived="20080911093651" -->
-<!-- sent="Thu, 11 Sep 2008 17:36:51 +0100" -->
-<!-- isosent="20080911163651" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] fixed sensors, depth, datum" -->
-<!-- id="20080911163651.GA16688_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./1519.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1521.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF and a representation of probalistic forecasts</h1>
+<!-- received="Thu Feb 15 18:57:01 2007" -->
+<!-- isoreceived="20070215185701" -->
+<!-- sent="Thu, 15 Feb 2007 17:57:01 -0800" -->
+<!-- isosent="20070216015701" -->
+<!-- name="Steve Hankin" -->
+<!-- email="Steven.C.Hankin" -->
+<!-- subject="[CF-metadata] CF and a representation of probalistic forecasts" -->
+<!-- id="45D50F6D.5070508_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20070212212847.GA1440_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1521.html" accesskey="d" title="Ethan Davis: &quot;[CF-metadata] fixed sensors, depth, datum&quot;">Next message</a> ]
-[ <a href="./1519.html" title="Dale Robinson: &quot;[CF-metadata] fixed sensors, depth, datum&quot;">Previous message</a> ]
+[ <a href="./1521.html" accesskey="d" title="John Graybeal: &quot;[CF-metadata] CF and a representation of probalistic forecasts&quot;">Next message</a> ]
+[ <a href="./1519.html" title="Jonathan Gregory: &quot;[CF-metadata]  Question about Coordinate System&quot;">Previous message</a> ]
+[ <a href="./1518.html" title="Jonathan Gregory: &quot;[CF-metadata]  CF and a representation of probalistic forecasts&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./1521.html" accesskey="t" title="Ethan Davis: &quot;[CF-metadata] fixed sensors, depth, datum&quot;">Next in thread</a> ]
+[ <a href="./1521.html" accesskey="t" title="John Graybeal: &quot;[CF-metadata] CF and a representation of probalistic forecasts&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,88 +72,151 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20fixed%20sensors%2C%20depth%2C%20datum">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Steve Hankin &lt;<a href="mailto:Steven.C.Hankin?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20and%20a%20representation%20of%20probalistic%20forecasts">Steven.C.Hankin</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 11 Sep 2008 17:36:51 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 15 Feb 2007 17:57:01 -0800</span><br />
 </address>
 <br />
-Dear Dale
+All,
 <br />
-<br />It seems none of us who has so far contributed claims to be an expert. If any
+<br />Generalizing from this discussion ...
 <br />
-experts are listening in, they are welcome to comment!
+<br />Where do we stand on the larger question of multi-level approach to 
 <br />
-<br /><em class="quotelev1">&gt;    The recommendation is that I request a few new standard names.
+standard naming?  The question that has been posed is about 
+<br />
+&quot;overloading&quot; standard names -- using the same standard name for 
+<br />
+distinct variables (possibly within a single CF dataset), where some 
+<br />
+other attribute of the variable (cell_methods, long_name, or maybe the 
+<br />
+name of the variable, itself) is used to sort out the distinctions.  We 
+<br />
+have a measure of  inconsistency already in how we handle these second 
+<br />
+order distinctions.  As examples we also have families of standard names 
+<br />
+based upon &quot;...transport_due_to ...&quot;, &quot;...thickness_defined_by_...&quot;,  
+<br />
+and  &quot;...tendency_of_..._due_to_...&quot;.    This latter approach might 
+<br />
+suggest adding a family of  names &quot;realization_weight_based_upon_...&quot;.
+<br />
+<br />But future software that tries to work with standard names is going to 
+<br />
+find itself parsing our current names to discover the underlying 
+<br />
+families and sifting through other attributes to understand the deeper 
+<br />
+semantics.  That seems to defeat our intent that the semantics of CF 
+<br />
+variables are captured in the standard names for easy usage by 
+<br />
+clients.   In my opinion, these overloading techniques taken 
+<br />
+collectively seem to be crying out for a more general, multi-level 
+<br />
+naming solution.
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;- Steve
+<br />
+<br />P.S. We also have &quot;product_of_...&quot; variables, which points to the need 
+<br />
+for another level of naming that is above, rather than below the 
+<br />
+fundamental quantities.
+<br />
+<br />Disclaimer:  As per usual, I confess to jumping into the conversation 
+<br />
+without a full and thorough reread of the entire thread and its 
+<br />
+antecedents.  I hope you'll be forgiving. :-[
+<br />
+<br />========================================
+<br />
+<br />Jonathan Gregory wrote:
+<br />
+<em class="quotelev1">&gt; Dear all
 </em><br />
-<em class="quotelev1">&gt;    Standard names like height_above_geoid and
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;    height_above_reference_ellipsoid seem appropriate
+<em class="quotelev1">&gt; Bryan asked &quot;How is that different from differing methods of cell methods with
 </em><br />
-Yes.
-<br />
-<br /><em class="quotelev1">&gt;    Can one use in any variable an
+<em class="quotelev1">&gt; the same standard names?&quot; That's a good question: I suppose I'd say that we
 </em><br />
-<em class="quotelev1">&gt;    attribute normally found in the crs variable such as
+<em class="quotelev1">&gt; would use the same cell_methods entry to indicate a mean, for instance,
 </em><br />
-<em class="quotelev1">&gt;    vertical_datum_name?  For example
+<em class="quotelev1">&gt; regardless of how it had been weighted. At the moment we can only record that
 </em><br />
-<em class="quotelev1">&gt;    float ht_wgs84
+<em class="quotelev1">&gt; by a non-standardised comment in cell_methods such as &quot;(area-weighted)&quot;. But
 </em><br />
-<em class="quotelev1">&gt;        ht_wgs84:long_name = &quot;Height referenced to WGS84&quot;;
+<em class="quotelev1">&gt; quantities which could be used for weights in this situation might be in data
 </em><br />
-<em class="quotelev1">&gt;        ht_wgs84:standard_name = height_above_reference_ellipsoid
+<em class="quotelev1">&gt; variables and could be distinguished by standard names, for instance cell_area
 </em><br />
-<em class="quotelev1">&gt;        ht_wgs84:vertical_datum_name = &quot;World Geodetic System 1984&quot;
+<em class="quotelev1">&gt; or land_area_fraction. I think the realization weights are more analogous to
 </em><br />
-vertical_datum_name is not a CF attribute. CF doesn't preclude other attributes
-<br />
-being included, so that's fine, but software implementing CF would not use
-<br />
-the attribute.
-<br />
-<br />In my earlier posting, I suggested that we could define the geoid by
-<br />
-extending the grid_mapping variable (CF 5.6). There is currently not a standard
-<br />
-CF way to name the geoid or ellipsoid, but the ellipsoid can be defined
-<br />
-geometrically by the grid_mapping variable. Any solution to this would need
-<br />
-an addition to the CF standard.
-<br />
-<br /><em class="quotelev1">&gt;    One option is to propose more specific standard names as suggested by
+<em class="quotelev1">&gt; those quantities than they are to different cell methods.
 </em><br />
-<em class="quotelev1">&gt;    Jon.  E.g. height_above_wgs84 and height_above_navd88.  Do you think
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;    that this is a viable direction?
+<em class="quotelev1">&gt; I agree with Steve that the realization weights are a bit like masks. I think
 </em><br />
-<br />I don't like that so much myself, because I feel that heights above various
-<br />
-geoids are the same geophysical quantity, so they should not have different
-<br />
-standard names. It seems better to me to add something to the convention,
-<br />
-especially as this has been raised before but not solved.
-<br />
-<br />In your example it appeared that you wanted to record the offsets between
-<br />
-the geoid and the various tidal datums. My suggestion for that is to put them
-<br />
-in separate data variables and give them standard names (to be proposed) of
-<br />
-the form height_above_geoid_of_TIDAL_DATUM.
-<br />
-<br /><em class="quotelev1">&gt;    Finally, how do I go about suggesting new standard names?
+<em class="quotelev1">&gt; CF would distinguish between mask quantities by standard names too, though at
 </em><br />
-By proposing them to this email list, with canonical units and brief
-<br />
-description.
-<br />
-<br />Best wishes
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Thu Sep 11 2008 - 10:36:51 BST</span>
+<em class="quotelev1">&gt; present the only one we have in the table is land_binary_mask.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Jamie remarked, &quot;I think the weights are the same kind of quantity even if they
+</em><br />
+<em class="quotelev1">&gt; are calculated different ways - just as air_temperature is considered the
+</em><br />
+<em class="quotelev1">&gt; same quantity even if calculated from a GFDL model or a ECMWF model.&quot; That
+</em><br />
+<em class="quotelev1">&gt; might be the case, I suppose; two sets of weights might simply be alternative
+</em><br />
+<em class="quotelev1">&gt; values for the same quantity. If they came from different models that could be
+</em><br />
+<em class="quotelev1">&gt; indicated in other ways (as in the ensembles discussion). I'm not sure of what
+</em><br />
+<em class="quotelev1">&gt; examples to use - perhaps you could suggest some - but maybe you might have
+</em><br />
+<em class="quotelev1">&gt; weights that were based on the realism of historical temperature simulation
+</em><br />
+<em class="quotelev1">&gt; for instance, or on a measure of quality of present-day mean climatology. The
+</em><br />
+<em class="quotelev1">&gt; quantities being used for assessment could have standard names, and they would
+</em><br />
+<em class="quotelev1">&gt; be different names. Hence so should weights based on them, I suggest.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Cheers
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Jonathan
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt;   
+</em><br />
+<br /><pre>
+-- 
+--
+Steve Hankin, NOAA/PMEL -- Steven.C.Hankin at noaa.gov
+7600 Sand Point Way NE, Seattle, WA 98115-0070
+ph. (206) 526-6080, FAX (206) 526-6744
+</pre>
+<span id="received"><dfn>Received on</dfn> Thu Feb 15 2007 - 18:57:01 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -159,13 +224,14 @@ description.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1520">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1521.html" title="Next message in the list">Ethan Davis: "[CF-metadata] fixed sensors, depth, datum"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1519.html" title="Previous message in the list">Dale Robinson: "[CF-metadata] fixed sensors, depth, datum"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1521.html" title="Next message in the list">John Graybeal: "[CF-metadata] CF and a representation of probalistic forecasts"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1519.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]  Question about Coordinate System"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./1518.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata]  CF and a representation of probalistic forecasts"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./1521.html" title="Next message in this discussion thread">Ethan Davis: "[CF-metadata] fixed sensors, depth, datum"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./1521.html" title="Next message in this discussion thread">John Graybeal: "[CF-metadata] CF and a representation of probalistic forecasts"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./1521.html" title="Message sent in reply to this message">Ethan Davis: "[CF-metadata] fixed sensors, depth, datum"</a></li>
-<li><dfn>Reply</dfn>: <a href="./1523.html" title="Message sent in reply to this message">Dale Robinson: "[CF-metadata] fixed sensors, depth, datum"</a></li>
+<dfn>Reply</dfn>: <a href="./1521.html" title="Message sent in reply to this message">John Graybeal: "[CF-metadata] CF and a representation of probalistic forecasts"</a></li>
+<li><dfn>Reply</dfn>: <a href="./1532.html" title="Message sent in reply to this message">Nan Galbraith: "[CF-metadata] CF, probalistic forecasts, multi-level std names, and threads"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -176,7 +242,7 @@ description.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:08 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1519.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1521.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Geyer and Ruane standard names from Beate.Geyer at gkss.de on 2006-04-10 (mailing-list-archive)</title>
-<meta name="Author" content="Beate.Geyer at gkss.de (Beate.Geyer)" />
-<meta name="Subject" content="[CF-metadata] Geyer and Ruane standard names" />
-<meta name="Date" content="2006-04-10" />
+<title>[CF-metadata] Encoding Errors on variables in CF from Stephens, A on 2003-03-21 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Stephens, A (A.Stephens)" />
+<meta name="Subject" content="[CF-metadata] Encoding Errors on variables in CF" />
+<meta name="Date" content="2003-03-21" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0119.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0121.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Geyer and Ruane standard names</h1>
-<!-- received="Mon Apr 10 07:54:51 2006" -->
-<!-- isoreceived="20060410065451" -->
-<!-- sent="Mon, 10 Apr 2006 15:54:51 +0200" -->
-<!-- isosent="20060410135451" -->
-<!-- name="Beate.Geyer at gkss.de" -->
-<!-- email="Beate.Geyer" -->
-<!-- subject="[CF-metadata] Geyer and Ruane standard names" -->
-<!-- id="OF76C5A2F9.CD8BA0F6-ONC1257149.00448A20-C125714C.004C709F_at_dvsun2.gkss.de" -->
+<a style="text-decoration:none" href="./0119.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0121.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Encoding Errors on variables in CF</h1>
+<!-- received="Fri Mar 21 05:51:32 2003" -->
+<!-- isoreceived="20030321055132" -->
+<!-- sent="Fri, 21 Mar 2003 12:51:32 -0000" -->
+<!-- isosent="20030321125132" -->
+<!-- name="Stephens, A" -->
+<!-- email="A.Stephens" -->
+<!-- subject="[CF-metadata] Encoding Errors on variables in CF" -->
+<!-- id="49F73BEED865D3119F8700902773C9F901B3D158_at_exchange09.rl.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0121.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] sea_area&quot;">Next message</a> ]
-[ <a href="./0119.html" title="Luis Bermudez: &quot;[CF-metadata] standard_name.xml&quot;">Previous message</a> ]
+[ <a href="./0121.html" accesskey="d" title="John Caron: &quot;[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute&quot;">Next message</a> ]
+[ <a href="./0119.html" title="Steve Hankin: &quot;[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,440 +68,373 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Beate.Geyer at gkss.de &lt;<a href="mailto:Beate.Geyer?Subject=Re%3A%20%5BCF-metadata%5D%20Geyer%20and%20Ruane%20standard%20names">Beate.Geyer</a>&gt;
+<dfn>From</dfn>: Stephens, A &lt;<a href="mailto:A.Stephens?Subject=Re%3A%20%5BCF-metadata%5D%20Encoding%20Errors%20on%20variables%20in%20CF">A.Stephens</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 10 Apr 2006 15:54:51 +0200</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 21 Mar 2003 12:51:32 -0000</span><br />
 </address>
 <br />
-Dear  Jonathan,
+Dear all,
 <br />
-I gave numbers to the outstanding  issues to make it easier to address 
+<br />Here is an example from one of our datasets (which is not yet in NetCDF).
 <br />
-them next time... My answers start with A:
+<br />The data comes from the DOAS (Differential Optical Absorption Spectrometer)
 <br />
-1,2, 12, and 13 are still open, 15 and 16 are new proposals.
+instrument which records &quot;NO2 mixing ratio&quot; (ppbv). For each value there is
 <br />
-<br />1. &gt; snow_basal_heat_flux, Snow basal heat flux, W m-2 
+also an &quot;NO2 error limit&quot; (ppbv) and an &quot;NO2 detection limit&quot; (ppbv). The
 <br />
-Can this be called 
+error limit is quoted for 2 sigma random errors plus systematic
 <br />
-upward|downward_heat_flux_at_ground_level_in_snow
+uncertainties derived from cross-sectional fits. The detection limit is
 <br />
-The corresponding quantity _in_soil is the ground heat flux.
+quoted for 2 sigma.
 <br />
-A: still open
+<br />So, how could we encode this into CF in a number of ways:
 <br />
-<br />2. &gt; atmosphere_eastward|northward_stress_due_to_diffusion:Pa
+<br />-----------------------------------------------
 <br />
-Are these momentum fluxes directed upwards or downward i.e. tending to
+1. No frills, just three separate variables.
 <br />
-accelerate the atmosphere below or above the level on which they are 
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float no2(time) ;
 <br />
-given?
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no2:long_name = &quot;Nitrogen Dioxide Mass Mixing Ratio&quot; ;
 <br />
-(I realise this is an ambiguity about the gravity-wave stresses too.) 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no2:units = &quot;1-e9&quot; ;
 <br />
-Since
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no2:comment = &quot;Units are given in parts per billion by
 <br />
-stresses are tensors, they need two signed directions to specify them.
+volume.&quot; ;
 <br />
-A: still open
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float no2_error_limit(time) ;
 <br />
-<br />3. &gt; soil_suction_at_saturation; Saturation soil suction; m
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no2_error_limit:long_name = &quot;Nitrogen Dioxide Error Limit&quot; ;
 <br />
-I am not sufficiently expert to define this. Could you please supply a
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no2_error_limit:units = &quot;1-e9&quot; ;
 <br />
-definition of soil suction?
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no2_error_limit:comment = &quot;Units are given in parts per
 <br />
-A: <a href="http://www.geo-observations.com/Information/Whatissoilsuction.html">http://www.geo-observations.com/Information/Whatissoilsuction.html</a>
+billion by volume. The error limit is quoted for 2 sigma random errors plus
 <br />
-It is used for parameterization of land surface processes in models:
+systematic uncertainties derived from cross-sectional fits.&quot; ;
 <br />
-<a href="http://www.lmd.jussieu.fr/pcmdi-mirror/modeldoc/amip2/ukmo_98a/ukmo_a.html">http://www.lmd.jussieu.fr/pcmdi-mirror/modeldoc/amip2/ukmo_98a/ukmo_a.html</a>
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float no2_detection_limit(time) ;
 <br />
-<br />4. &gt; soil_texture; fraction of sand, clay and silt; 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no2_detection_limit:long_name = &quot;Nitrogen Dioxide Detection
 <br />
-We have recently added a string-valued quantity soil_type to identify 
+Limit&quot; ;
 <br />
-types
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no2_detection_limit:units = &quot;1-e9&quot; ;
 <br />
-such as you list. It looks as if you would like to specify some parameter 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no2_detection_limit:comment = &quot;Units are given in parts per
 <br />
-as
+billion by volume. The detection limit is quoted for 2 standard deviations.&quot;
 <br />
-a function of soil type. Is it the mass fraction of the soil?
+;
 <br />
-A: In the 'texture triangle' 
+<br />-----------------------------------------------
 <br />
-(<a href="http://www.pedosphere.com/resources/bulkdensity/triangle_us.cfm">http://www.pedosphere.com/resources/bulkdensity/triangle_us.cfm</a>) there 
+2. Trying to link them and introduce standard_name linking...
 <br />
-are marked areas  for each soil type, assessing the soil type depending on 
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float no2(time) ;
 <br />
-the volume percentages of components.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no2:standard_name = &quot;no2_mixing_ratio&quot; ; ###NOT OFFICIAL AT
 <br />
-<br />5. &gt; stomatal resistance depends on vegetation type, it is not clear to 
+PRESENT
 <br />
-me, how 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no2:long_name = &quot;Nitrogen Dioxide Mass Mixing Ratio&quot; ;
 <br />
-<em class="quotelev1">&gt; to include min and max into standard name:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no2:units = &quot;1-e9&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no2:error_var = &quot;no2_error_limit&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no2:comment = &quot;Units are given in parts per billion by
+<br />
+volume.&quot; ;
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float no2_error_limit(time) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no2_error_limit:standard_name =
+<br />
+&quot;uncertainty_on_no2_mixing_ratio&quot; ; ###NOT OFFICIAL AT PRESENT
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no2_error_limit:long_name = &quot;Nitrogen Dioxide Error Limit&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no2_error_limit:units = &quot;1-e9&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no2_error_limit:root_var = &quot;no2&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no2_error_limit:comment = &quot;Units are given in parts per
+<br />
+billion by volume. The error limit is quoted for 2 sigma random errors plus
+<br />
+systematic uncertainties derived from cross-sectional fits.&quot; ;
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float no2_detection_limit(time) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no2_detection_limit:standard_name =
+<br />
+&quot;lod_on_no2_mixing_ratio&quot; ; ###NOT OFFICIAL AT PRESENT [lod = limit of
+<br />
+detection]
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no2_detection_limit:long_name = &quot;Nitrogen Dioxide Detection
+<br />
+Limit&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no2_detection_limit:units = &quot;1-e9&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no2_detection_limit:comment = &quot;Units are given in parts per
+<br />
+billion by volume. The detection limit is quoted for 2 standard deviations.&quot;
+<br />
+;
+<br />
+<br />-----------------------------------------------
+<br />
+<br />Detection Limit introduces yet another twist as we might want a
+<br />
+standard_name prefix for that as well. However, many users may prefer that
+<br />
+the any values below the detection limit are not included (i.e. encoded as
+<br />
+_FillValues) but I suspect the actual value should be recorded for
+<br />
+reference.
+<br />
+<br />Any thoughts?
+<br />
+<br />Ag
+<br />
+<br />-----Original Message-----
+<br />
+From: John Evans [mailto:johnevans at acm.org]
+<br />
+Sent: 20 March 2003 14:56
+<br />
+To: Bryan Lawrence
+<br />
+Cc: cf-metadata at cgd.ucar.edu
+<br />
+Subject: Re: [CF-metadata] Encoding Errors on variables in CF
+<br />
+<br /><br />I'd like to jump into this (and hopefully not expose my ignorance).
+<br />
+I have a similar situation where it's not error that I'm tracking, but
+<br />
+instead data quality, and I guess that I've been thinking kind of along
+<br />
+Bryan's line here.  I'm recording realtime buoy observations (wind speed,
+<br />
+direction, wave height, etc) and with to each observation a quality flag
+<br />
+is assigned, and right now I do this by keeping another variable attached
+<br />
+to the parameter in question.  For example, here's an example from a
+<br />
+current meter file
+<br />
+<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float current_speed(time, depth, lat, lon) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_speed:long_name = &quot;Current Speed&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_speed:standard_name = &quot;sea_water_speed&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_speed:short_name = &quot;CSPD&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_speed:scale_factor = 1. ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_speed:add_offset = 0. ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_speed:_FillValue = -999.f ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_speed:units = &quot;m/s&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_speed:valid_range = 0.f, 10.f ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_speed:calibration_coeffs = 0., 0.2933, 0., 0. ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_speed:epic_code = 300 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;byte current_speed_qc(time, depth, lat, lon) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_speed_qc:long_name = &quot;Current Speed Quality&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_speed_qc:short_name = &quot;CSPDQ&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_speed_qc:scale_factor = 1. ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_speed_qc:add_offset = 0. ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_speed_qc:_FillValue = -128b ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_speed_qc:units = &quot;none&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_speed_qc:valid_range = -127s, 127s ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_speed_qc:quality_good = 0b ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_speed_qc:sensor_nonfunctional = 1b ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_speed_qc:outside_valid_range = 2b ;
+<br />
+<br />If the data were only bad when it was outside the valid range, there would
+<br />
+be no
+<br />
+need for the quality variable, but there are cases where the data actually
+<br />
+is
+<br />
+within the valid range, but we still believe it to be bad.  So right now I
+<br />
+basically
+<br />
+have a quality variable for each geophysical parameter that I track.  I've
+<br />
+been kind
+<br />
+of wondering for a while how exactly this would fit into CF...  I'm just
+<br />
+tacking
+<br />
+on the letters &quot;_qc&quot; for each quality variable, but having a CF attribute
+<br />
+formally identifying it as just a quality variable would certain be easy
+<br />
+to do.  But I'm open to other suggestions, and am currently in the middle of
+<br />
+a push
+<br />
+to move my data into total CF compliance, so if there's a better way for me
+<br />
+to do
+<br />
+this, I'm all ears.
+<br />
+<br /><br /><br /><br /><br /><br />On Thu, 20 Mar 2003, Bryan Lawrence wrote:
+<br />
+<br /><em class="quotelev1">&gt;Hi Jonathan
 </em><br />
-<em class="quotelev1">&gt; stomatal_resistance; Maximum stomatal resistance; s m-1
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; stomatal_resistance; Minimum stomatal resistance; s m-1
+<em class="quotelev2">&gt;&gt; variables. However, I am not convinced about introducing a linking
 </em><br />
-I suppose this could be indicated by cell_methods &quot;vegetation_type: 
-<br />
-maximum&quot;.
-<br />
-We have not got standard names for stomatal resistance and vegetation 
-<br />
-type.
-<br />
-Are you proposing these?
-<br />
-A: Yes, stomatal_resistance is the proposal.
-<br />
-Each vegetation type has its maximum and its minimum, depending on the 
-<br />
-situation (water supply and temperature).
-<br />
-<br />6. &gt; surface_direct_downwelling_photosynthetic_radiative_flux; W m-2
-<br />
-<em class="quotelev1">&gt; surface_diffuse_downwelling_photosynthetic_radiative_flux; W m-2
+<em class="quotelev2">&gt;&gt; attribute, because I don't think the relation is so close that it needs
 </em><br />
-Is it correct that you mean the vertically downward component of the flux
+to
 <br />
-directly from the sun in the first case, while the second means
-<br />
-surface_downwelling_photosynthetic_radiative_flux minus
-<br />
-surface_direct_downwelling_photosynthetic_radiative_flux?
-<br />
-A: yes
-<br />
-<br />7. &gt; 
-<br />
-tendency_of_atmosphere_water_vapor_content_due_to_stable_convection:kg m-2 
-<br />
-s-1
-<br />
-<em class="quotelev1">&gt; tendency_of_atmosphere_water_vapor_content_due_to_turbulence:kg m-2 s-1
+<em class="quotelev2">&gt;&gt; be given this special status. 
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;
 </em><br />
-tendency_of_water_vapor_content_of_atmosphere_layer_due_to_stable_convection:kg 
-<br />
-m-2 s-1
-<br />
-<em class="quotelev1">&gt; tendency_of_water_vapor_content_of_atmosphere_layer_due_to_turbulence:kg 
+<em class="quotelev1">&gt;ok, I can accept that argument but ... see below
 </em><br />
-m-2 s-1
-<br />
-Could you define what &quot;turbulence&quot; and &quot;stable convection&quot; mean, please?
-<br />
-A by A.Ruane: turbulence is &quot;turbulent_mixing&quot; and &quot;stable_convection&quot; 
-<br />
-should 
-<br />
-really be &quot;stable_moistening&quot; or &quot;non_convective_moistening&quot;
-<br />
-<br />8. You define both these quantities as &quot;energy resulting from shift in
-<br />
-sigma-layer-definition with changing PS&quot;. What is the distinction between 
-<br />
-the
-<br />
-two of them? Perhaps the second is in a layer?
-<br />
-&nbsp;&nbsp;atmosphere_phis:J m-2
-<br />
-&nbsp;&nbsp;phis:J m-2
-<br />
-Is this a commonly used quantity that needs a standard name? It is 
-<br />
-obviously
-<br />
-a model quantity, not an observational one, but it should have a name if 
-<br />
-it
-<br />
-is being compared among models. However, we would need to give it a more
-<br />
-self-explanatory name than &quot;phi_s&quot;. Could you please describe it in some 
-<br />
-more
-<br />
-detail?
-<br />
-A: yes, atmosphere_phis is for whole atmosphere, phis is defined for 
-<br />
-layers.
-<br />
-perhaps we can use
-<br />
-energy_residual_due_to_shifting_definition_of_sigma_levels?
-<br />
-<br />9. In these quantities
-<br />
-&nbsp;&nbsp;baseflow_amount:kg m-2
-<br />
-&nbsp;&nbsp;runoff_excluding_baseflow_amount:kg m-2
-<br />
-does &quot;baseflow&quot; mean the flow in rivers which comes from groundwater? You
-<br />
-define baseflow as &quot;surface runoff plus layer runoff minus baseflow&quot;, 
-<br />
-which
-<br />
-seems contradictory, and the second quantity appears to exclude baseflow a
-<br />
-second time. I haven't grasped the distinctions you are making - could you
-<br />
-clarify, please?
-<br />
-A: baseflow = groundwater flow
-<br />
-&nbsp;runoff_excluding_baseflow = all runoff - baseflow (that means it is 
-<br />
-surface + subsurface except groundwater flow)
-<br />
-<br />10.The following come in pairs. What is the distinction between the two 
-<br />
-varieties?
-<br />
-Is the shortwave absorption for upwelling or downwelling or both, the last
-<br />
-being the difference between incoming and outgoing TOA SW? How do you 
-<br />
-define
-<br />
-the longwave absorption, given that the atmosphere emits as well as 
-<br />
-absorbing?
-<br />
-By the energy released by convection do you mean the latent heat released 
-<br />
-by
-<br />
-condensation during convection (corresponding to large-scale)?  In 
-<br />
-condensation
-<br />
-do you include freezing?
-<br />
-&nbsp;&nbsp;rate_of_absorption_of_shortwave_energy:W m-2
-<br />
-&nbsp;&nbsp;atmosphere_rate_of_absorption_of_shortwave_energy:W m-2
-<br />
-&nbsp;&nbsp;rate_of_absorption_of_longwave_energy:W m-2
-<br />
-&nbsp;&nbsp;atmosphere_rate_of_absorption_of_longwave_energy:W m-2
-<br />
-&nbsp;&nbsp;rate_of_energy_released_by_deep_convection:W m-2
-<br />
-&nbsp;&nbsp;atmosphere_rate_of_energy_released_by_deep_convection:W m-2
-<br />
-&nbsp;&nbsp;rate_of_energy_released_by_shallow_convection:W m-2
-<br />
-&nbsp;&nbsp;atmosphere_rate_of_energy_released_by_shallow_convection:W m-2
-<br />
-&nbsp;&nbsp;rate_of_energy_released_by_large_scale_condensation:W m-2
-<br />
-&nbsp;&nbsp;atmosphere_rate_of_energy_released_by_large_scale_condensation:W m-2
-<br />
-I am wondering whether we can use the word &quot;power&quot; in names for these
-<br />
-quantities instead of &quot;rate of X&quot; where X is a kind of energy conversion.
-<br />
-Power (strictly per unit area) is the correct physical term, of course, 
-<br />
-but
-<br />
-not often used in meteorology.
-<br />
-A:  atmosphere_ is the value for the whole atmosphere, the other one is 
-<br />
-layer defined
-<br />
-by A.Ruane: This variables  refers 
-<br />
-to net radiative effect.  That means they refer to the rate of energy 
-<br />
-absorbed/emitted in the shortwave spectra, so a layer would have a 
-<br />
-positive value if it absorbed more shortwave radiation than it emitted. 
-<br />
-Therefore, none of the above options are correct, as it is both upward and 
-<br />
-<br />downward shortwave energy.  I would call it: 
-<br />
-rate_of_absorption_of_net_shortwave_energy: W m-2
-<br />
-This is not the same as a TOA difference, particularly for those 
-<br />
-interested in specific atmospheric layers and the vertical column integral 
-<br />
-<br />will differ from the TOA difference due to absorption of the land surface 
-<br />
-and any discrepancies in the model's radiation budget.  The longwave is 
-<br />
-described in the same way:
-<br />
-rate_of_absorption_of_net_longwave_energy: W m-2
-<br />
-this may be confusing to some people, as there will often be negative 
-<br />
-net absorption (e.g. emission dominating absorption), but it is consistent 
-<br />
-<br />with our wording.  The clearest alternatives would be to call them: 
-<br />
-power_due_to_shortwave_energy: W m-2
-<br />
-power_due_to_longwave_energy: W m-2
-<br />
-<br />11. I'm not clear which &quot;energy&quot; is referred to in
-<br />
-&nbsp;&nbsp;energy_of_atmosphere_layer:J m-2
-<br />
-&nbsp;&nbsp;horizontal_energy_transport_in_air:W m-2
-<br />
-&nbsp;&nbsp;horizontal_atmosphere_energy_transport:W m-2
-<br />
-Is it the moist energy? (See 1st December posting.)
-<br />
-A: energy_of_atmosphere_layer:J m-2 should be 
-<br />
-dry_energy_content_of_atmosphere_layer:J m-2 (already in list)
-<br />
-horizontal_dry_energy_transport_in_air:W m-2 for layer-variable and 
-<br />
-horizontal_atmosphere_dry_energy_transport:W m-2 
-<br />
-<br />12. What energy is being referred to in these quantities?
-<br />
-&nbsp;&nbsp;eastward_energy_flux_in_air; W m-1
-<br />
-&nbsp;&nbsp;upward_energy_flux_in_air; W m-1
-<br />
-&nbsp;&nbsp;northward_energy_flux_in_air; W m-1
-<br />
-A: still open
-<br />
-<br />13.We have atmosphere_energy_content in the table at present, but it is 
-<br />
-not
-<br />
-really defined what it means. What do you mean by it in
-<br />
-&nbsp;&nbsp;tendency_of_atmosphere_energy_content:W m-2
-<br />
-A: still open
-<br />
-<br />14. For these 
-<br />
-&nbsp;&nbsp;horizontal_enthalpy_transport_in_air:W m-2
-<br />
-&nbsp;&nbsp;horizontal_geopotential_energy_transport_in_air:W m-2
-<br />
-&nbsp;&nbsp;horizontal_kinetic_energy_transport_in_air:W m-2
-<br />
-we already have
-<br />
-&nbsp;&nbsp;tendency_of_atmosphere_enthalpy_content_due_to_advection:W m-2
-<br />
-&nbsp;&nbsp;tendency_of_atmosphere_potential_energy_content_due_to_advection:W m-2
-<br />
-&nbsp;&nbsp;tendency_of_atmosphere_kinetic_energy_content_due_to_advection:W m-2
-<br />
-Are they what you want? If so, what is the difference between these and 
-<br />
-the set
-<br />
-&nbsp;&nbsp;horizontal_atmosphere_enthalpy_transport:W m-2
-<br />
-&nbsp;&nbsp;horizontal_atmosphere_geopotential_energy_transport:W m-2
-<br />
-&nbsp;&nbsp;horizontal_atmosphere_kinetic_energy_transport:W m-2
-<br />
-You describe this set as &quot;mass weighted&quot; but I am unclear what distinction
-<br />
-is being made, since both sets of quantities are in W m-2.
-<br />
-A:
-<br />
-instead of 
-<br />
-&nbsp;&nbsp;horizontal_atmosphere_enthalpy_transport:W m-2
-<br />
-&nbsp;&nbsp;horizontal_atmosphere_geopotential_energy_transport:W m-2
-<br />
-&nbsp;&nbsp;horizontal_atmosphere_kinetic_energy_transport:W m-2
-<br />
-we can use 
-<br />
-&nbsp;&nbsp;tendency_of_atmosphere_enthalpy_content_due_to_advection:W m-2
-<br />
-&nbsp;&nbsp;tendency_of_atmosphere_potential_energy_content_due_to_advection:W m-2
-<br />
-&nbsp;&nbsp;tendency_of_atmosphere_kinetic_energy_content_due_to_advection:W m-2
-<br />
-&quot;mass weighted&quot; is the way of calculation the vertical integral, it is the 
-<br />
-normal way, so we don't have to mention it especially
-<br />
-layer variables
-<br />
-&nbsp;&nbsp;horizontal_enthalpy_transport_in_air:W m-2
-<br />
-&nbsp;&nbsp;horizontal_geopotential_energy_transport_in_air:W m-2
-<br />
-&nbsp;&nbsp;horizontal_kinetic_energy_transport_in_air:W m-2
-<br />
-could be then
-<br />
-&nbsp;&nbsp;tendency_of_enthalpy_content_due_to_advection_in_air:W m-2
-<br />
-&nbsp;&nbsp;tendency_of_potential_energy_content_due_to_advection_in_air:W m-2
-<br />
-&nbsp;&nbsp;tendency_of_kinetic_energy_content_due_to_advection_in_air:W m-2
-<br />
-<br /><br />15. two additional soil parameters concerning energy
-<br />
-soil_thermal_capacity; J kg-1 K-1
-<br />
-soil_thermal_conductivity; W m-1 K-1
-<br />
-<br />16. one additional variable concerning water in soil
-<br />
-volume_fraction_of_water_in_soil_at_critical_point
-<br />
-<br />Thanks for your help,
-<br />
-Beate
-<br />
-====================================================
-<br />
-&nbsp;Dr. Beate Geyer 
-<br />
-&nbsp;GKSS Research Centre 
-<br />
-&nbsp;Institute for Coastal Research 
-<br />
-&nbsp;Max-Planck-Str. 
-<br />
-&nbsp;D-21502 Geesthacht, Germany 
-<br />
-<br />E-Mail:   Beate.Geyer at gkss.de
-<br />
-====================================================
-<br />
--------------- next part --------------
-<br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20060410/1da7a5c1/attachment-0002.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20060410/1da7a5c1/attachment-0002.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Mon Apr 10 2006 - 07:54:51 BST</span>
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; In this particular case, you can look for another variable with the same
+</em><br />
+<em class="quotelev2">&gt;&gt; spatiotemporal metadata and a standard_name which contains the original
+</em><br />
+one
+<br />
+<em class="quotelev2">&gt;&gt; as a pattern. That would be very general. 
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;... but I had got the thought from the previous emails that we didn't want
+</em><br />
+to 
+<br />
+<em class="quotelev1">&gt;enforce &quot;error&quot; into standard names ... and I think it would introduce a
+</em><br />
+new 
+<br />
+<em class="quotelev1">&gt;problem:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;My radiosonde example is still a good one, and it's real: 
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;For each measurement in a profile I have a number which is an error (which 
+</em><br />
+<em class="quotelev1">&gt;might be a physical error quantity but is more likely a percentage). So,
+</em><br />
+for 
+<br />
+<em class="quotelev1">&gt;an individual radisonde profile, say of humidity, then I have the 
+</em><br />
+<em class="quotelev1">&gt;measurement, and an error (let's say a percentage, which increases with 
+</em><br />
+<em class="quotelev1">&gt;height). So, I can see that I could have two variables in the file which
+</em><br />
+are 
+<br />
+<em class="quotelev1">&gt;the humidity and the error (percentage). 
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;I could then produce a climatology from a year's measurements, and now the 
+</em><br />
+<em class="quotelev1">&gt;error of interest is the standard error associated with the variance
+</em><br />
+between 
+<br />
+<em class="quotelev1">&gt;measurements within the month and it has rather different units than the 
+</em><br />
+<em class="quotelev1">&gt;error did in the previous case, still with the same names for the variables
+</em><br />
+<br /><em class="quotelev1">&gt;if we were trying to introduce an error standard name for every standard
+</em><br />
+name 
+<br />
+<em class="quotelev1">&gt;... (have i misundestood this point?).
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;The key point here is that different communties have rather different idea
+</em><br />
+of 
+<br />
+<em class="quotelev1">&gt;what we mean by an error ... even with the same source data ... albeit at 
+</em><br />
+<em class="quotelev1">&gt;different stages of maturity.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;I would have thought it would have been cleaner to have an optional link 
+</em><br />
+<em class="quotelev1">&gt;between two variables ... software could simply fail gracefully if the link
+</em><br />
+<br /><em class="quotelev1">&gt;was broken.   This is nothing more than a &quot;data hyperlink&quot; ...
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;... but I dont feel strongly about this, as long as we can find a sensible
+</em><br />
+way 
+<br />
+<em class="quotelev1">&gt;of doing it ...
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;Bryan
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<br /><pre>
+-- 
+John Evans           
+johnevans at acm.org   
+_______________________________________________
+CF-metadata mailing list
+CF-metadata at cgd.ucar.edu
+<a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</pre>
+<span id="received"><dfn>Received on</dfn> Fri Mar 21 2003 - 05:51:32 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -509,8 +442,8 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start120">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0121.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] sea_area"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0119.html" title="Previous message in the list">Luis Bermudez: "[CF-metadata] standard_name.xml"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0121.html" title="Next message in the list">John Caron: "[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0119.html" title="Previous message in the list">Steve Hankin: "[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -522,7 +455,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:44 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0119.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0121.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

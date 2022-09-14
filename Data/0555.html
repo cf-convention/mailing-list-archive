@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] curvilinear cartesian coordinates case from Bert Jagers on 2006-12-04 (mailing-list-archive)</title>
-<meta name="Author" content="Bert Jagers (Bert.Jagers)" />
-<meta name="Subject" content="[CF-metadata] curvilinear cartesian coordinates case" />
-<meta name="Date" content="2006-12-04" />
+<title>[CF-metadata] Horizontal Data Coordinate System Definition [long] from John Caron on 2005-02-16 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] Horizontal Data Coordinate System Definition [long]" />
+<meta name="Date" content="2005-02-16" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0554.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0556.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] curvilinear cartesian coordinates case</h1>
-<!-- received="Mon Dec  4 13:05:58 2006" -->
-<!-- isoreceived="20061204130558" -->
-<!-- sent="Mon, 4 Dec 2006 21:05:58 +0100" -->
-<!-- isosent="20061204200558" -->
-<!-- name="Bert Jagers" -->
-<!-- email="Bert.Jagers" -->
-<!-- subject="[CF-metadata] curvilinear cartesian coordinates case" -->
-<!-- id="036f01c717df$9d753ac0$22e40991_at_wl06377" -->
+<a style="text-decoration:none" href="./0554.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0556.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Horizontal Data Coordinate System Definition [long]</h1>
+<!-- received="Tue Feb 15 17:53:58 2005" -->
+<!-- isoreceived="20050215175358" -->
+<!-- sent="Tue, 15 Feb 2005 17:53:58 -0700" -->
+<!-- isosent="20050216005358" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] Horizontal Data Coordinate System Definition [long]" -->
+<!-- id="421299A6.4080601_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20061204090828.GA17830_at_met.reading.ac.uk" -->
+<!-- inreplyto="42124B96.5010708_at_usgs.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0556.html" accesskey="d" title="Godin, Michael: &quot;[CF-metadata] Proposed standard names for biological model outputs&quot;">Next message</a> ]
-[ <a href="./0554.html" title="Steve Emmerson: &quot;[CF-metadata] Proposed standard names for biological model outputs&quot;">Previous message</a> ]
-[ <a href="./0542.html" title="Jonathan Gregory: &quot;[CF-metadata] curvilinear cartesian coordinates case&quot;">In reply to</a> ]
+[ <a href="./0556.html" accesskey="d" title="Richard P Signell: &quot;[CF-metadata] Horizontal Data Coordinate System Definition [long]&quot;">Next message</a> ]
+[ <a href="./0554.html" title="Rich Signell: &quot;[CF-metadata] Horizontal Data Coordinate System Definition [long]&quot;">Previous message</a> ]
+[ <a href="./0554.html" title="Rich Signell: &quot;[CF-metadata] Horizontal Data Coordinate System Definition [long]&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0557.html" accesskey="t" title="Steve Hankin: &quot;[CF-metadata] curvilinear cartesian coordinates case&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,290 +70,406 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Bert Jagers &lt;<a href="mailto:Bert.Jagers?Subject=Re%3A%20%5BCF-metadata%5D%20curvilinear%20cartesian%20coordinates%20case">Bert.Jagers</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20Horizontal%20Data%20Coordinate%20System%20Definition%20%5Blong%5D">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 4 Dec 2006 21:05:58 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 15 Feb 2005 17:53:58 -0700</span><br />
 </address>
 <br />
-Dear Jonathan and others,
+I agree with Rich, that we should basically keep using FGDC as much as 
 <br />
-<br />Thanks for all comments and suggestions; sorry I wasn't able to respond the 
+possible as we move into GIS, that EPSG is the standard reference for 
 <br />
-last couple of days. Let me indicate the context of my request.
+the real details, and that an ellipsoid should be allowed on any of the 
 <br />
-<br />I work in the field of hydraulics, morphodynamics, water quality and 
+projections we have defined so far.
 <br />
-ecology. Our modelling system is used for simulations from the scale of 
+<br />The EPSG databases are pretty big, and it may be unreasonable to expect 
 <br />
-metres (flume experiments) through all length scales (detailed flow around 
+clients to implement all of them. I think a happy medium might be to 
 <br />
-groynes, dredging studies, flooding, river models from 10-100 km, estuaries) 
+require either 1) the ellipsoid axis and flattening parameters or 2) a 
 <br />
-to coastal/sea/ocean applications (storm surges, residual transports, tidal 
+few very commonly used EPSG codes that we explicitly list, such as 
 <br />
-predictions, tsunami). We want our model in- and output to be stored in an 
+WGS84. Similarly, rather than allow any EPSG code for projections, we 
 <br />
-international standardized file format such that users all over the world 
+could allow the EPSG codes for just the projections we explicitly define.
 <br />
-can easily use the system and process the results. NetCDF with the outlook 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <br />
-of netCDF4/HDF5 seems to be the most appropriate candidate. But netCDF by 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <br />
-itself is just a generic data container (slightly better, but not much 
+Rich Signell wrote:
 <br />
-better, than distributing our own file format together with reading 
-<br />
-routines). So, we need to standardise the way in which data is written to 
-<br />
-the netCDF file; the CF standard seems to be the only logical choice for 
-<br />
-that. As I see it now, I have to find solutions for the following CF-related 
-<br />
-challenges:
-<br />
-<br />1- lat/lon and local coordinates. See below.
-<br />
-2- 1D model data, 2D/3D mosaic model data and also unstructured grid model 
-<br />
-data.
-<br />
-3- staggered data C-type grid with different locations for water levels and 
-<br />
-velocity components in grid directions.
-<br />
-<br />Topics 2 and 3 will be addressed in a different setting. I will continue 
-<br />
-with topic 1 below.
-<br />
-<br />As some have indicated it is possible to write non-standardized data in 
-<br />
-netCDF file. Well, that is probably the state that we are in right now. I 
-<br />
-write out 2D/3D data in a netCDF format that is similar to CF conventions, 
-<br />
-that was intended to be CF compliant, but unfortunately is not CF compliant. 
-<br />
-So far, I have said to users that it is CF compliant (because I was made to 
-<br />
-believe that it was indeed so) and have heard about no problems (only about 
-<br />
-initially lacking standard names). However, I do not like this situation now 
-<br />
-that I know that something is wrong, and I would like to really adhere to 
-<br />
-the CF conventions. What else is a standard good for?
-<br />
-<br />The applications on the largest scales (coastal/sea/ocean) are generally 
-<br />
-formulated in lat/lon coordinates, so, that is fine. I can imagine that 
-<br />
-ocean and atmospheric models are generally posed in generic lat/lon 
-<br />
-coordinates and that is, thus, logical for climate and forecast standard 
-<br />
-associated with such models to assume lat/lon coordinates to be known (for 
-<br />
-reasons of scale, positioning or nesting of models). However, many of the 
-<br />
-more local models for which the curvature of the earth is not relevant are 
-<br />
-based on local coordinates; this holds definitely for most of our river 
-<br />
-models. Even though the exact transformation to lat/lon coordinates may not 
-<br />
-be known, the model runs just fine; however, in such cases we cannot store 
-<br />
-the data in a CF compliant way because the lat/lon coordinates are unkown. I 
-<br />
-recognize and thus accept that lat/lon is the preferred way to store 
-<br />
-coordinate information and we, therefore, need to adjust our pre- and 
-<br />
-postprocessing software to deal with such cases. Luckily, the introduction 
-<br />
-of GIS has made coordinate transformations easier once you know the exact 
-<br />
-characteristics of the local coordinate system. However, although GIS is 
-<br />
-spreading,  many non-GIS-based local data supply and processing tools often 
-<br />
-do not include coordinate transformation facilities and, therefore, they 
-<br />
-require the coordinates to be given also in the local coordinate system. The 
-<br />
-auxiliary coordinates option and grid_mapping feature offers the 
-<br />
-functionality to support one such local system, but due to the growing 
-<br />
-demand on water the number of projects at international boundaries is 
-<br />
-increasing. In such cases, there is not one local coordinate but more (in 
-<br />
-most cases two). Although in such cases the model may be formulated in 
-<br />
-lat/lon coordinates, the data supply should use the local coordinate 
-<br />
-systems. Since this request is related to the local coordinate systems of 
-<br />
-the countries in the considered model area, I think that is highly unlikely 
-<br />
-that after the data has been produced the number of coordinates is to be 
-<br />
-extended (question by Steve). However, as Jonathan indicates in the mail 
-<br />
-below one could always extend such files. It would, however, be possible for 
-<br />
-a large model to touch on three countries and thus require three coordinate 
-<br />
-systems, but such models would do so from the start.
-<br />
-<br />Instead of creating one output file with the grid specified in multiple 
-<br />
-coordinate systems, one could of course generate multiple copies of the 
-<br />
-output file with one auxiliary coordinate system each, but I do not like 
-<br />
-this approach. I am not against grids in different files as Steve proposed 
-<br />
-in the (CF provisional standards thread) but I my experience with such 
-<br />
-implementations from postprocessing is not so good (either no reference to 
-<br />
-other files, or external files missing or located in different directories). 
-<br />
-Steve's idea is more in line with John Caron's concept of a grid object with 
-<br />
-the difference that John keeps all coordinate systems in one file. I like 
-<br />
-the grid object concept because is close to the object oriented concepts in 
-<br />
-model coupling: OpenMI, a european standard on model coupling, uses element 
-<br />
-sets on which data sets are defined, the ESMF framework is also working in 
-<br />
-this grid object direction.  By the way, I have modified John's example on 
-<br />
-<a href="http://cf-pcmdi.llnl.gov/trac/wiki/MultipleProjections">http://cf-pcmdi.llnl.gov/trac/wiki/MultipleProjections</a> to refer to Dutch and 
-<br />
-German coordinateSystems instead of Dutch and Belgium coordinate systems to 
-<br />
-reflect the coordinate systems defined. I have not yet read the Coordinate 
-<br />
-System Object Model page that John referred to, but I would be tempted to 
-<br />
-say that quantities are defined (at some staggered locations) on grids or 
-<br />
-meshes (or on no spatial data set at all), grids and meshes are specified in 
-<br />
-some coordinate system (one of which is WGS84 lat/lon), and coordinate 
-<br />
-systems can be mapped onto each other using something that is called 
-<br />
-grid_mapping in the CF convention.
-<br />
-<br />To reassure Steve, as indicated above I first need to get consistent 
-<br />
-transformation information into our pre- and postprocessing software 
-<br />
-otherwise I do not have the required lat/lon coordinate representation. So, 
-<br />
-we don't need to rush into a final solution yet. However, I did feel the 
-<br />
-need to raise this matter since I know that I will need it in the end.
-<br />
-<br />By the way: Unfortunately, different countries do not only use different 
-<br />
-local coordinate systems, but they often also use different vertical 
-<br />
-reference systems (couple of cm difference between Netherlands, Belgium and 
-<br />
-Germany). Such differences in vertical reference systems are harder to 
-<br />
-correct for; I do not want to store bed levels and surface elevations in 
-<br />
-different vertical reference systems.
-<br />
-<br />Best regards,
-<br />
-<br />Bert
-<br />
-<br />----- Original Message ----- 
-<br />
-From: &quot;Jonathan Gregory&quot; &lt;j.m.gregory at reading.ac.uk&gt;
-<br />
-To: &lt;cf-metadata at cgd.ucar.edu&gt;
-<br />
-Sent: Monday, December 04, 2006 10:08 AM
-<br />
-Subject: [CF-metadata] curvilinear cartesian coordinates case
-<br />
-<br /><br /><em class="quotelev1">&gt; Dear Steve and Bert
+<br /><em class="quotelev1">&gt; CF gang,
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt;    Can someone weigh in
+<em class="quotelev1">&gt; I've been thinking about the UTM thread for the last week, and also 
 </em><br />
-<em class="quotelev2">&gt;&gt;    regarding the benefit side of this requirement?  Will it be
+<em class="quotelev1">&gt; doing a bit of research.  This UTM issue really brings up the whole 
 </em><br />
-<em class="quotelev2">&gt;&gt;    commonplace to require multiple grid mappings in some communities?  In
+<em class="quotelev1">&gt; issue of how to allow for proper georeferencing in NetCDF, in a way 
 </em><br />
-<em class="quotelev2">&gt;&gt;    those communities are we confident that the number of alternative grid
+<em class="quotelev1">&gt; that easily lets true GIS applications like ArcGIS ingest information 
 </em><br />
-<em class="quotelev2">&gt;&gt;    mappings will remain fixed?
+<em class="quotelev1">&gt; from the NetCDF file without requiring additional input from the 
 </em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; I presume that Bert has a definite need to store multiple grid mappings.
-</em><br />
-<em class="quotelev1">&gt; I don't think any of the solutions proposed requires the number to be 
-</em><br />
-<em class="quotelev1">&gt; fixed
-</em><br />
-<em class="quotelev1">&gt; i.e. the file could be modified to add another one, using any of the 
-</em><br />
-<em class="quotelev1">&gt; solutions.
+<em class="quotelev1">&gt; NetCDF file provider (or guesses from the GIS user).
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt;    As you know I believe personally that the cost of  added complexity,
-</em><br />
-<em class="quotelev2">&gt;&gt;    of muddying concepts, etc. in CF is not given enough weight in our
-</em><br />
-<em class="quotelev2">&gt;&gt;    discussions.  Often we have a pressing need to create new files, but a
-</em><br />
-<em class="quotelev2">&gt;&gt;    much vaguer future intention to create software to read those files,
+<em class="quotelev1">&gt; FGDC METADATA STANDARD
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Bert, do you have a definite intention to read these 2D projection coords
+<em class="quotelev1">&gt; Since CF is already using FGDC &quot;Content Standard for Digital 
 </em><br />
-<em class="quotelev1">&gt; from the files? Is there a community of users for them?
+<em class="quotelev1">&gt; Geospatial Metadata&quot;
+</em><br />
+<em class="quotelev1">&gt; &lt;<a href="http://www.fgdc.gov/standards/documents/standards/metadata/v2_0698.pdf">http://www.fgdc.gov/standards/documents/standards/metadata/v2_0698.pdf</a>&gt;
+</em><br />
+<em class="quotelev1">&gt; as a guide in choosing the &quot;grid_mapping_name&quot; values and attributes, 
+</em><br />
+<em class="quotelev1">&gt; perhaps we could go ahead and basically implement the full standard 
+</em><br />
+<em class="quotelev1">&gt; for spatial reference information.  A great one-figure view of this 
+</em><br />
+<em class="quotelev1">&gt; Spatial Reference Information in the standard is at:
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Cheers
+<em class="quotelev1">&gt;    <a href="http://biology.usgs.gov/fgdc.metadata/version2/meta4.gif">http://biology.usgs.gov/fgdc.metadata/version2/meta4.gif</a>
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Jonathan
+<em class="quotelev1">&gt; In this figure, the green indicates &quot;mandatory if applicable&quot;.  
 </em><br />
-<em class="quotelev1">&gt; _______________________________________________
+<em class="quotelev1">&gt; Reading the full document reveals that this means that if the data has 
 </em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
+<em class="quotelev1">&gt; horizontal information, there must be a 
 </em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+<em class="quotelev1">&gt; &quot;Horizontal_Coordinate_System_Definition&quot; and if the data has vertical 
 </em><br />
-<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+<em class="quotelev1">&gt; information, there must be a &quot;Vertical_Coordinate_System_Definition&quot;.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; For the horizontal, the choices are &quot;Geographic&quot;, &quot;Planar&quot; or &quot;Local&quot; 
+</em><br />
+<em class="quotelev1">&gt; coordinate systems.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; If we ignore &quot;Local&quot; coordinate systems, which are used only in 
+</em><br />
+<em class="quotelev1">&gt; engineering work, (e.g. 200 m east of some known gas rig), we are left 
+</em><br />
+<em class="quotelev1">&gt; with &quot;Geographic&quot; (lon,lat coordinates) and &quot;Planar&quot; (projected x,y 
+</em><br />
+<em class="quotelev1">&gt; coordinates).   For *both* of these coordinate systems, the 
+</em><br />
+<em class="quotelev1">&gt; &quot;Geodetic_Model&quot; specification is required (since it is applicable).
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Thus the Horizontal_Coordinate_System_Definition is defined as
+</em><br />
+<em class="quotelev1">&gt; [ Geographic | Planar ] + {Geodetic_Model}
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; GEODETIC MODEL
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; The Geodetic_Model is defined as:
+</em><br />
+<em class="quotelev1">&gt; {Horizontal_Datum_Name}+ Ellipsoid_Name + Semi-major_Axis + 
+</em><br />
+<em class="quotelev1">&gt; Denominator_of_Flattening_Ratio
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; This allows specifying the datum by name if one is being used, such 
+</em><br />
+<em class="quotelev1">&gt; as: &quot;North American Datum of 1927&quot;, but *requires* that the 
+</em><br />
+<em class="quotelev1">&gt; Ellipsoid_Name be given along with the ellipsoid parameters.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; PLANAR PROJECTIONS
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Planar is defined as:
+</em><br />
+<em class="quotelev1">&gt; [Map_Projection | Grid_Coordinate_System | Local_Planar] + 
+</em><br />
+<em class="quotelev1">&gt; Planar_Coordinate_Information
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Map_Projection is defined as:
+</em><br />
+<em class="quotelev1">&gt; Map_Projection_Name + Map_Projection_Parameters
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Map_Projection_Name are defined as:
+</em><br />
+<em class="quotelev1">&gt; Lambert_Conformal_Conic, Stereographic, etc.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; The Grid_Coordinate_System is defined as:
+</em><br />
+<em class="quotelev1">&gt; Grid_Coordinate_System_Name + grid system parameters
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; For Universal_Transverse_Mercator, it is required to specify the 
+</em><br />
+<em class="quotelev1">&gt; UTM_Zone_Number. The UTM zones are defined as [1:60] for northern 
+</em><br />
+<em class="quotelev1">&gt; hemisphere, and [-60:-1] for southern hemisphere.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; !DSPAM:27,4573e6ab48712053120893!
+<em class="quotelev1">&gt; So what to do for CF?  Perhaps in addition to &quot;grid_mapping_name&quot; and 
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; each &quot;grid_mapping_name&quot;s required parameters we could add Ellipsoid 
 </em><br />
-<span id="received"><dfn>Received on</dfn> Mon Dec 04 2006 - 13:05:58 GMT</span>
+<em class="quotelev1">&gt; parameters using FGDC nomenclature, making the &quot;Ellipsoid_Name&quot; 
+</em><br />
+<em class="quotelev1">&gt; optional, or refering to a EPSG Ellipsoid, via 
+</em><br />
+<em class="quotelev1">&gt; &quot;Ellipsoid_Name='EPSG:7001';
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; temperature: grid_mapping=&quot;my_mapping&quot;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; int my_mapping
+</em><br />
+<em class="quotelev1">&gt;  my_mapping: grid_mapping_name = &quot;lambert_conformal_conic&quot;;
+</em><br />
+<em class="quotelev1">&gt;  my_mapping: standard_parallel = 25.0;
+</em><br />
+<em class="quotelev1">&gt;  my_mapping: longitude_of_central_meridian = 265.0;
+</em><br />
+<em class="quotelev1">&gt;  my_mapping: latitude_of_projection_origin = 25.0;
+</em><br />
+<em class="quotelev1">&gt;  my_mapping: Ellipsoid_Name=&quot;Airy 1830&quot;;
+</em><br />
+<em class="quotelev1">&gt;  my_mapping: Semi-major_Axis=6377563.396;
+</em><br />
+<em class="quotelev1">&gt;  my_mapping: Denominator_of_Flattening_Ratio=299.3249646;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; to make things easier, we could allow for the use of EPSG codes, as 
+</em><br />
+<em class="quotelev1">&gt; these have become quite popular in ArcGIS, WMS servers, etc.  The EPSG 
+</em><br />
+<em class="quotelev1">&gt; (The European Petroleum Survey Group) has a database where they assign 
+</em><br />
+<em class="quotelev1">&gt; a unique integer code to 42 ellipsoids, 434 datums, 75 projections 
+</em><br />
+<em class="quotelev1">&gt; (coordinate operation methods) and 2773 coordinate reference systems 
+</em><br />
+<em class="quotelev1">&gt; (combined projection + ellipsoid or datum combinations).
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; So we could shortcut the above description of the geodetic model by 
+</em><br />
+<em class="quotelev1">&gt; using EPSG:7001 to specify the Airy 1830 ellipsoid.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; But we could shortcut the whole description of the projection and 
+</em><br />
+<em class="quotelev1">&gt; ellipsoid for well-known coordinate reference systems.  For example, 
+</em><br />
+<em class="quotelev1">&gt; EPSG assigns a number to each zone in the coordinate system  (UTM + 
+</em><br />
+<em class="quotelev1">&gt; WGS84 ellipsoid)
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Thus specifying &quot;EPSG:32619&quot; means WGS84/UTM Zone 19N, and *completely 
+</em><br />
+<em class="quotelev1">&gt; specifies* the relationship between x,y in meters and lon,lat in 
+</em><br />
+<em class="quotelev1">&gt; degrees, without the need to explicitly describe the geoid parameters, 
+</em><br />
+<em class="quotelev1">&gt; the projection, and the projection parameters specific to this UTM zone.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; HANDLING OF UTM
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Also, I guess I'm reversing my position on having UTM as a separate 
+</em><br />
+<em class="quotelev1">&gt; &quot;grid_mapping_name&quot;, even though it is just a subset of Transverse 
+</em><br />
+<em class="quotelev1">&gt; Mercator.   So we could have:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; temperature: grid_mapping=&quot;my_mapping&quot;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; int my_mapping
+</em><br />
+<em class="quotelev1">&gt;  my_mapping: grid_mapping_name = &quot;Universal Transverse Mercator&quot;;
+</em><br />
+<em class="quotelev1">&gt;  my_mapping: UTM_Zone_Number = 33;
+</em><br />
+<em class="quotelev1">&gt;  my_mapping: Ellipsoid_Name=&quot;WGS 84&quot;;
+</em><br />
+<em class="quotelev1">&gt;  my_mapping: Semi-major_Axis=6378137;
+</em><br />
+<em class="quotelev1">&gt;  my_mapping: Denominator_of_Flattening_Ratio=298.257223563;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; and also
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; int my_mapping
+</em><br />
+<em class="quotelev1">&gt;  my_mapping: grid_mapping_name = &quot;Universal Transverse Mercator&quot;;
+</em><br />
+<em class="quotelev1">&gt;  my_mapping: UTM_Zone_Number = 33;
+</em><br />
+<em class="quotelev1">&gt;  my_mapping: Ellipsoid_Name=&quot;WGS 84&quot;;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; or just:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; int my_mapping
+</em><br />
+<em class="quotelev1">&gt;  my_mapping: grid_mapping_name = &quot;EPSG:32619&quot;;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; This latter shorthand is very popular and is being used right now in 
+</em><br />
+<em class="quotelev1">&gt; URLS sent to WMS servers to specify the projection of the map that 
+</em><br />
+<em class="quotelev1">&gt; gets returned.   WMS servers probably supply most of the remotely 
+</em><br />
+<em class="quotelev1">&gt; accessed GIS data on the Net.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; If we allowed EPSG codes to be used as &quot;grid_mapping_name&quot;, then we 
+</em><br />
+<em class="quotelev1">&gt; take the burden of handling all the thousands of coordinate reference 
+</em><br />
+<em class="quotelev1">&gt; systems from CF to the EPSG database, which seems to be the bible anyway.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; If you have MS Access, you can peruse the EPSG database through the 
+</em><br />
+<em class="quotelev1">&gt; handy forms they provide built right into the application.  It's a 
+</em><br />
+<em class="quotelev1">&gt; no-brainer, even if you haven't used Access (I hadn't).
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.epsg.org">http://www.epsg.org</a>
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; -Rich
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Jonathan Gregory wrote:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Listening to John and Rich, it seems to me that we should
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; * Extend the transverse Mercator to allow a UTM zone, say how this 
+</em><br />
+<em class="quotelev2">&gt;&gt; specifies
+</em><br />
+<em class="quotelev2">&gt;&gt; TM parameters, and that the two ways are mutually exclusive 
+</em><br />
+<em class="quotelev2">&gt;&gt; (specifying both
+</em><br />
+<em class="quotelev2">&gt;&gt; would be a CF error).
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; * Add a definition of spheroid to any projection definition where it is
+</em><br />
+<em class="quotelev2">&gt;&gt; relevant, with a list of permitted values. In John's original 
+</em><br />
+<em class="quotelev2">&gt;&gt; proposal, he
+</em><br />
+<em class="quotelev2">&gt;&gt; gave numbers to define the ellipsoid (semimajor axis and inverse 
+</em><br />
+<em class="quotelev2">&gt;&gt; flattening).
+</em><br />
+<em class="quotelev2">&gt;&gt; Rich has given names instead. Are these alternatives? Is there a 
+</em><br />
+<em class="quotelev2">&gt;&gt; definitive
+</em><br />
+<em class="quotelev2">&gt;&gt; source we could refer to?
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Jonathan
+</em><br />
+<em class="quotelev2">&gt;&gt; _______________________________________________
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt;&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<span id="received"><dfn>Received on</dfn> Tue Feb 15 2005 - 17:53:58 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -363,13 +477,10 @@ Subject: [CF-metadata] curvilinear cartesian coordinates case
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start555">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0556.html" title="Next message in the list">Godin, Michael: "[CF-metadata] Proposed standard names for biological model outputs"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0554.html" title="Previous message in the list">Steve Emmerson: "[CF-metadata] Proposed standard names for biological model outputs"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0542.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] curvilinear cartesian coordinates case"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0556.html" title="Next message in the list">Richard P Signell: "[CF-metadata] Horizontal Data Coordinate System Definition [long]"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0554.html" title="Previous message in the list">Rich Signell: "[CF-metadata] Horizontal Data Coordinate System Definition [long]"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0554.html" title="Message to which this message replies">Rich Signell: "[CF-metadata] Horizontal Data Coordinate System Definition [long]"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0557.html" title="Next message in this discussion thread">Steve Hankin: "[CF-metadata] curvilinear cartesian coordinates case"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0557.html" title="Message sent in reply to this message">Steve Hankin: "[CF-metadata] curvilinear cartesian coordinates case"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -380,7 +491,7 @@ Subject: [CF-metadata] curvilinear cartesian coordinates case
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:52 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0554.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0556.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] cellmethods=&quot;lat: lon: mean over land&quot; from Jonathan Gregory on 2006-02-15 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] cellmethods=&quot;lat: lon: mean over land&quot;" />
-<meta name="Date" content="2006-02-15" />
+<title>[CF-metadata] Gregorian calendar in CF from Jonathan Gregory on 2002-09-02 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (jonathan.gregory)" />
+<meta name="Subject" content="[CF-metadata] Gregorian calendar in CF" />
+<meta name="Date" content="2002-09-02" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0034.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0036.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] cellmethods=&quot;lat: lon: mean over land&quot;</h1>
-<!-- received="Wed Feb 15 10:39:40 2006" -->
-<!-- isoreceived="20060215103940" -->
-<!-- sent="Wed, 15 Feb 2006 17:39:40 +0000" -->
-<!-- isosent="20060215173940" -->
+<a style="text-decoration:none" href="./0034.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0036.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Gregorian calendar in CF</h1>
+<!-- received="Mon Sep  2 02:13:54 2002" -->
+<!-- isoreceived="20020902011354" -->
+<!-- sent="Mon, 02 Sep 2002 09:13:54 +0100" -->
+<!-- isosent="20020902081354" -->
 <!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] cellmethods=&quot;lat: lon: mean over land&quot;" -->
-<!-- id="20060215173940.GA20476_at_met.reading.ac.uk" -->
+<!-- email="jonathan.gregory" -->
+<!-- subject="[CF-metadata] Gregorian calendar in CF" -->
+<!-- id="20020902091353.D28482_at_hc1600.meto.gov.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0036.html" accesskey="d" title="Karl Taylor: &quot;[CF-metadata] cellmethods=&#0034;lat: lon: mean over land&#0034;&quot;">Next message</a> ]
-[ <a href="./0034.html" title="Karl Taylor: &quot;[CF-metadata] cellmethods=&#0034;lat: lon: mean over land&#0034;&quot;">Previous message</a> ]
+[ <a href="./0036.html" accesskey="d" title="John Caron: &quot;[CF-metadata] Dimensionless Vertical Coordinates&quot;">Next message</a> ]
+[ <a href="./0034.html" title="Brian Eaton: &quot;[CF-metadata] bounds for &#0034;reduced grids&#0034;&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0036.html" accesskey="t" title="Karl Taylor: &quot;[CF-metadata] cellmethods=&#0034;lat: lon: mean over land&#0034;&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,42 +68,56 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20cellmethods%3D%22lat%3A%20lon%3A%20mean%20over%20land%22">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:jonathan.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Gregorian%20calendar%20in%20CF">jonathan.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 15 Feb 2006 17:39:40 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 02 Sep 2002 09:13:54 +0100</span><br />
 </address>
 <br />
-Dear Karl
+In the default calendar, the changeover from Julian to Gregorian is 1582-10-15
 <br />
-<br /><em class="quotelev1">&gt; I don't have time to think about this right now, but are your 
+in CF, as in udunits. Steve Hankin wrote
+<br />
+<br /><em class="quotelev1">&gt; The discontinuity in
 </em><br />
-<em class="quotelev1">&gt; conclusions consistent with what we decided to do for the AR4?  In 
+<em class="quotelev1">&gt; calendars might make sense if you are a geopolitical historian, but it is
 </em><br />
-<em class="quotelev1">&gt; particular, we should check the definitions given in:
+<em class="quotelev1">&gt; nothing
 </em><br />
-<em class="quotelev1">&gt; <a href="http://www-pcmdi.llnl.gov/ipcc/standard_output.html">http://www-pcmdi.llnl.gov/ipcc/standard_output.html</a>
+<em class="quotelev1">&gt; but trouble for scientific data.  In the spirit of &quot;best practices&quot; CF should say
 </em><br />
-<br />Yes, I believe so. You and I agreed on this, in order to be consistent with
+<em class="quotelev1">&gt; something like
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt;   1. when using the default (Gregorian) calendar the time origin (&quot;...since
+</em><br />
+<em class="quotelev1">&gt;      &lt;date&gt;&quot;) should lie on the same side of the 1582-10-15 calandar change as do
+</em><br />
+<em class="quotelev1">&gt;      the time coordinate values
+</em><br />
+<em class="quotelev1">&gt;   2. when creating a time/date axis that crosses the 1582-10-15 calandar change you
+</em><br />
+<em class="quotelev1">&gt;      should use a &quot;proleptic Gregorian&quot; calendar -- achieving a consistently
+</em><br />
+<em class="quotelev1">&gt;      Gregorian behavior
+</em><br />
+<br />I would be in favour of adopting these as recommendations in CF. (1) can be
 <br />
-the AR4. The point was to recognise that we had been vague about what
+used provided the time coordinate values do not span the discontinuity, when
 <br />
-the &quot;mean&quot; method means. That's why you had to be prescriptive in the AR4
+clearly it is impossible. (2) could be used for model data that uses the real-
 <br />
-diagnostic specification. Your spec amounts to deciding whether it is
+world calendar. For real-world data it might not be appropriate, but there is
 <br />
-&quot;mean over land/sea&quot; or &quot;mean&quot;. In future, the cell_methods should specify
+no proper solution in this case, since the calendar change-over did not happen
 <br />
-this correctly. Does CMOR generate cell_methods?
+everywhere in the world at the same time. The proleptic Gregorian calendar is
 <br />
-<br />Possibly some standard_names with _where_ in them don't actually need it.
-<br />
-That's not a problem as we can alias them to new names without _where_.
-<br />
-<br />Best wishes
+already permitted in CF.
 <br />
 <br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Feb 15 2006 - 10:39:40 GMT</span>
+<span id="received"><dfn>Received on</dfn> Mon Sep 02 2002 - 02:13:54 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -113,12 +125,9 @@ That's not a problem as we can alias them to new names without _where_.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start35">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0036.html" title="Next message in the list">Karl Taylor: "[CF-metadata] cellmethods=&#0034;lat: lon: mean over land&#0034;"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0034.html" title="Previous message in the list">Karl Taylor: "[CF-metadata] cellmethods=&#0034;lat: lon: mean over land&#0034;"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0036.html" title="Next message in the list">John Caron: "[CF-metadata] Dimensionless Vertical Coordinates"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0034.html" title="Previous message in the list">Brian Eaton: "[CF-metadata] bounds for &#0034;reduced grids&#0034;"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0036.html" title="Next message in this discussion thread">Karl Taylor: "[CF-metadata] cellmethods=&#0034;lat: lon: mean over land&#0034;"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0036.html" title="Message sent in reply to this message">Karl Taylor: "[CF-metadata] cellmethods=&#0034;lat: lon: mean over land&#0034;"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -129,7 +138,7 @@ That's not a problem as we can alias them to new names without _where_.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:43 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0034.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0036.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

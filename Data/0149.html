@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Standard names for wave model data. from Stark, John on 2006-06-02 (mailing-list-archive)</title>
-<meta name="Author" content="Stark, John (john.stark)" />
-<meta name="Subject" content="[CF-metadata] Standard names for wave model data." />
-<meta name="Date" content="2006-06-02" />
+<title>[CF-metadata] bounds from Brian Eaton on 2003-04-29 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Brian Eaton (eaton)" />
+<meta name="Subject" content="[CF-metadata] bounds" />
+<meta name="Date" content="2003-04-29" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0148.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0150.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Standard names for wave model data.</h1>
-<!-- received="Fri Jun  2 03:07:18 2006" -->
-<!-- isoreceived="20060602020718" -->
-<!-- sent="Fri, 02 Jun 2006 10:07:18 +0100" -->
-<!-- isosent="20060602090718" -->
-<!-- name="Stark, John" -->
-<!-- email="john.stark" -->
-<!-- subject="[CF-metadata] Standard names for wave model data." -->
-<!-- id="1149239238.26989.438.camel_at_eld334.desktop.frd.metoffice.com" -->
+<a style="text-decoration:none" href="./0148.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0150.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] bounds</h1>
+<!-- received="Tue Apr 29 15:49:33 2003" -->
+<!-- isoreceived="20030429144933" -->
+<!-- sent="Tue, 29 Apr 2003 15:49:33 -0600" -->
+<!-- isosent="20030429214933" -->
+<!-- name="Brian Eaton" -->
+<!-- email="eaton" -->
+<!-- subject="[CF-metadata] bounds" -->
+<!-- id="20030429214933.GC2463_at_ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20060531170206.GB9128_at_met.reading.ac.uk" -->
+<!-- inreplyto="3EAEBCB2.3B77722A_at_llnl.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0150.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Standard names for wave model data.&quot;">Next message</a> ]
-[ <a href="./0148.html" title="Jonathan Gregory: &quot;[CF-metadata] Standard names for wave model data.&quot;">Previous message</a> ]
-[ <a href="./0148.html" title="Jonathan Gregory: &quot;[CF-metadata] Standard names for wave model data.&quot;">In reply to</a> ]
+[ <a href="./0150.html" accesskey="d" title="Bob Drach: &quot;[CF-metadata] move to release CF?&quot;">Next message</a> ]
+[ <a href="./0148.html" title="Bob Drach: &quot;[CF-metadata] bounds&quot;">Previous message</a> ]
+[ <a href="./0148.html" title="Bob Drach: &quot;[CF-metadata] bounds&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,90 +70,64 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Stark, John &lt;<a href="mailto:john.stark?Subject=Re%3A%20%5BCF-metadata%5D%20Standard%20names%20for%20wave%20model%20data.">john.stark</a>&gt;
+<dfn>From</dfn>: Brian Eaton &lt;<a href="mailto:eaton?Subject=Re%3A%20%5BCF-metadata%5D%20bounds">eaton</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 02 Jun 2006 10:07:18 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 29 Apr 2003 15:49:33 -0600</span><br />
 </address>
 <br />
-Jon,
+Hi Jonathan,
 <br />
-Thanks for the comments. I agree that just 'wave' is ambiguous. I like
+<br />I agree with specifying the ordering of the 2nd index for 1D bounds.  I
 <br />
-'ocean_surface_wave' instead. 
+propose that we require data writers to follow the constraint
 <br />
-<br /><em class="quotelev1">&gt; standard_name = &quot;wave_spectrum_direction&quot; ;
-</em><br />
-<em class="quotelev1">&gt; standard_name = &quot;direction_of_wave_velocity&quot; ;
-</em><br />
-The reason for 2 directions was that one represents a coordinate
+bnd(i,1)=bnd(i+1,0) exactly, rather than to allow for tolerances.  It's
 <br />
-variable, and the other represents the principal wave direction (the one
+analogous to the requirement that the exact value of _FillValue must be
 <br />
-associated with the peak in the energy spectrum). However, I think we
+written to variables.  The netCDF User's Guide doesn't allow for tolerances
 <br />
-can use the 'cell_methods' here with 'wave_energy: maximum'.
+when identifying the _FillValue.
 <br />
-<br /><em class="quotelev1">&gt;The units of m2 are not units of energy. Perhaps it's the square of 
-</em><br />
-<em class="quotelev1">&gt;the wave amplitude, or the RMS amplitude?
-</em><br />
-True. It is really a 'variance density spectrum' but wave modellers seem
+<br />I also agree with specifying the order for the 2D cases where a single
 <br />
-to refer to this as an 'energy density spectrum'. A factor of (rho * g)
+cell vertex index is used.
 <br />
-relates the two, so I have removed 'energy' from the name. Now I suggest
+<br />As I review the discussion about bounds for 2D retangular grids it seems
 <br />
-ocean_surface_wave_spectrum_density, units m^2 s-1 rad-1
+that the motivation for having a special case is to be able to treat the
 <br />
-and
+common case of contiguous grids as efficiently as possible.  Steve has
 <br />
-ocean_surface_wave_frequency_spectrum_density, units m^2 s-1
+suggested the n*m*2*2 encoding.  Bob has stated that he sees no advantage
 <br />
-<br /><br />The 'zero up-crossing' period is a standard means of measuring wave
+to the n*m*2*2 encoding over the n*m*4 encoding.  I'm guessing that Steve
 <br />
-period. It is defined using the time the surface height passes upward
+sees an advantage to n*m*2*2 because once the index ordering is specified
 <br />
-over the mean level. Other definitions of wave periods include peak and
+one can work out which vertices are shared by adjacent cells and quickly
 <br />
-mean. Peak could be defined using cell_methods ('wave_energy : maximum')
+determine that the grid is contiguous.  In the n*m*4 case, even if the
 <br />
-<br /><br />So the request is now for these: 
+order is specified, the starting vertex isn't and so making the
 <br />
-<br />ocean_surface_wave_significant_height, units m
+determination of contiguity is not quite as easy.  In any case, most of the
 <br />
-ocean_surface_wave_zero_upcrossing_period, units s
+discussion has been about how to determine whether or not a grid is
 <br />
-<br />ocean_surface_wave_from_direction, units degrees
+contiguous.
 <br />
-ocean_surface_wave_to_direction, units degrees
+<br />If the special case of interest is actually contiguous 2D rectangular grids
 <br />
-<br />(Convention is for direction toward which energy travels for wave
+then what advantage does the n*m*2*2 encoding have over (n+1)*(m+1)?  The
 <br />
-spectra with frequency &amp; direction, but the direction from which waves
+reasons for not allowing the (n+1) encoding of 1D coordinate boundary data
 <br />
-are coming [like wind] in other contexts.)
+don't apply to this special case.
 <br />
-<br />ocean_surface_wave_spectrum_density, units m^2 s-1 rad-1
+<br />Brian
 <br />
-ocean_surface_wave_frequency_spectrum_density, units m^2 s-1
-<br />
-( Could use 'variance' in name too.)
-<br />
-<br />ocean_surface_wave_frequency, units s-1 (Hz)
-<br />
-<br />wind_wave_zero_upcrossing_period, units s
-<br />
-<br />swell_wave_zero_upcrossing_period, units s
-<br />
-<br /><br />John
-<br />
-<br /><br />John Stark             SST and Sea Ice Scientist
-<br />
-<br />Met Office   FitzRoy Road   Exeter   EX1 3PB  United Kingdom
-<br />
-<br />Tel: +44 (0)1392 885059   Fax: +44 (0)1392 885681
-<br />
-<span id="received"><dfn>Received on</dfn> Fri Jun 02 2006 - 03:07:18 BST</span>
+<span id="received"><dfn>Received on</dfn> Tue Apr 29 2003 - 15:49:33 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -161,9 +135,9 @@ ocean_surface_wave_frequency_spectrum_density, units m^2 s-1
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start149">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0150.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Standard names for wave model data."</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0148.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Standard names for wave model data."</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0148.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] Standard names for wave model data."</a></li>
+<li><dfn>Next message</dfn>: <a href="./0150.html" title="Next message in the list">Bob Drach: "[CF-metadata] move to release CF?"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0148.html" title="Previous message in the list">Bob Drach: "[CF-metadata] bounds"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0148.html" title="Message to which this message replies">Bob Drach: "[CF-metadata] bounds"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -175,7 +149,7 @@ ocean_surface_wave_frequency_spectrum_density, units m^2 s-1
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:45 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0148.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0150.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

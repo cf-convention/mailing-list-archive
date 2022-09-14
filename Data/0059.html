@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] proposed new vertical coordinate from Brian Eaton on 2006-03-09 (mailing-list-archive)</title>
-<meta name="Author" content="Brian Eaton (eaton)" />
-<meta name="Subject" content="[CF-metadata] proposed new vertical coordinate" />
-<meta name="Date" content="2006-03-09" />
+<title>[CF-metadata] Vertical Coordinate from Jonathan Gregory on 2003-01-07 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (jonathan.gregory)" />
+<meta name="Subject" content="[CF-metadata] Vertical Coordinate" />
+<meta name="Date" content="2003-01-07" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0058.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0060.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] proposed new vertical coordinate</h1>
-<!-- received="Thu Mar  9 08:41:05 2006" -->
-<!-- isoreceived="20060309084105" -->
-<!-- sent="Thu, 9 Mar 2006 08:41:05 -0700" -->
-<!-- isosent="20060309154105" -->
-<!-- name="Brian Eaton" -->
-<!-- email="eaton" -->
-<!-- subject="[CF-metadata] proposed new vertical coordinate" -->
-<!-- id="20060309154105.GB4569_at_ucar.edu" -->
+<a style="text-decoration:none" href="./0058.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0060.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Vertical Coordinate</h1>
+<!-- received="Tue Jan  7 03:06:19 2003" -->
+<!-- isoreceived="20030107030619" -->
+<!-- sent="Tue, 07 Jan 2003 10:06:19 +0000" -->
+<!-- isosent="20030107100619" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="jonathan.gregory" -->
+<!-- subject="[CF-metadata] Vertical Coordinate" -->
+<!-- id="20030107100619.A4654_at_hc1500.meto.gov.uk" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="&quot;from Burkhardt.Rockel&quot;_at_gkss.de" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0060.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] proposed new vertical coordinate&quot;">Next message</a> ]
-[ <a href="./0058.html" title="Jonathan Gregory: &quot;[CF-metadata] proposed new vertical coordinate&quot;">Previous message</a> ]
+[ <a href="./0060.html" accesskey="d" title="Karl E.Taylor: &quot;[CF-metadata] control run base time convention&quot;">Next message</a> ]
+[ <a href="./0058.html" title="Burkhardt.Rockel at gkss.de: &quot;[CF-metadata] Vertical Coordinate&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,68 +69,106 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Brian Eaton &lt;<a href="mailto:eaton?Subject=Re%3A%20%5BCF-metadata%5D%20proposed%20new%20vertical%20coordinate">eaton</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:jonathan.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Vertical%20Coordinate">jonathan.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 9 Mar 2006 08:41:05 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 07 Jan 2003 10:06:19 +0000</span><br />
 </address>
 <br />
-Hi Jonathan,
+Dear Burkhardt
 <br />
-<br />Using the standard_name to connect the quantity to the definition of a
+<br />Is there any way to compute the P of the model levels from vertical coordinates
 <br />
-dimensionless vertical coordinate has the side effect (via the
+which are a function of lev only (like a and b) and some other fields which
 <br />
-formula_terms attribute) of indicating the name of the variable that
+are a function of (lon,lat,lev)? If so, we could define a new kind of vertical
 <br />
-contains the reference pressure.  That's a necessary part of converting the
+coordinate, to add to those already in Appendix C.
 <br />
-dimensionless coordinate to a dimensional one.  You wouldn't get that by
+<br />If not, I agree that you *could* regard P(lon,lat,lev) as a kind of coordinate
 <br />
-simply using a standard_name to (partially) describe the quantity.
+and in fact we have had previous discussions about supporting this concept. But
 <br />
-<br />Brian
+in the end we decided that this is going too far away from pure metadata, into
 <br />
-<br /><br />On Thu, Mar 09, 2006 at 08:19:22AM +0000, Jonathan Gregory wrote:
+the domain of scientific things that you know about the data. You know that if
 <br />
-<em class="quotelev1">&gt; Dear Ben
+T and P are functions of (lon,lat,lev), then you can associate T with P, but
+<br />
+mapping T onto P in this way is really a kind of scientific transformation of
+<br />
+the data, I think. To take another example, I suppose that specific humidity
+<br />
+q is also q(lon,lat,lev) in the model, so in principle you could regard q as
+<br />
+a coordinate for T. Formally there is no difference between q and P.
+<br />
+<br />Does that help?
+<br />
+<br />Best wishes
+<br />
+<br />Jonathan
+<br />
+<br /><br /><em class="quotelev1">&gt;    Dear member of CF community,
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;    we are using the non-hydrostatic weather forecast model of the German
 </em><br />
-<em class="quotelev1">&gt; I agree that the proposal is good - thanks. I would comment that the quantity
+<em class="quotelev1">&gt;    Weather Service. The vertical coordinate used in hydrostatic models is
 </em><br />
-<em class="quotelev1">&gt; ln(p0/p) could have a standard name which says what it is explicitly, rather
+<em class="quotelev1">&gt;    often defined as described in the CF-conventions (e.g. dimensionless
 </em><br />
-<em class="quotelev1">&gt; than &quot;atmosphere_log_pressure_coordinate&quot;. I suppose that it could be called
+<em class="quotelev1">&gt;    sigma or hybrid pressure-sigma coordinates). With given height
 </em><br />
-<em class="quotelev1">&gt; &quot;natural_logarithm_of_reciprocal_air_pressure&quot;, adding a note to the
+<em class="quotelev1">&gt;    dependent coefficients (e.g. &quot;a&quot; and &quot;b&quot; ) and surface pressure field
 </em><br />
-<em class="quotelev1">&gt; stdname definition about the reference pressure, since logs can only be taken
+<em class="quotelev1">&gt;    the pressure at the vertical levels of the model can be computed. For
 </em><br />
-<em class="quotelev1">&gt; of dimensionless quantities anyway. The other dimensionless coordinates have
+<em class="quotelev1">&gt;    the non-hydrostatic model we are using its a bit more complicated
 </em><br />
-<em class="quotelev1">&gt; got stdnames of such-and-such coordinate because those quantities have no other
+<em class="quotelev1">&gt;    since the pressure at the model levels is P=Pref+Pdev, where Pref  is
 </em><br />
-<em class="quotelev1">&gt; purpose and they can't so easily be described. What do you think? Would that
+<em class="quotelev1">&gt;    the pressure of a reference atmosphere and Pdev is the deviation from
 </em><br />
-<em class="quotelev1">&gt; be awkward?
+<em class="quotelev1">&gt;    the reference profile.
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;    My Questions:
 </em><br />
-<em class="quotelev1">&gt; Best wishes
+<em class="quotelev1">&gt;     Is there a CF conformal way to define a three-dimensional variable
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;    (in my case P(lon,lat,lev)) as vertical axis?
 </em><br />
-<em class="quotelev1">&gt; Jonathan
+<em class="quotelev1">&gt;    I guess simply giving P the attribute &quot;axis=Z&quot; would be not
 </em><br />
-<em class="quotelev1">&gt; _______________________________________________
+<em class="quotelev1">&gt;    sufficient?
 </em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
+<em class="quotelev1">&gt;    Should a three dimensional variable like air temperature
 </em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+<em class="quotelev1">&gt;    (T(lon,lat,lev)) have the attribute &quot;coordinates=&quot;P&quot; in this case?
 </em><br />
-<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+<em class="quotelev1">&gt;    Thank you, I am looking forward to your answer.
 </em><br />
-<span id="received"><dfn>Received on</dfn> Thu Mar 09 2006 - 08:41:05 GMT</span>
+<em class="quotelev1">&gt;    Burkhardt
+</em><br />
+<em class="quotelev1">&gt;    -----------
+</em><br />
+<em class="quotelev1">&gt;    Dr. Burkhardt Rockel
+</em><br />
+<em class="quotelev1">&gt;    GKSS Forschungszentrum
+</em><br />
+<em class="quotelev1">&gt;    Max-Planck-Strasse
+</em><br />
+<em class="quotelev1">&gt;    D-21502 Geesthacht
+</em><br />
+<em class="quotelev1">&gt;    Germany
+</em><br />
+<em class="quotelev1">&gt;    Phone: +49 4152 87 2008
+</em><br />
+<em class="quotelev1">&gt;    Fax: +49 4152 87 2020
+</em><br />
+<em class="quotelev1">&gt;    Email: rockel at gkss.de
+</em><br />
+<em class="quotelev1">&gt;    ----------
+</em><br />
+<span id="received"><dfn>Received on</dfn> Tue Jan 07 2003 - 03:06:19 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -137,8 +176,8 @@ simply using a standard_name to (partially) describe the quantity.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start59">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0060.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] proposed new vertical coordinate"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0058.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] proposed new vertical coordinate"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0060.html" title="Next message in the list">Karl E.Taylor: "[CF-metadata] control run base time convention"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0058.html" title="Previous message in the list">Burkhardt.Rockel at gkss.de: "[CF-metadata] Vertical Coordinate"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -150,7 +189,7 @@ simply using a standard_name to (partially) describe the quantity.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:43 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0058.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0060.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

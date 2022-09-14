@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]   mixing ratio from Jonathan Gregory on 2008-11-06 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata]   mixing ratio" />
-<meta name="Date" content="2008-11-06" />
+<title>[CF-metadata] Using &quot;axis&quot; with curvilinear coordinates from Simon Wood on 2007-07-06 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Simon Wood (simon.wood)" />
+<meta name="Subject" content="[CF-metadata] Using &quot;axis&quot; with curvilinear coordinates" />
+<meta name="Date" content="2007-07-06" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1730.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1732.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]   mixing ratio</h1>
-<!-- received="Thu Nov  6 01:31:58 2008" -->
-<!-- isoreceived="20081106013158" -->
-<!-- sent="Thu, 6 Nov 2008 08:31:58 +0000" -->
-<!-- isosent="20081106083158" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata]   mixing ratio" -->
-<!-- id="20081106083158.GA7819_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./1730.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1732.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Using &quot;axis&quot; with curvilinear coordinates</h1>
+<!-- received="Thu Jul  5 20:45:24 2007" -->
+<!-- isoreceived="20070705194524" -->
+<!-- sent="Fri, 06 Jul 2007 14:45:24 +1200" -->
+<!-- isosent="20070706024524" -->
+<!-- name="Simon Wood" -->
+<!-- email="simon.wood" -->
+<!-- subject="[CF-metadata] Using &quot;axis&quot; with curvilinear coordinates" -->
+<!-- id="468DACC4.20105_at_niwa.co.nz" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20070705184736.x0lrd06njkokws40_at_webmail.eol.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1732.html" accesskey="d" title="Christiane Textor: &quot;[CF-metadata] mixing ratio&quot;">Next message</a> ]
-[ <a href="./1730.html" title="Philip J. Cameronsmith1: &quot;[CF-metadata] Standard name(s) needed for satellite-based ice driftproducts&quot;">Previous message</a> ]
+[ <a href="./1732.html" accesskey="d" title="mcginnis at ucar.edu: &quot;[CF-metadata] Using &#0034;axis&#0034; with curvilinear coordinates&quot;">Next message</a> ]
+[ <a href="./1730.html" title="mcginnis at ucar.edu: &quot;[CF-metadata] Using &#0034;axis&#0034; with curvilinear coordinates&quot;">Previous message</a> ]
+[ <a href="./1730.html" title="mcginnis at ucar.edu: &quot;[CF-metadata] Using &#0034;axis&#0034; with curvilinear coordinates&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./1732.html" accesskey="t" title="Christiane Textor: &quot;[CF-metadata] mixing ratio&quot;">Next in thread</a> ]
+[ <a href="./1732.html" accesskey="t" title="mcginnis at ucar.edu: &quot;[CF-metadata] Using &#0034;axis&#0034; with curvilinear coordinates&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,64 +72,54 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20%20mixing%20ratio">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Simon Wood &lt;<a href="mailto:simon.wood?Subject=Re%3A%20%5BCF-metadata%5D%20Using%20%22axis%22%20with%20curvilinear%20coordinates">simon.wood</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 6 Nov 2008 08:31:58 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 06 Jul 2007 14:45:24 +1200</span><br />
 </address>
 <br />
-Dear Alison et al.
+Hi Seth,
 <br />
-<br />I wrote
-<br />
-<br /><em class="quotelev1">&gt; I think we could include both of these:
+<br /><em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; I'm wondering how to properly apply the 'axis' attribute to coordinate
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt;'water_vapour_mixing_ratio'
+<em class="quotelev1">&gt; variables in a curvilinear/two-dimensional coordinate system.
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt;'mass_fraction_of_water_vapour_in_dry_air'
+<br />There was quite a big discussion about this a few months back, the 
+<br />
+results of which are summarized by this posting from Jonathan Gregory:
+<br />
+<a href="http://www.cgd.ucar.edu/pipermail/cf-metadata/2006/001432.html">http://www.cgd.ucar.edu/pipermail/cf-metadata/2006/001432.html</a>.  I 
+<br />
+believe this was agreed to (I thought there was a trac ticket but can't 
+<br />
+seem to find it now --?)
+<br />
+<br /><em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; My question is, which variables is it appropriate to define an 'axis'
 </em><br />
-<em class="quotelev1">&gt; They are different quantities, and people should use the one which describes
+<em class="quotelev1">&gt; attribute with the value &quot;X&quot; for: xc, lon, both, or neither?
 </em><br />
-<em class="quotelev1">&gt; their data.
+<em class="quotelev1">&gt;
 </em><br />
-<br />That was wrong, sorry, I wasn't thinking.
+<br />My understanding is that it is correct (but optional) to define it for 
 <br />
-<br />Shouldn't the second option be
+'xc', whereas it would be incorrect to define it for 'lon' in your example.
 <br />
-&nbsp;&nbsp;mass_fraction_of_water_vapour_in_moist_air
+<br />HTH
 <br />
-or just
+<br />slw
 <br />
-&nbsp;&nbsp;mass_fraction_of_water_vapour_in_air
-<br />
-assuming that &quot;air&quot; means just as it comes i.e. not dry? The mass fraction
-<br />
-of water vapour in dry air is zero. I think
-<br />
-&nbsp;&nbsp;mass_fraction_of_water_vapour_in_[moist_]air
-<br />
-&nbsp;&nbsp;water_vapour_mixing_ratio
-<br />
-are two different quantities, which should have different standard names. If
-<br />
-A is the mass of water vapour and B is the mass of dry air, the mixing ratio
-<br />
-is A/B and the mass fraction is A/(A+B), I believe. I think the mass fraction
-<br />
-is what we use for other chemical constituents. If C is the mass of some other
-<br />
-species, the mass fraction of C in air is C/(A+B), because &quot;air&quot; would be
-<br />
-assumed to be ambient, including whatever moisture A it has.
-<br />
-<br />Best wishes
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Thu Nov 06 2008 - 01:31:58 GMT</span>
+<br /><br /><pre>
+-- 
+Simon Wood
+Programmer (Remote Sensing)
+National Institute of Water and Atmospheric Research, Wellington, NZ	
+simon.wood at niwa.co.nz
+<a href="http://www.niwa.co.nz">http://www.niwa.co.nz</a>
+</pre>
+<span id="received"><dfn>Received on</dfn> Thu Jul 05 2007 - 20:45:24 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -135,12 +127,13 @@ assumed to be ambient, including whatever moisture A it has.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1731">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1732.html" title="Next message in the list">Christiane Textor: "[CF-metadata] mixing ratio"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1730.html" title="Previous message in the list">Philip J. Cameronsmith1: "[CF-metadata] Standard name(s) needed for satellite-based ice driftproducts"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1732.html" title="Next message in the list">mcginnis at ucar.edu: "[CF-metadata] Using &#0034;axis&#0034; with curvilinear coordinates"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1730.html" title="Previous message in the list">mcginnis at ucar.edu: "[CF-metadata] Using &#0034;axis&#0034; with curvilinear coordinates"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./1730.html" title="Message to which this message replies">mcginnis at ucar.edu: "[CF-metadata] Using &#0034;axis&#0034; with curvilinear coordinates"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./1732.html" title="Next message in this discussion thread">Christiane Textor: "[CF-metadata] mixing ratio"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./1732.html" title="Next message in this discussion thread">mcginnis at ucar.edu: "[CF-metadata] Using &#0034;axis&#0034; with curvilinear coordinates"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./1732.html" title="Message sent in reply to this message">Christiane Textor: "[CF-metadata] mixing ratio"</a></li>
+<dfn>Reply</dfn>: <a href="./1732.html" title="Message sent in reply to this message">mcginnis at ucar.edu: "[CF-metadata] Using &#0034;axis&#0034; with curvilinear coordinates"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -151,7 +144,7 @@ assumed to be ambient, including whatever moisture A it has.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:12 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1730.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1732.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

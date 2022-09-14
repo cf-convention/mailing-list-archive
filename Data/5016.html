@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]  standard names for ocean volume transport from Jonathan Gregory on 2013-02-08 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata]  standard names for ocean volume transport" />
-<meta name="Date" content="2013-02-08" />
+<title>[CF-metadata] Warming up old stuff - 4 (emissions) from alison.pamment at stfc.ac.uk on 2012-03-07 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="alison.pamment at stfc.ac.uk (alison.pamment)" />
+<meta name="Subject" content="[CF-metadata] Warming up old stuff - 4 (emissions)" />
+<meta name="Date" content="2012-03-07" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5015.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5017.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  standard names for ocean volume transport</h1>
-<!-- received="Fri Feb  8 15:49:50 2013" -->
-<!-- isoreceived="20130208154950" -->
-<!-- sent="Sat, 9 Feb 2013 09:49:50 +1100" -->
-<!-- isosent="20130208224950" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata]  standard names for ocean volume transport" -->
-<!-- id="20130208224950.GA4925_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./5015.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5017.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Warming up old stuff - 4 (emissions)</h1>
+<!-- received="Wed Mar  7 01:31:36 2012" -->
+<!-- isoreceived="20120307013136" -->
+<!-- sent="Wed, 7 Mar 2012 08:31:36 +0000" -->
+<!-- isosent="20120307083136" -->
+<!-- name="alison.pamment at stfc.ac.uk" -->
+<!-- email="alison.pamment" -->
+<!-- subject="[CF-metadata] Warming up old stuff - 4 (emissions)" -->
+<!-- id="014539AC4976BE4490A360410A8C2017136CEC3A_at_EXCHMBX03.fed.cclrc.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5017.html" accesskey="d" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] sea_water_pressure&quot;">Next message</a> ]
-[ <a href="./5015.html" title="Matthias Lankhorst: &quot;[CF-metadata] standard names for ocean volume transport&quot;">Previous message</a> ]
+[ <a href="./5017.html" accesskey="d" title="Heiko Klein: &quot;[CF-metadata] repost warming up old stuff - part 4: emissions (hit send too early)&quot;">Next message</a> ]
+[ <a href="./5015.html" title="Markus Fiebig: &quot;[CF-metadata] warming up old stuff - part 1: aerosol mie scattering&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,58 +68,546 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20standard%20names%20for%20ocean%20volume%20transport">j.m.gregory</a>&gt;
+<dfn>From</dfn>: alison.pamment at stfc.ac.uk &lt;<a href="mailto:alison.pamment?Subject=Re%3A%20%5BCF-metadata%5D%20Warming%20up%20old%20stuff%20-%204%20(emissions)">alison.pamment</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Sat, 9 Feb 2013 09:49:50 +1100</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 7 Mar 2012 08:31:36 +0000</span><br />
 </address>
 <br />
-Dear Matthias
+Dear Martin,
 <br />
-<br /><em class="quotelev1">&gt; ocean_volume_transport_across_line
-</em><br />
-<em class="quotelev1">&gt; ocean_volume_x_transport
-</em><br />
-<em class="quotelev1">&gt; ocean_volume_y_transport
-</em><br />
-<br />These seem fine.
+<br />Regarding the emission names, I note the supporting emails from Greg Frost and Steve Smith and I think there is no question that we want to be able to represent these quantities within CF. The only concern is to ensure that the names themselves are unambiguous and consistent with existing syntax wherever possible and that the quantities they represent are clearly defined.
 <br />
-<br /><em class="quotelev1">&gt; northward_ocean_volume_transport_due_to_overturning
-</em><br />
-We already have ocean_meridional_overturning_streamfunction. Is that
+<br />Approximately 250 new names conforming to the following patterns and units are proposed:
 <br />
-applicable for what you want? I would say that in an overturning circulation
+<br />tendency_of_atmosphere_mass_content_of_X_due_to_emission_from_energy_production_and_distribution; kg m-2 s-1
 <br />
-there is zero net northward or southward transport by construction. But
+tendency_of_atmosphere_mass_content_of_X_due_to_emission_from_industrial_processes_and_combustion; kg m-2 s-1
 <br />
-perhaps you have something else in mind.
+tendency_of_atmosphere_mass_content_of_X_due_to_emission_from_residential_and_commercial_combustion; kg m-2 s-1
 <br />
-<br /><em class="quotelev1">&gt; Although oceanographers will probably expect this property in units of 
-</em><br />
-<em class="quotelev1">&gt; Sverdrup, I am fine with a canonical unit of m^3 s^(-1).
-</em><br />
-<br />It has been proposed to include sverdrup in a CF version of the udunits
+tendency_of_atmosphere_mass_content_of_X_due_to_emission_from_solvent_production_and_use; kg m-2 s-1
 <br />
-database. I can't remember if that has been done yet. But if not, you could
+tendency_of_atmosphere_mass_content_of_X_due_to_emission_from_agricultural_production; kg m-2 s-1
 <br />
-use units of 1e6 m3 s-1, so it will be numerically sverdrups. Any unit which
+tendency_of_atmosphere_mass_content_of_X_due_to_emission_from_agricultural_waste_burning; kg m-2 s-1
 <br />
-is dimensionally equivalent to the canonical unit is acceptable.
+tendency_of_atmosphere_mass_content_of_X_due_to_emission_from_waste_treatment_and_disposal; kg m-2 s-1
 <br />
-<br /><br /><em class="quotelev1">&gt; I noticed some of the existing names contain &quot;ocean_&quot;, others &quot;sea_water_&quot;. If 
-</em><br />
-<em class="quotelev1">&gt; one is preferred over the other, let us please use that.
-</em><br />
-<br />In general &quot;ocean&quot; is used in large-scale properties e.g. of the circulation,
+tendency_of_atmosphere_mass_content_of_X_due_to_emission_from_forest_fires; kg m-2 s-1
 <br />
-sea-water for small-scale properties of the medium that can be measured
+tendency_of_atmosphere_mass_content_of_X_due_to_emission_from_savanna_and_grassland_fires; kg m-2 s-1
 <br />
-locally. It's the same for atmosphere and air.
+tendency_of_atmosphere_mass_content_of_X_due_to_emission_from_land_transport; kg m-2 s-1
 <br />
-<br />Cheers
+tendency_of_atmosphere_mass_content_of_X_due_to_emission_from_maritime_transport; kg m-2 s-1
 <br />
-<br />Jonathan
+tendency_of_mass_concentration_of_X_in_air_due_to_emission_from_aviation; kg m-2 s-1
 <br />
-<span id="received"><dfn>Received on</dfn> Fri Feb 08 2013 - 15:49:50 GMT</span>
+<br />where X is the name of a chemical species. (A full listing of all the names proposed is included at the end of this email). The syntax of the names is certainly consistent with a number of existing names such as tendency_of_atmosphere_mass_content_of_carbon_dioxide_expressed_as_carbon_due_to_emission_from_fossil_fuel_combustion and surface_upward_mass_flux_of_carbon_dioxide_expressed_as_carbon_due_to_emission_from_grazing.
+<br />
+<br />When the carbon_dioxide emission names were introduced there was some discussion as to whether to use 'tendency_of_atmosphere_mass_content_of_X_due_to_emission' or 'surface_upward_mass_flux_of_X_due_to_emission'. The units would be the same in either case (kg m-2 s-1) and the distinction is really one of where the emission takes place. The surface_upward_flux names apply only to emission at the surface itself and are therefore 2D fields. The tendency due_to_emission names refer to emission anywhere in the atmosphere, including the surface, and are 3D fields. Obviously your aviation emissions would be 3D, but is that also true of the others? I am happy to use either form of words in these names, whichever you feel is the most appropriate.
+<br />
+<br />Looking back to the original proposal, <a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2011/027071.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2011/027071.html</a>, you have provided definitions of the emissions sectors in terms of 2006 IPCC source categories. I have found the following document: <a href="http://www.ipcc-nggip.iges.or.jp/public/2006gl/pdf/1_Volume1/V1_8_Ch8_Reporting_Guidance.pdf">http://www.ipcc-nggip.iges.or.jp/public/2006gl/pdf/1_Volume1/V1_8_Ch8_Reporting_Guidance.pdf</a> (section 8.5) which appears to contain the categories to which you refer. Please can you confirm whether this is the best reference to use as I think it will be important to include it in the definitions? Steve has supported your sector definitions and they are clearly in wide use. There have been no other comments regarding the categories.
+<br />
+<br />Many of the chemical species proposed for use with these names are already established in the standard name table. A number of new species are also proposed: alcohols, pentane, hexane_and_higher_alkanes, trimethylbenzene, esters, ethers, chlorinated_hydrocarbons, ketones and organic_acids. You have provided definitions for all of these in your proposal, <a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2011/027072.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2011/027072.html</a>. Jonathan supported the introduction of the new species and no other comments have been received on this point. I also support the introduction of these species names.
+<br />
+<br />Not all possible combinations of pattern and species are proposed, as some would be quantities that do not occur in the atmosphere. The proposed combinations of pattern (emission sector and species) are sensible and I think there is no objection to the individual names. If you can confirm whether the tendency or surface flux form of the names is most appropriate and also the most appropriate reference for the emissions sector definitions, then I think these names can be accepted and they would then be included in the next update of the standard name table.
+<br />
+<br />Best wishes,
+<br />
+Alison
+<br />
+<br />The full list of approximately 250 individual proposed names is as follows:
+<br />
+tendency_of_atmosphere_mass_content_of_carbon_monoxide_due_to_emission_from_energy_production_and_distribution
+<br />
+tendency_of_atmosphere_mass_content_of_methane_due_to_emission_from_energy_production_and_distribution
+<br />
+tendency_of_atmosphere_mass_content_of_ammonia_due_to_emission_from_energy_production_and_distribution
+<br />
+tendency_of_atmosphere_mass_content_of_nitrogen_monoxide_due_to_emission_from_energy_production_and_distribution
+<br />
+tendency_of_atmosphere_mass_content_of_sulfur_dioxide_due_to_emission_from_energy_production_and_distribution
+<br />
+tendency_of_atmosphere_mass_content_of_black_carbon_dry_aerosol_due_to_emission_from_energy_production_and_distribution
+<br />
+tendency_of_atmosphere_mass_content_of_particulate_organic_matter_dry_aerosol_expressed_as_carbon_due_to_emission_from_energy_production_and_distribution
+<br />
+tendency_of_atmosphere_mass_content_of_nmvoc_due_to_emission_from_energy_production_and_distribution
+<br />
+tendency_of_atmosphere_mass_content_of_alcohols_due_to_emission_from_energy_production_and_distribution
+<br />
+tendency_of_atmosphere_mass_content_of_ethane_due_to_emission_from_energy_production_and_distribution
+<br />
+tendency_of_atmosphere_mass_content_of_propane_due_to_emission_from_energy_production_and_distribution
+<br />
+tendency_of_atmosphere_mass_content_of_butane_due_to_emission_from_energy_production_and_distribution
+<br />
+tendency_of_atmosphere_mass_content_of_ethene_due_to_emission_from_energy_production_and_distribution
+<br />
+tendency_of_atmosphere_mass_content_of_propene_due_to_emission_from_energy_production_and_distribution
+<br />
+tendency_of_atmosphere_mass_content_of_ethyne_due_to_emission_from_energy_production_and_distribution
+<br />
+tendency_of_atmosphere_mass_content_of_benzene_due_to_emission_from_energy_production_and_distribution
+<br />
+tendency_of_atmosphere_mass_content_of_toluene_due_to_emission_from_energy_production_and_distribution
+<br />
+tendency_of_atmosphere_mass_content_of_xylene_due_to_emission_from_energy_production_and_distribution
+<br />
+tendency_of_atmosphere_mass_content_of_trimethylbenzene_due_to_emission_from_energy_production_and_distribution
+<br />
+tendency_of_atmosphere_mass_content_of_formaldehyde_due_to_emission_from_energy_production_and_distribution
+<br />
+tendency_of_atmosphere_mass_content_of_ketones_due_to_emission_from_energy_production_and_distribution
+<br />
+tendency_of_atmosphere_mass_content_of_organic_acids_due_to_emission_from_energy_production_and_distribution
+<br />
+<br />tendency_of_atmosphere_mass_content_of_carbon_monoxide_due_to_emission_from_industrial_processes_and_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_methane_due_to_emission_from_industrial_processes_and_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_ammonia_due_to_emission_from_industrial_processes_and_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_nitrogen_monoxide_due_to_emission_from_industrial_processes_and_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_sulfur_dioxide_due_to_emission_from_industrial_processes_and_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_black_carbon_dry_aerosol_due_to_emission_from_industrial_processes_and_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_particulate_organic_matter_dry_aerosol_expressed_as_carbon_due_to_emission_from_industrial_processes_and_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_nmvoc_due_to_emission_from_industrial_processes_and_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_alcohols_due_to_emission_from_industrial_processes_and_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_ethane_due_to_emission_from_industrial_processes_and_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_propane_due_to_emission_from_industrial_processes_and_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_butane_due_to_emission_from_industrial_processes_and_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_pentane_due_to_emission_from_industrial_processes_and_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_ethene_due_to_emission_from_industrial_processes_and_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_propene_due_to_emission_from_industrial_processes_and_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_ethyne_due_to_emission_from_industrial_processes_and_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_benzene_due_to_emission_from_industrial_processes_and_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_toluene_due_to_emission_from_industrial_processes_and_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_xylene_due_to_emission_from_industrial_processes_and_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_formaldehyde_due_to_emission_from_industrial_processes_and_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_ketones_due_to_emission_from_industrial_processes_and_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_organic_acids_due_to_emission_from_industrial_processes_and_combustion
+<br />
+<br />tendency_of_atmosphere_mass_content_of_carbon_monoxide_due_to_emission_from_residential_and_commercial_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_methane_due_to_emission_from_residential_and_commercial_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_ammonia_due_to_emission_from_residential_and_commercial_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_nitrogen_monoxide_due_to_emission_from_residential_and_commercial_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_sulfur_dioxide_due_to_emission_from_residential_and_commercial_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_black_carbon_dry_aerosol_due_to_emission_from_residential_and_commercial_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_particulate_organic_matter_dry_aerosol_expressed_as_carbon_due_to_emission_from_residential_and_commercial_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_nmvoc_due_to_emission_from_residential_and_commercial_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_alcohols_due_to_emission_from_residential_and_commercial_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_ethane_due_to_emission_from_residential_and_commercial_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_propane_due_to_emission_from_residential_and_commercial_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_butane_due_to_emission_from_residential_and_commercial_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_pentane_due_to_emission_from_residential_and_commercial_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_ethene_due_to_emission_from_residential_and_commercial_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_propene_due_to_emission_from_residential_and_commercial_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_ethyne_due_to_emission_from_residential_and_commercial_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_benzene_due_to_emission_from_residential_and_commercial_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_toluene_due_to_emission_from_residential_and_commercial_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_xylene_due_to_emission_from_residential_and_commercial_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_ethers_due_to_emission_from_residential_and_commercial_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_formaldehyde_due_to_emission_from_residential_and_commercial_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_ketones_due_to_emission_from_residential_and_commercial_combustion
+<br />
+tendency_of_atmosphere_mass_content_of_organic_acids_due_to_emission_from_residential_and_commercial_combustion
+<br />
+<br />tendency_of_atmosphere_mass_content_of_carbon_monoxide_due_to_emission_from_solvent_production_and_use
+<br />
+tendency_of_atmosphere_mass_content_of_nmvoc_due_to_emission_from_solvent_production_and_use
+<br />
+tendency_of_atmosphere_mass_content_of_alcohols_due_to_emission_from_solvent_production_and_use
+<br />
+tendency_of_atmosphere_mass_content_of_toluene_due_to_emission_from_solvent_production_and_use
+<br />
+tendency_of_atmosphere_mass_content_of_xylene_due_to_emission_from_solvent_production_and_use
+<br />
+tendency_of_atmosphere_mass_content_of_esters_due_to_emission_from_solvent_production_and_use
+<br />
+tendency_of_atmosphere_mass_content_of_ethers_due_to_emission_from_solvent_production_and_use
+<br />
+tendency_of_atmosphere_mass_content_of_chlorinated_hydrocarbons_due_to_emission_from_solvent_production_and_use
+<br />
+tendency_of_atmosphere_mass_content_of_ketones_due_to_emission_from_solvent_production_and_use
+<br />
+<br />tendency_of_atmosphere_mass_content_of_carbon_monoxide_due_to_emission_from_agricultural_production
+<br />
+tendency_of_atmosphere_mass_content_of_methane_due_to_emission_from_agricultural_production
+<br />
+tendency_of_atmosphere_mass_content_of_ammonia_due_to_emission_from_agricultural_production
+<br />
+tendency_of_atmosphere_mass_content_of_nitrogen_monoxide_due_to_emission_from_agricultural_production
+<br />
+tendency_of_atmosphere_mass_content_of_nmvoc_due_to_emission_from_agricultural_production
+<br />
+tendency_of_atmosphere_mass_content_of_alcohols_due_to_emission_from_agricultural_production
+<br />
+tendency_of_atmosphere_mass_content_of_ethane_due_to_emission_from_agricultural_production
+<br />
+tendency_of_atmosphere_mass_content_of_propane_due_to_emission_from_agricultural_production
+<br />
+tendency_of_atmosphere_mass_content_of_butane_due_to_emission_from_agricultural_production
+<br />
+tendency_of_atmosphere_mass_content_of_pentane_due_to_emission_from_agricultural_production
+<br />
+tendency_of_atmosphere_mass_content_of_ethene_due_to_emission_from_agricultural_production
+<br />
+tendency_of_atmosphere_mass_content_of_propene_due_to_emission_from_agricultural_production
+<br />
+tendency_of_atmosphere_mass_content_of_ethyne_due_to_emission_from_agricultural_production
+<br />
+tendency_of_atmosphere_mass_content_of_benzene_due_to_emission_from_agricultural_production
+<br />
+tendency_of_atmosphere_mass_content_of_toluene_due_to_emission_from_agricultural_production
+<br />
+tendency_of_atmosphere_mass_content_of_xylene_due_to_emission_from_agricultural_production
+<br />
+tendency_of_atmosphere_mass_content_of_ethers_due_to_emission_from_agricultural_production
+<br />
+tendency_of_atmosphere_mass_content_of_formaldehyde_due_to_emission_from_agricultural_production
+<br />
+tendency_of_atmosphere_mass_content_of_ketones_due_to_emission_from_agricultural_production
+<br />
+tendency_of_atmosphere_mass_content_of_organic_acids_due_to_emission_from_agricultural_production
+<br />
+<br />tendency_of_atmosphere_mass_content_of_carbon_monoxide_due_to_emission_from_agricultural_waste_burning
+<br />
+tendency_of_atmosphere_mass_content_of_methane_due_to_emission_from_agricultural_waste_burning
+<br />
+tendency_of_atmosphere_mass_content_of_ammonia_due_to_emission_from_agricultural_waste_burning
+<br />
+tendency_of_atmosphere_mass_content_of_nitrogen_monoxide_due_to_emission_from_agricultural_waste_burning
+<br />
+tendency_of_atmosphere_mass_content_of_sulfur_dioxide_due_to_emission_from_agricultural_waste_burning
+<br />
+tendency_of_atmosphere_mass_content_of_black_carbon_dry_aerosol_due_to_emission_from_agricultural_waste_burning
+<br />
+tendency_of_atmosphere_mass_content_of_particulate_organic_matter_dry_aerosol_expressed_as_carbon_due_to_emission_from_agricultural_waste_burning
+<br />
+tendency_of_atmosphere_mass_content_of_nmvoc_due_to_emission_from_agricultural_waste_burning
+<br />
+tendency_of_atmosphere_mass_content_of_alcohols_due_to_emission_from_agricultural_waste_burning
+<br />
+tendency_of_atmosphere_mass_content_of_ethane_due_to_emission_from_agricultural_waste_burning
+<br />
+tendency_of_atmosphere_mass_content_of_propane_due_to_emission_from_agricultural_waste_burning
+<br />
+tendency_of_atmosphere_mass_content_of_butane_due_to_emission_from_agricultural_waste_burning
+<br />
+tendency_of_atmosphere_mass_content_of_pentane_due_to_emission_from_agricultural_waste_burning
+<br />
+tendency_of_atmosphere_mass_content_of_ethene_due_to_emission_from_agricultural_waste_burning
+<br />
+tendency_of_atmosphere_mass_content_of_propene_due_to_emission_from_agricultural_waste_burning
+<br />
+tendency_of_atmosphere_mass_content_of_ethyne_due_to_emission_from_agricultural_waste_burning
+<br />
+tendency_of_atmosphere_mass_content_of_benzene_due_to_emission_from_agricultural_waste_burning
+<br />
+tendency_of_atmosphere_mass_content_of_toluene_due_to_emission_from_agricultural_waste_burning
+<br />
+tendency_of_atmosphere_mass_content_of_xylene_due_to_emission_from_agricultural_waste_burning
+<br />
+tendency_of_atmosphere_mass_content_of_formaldehyde_due_to_emission_from_agricultural_waste_burning
+<br />
+tendency_of_atmosphere_mass_content_of_ketones_due_to_emission_from_agricultural_waste_burning
+<br />
+tendency_of_atmosphere_mass_content_of_organic_acids_due_to_emission_from_agricultural_waste_burning
+<br />
+<br />tendency_of_atmosphere_mass_content_of_carbon_monoxide_due_to_emission_from_waste_treatment_and_disposal
+<br />
+tendency_of_atmosphere_mass_content_of_methane_due_to_emission_from_waste_treatment_and_disposal
+<br />
+tendency_of_atmosphere_mass_content_of_nitrogen_monoxide_due_to_emission_from_waste_treatment_and_disposal
+<br />
+tendency_of_atmosphere_mass_content_of_sulfur_dioxide_due_to_emission_from_waste_treatment_and_disposal
+<br />
+tendency_of_atmosphere_mass_content_of_black_carbon_dry_aerosol_due_to_emission_from_waste_treatment_and_disposal
+<br />
+tendency_of_atmosphere_mass_content_of_particulate_organic_matter_dry_aerosol_expressed_as_carbon_due_to_emission_from_waste_treatment_and_disposal
+<br />
+tendency_of_atmosphere_mass_content_of_nmvoc_due_to_emission_from_waste_treatment_and_disposal
+<br />
+tendency_of_atmosphere_mass_content_of_alcohols_due_to_emission_from_waste_treatment_and_disposal
+<br />
+tendency_of_atmosphere_mass_content_of_ethane_due_to_emission_from_waste_treatment_and_disposal
+<br />
+tendency_of_atmosphere_mass_content_of_propane_due_to_emission_from_waste_treatment_and_disposal
+<br />
+tendency_of_atmosphere_mass_content_of_butane_due_to_emission_from_waste_treatment_and_disposal
+<br />
+tendency_of_atmosphere_mass_content_of_pentane_due_to_emission_from_waste_treatment_and_disposal
+<br />
+tendency_of_atmosphere_mass_content_of_ethene_due_to_emission_from_waste_treatment_and_disposal
+<br />
+tendency_of_atmosphere_mass_content_of_propene_due_to_emission_from_waste_treatment_and_disposal
+<br />
+tendency_of_atmosphere_mass_content_of_ethyne_due_to_emission_from_waste_treatment_and_disposal
+<br />
+tendency_of_atmosphere_mass_content_of_benzene_due_to_emission_from_waste_treatment_and_disposal
+<br />
+tendency_of_atmosphere_mass_content_of_toluene_due_to_emission_from_waste_treatment_and_disposal
+<br />
+tendency_of_atmosphere_mass_content_of_xylene_due_to_emission_from_waste_treatment_and_disposal
+<br />
+tendency_of_atmosphere_mass_content_of_esters_due_to_emission_from_waste_treatment_and_disposal
+<br />
+tendency_of_atmosphere_mass_content_of_ethers_due_to_emission_from_waste_treatment_and_disposal
+<br />
+tendency_of_atmosphere_mass_content_of_chlorinated_hydrocarbons_due_to_emission_from_waste_treatment_and_disposal
+<br />
+tendency_of_atmosphere_mass_content_of_formaldehyde_due_to_emission_from_waste_treatment_and_disposal
+<br />
+tendency_of_atmosphere_mass_content_of_ketones_due_to_emission_from_waste_treatment_and_disposal
+<br />
+tendency_of_atmosphere_mass_content_of_organic_acids_due_to_emission_from_waste_treatment_and_disposal
+<br />
+<br />tendency_of_atmosphere_mass_content_of_carbon_monoxide_due_to_emission_from_forest_fires
+<br />
+tendency_of_atmosphere_mass_content_of_methane_due_to_emission_from_forest_fires
+<br />
+tendency_of_atmosphere_mass_content_of_ammonia_due_to_emission_from_forest_fires
+<br />
+tendency_of_atmosphere_mass_content_of_nitrogen_monoxide_due_to_emission_from_forest_fires
+<br />
+tendency_of_atmosphere_mass_content_of_sulfur_dioxide_due_to_emission_from_forest_fires
+<br />
+tendency_of_atmosphere_mass_content_of_black_carbon_dry_aerosol_due_to_emission_from_forest_fires
+<br />
+tendency_of_atmosphere_mass_content_of_particulate_organic_matter_dry_aerosol_expressed_as_carbon_due_to_emission_from_forest_fires
+<br />
+tendency_of_atmosphere_mass_content_of_nmvoc_due_to_emission_from_forest_fires
+<br />
+tendency_of_atmosphere_mass_content_of_alcohols_due_to_emission_from_forest_fires
+<br />
+tendency_of_atmosphere_mass_content_of_ethane_due_to_emission_from_forest_fires
+<br />
+tendency_of_atmosphere_mass_content_of_propane_due_to_emission_from_forest_fires
+<br />
+tendency_of_atmosphere_mass_content_of_butane_due_to_emission_from_forest_fires
+<br />
+tendency_of_atmosphere_mass_content_of_pentane_due_to_emission_from_forest_fires
+<br />
+tendency_of_atmosphere_mass_content_of_ethene_due_to_emission_from_forest_fires
+<br />
+tendency_of_atmosphere_mass_content_of_propene_due_to_emission_from_forest_fires
+<br />
+tendency_of_atmosphere_mass_content_of_ethyne_due_to_emission_from_forest_fires
+<br />
+tendency_of_atmosphere_mass_content_of_isoprene_due_to_emission_from_forest_fires
+<br />
+tendency_of_atmosphere_mass_content_of_terpenes_due_to_emission_from_forest_fires
+<br />
+tendency_of_atmosphere_mass_content_of_benzene_due_to_emission_from_forest_fires
+<br />
+tendency_of_atmosphere_mass_content_of_toluene_due_to_emission_from_forest_fires
+<br />
+tendency_of_atmosphere_mass_content_of_xylene_due_to_emission_from_forest_fires
+<br />
+tendency_of_atmosphere_mass_content_of_ethers_due_to_emission_from_forest_fires
+<br />
+tendency_of_atmosphere_mass_content_of_chlorinated_hydrocarbons_due_to_emission_from_forest_fires
+<br />
+tendency_of_atmosphere_mass_content_of_formaldehyde_due_to_emission_from_forest_fires
+<br />
+tendency_of_atmosphere_mass_content_of_ketones_due_to_emission_from_forest_fires
+<br />
+tendency_of_atmosphere_mass_content_of_organic_acids_due_to_emission_from_forest_fires
+<br />
+<br />tendency_of_atmosphere_mass_content_of_carbon_monoxide_due_to_emission_from_savanna_and_grassland_fires
+<br />
+tendency_of_atmosphere_mass_content_of_methane_due_to_emission_from_savanna_and_grassland_fires
+<br />
+tendency_of_atmosphere_mass_content_of_ammonia_due_to_emission_from_savanna_and_grassland_fires
+<br />
+tendency_of_atmosphere_mass_content_of_nitrogen_monoxide_due_to_emission_from_savanna_and_grassland_fires
+<br />
+tendency_of_atmosphere_mass_content_of_sulfur_dioxide_due_to_emission_from_savanna_and_grassland_fires
+<br />
+tendency_of_atmosphere_mass_content_of_black_carbon_dry_aerosol_due_to_emission_from_savanna_and_grassland_fires
+<br />
+tendency_of_atmosphere_mass_content_of_particulate_organic_matter_dry_aerosol_expressed_as_carbon_due_to_emission_from_savanna_and_grassland_fires
+<br />
+tendency_of_atmosphere_mass_content_of_nmvoc_due_to_emission_from_savanna_and_grassland_fires
+<br />
+tendency_of_atmosphere_mass_content_of_alcohols_due_to_emission_from_savanna_and_grassland_fires
+<br />
+tendency_of_atmosphere_mass_content_of_ethane_due_to_emission_from_savanna_and_grassland_fires
+<br />
+tendency_of_atmosphere_mass_content_of_propane_due_to_emission_from_savanna_and_grassland_fires
+<br />
+tendency_of_atmosphere_mass_content_of_butane_due_to_emission_from_savanna_and_grassland_fires
+<br />
+tendency_of_atmosphere_mass_content_of_pentane_due_to_emission_from_savanna_and_grassland_fires
+<br />
+tendency_of_atmosphere_mass_content_of_ethene_due_to_emission_from_savanna_and_grassland_fires
+<br />
+tendency_of_atmosphere_mass_content_of_propene_due_to_emission_from_savanna_and_grassland_fires
+<br />
+tendency_of_atmosphere_mass_content_of_ethyne_due_to_emission_from_savanna_and_grassland_fires
+<br />
+tendency_of_atmosphere_mass_content_of_isoprene_due_to_emission_from_savanna_and_grassland_fires
+<br />
+tendency_of_atmosphere_mass_content_of_terpenes_due_to_emission_from_savanna_and_grassland_fires
+<br />
+tendency_of_atmosphere_mass_content_of_benzene_due_to_emission_from_savanna_and_grassland_fires
+<br />
+tendency_of_atmosphere_mass_content_of_toluene_due_to_emission_from_savanna_and_grassland_fires
+<br />
+tendency_of_atmosphere_mass_content_of_xylene_due_to_emission_from_savanna_and_grassland_fires
+<br />
+tendency_of_atmosphere_mass_content_of_ethers_due_to_emission_from_savanna_and_grassland_fires
+<br />
+tendency_of_atmosphere_mass_content_of_chlorinated_hydrocarbons_due_to_emission_from_savanna_and_grassland_fires
+<br />
+tendency_of_atmosphere_mass_content_of_formaldehyde_due_to_emission_from_savanna_and_grassland_fires
+<br />
+tendency_of_atmosphere_mass_content_of_ketones_due_to_emission_from_savanna_and_grassland_fires
+<br />
+tendency_of_atmosphere_mass_content_of_organic_acids_due_to_emission_from_savanna_and_grassland_fires
+<br />
+<br />tendency_of_atmosphere_mass_content_of_carbon_monoxide_due_to_emission_from_land_transport
+<br />
+tendency_of_atmosphere_mass_content_of_methane_due_to_emission_from_land_transport
+<br />
+tendency_of_atmosphere_mass_content_of_ammonia_due_to_emission_from_land_transport
+<br />
+tendency_of_atmosphere_mass_content_of_nitrogen_monoxide_due_to_emission_from_land_transport
+<br />
+tendency_of_atmosphere_mass_content_of_sulfur_dioxide_due_to_emission_from_land_transport
+<br />
+tendency_of_atmosphere_mass_content_of_black_carbon_dry_aerosol_due_to_emission_from_land_transport
+<br />
+tendency_of_atmosphere_mass_content_of_particulate_organic_matter_dry_aerosol_expressed_as_carbon_due_to_emission_from_land_transport
+<br />
+tendency_of_atmosphere_mass_content_of_nmvoc_due_to_emission_from_land_transport
+<br />
+tendency_of_atmosphere_mass_content_of_ethane_due_to_emission_from_land_transport
+<br />
+tendency_of_atmosphere_mass_content_of_propane_due_to_emission_from_land_transport
+<br />
+tendency_of_atmosphere_mass_content_of_butane_due_to_emission_from_land_transport
+<br />
+tendency_of_atmosphere_mass_content_of_pentane_due_to_emission_from_land_transport
+<br />
+tendency_of_atmosphere_mass_content_of_ethene_due_to_emission_from_land_transport
+<br />
+tendency_of_atmosphere_mass_content_of_propene_due_to_emission_from_land_transport
+<br />
+tendency_of_atmosphere_mass_content_of_ethyne_due_to_emission_from_land_transport
+<br />
+tendency_of_atmosphere_mass_content_of_benzene_due_to_emission_from_land_transport
+<br />
+tendency_of_atmosphere_mass_content_of_toluene_due_to_emission_from_land_transport
+<br />
+tendency_of_atmosphere_mass_content_of_xylene_due_to_emission_from_land_transport
+<br />
+tendency_of_atmosphere_mass_content_of_esters_due_to_emission_from_land_transport
+<br />
+tendency_of_atmosphere_mass_content_of_ethers_due_to_emission_from_land_transport
+<br />
+tendency_of_atmosphere_mass_content_of_chlorinated_hydrocarbons_due_to_emission_from_land_transport
+<br />
+tendency_of_atmosphere_mass_content_of_formaldehyde_due_to_emission_from_land_transport
+<br />
+tendency_of_atmosphere_mass_content_of_ketones_due_to_emission_from_land_transport
+<br />
+<br />tendency_of_atmosphere_mass_content_of_carbon_monoxide_due_to_emission_from_maritime_transport
+<br />
+tendency_of_atmosphere_mass_content_of_methane_due_to_emission_from_maritime_transport
+<br />
+tendency_of_atmosphere_mass_content_of_nitrogen_monoxide_due_to_emission_from_maritime_transport
+<br />
+tendency_of_atmosphere_mass_content_of_sulfur_dioxide_due_to_emission_from_maritime_transport
+<br />
+tendency_of_atmosphere_mass_content_of_black_carbon_dry_aerosol_due_to_emission_from_maritime_transport
+<br />
+tendency_of_atmosphere_mass_content_of_particulate_organic_matter_dry_aerosol_expressed_as_carbon_due_to_emission_from_maritime_transport
+<br />
+tendency_of_atmosphere_mass_content_of_nmvoc_due_to_emission_from_maritime_transport
+<br />
+tendency_of_atmosphere_mass_content_of_ethane_due_to_emission_from_maritime_transport
+<br />
+tendency_of_atmosphere_mass_content_of_propane_due_to_emission_from_maritime_transport
+<br />
+tendency_of_atmosphere_mass_content_of_butane_due_to_emission_from_maritime_transport
+<br />
+tendency_of_atmosphere_mass_content_of_pentane_due_to_emission_from_maritime_transport
+<br />
+tendency_of_atmosphere_mass_content_of_ethene_due_to_emission_from_maritime_transport
+<br />
+tendency_of_atmosphere_mass_content_of_propene_due_to_emission_from_maritime_transport
+<br />
+tendency_of_atmosphere_mass_content_of_ethyne_due_to_emission_from_maritime_transport
+<br />
+tendency_of_atmosphere_mass_content_of_toluene_due_to_emission_from_maritime_transport
+<br />
+tendency_of_atmosphere_mass_content_of_xylene_due_to_emission_from_maritime_transport
+<br />
+<br />tendency_of_mass_concentration_of_nitrogen_monoxide_in_air_due_to_emission_from_aviation
+<br />
+tendency_of_mass_concentration_of_nitrogen_dioxide_in_air_due_to_emission_from_aviation
+<br />
+tendency_of_mass_concentration_of_black_carbon_dry_aerosol_in_air_due_to_emission_from_aviation
+<br />
+<br />------
+<br />
+Alison Pamment                          Tel: +44 1235 778065
+<br />
+NCAS/British Atmospheric Data Centre    Email: alison.pamment at stfc.ac.uk
+<br />
+STFC Rutherford Appleton Laboratory     
+<br />
+R25, 2.22
+<br />
+Harwell Oxford, Didcot, OX11 0QX, U.K.
+<br />
+<br /><br /><pre>
+-- 
+Scanned by iCritical.
+</pre>
+<span id="received"><dfn>Received on</dfn> Wed Mar 07 2012 - 01:31:36 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -127,8 +615,8 @@ locally. It's the same for atmosphere and air.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5016">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5017.html" title="Next message in the list">alison.pamment at stfc.ac.uk: "[CF-metadata] sea_water_pressure"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5015.html" title="Previous message in the list">Matthias Lankhorst: "[CF-metadata] standard names for ocean volume transport"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5017.html" title="Next message in the list">Heiko Klein: "[CF-metadata] repost warming up old stuff - part 4: emissions (hit send too early)"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5015.html" title="Previous message in the list">Markus Fiebig: "[CF-metadata] warming up old stuff - part 1: aerosol mie scattering"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -140,7 +628,7 @@ locally. It's the same for atmosphere and air.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:14 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5015.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5017.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

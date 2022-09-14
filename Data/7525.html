@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] request for new CF standard_name: CDOM from John Maurer on 2016-03-30 (mailing-list-archive)</title>
-<meta name="Author" content="John Maurer (jmaurer)" />
-<meta name="Subject" content="[CF-metadata] request for new CF standard_name: CDOM" />
-<meta name="Date" content="2016-03-30" />
+<title>[CF-metadata] how to indicate a variable representing a physical quantity is an observation, a modelled value, a difference or residual, etc. from Jonathan Gregory on 2014-12-15 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] how to indicate a variable representing a physical quantity is an observation, a modelled value, a difference or residual, etc." />
+<meta name="Date" content="2014-12-15" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./7524.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7526.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] request for new CF standard_name: CDOM</h1>
-<!-- received="Wed Mar 30 13:36:37 2016" -->
-<!-- isoreceived="20160330123637" -->
-<!-- sent="Wed, 30 Mar 2016 09:36:37 -1000" -->
-<!-- isosent="20160330193637" -->
-<!-- name="John Maurer" -->
-<!-- email="jmaurer" -->
-<!-- subject="[CF-metadata] request for new CF standard_name: CDOM" -->
-<!-- id="CAEoEVrnq62RLaub-OG6un6E98HrwpZtS2ZRz=LQzPf0S6Y4Niw_at_mail.gmail.com" -->
+<a style="text-decoration:none" href="./7524.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7526.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] how to indicate a variable representing a physical quantity is an observation, a modelled value, a difference or residual, etc.</h1>
+<!-- received="Mon Dec 15 07:03:48 2014" -->
+<!-- isoreceived="20141215070348" -->
+<!-- sent="Mon, 15 Dec 2014 14:03:48 +0000" -->
+<!-- isosent="20141215140348" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] how to indicate a variable representing a physical quantity is an observation, a modelled value, a difference or residual, etc." -->
+<!-- id="20141215140348.GA7463_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./7526.html" accesskey="d" title="Randy Horne: &quot;[CF-metadata] Meeting invite: Advancing netCDF-CF, 24-26 May 2016, Boulder, CO, USA&quot;">Next message</a> ]
-[ <a href="./7524.html" title="Ethan Davis: &quot;[CF-metadata] Meeting invite: Advancing netCDF-CF, 24-26 May 2016, Boulder, CO, USA&quot;">Previous message</a> ]
+[ <a href="./7526.html" accesskey="d" title="Napoleon Cornejo: &quot;[CF-metadata] Standard Names for: Ocean Kinetic Energy and Relative Vorticity&quot;">Next message</a> ]
+[ <a href="./7524.html" title="Lowry, Roy K.: &quot;[CF-metadata] Standard names for isotopic ratios ?&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./7549.html" accesskey="t" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] request for new CF standard_name: CDOM&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,86 +68,116 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: John Maurer &lt;<a href="mailto:jmaurer?Subject=Re%3A%20%5BCF-metadata%5D%20request%20for%20new%20CF%20standard_name%3A%20CDOM">jmaurer</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20how%20to%20indicate%20a%20variable%20representing%20a%20physical%20quantity%20is%20an%20observation%2C%20a%20modelled%20value%2C%20a%20difference%20or%20residual%2C%20etc.">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 30 Mar 2016 09:36:37 -1000</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 15 Dec 2014 14:03:48 +0000</span><br />
 </address>
 <br />
-Thanks, Jonathan and Roy! Your suggestions sound fine by me.
+Dear Aaron
 <br />
-Cheers,
+<br /><em class="quotelev1">&gt; I think there's a reason CF names don't naturally distinguish between measured or observed values?CF names tend to describe the meaning of the value, and explicitly avoids saying how it was derived. The derivation is reserved to other attributes, like the 'source' (which should distinguish between a model and an observation, though not in a computable way), or 'history'.
+</em><br />
+<br />I agree with this remark of John's. In fact, the main purpose of the CF
 <br />
-John Maurer
+standard names is to indicate which quantities should be regarded as
 <br />
-Pacific Islands Ocean Observing System (PacIOOS)
+comparable. Usually, we want to compare quantities derived from different
 <br />
-University of Hawaii at Manoa
+sources (such as obs and models), so we give the corresponding quantities the
 <br />
-<br /><br />Date: Fri, 25 Mar 2016 09:05:08 +0000
+same standard names, in order to indicate they can be meaningfully compared:
 <br />
-<em class="quotelev1">&gt; From: &quot;Lowry, Roy K.&quot; &lt;rkl at bodc.ac.uk&gt;
-</em><br />
-<em class="quotelev1">&gt; To: Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt;,
-</em><br />
-<em class="quotelev1">&gt;         &quot;cf-metadata at cgd.ucar.edu&quot; &lt;cf-metadata at cgd.ucar.edu&gt;
-</em><br />
-<em class="quotelev1">&gt; Subject: Re: [CF-metadata] request for new CF standard_name: CDOM
-</em><br />
-<em class="quotelev1">&gt; Message-ID:
-</em><br />
-<em class="quotelev1">&gt;         &lt;
-</em><br />
-<em class="quotelev1">&gt; HE1PR0601MB1946C0D26C72EB4099D0EFA799830 at HE1PR0601MB1946.eurprd06.prod.outlook.com
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Content-Type: text/plain; charset=&quot;iso-8859-1&quot;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Dear Jonathan,
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Although long-winded your suggestion of:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; concentration_of_colored_dissolved_organic_matter_in_sea_water_expressed_as_equivalent_mass_fraction_of_quinine_sulfate_dihydrate
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; has the great advantage of preventing any confusion between this
-</em><br />
-<em class="quotelev1">&gt; measurement and a true CDOM concentration determined by some other method.
-</em><br />
-<em class="quotelev1">&gt; Having mass_fraction in there is particularly valuable as when we
-</em><br />
-<em class="quotelev1">&gt; encountered this measurement the stock solutions used to calibrate the
-</em><br />
-<em class="quotelev1">&gt; sensors had the QSD concentrations expressed in nM rather than ppb.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; I also agree dimensionless is the best choice for the Canonical Unit.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Cheers, Roy.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
--------------- next part --------------
+that they are apples from different trees, rather than apples and oranges.
 <br />
-An HTML attachment was scrubbed...
+<br />Best wishes
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20160330/36e7a205/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20160330/36e7a205/attachment.html</a>&gt;
+<br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Mar 30 2016 - 13:36:37 BST</span>
+<br /><em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; On Dec 12, 2014, at 11:01, Aaron Sweeney &lt;aaron.sweeney at noaa.gov&gt; wrote:
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; Hi,
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt;     I've looked through the latest CF Conventions and CF Standard Names documents, but have been unable to find an answer (or example) to the following question:
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt;     How do I indicate that a variable representing a physical quantity is an in situ observation, a value that came from a model, or a difference or residual between an observation and a modelled value (observed minus modelled)?
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt;     My initial thought was to use the same standard name for each variable, but provide a standard name modifier.  But after reading the appendix on modifiers, they seem to be used for something else. The standard names themselves only describe the physical quantity, but not whether or not they are an observed value or modelled value.
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt;     Please point me toward the appropriate documentation, if it exists.  Thanks for your kind attention.
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; Cordially,
+</em><br />
+<em class="quotelev2">&gt; &gt; Aaron
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; -- 
+</em><br />
+<em class="quotelev2">&gt; &gt; Aaron D. Sweeney
+</em><br />
+<em class="quotelev2">&gt; &gt; Water Level Data Manager
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; Cooperative Institute for Research in Environmental Sciences (CIRES)
+</em><br />
+<em class="quotelev2">&gt; &gt; University of Colorado at Boulder
+</em><br />
+<em class="quotelev2">&gt; &gt; and
+</em><br />
+<em class="quotelev2">&gt; &gt; NOAA National Geophysical Data Center
+</em><br />
+<em class="quotelev2">&gt; &gt; Marine Geology and Geophysics Division
+</em><br />
+<em class="quotelev2">&gt; &gt; 325 Broadway, E/GC3
+</em><br />
+<em class="quotelev2">&gt; &gt; Boulder, CO 80305-3328
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; Phone: 303-497-4797, Fax: 303-497-6513
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; DISCLAIMER: The contents of this message are mine personally and do not necessarily reflect any position of NOAA.
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; _______________________________________________
+</em><br />
+<em class="quotelev2">&gt; &gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev2">&gt; &gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt; &gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<br /><em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<br /><br />----- End forwarded message -----
+<br />
+<span id="received"><dfn>Received on</dfn> Mon Dec 15 2014 - 07:03:48 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -157,12 +185,9 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start7525">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./7526.html" title="Next message in the list">Randy Horne: "[CF-metadata] Meeting invite: Advancing netCDF-CF, 24-26 May 2016, Boulder, CO, USA"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./7524.html" title="Previous message in the list">Ethan Davis: "[CF-metadata] Meeting invite: Advancing netCDF-CF, 24-26 May 2016, Boulder, CO, USA"</a></li>
+<li><dfn>Next message</dfn>: <a href="./7526.html" title="Next message in the list">Napoleon Cornejo: "[CF-metadata] Standard Names for: Ocean Kinetic Energy and Relative Vorticity"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./7524.html" title="Previous message in the list">Lowry, Roy K.: "[CF-metadata] Standard names for isotopic ratios ?"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./7549.html" title="Next message in this discussion thread">alison.pamment at stfc.ac.uk: "[CF-metadata] request for new CF standard_name: CDOM"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./7549.html" title="Message sent in reply to this message">alison.pamment at stfc.ac.uk: "[CF-metadata] request for new CF standard_name: CDOM"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -173,7 +198,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:02 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./7524.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7526.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

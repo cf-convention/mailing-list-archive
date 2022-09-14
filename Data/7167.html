@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] How to define time coordinate in GPS? from Jim Biard on 2015-06-29 (mailing-list-archive)</title>
-<meta name="Author" content="Jim Biard (jbiard)" />
-<meta name="Subject" content="[CF-metadata] How to define time coordinate in GPS?" />
-<meta name="Date" content="2015-06-29" />
+<title>[CF-metadata] Proposing Standard Names for Lightning Event, Group and Flash Radiant Energy from Randy Horne on 2014-07-11 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Randy Horne (rhorne)" />
+<meta name="Subject" content="[CF-metadata] Proposing Standard Names for Lightning Event, Group and Flash Radiant Energy" />
+<meta name="Date" content="2014-07-11" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./7166.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7168.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] How to define time coordinate in GPS?</h1>
-<!-- received="Mon Jun 29 10:25:23 2015" -->
-<!-- isoreceived="20150629092523" -->
-<!-- sent="Mon, 29 Jun 2015 12:25:23 -0400" -->
-<!-- isosent="20150629162523" -->
-<!-- name="Jim Biard" -->
-<!-- email="jbiard" -->
-<!-- subject="[CF-metadata] How to define time coordinate in GPS?" -->
-<!-- id="55917173.9010504_at_cicsnc.org" -->
+<a style="text-decoration:none" href="./7166.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7168.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Proposing Standard Names for Lightning Event, Group and Flash Radiant Energy</h1>
+<!-- received="Fri Jul 11 05:54:52 2014" -->
+<!-- isoreceived="20140711045452" -->
+<!-- sent="Fri, 11 Jul 2014 07:54:52 -0400" -->
+<!-- isosent="20140711115452" -->
+<!-- name="Randy Horne" -->
+<!-- email="rhorne" -->
+<!-- subject="[CF-metadata] Proposing Standard Names for Lightning Event, Group and Flash Radiant Energy" -->
+<!-- id="904FB4C0-1215-455B-ABE5-BF8237D1E864_at_excaliburlabs.com" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="888F94E85551044BAE03E23F711A43F4D7D45F8F7D_at_EXW10.eum.root.eumetsat.int" -->
+<!-- inreplyto="20140617153251.GA30496_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./7168.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Specifying latitude and longitude of transects and regions&quot;">Next message</a> ]
-[ <a href="./7166.html" title="Jonathan Gregory: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">Previous message</a> ]
-[ <a href="./7161.html" title="Timothy Patterson: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">In reply to</a> ]
+[ <a href="./7168.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  AMIP + PCMDI status&quot;">Next message</a> ]
+[ <a href="./7166.html" title="David Hassell: &quot;[CF-metadata] CF trac ticket summary update&quot;">Previous message</a> ]
+[ <a href="./7131.html" title="Jonathan Gregory: &quot;[CF-metadata]  Proposing Standard Names for Lightning Event, Group and Flash Radiant Energy&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./7153.html" accesskey="t" title="Jim Biard: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -71,158 +70,180 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jim Biard &lt;<a href="mailto:jbiard?Subject=Re%3A%20%5BCF-metadata%5D%20How%20to%20define%20time%20coordinate%20in%20GPS%3F">jbiard</a>&gt;
+<dfn>From</dfn>: Randy Horne &lt;<a href="mailto:rhorne?Subject=Re%3A%20%5BCF-metadata%5D%20Proposing%20Standard%20Names%20for%20Lightning%20Event%2C%20Group%20and%20Flash%20Radiant%20Energy">rhorne</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 29 Jun 2015 12:25:23 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 11 Jul 2014 07:54:52 -0400</span><br />
 </address>
 <br />
-Tim,
+Dear Jonathan et al:
 <br />
-<br />I come to all of this from working with polar satellite data, where a 
+<br />I am working with Gary on the standard name for lightning radiant energy.
 <br />
-difference of 1 second represents a geographic error of ~7 km, so I am 
+<br />The original proposed standard names (see below) are inextricably associated with the characteristics of the lightning detection algorithm we have employed, including the notion of flashes, groups, and events.  A more general (and useful) way to approach this standard name is to simply call out a lightning radiant energy, and then use one or more of temporal and spatial coordinate variables in conjunction with cell_methods and cell_measures to describe the specific characteristics of the lightning radiant energy data variable.  As a result, see the following amended proposal:
 <br />
-sensitive to your concerns.
+<br />Standard_name:
 <br />
-<br />The very thing we are trying to make sure in this discussion is that 
+lightning_radiant_energy
 <br />
-whether you record your reference date and time as timestamps in UTC 
+&nbsp;
 <br />
-(with leap seconds) or GPS (without leap seconds), that you can tell the 
+Definition:
 <br />
-world that they can trust that the elapsed time values in your time 
+Radiant energy associated with the emission of electromagnetic radiation due to lightning. A coordinate variable of radiation_wavelength, radiation_frequency, or sensor_band_central_wavelength may be specified to indicate that the lightning_radiant_energy applies at specific wavelengths or frequencies.
 <br />
-variable are true elapsed seconds (or minutes, or milliseconds, etc). It 
+&nbsp;
 <br />
-is clear from a little thought experiment that the calendar attribute 
+Canonical units: J
 <br />
-(under most circumstances, at least) is only telling me how to interpret 
+<br /><br />very respectfully,
 <br />
-my reference time. (I can build a data acquisition system that includes 
+<br />randy
 <br />
-a synced clock and a highly precise time counter. When I acquire 
+<br /><br /><br />On Jun 17, 2014, at 11:32 AM, Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt; wrote:
 <br />
-measurements, my system records the start date and time, starts the 
-<br />
-counter, and records the elapsed time each time I acquire a measurement. 
-<br />
-I can directly store all of this into a CF time variable, and for others 
-<br />
-to make proper use of it, all I have to indicate is base unit my elapsed 
-<br />
-time is in and what representation system was used for my reference date 
-<br />
-and time.) Is my reference clock a UTC clock or a GPS clock? Thus the 
-<br />
-different calendars under discussion - gregorian_utc and gregorian_gps. 
-<br />
-(These aren't the only possible calendars, either. There can be other 
-<br />
-calendars that use other time systems, such as TAI. They can be added as 
-<br />
-they are requested.) The gregorian_utc and gregorian_gps calendars are 
-<br />
-telling data consumers that you have error-free elapsed times and 
-<br />
-telling them how to interpret the reference date/time stamp.
-<br />
-<br />The reality is that numerous data producers didn't acquire their elapsed 
-<br />
-times as in my thought experiment. Some started with UTC timestamps 
-<br />
-obtained from a synced source at each measurement time, and used 
-<br />
-software that wasn't aware of leap seconds (such as the Unix/linux suite 
-<br />
-of functions) as part of the calculations that produced their elapsed 
-<br />
-times. Depending on the choice of reference date and time, they 
-<br />
-introduced a possible offset into all of their elapsed time values, and 
-<br />
-if the range of times included a leap second boundary, they introduced a 
-<br />
-discontinuity part way through the elapsed time series.
-<br />
-<br />Other data producers (modelers, for example) generated time stamps 
-<br />
-unconnected to the real motions of the real earth, then calculated 
-<br />
-elapsed times using software that wasn't aware of leap seconds. Which is 
-<br />
-fine. It's a model. In the model universe there are no leap seconds. But 
-<br />
-the time in the reference timestamp isn't UTC.
-<br />
-<br />The thing is, most of these data producers are working with intervals on 
-<br />
-the order of minutes or longer. The errors that might be produced by 
-<br />
-misconstruing the reference timestamp or introducing offsets or 
-<br />
-discontinuities into the elapsed times are well below the &quot;noise floor&quot;. 
-<br />
-The discussion about the gregorian_nls calendar and some other possible 
-<br />
-calendar (gregorian_utc_lse? - lse = leap second errors), as well as the 
-<br />
-discussion about what to do with interpretation of the existing calendar 
-<br />
-named gregorian is about how to handle these cases, since people without 
-<br />
-fine time resolution are likely going to continue to work the way they 
-<br />
-have been; and, indeed, there is no reason they should forced to change 
-<br />
-- using conversion software that is aware of leap seconds when your time 
-<br />
-interval is 0.5 days and your effective resolution is 0.01 days is overkill.
-<br />
-<br />The CF community is becoming more and more diverse, and the challenge is 
-<br />
-to find ways to document the data that accommodates everyone reasonably 
-<br />
-well, &quot;makes sense&quot;, and has intuitive power.
-<br />
-<br />The conventions up through 1.6 used the term UTC, but was really using 
-<br />
-it as a shorthand for &quot;a time system that is based on longitude 0 
-<br />
-degrees and puts midnight on that longitude at approximately the point 
-<br />
-where the longitude is facing directly away from the Sun.&quot; There wasn't 
-<br />
-really any thought of leap seconds involved at the time. We've gotten to 
-<br />
-the point where more precise definitions are required by some. Thus the 
-<br />
-discussion.
-<br />
-<br />Grace and peace,
-<br />
-<br />Jim
-<br />
-<br />On 6/29/15 6:16 AM, Timothy Patterson wrote:
-<br />
-<em class="quotelev1">&gt; I understand that for climate or forecast data that 30+ seconds of inaccuracy may not be significant, but even though the C and F in &quot;CF Conventions&quot; stand for &quot;Climate and Forecast&quot;, the conventions are also being increasingly adopted for instrument and measurement datasets. In these cases, time accuracy at small time scales becomes more important, which is why seeing a proposed convention that allows the time to be written ambiguously (so that there may or may not be discontinuities or offsets) is rather disconcerting, like telling a climate scientist that the netCDF encoding of his temperature data may or may not have introduced an inaccuracy of a few Kelvin in some readings.
+<br /><em class="quotelev1">&gt; Dear Gary
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; Under the CF1.6 conventions, I believe the base time or epoch time was always expressed in UTC and the calendar attribute was applied to the encoded time count. Using this convention, I could specify a UTC start time and then have a simple GPS-like count of elapsed seconds (with no discontinuities introduced by leap seconds). Under the proposals for the 1.7 convention, this doesn't seem possible. The epoch and time count must both be expressed either as UTC or as GPS time and the only &quot;mixed calendar&quot; options introduce the above mentioned ambiguity.
+<em class="quotelev1">&gt; Thanks for these proposals. I have a couple of comments.
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; Regards,
+<em class="quotelev1">&gt; * Is this hierarchy event/group/flash a standard terminology? If so, fine.
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; Tim Patterson
+<em class="quotelev1">&gt; * I think it would be useful to insert &quot;radiant&quot; into the standard name, since
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; you have it in the definitions.
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; Any email message from EUMETSAT is sent in good faith but shall neither be binding nor construed as constituting a commitment by EUMETSAT, except where provided for in a written agreement or contract or if explicitly stated in the email. Please note that any views or opinions presented in this email are solely those of the sender and do not necessarily represent those of EUMETSAT. This message and any attachments are intended for the sole use of the addressee(s) and may contain confidential and privileged information. Any unauthorised use, disclosure, dissemination or distribution (in whole or in part) of its contents is not permitted. If you received this message in error, please notify the sender and delete it from your system.
+<em class="quotelev1">&gt; Best wishes
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Jonathan
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; ----- Forwarded message from &quot;Meehan, Gary&quot; &lt;GMeehan at aer.com&gt; -----
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; From: &quot;Meehan, Gary&quot; &lt;GMeehan at aer.com&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; To: &quot;cf-metadata at cgd.ucar.edu&quot; &lt;cf-metadata at cgd.ucar.edu&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Date: Tue, 17 Jun 2014 13:52:04 +0000
+</em><br />
+<em class="quotelev2">&gt;&gt; Subject: [CF-metadata] Proposing Standard Names for Lightning Event, Group
+</em><br />
+<em class="quotelev2">&gt;&gt; 	and Flash Radiant Energy
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Dear CF Board,
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; I would like to propose the following three related standard names concerning the various measures
+</em><br />
+<em class="quotelev2">&gt;&gt; of radiant energy associated with lightning storms.
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Standard_Name: Lightning_event_energy
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Canonical_Units: Joules
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Definition: The radiant energy associated with a single, discrete lightning event, the aggregation of a set of which
+</em><br />
+<em class="quotelev2">&gt;&gt; forms a lightning group. A set of related lightning groups forms a lightning flash. A coordinate variable of
+</em><br />
+<em class="quotelev2">&gt;&gt; radiation_wavelength, sensor_band_central_wavelength, or radiation_frequency may be specified to indicate
+</em><br />
+<em class="quotelev2">&gt;&gt; that the lightning_event_energy applies at specific wavelengths or frequencies.
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; --------
+</em><br />
+<em class="quotelev2">&gt;&gt; Standard_Name: Lightning_group_energy
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Canonical_Units: Joules
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Definition: The radiant energy associated with a lightning group formed by aggregating a set of discrete lightning events.
+</em><br />
+<em class="quotelev2">&gt;&gt; A collection of lightning groups forms a lightning flash. A coordinate variable of radiation_wavelength, sensor_band_central_wavelength,
+</em><br />
+<em class="quotelev2">&gt;&gt; or radiation_frequency may be specified to indicate that the lightning_group_energy applies at specific wavelengths or frequencies.
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; --------
+</em><br />
+<em class="quotelev2">&gt;&gt; Standard_Name: Lightning_flash_energy
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Canonical_Units: Joules
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Definition: The radiant energy associated with a lightning flash formed by aggregating a set of lightning groups, where
+</em><br />
+<em class="quotelev2">&gt;&gt; a single lightning group is formed out of a collection of a series of discrete lightning events. A coordinate variable of
+</em><br />
+<em class="quotelev2">&gt;&gt; radiation_wavelength, sensor_band_central_wavelength, or radiation_frequency may be specified to indicate
+</em><br />
+<em class="quotelev2">&gt;&gt; that the lightning_flash_energy applies at specific wavelengths or frequencies.
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Sincerely,
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Gary Meehan
+</em><br />
+<em class="quotelev2">&gt;&gt; _____________________________________
+</em><br />
+<em class="quotelev2">&gt;&gt; Atmospheric and Environmental Research
+</em><br />
+<em class="quotelev2">&gt;&gt; Lexington, MA
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; ________________________________
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; This email is intended solely for the recipient. It may contain privileged, proprietary or confidential information or material. If you are not the intended recipient, please delete this email and any attachments and notify the sender of the error.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; _______________________________________________
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; ----- End forwarded message -----
 </em><br />
 <em class="quotelev1">&gt; _______________________________________________
 </em><br />
@@ -232,35 +253,17 @@ discussion.
 </em><br />
 <em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
-<br /><pre>
--- 
-CICS-NC &lt;<a href="http://www.cicsnc.org/">http://www.cicsnc.org/</a>&gt; Visit us on
-Facebook &lt;<a href="http://www.facebook.com/cicsnc">http://www.facebook.com/cicsnc</a>&gt; 	*Jim Biard*
-*Research Scholar*
-Cooperative Institute for Climate and Satellites NC &lt;<a href="http://cicsnc.org/">http://cicsnc.org/</a>&gt;
-North Carolina State University &lt;<a href="http://ncsu.edu/">http://ncsu.edu/</a>&gt;
-NOAA National Centers for Environmental Information &lt;<a href="http://ncdc.noaa.gov/">http://ncdc.noaa.gov/</a>&gt;
-/formerly NOAA?s National Climatic Data Center/
-151 Patton Ave, Asheville, NC 28801
-e: jbiard at cicsnc.org &lt;mailto:jbiard at cicsnc.org&gt;
-o: +1 828 271 4900
-/Connect with us on Facebook for climate 
-&lt;<a href="https://www.facebook.com/NOAANCEIclimate">https://www.facebook.com/NOAANCEIclimate</a>&gt; and ocean and geophysics 
-&lt;<a href="https://www.facebook.com/NOAANCEIoceangeo">https://www.facebook.com/NOAANCEIoceangeo</a>&gt; information, and follow us 
-on Twitter at _at_NOAANCEIclimate &lt;<a href="https://twitter.com/NOAANCEIclimate">https://twitter.com/NOAANCEIclimate</a>&gt; and 
-_at_NOAANCEIocngeo &lt;<a href="https://twitter.com/NOAANCEIocngeo">https://twitter.com/NOAANCEIocngeo</a>&gt;. /
--------------- next part --------------
-An HTML attachment was scrubbed...
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150629/06e69819/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150629/06e69819/attachment-0001.html</a>&gt;
--------------- next part --------------
-A non-text attachment was scrubbed...
-Name: CicsLogoTiny.png
-Type: image/png
-Size: 15784 bytes
-Desc: not available
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150629/06e69819/attachment-0001.png">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150629/06e69819/attachment-0001.png</a>&gt;
-</pre>
-<span id="received"><dfn>Received on</dfn> Mon Jun 29 2015 - 10:25:23 BST</span>
+<br /><br />____________________________________
+<br />
+<br />Randy C. Horne (rhorne at excaliburlabs.com)
+<br />
+Principal Engineer, Excalibur Laboratories Inc.
+<br />
+voice &amp; fax: (321) 952.5100
+<br />
+url: <a href="http://www.excaliburlabs.com">http://www.excaliburlabs.com</a>
+<br />
+<span id="received"><dfn>Received on</dfn> Fri Jul 11 2014 - 05:54:52 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -268,11 +271,10 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start7167">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./7168.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Specifying latitude and longitude of transects and regions"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./7166.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./7161.html" title="Message to which this message replies">Timothy Patterson: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
+<li><dfn>Next message</dfn>: <a href="./7168.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  AMIP + PCMDI status"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./7166.html" title="Previous message in the list">David Hassell: "[CF-metadata] CF trac ticket summary update"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./7131.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata]  Proposing Standard Names for Lightning Event, Group and Flash Radiant Energy"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./7153.html" title="Next message in this discussion thread">Jim Biard: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -283,7 +285,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:57 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./7166.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7168.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

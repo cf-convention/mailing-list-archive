@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]  Cell methods when there are no coordinates from Jonathan Gregory on 2013-11-09 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata]  Cell methods when there are no coordinates" />
-<meta name="Date" content="2013-11-09" />
+<title>[CF-metadata] Ancillary Data from Hedley, Mark on 2013-02-18 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Hedley, Mark (mark.hedley)" />
+<meta name="Subject" content="[CF-metadata] Ancillary Data" />
+<meta name="Date" content="2013-02-18" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5840.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5842.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  Cell methods when there are no coordinates</h1>
-<!-- received="Sat Nov  9 14:07:38 2013" -->
-<!-- isoreceived="20131109140738" -->
-<!-- sent="Sat, 9 Nov 2013 21:07:38 +0000" -->
-<!-- isosent="20131109210738" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata]  Cell methods when there are no coordinates" -->
-<!-- id="20131109210738.GA20131_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./5840.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5842.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Ancillary Data</h1>
+<!-- received="Mon Feb 18 03:45:08 2013" -->
+<!-- isoreceived="20130218034508" -->
+<!-- sent="Mon, 18 Feb 2013 10:45:08 -0000" -->
+<!-- isosent="20130218104508" -->
+<!-- name="Hedley, Mark" -->
+<!-- email="mark.hedley" -->
+<!-- subject="[CF-metadata] Ancillary Data" -->
+<!-- id="8AC4893FB411FA4AA8CFECD9C8913B660CB48325_at_EXXMAIL01.desktop.frd.metoffice.com" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="7819C496F4E10E47BCEFBE74551AAC9608E210_at_EXXCMPD1DAG3.cmpd1.metoffice.gov.uk" -->
+<!-- inreplyto="CDC68C5C5B3C401A94398B45379DD12D&#64;awalsh1" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5842.html" accesskey="d" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] Standard name table update&quot;">Next message</a> ]
-[ <a href="./5840.html" title="Jonathan Gregory: &quot;[CF-metadata]  cell_methods for monthly climatologies&quot;">Previous message</a> ]
-[ <a href="./5833.html" title="Hedley, Mark: &quot;[CF-metadata] Cell methods when there are no coordinates&quot;">In reply to</a> ]
+[ <a href="./5842.html" accesskey="d" title="David Hassell: &quot;[CF-metadata] CF trac ticket summary update&quot;">Next message</a> ]
+[ <a href="./5840.html" title="andrew walsh: &quot;[CF-metadata] Ancillary Data&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./5850.html" accesskey="t" title="Steve Hankin: &quot;[CF-metadata] Cell methods when there are no coordinates&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,62 +69,516 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20Cell%20methods%20when%20there%20are%20no%20coordinates">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Hedley, Mark &lt;<a href="mailto:mark.hedley?Subject=Re%3A%20%5BCF-metadata%5D%20Ancillary%20Data">mark.hedley</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Sat, 9 Nov 2013 21:07:38 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 18 Feb 2013 10:45:08 -0000</span><br />
 </address>
 <br />
-Dear Mark
+Hello Andrew
 <br />
-<br />Thanks for the clarifications in your last email. If I have understood this
+<br />thank you for the response, my reading of your cases is that they are all 'a' or 'b' in the terms I stated.
 <br />
-correctly now, there are two needs, which might be distinct.
+<br />There are no ancillary variables which reference a dimension of the netCDF file not referenced by the data variable with the ancillary_variables attribute. 
 <br />
-<br />(1) Indicate that a collapsed (size-one) axis is an ensemble axis, although
+<br />I think these are types of case I am particularly concerned to find examples of, or, preferably, discount explicitly.
 <br />
-it doesn't have a coord var or any aux coord vars. I can see that it might
+<br />much obliged
 <br />
-well not have these vars because there might not be anything useful you could
+mark
 <br />
-put in them. In the absence of these vars, the dimension name in the cell
+<br /><em class="quotelev1">&gt; On 2/13/13 12:15 PM, Hedley, Mark wrote:
+</em><br />
+<em class="quotelev2">&gt;&gt;    a. reference the same file dimensions as the data variable with the 
+</em><br />
+<em class="quotelev2">&gt;&gt; ancillary_variables attribute references
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;    b. reference a subset of the file dimensions referenced by the data 
+</em><br />
+<em class="quotelev2">&gt;&gt; variable with the ancillary_variables attribute
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;    c. reference file dimensions which are not referenced by the data variable 
+</em><br />
+<em class="quotelev2">&gt;&gt; with the ancillary_variables attribute
+</em><br />
+<br />-----Original Message-----
 <br />
-methods isn't informative. We could perhaps solve this by introducing a new
+From: andrew walsh [mailto:awalsh at metoc.gov.au]
 <br />
-standard name such as ensemble_member_id (a string) or ensemble_member_number
+Sent: Fri 2/15/2013 3:20 AM
 <br />
-(a number) or perhaps both. These could anyway be useful. These standard names
+To: Hedley, Mark
 <br />
-could appear in your cell_methods, following section 7.3.4, instead of the name
+Cc: ngalbraith at whoi.edu; cf-metadata at cgd.ucar.edu
 <br />
-of the size-one dimension, indicating that the statistic applied to all the
+Subject: Re: [CF-metadata] Ancillary Data
 <br />
-available members of an ensemble, without needing any coord information. I
+&nbsp;
 <br />
-don't think this change would require an alteration to the convention.
+Hi Mark,
 <br />
-<br />(2) Point to the coordinate information which applied to the axis before the
+<br />We are using the ancilliary_variables attribute in a real world case for CTD 
 <br />
-collapse. This could be useful for any sort of collapsed axis, and in fact I
+profile data
 <br />
-think we have discussed it before at some point in the last 15 years! I agree
+(1 netCDF per CTD profile). Not sure if our use case fits with with your
 <br />
-with your suggestion that it would be logical to record this in cell_methods
+examples a,b,c but here is a abbreviated CDL version:-
 <br />
-as a standardised comment. An alternative would be to add an attribute to the
+<br />&nbsp;dimensions:
 <br />
-collapsed coord var, but you don't have those (as you say), and also the
+<br />&nbsp;pressure = UNLIMITED ; // (9 currently)
 <br />
-collapse may apply to a combination of axes. You suggest listing all the coord
+<br />variables:
 <br />
-or aux coord vars in the cell_methods comment. Would it not be sufficient, and
+&nbsp;double time ;
 <br />
-more economical, to give the name of the uncollapsed dimension(s)?
+&nbsp;&nbsp;time:standard_name = &quot;time&quot; ;
 <br />
-<br />Best wishes
+&nbsp;....
 <br />
-<br />Jonathan
+&nbsp;byte time_qc_flag;
 <br />
-<span id="received"><dfn>Received on</dfn> Sat Nov 09 2013 - 14:07:38 GMT</span>
+&nbsp;&nbsp;time_qc_flag:long_name = &quot;quality control flag for time (Level 1 flag)&quot; ;
+<br />
+&nbsp;....
+<br />
+<br />&nbsp;double latitude ;
+<br />
+&nbsp;&nbsp;latitude:standard_name = &quot;latitude&quot; ;
+<br />
+...
+<br />
+<br />&nbsp;double longitude ;
+<br />
+&nbsp;&nbsp;longitude:standard_name = &quot;longitude&quot; ;
+<br />
+&nbsp;...
+<br />
+<br />&nbsp;byte position_qc_flag;
+<br />
+&nbsp;&nbsp;position_qc_flag:long_name = &quot;quality control flag for position (Level 1 
+<br />
+flag)&quot; ;
+<br />
+&nbsp;....
+<br />
+<br />&nbsp;double pressure(pressure) ;
+<br />
+&nbsp;&nbsp;pressure:standard_name = &quot;sea_water_pressure&quot; ;
+<br />
+...
+<br />
+<br />&nbsp;double temperature(pressure) ;
+<br />
+&nbsp;&nbsp;temperature:_FillValue = -99.99 ;
+<br />
+&nbsp;&nbsp;temperature:standard_name = &quot;sea_water_temperature&quot; ;
+<br />
+&nbsp;&nbsp;temperature:units = &quot;degrees_C&quot; ;
+<br />
+&nbsp;&nbsp;temperature:valid_min = -2 ;
+<br />
+&nbsp;&nbsp;temperature:valid_max = 40 ;
+<br />
+&nbsp;&nbsp;temperature:ancillary_variables = &quot;temperature_whole_profile_flag 
+<br />
+temperature_qc_flag temperature_sd_test&quot;  ;
+<br />
+&nbsp;&nbsp;temperature:coordinates = &quot;time latitude longitude pressure&quot; ;
+<br />
+<br />&nbsp;byte temperature_whole_profile_flag ;
+<br />
+&nbsp;&nbsp;temperature_whole_profile_flag:long_name = &quot;qc flag for whole temperature 
+<br />
+profile (primary L1 flag)&quot; ;
+<br />
+&nbsp;&nbsp;temperature_whole_profile_flag:quality_control_convention = &quot;Proposed IODE qc 
+<br />
+scheme March 2012&quot; ;
+<br />
+&nbsp;&nbsp;temperature_whole_profile_flag:valid_min = 1 ;
+<br />
+&nbsp;&nbsp;temperature_whole_profile_flag:valid_max = 9 ;
+<br />
+&nbsp;&nbsp;temperature_whole_profile_flag:flag_values = 1b, 2b, 3b, 4b, 9b ;
+<br />
+&nbsp;&nbsp;temperature_whole_profile_flag:flag_meanings = &quot;good not_evaluated_or_unknown 
+<br />
+suspect bad missing&quot; ;
+<br />
+<br />&nbsp;byte temperature_qc_flag(pressure) ;
+<br />
+&nbsp;&nbsp;temperature_qc_flag:long_name = &quot;quality control flag for temperature (primary 
+<br />
+Level 1 flag)&quot; ;
+<br />
+&nbsp;&nbsp;temperature_qc_flag:standard_name = &quot;sea_water_temperature status_flag&quot; ;
+<br />
+&nbsp;&nbsp;temperature_qc_flag:quality_control_convention = &quot;Proposed IODE qc scheme 
+<br />
+March 2012&quot; ;
+<br />
+&nbsp;&nbsp;temperature_qc_flag:valid_min = 1 ;
+<br />
+&nbsp;&nbsp;temperature_qc_flag:valid_max = 9 ;
+<br />
+&nbsp;&nbsp;temperature_qc_flag:flag_values = 1b, 2b, 3b, 4b, 9b ;
+<br />
+&nbsp;&nbsp;temperature_qc_flag:flag_meanings = &quot;good not_evaluated_or_unknown suspect bad 
+<br />
+missing&quot; ;
+<br />
+&nbsp;&nbsp;temperature_qc_flag:coordinates = &quot;time latitude longitude pressure&quot; ;
+<br />
+<br />&nbsp;byte temperature_sd_test(pressure) ;
+<br />
+&nbsp;&nbsp;temperature_sd_test:long_name = &quot;qc flag for monthly temperature standard 
+<br />
+deviation test (secondary L2 flag)&quot;
+<br />
+&nbsp;&nbsp;temperature_sd_test:quality_control_convention = &quot;Proposed IODE qc scheme 
+<br />
+March 2012&quot; ;
+<br />
+&nbsp;&nbsp;temperature_sd_test:valid_min = 0 ;
+<br />
+&nbsp;&nbsp;temperature_sd_test:valid_max = 2 ;
+<br />
+&nbsp;&nbsp;temperature_sd_test:flag_values = 0b, 1b, 2b ;
+<br />
+&nbsp;&nbsp;temperature_sd_test:flag_meanings = &quot;passed failed unknown&quot; ;
+<br />
+&nbsp;&nbsp;temperature_sd_test:coordinates = &quot;time latitude longitude pressure&quot; ;
+<br />
+<br />&nbsp;double salinity(pressure) ;
+<br />
+&nbsp;&nbsp;salinity:_FillValue = -99.99 ;
+<br />
+&nbsp;&nbsp;salinity:standard_name = &quot;sea_water_practical_salinity&quot; ;
+<br />
+&nbsp;&nbsp;salinity:units = &quot;psu&quot; ;
+<br />
+&nbsp;&nbsp;salinity:valid_min = 0 ;
+<br />
+&nbsp;&nbsp;salinity:valid_max = 45 ;
+<br />
+&nbsp;&nbsp;salinity:ancillary_variables = &quot;salinity_whole_profile_flag salinity_qc_flag 
+<br />
+salinity_sd_test&quot;
+<br />
+&nbsp;&nbsp;salinity:coordinates = &quot;time latitude longitude pressure&quot; ;
+<br />
+<br />&nbsp;byte salinity_whole_profile_flag ;
+<br />
+&nbsp;&nbsp;salinity_whole_profile_flag:long_name = &quot;qc flag for whole salinity profile 
+<br />
+(primary L1 flag)&quot; ;
+<br />
+&nbsp;&nbsp;salinity_whole_profile_flag:quality_control_convention = &quot;Proposed IODE qc 
+<br />
+scheme March 2012&quot; ;
+<br />
+&nbsp;&nbsp;salinity_whole_profile_flag:valid_min = 1 ;
+<br />
+&nbsp;&nbsp;salinity_whole_profile_flag:valid_max = 9 ;
+<br />
+&nbsp;&nbsp;salinity_whole_profile_flag:flag_values = 1b, 2b, 3b, 4b, 9b ;
+<br />
+&nbsp;&nbsp;salinity_whole_profile_flag:flag_meanings = &quot;good not_evaluated_or_unknown 
+<br />
+suspect bad missing&quot; ;
+<br />
+<br />&nbsp;byte salinity_qc_flag(pressure) ;
+<br />
+&nbsp;&nbsp;salinity_qc_flag:long_name = &quot;quality control flag for salinity (primary Level 
+<br />
+1 flag)&quot; ;
+<br />
+&nbsp;&nbsp;salinity_qc_flag:standard_name = &quot;sea_water_practical_salinity status_flag&quot; ;
+<br />
+&nbsp;&nbsp;salinity_qc_flag:quality_control_convention = &quot;Proposed IODE qc scheme March 
+<br />
+2012&quot; ;
+<br />
+&nbsp;&nbsp;salinity_qc_flag:valid_min = 1 ;
+<br />
+&nbsp;&nbsp;salinity_qc_flag:valid_max = 9 ;
+<br />
+&nbsp;&nbsp;salinity_qc_flag:flag_values = 1b, 2b, 3b, 4b, 9b ;
+<br />
+&nbsp;&nbsp;salinity_qc_flag:flag_meanings = &quot;good not_evaluated_or_unknown suspect bad 
+<br />
+missing&quot; ;
+<br />
+&nbsp;&nbsp;salinity_qc_flag:coordinates = &quot;time latitude longitude pressure&quot; ;
+<br />
+<br />&nbsp;byte salinity_sd_test(pressure) ;
+<br />
+&nbsp;&nbsp;salinity_sd_test:long_name = &quot;qc flag for monthly salinity standard deviation 
+<br />
+test (secondary L2 flag)&quot;
+<br />
+&nbsp;&nbsp;salinity_sd_test:quality_control_convention = &quot;Proposed IODE qc scheme March 
+<br />
+2012&quot; ;
+<br />
+&nbsp;&nbsp;salinity_sd_test:valid_min = 0 ;
+<br />
+&nbsp;&nbsp;salinity_sd_test:valid_max = 2 ;
+<br />
+&nbsp;&nbsp;salinity_sd_test:flag_values = 0b, 1b, 2b ;
+<br />
+&nbsp;&nbsp;salinity_sd_test:flag_meanings = &quot;passed failed unknown&quot; ;
+<br />
+&nbsp;&nbsp;salinity_sd_test:coordinates = &quot;time latitude longitude pressure&quot; ;
+<br />
+<br />&nbsp;int profile ; //Unique integer to identify each profile
+<br />
+&nbsp;&nbsp;profile:long_name = &quot;profile identifier&quot;
+<br />
+....
+<br />
+<br />Andrew Walsh
+<br />
+<br />----- Original Message ----- 
+<br />
+From: &quot;Hedley, Mark&quot; &lt;mark.hedley at metoffice.gov.uk&gt;
+<br />
+To: &lt;ngalbraith at whoi.edu&gt;; &lt;cf-metadata at cgd.ucar.edu&gt;
+<br />
+Sent: Thursday, February 14, 2013 10:40 PM
+<br />
+Subject: Re: [CF-metadata] Ancillary Data
+<br />
+<br /><br /><em class="quotelev1">&gt; Hi Nan
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I think I understand you approach, it seems logical and helpful to me.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; It feels like all your examples are in my category b:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; b. reference a subset of the file dimensions referenced by the data variable 
+</em><br />
+<em class="quotelev2">&gt;&gt; with the ancillary_variables attribute
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; and thus relate to the data variable in the same way auxiliary_coordinates do, 
+</em><br />
+<em class="quotelev1">&gt; just with different inferred semantics.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; many thanks for the feedback
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; mark
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; -----Original Message-----
+</em><br />
+<em class="quotelev1">&gt; From: CF-metadata on behalf of Nan Galbraith
+</em><br />
+<em class="quotelev1">&gt; Sent: Wed 13/02/2013 19:55
+</em><br />
+<em class="quotelev1">&gt; To: cf-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; Subject: Re: [CF-metadata] Ancillary Data
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I use a singleton variable to record the magnetic correction that's been
+</em><br />
+<em class="quotelev1">&gt; applied to my wind and/or current variables; it's dim(1) and is listed  as
+</em><br />
+<em class="quotelev1">&gt; an ancillary to any variables that have been affected by the rotation.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; It could be an attribute of each of those variables, but making it a
+</em><br />
+<em class="quotelev1">&gt; free-standing
+</em><br />
+<em class="quotelev1">&gt; variable lets me give it units and attributes. That's important because I
+</em><br />
+<em class="quotelev1">&gt; record the model name and version date, the URL of the NGDC calculator
+</em><br />
+<em class="quotelev1">&gt; site,
+</em><br />
+<em class="quotelev1">&gt; the inputs to the model (date and location for which the calculation was
+</em><br />
+<em class="quotelev1">&gt; done)
+</em><br />
+<em class="quotelev1">&gt; and the estimated rate of change.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Maybe this is just a technicality - but I also use an empty 'container'
+</em><br />
+<em class="quotelev1">&gt; variable for
+</em><br />
+<em class="quotelev1">&gt; instruments, which has ancillary variables with a depth dimension for
+</em><br />
+<em class="quotelev1">&gt; manufacturer,
+</em><br />
+<em class="quotelev1">&gt; model, serial number, and reference URL.  The instrument variable is
+</em><br />
+<em class="quotelev1">&gt; tied to 'obs data'
+</em><br />
+<em class="quotelev1">&gt; variables via NODC's 'instrument' attribute, but has no dimensions of
+</em><br />
+<em class="quotelev1">&gt; its own; the
+</em><br />
+<em class="quotelev1">&gt; individual component variables (like serial number) have a dimension
+</em><br />
+<em class="quotelev1">&gt; that matches
+</em><br />
+<em class="quotelev1">&gt; the depth dimension of the obs data variables.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; - Nan
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; On 2/13/13 12:15 PM, Hedley, Mark wrote:
+</em><br />
+<em class="quotelev2">&gt;&gt; Hello CF community
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; I have been perusing the CF conventions again, particularly the section on 
+</em><br />
+<em class="quotelev2">&gt;&gt; Ancillary Data
+</em><br />
+<em class="quotelev2">&gt;&gt; <a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.6/ch03s04.html">http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.6/ch03s04.html</a>
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; The conventions make the statement:
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;    The nature of the relationship between variables associated via 
+</em><br />
+<em class="quotelev2">&gt;&gt; ancillary_variables must be determined by other attributes.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; The example given provides data variables which reference the same dimensions 
+</em><br />
+<em class="quotelev2">&gt;&gt; in the file: thus they data arrays are the same size.  However, the 
+</em><br />
+<em class="quotelev2">&gt;&gt; conventions do not seem to mandate this.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; I am interested in the use of the
+</em><br />
+<em class="quotelev2">&gt;&gt;    ancillary_variables
+</em><br />
+<em class="quotelev2">&gt;&gt; attribute in real world datasets.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Do people have examples they can share of ancillary datasets which:
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;    a. reference the same file dimensions as the data variable with the 
+</em><br />
+<em class="quotelev2">&gt;&gt; ancillary_variables attribute references
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;    b. reference a subset of the file dimensions referenced by the data 
+</em><br />
+<em class="quotelev2">&gt;&gt; variable with the ancillary_variables attribute
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;    c. reference file dimensions which are not referenced by the data variable 
+</em><br />
+<em class="quotelev2">&gt;&gt; with the ancillary_variables attribute
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; I am particularly interested in examples of case c, as I feel this is 
+</em><br />
+<em class="quotelev2">&gt;&gt; markedly different from cases a and b and requires a different kind of 
+</em><br />
+<em class="quotelev2">&gt;&gt; support if it is in use.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; many thanks
+</em><br />
+<em class="quotelev2">&gt;&gt; mark
+</em><br />
+<em class="quotelev2">&gt;&gt; _______________________________________________
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; -- 
+</em><br />
+<em class="quotelev1">&gt; *******************************************************
+</em><br />
+<em class="quotelev1">&gt; * Nan Galbraith        Information Systems Specialist *
+</em><br />
+<em class="quotelev1">&gt; * Upper Ocean Processes Group            Mail Stop 29 *
+</em><br />
+<em class="quotelev1">&gt; * Woods Hole Oceanographic Institution                *
+</em><br />
+<em class="quotelev1">&gt; * Woods Hole, MA 02543                 (508) 289-2444 *
+</em><br />
+<em class="quotelev1">&gt; *******************************************************
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<span id="received"><dfn>Received on</dfn> Mon Feb 18 2013 - 03:45:08 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -135,13 +586,9 @@ more economical, to give the name of the uncollapsed dimension(s)?
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5841">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5842.html" title="Next message in the list">alison.pamment at stfc.ac.uk: "[CF-metadata] Standard name table update"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5840.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]  cell_methods for monthly climatologies"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./5833.html" title="Message to which this message replies">Hedley, Mark: "[CF-metadata] Cell methods when there are no coordinates"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5842.html" title="Next message in the list">David Hassell: "[CF-metadata] CF trac ticket summary update"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5840.html" title="Previous message in the list">andrew walsh: "[CF-metadata] Ancillary Data"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./5850.html" title="Next message in this discussion thread">Steve Hankin: "[CF-metadata] Cell methods when there are no coordinates"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./5850.html" title="Message sent in reply to this message">Steve Hankin: "[CF-metadata] Cell methods when there are no coordinates"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -152,7 +599,7 @@ more economical, to give the name of the uncollapsed dimension(s)?
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:32 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5840.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5842.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

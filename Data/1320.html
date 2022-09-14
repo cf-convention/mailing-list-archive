@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] what standard names are for from Steve Hankin on 2008-04-10 (mailing-list-archive)</title>
-<meta name="Author" content="Steve Hankin (Steven.C.Hankin)" />
-<meta name="Subject" content="[CF-metadata] what standard names are for" />
-<meta name="Date" content="2008-04-10" />
+<title>[CF-metadata] Need help writing point netCDF 3 dataset from Ethan Davis on 2006-11-28 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Ethan Davis (edavis)" />
+<meta name="Subject" content="[CF-metadata] Need help writing point netCDF 3 dataset" />
+<meta name="Date" content="2006-11-28" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1319.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1321.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] what standard names are for</h1>
-<!-- received="Thu Apr 10 13:02:53 2008" -->
-<!-- isoreceived="20080410120253" -->
-<!-- sent="Thu, 10 Apr 2008 12:02:53 -0700" -->
-<!-- isosent="20080410190253" -->
-<!-- name="Steve Hankin" -->
-<!-- email="Steven.C.Hankin" -->
-<!-- subject="[CF-metadata] what standard names are for" -->
-<!-- id="47FE645D.8010700_at_noaa.gov" -->
+<a style="text-decoration:none" href="./1319.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1321.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Need help writing point netCDF 3 dataset</h1>
+<!-- received="Tue Nov 28 16:34:29 2006" -->
+<!-- isoreceived="20061128163429" -->
+<!-- sent="Tue, 28 Nov 2006 16:34:29 -0700" -->
+<!-- isosent="20061128233429" -->
+<!-- name="Ethan Davis" -->
+<!-- email="edavis" -->
+<!-- subject="[CF-metadata] Need help writing point netCDF 3 dataset" -->
+<!-- id="456CC785.8000709_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="p06240844c423c982c3e8_at_[134.89.11.100]" -->
+<!-- inreplyto="456C6C46.2000609_at_noaa.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1321.html" accesskey="d" title="John Graybeal: &quot;[CF-metadata] what standard names are for&quot;">Next message</a> ]
-[ <a href="./1319.html" title="Godin, Michael: &quot;[CF-metadata] Adding new standard names for satellite altimetry&quot;">Previous message</a> ]
-[ <a href="./1314.html" title="John Graybeal: &quot;[CF-metadata] what standard names are for&quot;">In reply to</a> ]
+[ <a href="./1321.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] curvilinear cartesian coordinates case&quot;">Next message</a> ]
+[ <a href="./1319.html" title="Brian Eaton: &quot;[CF-metadata] curvilinear cartesian coordinates case&quot;">Previous message</a> ]
+[ <a href="./1318.html" title="Mark Ohrenschall: &quot;[CF-metadata] Need help writing point netCDF 3 dataset&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./1321.html" accesskey="t" title="John Graybeal: &quot;[CF-metadata] what standard names are for&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,223 +70,165 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Steve Hankin &lt;<a href="mailto:Steven.C.Hankin?Subject=Re%3A%20%5BCF-metadata%5D%20what%20standard%20names%20are%20for">Steven.C.Hankin</a>&gt;
+<dfn>From</dfn>: Ethan Davis &lt;<a href="mailto:edavis?Subject=Re%3A%20%5BCF-metadata%5D%20Need%20help%20writing%20point%20netCDF%203%20dataset">edavis</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 10 Apr 2008 12:02:53 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 28 Nov 2006 16:34:29 -0700</span><br />
 </address>
 <br />
-All,
+Hi Mark,
 <br />
-<br />This thread and the other couple that are going in parallel are getting 
+<br />It looks OK to me and I can get it to open in both ToolsUI and IDV 
 <br />
-us to examine important fundamentals of CF &quot;philosophy&quot;.  In the spirit 
+2.1RC2 (but not 2.0).
 <br />
-of reaching a shared understanding of those fundamentals (effectively 
+<br />One problem is that the PointObs tab in ToolsUI isn't very highly 
 <br />
-&quot;voting&quot;), I'm tossing my own viewpoint (a probably idiosyncratic and 
+developed. ToolsUI is more a debugging tool than anything else and for 
 <br />
-definitely simplified hat) into the ring here:
+PointObs it isn't particularly great for that. First off, you have to 
 <br />
-<br />&nbsp;&nbsp;&nbsp;==&gt;Note: We clearly need to develop use cases that clarify _when and 
+hit the far-right icon (&quot;arrow pointing down at box&quot;) which is the &quot;get 
 <br />
-for what specific purposes standard_names are being used_ (Balaji's 
+ALL data&quot; request. Then it will show the points on the map and list them 
 <br />
-point).  The following points presume that valid use cases do exist.
+to the right. However, it displays all the lat, lon, alt, time stuff but 
 <br />
-<br />&nbsp;&nbsp;&nbsp;1. The CF standard name list should be self-contained,
+not the observation data. We'll try to make it more useful in our next 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;internally-consistent and as complete as we deem its needs to be
+pass over the PointObs tab.
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for our _identified_ user base.
+<br />What version of the IDV are you using? The data failed to read into IDV 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* It should not attempt to be so extensible that it can
+2.0 but it read fine into IDV 2.1RC2. When I pointed the IDV Data 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;address all possible user communities.  (Jonathan's point)
+Chooser at the file, I also selected &quot;netCDF Point Data files&quot; from the 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Individual standard names should not attempt to be so
+&quot;Data Source Type&quot; pull down list. It popped me over to the &quot;Field 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;complete that they serve as definitions. (Bryan's point)
+Selector&quot; tab and it gave me two &quot;Point Data&quot; options: Plot and List. I 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* (We hope that controlled vocabularies created by other
+don't know how to drive the IDV Point Data interfaces but I could see 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;communities will try to achieve similar goals.)
+the data when I went with the &quot;Point Data List&quot; option.
 <br />
-&nbsp;&nbsp;&nbsp;2. Vocabulary translation services should provide the means for
+<br />Hope this helps. Sorry it isn't a bit more straight forward. Let me know 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;translation between lists generated by different communities. 
+if you have more questions
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Roy's point)
+<br />Ethan
 <br />
-&nbsp;&nbsp;&nbsp;3. CF should define optional attributes that allow a CF file to point
+<br /><br />Mark Ohrenschall wrote:
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to &quot;external&quot; vocabularies, but _there should be no aspect of
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strict CF compliance that requires reference_ to these external
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resources. (Benno's point -- see
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://cf-pcmdi.llnl.gov/trac/ticket/27">http://cf-pcmdi.llnl.gov/trac/ticket/27</a>)
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Specialized communities can use these means to &quot;personalize&quot;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;their CF files, while retaining CF compliance.
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;- Steve
-<br />
-<br />P.S.  The implication of this approach is that if no CF standard_name 
-<br />
-for a given parameter exists at the time that files must be created, 
-<br />
-then no standard_name attribute should be included for that parameter.   
-<br />
-However,  bullet #3 allows the file to include a non-CF, 
-<br />
-community-specific standardized parameter name and a link to its 
-<br />
-vocabulary.  Vocabulary translation services can hope to provide the 
-<br />
-link back to a CF standard_name if one is created at a later time.
-<br />
-<br />=================================
-<br />
-<br />John Graybeal wrote:
-<br />
-<em class="quotelev1">&gt; Martin,
+<em class="quotelev1">&gt; Thanks Ethan, I appreciate it. Here's the current CDL and the attached 
+</em><br />
+<em class="quotelev1">&gt; test file (I wasn't toggling the flower pot icon, just what I was 
+</em><br />
+<em class="quotelev1">&gt; writing to the header):
+</em><br />
+<em class="quotelev1">&gt; netcdf D:/test.nc {
+</em><br />
+<em class="quotelev1">&gt;  dimensions:
+</em><br />
+<em class="quotelev1">&gt;    recNum = UNLIMITED;   // (99 currently)
+</em><br />
+<em class="quotelev1">&gt;  variables:
+</em><br />
+<em class="quotelev1">&gt;    short sst(recNum=99);
+</em><br />
+<em class="quotelev1">&gt;      :standard_name = &quot;sea_surface_temperature aerosol-corrected&quot;;
+</em><br />
+<em class="quotelev1">&gt;      :long_name = &quot;Aerosol Corrected SST&quot;;
+</em><br />
+<em class="quotelev1">&gt;      :units = &quot;degC&quot;;
+</em><br />
+<em class="quotelev1">&gt;      :add_offset = 0.0f; // float
+</em><br />
+<em class="quotelev1">&gt;      :scale_factor = 0.1f; // float
+</em><br />
+<em class="quotelev1">&gt;      :valid_range = -20s, 350s; // short
+</em><br />
+<em class="quotelev1">&gt;      :coordinates = &quot;latitude longitude obstime&quot;;
+</em><br />
+<em class="quotelev1">&gt;    short latitude(recNum=99);
+</em><br />
+<em class="quotelev1">&gt;      :standard_name = &quot;latitude&quot;;
+</em><br />
+<em class="quotelev1">&gt;      :long_name = &quot;Latitude&quot;;
+</em><br />
+<em class="quotelev1">&gt;      :units = &quot;degrees_north&quot;;
+</em><br />
+<em class="quotelev1">&gt;      :add_offset = 0.0f; // float
+</em><br />
+<em class="quotelev1">&gt;      :scale_factor = 0.01f; // float
+</em><br />
+<em class="quotelev1">&gt;      :valid_range = -9000s, 9000s; // short
+</em><br />
+<em class="quotelev1">&gt;      :_CoordinateAxisType = &quot;Lat&quot;;
+</em><br />
+<em class="quotelev1">&gt;    int obstime(recNum=99);
+</em><br />
+<em class="quotelev1">&gt;      :standard_name = &quot;time&quot;;
+</em><br />
+<em class="quotelev1">&gt;      :long_name = &quot;Date and Time of Observation&quot;;
+</em><br />
+<em class="quotelev1">&gt;      :units = &quot;seconds since 1970-01-01 00:00:00 GMT&quot;;
+</em><br />
+<em class="quotelev1">&gt;      :_CoordinateAxisType = &quot;Time&quot;;
+</em><br />
+<em class="quotelev1">&gt;    short longitude(recNum=99);
+</em><br />
+<em class="quotelev1">&gt;      :standard_name = &quot;longitude&quot;;
+</em><br />
+<em class="quotelev1">&gt;      :long_name = &quot;Longitude&quot;;
+</em><br />
+<em class="quotelev1">&gt;      :units = &quot;degrees_east&quot;;
+</em><br />
+<em class="quotelev1">&gt;      :add_offset = 0.0f; // float
+</em><br />
+<em class="quotelev1">&gt;      :scale_factor = 0.01f; // float
+</em><br />
+<em class="quotelev1">&gt;      :valid_range = -18000s, 17999s; // short
+</em><br />
+<em class="quotelev1">&gt;      :_CoordinateAxisType = &quot;Lon&quot;;
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Roy's approach is of course practical and I should have thought to suggest it myself.
+<em class="quotelev1">&gt;  :Conventions = &quot;Unidata Observation Dataset v1.0&quot;;
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt;  :title = &quot;Sea Surface Temperatures calculated at points based on satellite observations.&quot;;
 </em><br />
-<em class="quotelev1">&gt; I may have misstated things in my earlier communication with you. I should have said 'if a term changes on either side, you'd have to relink that term; or if you have pointed to a particular version and wanted to be more current, you would have to repoint to the new version.'  While currently our OWL copies of the CF vocabulary are set up with respect to specific versions, it is also entirely possible to create a persisting relationship to a given term, if that needs to be supported.  (It's like a link to the nytimes.com site -- whenever you visit the page, you get _today's_ copy of the paper, not the copy from the day the link was made.)  You are obviously correct that this is most useful to many users.
+<em class="quotelev1">&gt;  :cdm_datatype = &quot;Point&quot;;
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt;  :observationDimension = &quot;recNum&quot;;
 </em><br />
-<em class="quotelev1">&gt; Roy, could you clarify whether your vocabulary mapping service links to specific versions of a vocabulary, to a 'generic' vocabulary, or is it the user's choice?
+<em class="quotelev1">&gt;  :geospatial_lat_max = 90; // int
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt;  :geospatial_lat_min = -90; // int
 </em><br />
-<em class="quotelev1">&gt; As a general observation, I agree with Jonathan's architectural summary. It is possible to provide good and widely used mapping facilities from a central mapping service. It is much less likely that every community vocabulary provider (and there are many) can provide a wide variety of services that are needed by the vocabulary users.
+<em class="quotelev1">&gt;  :geospatial_lon_max = 180; // int
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt;  :geospatial_lon_min = -180; // int
 </em><br />
-<em class="quotelev1">&gt; John
+<em class="quotelev1">&gt;  :time_coverage_start = &quot;2000-01-01 00:00:00 UTC&quot;;
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt;  :time_coverage_end = &quot;2007-01-01 00:00:00 UTC&quot;;
 </em><br />
-<em class="quotelev1">&gt; At 8:37 AM +0100 4/10/08, Jonathan Gregory wrote:
+<em class="quotelev1">&gt; }
 </em><br />
 <em class="quotelev1">&gt;   
 </em><br />
-<em class="quotelev2">&gt;&gt; Dear Martin
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; I believe there used to be an xsd file for the standard_name xml file. Perhaps
-</em><br />
-<em class="quotelev2">&gt;&gt; Velimir (copied) knows where it is?
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; I sympathise with the need for equivalences to CF metadata and that is of
-</em><br />
-<em class="quotelev2">&gt;&gt; course why the PCMDI and GRIB equivalences were set up in the first place.
-</em><br />
-<em class="quotelev2">&gt;&gt; However, I would say there are two reasons why putting equivalences in the
-</em><br />
-<em class="quotelev2">&gt;&gt; standard_name xml file is not the best approach:
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; * There is probably not a one-to-one correspondence between your variables
-</em><br />
-<em class="quotelev2">&gt;&gt; and standard names. I expect some of your variables might imply other CF
-</em><br />
-<em class="quotelev2">&gt;&gt; metadata as well, as is the case with some of the PCMDI and GRIB codes. This
-</em><br />
-<em class="quotelev2">&gt;&gt; is not recorded in the standard_name xml file, but it is noted in the separate
-</em><br />
-<em class="quotelev2">&gt;&gt; tables for GRIB codes and PCMDI names at
-</em><br />
-<em class="quotelev2">&gt;&gt; <a href="http://cf-pcmdi.llnl.gov/documents/cf-standard-names/">http://cf-pcmdi.llnl.gov/documents/cf-standard-names/</a>
-</em><br />
-<em class="quotelev2">&gt;&gt; e.g. tas means not just air_temperature, but implies a vertical coordinate.
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; * The equivalence between your variables and CF metadata is not really part
-</em><br />
-<em class="quotelev2">&gt;&gt; of the CF convention, although it facilitates the use of CF, and it seems a
-</em><br />
-<em class="quotelev2">&gt;&gt; arbitrary to include equivalences to a selection of other conventions.
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; As I mentioned, for these reasons I think we should remove the AMIP and PCMDI
-</em><br />
-<em class="quotelev2">&gt;&gt; equivalences from the table. In any case, they are not being maintained and
-</em><br />
-<em class="quotelev2">&gt;&gt; are out of date, and probably wrong for some GRIB codes.
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; I feel that a better approach is to have a separate xml/html table for the
-</em><br />
-<em class="quotelev2">&gt;&gt; equivalence between CF metadata (not just standard names, but standard name
-</em><br />
-<em class="quotelev2">&gt;&gt; + other metadata, more like common concepts) and other metadata, one for each
-</em><br />
-<em class="quotelev2">&gt;&gt; standard (GRIB, AMIP, HTAP, aerocom, etc.). These tables could be linked to
-</em><br />
-<em class="quotelev2">&gt;&gt; the CF site and would not be upset by updates to the standard name table,
-</em><br />
-<em class="quotelev2">&gt;&gt; because we never *delete* standard names, so the equivalences would always
-</em><br />
-<em class="quotelev2">&gt;&gt; remain valid.  Do you think that would work?
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; I am sure that others have good ideas about this, having thought about mappings
-</em><br />
-<em class="quotelev2">&gt;&gt; and ontologies and how they should be maintained.
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Best wishes
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Jonathan
-</em><br />
-<em class="quotelev2">&gt;&gt; _______________________________________________
-</em><br />
-<em class="quotelev2">&gt;&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev2">&gt;&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev2">&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;   
+<em class="quotelev1">&gt; Cheers *--* Mark
 </em><br />
 <br /><pre>
 -- 
-Steve Hankin, NOAA/PMEL -- Steven.C.Hankin at noaa.gov
-7600 Sand Point Way NE, Seattle, WA 98115-0070
-ph. (206) 526-6080, FAX (206) 526-6744
-&quot;The only thing necessary for the triumph of evil is for good men
-to do nothing.&quot; -- Edmund Burke
--------------- next part --------------
-An HTML attachment was scrubbed...
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20080410/76ccf9c0/attachment-0002.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20080410/76ccf9c0/attachment-0002.html</a>&gt;
+Ethan R. Davis                                Telephone: (303) 497-8155
+Software Engineer                             Fax:       (303) 497-8690
+UCAR Unidata Program Center                   E-mail:    edavis at ucar.edu
+P.O. Box 3000
+Boulder, CO  80307-3000                       <a href="http://www.unidata.ucar.edu/">http://www.unidata.ucar.edu/</a>
+---------------------------------------------------------------------------
 </pre>
-<span id="received"><dfn>Received on</dfn> Thu Apr 10 2008 - 13:02:53 BST</span>
+<span id="received"><dfn>Received on</dfn> Tue Nov 28 2006 - 16:34:29 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -296,13 +236,10 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1320">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1321.html" title="Next message in the list">John Graybeal: "[CF-metadata] what standard names are for"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1319.html" title="Previous message in the list">Godin, Michael: "[CF-metadata] Adding new standard names for satellite altimetry"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./1314.html" title="Message to which this message replies">John Graybeal: "[CF-metadata] what standard names are for"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1321.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] curvilinear cartesian coordinates case"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1319.html" title="Previous message in the list">Brian Eaton: "[CF-metadata] curvilinear cartesian coordinates case"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./1318.html" title="Message to which this message replies">Mark Ohrenschall: "[CF-metadata] Need help writing point netCDF 3 dataset"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./1321.html" title="Next message in this discussion thread">John Graybeal: "[CF-metadata] what standard names are for"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./1321.html" title="Message sent in reply to this message">John Graybeal: "[CF-metadata] what standard names are for"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -313,7 +250,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:04 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1319.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1321.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]  CF Conventions and netCDF-4 enhanced model from Jonathan Gregory on 2014-09-11 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata]  CF Conventions and netCDF-4 enhanced model" />
-<meta name="Date" content="2014-09-11" />
+<title>[CF-metadata] thredds changing CF conventions version from Gaffney, Sean P. on 2013-08-28 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Gaffney, Sean P. (sgaf)" />
+<meta name="Subject" content="[CF-metadata] thredds changing CF conventions version" />
+<meta name="Date" content="2013-08-28" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./6472.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6474.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  CF Conventions and netCDF-4 enhanced model</h1>
-<!-- received="Thu Sep 11 10:34:24 2014" -->
-<!-- isoreceived="20140911093424" -->
-<!-- sent="Thu, 11 Sep 2014 17:34:24 +0100" -->
-<!-- isosent="20140911163424" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata]  CF Conventions and netCDF-4 enhanced model" -->
-<!-- id="20140911163424.GB7794_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./6472.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6474.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] thredds changing CF conventions version</h1>
+<!-- received="Wed Aug 28 03:28:42 2013" -->
+<!-- isoreceived="20130828022842" -->
+<!-- sent="Wed, 28 Aug 2013 10:28:42 +0100" -->
+<!-- isosent="20130828092842" -->
+<!-- name="Gaffney, Sean P." -->
+<!-- email="sgaf" -->
+<!-- subject="[CF-metadata] thredds changing CF conventions version" -->
+<!-- id="40829B0E077C1145A6DE44D39B3830A922EFC8DE90_at_nerckwmb1.ad.nerc.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./6474.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] New standard name: number_of_days_with_surface_temperature_below_threshold&quot;">Next message</a> ]
-[ <a href="./6472.html" title="Jonathan Gregory: &quot;[CF-metadata] downward_air_velocity&quot;">Previous message</a> ]
+[ <a href="./6474.html" accesskey="d" title="John Caron: &quot;[CF-metadata] thredds changing CF conventions version&quot;">Next message</a> ]
+[ <a href="./6472.html" title="Dave Allured - NOAA Affiliate: &quot;[CF-metadata] Units for dimensionless quantities&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./6474.html" accesskey="t" title="John Caron: &quot;[CF-metadata] thredds changing CF conventions version&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,58 +70,34 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20CF%20Conventions%20and%20netCDF-4%20enhanced%20model">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Gaffney, Sean P. &lt;<a href="mailto:sgaf?Subject=Re%3A%20%5BCF-metadata%5D%20thredds%20changing%20CF%20conventions%20version">sgaf</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 11 Sep 2014 17:34:24 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 28 Aug 2013 10:28:42 +0100</span><br />
 </address>
 <br />
-Dear Jim
+Hi,
 <br />
-<br /><em class="quotelev1">&gt; I think the point of CF 2.x would be to openly embrace new netCDF
-</em><br />
-<em class="quotelev1">&gt; features, and if strong backward compatibility would make it
-</em><br />
-<em class="quotelev1">&gt; awkward, then backward compatibility would lose. CF 1.x could
-</em><br />
-<em class="quotelev1">&gt; continue to evolve along side it. CF 2.x would be a refactoring that
-</em><br />
-<em class="quotelev1">&gt; took new features and lessons learned into account.
-</em><br />
-<br />I don't think that would be a good idea, myself. It would increase (by maybe
+<br />Here at the British Oceanographic Data Centre we use THREDDS to deliver and subset our numerical model data that we hold in CF netcdf format. I've just been made aware that during the delivery and subsetting process, THREDDS seems to be converting the CF files we hold from whatever CF convention they have been supplied in, to CF 1.0.
 <br />
-a factor of two) the amount of work required to maintain CF, and it would cause
+<br />Is this something that the rest of the community are aware of, and if so, do people consider it to be of major importance that the files outputted by thredds are in a different convention to the source files thredds interrogates?
 <br />
-a lot of debates about which changes should be made in both, etc. I think if
+<br />Cheers
 <br />
-we step to CF-2.x then the final CF-1.x should be the end of that line. I am
+<br />Sean Gaffney
 <br />
-not completely opposed to backward incompatibility, as I said before. I just
+BODC
 <br />
-think that there has to be a very strong case for it. A complete refactoring,
+<br /><br /><br />&nbsp;&nbsp;________________________________
 <br />
-starting all over again and repeating the discussions of the last 15 years,
+This message (and any attachments) is for the recipient only. NERC is subject to the Freedom of Information Act 2000 and the contents of this email and any reply you make may be disclosed by NERC unless it is exempt from release under the Act. Any material supplied to NERC may be stored in an electronic records management system.
 <br />
-would be a tremendous amount of work and I don't see a good reason for it.
+-------------- next part --------------
 <br />
-I think we have to keep in mind that a convention, such as CF, is at some
+An HTML attachment was scrubbed...
 <br />
-level arbitrary. We make the best decisions we can at the time, and I would
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130828/c196156c/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130828/c196156c/attachment.html</a>&gt;
 <br />
-rather spend time extending CF to new purposes than revisiting old decisions,
-<br />
-even though in many cases a different decision could have been made, unless
-<br />
-the old decision has truly proved itself to be a nuisance. But backward-
-<br />
-incompatible changes that materially improve the usefulness of the standard
-<br />
-should be considered, I agree.
-<br />
-<br />Best wishes
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Thu Sep 11 2014 - 10:34:24 BST</span>
+<span id="received"><dfn>Received on</dfn> Wed Aug 28 2013 - 03:28:42 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -127,9 +105,12 @@ should be considered, I agree.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start6473">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./6474.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] New standard name: number_of_days_with_surface_temperature_below_threshold"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./6472.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] downward_air_velocity"</a></li>
+<li><dfn>Next message</dfn>: <a href="./6474.html" title="Next message in the list">John Caron: "[CF-metadata] thredds changing CF conventions version"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./6472.html" title="Previous message in the list">Dave Allured - NOAA Affiliate: "[CF-metadata] Units for dimensionless quantities"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./6474.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] thredds changing CF conventions version"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./6474.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] thredds changing CF conventions version"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -140,7 +121,7 @@ should be considered, I agree.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:46 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./6472.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6474.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

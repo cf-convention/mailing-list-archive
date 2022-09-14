@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Can we please close ticket 93 and modify the latest CF document accordingly? from Signell, Richard on 2013-09-30 (mailing-list-archive)</title>
-<meta name="Author" content="Signell, Richard (rsignell)" />
-<meta name="Subject" content="[CF-metadata] Can we please close ticket 93 and modify the latest CF document accordingly?" />
-<meta name="Date" content="2013-09-30" />
+<title>[CF-metadata] New standard name: datetime_iso8601 from Russ Rew on 2013-01-14 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Russ Rew (russ)" />
+<meta name="Subject" content="[CF-metadata] New standard name: datetime_iso8601" />
+<meta name="Date" content="2013-01-14" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5760.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5762.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Can we please close ticket 93 and modify the latest CF document accordingly?</h1>
-<!-- received="Mon Sep 30 08:30:49 2013" -->
-<!-- isoreceived="20130930073049" -->
-<!-- sent="Mon, 30 Sep 2013 10:30:49 -0400" -->
-<!-- isosent="20130930143049" -->
-<!-- name="Signell, Richard" -->
-<!-- email="rsignell" -->
-<!-- subject="[CF-metadata] Can we please close ticket 93 and modify the latest CF document accordingly?" -->
-<!-- id="CAFhraUxerAErvDDa1qPn+z9yPvgbsMHRoRmfW_p1z_nVHeMGAg_at_mail.gmail.com" -->
+<a style="text-decoration:none" href="./5760.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5762.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] New standard name: datetime_iso8601</h1>
+<!-- received="Mon Jan 14 08:56:43 2013" -->
+<!-- isoreceived="20130114085643" -->
+<!-- sent="Mon, 14 Jan 2013 08:56:43 -0700" -->
+<!-- isosent="20130114155643" -->
+<!-- name="Russ Rew" -->
+<!-- email="russ" -->
+<!-- subject="[CF-metadata] New standard name: datetime_iso8601" -->
+<!-- id="19991.1358179003_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20130929115220.GA20106_at_met.reading.ac.uk" -->
+<!-- inreplyto="50F41167.9020305_at_whoi.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5762.html" accesskey="d" title="Hedley, Mark: &quot;[CF-metadata] Can we please close ticket 93 and modify the latest CF document accordingly?&quot;">Next message</a> ]
-[ <a href="./5760.html" title="Charlie Zender: &quot;[CF-metadata] Are ensembles a compelling use case for &#0034;group-aware&#0034; metadata? (CZ)&quot;">Previous message</a> ]
-[ <a href="./5759.html" title="Jonathan Gregory: &quot;[CF-metadata] Can we please close ticket 93 and modify the latest CF document accordingly?&quot;">In reply to</a> ]
+[ <a href="./5762.html" accesskey="d" title="Aleksandar Jelenak - NOAA Affiliate: &quot;[CF-metadata] New Standard Names for Satellite Data&quot;">Next message</a> ]
+[ <a href="./5760.html" title="Nan Galbraith: &quot;[CF-metadata] New standard name: datetime_iso8601&quot;">Previous message</a> ]
+[ <a href="./5760.html" title="Nan Galbraith: &quot;[CF-metadata] New standard name: datetime_iso8601&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./5762.html" accesskey="t" title="Hedley, Mark: &quot;[CF-metadata] Can we please close ticket 93 and modify the latest CF document accordingly?&quot;">Next in thread</a> ]
+[ <a href="./5767.html" accesskey="t" title="Chris Barker - NOAA Federal: &quot;[CF-metadata] New standard name: datetime_iso8601&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,78 +72,168 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Signell, Richard &lt;<a href="mailto:rsignell?Subject=Re%3A%20%5BCF-metadata%5D%20Can%20we%20please%20close%20ticket%2093%20and%20modify%20the%20latest%20CF%20document%20accordingly%3F">rsignell</a>&gt;
+<dfn>From</dfn>: Russ Rew &lt;<a href="mailto:russ?Subject=Re%3A%20%5BCF-metadata%5D%20New%20standard%20name%3A%20datetime_iso8601">russ</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 30 Sep 2013 10:30:49 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 14 Jan 2013 08:56:43 -0700</span><br />
 </address>
 <br />
-Jonathan,
+Nan and Chris,
 <br />
-<br />The good thing about the git &quot;pull request&quot; method of updating
+<br /><em class="quotelev1">&gt; I agree with Chris.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Having ncdump or other clients show dates in an ISO-compliant format
+</em><br />
+<em class="quotelev1">&gt; is a fine idea, as is using ISO strings for dates in attributes, but those
+</em><br />
+<em class="quotelev1">&gt; are completely different from storing date variables as strings.
+</em><br />
+<br />Yes, since version 4.2, ncdump has supported the &quot;-t&quot; and &quot;-T&quot; options
 <br />
-CF-conventions would be that someone can fork the repository (make
+for showing dates and times in human-readable and ISO-compliant format,
 <br />
-their own copy of the document, in this case), make the edits related
+respecting the &quot;calendar&quot; attribute for interpreting dates.  Thanks to
 <br />
-to their issue, and then submit a &quot;pull request&quot; to the person with
+an idea from Phil Bentley and some code contributed by Dave Allured,
 <br />
-authority to update the master document.
+those options also work for bounds attributes that are times.
 <br />
-<br />The advantage is that the person with responsibility for the whole
+<br />--Russ
 <br />
-does not have to make all the edits themselves -- yet they can easily
-<br />
-see and review how the edits look in a revised copy, and these can be
-<br />
-accepted or discussed further with the community.
-<br />
-<br />So basically best of both worlds: easier for the community to
-<br />
-contribute, and less work for the person with responsibility to
-<br />
-maintain the master.
-<br />
-<br />-Rich
-<br />
-<br />On Sun, Sep 29, 2013 at 7:52 AM, Jonathan Gregory
-<br />
-&lt;j.m.gregory at reading.ac.uk&gt; wrote:
-<br />
-<em class="quotelev1">&gt; Dear Mark, Rich, Bryan et al.
+<br /><em class="quotelev1">&gt; NetCDF uses a binary storage format and is not meant to be human
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; readable.
 </em><br />
-<em class="quotelev1">&gt; I am definitely in favour of having a new version too, but I am nervous about
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; involving lots of people in what is essentially the editorial task of updating
+<em class="quotelev1">&gt; Thanks - Nan
 </em><br />
-<em class="quotelev1">&gt; the document. When many people revise bits of a document, especially if they
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; have not worked on it before, there is the possibility of inconsistency. You
+<em class="quotelev1">&gt; On 1/11/13 4:37 PM, Chris Barker - NOAA Federal wrote:
 </em><br />
-<em class="quotelev1">&gt; still need someone to take responsibility for the whole.
+<em class="quotelev2">&gt; &gt; On Fri, Jan 11, 2013 at 9:00 AM, Aleksandar Jelenak - NOAA Affiliate
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev2">&gt; &gt; &lt;aleksandar.jelenak at noaa.gov&gt;  wrote:
 </em><br />
-<em class="quotelev1">&gt; The main reason for slow progress in CF discussions is the limitation on brain-
+<em class="quotelev2">&gt; &gt;
 </em><br />
-<em class="quotelev1">&gt; power resources, not the technology for deploying those resources, I think. The
+<em class="quotelev3">&gt; &gt;&gt; Here's the modified proposal for the datetime_iso8601 standard name:
 </em><br />
-<em class="quotelev1">&gt; number of people who can make time to follow our detailed and difficult
+<em class="quotelev2">&gt; &gt; ...
 </em><br />
-<em class="quotelev1">&gt; discussions is understandably limited. None of us has it as a day-job!
+<em class="quotelev3">&gt; &gt;&gt; String representing date-time information according to the ISO
 </em><br />
-<em class="quotelev1">&gt; However it would be interesting to know more about how different technology
+<em class="quotelev3">&gt; &gt;&gt; 8601:2004(E) standard.
 </em><br />
-<em class="quotelev1">&gt; from trac would make the task easier.
+<em class="quotelev2">&gt; &gt; I think we should NOT adopt a string option for datetime variables.
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev2">&gt; &gt;
 </em><br />
-<em class="quotelev1">&gt; Best wishes
+<em class="quotelev2">&gt; &gt; To quote Jonathan Gregory:
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev2">&gt; &gt;
 </em><br />
-<em class="quotelev1">&gt; Jonathan
+<em class="quotelev2">&gt; &gt; &quot;&quot;&quot;
+</em><br />
+<em class="quotelev2">&gt; &gt; In CF we have always applied the
+</em><br />
+<em class="quotelev2">&gt; &gt; principle that we only add to CF when there is a need to do so, i.e. there 
+</em><br />
+<em class="quotelev1">&gt; is
+</em><br />
+<em class="quotelev2">&gt; &gt; a use-case for something which cannot already be represented in CF
+</em><br />
+<em class="quotelev2">&gt; &gt; &quot;&quot;&quot;
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; We already have a way to encode datetimes in CF-netcdf.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; I believe this proposal resulted from the discussion about adding a
+</em><br />
+<em class="quotelev2">&gt; &gt; more flexible approach to datetimes in the CF Data Model. I think
+</em><br />
+<em class="quotelev2">&gt; &gt; that's a good idea, but separate from what encoding is used in
+</em><br />
+<em class="quotelev2">&gt; &gt; CF-netcdf. ( see my recent note for more detail about the difference
+</em><br />
+<em class="quotelev2">&gt; &gt; between and encoding and a data model ).
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; 1) Having multiple ways to encode the same data in file format adds
+</em><br />
+<em class="quotelev2">&gt; &gt; complication to all client code -- client code would need a way to
+</em><br />
+<em class="quotelev2">&gt; &gt; process both ISO strings and &quot;time_unit since datetime&quot;
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; 2) Any client code that can process ISO strings is likely to need to
+</em><br />
+<em class="quotelev2">&gt; &gt; convert them to a client-specific datetime representation anyway, in
+</em><br />
+<em class="quotelev2">&gt; &gt; order to plot, calculate with, etc  them.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; 3) Any client library that can process ISO strings is very likely to
+</em><br />
+<em class="quotelev2">&gt; &gt; be able to also work with &quot;time_unit since datetime&quot; encoded data
+</em><br />
+<em class="quotelev2">&gt; &gt; anyway -- and it had better, as that encoding is part of the standard
+</em><br />
+<em class="quotelev2">&gt; &gt; anyway.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; As a result, we would be complicating client code, and getting no new
+</em><br />
+<em class="quotelev2">&gt; &gt; functionality.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; The one advantage I can see at the moment is that simple, non-CF-aware
+</em><br />
+<em class="quotelev2">&gt; &gt; clients, like ncdump, could easily present a nice human-readable
+</em><br />
+<em class="quotelev2">&gt; &gt; format. But I don't think that is worth the additional complication.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; -Chris
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; -- 
+</em><br />
+<em class="quotelev1">&gt; *******************************************************
+</em><br />
+<em class="quotelev1">&gt; * Nan Galbraith                        (508) 289-2444 *
+</em><br />
+<em class="quotelev1">&gt; * Upper Ocean Processes Group            Mail Stop 29 *
+</em><br />
+<em class="quotelev1">&gt; * Woods Hole Oceanographic Institution                *
+</em><br />
+<em class="quotelev1">&gt; * Woods Hole, MA 02543                                *
+</em><br />
+<em class="quotelev1">&gt; *******************************************************
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
 </em><br />
 <em class="quotelev1">&gt; _______________________________________________
 </em><br />
@@ -153,13 +243,7 @@ maintain the master.
 </em><br />
 <em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
-<br /><br /><br /><pre>
--- 
-Dr. Richard P. Signell   (508) 457-2229
-USGS, 384 Woods Hole Rd.
-Woods Hole, MA 02543-1598
-</pre>
-<span id="received"><dfn>Received on</dfn> Mon Sep 30 2013 - 08:30:49 BST</span>
+<span id="received"><dfn>Received on</dfn> Mon Jan 14 2013 - 08:56:43 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -167,13 +251,13 @@ Woods Hole, MA 02543-1598
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5761">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5762.html" title="Next message in the list">Hedley, Mark: "[CF-metadata] Can we please close ticket 93 and modify the latest CF document accordingly?"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5760.html" title="Previous message in the list">Charlie Zender: "[CF-metadata] Are ensembles a compelling use case for &#0034;group-aware&#0034; metadata? (CZ)"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./5759.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] Can we please close ticket 93 and modify the latest CF document accordingly?"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5762.html" title="Next message in the list">Aleksandar Jelenak - NOAA Affiliate: "[CF-metadata] New Standard Names for Satellite Data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5760.html" title="Previous message in the list">Nan Galbraith: "[CF-metadata] New standard name: datetime_iso8601"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./5760.html" title="Message to which this message replies">Nan Galbraith: "[CF-metadata] New standard name: datetime_iso8601"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./5762.html" title="Next message in this discussion thread">Hedley, Mark: "[CF-metadata] Can we please close ticket 93 and modify the latest CF document accordingly?"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./5767.html" title="Next message in this discussion thread">Chris Barker - NOAA Federal: "[CF-metadata] New standard name: datetime_iso8601"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./5762.html" title="Message sent in reply to this message">Hedley, Mark: "[CF-metadata] Can we please close ticket 93 and modify the latest CF document accordingly?"</a></li>
+<dfn>Reply</dfn>: <a href="./5767.html" title="Message sent in reply to this message">Chris Barker - NOAA Federal: "[CF-metadata] New standard name: datetime_iso8601"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -184,7 +268,7 @@ Woods Hole, MA 02543-1598
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:30 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5760.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5762.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Standard_name for cloud-cover by phenomenon from David Hassell on 2012-04-25 (mailing-list-archive)</title>
-<meta name="Author" content="David Hassell (d.c.hassell)" />
-<meta name="Subject" content="[CF-metadata] Standard_name for cloud-cover by phenomenon" />
-<meta name="Date" content="2012-04-25" />
+<title>[CF-metadata] ERDDAP: CF:feature_type from Bob Simons on 2011-08-05 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Bob Simons (Bob.Simons)" />
+<meta name="Subject" content="[CF-metadata] ERDDAP: CF:feature_type" />
+<meta name="Date" content="2011-08-05" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4432.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4434.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Standard_name for cloud-cover by phenomenon</h1>
-<!-- received="Wed Apr 25 04:36:42 2012" -->
-<!-- isoreceived="20120425033642" -->
-<!-- sent="Wed, 25 Apr 2012 11:36:42 +0100" -->
-<!-- isosent="20120425103642" -->
-<!-- name="David Hassell" -->
-<!-- email="d.c.hassell" -->
-<!-- subject="[CF-metadata] Standard_name for cloud-cover by phenomenon" -->
-<!-- id="20120425103642.GA407_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./4432.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4434.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] ERDDAP: CF:feature_type</h1>
+<!-- received="Fri Aug  5 11:21:56 2011" -->
+<!-- isoreceived="20110805102156" -->
+<!-- sent="Fri, 05 Aug 2011 10:21:56 -0700" -->
+<!-- isosent="20110805172156" -->
+<!-- name="Bob Simons" -->
+<!-- email="Bob.Simons" -->
+<!-- subject="[CF-metadata] ERDDAP: CF:feature_type" -->
+<!-- id="4E3C26B4.8030405_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4F97C892.8070407_at_met.no" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4434.html" accesskey="d" title="TOYODA Eizi: &quot;[CF-metadata] Standard_name for cloud-cover by phenomenon&quot;">Next message</a> ]
-[ <a href="./4432.html" title="Heiko Klein: &quot;[CF-metadata] Standard_name for cloud-cover by phenomenon&quot;">Previous message</a> ]
-[ <a href="./4432.html" title="Heiko Klein: &quot;[CF-metadata] Standard_name for cloud-cover by phenomenon&quot;">In reply to</a> ]
+[ <a href="./4434.html" accesskey="d" title="Lowry, Roy K.: &quot;[CF-metadata] per-variable metadata?&quot;">Next message</a> ]
+[ <a href="./4432.html" title="John Graybeal: &quot;[CF-metadata] per-variable metadata?&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./4436.html" accesskey="t" title="Heiko Klein: &quot;[CF-metadata] Standard_name for cloud-cover by phenomenon&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,157 +68,72 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: David Hassell &lt;<a href="mailto:d.c.hassell?Subject=Re%3A%20%5BCF-metadata%5D%20Standard_name%20for%20cloud-cover%20by%20phenomenon">d.c.hassell</a>&gt;
+<dfn>From</dfn>: Bob Simons &lt;<a href="mailto:Bob.Simons?Subject=Re%3A%20%5BCF-metadata%5D%20ERDDAP%3A%20CF%3Afeature_type">Bob.Simons</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 25 Apr 2012 11:36:42 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 05 Aug 2011 10:21:56 -0700</span><br />
 </address>
 <br />
-Hello Heiko,
+Regarding Glenn Comiskey's email about CF:feature_type:
 <br />
-<br />I don't have a strong opinion, but am just testing the water ...
+<br />The CF:feature_type attribute was in one of the earlier, draft versions 
 <br />
-<br />I wonder how one would define these standard names so that they were
+of the CF Point Observation Conventions 
 <br />
-correct for all uses, for example from a three layer model to the
+(<a href="https://cf-pcmdi.llnl.gov/trac/wiki/PointObservationConventions">https://cf-pcmdi.llnl.gov/trac/wiki/PointObservationConventions</a>), which 
 <br />
-ISCCP datasets.
+is now called Discrete Sampling Geometries.  But that attribute name was 
 <br />
-<br />In your example, would a model_level_number coordinate of [1, 2, 3]
+rejected in later versions because the &quot;:&quot; in the attribute name isn't 
 <br />
-fit your needs, possibly with an auxiliary coordinate of ['low',
+allowed and caused problems.
 <br />
-'medium', 'high']? Would we need a standard name for the auxiliary
+<br />It seems likely that the version of netcdf-java (perhaps now 
 <br />
-coordinate, or would a long name suffice?
+out-of-date), which is in that version of ERDDAP, generated that 
 <br />
-<br />All the best,
+attribute based on that earlier draft version of the standard.
 <br />
-<br />David
+<br />The work-around for ERDDAP is probably:
 <br />
-<br />---- Original message from Heiko Klein (11AM 25 Apr 12)
+* Set the value of CF:feature_type to &quot;null&quot;.
 <br />
-<br /><em class="quotelev1">&gt; Date: Wed, 25 Apr 2012 11:49:06 +0200
-</em><br />
-<em class="quotelev1">&gt; From: Heiko Klein &lt;Heiko.Klein at met.no&gt;
-</em><br />
-<em class="quotelev1">&gt; User-Agent: Mozilla/5.0 (X11; Linux i686; rv:11.0) Gecko/20120327
-</em><br />
-<em class="quotelev1">&gt;  Thunderbird/11.0.1
-</em><br />
-<em class="quotelev1">&gt; To: &quot;cf-metadata at cgd.ucar.edu&quot; &lt;cf-metadata at cgd.ucar.edu&gt;
-</em><br />
-<em class="quotelev1">&gt; Subject: [CF-metadata] Standard_name for cloud-cover by phenomenon
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Hei,
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; in grib, clouds are described as low, medium and high clouds, e.g.
-</em><br />
-<em class="quotelev1">&gt; 73,74,75. Those are described by phenomenon, e.g.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; high cloud type:  Clouds of genera Cirrus, Cirrocumulus and Cirrostratus.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; low cloud type: Clouds of genera Stratocumulus, Stratus, Cumulus, etc.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; medium cloud type: Clouds of the genera Altocumulus, Altostratus, etc.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; (see
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; In CF, this can currently only be expressed by
-</em><br />
-<em class="quotelev1">&gt; cloud_area_fraction_in_atmosphere_layer and a not very well defined
-</em><br />
-<em class="quotelev1">&gt; 'vertical' parameter, e.g. by sigma:
-</em><br />
-<em class="quotelev1">&gt; <a href="http://www.ecmwf.int/products/data/archive/data_faq.html#clouddefinitions">http://www.ecmwf.int/products/data/archive/data_faq.html#clouddefinitions</a>
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; When translating from grib to CF, this is not very satisfying:
-</em><br />
-<em class="quotelev1">&gt; Either I add some dummy sigma-values, which will look like I have a
-</em><br />
-<em class="quotelev1">&gt; model with just three levels, or I use 3 variables, all with the
-</em><br />
-<em class="quotelev1">&gt; same 'standard_name=&quot;cloud_area_fraction&quot;' which looses some useful
-</em><br />
-<em class="quotelev1">&gt; information. In both cases, the data-user will need to know
-</em><br />
-<em class="quotelev1">&gt; something which cannot be expressed by CF.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Looking at the page
-</em><br />
-<em class="quotelev1">&gt; <a href="http://cf-pcmdi.llnl.gov/documents/cf-standard-names/ecmwf-grib-mapping">http://cf-pcmdi.llnl.gov/documents/cf-standard-names/ecmwf-grib-mapping</a>
-</em><br />
-<em class="quotelev1">&gt; there are mentioned 3 'standard_names' which are not in the
-</em><br />
-<em class="quotelev1">&gt; standard_name-table yet, and I propose to do so:
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; low_cloud_area_fraction
-</em><br />
-<em class="quotelev1">&gt; medium_cloud_area_fraction
-</em><br />
-<em class="quotelev1">&gt; high_cloud_area_fraction
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; in additon (though this is not in grib), I would like to add
-</em><br />
-<em class="quotelev1">&gt; fog_area_fraction (or surface_cloud_area_fraction).
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Best regards,
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Heiko
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<br /><br /><pre>
---
-David Hassell
-National Centre for Atmospheric Science (NCAS)
-Department of Meteorology, University of Reading,
-Earley Gate, PO Box 243,
-Reading RG6 6BB, U.K.
-Tel   : 0118 3785613
-Fax   : 0118 3788316
-E-mail: d.c.hassell at reading.ac.uk
-</pre>
-<span id="received"><dfn>Received on</dfn> Wed Apr 25 2012 - 04:36:42 BST</span>
+* Set cdm_data_type to the desired feature type (from ERDDAP's list of 
+<br />
+allowed values, which should be the same as CF's current list). If that 
+<br />
+doesn't solve the problem, please contact me directly (not via this list).
+<br />
+<br />Sincerely,
+<br />
+<br />Bob Simons
+<br />
+IT Specialist
+<br />
+Environmental Research Division
+<br />
+NOAA Southwest Fisheries Science Center
+<br />
+1352 Lighthouse Ave
+<br />
+Pacific Grove, CA 93950-2079
+<br />
+Phone: (831)658-3205
+<br />
+Fax:   (831)648-8440
+<br />
+Email: bob.simons at noaa.gov
+<br />
+<br />The contents of this message are mine personally and
+<br />
+do not necessarily reflect any position of the
+<br />
+Government or the National Oceanic and Atmospheric
+<br />
+Administration.
+<br />
+&lt;&gt;&lt; &lt;&gt;&lt; &lt;&gt;&lt; &lt;&gt;&lt; &lt;&gt;&lt; &lt;&gt;&lt; &lt;&gt;&lt; &lt;&gt;&lt; &lt;&gt;&lt;
+<br />
+<span id="received"><dfn>Received on</dfn> Fri Aug 05 2011 - 11:21:56 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -230,13 +141,9 @@ E-mail: d.c.hassell at reading.ac.uk
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4433">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4434.html" title="Next message in the list">TOYODA Eizi: "[CF-metadata] Standard_name for cloud-cover by phenomenon"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4432.html" title="Previous message in the list">Heiko Klein: "[CF-metadata] Standard_name for cloud-cover by phenomenon"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./4432.html" title="Message to which this message replies">Heiko Klein: "[CF-metadata] Standard_name for cloud-cover by phenomenon"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4434.html" title="Next message in the list">Lowry, Roy K.: "[CF-metadata] per-variable metadata?"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4432.html" title="Previous message in the list">John Graybeal: "[CF-metadata] per-variable metadata?"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./4436.html" title="Next message in this discussion thread">Heiko Klein: "[CF-metadata] Standard_name for cloud-cover by phenomenon"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./4436.html" title="Message sent in reply to this message">Heiko Klein: "[CF-metadata] Standard_name for cloud-cover by phenomenon"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -247,7 +154,7 @@ E-mail: d.c.hassell at reading.ac.uk
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:02 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4432.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4434.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] file with both run time and forecast (valid) time coordinates from John Caron on 2006-09-07 (mailing-list-archive)</title>
-<meta name="Author" content="John Caron (caron)" />
-<meta name="Subject" content="[CF-metadata] file with both run time and forecast (valid) time coordinates" />
-<meta name="Date" content="2006-09-07" />
+<title>[CF-metadata] 2D latitude, longitude coordinates detection from Brian Eaton on 2003-07-07 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Brian Eaton (eaton)" />
+<meta name="Subject" content="[CF-metadata] 2D latitude, longitude coordinates detection" />
+<meta name="Date" content="2003-07-07" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0201.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0203.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] file with both run time and forecast (valid) time coordinates</h1>
-<!-- received="Wed Sep  6 17:24:06 2006" -->
-<!-- isoreceived="20060906162406" -->
-<!-- sent="Wed, 06 Sep 2006 17:24:06 -0600" -->
-<!-- isosent="20060906232406" -->
-<!-- name="John Caron" -->
-<!-- email="caron" -->
-<!-- subject="[CF-metadata] file with both run time and forecast (valid) time coordinates" -->
-<!-- id="44FF5896.6040506_at_unidata.ucar.edu" -->
+<a style="text-decoration:none" href="./0201.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0203.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] 2D latitude, longitude coordinates detection</h1>
+<!-- received="Mon Jul  7 10:33:21 2003" -->
+<!-- isoreceived="20030707093321" -->
+<!-- sent="Mon, 7 Jul 2003 10:33:21 -0600" -->
+<!-- isosent="20030707163321" -->
+<!-- name="Brian Eaton" -->
+<!-- email="eaton" -->
+<!-- subject="[CF-metadata] 2D latitude, longitude coordinates detection" -->
+<!-- id="20030707163321.GA27817_at_ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20060906062707.GC7768_at_met.reading.ac.uk" -->
+<!-- inreplyto="3F04BA46.6020007_at_unidata.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0203.html" accesskey="d" title="Roy Lowry: &quot;[CF-metadata] Parameter Ontology Project&quot;">Next message</a> ]
-[ <a href="./0201.html" title="beate.geyer at gkss.de: &quot;[CF-metadata] new standard names 1.-33.&quot;">Previous message</a> ]
-[ <a href="./0200.html" title="Jonathan Gregory: &quot;[CF-metadata] file with both run time and forecast (valid) time coordinates&quot;">In reply to</a> ]
+[ <a href="./0203.html" accesskey="d" title="Rosalyn Hatcher: &quot;[CF-metadata] Re: scratching my head re CF-checker on packed data&quot;">Next message</a> ]
+[ <a href="./0201.html" title="John Evans: &quot;[CF-metadata] scratching my head re CF-checker on packed data&quot;">Previous message</a> ]
+[ <a href="./0198.html" title="John Caron: &quot;[CF-metadata] 2D latitude, longitude coordinates detection&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,58 +70,84 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20file%20with%20both%20run%20time%20and%20forecast%20(valid)%20time%20coordinates">caron</a>&gt;
+<dfn>From</dfn>: Brian Eaton &lt;<a href="mailto:eaton?Subject=Re%3A%20%5BCF-metadata%5D%202D%20latitude%2C%20longitude%20coordinates%20detection">eaton</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 06 Sep 2006 17:24:06 -0600</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 7 Jul 2003 10:33:21 -0600</span><br />
 </address>
 <br />
-Jonathan Gregory wrote:
+On Thu, Jul 03, 2003 at 05:20:38PM -0600, John Caron wrote:
 <br />
-<em class="quotelev1">&gt; Dear John
+<em class="quotelev1">&gt; Brian Eaton wrote:
 </em><br />
 <em class="quotelev1">&gt; 
 </em><br />
+<em class="quotelev2">&gt; &gt;Hi John,
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;You are correct that the latitude and longitude auxillary coordinate
+</em><br />
+<em class="quotelev2">&gt; &gt;variables should be identified by using the coordinates attribute.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;The warning that the CF checker should have given is that latitude and
+</em><br />
+<em class="quotelev2">&gt; &gt;longitude are multidimensional coordinate variables whose name matches the
+</em><br />
+<em class="quotelev2">&gt; &gt;name of one of their dimensions.  We recommended against this in the CF doc
+</em><br />
+<em class="quotelev2">&gt; &gt;to avoid the potential confusion with coordinate variables as defined in
+</em><br />
+<em class="quotelev2">&gt; &gt;the netCDF User's Guide.  That confusion is manifested in this file's
+</em><br />
+<em class="quotelev2">&gt; &gt;metadata as apparently the author expects the latitude and longitude
+</em><br />
+<em class="quotelev2">&gt; &gt;variables to be identified as coordinate data since the variable names
+</em><br />
+<em class="quotelev2">&gt; &gt;match dimension names.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;I believe the checker is correct in saying there are no errors since it can
+</em><br />
+<em class="quotelev2">&gt; &gt;only check for syntax errors.  There's no way for it to know that the
+</em><br />
+<em class="quotelev2">&gt; &gt;author intended certain variables to have latitude and longitude
+</em><br />
+<em class="quotelev2">&gt; &gt;coordinates.  The checker could be improved, however, to give &quot;expert
+</em><br />
+<em class="quotelev2">&gt; &gt;analysis&quot; of the metadata.  For example, in addition to reporting syntax
+</em><br />
+<em class="quotelev2">&gt; &gt;errors, it could give a summary of the coordinates associated with each
+</em><br />
+<em class="quotelev2">&gt; &gt;variable.  A data writer could use this information to verify that his
+</em><br />
+<em class="quotelev2">&gt; &gt;intentions were being correctly expressed in the metadata.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;Brian
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev1">&gt; Hi Brian:
+</em><br />
 <em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev2">&gt;&gt;One question on situation (b): You make both one-dimensional auxiliary 
+<em class="quotelev1">&gt; i thought CF required that there be lat and lon coordinates.  if they 
 </em><br />
-<em class="quotelev2">&gt;&gt;coordinate variables, but could you make one a coordinate and one an 
+<em class="quotelev1">&gt; are missing, isnt that an error?
 </em><br />
-<em class="quotelev2">&gt;&gt;auxiliary coordinate? Eg:
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Coordinate variables have to be monotonic, and this will not generally be
-</em><br />
-<em class="quotelev1">&gt; true in the cases where you have, in effect, a 2D (possibly sparse) set of
-</em><br />
-<em class="quotelev1">&gt; combinations of analysis and validity times. That is the reason for using
-</em><br />
-<em class="quotelev1">&gt; an index axis, with both times as auxiliaries.
-</em><br />
-<br />Ah yes, good point.
+<br />I don't think so.  I can write a CF conforming file which contains, for
 <br />
-<br /><br />Thanks for your input, i will try to implement and see what other questions come up.
+example, a time series of globally averaged surface temperature.  This file
 <br />
-<br /><em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Best wishes
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Jonathan
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<span id="received"><dfn>Received on</dfn> Wed Sep 06 2006 - 17:24:06 BST</span>
+would not need to contain lat and lon coords.
+<br />
+<span id="received"><dfn>Received on</dfn> Mon Jul 07 2003 - 10:33:21 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -129,9 +155,9 @@ Jonathan Gregory wrote:
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start202">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0203.html" title="Next message in the list">Roy Lowry: "[CF-metadata] Parameter Ontology Project"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0201.html" title="Previous message in the list">beate.geyer at gkss.de: "[CF-metadata] new standard names 1.-33."</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0200.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] file with both run time and forecast (valid) time coordinates"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0203.html" title="Next message in the list">Rosalyn Hatcher: "[CF-metadata] Re: scratching my head re CF-checker on packed data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0201.html" title="Previous message in the list">John Evans: "[CF-metadata] scratching my head re CF-checker on packed data"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0198.html" title="Message to which this message replies">John Caron: "[CF-metadata] 2D latitude, longitude coordinates detection"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -143,7 +169,7 @@ Jonathan Gregory wrote:
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:46 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0201.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0203.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

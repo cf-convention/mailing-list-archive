@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Standard names manager from Jonathan Gregory on 2006-04-11 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] Standard names manager" />
-<meta name="Date" content="2006-04-11" />
+<title>[CF-metadata] Encoding Errors on variables in CF from Jonathan Gregory on 2003-03-30 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (jonathan.gregory)" />
+<meta name="Subject" content="[CF-metadata] Encoding Errors on variables in CF" />
+<meta name="Date" content="2003-03-30" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0123.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0125.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Standard names manager</h1>
-<!-- received="Tue Apr 11 10:40:51 2006" -->
-<!-- isoreceived="20060411094051" -->
-<!-- sent="Tue, 11 Apr 2006 17:40:51 +0100" -->
-<!-- isosent="20060411164051" -->
+<a style="text-decoration:none" href="./0123.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0125.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Encoding Errors on variables in CF</h1>
+<!-- received="Sun Mar 30 14:58:01 2003" -->
+<!-- isoreceived="20030330135801" -->
+<!-- sent="Sun, 30 Mar 2003 22:58:01 +0100" -->
+<!-- isosent="20030330215801" -->
 <!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] Standard names manager" -->
-<!-- id="20060411164051.GA21451_at_met.reading.ac.uk" -->
+<!-- email="jonathan.gregory" -->
+<!-- subject="[CF-metadata] Encoding Errors on variables in CF" -->
+<!-- id="20030330225801.A3277_at_mreydhon.lan" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0125.html" accesskey="d" title="Pamment, JA: &quot;[CF-metadata] Standard names manager&quot;">Next message</a> ]
-[ <a href="./0123.html" title="Pamment, JA: &quot;[CF-metadata] Standard names manager&quot;">Previous message</a> ]
+[ <a href="./0125.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute&quot;">Next message</a> ]
+[ <a href="./0123.html" title="Stephens, A: &quot;[CF-metadata] Radar data and the &#0039;dB&#0039; and &#0039;dBZ&#0039; units&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,32 +68,168 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Standard%20names%20manager">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:jonathan.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Encoding%20Errors%20on%20variables%20in%20CF">jonathan.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 11 Apr 2006 17:40:51 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Sun, 30 Mar 2003 22:58:01 +0100</span><br />
 </address>
 <br />
-Dear all
+Dear All
 <br />
-<br />I think it's very good news that some proper staff effort is being invested in
+<br />I agree with Brian that if we include prefixes like &quot;error_on&quot; in the standard
 <br />
-CF standard names and I'm grateful to Alison for taking on the job and to Bryan
+name, we could end up with a tremendous number of standard names - it is quite
 <br />
-and the BADC for providing the support. I'm sure that Alison's new job will
+possible that every data variable could have a statistically derived standard
 <br />
-mean that new requests will be handled more quickly. Of course, it's still an
+error, for instance. As Brian says, that is a reason why we record statistical
 <br />
-open process to which everyone is encouraged to contribute via this list as
+processing like &quot;mean&quot; and &quot;standard deviation&quot; in cell_methods rather than in
 <br />
-ever. As part of the governance arrangements being discussed we will have
+the standard name. Therefore I retract my suggestion we should distinguish
 <br />
-some more explicit &quot;rules&quot; but at the moment we are carrying on as before.
+these error quantities through the standard name.
 <br />
-<br />Cheers
+<br />The idea of making links between variables depends on the assumption that the
+<br />
+error variable can only exist in the company of the data variable it belongs
+<br />
+to, because the links are the identification of its role. This idea is like
+<br />
+bounds on coordinate variables, which are subsidiary to the coordinate
+<br />
+variables and have no attributes of their own. A problem with this, in my view,
+<br />
+is that we might choose to store the error variables apart from the variables
+<br />
+they belong to. I have come across situations, for instance, in which separate
+<br />
+files contained corresponding sets of variables, one file for the data values,
+<br />
+one for the measurement uncertainty, one for the data quality flags, etc.
+<br />
+Links between files would be require encoding filenames in files, which feels
+<br />
+unsafe to me. Moreover, since the link is on the main variable, if you look at
+<br />
+the standard error variable, for instance, you can't tell what its purpose is.
+<br />
+You can't even tell what it belongs to unless it has a link pointing back to
+<br />
+the main variable, as in Ag's example. Creating reverse links doubles the work
+<br />
+and the potential for things to go wrong.
+<br />
+<br />I tend to feel it is more reliable to identify a quantity by labelling it,
+<br />
+rather than by labelling something else to point to it. That's why I proposed
+<br />
+modifying the standard name. However, in view of the problem with that, perhaps
+<br />
+a better idea would be to put the extra information into a separate attribute
+<br />
+whose purpose is to indicate how this data variable affects the interpretation
+<br />
+of another data variable. For the sake of argument, call this attribute
+<br />
+&quot;intent&quot;. For example:
+<br />
+<br />&nbsp;&nbsp;float no2(time);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;no2:standard_name = &quot;nitrogen_dioxide_volume_mixing_ratio&quot; ; ### UNOFFICIAL
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;no2:units = &quot;1-e9&quot; ;
+<br />
+&nbsp;&nbsp;float no2_error_limit(time) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;no2_error_limit:standard_name = &quot;nitrogen_dioxide_volume_mixing_ratio&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;no2_error_limit:units = &quot;1-e9&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;no2_error_limit:intent = &quot;standard_error&quot; ;
+<br />
+<br />To find the standard error, you search the file, or files, for a data variable
+<br />
+with the same standard name (and other metadata, if necessary, to distinguish)
+<br />
+as the main variable and the appropriate intent attribute. This method means
+<br />
+the variables are all identifying themselves and carry around their own
+<br />
+metadata. There can be more than one kind of error variable for each data
+<br />
+variable - this presents no problem. By the way, how does the detection limit
+<br />
+differ from the standard error?
+<br />
+<br />The possible values of the intent attribute would be standardised and defined.
+<br />
+This is much like cell_methods. As with cell_methods, they might modify the
+<br />
+units implied by the standard name. For instance, a percentage error and a data
+<br />
+quality flag are dimensionless. Standardisation is necessary so that you know
+<br />
+what you've got. In Ag's example, it was a 2 * standard error that was
+<br />
+supplied. It is important to know whether it's once, twice, three times s.e.,
+<br />
+the width of the 5-95% confidence interval, or whatever. A generalisation of
+<br />
+the above is needed. We could define intents such as &quot;2_standard_errors&quot; or we
+<br />
+could have a further attribute e.g.
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;no2_error_limit:intent = &quot;standard_error&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;no2_error_limit:error_multiplier=2.0;
+<br />
+<br />Another intent could be &quot;data_quality&quot;, the example given by John Evans. This
+<br />
+raises the interesting issue of how to describe what the possible values are.
+<br />
+John has recorded the values in special attributes e.g.
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;current_speed_qc:standard_name=&quot;sea_water_speed&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;current_speed_qc:intent=&quot;data_quality&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;current_speed_qc:quality_good = 0b ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;current_speed_qc:sensor_nonfunctional = 1b ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;current_speed_qc:outside_valid_range = 2b ;
+<br />
+<br />This is nice because it makes the file self-describing, but is perhaps awkward
+<br />
+for translating from the values to their meanings? Also it would lead to
+<br />
+proliferation of different kinds of attribute.
+<br />
+<br />I guess it would be hopeless to try to define standard values or names for the
+<br />
+quality states, so the best we can do is to provide a standardised way of
+<br />
+tabulating what the quality states mean. What about gathering John's attributes
+<br />
+together in this kind of way:
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;current_speed_qc:flag_values=0b, 1b, 2b;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;current_speed_qc:flag_meanings=&quot;quality_good sensor_nonfunctional &quot;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;outside_valid_range&quot;;
+<br />
+<br />where the values and their meanings are associated one-to-one? This would be
+<br />
+equally easy to use for translations either way, and would define just two
+<br />
+attributes which could be standardised, even though their values could not be.
+<br />
+<br />Best wishes
 <br />
 <br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Tue Apr 11 2006 - 10:40:51 BST</span>
+<span id="received"><dfn>Received on</dfn> Sun Mar 30 2003 - 14:58:01 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -101,8 +237,8 @@ some more explicit &quot;rules&quot; but at the moment we are carrying on as bef
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start124">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0125.html" title="Next message in the list">Pamment, JA: "[CF-metadata] Standard names manager"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0123.html" title="Previous message in the list">Pamment, JA: "[CF-metadata] Standard names manager"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0125.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0123.html" title="Previous message in the list">Stephens, A: "[CF-metadata] Radar data and the &#0039;dB&#0039; and &#0039;dBZ&#0039; units"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -114,7 +250,7 @@ some more explicit &quot;rules&quot; but at the moment we are carrying on as bef
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:44 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0123.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0125.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

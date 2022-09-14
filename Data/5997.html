@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF upgrade to netCDF variable names from Russ Rew on 2014-01-15 (mailing-list-archive)</title>
-<meta name="Author" content="Russ Rew (russ)" />
-<meta name="Subject" content="[CF-metadata] CF upgrade to netCDF variable names" />
-<meta name="Date" content="2014-01-15" />
+<title>[CF-metadata] New standard name: datetime_iso8601 from Chris Barker - NOAA Federal on 2013-03-25 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Chris Barker - NOAA Federal (chris.barker)" />
+<meta name="Subject" content="[CF-metadata] New standard name: datetime_iso8601" />
+<meta name="Date" content="2013-03-25" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5996.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5998.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF upgrade to netCDF variable names</h1>
-<!-- received="Wed Jan 15 14:34:22 2014" -->
-<!-- isoreceived="20140115143422" -->
-<!-- sent="Wed, 15 Jan 2014 14:34:22 -0700" -->
-<!-- isosent="20140115213422" -->
-<!-- name="Russ Rew" -->
-<!-- email="russ" -->
-<!-- subject="[CF-metadata] CF upgrade to netCDF variable names" -->
-<!-- id="24446.1389821662_at_unidata.ucar.edu" -->
+<a style="text-decoration:none" href="./5996.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5998.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] New standard name: datetime_iso8601</h1>
+<!-- received="Mon Mar 25 11:17:13 2013" -->
+<!-- isoreceived="20130325111713" -->
+<!-- sent="Mon, 25 Mar 2013 10:17:13 -0700" -->
+<!-- isosent="20130325171713" -->
+<!-- name="Chris Barker - NOAA Federal" -->
+<!-- email="chris.barker" -->
+<!-- subject="[CF-metadata] New standard name: datetime_iso8601" -->
+<!-- id="CALGmxELcSBAL0qpgWUELcQ_uhe2J+0wweD5ss5bfXWxDhs+7Vg_at_mail.gmail.com" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="6C0CDF4D-0B96-4C80-86FE-D2062315CD29_at_mindspring.com" -->
+<!-- inreplyto="20130325093338.GB23462_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5998.html" accesskey="d" title="Chris Barker: &quot;[CF-metadata] CF upgrade to netCDF variable names&quot;">Next message</a> ]
-[ <a href="./5996.html" title="John Graybeal: &quot;[CF-metadata] CF upgrade to netCDF variable names&quot;">Previous message</a> ]
-[ <a href="./5996.html" title="John Graybeal: &quot;[CF-metadata] CF upgrade to netCDF variable names&quot;">In reply to</a> ]
+[ <a href="./5998.html" accesskey="d" title="David Hassell: &quot;[CF-metadata] CF trac ticket summary update&quot;">Next message</a> ]
+[ <a href="./5996.html" title="Lowry, Roy K.: &quot;[CF-metadata] proposed standard names for Enterococcus and?Clostridium perfringens&quot;">Previous message</a> ]
+[ <a href="./5994.html" title="Jonathan Gregory: &quot;[CF-metadata] New standard name: datetime_iso8601&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./5998.html" accesskey="t" title="Chris Barker: &quot;[CF-metadata] CF upgrade to netCDF variable names&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -71,106 +70,52 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Russ Rew &lt;<a href="mailto:russ?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20upgrade%20to%20netCDF%20variable%20names">russ</a>&gt;
+<dfn>From</dfn>: Chris Barker - NOAA Federal &lt;<a href="mailto:chris.barker?Subject=Re%3A%20%5BCF-metadata%5D%20New%20standard%20name%3A%20datetime_iso8601">chris.barker</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 15 Jan 2014 14:34:22 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 25 Mar 2013 10:17:13 -0700</span><br />
 </address>
 <br />
-John Graybeal wrote:
+On Mon, Mar 25, 2013 at 2:33 AM, Jonathan Gregory
 <br />
-<em class="quotelev1">&gt; This prompts me to observe that somehow, in this brave new age of computer programming, people are
+<br /><em class="quotelev2">&gt;&gt; 2. Allow a suitable string syntax for date/times, probably expressed
 </em><br />
-<em class="quotelev1">&gt; developing netCDF software that supports Unicode characters -- Unicode!! -- in variable (attribute
+<em class="quotelev2">&gt;&gt; as a profile of ISO8601
 </em><br />
-<em class="quotelev1">&gt; etc) names. There will be netCDF files in the wild, used by scientists and normal people (especially
+<br />..snip...
+<br />
+<br /><em class="quotelev1">&gt; Obviously opinion is divided on this, if it means allowing time-date coord
 </em><br />
-<em class="quotelev1">&gt; normal people from non-English-speaking countries) that use all sorts of wild and crazy characters
+<em class="quotelev1">&gt; variables which are string-valued, as an alternative to the numerical ones.
 </em><br />
-<em class="quotelev1">&gt; in their variable names. (Perhaps CF thinks these are &quot;alphanumeric&quot;, in which case I've found a
+<em class="quotelev1">&gt; I'm not convinced this is a good idea.
 </em><br />
-<em class="quotelev1">&gt; solution! The standard certainly is not explicitly ASCII-only.)  By the way, I was amazed to learn
-</em><br />
-<em class="quotelev1">&gt; that using Unicode in programming languages is starting to take hold.
-</em><br />
-<br />Yes, since June 2008 we have supported use of Unicode characters in
+<br />neither am I. However -- we need a datetime string format for the
 <br />
-names in both netCDF-3 and netCDF-4 software.  The intent was to make
+&quot;units since datetime&quot; approach currently used, so better defining the
 <br />
-netCDF more suitable for international use, rather than to encode
+datetime string  format for CF is a really good idea anyway.
 <br />
-mathematical operations in variable names.  But we were also responding
+<br />And I agree -- we need to define a  standard, not reference or write a library.
 <br />
-to needs of some user communities, for example atmospheric chemists who
+<br />I do wish we could simply use a subset of ISO -- but it sounds like
 <br />
-wanted to be able to use standard notations for chemical species in
+the default for an unspecified timezone is different than the
 <br />
-variable names.
+currently-in-use CF. Darn.
 <br />
-<br />Here's a small non-sensical example of ncdump output for a file
+<br />-Chris
 <br />
-containing Unicode names:
-<br />
-<br />&nbsp;&nbsp;<a href="http://www.unidata.ucar.edu/netcdf/workshops/most-recent/utilities/Unicode.html">http://www.unidata.ucar.edu/netcdf/workshops/most-recent/utilities/Unicode.html</a>
-<br />
-<br />The precise rules for netCDF names are in the format documentation, but
-<br />
-the short version is:
-<br />
-<br />&nbsp;&nbsp;... The first character of a name must be alphanumeric, a multi-byte
-<br />
-&nbsp;&nbsp;UTF-8 character, or '_' (reserved for special names with meaning to
-<br />
-&nbsp;&nbsp;implementations, such as the ?_FillValue? attribute). Subsequent
-<br />
-&nbsp;&nbsp;characters may also include printing special characters, except for
-<br />
-&nbsp;&nbsp;'/' which is not allowed in names. Names that have trailing space
-<br />
-&nbsp;&nbsp;characters are also not permitted.
-<br />
-<br />That document also warns:
-<br />
-<br />&nbsp;&nbsp;Note that by using special characters in names, you may make your data
-<br />
-&nbsp;&nbsp;not compliant with conventions that have more stringent requirements
-<br />
-&nbsp;&nbsp;on valid names for netCDF components, for example the CF Conventions.
-<br />
-<br /><em class="quotelev1">&gt; At some point, we in the CF-supporting community are going to have to support the standard practices
-</em><br />
-<em class="quotelev1">&gt; in this aspect that are going on everywhere else in the software world, or decide we want a
-</em><br />
-<em class="quotelev1">&gt; permanent back-water for the 'scientists who are not interested in or capable of supporting these
-</em><br />
-<em class="quotelev1">&gt; practices' (not my claim).
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt;     Perhaps there are some reasons to want less-restrictive variable names -- I'm not always
-</em><br />
-<em class="quotelev1">&gt;     that imaginative, but if so, then present them.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Let's just make the list so far, to get everyone up to speed with the discussion:
-</em><br />
-<em class="quotelev1">&gt; * easier visual parsing (taste, yes, but practical also if you work with lots of data sets from
-</em><br />
-<em class="quotelev1">&gt; different communities)
-</em><br />
-<em class="quotelev1">&gt; * embedding semantic meaning (taste)
-</em><br />
-<em class="quotelev1">&gt; * clearly isolating the context (namespace, hierarchy)
-</em><br />
-<em class="quotelev1">&gt; * matching attribute names that come from the source data
-</em><br />
-<em class="quotelev1">&gt; * consistency with netCDF usage/files -&gt; easier onboarding of those files
-</em><br />
-<em class="quotelev1">&gt; * Unicode/internationalization support
-</em><br />
-<br />--Russ
-<br />
-<span id="received"><dfn>Received on</dfn> Wed Jan 15 2014 - 14:34:22 GMT</span>
+<br /><br /><pre>
+-- 
+Christopher Barker, Ph.D.
+Oceanographer
+Emergency Response Division
+NOAA/NOS/OR&amp;R            (206) 526-6959   voice
+7600 Sand Point Way NE   (206) 526-6329   fax
+Seattle, WA  98115       (206) 526-6317   main reception
+Chris.Barker at noaa.gov
+</pre>
+<span id="received"><dfn>Received on</dfn> Mon Mar 25 2013 - 11:17:13 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -178,11 +123,10 @@ the short version is:
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5997">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5998.html" title="Next message in the list">Chris Barker: "[CF-metadata] CF upgrade to netCDF variable names"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5996.html" title="Previous message in the list">John Graybeal: "[CF-metadata] CF upgrade to netCDF variable names"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./5996.html" title="Message to which this message replies">John Graybeal: "[CF-metadata] CF upgrade to netCDF variable names"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5998.html" title="Next message in the list">David Hassell: "[CF-metadata] CF trac ticket summary update"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5996.html" title="Previous message in the list">Lowry, Roy K.: "[CF-metadata] proposed standard names for Enterococcus and?Clostridium perfringens"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./5994.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] New standard name: datetime_iso8601"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./5998.html" title="Next message in this discussion thread">Chris Barker: "[CF-metadata] CF upgrade to netCDF variable names"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -193,7 +137,7 @@ the short version is:
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:35 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5996.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5998.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

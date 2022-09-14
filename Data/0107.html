@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] standard_name.xml from Roy Lowry on 2006-04-06 (mailing-list-archive)</title>
-<meta name="Author" content="Roy Lowry (rkl)" />
-<meta name="Subject" content="[CF-metadata] standard_name.xml" />
-<meta name="Date" content="2006-04-06" />
+<title>[CF-metadata] Encoding Errors on variables in CF from Stephens, A on 2003-03-18 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Stephens, A (A.Stephens)" />
+<meta name="Subject" content="[CF-metadata] Encoding Errors on variables in CF" />
+<meta name="Date" content="2003-03-18" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0106.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0108.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard_name.xml</h1>
-<!-- received="Thu Apr  6 01:14:11 2006" -->
-<!-- isoreceived="20060406001411" -->
-<!-- sent="Thu, 06 Apr 2006 08:14:11 +0100" -->
-<!-- isosent="20060406071411" -->
-<!-- name="Roy Lowry" -->
-<!-- email="rkl" -->
-<!-- subject="[CF-metadata] standard_name.xml" -->
-<!-- id="s434cdeb.003_at_wpo.nerc.ac.uk" -->
+<a style="text-decoration:none" href="./0106.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0108.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Encoding Errors on variables in CF</h1>
+<!-- received="Tue Mar 18 09:27:45 2003" -->
+<!-- isoreceived="20030318092745" -->
+<!-- sent="Tue, 18 Mar 2003 16:27:45 -0000" -->
+<!-- isosent="20030318162745" -->
+<!-- name="Stephens, A" -->
+<!-- email="A.Stephens" -->
+<!-- subject="[CF-metadata] Encoding Errors on variables in CF" -->
+<!-- id="49F73BEED865D3119F8700902773C9F901B3D119_at_exchange09.rl.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0108.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] accessory parameters&quot;">Next message</a> ]
-[ <a href="./0106.html" title="Bryan Lawrence: &quot;[CF-metadata] standard_name.xml&quot;">Previous message</a> ]
+[ <a href="./0108.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Encoding Errors on variables in CF&quot;">Next message</a> ]
+[ <a href="./0106.html" title="jonathan.gregory at metoffice.com: &quot;[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0110.html" accesskey="t" title="Luis Bermudez: &quot;[CF-metadata] standard_name.xml&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,50 +68,52 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Roy Lowry &lt;<a href="mailto:rkl?Subject=Re%3A%20%5BCF-metadata%5D%20standard_name.xml">rkl</a>&gt;
+<dfn>From</dfn>: Stephens, A &lt;<a href="mailto:A.Stephens?Subject=Re%3A%20%5BCF-metadata%5D%20Encoding%20Errors%20on%20variables%20in%20CF">A.Stephens</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 06 Apr 2006 08:14:11 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 18 Mar 2003 16:27:45 -0000</span><br />
 </address>
 <br />
-Hello John,
+Dear all, 
 <br />
-<br />Mapping CF Standard names to GCMD Parameter Valids to the public domain 'variable' level shouldn't be a problem as the GCMD vocabulary is clearly a discovery vocabulary.  The issues Bryan is eluding to result from trying to map a usage vocabulary (one containing terms that fully describe a data value) because vital information for the mapping (e.g. whether a value is a mean or a standard deviation) are held in CF fields other than the Standard Name.
+<br />Has anyone created or suggested a standard way of encoding errors associated
 <br />
-<br />Are you aware of the MMI vocabulary mapping workshop that was held in Boulder last August?  CF was one of the vocabs used, but the work really only scratched the surface looking at maybe half a dozen terms.  There should still be an OWL version of CF on the MMI site (as well as GCMD), but this will a snapshot that is now well out of date.  There is however an open source tool to convert the XML to OWL (voc2OWL) and a very neat mapping tool (VINE).  The resulting map is an OWL file that can be used with web services also provided by MMI to build a thesaurus server.  I would strongly recommend their approach.
+with a particular variable into CF?
 <br />
-<br />The one issue with the GCMD parameter valids that was never properly sorted at Boulder is that the mapping was done to GCMD variable terms without their overlying term hierarchy, which took no account of the fact that EARTH SCIENCE &gt; Biosphere &gt; Animal Taxonomy &gt; Fish and EARTH SCIENCE &gt;  Oceans &gt; Marine Biology &gt; Fish are different.  I know Luis Bermudez of MMI was looking at this issue, but don't know how far he got.
+<br />Here at the BADC we are encouraging CF for use with instrument data as well
 <br />
-<br />Building an ontology mapping between CF and GCMD was on my agenda for later this year to provide the capability to NDG for entering a CF Standard Name into a discovery portal and finding DIFs marked up using GCMD parameter valids.  But I'm more than happy for someone else to make a start and would of course be happy to help once the time slot I've allocated for later this year comes around.
+as gridded datasets. Many such datasets have error flags or error bounds
 <br />
-<br />Cheers, Roy.
+defined. One possibility is that standard_names could be prefixed with
 <br />
-<br /><em class="quotelev3">&gt;&gt;&gt; John Caron &lt;caron at unidata.ucar.edu&gt; 4/5/2006 8:51:15 pm &gt;&gt;&gt;
-</em><br />
-Is the standard name table in XML at:
+&quot;error_on_&quot;. They would more than likely just be included as separate
 <br />
-<br />&nbsp;&nbsp;<a href="http://www.cgd.ucar.edu/cms/eaton/cf-metadata/standard_name.xml">http://www.cgd.ucar.edu/cms/eaton/cf-metadata/standard_name.xml</a> 
+variables with a standard or long name that refers to the parameter
 <br />
-<br />being kept resonably up-to-date? 
+associated with the error. 
 <br />
-<br />I'm thinking about using it to map to, eg DIF vocabulary. Has anyone else done any mappings like that?
+<br />Where there are error flags or single errors associated with larger units of
 <br />
-_______________________________________________
+data (such as one error score for each profile) it might be sensible to
 <br />
-CF-metadata mailing list
+include this information in a comment or scalar variable.
 <br />
-CF-metadata at cgd.ucar.edu 
+<br />Any thoughts?
 <br />
-<a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+<br />Kind regards,
 <br />
-<br /><br /><pre>
--- 
-This message (and any attachments) is for the recipient only. NERC
-is subject to the Freedom of Information Act 2000 and the contents
-of this email and any reply you make may be disclosed by NERC unless
-it is exempt from release under the Act. Any material supplied to
-NERC may be stored in an electronic records management system.
-</pre>
-<span id="received"><dfn>Received on</dfn> Thu Apr 06 2006 - 01:14:11 BST</span>
+<br />Ag Stephens                           Ph : +44 (0)1235 446220
+<br />
+Data Scientist,                       Fax: +44 (0)1235 446314
+<br />
+British Atmospheric Data Centre,     
+<br />
+Rutherford Appleton Laboratory,               
+<br />
+Chilton, Didcot, OX11 0QX, U.K. 
+<br />
+Email:   A.Stephens at rl.ac.uk      Web: <a href="http://badc.nerc.ac.uk">http://badc.nerc.ac.uk</a>
+<br />
+<span id="received"><dfn>Received on</dfn> Tue Mar 18 2003 - 09:27:45 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -121,12 +121,9 @@ NERC may be stored in an electronic records management system.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start107">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0108.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] accessory parameters"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0106.html" title="Previous message in the list">Bryan Lawrence: "[CF-metadata] standard_name.xml"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0108.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Encoding Errors on variables in CF"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0106.html" title="Previous message in the list">jonathan.gregory at metoffice.com: "[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0110.html" title="Next message in this discussion thread">Luis Bermudez: "[CF-metadata] standard_name.xml"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0110.html" title="Message sent in reply to this message">Luis Bermudez: "[CF-metadata] standard_name.xml"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -137,7 +134,7 @@ NERC may be stored in an electronic records management system.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:44 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0106.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0108.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

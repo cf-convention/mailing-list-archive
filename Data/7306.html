@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] New standard_name values for some cloud and aerosol related variables from Maarten Sneep on 2015-09-29 (mailing-list-archive)</title>
-<meta name="Author" content="Maarten Sneep (maarten.sneep)" />
-<meta name="Subject" content="[CF-metadata] New standard_name values for some cloud and aerosol related variables" />
-<meta name="Date" content="2015-09-29" />
+<title>[CF-metadata] IAGOS-CARIBIC parameters from Joerg.Klausen at meteoswiss.ch on 2014-09-17 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Joerg.Klausen at meteoswiss.ch (Joerg.Klausen)" />
+<meta name="Subject" content="[CF-metadata] IAGOS-CARIBIC parameters" />
+<meta name="Date" content="2014-09-17" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./7305.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7307.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] New standard_name values for some cloud and aerosol related variables</h1>
-<!-- received="Tue Sep 29 07:57:54 2015" -->
-<!-- isoreceived="20150929065754" -->
-<!-- sent="Tue, 29 Sep 2015 15:57:54 +0200" -->
-<!-- isosent="20150929135754" -->
-<!-- name="Maarten Sneep" -->
-<!-- email="maarten.sneep" -->
-<!-- subject="[CF-metadata] New standard_name values for some cloud and aerosol related variables" -->
-<!-- id="560A98E2.4030909_at_knmi.nl" -->
+<a style="text-decoration:none" href="./7305.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7307.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] IAGOS-CARIBIC parameters</h1>
+<!-- received="Wed Sep 17 10:00:24 2014" -->
+<!-- isoreceived="20140917090024" -->
+<!-- sent="Wed, 17 Sep 2014 16:00:24 +0000" -->
+<!-- isosent="20140917160024" -->
+<!-- name="Joerg.Klausen at meteoswiss.ch" -->
+<!-- email="Joerg.Klausen" -->
+<!-- subject="[CF-metadata] IAGOS-CARIBIC parameters" -->
+<!-- id="6FC36DCBDF79BC43A4FD81572F656D66443B2CD0_at_zuemsg03.meteoswiss.ch" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="F06D8208-8DBA-4EB4-A854-4BA3406873FC_at_marinexplore.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,9 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./7307.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] New standard_name values for some cloud and aerosol related variables&quot;">Next message</a> ]
-[ <a href="./7305.html" title="Eizi TOYODA: &quot;[CF-metadata] new standard names for flood simulation&quot;">Previous message</a> ]
+[ <a href="./7307.html" accesskey="d" title="John Graybeal: &quot;[CF-metadata] IAGOS-CARIBIC parameters&quot;">Next message</a> ]
+[ <a href="./7305.html" title="Jonathan Gregory: &quot;[CF-metadata] IAGOS-CARIBIC parameters&quot;">Previous message</a> ]
+[ <a href="./7304.html" title="John Graybeal: &quot;[CF-metadata] IAGOS-CARIBIC parameters&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./7307.html" accesskey="t" title="John Graybeal: &quot;[CF-metadata] IAGOS-CARIBIC parameters&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,115 +72,144 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Maarten Sneep &lt;<a href="mailto:maarten.sneep?Subject=Re%3A%20%5BCF-metadata%5D%20New%20standard_name%20values%20for%20some%20cloud%20and%20aerosol%20related%20variables">maarten.sneep</a>&gt;
+<dfn>From</dfn>: Joerg.Klausen at meteoswiss.ch &lt;<a href="mailto:Joerg.Klausen?Subject=Re%3A%20%5BCF-metadata%5D%20IAGOS-CARIBIC%20parameters">Joerg.Klausen</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 29 Sep 2015 15:57:54 +0200</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 17 Sep 2014 16:00:24 +0000</span><br />
 </address>
 <br />
-Hi,
+Hi Damien and colleagues
 <br />
-<br />I have the following 5 new standard_name values for you to consider. I'm sure that 
+<br />The units for the number concentrations are okay IMHO, it's particles per volume, so 1/m^3 or m-3 should be right. I agree with John's comment on vertical velocity, to specify a direction makes sense. I have a problem with the &quot;size_resolved_number_concentration_&quot; terminology, which I have always had but comment on here for the first time: I find it not very telling and semantically wrong. In my understanding, the term should be more sth like &quot;size_spectrum_of_number_concentration_&quot;.
 <br />
-the unfinished business of 'albedo' will come back to bite me here.
+<br />A more general concern I have (with the plethora of variable/matrix/platform/size-cutoffs in GAW in mind) is the tradition in the CF community to combine variable and matrix or platform. From a data management point of view, combining various dimensions is what one rather tries to avoid as the number of possible permutations makes code lists grow tremendously long. A better approach would be to develop codelists for the individual dimensions and then draw from those. I am not sure a consensus on this view will be found, though.
 <br />
-<br />Best,
+<br />Kind regards
 <br />
-<br />Maarten
+J?rg
 <br />
-<br /><br />Name: uv_aerosol_index
+_________________________________
 <br />
-<br />Description: UV means ultraviolet radiation. The UV-Aerosol Index is a UV colour 
+Dr. J?rg Klausen
 <br />
-index that represents the deviation of the outgoing TOA radiation in the UV from that 
+Measurements and Data Department
 <br />
-of a standard atmosphere, featuring Rayleigh scattering and gas absorption, in 
+<br />Federal Department of Home Affairs FDHA
 <br />
-particular by ozone. No cloud droplets or suspended liquid or solid particles 
+Federal Office of Meteorology and Climatology MeteoSwiss
 <br />
-(aerosols) are present in the standard atmosphere. It is bounded below by a 
+<br />Operation Center 1 | P.O. Box 257 | CH-8058 Z?rich-Flughafen
 <br />
-Lambertian surface, featuring isotropic reflection, assumed independent of 
+Phone: +41 58 460 92 23 | Fax: +41 58 460 90 01
 <br />
-wavelength. The UV-AI is computed from the Earth reflectances at two UV wavelengths. 
+joerg.klausen at meteoswiss.ch | Mobile: +41 79 702 94 67
 <br />
-A positive deviation from the standard atmosphere is often, but not exclusively, 
+<br />All about weather and climate at
 <br />
-attributed to the absorption of radiation by aerosols, while negative values 
+www.meteoswiss.ch&lt;<a href="http://www.meteoschweiz.admin.ch/web/en.html">http://www.meteoschweiz.admin.ch/web/en.html</a>&gt; and MeteoSwiss App&lt;<a href="http://www.meteoswiss.admin.ch/web/en/services/telecommunication/app.html">http://www.meteoswiss.admin.ch/web/en/services/telecommunication/app.html</a>&gt;
 <br />
-represent increased scattering, not necessarily by aerosols.
+<br />All about GAW observations at
 <br />
-<br /><br />Name: cloud_optical_centroid_pressure
+www.meteoswiss.ch/gawsis&lt;<a href="http://www.meteoswiss.ch/gawsis">http://www.meteoswiss.ch/gawsis</a>&gt;
 <br />
-<br />Description: The cloud optical centriod pressure is a pressure level inside the 
+<br /><br /><br /><br /><br />From: John Graybeal [mailto:john.graybeal at marinexplore.com]
 <br />
-cloud, near the optical thickness center of the cloud.
+Sent: Dienstag, 16. September 2014 18:22
 <br />
-<br /><br />Name: cloud_area_fraction_assuming_fixed_cloud_albedo
+To: Damien Boulanger
 <br />
-<br />Description: &quot;X_area_fraction&quot; means the fraction of horizontal area occupied by X. 
+Cc: CF Metadata List; Armin Rauthe-Sch?ch; Martin Schultz; Klausen J?rg
 <br />
-&quot;X_area&quot; means the horizontal area occupied by X within the grid cell or the 
+Subject: Re: [CF-metadata] IAGOS-CARIBIC parameters
 <br />
-satellite footprint. Cloud area fraction is also called &quot;cloud amount&quot; and &quot;cloud 
+<br />Hi Damien,
 <br />
-cover&quot;. The cloud area fraction is for the whole atmosphere column, as seen from the 
+<br />You've started the process nicely. What happens next is that various people on the list comment on your names and definitions, and the process continues until consensus is reached. Don't feel obligated to respond to every post, just join in as you find it appropriate.  (If your colleagues want to follow all the posts, they'll want to be subscribed to the list.)
 <br />
-surface or the top of the atmosphere. Cloud area fraction assuming fixed cloud albedo 
+<br />I'll kick it off with a few comments on the more 'generic' terms.
 <br />
-is the cloud area fraction by assuming the clouds in the X_area having the same fixed 
+<br />vertical_speed probably needs to be more specific, since most terms capture both the aubstance or object (in this case the airplane) and the process. Following the other platform terms, I suggest naming this platform_vertical_speed. (it isn't clear whether this is a directional speed, e.g., negative numbers are down? If so then platform_upward_vertical_speed would be better.)  The definition should reflect these changes, and will include the stock phrase &quot;Speed is the magnitude of velocity.&quot; Also, the canonical units for this item need to be distance/time, so m s-1.
 <br />
-cloud albedo value (Y). The clouds having 
+<br />Your description of total_air_temperature sounds like the stagnation is the key point of this measurement. I would propose stagnant_air_temperature as a starting point. And, it seems this measurement may be as much about the platform as about the air itself (if the stagnation is caused by the platform); perhaps this should be included in the name, to distinguish from an environmentally stagnant patch of air. That name could be stagnant_air_temperature_due_to_platform, for example.
 <br />
-cloud_area_fraction_assuming_fixed_cloud_albedo and cloud albedo Y yield the same 
+<br />One other comment about units, the units for the first 3 terms may be off. For a volume you'd want m3 (cubed m) not m-3 (1 over cubed m), but the description doesn't seem like a volume. Other people with more expertise on this topic can chime in here.
 <br />
-reflectance at TOA as the real clouds in the X_area. A phrase assuming_condition 
+<br />John
 <br />
-indicates that the named quantity is the value which would obtain if all aspects of 
+<br /><br />------------------------------------
 <br />
-the system were unaltered except for the assumption of the circumstances specified by 
+John Graybeal
 <br />
-the condition. The assumed albedo shall be attached to the variable either by an 
+Marine Data Manager
 <br />
-attribute 'assumed_cloud_albedo' (if the value is independent of geolocation) or 
+<br />M +1 408 675-5445
 <br />
-through the ancillary_variables to a variable with standard_name 'cloud_albedo'.
+Marinexplore
 <br />
-<br /><br />Name: cloud_albedo_assuming_cloud_area_fraction_of_1
+<br />On Sep 16, 2014, at 00:20, Damien Boulanger &lt;damien.boulanger at obs-mip.fr&lt;mailto:damien.boulanger at obs-mip.fr&gt;&gt; wrote:
 <br />
-<br />Description: cloud_albedo_assuming_cloud_area_fraction_of_1 means a derived 
+<br /><br />Dear all,
 <br />
-(retrieved) cloud albedo in an area assuming cloud area fraction is 1 in this area 
+<br />within the frame of the IGAS project (IAGOS for Copernicus Atmospheric Service, <a href="http://www.igas-project.org">http://www.igas-project.org</a>&lt;<a href="http://www.igas-project.org/index.php/ProjectInfo/ProjectInformation">http://www.igas-project.org/index.php/ProjectInfo/ProjectInformation</a>&gt;) we would like to propose 5 new CF standard names:
 <br />
-(the grid cell or satellite footprint). A phrase assuming_condition indicates that 
+standard_name
 <br />
-the named quantity is the value which would obtain if all aspects of the system were 
+<br />units
 <br />
-unaltered except for the assumption of the circumstances specified by the condition.
+<br />definition
 <br />
-<br /><br />Name: cloud_optical_centroid_pressure_assuming_cloud_area_fraction_of_1
+<br />size_resolved_number_concentration_of_dry_aerosol_in_air
 <br />
-<br />The cloud optical centriod pressure is a pressure level inside the cloud, near the 
+<br />m-3
 <br />
-optical thickness center of the cloud. 
+<br />Size resolved denotes the capability of an instrument to measure aerosol properties in different size ranges. The size range of particles is typically given as a range of particle diameters in nm assuming spherical shape and must be provided in a comment attribute. Number concentration means the number of particles or other specified objects per unit volume. &quot;Aerosol&quot; means the suspended liquid or solid particles in air (except cloud droplets). &quot;Dry aerosol&quot; means aerosol without water.
 <br />
-Cloud_optical_centroid_pressure_assuming_cloud_area_fraction_of_1 means a cloud 
+<br /><br />particle_surface_area_concentration_of_dry_aerosol_in_air
 <br />
-optical centriod pressure assuming the cloud area fraction is 1 for this area (the 
+<br />m-3
 <br />
-grid cell or satellite footprint). A phrase assuming_condition indicates that the 
+<br />Surface area per volume derived from the size resolved particle number concentration. &quot;Aerosol&quot; means the suspended liquid or solid particles in air (except cloud droplets). &quot;Dry aerosol&quot; means aerosol without water.
 <br />
-named quantity is the value which would obtain if all aspects of the system were 
+<br />size_resolved_number_concentration_of_cloud_liquid_water_particles_in_air
 <br />
-unaltered except for the assumption of the circumstances specified by the condition.
+<br />m-3
 <br />
-<br /><pre>
--- 
-KNMI
-T: 030 2206747
-E: maarten.sneep at knmi.nl
-R: A2.14
+<br />Size resolved denotes the capability of an instrument to measure aerosol properties in different size ranges. The size range of particles is typically given as a range of particle diameters in nm assuming spherical shape and must be provided in a comment attribute. Number concentration means the number of particles or other specified objects per unit volume. Cloud droplets are spherical and typically a few micrometers to a few tens of micrometers in diameter. An upper limit of 0.2 mm diameter is sometimes used to distinguish between cloud droplets and drizzle drops, but in active cumulus clouds strong updrafts can maintain much larger cloud droplets.
+<br />
+<br />vertical_speed
+<br />
+<br />1
+<br />
+<br />Rate of change of aircraft altitude.
+<br />
+<br />total_air_temperature
+<br />
+<br />K
+<br />
+<br />Total air temperature or stagnation temperature is the temperature at a stagnation point in a fluid flow. Measured by a temperature probe mounted on the surface of the aircraft.
+<br />
+<br /><br />I'm not really sure what is the standard procedure. Let me know if you need any more information.
+<br />
+<br />Best regards,
+<br />
+Damien Boulanger and the IGAS team
+<br />
+<br /><br /><br /><pre>
+--
+Damien Boulanger
+CNRS - UMS831 OMP - SEDOO
+Observatoire Midi-Pyr?n?es
+14 Avenue Edouard Belin 31400 Toulouse - France
+Phone: (+33) 05-61-33-27-71
+Email: damien.boulanger at obs-mip.fr&lt;mailto:damien.boulanger at obs-mip.fr&gt;
+_______________________________________________
+CF-metadata mailing list
+CF-metadata at cgd.ucar.edu&lt;mailto:CF-metadata at cgd.ucar.edu&gt;
+<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140917/8e1aea1e/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140917/8e1aea1e/attachment-0001.html</a>&gt;
 </pre>
-<span id="received"><dfn>Received on</dfn> Tue Sep 29 2015 - 07:57:54 BST</span>
+<span id="received"><dfn>Received on</dfn> Wed Sep 17 2014 - 10:00:24 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -184,9 +217,13 @@ R: A2.14
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start7306">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./7307.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] New standard_name values for some cloud and aerosol related variables"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./7305.html" title="Previous message in the list">Eizi TOYODA: "[CF-metadata] new standard names for flood simulation"</a></li>
+<li><dfn>Next message</dfn>: <a href="./7307.html" title="Next message in the list">John Graybeal: "[CF-metadata] IAGOS-CARIBIC parameters"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./7305.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] IAGOS-CARIBIC parameters"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./7304.html" title="Message to which this message replies">John Graybeal: "[CF-metadata] IAGOS-CARIBIC parameters"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./7307.html" title="Next message in this discussion thread">John Graybeal: "[CF-metadata] IAGOS-CARIBIC parameters"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./7307.html" title="Message sent in reply to this message">John Graybeal: "[CF-metadata] IAGOS-CARIBIC parameters"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -197,7 +234,7 @@ R: A2.14
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:59 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./7305.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7307.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

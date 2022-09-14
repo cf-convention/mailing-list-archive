@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Editing/publishing workflow update from Hattersley, Richard on 2015-01-27 (mailing-list-archive)</title>
-<meta name="Author" content="Hattersley, Richard (richard.hattersley)" />
-<meta name="Subject" content="[CF-metadata] Editing/publishing workflow update" />
-<meta name="Date" content="2015-01-27" />
+<title>[CF-metadata]  new standard names: day, night, and day/night terminator area_fractions from Jonathan Gregory on 2014-01-03 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata]  new standard names: day, night, and day/night terminator area_fractions" />
+<meta name="Date" content="2014-01-03" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./6757.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6759.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Editing/publishing workflow update</h1>
-<!-- received="Tue Jan 27 09:03:48 2015" -->
-<!-- isoreceived="20150127090348" -->
-<!-- sent="Tue, 27 Jan 2015 16:03:48 +0000" -->
-<!-- isosent="20150127160348" -->
-<!-- name="Hattersley, Richard" -->
-<!-- email="richard.hattersley" -->
-<!-- subject="[CF-metadata] Editing/publishing workflow update" -->
-<!-- id="21A2C87797FA6042B162A8A0A11A15DB07029887_at_EXXCMPD1DAG2.cmpd1.metoffice.gov.uk" -->
+<a style="text-decoration:none" href="./6757.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6759.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  new standard names: day, night, and day/night terminator area_fractions</h1>
+<!-- received="Fri Jan  3 09:53:22 2014" -->
+<!-- isoreceived="20140103095322" -->
+<!-- sent="Fri, 3 Jan 2014 16:53:22 +0000" -->
+<!-- isosent="20140103165322" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata]  new standard names: day, night, and day/night terminator area_fractions" -->
+<!-- id="20140103165322.GA25006_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,10 +53,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./6759.html" accesskey="d" title="Filipe Pires Alvarenga Fernandes: &quot;[CF-metadata] Editing/publishing workflow update&quot;">Next message</a> ]
-[ <a href="./6757.html" title="Jonathan Gregory: &quot;[CF-metadata] Fwd: Re: Request for new standard-name: apparent_oxygen_utilization&quot;">Previous message</a> ]
+[ <a href="./6759.html" accesskey="d" title="Randy Horne: &quot;[CF-metadata] new standard names: day, night, and day/night terminator area_fractions&quot;">Next message</a> ]
+[ <a href="./6757.html" title="rhorne at excaliburlabs.com: &quot;[CF-metadata] new standard names: day, night, and day/night terminator area_fractions&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./6759.html" accesskey="t" title="Filipe Pires Alvarenga Fernandes: &quot;[CF-metadata] Editing/publishing workflow update&quot;">Next in thread</a> ]
+[ <a href="./6759.html" accesskey="t" title="Randy Horne: &quot;[CF-metadata] new standard names: day, night, and day/night terminator area_fractions&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,58 +70,116 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Hattersley, Richard &lt;<a href="mailto:richard.hattersley?Subject=Re%3A%20%5BCF-metadata%5D%20Editing%2Fpublishing%20workflow%20update">richard.hattersley</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20new%20standard%20names%3A%20day%2C%20night%2C%20and%20day%2Fnight%20terminator%20area_fractions">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 27 Jan 2015 16:03:48 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 3 Jan 2014 16:53:22 +0000</span><br />
 </address>
 <br />
-Dear all,
+Dear Randy
 <br />
-<br />Summary for the time-pressed reader:
+<br />Thanks for this proposal. If I understand it correctly, you divide time (and
 <br />
-- Some of us would like to simplify the workflow for editing the CF conventions.
+hence area) into day, night and something intermediate (twilight, I suppose).
 <br />
-- I've made a work-in-progress demo here: <a href="http://cf-metadata.github.io/cf-conventions.html">http://cf-metadata.github.io/cf-conventions.html</a>.
+Since you have to define these three in terms of solar zenith angle, maybe it
 <br />
-- The demo is automatically built from AsciiDoc sources here: <a href="https://github.com/cf-metadata/cf-conventions-asciidoc">https://github.com/cf-metadata/cf-conventions-asciidoc</a>
+would be simpler to have just one standard_name. Looking at the guidelines, I
 <br />
-- Feedback welcome! What's the appetite for exploring further?
+think this quantity could reasonably be called
 <br />
-<br />I've recently delved back into the options for simplifying and automating the workflow for modifying the CF conventions document. This is in the light of some useful discussion early last year, and a friendly nudge from Rich Signell (thanks Rich!).
+&nbsp;&nbsp;probability_distribution_of_solar_zenith_angle
 <br />
-<br />In general, this has been an encouraging exploration. Fortunately we are not at the technological vanguard of the publishing world - others with greater resources (e.g. O'Reilly) have already paved the way. As a result I believe we can achieve a very workable solution based around the AsciiDoc format&lt;<a href="http://asciidoctor.org/docs/what-is-asciidoc/">http://asciidoctor.org/docs/what-is-asciidoc/</a>&gt;.
+with a coordinate of solar_zenith_angle as you say, but perhaps &quot;probability&quot;
 <br />
-<br />There are three main problems I've been looking at:
+doesn't convey the right impression in this case. It could be called
 <br />
-<br />1.       How to get from the current DocBook sources to AsciiDoc?
+&nbsp;&nbsp;area_fraction_as_a_function_of_solar_zenith_angle
 <br />
-<br />2.       How to make the authoring/reviewing process easier?
+We haven't used the phrase as_a_function_of before, although it's a common
 <br />
-<br />3.       How to convert AsciiDoc to HTML and PDF?
+phrase, so I'm wondering if there is something we have used before that would
 <br />
-<br />To get from DocBook to AsciiDoc I have extended an existing solution&lt;<a href="https://github.com/rhattersley/docbook2asciidoc">https://github.com/rhattersley/docbook2asciidoc</a>&gt; from O'Reilly. They use the AsciiDoc format in their Atlas publishing platform so they have already done most of the hard work. Where possible I'd like to get my extensions merged into their original.
+convey the same meaning. Perhaps simply
 <br />
-<br />The authoring/reviewing process relies on GitHub pull requests and their built-in support for rendering AsciiDoc. This provides a good preview of the document (although some features of the final HTML output are not rendered), and an inline reviewing system. (NB. I've split the document into multiple files, but that is not essential.) Once a change has been accepted the corresponding HTML (and eventually PDF) is automatically rebuilt and pushed to the demo website.
+&nbsp;&nbsp;area_fraction_of_solar_zenith_angle
 <br />
-<br />To get from AsciiDoc to HTML/PDF I have used the excellent asciidoctor&lt;<a href="http://asciidoctor.org/">http://asciidoctor.org/</a>&gt; software for HTML and a sister project for PDF. The HTML support is excellent but the PDF solution is less mature (there is an alternative which might do better). That said, both projects are under active support/development and are open to contribution.
+would work?
 <br />
-<br />Questions, feedback, encouragement, offers of assistance and/or beer ... they're all welcome! ;-)
+<br />Best wishes
 <br />
-<br /><br />Richard Hattersley  AVD  Expert Software Developer
+<br />Jonathan
 <br />
-Met Office  FitzRoy Road  Exeter  Devon  EX1 3PB  United Kingdom
-<br />
-Tel: +44 (0)1392 885702  Fax: +44 (0)1392 885681
-<br />
-Email: richard.hattersley at metoffice.gov.uk&lt;mailto:richard.hattersley at metoffice.gov.uk&gt;  Website: www.metoffice.gov.uk&lt;<a href="http://www.metoffice.gov.uk/">http://www.metoffice.gov.uk/</a>&gt;
-<br />
-<br />-------------- next part --------------
-<br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150127/c04e2329/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150127/c04e2329/attachment-0001.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Tue Jan 27 2015 - 09:03:48 GMT</span>
+<br /><em class="quotelev1">&gt; I would like to propose the following three standard names in support of 
+</em><br />
+<em class="quotelev1">&gt; our environmental products generated from observation data.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; day_area_fraction   
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; &quot;X_area_fraction&quot; means the fraction of horizontal area occupied by X.   
+</em><br />
+<em class="quotelev1">&gt; &quot;X_area&quot; means the horizontal area occupied by X within the grid cell.  A 
+</em><br />
+<em class="quotelev1">&gt; coordinate variable of solar_zenith_angle with boundaries indicating the 
+</em><br />
+<em class="quotelev1">&gt; day extent should be specified.    
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt;    
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; night_area_fraction  
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; &quot;X_area_fraction&quot; means the fraction of horizontal area occupied by X.   
+</em><br />
+<em class="quotelev1">&gt; &quot;X_area&quot; means the horizontal area occupied by X within the grid cell.  A 
+</em><br />
+<em class="quotelev1">&gt; coordinate variable of solar_zenith_angle with boundaries indicating the 
+</em><br />
+<em class="quotelev1">&gt; night extent should be specified.   
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt;    
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; day_night_terminator_area_fraction  
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; &quot;X_area_fraction&quot; means the fraction of horizontal area occupied by X.   
+</em><br />
+<em class="quotelev1">&gt; &quot;X_area&quot; means the horizontal area occupied by X within the grid cell.  A 
+</em><br />
+<em class="quotelev1">&gt; coordinate variable of solar_zenith_angle with boundaries indicating the 
+</em><br />
+<em class="quotelev1">&gt; terminator extent should be specified.    
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt;  
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; happy new year !
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; very respectfully,  
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; randy  
+</em><br />
+<span id="received"><dfn>Received on</dfn> Fri Jan 03 2014 - 09:53:22 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -129,12 +187,12 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start6758">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./6759.html" title="Next message in the list">Filipe Pires Alvarenga Fernandes: "[CF-metadata] Editing/publishing workflow update"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./6757.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Fwd: Re: Request for new standard-name: apparent_oxygen_utilization"</a></li>
+<li><dfn>Next message</dfn>: <a href="./6759.html" title="Next message in the list">Randy Horne: "[CF-metadata] new standard names: day, night, and day/night terminator area_fractions"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./6757.html" title="Previous message in the list">rhorne at excaliburlabs.com: "[CF-metadata] new standard names: day, night, and day/night terminator area_fractions"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./6759.html" title="Next message in this discussion thread">Filipe Pires Alvarenga Fernandes: "[CF-metadata] Editing/publishing workflow update"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./6759.html" title="Next message in this discussion thread">Randy Horne: "[CF-metadata] new standard names: day, night, and day/night terminator area_fractions"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./6759.html" title="Message sent in reply to this message">Filipe Pires Alvarenga Fernandes: "[CF-metadata] Editing/publishing workflow update"</a></li>
+<dfn>Reply</dfn>: <a href="./6759.html" title="Message sent in reply to this message">Randy Horne: "[CF-metadata] new standard names: day, night, and day/night terminator area_fractions"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -145,7 +203,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:51 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./6757.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6759.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

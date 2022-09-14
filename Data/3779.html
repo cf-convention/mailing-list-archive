@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF-1 Grid Mappings to/from OGC WKT(GDAL): dealing with attribs like 'longitude_of_central_meridian' and 'longitude_of_projection_origin'? from Hedley, Mark on 2011-09-30 (mailing-list-archive)</title>
-<meta name="Author" content="Hedley, Mark (mark.hedley)" />
-<meta name="Subject" content="[CF-metadata] CF-1 Grid Mappings to/from OGC WKT(GDAL): dealing with attribs like 'longitude_of_central_meridian' and 'longitude_of_projection_origin'?" />
-<meta name="Date" content="2011-09-30" />
+<title>[CF-metadata] interpreting time and vertical axis from Yilmaz Arslanoglu on 2010-11-09 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Yilmaz Arslanoglu (yilmaz.arslanoglu)" />
+<meta name="Subject" content="[CF-metadata] interpreting time and vertical axis" />
+<meta name="Date" content="2010-11-09" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./3778.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3780.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF-1 Grid Mappings to/from OGC WKT(GDAL): dealing with attribs like 'longitude_of_central_meridian' and 'longitude_of_projection_origin'?</h1>
-<!-- received="Fri Sep 30 08:45:51 2011" -->
-<!-- isoreceived="20110930074551" -->
-<!-- sent="Fri, 30 Sep 2011 15:45:51 +0100" -->
-<!-- isosent="20110930144551" -->
-<!-- name="Hedley, Mark" -->
-<!-- email="mark.hedley" -->
-<!-- subject="[CF-metadata] CF-1 Grid Mappings to/from OGC WKT(GDAL): dealing with attribs like 'longitude_of_central_meridian' and 'longitude_of_projection_origin'?" -->
-<!-- id="8AC4893FB411FA4AA8CFECD9C8913B660B0950A7_at_EXXMAIL01.desktop.frd.metoffice.com" -->
+<a style="text-decoration:none" href="./3778.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3780.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] interpreting time and vertical axis</h1>
+<!-- received="Tue Nov  9 07:59:24 2010" -->
+<!-- isoreceived="20101109075924" -->
+<!-- sent="Tue, 9 Nov 2010 15:59:24 +0100" -->
+<!-- isosent="20101109145924" -->
+<!-- name="Yilmaz Arslanoglu" -->
+<!-- email="yilmaz.arslanoglu" -->
+<!-- subject="[CF-metadata] interpreting time and vertical axis" -->
+<!-- id="AANLkTim3x2L_FjKnE1kPF-7iNVA2pp_-D6AP3HJWR4Te_at_mail.gmail.com" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="CALOKYXW+OLpYB7z36rTw21sG3BMdCG3=qx4Cjyh2cPkaLuoBfw_at_mail.gmail.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,10 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./3780.html" accesskey="d" title="Steve Emmerson: &quot;[CF-metadata] Is the &#0034;bits&#0034; unit CF-compliant?&quot;">Next message</a> ]
-[ <a href="./3778.html" title="Jonathan Gregory: &quot;[CF-metadata] Coordinate reference frame for discrete sampling geometries&quot;">Previous message</a> ]
-[ <a href="./3772.html" title="Patrick Sunter: &quot;[CF-metadata] CF-1 Grid Mappings to/from OGC WKT(GDAL): dealing with attribs like &#0039;longitude_of_central_meridian&#0039; and &#0039;longitude_of_projection_origin&#0039;?&quot;">In reply to</a> ]
+[ <a href="./3780.html" accesskey="d" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] One new aerosol standard name&quot;">Next message</a> ]
+[ <a href="./3778.html" title="CJ Beegle-Krause: &quot;[CF-metadata] point observation data in CF 1.4&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./3783.html" accesskey="t" title="Nan Galbraith: &quot;[CF-metadata] interpreting time and vertical axis&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,112 +70,56 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Hedley, Mark &lt;<a href="mailto:mark.hedley?Subject=Re%3A%20%5BCF-metadata%5D%20CF-1%20Grid%20Mappings%20to%2Ffrom%20OGC%20WKT(GDAL)%3A%20dealing%20with%20attribs%20like%20'longitude_of_central_meridian'%20and%20'longitude_of_projection_origin'%3F">mark.hedley</a>&gt;
+<dfn>From</dfn>: Yilmaz Arslanoglu &lt;<a href="mailto:yilmaz.arslanoglu?Subject=Re%3A%20%5BCF-metadata%5D%20interpreting%20time%20and%20vertical%20axis">yilmaz.arslanoglu</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 30 Sep 2011 15:45:51 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 9 Nov 2010 15:59:24 +0100</span><br />
 </address>
 <br />
-Hello Patrick
+Hello;
 <br />
-<br />Phil Bentley has recently commented on the benefits of using OGC WKT within the CF data representation.  
+<br />I had a number of questions regarding interpretation of time and
 <br />
-<br />I believe he is preparing a proposal to this effect, which would address the issue you have highlighted, I think, and a range of other similar issues relating to the definition of coordinate reference systems.
+vertical axis in a given NetCDF file
 <br />
-<br />Ref:  Bentley, Philip	Re: [CF-metadata] Question on metadata for coordinate reference systems	Mon 26/09/2011 13:22
+(vertical especially for ocean current data)
 <br />
-<br />I am happy to act as ticket moderator once a ticket has been raised for this issue
+<br />1) What should be the default interpretation of the timestamps on a
 <br />
-<br />mark
+given time axis
 <br />
-<br /><br /><br /><br /><br />-----Original Message-----
+when there is no explicit CF convention based information in a given
 <br />
-From: cf-metadata-bounces at cgd.ucar.edu on behalf of Patrick Sunter
+file (in COARDS format we can say)
 <br />
-Sent: Wed 28/09/2011 03:27
+<br />Should they be taken  the centers of time intervals, or the starting
 <br />
-To: cf-metadata at cgd.ucar.edu
+point of the intervals ?
 <br />
-Cc: Etienne Tourigny
+<br />2)  Should the corresponding values be assumed to be the average of
 <br />
-Subject: [CF-metadata] CF-1 Grid Mappings to/from OGC WKT(GDAL): dealing with attribs like 'longitude_of_central_meridian' and 'longitude_of_projection_origin'?
+values on that interval or measurements
 <br />
-&nbsp;
+at that specific timestamp?
 <br />
-Hello,
+<br />3) For vertical layer if I have the following depths: [0.0, 10.0,
 <br />
-<br />I'm doing some work on updating the GDAL NetCDF driver to be able to
+50.0], should this be interpreted as three layers with
 <br />
-properly export to and import from CF-1 compliant files encoded with
+boundaries [0.0, 10.0]  [10.0, 50.0]  [50.0, +inf] ?
 <br />
-map projection (Grid Mapping) information (see
+<br />4) And finally, is it usual to apply interpolation in these axes
 <br />
-<a href="http://trac.osgeo.org/gdal/ticket/2893">http://trac.osgeo.org/gdal/ticket/2893</a> for background).
+(time, vertical) or just locating the closest time record
 <br />
-<br />The driver as it stands doesn't export properly to NetCDF (eg from
+and vertical layer is the general approach since they are in general
 <br />
-GeoTiff) for many projections: the issue is that GDAL stores
+the averaged values on that time interval or on that vertical layer?
 <br />
-projection information internally in OGC WKT form, and the driver has
+<br />Thanks in advance,
 <br />
-to 'map' these to appropriate CF-1 attributes when exporting - and
+Yilmaz
 <br />
-several of these mappings aren't correct currently (eg Lambert
-<br />
-Conformal Conic and Transverse Mercator were ok, but Albers Equal
-<br />
-Area, Azimuthal Equidistant and others weren't working).
-<br />
-<br />The main issue seems to be that for many projections, where OGC WKT
-<br />
-uses an attribute like 'latitude_of_center', the CF-1 closest
-<br />
-corresponding attribute seems to be 'latitude_of_projection_origin'.
-<br />
-For a projection such as Albers Equal Area, do these mean exactly the
-<br />
-same thing?
-<br />
-<br />Testing the resultant translated file in IDV once I've added the above
-<br />
-attribute mapping suggested the reprojected file is displaying with
-<br />
-the correct coordinates. I'm not a geodsy or projections expert, but
-<br />
-looking at the remotesensing.org and other pages suggested these
-<br />
-parameters may be equivalent.
-<br />
-<br />Also with regard to longitude paramaters: it seems for some CF-1
-<br />
-projections such as Albers Equal Area, the 'longitude_of_center'
-<br />
-attrib in WKT needs to map to 'longitude_of_central_meridian' in CF-1,
-<br />
-whereas in others such as Lambert azimuthal equal area,
-<br />
-'longitude_of_center' needs to map to
-<br />
-'longitude_of_projection_origin'?
-<br />
-(<a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.5/apf.html">http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.5/apf.html</a>)
-<br />
-<br />Would appreciate any comments, or even ways to improve testing
-<br />
-strategy used. I'm aware of the CF-1 compliance checkers, and possibly
-<br />
-should try the NetCDF Java API to check that points correspond.
-<br />
-<br />cheers, Patrick.
-<br />
-_______________________________________________
-<br />
-CF-metadata mailing list
-<br />
-CF-metadata at cgd.ucar.edu
-<br />
-<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-<br />
-<span id="received"><dfn>Received on</dfn> Fri Sep 30 2011 - 08:45:51 BST</span>
+<span id="received"><dfn>Received on</dfn> Tue Nov 09 2010 - 07:59:24 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -183,10 +127,13 @@ CF-metadata at cgd.ucar.edu
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start3779">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./3780.html" title="Next message in the list">Steve Emmerson: "[CF-metadata] Is the &#0034;bits&#0034; unit CF-compliant?"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./3778.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Coordinate reference frame for discrete sampling geometries"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./3772.html" title="Message to which this message replies">Patrick Sunter: "[CF-metadata] CF-1 Grid Mappings to/from OGC WKT(GDAL): dealing with attribs like &#0039;longitude_of_central_meridian&#0039; and &#0039;longitude_of_projection_origin&#0039;?"</a></li>
+<li><dfn>Next message</dfn>: <a href="./3780.html" title="Next message in the list">alison.pamment at stfc.ac.uk: "[CF-metadata] One new aerosol standard name"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./3778.html" title="Previous message in the list">CJ Beegle-Krause: "[CF-metadata] point observation data in CF 1.4"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./3783.html" title="Next message in this discussion thread">Nan Galbraith: "[CF-metadata] interpreting time and vertical axis"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./3783.html" title="Message sent in reply to this message">Nan Galbraith: "[CF-metadata] interpreting time and vertical axis"</a></li>
+<li><dfn>Reply</dfn>: <a href="./3784.html" title="Message sent in reply to this message">Yilmaz Arslanoglu: "[CF-metadata] interpreting time and vertical axis"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -197,7 +144,7 @@ CF-metadata at cgd.ucar.edu
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:51 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./3778.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3780.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

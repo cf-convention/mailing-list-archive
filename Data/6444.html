@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Days of rain from Jonathan Gregory on 2014-09-04 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] Days of rain" />
-<meta name="Date" content="2014-09-04" />
+<title>[CF-metadata] new standard name: land_surface_skin_temperature from Jonathan Wrotny on 2013-07-16 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Wrotny (jwrotny)" />
+<meta name="Subject" content="[CF-metadata] new standard name: land_surface_skin_temperature" />
+<meta name="Date" content="2013-07-16" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./6443.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6445.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Days of rain</h1>
-<!-- received="Thu Sep  4 07:03:53 2014" -->
-<!-- isoreceived="20140904060353" -->
-<!-- sent="Thu, 4 Sep 2014 14:03:53 +0100" -->
-<!-- isosent="20140904130353" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] Days of rain" -->
-<!-- id="20140904130353.GA10841_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./6443.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6445.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new standard name: land_surface_skin_temperature</h1>
+<!-- received="Tue Jul 16 10:57:53 2013" -->
+<!-- isoreceived="20130716095753" -->
+<!-- sent="Tue, 16 Jul 2013 12:57:53 -0400" -->
+<!-- isosent="20130716165753" -->
+<!-- name="Jonathan Wrotny" -->
+<!-- email="jwrotny" -->
+<!-- subject="[CF-metadata] new standard name: land_surface_skin_temperature" -->
+<!-- id="51E57B91.4090506_at_aer.com" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="35F11E8E-7597-4EAC-8D61-B8F87B57A1B7_at_noaa.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./6445.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  Return periods&quot;">Next message</a> ]
-[ <a href="./6443.html" title="Hollis, Dan: &quot;[CF-metadata] Return periods&quot;">Previous message</a> ]
+[ <a href="./6445.html" accesskey="d" title="Evan Manning: &quot;[CF-metadata] new standard name: land_surface_skin_temperature&quot;">Next message</a> ]
+[ <a href="./6443.html" title="Jim Biard: &quot;[CF-metadata] new standard name: land_surface_skin_temperature&quot;">Previous message</a> ]
+[ <a href="./6443.html" title="Jim Biard: &quot;[CF-metadata] new standard name: land_surface_skin_temperature&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./6447.html" accesskey="t" title="John Graybeal: &quot;[CF-metadata] Days of rain&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
+[ <a href="./6445.html" accesskey="t" title="Evan Manning: &quot;[CF-metadata] new standard name: land_surface_skin_temperature&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,356 +71,384 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Days%20of%20rain">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Wrotny &lt;<a href="mailto:jwrotny?Subject=Re%3A%20%5BCF-metadata%5D%20new%20standard%20name%3A%20land_surface_skin_temperature">jwrotny</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 4 Sep 2014 14:03:53 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 16 Jul 2013 12:57:53 -0400</span><br />
 </address>
 <br />
-Dear Dan, John et al.
+Jim, Evan, CF board:
 <br />
-<br />I'm not comfortable with a boolean attribute that in effect carries part
+<br />Yes, this is also the case for the future GOES-R data product that is 
 <br />
-of the definition of the standard_name. This isn't consistent with the usual
+motivating this new standard name.  It will report the land surface 
 <br />
-treatment of standard_names, which completely define the quantity except for
+temperature for all non-ocean surfaces.  So, for instance, lakes and 
 <br />
-those parts which are dealt with by coordinates or statistical reduction. (You
+rivers that are internal to land will have land surface temperatures 
 <br />
-could maybe argue that a boolean attribute was like a scalar coord variable
+reported.   The GOES-R sea surface temperature data product, on the 
 <br />
-supplying a reference value, as is required by some standard names, but that
+other hand, only reports temperatures for the sea/ocean surface.
 <br />
-feels like stretching a point to me.)
+<br />The purpose of my submission of &quot;land_surface_skin_temperature&quot; is to 
 <br />
-<br />If we really need to distinguish .gt. from .ge. I think we should have distinct
+add the commonly used quantity, land surface temperature (sometimes also 
 <br />
-standard names for them. But I still don't think we really need to distinguish
+referred to as land surface skin temperature) to the CF database.  Just 
 <br />
-them. If the data were quantised, .gt. can include .eq. if the threshold is a
+as the sea surface skin temperature is used by the SST community for the 
 <br />
-multiple of the quantum; if the data were continuous, it strictly means .gt.
+temperature of the sea or ocean, the land surface (skin) temperature is 
 <br />
-Dan's data are anyway a mixture of quantised (for which a threshold of 0.2 mm
+the quantity that refers to the temperature of all land surfaces (which 
 <br />
-really means 0.2 mm) and rounded (for which 0.2 mm means 0.15 mm) so it's not
+may or may not be covered by other things - lakes, rivers, snow, 
 <br />
-possible to be strict about how the threshold is applied.
+vegetation, buildings, etc.).  I think this delineation motivates two 
 <br />
-<br />Best wishes
+standard names, the already existing sea_surface_skin_temperature, and a 
+<br />
+new one to cover the land surface (skin) temperature.  My view is that 
+<br />
+the science community already commonly uses these two quantities and has 
+<br />
+for a long time, so the CF database should as well.
+<br />
+<br />If this approach is taken, then I do agree with Evan that specifically 
+<br />
+where the sea and land intersect, that some portion of the data point 
+<br />
+will be land and some will be ocean (this depends on the resolution of 
+<br />
+the data, of course).  My guess for this scenario is that each dataset 
+<br />
+has some unique way to determine if the data point is &quot;land&quot; or &quot;sea.&quot;  
+<br />
+However, the GOES-R surface temperature products do not report the 
+<br />
+fraction of land/sea for data points where land/sea intersect - they 
+<br />
+simply report a temperature as either &quot;sea&quot; or &quot;land&quot; based on their way 
+<br />
+of identifying the pixel as &quot;land&quot; or &quot;sea.&quot;
+<br />
+<br />Sincerely,
 <br />
 <br />Jonathan
 <br />
-<br /><br />----- Forwarded message from &quot;Hollis, Dan&quot; &lt;dan.hollis at metoffice.gov.uk&gt; -----
+<br />On 7/16/2013 12:36 PM, Jim Biard wrote:
 <br />
-<br /><em class="quotelev1">&gt; From: &quot;Hollis, Dan&quot; &lt;dan.hollis at metoffice.gov.uk&gt;
+<em class="quotelev1">&gt; Evan,
 </em><br />
-<em class="quotelev1">&gt; To: 'John Graybeal' &lt;john.graybeal at marinexplore.com&gt;, Alison Pamment
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; 	&lt;alison.pamment at stfc.ac.uk&gt;, CF Metadata List
+<em class="quotelev1">&gt; I'm afraid I have to disagree.  I'm working with the MODIS and VIIRS 
 </em><br />
-<em class="quotelev1">&gt; 	&lt;cf-metadata at cgd.ucar.edu&gt;, &quot;Gregory, Jonathan&quot;
+<em class="quotelev1">&gt; Land Surface Temperature products right now, and they are attempting 
 </em><br />
-<em class="quotelev1">&gt; 	&lt;j.m.gregory at reading.ac.uk&gt;
+<em class="quotelev1">&gt; to report the temperatures of the soil/rock/plants/water/etc 
 </em><br />
-<em class="quotelev1">&gt; Subject: RE: [CF-metadata] Days of rain
+<em class="quotelev1">&gt; themselves.  The sea surface is masked off, but temperature for water 
 </em><br />
-<em class="quotelev1">&gt; Date: Thu, 4 Sep 2014 10:12:32 +0000
+<em class="quotelev1">&gt; such as lakes and rivers (and puddles) is reported.  The emissivities 
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; of the various surface constituents are used in the algorithms that 
 </em><br />
-<em class="quotelev1">&gt; On balance the boolean attribute looks like the better option to me, partly for the reasons of discoverability that John highlights below, but also because it can be applied to all similar variables. Although there may only be nine 'threshold' names so far, and I would only need one more to be added, it nevertheless still seems better to choose a solution that works for all variables, both now and in the future. The boolean attribute seems to fit the bill.
+<em class="quotelev1">&gt; generate the products.  The top surface of the land is definitely what 
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; is of interest.  To give one example, the products are used in drought 
 </em><br />
-<em class="quotelev1">&gt; Regards,
+<em class="quotelev1">&gt; studies, where they are used to try and determine how wet the soil is.
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Dan
+<em class="quotelev1">&gt; Grace and peace,
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; -----Original Message-----
+<em class="quotelev1">&gt; Jim
 </em><br />
-<em class="quotelev1">&gt; From: John Graybeal [mailto:john.graybeal at marinexplore.com] 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Sent: 03 September 2014 17:28
+<em class="quotelev1">&gt; Jim Biard
 </em><br />
-<em class="quotelev1">&gt; To: Alison Pamment
+<em class="quotelev1">&gt; Research Scholar
 </em><br />
-<em class="quotelev1">&gt; Cc: Hollis, Dan; Gregory, Jonathan; CF Metadata List
+<em class="quotelev1">&gt; Cooperative Institute for Climate and Satellites &lt;<a href="http://www.cicsnc.org/">http://www.cicsnc.org/</a>&gt;
 </em><br />
-<em class="quotelev1">&gt; Subject: Re: [CF-metadata] Days of rain
+<em class="quotelev1">&gt; Remote Sensing and Applications Division
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; National Climatic Data Center &lt;<a href="http://www.ncdc.noaa.gov/">http://www.ncdc.noaa.gov/</a>&gt;
 </em><br />
-<em class="quotelev1">&gt; While I agree it is not a big problem to use at_or_above_threshold in this and whatever other standard names eventually are needed, discoverability would be better with the boolean attribute (&quot;comparison_includes_equality&quot;?). As a practical matter, people looking for, e.g., number_of_days_with_lwe_thickness_of_precipitation_amount_above_threshold data will want to discover data that is at_or_above_threshold too, but may not think (or want) to search for the additional term using at_or_above_threshold, even if they know of that possibility. 
+<em class="quotelev1">&gt; 151 Patton Ave, Asheville, NC 28801-5001
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; That said, it's a minor point, I'm OK with either approach. I definitely think names should not rely on a particular observation technology or approach (e.g., quantization, rounding, measurement accuracy or technique). 
+<em class="quotelev1">&gt; jim.biard at noaa.gov &lt;mailto:jim.biard at noaa.gov&gt;
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; 828-271-4900
 </em><br />
-<em class="quotelev1">&gt; Will start a new thread re archives.
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; john
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; Follow us onFacebook &lt;<a href="https://www.facebook.com/cicsnc">https://www.facebook.com/cicsnc</a>&gt;!
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; On Jul 16, 2013, at 11:59 AM, Evan Manning 
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; &lt;Evan.M.Manning at jpl.nasa.gov &lt;mailto:Evan.M.Manning at jpl.nasa.gov&gt;&gt; wrote:
 </em><br />
-<em class="quotelev1">&gt; On Sep 3, 2014, at 06:52, alison.pamment at stfc.ac.uk wrote:
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev2">&gt;&gt; The rewording specifies that puddles are &quot;land&quot;.  What about ponds?
 </em><br />
-<em class="quotelev2">&gt; &gt; Dear Dan,
+<em class="quotelev2">&gt;&gt; lakes?  rivers? great lakes?  Oceans?
 </em><br />
-<em class="quotelev2">&gt; &gt; 
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev2">&gt; &gt; I agree that setting a threshold depending on how the data were collected does not seem very satisfactory and it wouldn't allow you to combine readings from a variety of instruments into a single data product. The definition of 'greater|less than or equal to' is clearly not the same as 'greater|less than' so I would argue that they are different quantities and should have different standard names. Currently we have only nine 'threshold' names in the table and personally I don't think it's a big problem to add one more of the form
+<em class="quotelev2">&gt;&gt; What if we have a grid square that is 50% land at 310 K and 50% ocean 
 </em><br />
-<em class="quotelev2">&gt; &gt; number_of_days_with_lwe_thickness_of_precipitation_amount_at_or_above_threshold. The definition would of course need to make clear the difference from the existing name and in fact the definitions should cross-reference one another to make users aware of both. Do others agree?
+<em class="quotelev2">&gt;&gt; at 290 K?
 </em><br />
-<em class="quotelev2">&gt; &gt; 
+<em class="quotelev2">&gt;&gt; Would it be correct to have these two variables associated with it:
 </em><br />
-<em class="quotelev2">&gt; &gt; Regarding searching the mailing list archives, if I want to find a very specific phrase within the email text I download the plain text file for the appropriate year (available from the main archive page <a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/</a>) and use my browser's 'Find' function. It takes a few minutes to download but it can be a useful way of pinpointing the thing you're looking for.
+<em class="quotelev2">&gt;&gt;  sea_surface_skin_temperature=290
 </em><br />
-<em class="quotelev2">&gt; &gt; 
+<em class="quotelev2">&gt;&gt;  land_surface_skin_temperature=310 (i.e. T of only the non-sea portion)
 </em><br />
-<em class="quotelev2">&gt; &gt; Best wishes,
+<em class="quotelev2">&gt;&gt; or:
 </em><br />
-<em class="quotelev2">&gt; &gt; Alison
+<em class="quotelev2">&gt;&gt;  sea_surface_skin_temperature=290
 </em><br />
-<em class="quotelev2">&gt; &gt; 
+<em class="quotelev2">&gt;&gt;  land_surface_skin_temperature=300 (i.e. mean T of land &amp; sea portions)
 </em><br />
-<em class="quotelev2">&gt; &gt; ------
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev2">&gt; &gt; Alison Pamment                          Tel: +44 1235 778065
+<em class="quotelev2">&gt;&gt; How does that change if instead of being 50% ocean it is 50% lakes &amp; 
 </em><br />
-<em class="quotelev2">&gt; &gt; NCAS/British Atmospheric Data Centre    Email: alison.pamment at stfc.ac.uk
+<em class="quotelev2">&gt;&gt; rivers?
 </em><br />
-<em class="quotelev2">&gt; &gt; STFC Rutherford Appleton Laboratory     
+<em class="quotelev2">&gt;&gt; Or lots and lots of puddles?
 </em><br />
-<em class="quotelev2">&gt; &gt; R25, 2.22
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev2">&gt; &gt; Harwell Oxford, Didcot, OX11 0QX, U.K.
+<em class="quotelev2">&gt;&gt; I think what we're interested in is not so much the top surface of the
 </em><br />
-<em class="quotelev2">&gt; &gt; 
+<em class="quotelev2">&gt;&gt; land as the
 </em><br />
-<em class="quotelev2">&gt; &gt; 
+<em class="quotelev2">&gt;&gt; lower boundary of the atmosphere.  So I like 
 </em><br />
-<em class="quotelev2">&gt; &gt; 
+<em class="quotelev2">&gt;&gt; &quot;surface_skin_temperature&quot;, which
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; -----Original Message-----
+<em class="quotelev2">&gt;&gt; could then be used with a dimension for surface categories.
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; From: Hollis, Dan [mailto:dan.hollis at metoffice.gov.uk]
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; Sent: 03 September 2014 12:55
+<em class="quotelev2">&gt;&gt;  -- Evan
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; To: Gregory, Jonathan; cf-metadata at cgd.ucar.edu
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; Subject: Re: [CF-metadata] Days of rain
+<em class="quotelev3">&gt;&gt;&gt; About a month ago, I submitted a new standard name for the 
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; 
+<em class="quotelev3">&gt;&gt;&gt; &quot;land_surface_skin_temperature.&quot;  While I think the consensus is now 
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; Hi Jonathan,
+<em class="quotelev3">&gt;&gt;&gt; that this new name seems acceptable for inclusion in the CF 
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; 
+<em class="quotelev3">&gt;&gt;&gt; database, there were some comments and suggestions by various people 
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; For manually-read rain gauges the advice to the observer is simply to record
+<em class="quotelev3">&gt;&gt;&gt; who pointed out that the proposed definition for this quantity could 
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; the measurement to one decimal place. For the thresholds of interest this
+<em class="quotelev3">&gt;&gt;&gt; use some more clarification and other comments which pointed out 
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; seems to me to be equivalent to saying the values have been rounded.
+<em class="quotelev3">&gt;&gt;&gt; similarities to the current name &quot;surface_temperature.&quot;  I've 
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; Therefore 0.2 mm does mean 0.15-0.25 mm, 1.0 mm means 0.95-1.05 mm,
+<em class="quotelev3">&gt;&gt;&gt; attempted to address both of these concerns by adding another line 
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; and 10 mm means 9.95-10.05 mm.
+<em class="quotelev3">&gt;&gt;&gt; to the definition which better defines what the &quot;land_surface_skin&quot; 
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; 
+<em class="quotelev3">&gt;&gt;&gt; is.  My hope is that this clears up some uncertainty about this 
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; In contrast automated sites use a tipping bucket gauge (in the UK at least)
+<em class="quotelev3">&gt;&gt;&gt; quantity (e.g. it is not simply the bare land surface but also 
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; which constrains the observations to be multiples of the bucket size. I
+<em class="quotelev3">&gt;&gt;&gt; includes various media above the land surface) and also illustrates 
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; believe that for all the data we use this is a nominal 0.2 mm i.e.
+<em class="quotelev3">&gt;&gt;&gt; that it is not the same thing as the &quot;surface_temperature&quot; quantity 
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; precipitation totals can be 0.0 mm, 0.2 mm, 0.4 mm etc, and values such as
+<em class="quotelev3">&gt;&gt;&gt; (which I understand as idealized, infinitesimally thin interface 
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; 0.1 mm, 0.3 mm, 0.5 mm cannot be reported. Given that all we know is that
+<em class="quotelev3">&gt;&gt;&gt; temperature between the air and land/sea and not the observable 
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; the bucket has tipped (i.e. has become full and caused the mechanism to tip
+<em class="quotelev3">&gt;&gt;&gt; quantity that the &quot;land_surface_skin_temperature&quot; proposes to be).
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; and empty the bucket) this implies that an observation of 0.2 mm actually
+<em class="quotelev3">&gt;&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; means 0.2 &lt;= true value &lt; 0.4 (because the bucket has not yet tipped a
+<em class="quotelev3">&gt;&gt;&gt; With this is mind, here is my latest attempt at this new 
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; second time).
+<em class="quotelev3">&gt;&gt;&gt; name/definition:
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; 
+<em class="quotelev3">&gt;&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; For our gridded climate datasets (rainfall total, days of rain etc) we use data
+<em class="quotelev3">&gt;&gt;&gt; Standard Name:  land_surface_skin_temperature
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; from both types of gauge without correction or adjustment. I think we can
+<em class="quotelev3">&gt;&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; be fairly confident that uncertainties in the interpolation process will be
+<em class="quotelev3">&gt;&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; quite a bit larger than either the observation uncertainty or the differences
+<em class="quotelev3">&gt;&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; between the two observation types i.e. these types of subtlety are probably
+<em class="quotelev3">&gt;&gt;&gt; Definition:  The land surface skin temperature is the aggregate 
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; 'in the noise' and to be honest not something I'd given much thought to.
+<em class="quotelev3">&gt;&gt;&gt; temperature of the &quot;land surface skin,&quot; which is the portion of the 
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; 
+<em class="quotelev3">&gt;&gt;&gt; land surface which emits infrared radiation directly to space 
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; In conclusion I'm slightly reluctant to specify a threshold that tries to reflect
+<em class="quotelev3">&gt;&gt;&gt; through the atmosphere.  The &quot;land surface skin&quot; is defined as an 
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; how the observations have been gathered, partly because this is not the
+<em class="quotelev3">&gt;&gt;&gt; effective layer which includes the upper boundary of the land 
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; same for all sites and partly because it could change in the future (e.g. if we
+<em class="quotelev3">&gt;&gt;&gt; combined with additional layers which may cover the upper land 
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; were to adopt a different type of rain gauge). Personally I'd prefer to
+<em class="quotelev3">&gt;&gt;&gt; boundary (e.g. vegetation, puddles, snow, ice, man-made objects).
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; describe what we do to the data once it has been collected, which in the
+<em class="quotelev3">&gt;&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; case of the 'days of rain' variables is to test if the value is greater than or
+<em class="quotelev3">&gt;&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; equal to a threshold.
+<em class="quotelev3">&gt;&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; 
+<em class="quotelev3">&gt;&gt;&gt; Canonical Units:  K
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; Thoughts?
+<em class="quotelev3">&gt;&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; 
+<em class="quotelev3">&gt;&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; Regards,
+<em class="quotelev3">&gt;&gt;&gt; Sincerely,
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; 
+<em class="quotelev3">&gt;&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; Dan
+<em class="quotelev3">&gt;&gt;&gt; Jonathan
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; 
+<em class="quotelev3">&gt;&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; 
+<em class="quotelev3">&gt;&gt;&gt; On 6/20/2013 7:56 AM, Jonathan Gregory wrote:
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; 
+<em class="quotelev3">&gt;&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; -----Original Message-----
+<em class="quotelev3">&gt;&gt;&gt; Dear Karl
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; From: CF-metadata [mailto:cf-metadata-bounces at cgd.ucar.edu] On Behalf
+<em class="quotelev3">&gt;&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; Of Jonathan Gregory
+<em class="quotelev3">&gt;&gt;&gt; Like Roy, I don't think we should deprecate 
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; Sent: 01 September 2014 17:42
+<em class="quotelev3">&gt;&gt;&gt; sea_surface_skin_temperature.
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; To: cf-metadata at cgd.ucar.edu
+<em class="quotelev3">&gt;&gt;&gt; Although I cannot remember the arguments - which must be apparent in the
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; Subject: [CF-metadata] Days of rain
+<em class="quotelev3">&gt;&gt;&gt; mailing list archive - I do recall that it was a careful and long 
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; 
+<em class="quotelev3">&gt;&gt;&gt; discussion
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; Dear Dan
+<em class="quotelev3">&gt;&gt;&gt; with Craig which led to the introduction of the various SST names.
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; 
+<em class="quotelev3">&gt;&gt;&gt;
 </em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; We have several variables that we describe loosely as 'days of rain'.
+<em class="quotelev3">&gt;&gt;&gt; Therefore adding land_surface_skin_temperature seems fine to me if 
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; Strictly speaking they are a count (e.g. for a calendar month) of the number
+<em class="quotelev3">&gt;&gt;&gt; there is
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; of days when the 24-hour precipitation total was greater than or equal to a
+<em class="quotelev3">&gt;&gt;&gt; a need to be precise about this as an observable quantity, which relates
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; threshold. We currently generate grids for three thresholds - 0.2mm, 1.0mm
+<em class="quotelev3">&gt;&gt;&gt; to a particular layer, even though it's very thin. The definition 
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; and 10.0mm. My intention is to use the following existing standard name:
+<em class="quotelev3">&gt;&gt;&gt; should note
 </em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; 
+<em class="quotelev3">&gt;&gt;&gt; that if this precise meaning is not intended, the name 
 </em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; 
+<em class="quotelev3">&gt;&gt;&gt; surface_temperature
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; number_of_days_with_lwe_thickness_of_precipitation_amount_above_thr
+<em class="quotelev3">&gt;&gt;&gt; could be used, which strictly refers to the temperature at the 
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; eshold
+<em class="quotelev3">&gt;&gt;&gt; interface.
 </em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; 
+<em class="quotelev3">&gt;&gt;&gt;
 </em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; My only slight problem is that the definition implies 'greater than'
+<em class="quotelev3">&gt;&gt;&gt; Best wishes
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; whereas our variables are 'greater than or equal to' the threshold. Assuming
+<em class="quotelev3">&gt;&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; the observations have a precision of 0.1 mm ...
+<em class="quotelev3">&gt;&gt;&gt; Jonathan
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; 
+<em class="quotelev3">&gt;&gt;&gt; _______________________________________________
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; I think it depends on how the data have been treated. Are they rounded to
+<em class="quotelev3">&gt;&gt;&gt; CF-metadata mailing list
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; the
+<em class="quotelev3">&gt;&gt;&gt; CF-metadata at cgd.ucar.edu &lt;mailto:CF-metadata at cgd.ucar.edu&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; nearest 0.1 mm? If so, a recorded value of 0.0 mm means an actual value in
+<em class="quotelev3">&gt;&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; the
+<em class="quotelev3">&gt;&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; range 0.00-0.05 mm, 0.1 mm means 0.05-0.15 mm, 0.2 mm means 0.15-0.25
+<em class="quotelev3">&gt;&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; mm, etc.,
+<em class="quotelev3">&gt;&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; and your threshold of 0.2 mm in recorded precipitation is actually a
+<em class="quotelev3">&gt;&gt;&gt; _______________________________________________
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; threshold
+<em class="quotelev3">&gt;&gt;&gt; CF-metadata mailing list
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; of 0.15 mm. That is therefore what I would suggest as the coordinate value
+<em class="quotelev3">&gt;&gt;&gt; CF-metadata at cgd.ucar.edu
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; for
+<em class="quotelev3">&gt;&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; the threshold.
+<em class="quotelev3">&gt;&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; 
+<em class="quotelev2">&gt;&gt; _______________________________________________
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; Best wishes
+<em class="quotelev2">&gt;&gt; CF-metadata mailing list
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; 
+<em class="quotelev2">&gt;&gt; CF-metadata at cgd.ucar.edu &lt;mailto:CF-metadata at cgd.ucar.edu&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; Jonathan
+<em class="quotelev2">&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; _______________________________________________
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; CF-metadata mailing list
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; CF-metadata at cgd.ucar.edu
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+<em class="quotelev1">&gt; _______________________________________________
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; _______________________________________________
+<em class="quotelev1">&gt; CF-metadata mailing list
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; CF-metadata mailing list
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; CF-metadata at cgd.ucar.edu
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev2">&gt; &gt; -- 
-</em><br />
-<em class="quotelev2">&gt; &gt; Scanned by iCritical.
-</em><br />
-<em class="quotelev2">&gt; &gt; _______________________________________________
-</em><br />
-<em class="quotelev2">&gt; &gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev2">&gt; &gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev2">&gt; &gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<br />----- End forwarded message -----
+<br />-------------- next part --------------
 <br />
-<span id="received"><dfn>Received on</dfn> Thu Sep 04 2014 - 07:03:53 BST</span>
+An HTML attachment was scrubbed...
+<br />
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130716/17aa454f/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130716/17aa454f/attachment-0001.html</a>&gt;
+<br />
+-------------- next part --------------
+<br />
+A non-text attachment was scrubbed...
+<br />
+Name: not available
+<br />
+Type: image/png
+<br />
+Size: 15784 bytes
+<br />
+Desc: not available
+<br />
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130716/17aa454f/attachment-0001.png">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130716/17aa454f/attachment-0001.png</a>&gt;
+<br />
+<span id="received"><dfn>Received on</dfn> Tue Jul 16 2013 - 10:57:53 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -427,12 +456,11 @@ possible to be strict about how the threshold is applied.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start6444">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./6445.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  Return periods"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./6443.html" title="Previous message in the list">Hollis, Dan: "[CF-metadata] Return periods"</a></li>
+<li><dfn>Next message</dfn>: <a href="./6445.html" title="Next message in the list">Evan Manning: "[CF-metadata] new standard name: land_surface_skin_temperature"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./6443.html" title="Previous message in the list">Jim Biard: "[CF-metadata] new standard name: land_surface_skin_temperature"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./6443.html" title="Message to which this message replies">Jim Biard: "[CF-metadata] new standard name: land_surface_skin_temperature"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./6447.html" title="Next message in this discussion thread">John Graybeal: "[CF-metadata] Days of rain"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./6447.html" title="Message sent in reply to this message">John Graybeal: "[CF-metadata] Days of rain"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./6445.html" title="Next message in this discussion thread">Evan Manning: "[CF-metadata] new standard name: land_surface_skin_temperature"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -443,7 +471,7 @@ possible to be strict about how the threshold is applied.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:45 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./6443.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6445.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

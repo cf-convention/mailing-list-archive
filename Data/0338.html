@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF and multi-forecast system ensemble data from Jonathan Gregory on 2006-10-16 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] CF and multi-forecast system ensemble data" />
-<meta name="Date" content="2006-10-16" />
+<title>[CF-metadata] WRF staggered grids and vertical coordinates from John Caron on 2004-01-23 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] WRF staggered grids and vertical coordinates" />
+<meta name="Date" content="2004-01-23" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0337.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0339.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF and multi-forecast system ensemble data</h1>
-<!-- received="Mon Oct 16 10:43:12 2006" -->
-<!-- isoreceived="20061016094312" -->
-<!-- sent="Mon, 16 Oct 2006 17:43:12 +0100" -->
-<!-- isosent="20061016164312" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] CF and multi-forecast system ensemble data" -->
-<!-- id="20061016164312.GA11570_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0337.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0339.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] WRF staggered grids and vertical coordinates</h1>
+<!-- received="Fri Jan 23 10:30:16 2004" -->
+<!-- isoreceived="20040123103016" -->
+<!-- sent="Fri, 23 Jan 2004 09:30:16 -0800" -->
+<!-- isosent="20040123173016" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] WRF staggered grids and vertical coordinates" -->
+<!-- id="40115A28.5050400_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="3FD64858.4050107_at_unidata.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,11 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0339.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Satellite community use of netCDF CF (GHRSST-PP)&quot;">Next message</a> ]
-[ <a href="./0337.html" title="Steve Emmerson: &quot;[CF-metadata] Re: units in cf standard names&quot;">Previous message</a> ]
+[ <a href="./0339.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] WRF staggered grids and vertical coordinates&quot;">Next message</a> ]
+[ <a href="./0337.html" title="Jonathan Gregory: &quot;[CF-metadata] Array Subscript Convention&quot;">Previous message</a> ]
+[ <a href="./0330.html" title="John Caron: &quot;[CF-metadata] WRF staggered grids and vertical coordinates&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0348.html" accesskey="t" title="Francisco Doblas-Reyes: &quot;[CF-metadata] CF and multi-forecast system ensemble data&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,80 +70,456 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20and%20multi-forecast%20system%20ensemble%20data">j.m.gregory</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20WRF%20staggered%20grids%20and%20vertical%20coordinates">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 16 Oct 2006 17:43:12 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 23 Jan 2004 09:30:16 -0800</span><br />
 </address>
 <br />
-Dear Francisco
+Hi again:
 <br />
-<br />The metadata you propose for describing experiments is the kind of information
+<br />The WRF people are asking me if i have anything ready. i'm wondering how 
 <br />
-that can be stored in the attributes institution, source etc. (in CF 2.6.2),
+to proceed. has anyone had a chance to think about the proposal on 
 <br />
-especially if you standardised them for your purposes. There have been 
+handling staggered coordinates below? if the basic idea is sound,  i can 
 <br />
-previous postings about standardising discovery metadata of this kind. If
+submit some detailed wording that could go into the spec (i assume 1.1 ?)
 <br />
-you can use these attributes, you do not need standard names for them.
+<br /><br />John Caron wrote:
 <br />
-<br />However, is it your intention to have data variables with experiment, centre
-<br />
-etc. as dimensions? In that case you may need standard names for them, I agree.
-<br />
-Such variables would have a lot of dimensions.
-<br />
-<br />I would advise against codes for forecast_system_version_number and
-<br />
-forecast_method_number. Even with online lookup tables, we avoid codes in
-<br />
-the CF convention because they are not self-describing. Could you not make
-<br />
-these strings as well?
-<br />
-<br /><em class="quotelev1">&gt; - We use the variables &quot;forecast_period&quot; and &quot;forecast_reference_time&quot; 
+<br /><em class="quotelev1">&gt; Hello all:
 </em><br />
-<em class="quotelev1">&gt; as independent time variables employed to define the two time axes of a 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; forecast dataset with several start dates, ie, both &quot;forecast_period&quot; 
+<em class="quotelev1">&gt; I want to revive discussion if possible on how to represent staggered 
 </em><br />
-<em class="quotelev1">&gt; and &quot;forecast_reference_time&quot; are multivalued. We believe that 
+<em class="quotelev1">&gt; grids. We need this to get WRF model output into CF. I realize the 
 </em><br />
-<em class="quotelev1">&gt; &quot;forecast_period&quot; cannot have time units referenced to a specific date 
+<em class="quotelev1">&gt; previous email was rather rambling, let me see if i can summarize a 
 </em><br />
-<em class="quotelev1">&gt; as &quot;forecast_reference_time&quot; does. This is to prevent having in the file 
+<em class="quotelev1">&gt; concrete proposal:
 </em><br />
-<em class="quotelev1">&gt; forecasts with the same verifying date but produced from a different 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; start date (and, hence, intrinsically different). An alternative would 
+<em class="quotelev1">&gt; Add a standard attribute called &quot;stagger&quot;, used only by coordinate 
 </em><br />
-<em class="quotelev1">&gt; consist in introducing an index dimension and make two one-dimensional 
+<em class="quotelev1">&gt; axes (we uses &quot;coordinate axis&quot; as a generalization of 1D &quot;coordinate 
 </em><br />
-<em class="quotelev1">&gt; auxiliary time coordinate variables with this dimension, as suggested by 
+<em class="quotelev1">&gt; variable&quot; that can have any number of dimensions).
 </em><br />
-<em class="quotelev1">&gt; Jonathan Gregory in the thread &quot;file with both run time and forecast 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; (valid) time coordinates&quot;.
+<em class="quotelev1">&gt; The stagger attribute associates 2 coordinate axes, indicating that 
 </em><br />
-<br />In the earlier discussion which led to my posting
-<br />
-<a href="http://www.cgd.ucar.edu/pipermail/cf-metadata/2006/001008.html">http://www.cgd.ucar.edu/pipermail/cf-metadata/2006/001008.html</a>
-<br />
-we decided we did not need to have two-dimensional time. It is true that
-<br />
-you could have separate axes for forecast_reference_time and forecast_period
-<br />
-(case iv in that posting), if all combinations exist, but is it necessary?
-<br />
-The argument is that it is simpler for the CF standard to use 1D auxiliary
-<br />
-coord variables, because then one structure can handle many different cases.
-<br />
-<br />Best wishes
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Mon Oct 16 2006 - 10:43:12 BST</span>
+<em class="quotelev1">&gt; they represent the same coordinates, but are offset from each other. A 
+</em><br />
+<em class="quotelev1">&gt; variable can use a staggered coordinate in its coordinates attribute. 
+</em><br />
+<em class="quotelev1">&gt; A client should use interpolation to translate between staggered and 
+</em><br />
+<em class="quotelev1">&gt; unstaggered coordinates.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Examples. Note the match (or mismatch) of dimensions between the 
+</em><br />
+<em class="quotelev1">&gt; variables and their coordinate axes. This is ok because of the 
+</em><br />
+<em class="quotelev1">&gt; &quot;stagger&quot; attributes.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  float x(x);
+</em><br />
+<em class="quotelev1">&gt;  float x_stag(x_stag);
+</em><br />
+<em class="quotelev1">&gt;     x_stag:stagger=&quot;x&quot;;   float y(y);
+</em><br />
+<em class="quotelev1">&gt;  float y_stag(y_stag);
+</em><br />
+<em class="quotelev1">&gt;     y_stag:stagger=&quot;y&quot;;   
+</em><br />
+<em class="quotelev1">&gt;  float lat(t, y, x);
+</em><br />
+<em class="quotelev1">&gt;  float lon(t, y, x);
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  float ZNU(t, z);
+</em><br />
+<em class="quotelev1">&gt;     ZNU:long_name = &quot;eta values on half (mass) levels&quot;;
+</em><br />
+<em class="quotelev1">&gt;     ZNU:positive = &quot;down&quot;;
+</em><br />
+<em class="quotelev1">&gt;     ZNU:standard_name = &quot;terrain-following_eta_coordinate&quot;;
+</em><br />
+<em class="quotelev1">&gt;     ZNU:formula_terms = &quot;pressure_perturbation: P pressure_base: PB&quot;;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  float ZNW(t, z_stag);
+</em><br />
+<em class="quotelev1">&gt;     ZNW:long_name = &quot;eta values on full (w) levels&quot;;
+</em><br />
+<em class="quotelev1">&gt;     ZNW:positive = &quot;down&quot;;
+</em><br />
+<em class="quotelev1">&gt;     ZNW:standard_name = &quot;terrain-following_eta_coordinate&quot;;
+</em><br />
+<em class="quotelev1">&gt;     ZNW:formula_terms = &quot;pressure_perturbation: P pressure_base: PB&quot;; 
+</em><br />
+<em class="quotelev1">&gt; // P, PB  not on z_stag
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  float N(t, z, y, x);
+</em><br />
+<em class="quotelev1">&gt;     N:coordinates = &quot;lat lon ZNU&quot;;  // normal case
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  float U(t, z, y, x_stag);
+</em><br />
+<em class="quotelev1">&gt;     U:coordinates = &quot;lat lon ZNU&quot;;  // lat, lon not on y, x_stag
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  float V(t, z, y_stag, x);
+</em><br />
+<em class="quotelev1">&gt;     V:coordinates = &quot;lat lon ZNU&quot;; // lat, lon not on y_stag, x
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  float W(t, z_stag, y, x);
+</em><br />
+<em class="quotelev1">&gt;     V:coordinates = &quot;lat lon ZNW&quot;;  // normal case
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; John Caron wrote:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Further thoughts on WRF staggered and vertical coordinates
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Most quantities in the file are on a normal grid, say
+</em><br />
+<em class="quotelev2">&gt;&gt;    float N(t, z, y, x);
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; This is a projection, and we do have the 2D lat, lon values:
+</em><br />
+<em class="quotelev2">&gt;&gt;   float lat(t, y, x);
+</em><br />
+<em class="quotelev2">&gt;&gt;   float lon(t, y, x);
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; However there are some quantities on a staggered x coordinate (we'll 
+</em><br />
+<em class="quotelev2">&gt;&gt; call x_stag), or on a staggered y coordinate (we'll call y_stag). 
+</em><br />
+<em class="quotelev2">&gt;&gt; Staggrered means that they are offset by half a grid cell, ie these 
+</em><br />
+<em class="quotelev2">&gt;&gt; are the &quot;edges&quot; of the grids:
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;    float U(z, y, x_stag);
+</em><br />
+<em class="quotelev2">&gt;&gt;    float V(z, y_stag, x);
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; The usual thing to do would be to also have lat, lon arrays for these 
+</em><br />
+<em class="quotelev2">&gt;&gt; 2 cases:
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;   float lat2(t, y, x_stag);
+</em><br />
+<em class="quotelev2">&gt;&gt;   float lon2(t, y, x_stag);
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;   float lat3(t, y_stag, x);
+</em><br />
+<em class="quotelev2">&gt;&gt;   float lon3(t, y_stag, x);
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; (there are none using y-stag, x_stag coordinates, but in principle i 
+</em><br />
+<em class="quotelev2">&gt;&gt; suppose there could be).
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Now to add in the vertical coordinates:
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; The z coordinate is &quot;eta values on half (mass) levels&quot;. Here is how 
+</em><br />
+<em class="quotelev2">&gt;&gt; the WRF experts describe how to transform to pressure:
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; standard_name = &quot;terrain-following_eta_coordinate&quot;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Definition: (but these are not coordinate definitions)
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;   press(n,k,j,i) = P(n,k,j,i) + PB(n,k,j,i)
+</em><br />
+<em class="quotelev2">&gt;&gt; where press is the pressure at model gridpoint (k,j,i) and time (n),
+</em><br />
+<em class="quotelev2">&gt;&gt; P is the perturbation pressure and PB the base state pressure
+</em><br />
+<em class="quotelev2">&gt;&gt; at gridpoint (k,j,i) and time (n). These pressures are defined at
+</em><br />
+<em class="quotelev2">&gt;&gt; non-staggered eta levels, which are defined by ZNU.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; So we have these fields in the file to satisfy the above 
+</em><br />
+<em class="quotelev2">&gt;&gt; definition:     float P(t, z, y, x);
+</em><br />
+<em class="quotelev2">&gt;&gt;   float PB(t, z, y, x);
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; However this will not work for the staggered grids, so we would need:
+</em><br />
+<em class="quotelev2">&gt;&gt;   float P2(t, z, y, x_stag);
+</em><br />
+<em class="quotelev2">&gt;&gt;   float PB3(t, z, y, x_stag);
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;   float P3(t, z, y_stag, x);
+</em><br />
+<em class="quotelev2">&gt;&gt;   float PB3(t, z, y_stag, x);
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; The z coordinate also comes in a staggered form, we'll call z_stag, 
+</em><br />
+<em class="quotelev2">&gt;&gt; so we also need
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;   float P4(t, z_stag, y, x);
+</em><br />
+<em class="quotelev2">&gt;&gt;   float PB4(t, z_stag, y, x);
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; To summarize, there are staggered coordinates for x, y, and z. In 
+</em><br />
+<em class="quotelev2">&gt;&gt; principle one could create 8 different grids, in practice it appears 
+</em><br />
+<em class="quotelev2">&gt;&gt; that only 4 are used.
+</em><br />
+<em class="quotelev2">&gt;&gt; This still seems like a mess, and I doubt we really want all these 
+</em><br />
+<em class="quotelev2">&gt;&gt; variations explicitly added, in the form of  6 extra 4D variables, 
+</em><br />
+<em class="quotelev2">&gt;&gt; and 4 extra 3D variables.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; In actual practice, the advice is to interpolate back to the normal 
+</em><br />
+<em class="quotelev2">&gt;&gt; grid:
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; U and V, together with temp and moisture variables are on non-staggered
+</em><br />
+<em class="quotelev2">&gt;&gt; vertical grid (we sometimes call it half-eta levels), and pressure too.
+</em><br />
+<em class="quotelev2">&gt;&gt; Only vertical motion, W, and geopotential height fields (PH and PHB) are
+</em><br />
+<em class="quotelev2">&gt;&gt; output on staggered vertical grid (we sometimes call these levels 
+</em><br />
+<em class="quotelev2">&gt;&gt; full-eta
+</em><br />
+<em class="quotelev2">&gt;&gt; levels). When we do post-processing using other software, we typically
+</em><br />
+<em class="quotelev2">&gt;&gt; average W and PH/PHB to half-eta levels to make all variables colocate
+</em><br />
+<em class="quotelev2">&gt;&gt; vertically. This is a simple arithmetic average.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Then there is the horizontal staggering, where U is not colocated with
+</em><br />
+<em class="quotelev2">&gt;&gt; V and all other variables. It may be easier to consider averaging U 
+</em><br />
+<em class="quotelev2">&gt;&gt; and V
+</em><br />
+<em class="quotelev2">&gt;&gt; to the non-staggered horizontal grid, since when one computes 
+</em><br />
+<em class="quotelev2">&gt;&gt; meteorological
+</em><br />
+<em class="quotelev2">&gt;&gt; wind fields (whether it is wind speed, or vectors), the wind components
+</em><br />
+<em class="quotelev2">&gt;&gt; need to be colocated. On the other hand, if we'd want to do 
+</em><br />
+<em class="quotelev2">&gt;&gt; diagnostics, we may
+</em><br />
+<em class="quotelev2">&gt;&gt; want to use the U and V on their original staggering. An example 
+</em><br />
+<em class="quotelev2">&gt;&gt; maybe the
+</em><br />
+<em class="quotelev2">&gt;&gt; calculation of divergence or vorticity. So we may have the need to 
+</em><br />
+<em class="quotelev2">&gt;&gt; provide
+</em><br />
+<em class="quotelev2">&gt;&gt; height and pressure on U and V grid. To do that, again we can simply 
+</em><br />
+<em class="quotelev2">&gt;&gt; average
+</em><br />
+<em class="quotelev2">&gt;&gt; the nearby grid values to those at U and V.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; So one way out is that variables on staggered coordinates can use the 
+</em><br />
+<em class="quotelev2">&gt;&gt; normal grid coordinates as their coordinate system, by either 
+</em><br />
+<em class="quotelev2">&gt;&gt; interpolating the variable to the normal grid coordinates, or i 
+</em><br />
+<em class="quotelev2">&gt;&gt; suppose, interpolate the normal grid coordinates to the staggered 
+</em><br />
+<em class="quotelev2">&gt;&gt; ones. This is what we might mean by &quot;stagger&quot;, that such 
+</em><br />
+<em class="quotelev2">&gt;&gt; interpolation is reasonable. If its not, then you have to specifiy 
+</em><br />
+<em class="quotelev2">&gt;&gt; the coordinate systems independently and in all their gorious detail.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; So concretely, if the above proposal was implemented, we are allowed 
+</em><br />
+<em class="quotelev2">&gt;&gt; to use non-staggered lat, lon and Z coordinates for staggered 
+</em><br />
+<em class="quotelev2">&gt;&gt; variables. The client program would be in charge of the interpolation.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;   float x(x);
+</em><br />
+<em class="quotelev2">&gt;&gt;   float x_stag(x_stag);
+</em><br />
+<em class="quotelev2">&gt;&gt;      x_stag:stagger=&quot;x&quot;;
+</em><br />
+<em class="quotelev2">&gt;&gt;   float y(y);
+</em><br />
+<em class="quotelev2">&gt;&gt;   float y_stag(y_stag);
+</em><br />
+<em class="quotelev2">&gt;&gt;      y_stag:stagger=&quot;y&quot;;     float lat(t, y, x);
+</em><br />
+<em class="quotelev2">&gt;&gt;   float lon(t, y, x);
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;   float ZNU(t, z);
+</em><br />
+<em class="quotelev2">&gt;&gt;      ZNU:long_name = &quot;eta values on half (mass) levels&quot;;
+</em><br />
+<em class="quotelev2">&gt;&gt;      ZNU:positive = &quot;down&quot;;
+</em><br />
+<em class="quotelev2">&gt;&gt;      ZNU:standard_name = &quot;terrain-following_eta_coordinate&quot;;
+</em><br />
+<em class="quotelev2">&gt;&gt;      ZNU:formula_terms = &quot;pressure_perturbation: P pressure_base: PB&quot;;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;   float ZNW(t, z_stag);
+</em><br />
+<em class="quotelev2">&gt;&gt;      ZNW:long_name = &quot;eta values on full (w) levels&quot;;
+</em><br />
+<em class="quotelev2">&gt;&gt;      ZNW:positive = &quot;down&quot;;
+</em><br />
+<em class="quotelev2">&gt;&gt;      ZNW:standard_name = &quot;terrain-following_eta_coordinate&quot;;
+</em><br />
+<em class="quotelev2">&gt;&gt;      ZNW:formula_terms = &quot;pressure_perturbation: P pressure_base: 
+</em><br />
+<em class="quotelev2">&gt;&gt; PB&quot;;  // P, PB  not on z_stag
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;   float N(t, z, y, x);
+</em><br />
+<em class="quotelev2">&gt;&gt;      N:coordinates = &quot;lat lon ZNU&quot;;  // normal case
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;    float U(t, z, y, x_stag);
+</em><br />
+<em class="quotelev2">&gt;&gt;      U:coordinates = &quot;lat lon ZNU&quot;;  // lat, lon not on y, x_stag
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;   float V(t, z, y_stag, x);
+</em><br />
+<em class="quotelev2">&gt;&gt;      V:coordinates = &quot;lat lon ZNU&quot;; // lat, lon not on y_stag, x
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;   float W(t, z_stag, y, x);
+</em><br />
+<em class="quotelev2">&gt;&gt;      V:coordinates = &quot;lat lon ZNW&quot;;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; _______________________________________________
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt;&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<span id="received"><dfn>Received on</dfn> Fri Jan 23 2004 - 10:30:16 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -151,12 +527,10 @@ coord variables, because then one structure can handle many different cases.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start338">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0339.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Satellite community use of netCDF CF (GHRSST-PP)"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0337.html" title="Previous message in the list">Steve Emmerson: "[CF-metadata] Re: units in cf standard names"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0339.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] WRF staggered grids and vertical coordinates"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0337.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Array Subscript Convention"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0330.html" title="Message to which this message replies">John Caron: "[CF-metadata] WRF staggered grids and vertical coordinates"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0348.html" title="Next message in this discussion thread">Francisco Doblas-Reyes: "[CF-metadata] CF and multi-forecast system ensemble data"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0348.html" title="Message sent in reply to this message">Francisco Doblas-Reyes: "[CF-metadata] CF and multi-forecast system ensemble data"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -167,7 +541,7 @@ coord variables, because then one structure can handle many different cases.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:48 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0337.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0339.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Gaussian Lat/Lon grids from John Caron on 2007-06-27 (mailing-list-archive)</title>
-<meta name="Author" content="John Caron (caron)" />
-<meta name="Subject" content="[CF-metadata] Gaussian Lat/Lon grids" />
-<meta name="Date" content="2007-06-27" />
+<title>[CF-metadata] CF convention for vector quantities from Bert Jagers on 2006-02-24 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Bert Jagers (Bert.Jagers)" />
+<meta name="Subject" content="[CF-metadata] CF convention for vector quantities" />
+<meta name="Date" content="2006-02-24" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0860.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0862.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Gaussian Lat/Lon grids</h1>
-<!-- received="Wed Jun 27 09:51:24 2007" -->
-<!-- isoreceived="20070627085124" -->
-<!-- sent="Wed, 27 Jun 2007 09:51:24 -0600" -->
-<!-- isosent="20070627155124" -->
-<!-- name="John Caron" -->
-<!-- email="caron" -->
-<!-- subject="[CF-metadata] Gaussian Lat/Lon grids" -->
-<!-- id="4682877C.7010203_at_unidata.ucar.edu" -->
+<a style="text-decoration:none" href="./0860.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0862.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF convention for vector quantities</h1>
+<!-- received="Fri Feb 24 10:37:03 2006" -->
+<!-- isoreceived="20060224103703" -->
+<!-- sent="Fri, 24 Feb 2006 18:37:03 +0100" -->
+<!-- isosent="20060224173703" -->
+<!-- name="Bert Jagers" -->
+<!-- email="Bert.Jagers" -->
+<!-- subject="[CF-metadata] CF convention for vector quantities" -->
+<!-- id="01de01c63968$ec97a120$ebe20991_at_wl06377" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20070627012628.GI3269_at_ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0862.html" accesskey="d" title="Karl Taylor: &quot;[CF-metadata] Gaussian Lat/Lon grids&quot;">Next message</a> ]
-[ <a href="./0860.html" title="Brian Eaton: &quot;[CF-metadata] Gaussian Lat/Lon grids&quot;">Previous message</a> ]
-[ <a href="./0858.html" title="Brian Eaton: &quot;[CF-metadata] Gaussian Lat/Lon grids&quot;">In reply to</a> ]
+[ <a href="./0862.html" accesskey="d" title="sdj at tiscali.it: &quot;[CF-metadata] Azimuthal Equidistant Projection&quot;">Next message</a> ]
+[ <a href="./0860.html" title="Jonathan Gregory: &quot;[CF-metadata] Specifying a wavelength for a standard_name&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0862.html" accesskey="t" title="Karl Taylor: &quot;[CF-metadata] Gaussian Lat/Lon grids&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,168 +68,142 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20Gaussian%20Lat%2FLon%20grids">caron</a>&gt;
+<dfn>From</dfn>: Bert Jagers &lt;<a href="mailto:Bert.Jagers?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20convention%20for%20vector%20quantities">Bert.Jagers</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 27 Jun 2007 09:51:24 -0600</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 24 Feb 2006 18:37:03 +0100</span><br />
 </address>
 <br />
-thanks Brian!
+Hi All,
 <br />
-<br />would you also recommend storing the gaussian weights in the file? somehow otherwise documenting this?
+<br />First of all thanks for your replies to my question about CF2 and standard
 <br />
-<br />Brian Eaton wrote:
+names two/three weeks ago. Main conclusions from that discussion seem to be:
 <br />
-<em class="quotelev1">&gt; Hi John,
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; In order to construct latitude cell bounds so that the cell areas give
-</em><br />
-<em class="quotelev1">&gt; identical integrals over the surface of a unit sphere to those that would
-</em><br />
-<em class="quotelev1">&gt; be obtained by Gaussian integration, we do the following:
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Let phi(j), j = 1, nlat  be the Gauss points ordered from S.P. to N.P.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Let phi_bnd(j), j = 1, nlat+1  be the latitude cell edges which satisfy
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt;  phi_bnd(j) &lt; phi(j) &lt; phi_bnd(j+1)  for all j = 1, nlat
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt;  and phi_bnd(1) = -pi/2,  phi_bnd(nlat+1) = pi/2.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Let gw(j), j = 1, nlat be the Gauss weights corresponding to Gauss points
-</em><br />
-<em class="quotelev1">&gt; phi(j). 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; In psuedo code:
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; sin_phi_bnd(1) = -1.0
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; do j = 1, nlat
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt;   sin_phi_bnd(j+1) = sin_phi_bnd(j) + gw(j)
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; end do
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Then compute corresponding latitudes by taking arc sine.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Note that since sin_phi_bnd(1) = -1, and since the Gauss weights sum to
-</em><br />
-<em class="quotelev1">&gt; 2.0, then sin_phi_bnd(nlat+1) will equal 1.0 to within the accuracy that
-</em><br />
-<em class="quotelev1">&gt; the Gauss weights sum to 2.0.  We generally set sin_phi_bnd(nlat+1) = 1.0
-</em><br />
-<em class="quotelev1">&gt; and let the accumulated error in the sum of the Gauss weights (hopefully at
-</em><br />
-<em class="quotelev1">&gt; the double precision roundoff level) be included in the last latitude cell.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Brian
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; On Tue, Jun 26, 2007 at 10:08:57AM -0600, John Caron wrote:
-</em><br />
-<em class="quotelev2">&gt;&gt; Hi Karl:
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Is there a standard way that the latitude bounds should be calculated that reflects the gaussian?
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; If I do include the weights, sounds like I should include a description of how they were calculated. I used &quot;the roots of the ordinary Legendre polynomial of degree NLAT using Newton's iteration method&quot;. Does that seem sufficient and useful?
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; BTW, it appears you didnt send to list, so i forwarded.
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Karl Taylor wrote:
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Dear John,
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; I think that CF doesn't bother identifying gaussian grids or weights as 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; such, but simply stores the latitude values and the latitude bounds. 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; This avoids the problem that there is no unique way of defining weights 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; for a given spherical harmonic truncation (although conventionally 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; nearly everyone does this in the same way).
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; I hope someone will correct me if I've said anything incorrect.
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; cheers,
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Karl
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; John Caron wrote:
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; I dont see a standard for encoding gaussian weights for a gaussian 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; Latitude grid (eg GRIB GDS type 4 &quot;Gaussian Lat/Lon&quot;). Does this seem 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; needed? If so, any suggestions?
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; _______________________________________________
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; _______________________________________________
-</em><br />
-<em class="quotelev2">&gt;&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev2">&gt;&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev2">&gt;&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<span id="received"><dfn>Received on</dfn> Wed Jun 27 2007 - 09:51:24 BST</span>
+<br />* standardized Datum attribute needed for specifying a reference level
+<br />
+(don't include reference level in standard name)
+<br />
+* name spaces can be used to resolve perception issues related to standard
+<br />
+naming conventions, e.g. sea_surface_height for water level in other water
+<br />
+bodies than seas, but one must be carefull when mapping between such name
+<br />
+spaces.
+<br />
+<br />Now I have some new questions related to vector quantities ...
+<br />
+<br />Over past the two days I had a brief discussion with Rich Signell with
+<br />
+respect to the extension of CF convention to include some attributes for
+<br />
+vector quantities. A plotting tool that I developed should automatically
+<br />
+detect vector quantities and process and plot them accordingly. As far as I
+<br />
+am aware there is currently no part in the CF convention that makes such
+<br />
+automatic detection possible (except for implementing the standard names of
+<br />
+all known vector quantities). Vector quantities include quantities such as:
+<br />
+<br />&quot;eastward_sea_water_velocity&quot; and &quot;northward_sea_water_velocity&quot;
+<br />
+&quot;sea_water_x_velocity&quot; and &quot;sea_water_y_velocity&quot;
+<br />
+&quot;eastward_atmosphere_dry_static_energy_transport_across_unit_distance&quot;
+<br />
+&quot;eastward_atmosphere_water_transport_across_unit_distance&quot;
+<br />
+&quot;eastward_momentum_flux_correction&quot;
+<br />
+&quot;eastward_sea_ice_velocity&quot;
+<br />
+&quot;product_of_eastward_sea_water_velocity_and_temperature&quot;
+<br />
+&quot;product_of_eastward_wind_and_air_temperature&quot;
+<br />
+&quot;product_of_eastward_wind_and_geopotential_height&quot;
+<br />
+<br />... and on and on and on....
+<br />
+<br />I would prefer not to have to implement all these names. I see two
+<br />
+alternatives:
+<br />
+<br />1) Introduce dummy quantity &quot;sea_water_velocity&quot; and refer to the associated
+<br />
+components by means of an appropriate attribute, e.g. &quot;Components&quot;.
+<br />
+Alternatively both component could refer to the both components, e.g.
+<br />
+Components : uflow vflow
+<br />
+where
+<br />
+variable     standard_name
+<br />
+uflow        eastward_sea_water_velocity
+<br />
+vflow        northward_sea_water_velocity
+<br />
+This solution does not yet resolve associated issue A (see below).
+<br />
+<br />2) Introduce standard prefixes for vector components to e.g.
+<br />
+&quot;eastward_component_of_sea_water_velocity&quot; and
+<br />
+&quot;northward_component_of_sea_water_velocity&quot; and stick to
+<br />
+these names, that is
+<br />
+&quot;product_of_eastward_sea_water_velocity_and_temperature&quot;
+<br />
+becomes
+<br />
+&quot;eastward_component_of_product_of_sea_water_velocity_and_temperature&quot;
+<br />
+... or some equivalent postfix.
+<br />
+<br />However, two other issues are related to this question:
+<br />
+<br />A) Distinction between components in east and north direction and components
+<br />
+in the two grid directions: in which direction are the two components
+<br />
+defined? It seems that &quot;sea_water_x_velocity&quot; and &quot;sea_water_y_velocity&quot; are
+<br />
+used for components in the grid direction although in local coordinate
+<br />
+systems x and y are generally associated with the two main coordinate
+<br />
+directions whereas the grid may be curvilinear. Most likely
+<br />
+&quot;direction_of_sea_water_velocity&quot; and &quot;sea_water_speed&quot; should form together
+<br />
+a vector quantity. Central question: which types of vector components are
+<br />
+needed?
+<br />
+<br />B) Staggering of data. The ROMS and Delft3D applications that we are looking
+<br />
+at work both with staggered numerical schemes. So, in fact the two velocity
+<br />
+components are provided at two different location sets. Before we can deal
+<br />
+with these vector quantities correctly we need some standardization on
+<br />
+staggered data. I know there have been some preliminary discussions on this
+<br />
+matter in the context of CF2, but what is a realistic time schedule for
+<br />
+these discussions to continue and settle?
+<br />
+<br />Best regards,
+<br />
+<br />Bert
+<br />
+<span id="received"><dfn>Received on</dfn> Fri Feb 24 2006 - 10:37:03 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -241,13 +211,9 @@ thanks Brian!
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start861">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0862.html" title="Next message in the list">Karl Taylor: "[CF-metadata] Gaussian Lat/Lon grids"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0860.html" title="Previous message in the list">Brian Eaton: "[CF-metadata] Gaussian Lat/Lon grids"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0858.html" title="Message to which this message replies">Brian Eaton: "[CF-metadata] Gaussian Lat/Lon grids"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0862.html" title="Next message in the list">sdj at tiscali.it: "[CF-metadata] Azimuthal Equidistant Projection"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0860.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Specifying a wavelength for a standard_name"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0862.html" title="Next message in this discussion thread">Karl Taylor: "[CF-metadata] Gaussian Lat/Lon grids"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0862.html" title="Message sent in reply to this message">Karl Taylor: "[CF-metadata] Gaussian Lat/Lon grids"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -258,7 +224,7 @@ thanks Brian!
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:57 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0860.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0862.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Temporal nitpicks. from Armstrong, Edward M on 2016-09-23 (mailing-list-archive)</title>
-<meta name="Author" content="Armstrong, Edward M (Edward.M.Armstrong)" />
-<meta name="Subject" content="[CF-metadata] Temporal nitpicks." />
-<meta name="Date" content="2016-09-23" />
+<title>[CF-metadata] How to define time coordinate in GPS? from Jim Biard on 2015-05-18 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jim Biard (jbiard)" />
+<meta name="Subject" content="[CF-metadata] How to define time coordinate in GPS?" />
+<meta name="Date" content="2015-05-18" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./7798.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7800.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Temporal nitpicks.</h1>
-<!-- received="Thu Sep 22 17:07:26 2016" -->
-<!-- isoreceived="20160922160726" -->
-<!-- sent="Thu, 22 Sep 2016 23:07:26 +0000" -->
-<!-- isosent="20160922230726" -->
-<!-- name="Armstrong, Edward M" -->
-<!-- email="Edward.M.Armstrong" -->
-<!-- subject="[CF-metadata] Temporal nitpicks." -->
-<!-- id="D409B0C3.1791A%edward.m.armstrong_at_jpl.nasa.gov" -->
+<a style="text-decoration:none" href="./7798.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7800.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] How to define time coordinate in GPS?</h1>
+<!-- received="Mon May 18 11:35:32 2015" -->
+<!-- isoreceived="20150518103532" -->
+<!-- sent="Mon, 18 May 2015 13:35:32 -0400" -->
+<!-- isosent="20150518173532" -->
+<!-- name="Jim Biard" -->
+<!-- email="jbiard" -->
+<!-- subject="[CF-metadata] How to define time coordinate in GPS?" -->
+<!-- id="555A22E4.5040201_at_cicsnc.org" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="58445a82-3046-cb21-8b2c-866f12d382c3_at_ucar.edu" -->
+<!-- inreplyto="20150514154953.GA7413_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./7800.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Feedback requested on proposed CF Simple Geometries&quot;">Next message</a> ]
-[ <a href="./7798.html" title="Seth McGinnis: &quot;[CF-metadata] Temporal nitpicks.&quot;">Previous message</a> ]
-[ <a href="./7798.html" title="Seth McGinnis: &quot;[CF-metadata] Temporal nitpicks.&quot;">In reply to</a> ]
+[ <a href="./7800.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] flux&quot;">Next message</a> ]
+[ <a href="./7798.html" title="Jim Biard: &quot;[CF-metadata] New standard name requests for TSI and SSI&quot;">Previous message</a> ]
+[ <a href="./7788.html" title="Jonathan Gregory: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./7797.html" accesskey="t" title="Seth McGinnis: &quot;[CF-metadata] Temporal nitpicks.&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -71,118 +70,396 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Armstrong, Edward M &lt;<a href="mailto:Edward.M.Armstrong?Subject=Re%3A%20%5BCF-metadata%5D%20Temporal%20nitpicks.">Edward.M.Armstrong</a>&gt;
+<dfn>From</dfn>: Jim Biard &lt;<a href="mailto:jbiard?Subject=Re%3A%20%5BCF-metadata%5D%20How%20to%20define%20time%20coordinate%20in%20GPS%3F">jbiard</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 22 Sep 2016 23:07:26 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 18 May 2015 13:35:32 -0400</span><br />
 </address>
 <br />
-Without the ?T' the ISO compliance of the time stamp is in a gray area.
+Jonathan,
 <br />
-<br />According to the wiki
+<br />We are definitely getting much closer to full agreement. I continue to 
 <br />
-<br /><a href="https://en.wikipedia.org/wiki/ISO_8601">https://en.wikipedia.org/wiki/ISO_8601</a>
+think that a separate time_system (or some such) attribute would be a 
 <br />
-<br /><br />&quot;It is permitted to omit the 'T' character by mutual agreement?
+much better way to handle this than modifying the calendar attribute, 
 <br />
-<br />But then I would assume:
+and that space-separated calendar modifiers would be next best after 
 <br />
-<br />&lt;date&gt;T&lt;time&gt; turns into &lt;date&gt;&lt;time&gt;
+that, but I will bow to the apparent majority and agree to your proposal 
 <br />
-<br /><br />(no space between date and time, exceedingly less human readable)
+for modified definitions of the general reference time and Gregorian 
 <br />
-<br />On 9/22/16, 3:43 PM, &quot;CF-metadata on behalf of Seth McGinnis&quot;
+calendar, the addition of a new gregorian_utc calendar, etc, as you just 
 <br />
-&lt;cf-metadata-bounces at cgd.ucar.edu on behalf of mcginnis at ucar.edu&gt; wrote:
+outlined.
 <br />
-<br /><em class="quotelev1">&gt;I have to disagree.  Personally, I find the T a lot less readable than
-</em><br />
-<em class="quotelev1">&gt;separating them with a space.
+<br />There are two remaining things that I would like to see.
+<br />
+<br />&nbsp;1. A section that explains the importance for data producers and
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;consumers of using the right time handling routines for the input
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;time data and the calendar chosen if your time resolution makes you
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;sensitive to errors on the order of 1-30 seconds, pointing out (for
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;example) that using the standard *nix time functions with sets of
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;correct UTC timestamps will produce incorrect elapsed time values
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;under the right conditions. Such a section would also point out to
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;data consumers that if errors on this level are significant to them,
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;they shouldn't assume that existing observational datasets are free
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;of these errors.
+<br />
+&nbsp;2. A standard mechanism for data producers to indicate that they have,
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;in fact, taken the extra care with their time calculations,
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;whichever calendar they may have chosen - that is, the elapsed time
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;values are guaranteed to be free of any leap second related offsets
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;or discontinuities. This would give data consumers greater
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;confidence in cases where such errors matter.
+<br />
+<br />Grace and peace,
+<br />
+<br />Jim
+<br />
+<br />On 5/14/15 11:49 AM, Jonathan Gregory wrote:
+<br />
+<em class="quotelev1">&gt; Dear Jim
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;On 9/22/16 4:04 PM, Armstrong, Edward M (398G) wrote:
+<em class="quotelev1">&gt; I think I completely agree with what you have written here! Thanks. Therefore
 </em><br />
-<em class="quotelev2">&gt;&gt; Just making the time stamp more human readable is important so I too am
+<em class="quotelev1">&gt; I wonder what we are discussing now, and like Chris I'm unsure of the status
 </em><br />
-<em class="quotelev2">&gt;&gt; in favor of a ?T? to separate the date and time !
+<em class="quotelev1">&gt; of the proposal. So I will take the liberty of repeating the essential
 </em><br />
-<em class="quotelev2">&gt;&gt; 
+<em class="quotelev1">&gt; points of what I have suggested before, and if you disagree with it again, in
 </em><br />
-<em class="quotelev2">&gt;&gt; From: CF-metadata &lt;cf-metadata-bounces at cgd.ucar.edu
+<em class="quotelev1">&gt; the light of this new understanding maybe we will both understand why :-)
 </em><br />
-<em class="quotelev2">&gt;&gt; &lt;mailto:cf-metadata-bounces at cgd.ucar.edu&gt;&gt; on behalf of Bob Simons -
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; NOAA Federal &lt;bob.simons at noaa.gov &lt;mailto:bob.simons at noaa.gov&gt;&gt;
+<em class="quotelev1">&gt; * Don't mention &quot;UTC&quot; in the description of time units. Instead say the time
 </em><br />
-<em class="quotelev2">&gt;&gt; Date: Thursday, September 22, 2016 at 2:14 PM
+<em class="quotelev1">&gt; zone of the Greenwich meridian, without summmer/daylight-saving time.
 </em><br />
-<em class="quotelev2">&gt;&gt; To: CF Metadata &lt;cf-metadata at cgd.ucar.edu
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt;&lt;mailto:cf-metadata at cgd.ucar.edu&gt;&gt;
+<em class="quotelev1">&gt; * Clarify that in the CF convention the choice of &quot;calendar&quot; implies the
 </em><br />
-<em class="quotelev2">&gt;&gt; Subject: Re: [CF-metadata] Temporal nitpicks.
+<em class="quotelev1">&gt; particular set of rules that is used to convert between date-times (YYYY-MM-DD
 </em><br />
-<em class="quotelev2">&gt;&gt; 
+<em class="quotelev1">&gt; hh:mm:ss i.e. sets of six numbers) and time coordinates in units of elapsed
 </em><br />
-<em class="quotelev2">&gt;&gt; I vote to encourage the use of the T between date and time.
+<em class="quotelev1">&gt; time since a reference time. The calendar is identified by the calendar att of
 </em><br />
-<em class="quotelev2">&gt;&gt; * The T is the official method to connect the date and the time in the
+<em class="quotelev1">&gt; of the time coordinate variable. It's a property of the time coord variable.
 </em><br />
-<em class="quotelev2">&gt;&gt; various ISO 8601 standards, notably the ISO 8601:2004 &quot;extended&quot; format
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; String. As long as we are encouraging a specific format, let's encourage
+<em class="quotelev1">&gt; * Require the calendar to be specified i.e. no default, and abolish the
 </em><br />
-<em class="quotelev2">&gt;&gt; the official one, not the one which might be &quot;most common&quot;.
+<em class="quotelev1">&gt; &quot;standard&quot; calendar (currently a synonym for the default). These are backward-
 </em><br />
-<em class="quotelev2">&gt;&gt; * The T serves an important function: it indicates that a time follows
+<em class="quotelev1">&gt; incompatible changes for data-writers, but of course they do not invalidate any
 </em><br />
-<em class="quotelev2">&gt;&gt; the date. Otherwise, it is harder for software (and humans) to know if
+<em class="quotelev1">&gt; data written with old CF versions.
 </em><br />
-<em class="quotelev2">&gt;&gt; the subsequent information is a time or some other information.
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt;  
+<em class="quotelev1">&gt; * Redefine the &quot;gregorian&quot; calendar to mean that leap seconds are not included
 </em><br />
-<em class="quotelev2">&gt;&gt; 
+<em class="quotelev1">&gt; in the time conversions. All days have 86400 seconds in this calendar. This
+</em><br />
+<em class="quotelev1">&gt; might not be correct for some existing data written with calendar=&quot;gregorian&quot;
+</em><br />
+<em class="quotelev1">&gt; but we cannot know. For new data, writers should take care they choose the
+</em><br />
+<em class="quotelev1">&gt; right calendar, and that's the reason for not allowing a default, so they have
+</em><br />
+<em class="quotelev1">&gt; to consider the issue.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; * Introduce a new calendar &quot;gregorian_utc&quot; which does include leap seconds
+</em><br />
+<em class="quotelev1">&gt; in the time conversions according to UTC.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I've omitted the Julian/Gregorian issues. If we can agree on the UTC issue
+</em><br />
+<em class="quotelev1">&gt; first, we can come back to that.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; What do you and all think?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Best wishes
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Jonathan
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; ----- Forwarded message from Jim Biard &lt;jbiard at cicsnc.org&gt; -----
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Date: Wed, 13 May 2015 13:35:17 -0400
+</em><br />
+<em class="quotelev2">&gt;&gt; From: Jim Biard &lt;jbiard at cicsnc.org&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; To: cf-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt;&gt; Subject: Re: [CF-metadata] How to define time coordinate in GPS?
+</em><br />
+<em class="quotelev2">&gt;&gt; User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:31.0)
+</em><br />
+<em class="quotelev2">&gt;&gt; 	Gecko/20100101 Thunderbird/31.6.0
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Jonathan,
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; I'd say this is a lot of where the misunderstanding lies.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; I agree that if the calendar and time system are specified as
+</em><br />
+<em class="quotelev2">&gt;&gt; Gregorian/NLS, then you should not involve leap seconds in your
+</em><br />
+<em class="quotelev2">&gt;&gt; calculations going between times represented as HH:MM:SS and elapsed
+</em><br />
+<em class="quotelev2">&gt;&gt; times since your epoch. But if the calendar and time system are
+</em><br />
+<em class="quotelev2">&gt;&gt; specified as Gregorian/UTC, then you should involve leap seconds in
+</em><br />
+<em class="quotelev2">&gt;&gt; those same calculations. But in either case you *should* end up with
+</em><br />
+<em class="quotelev2">&gt;&gt; a set of elapsed times in your time variable that don't have any
+</em><br />
+<em class="quotelev2">&gt;&gt; leap second offsets or discontinuities.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Let's say I have a machine that counts the number of total seconds
+</em><br />
+<em class="quotelev2">&gt;&gt; and 86,400 second periods (standard days) that have gone by since I
+</em><br />
+<em class="quotelev2">&gt;&gt; started it, which was on Jan 1, 1970. (A UNIX system with a
+</em><br />
+<em class="quotelev2">&gt;&gt; super-accurate CPU clock.) When I have a leap day, I don't add or
+</em><br />
+<em class="quotelev2">&gt;&gt; subtract anything from the counts the machine has. What I do is use
+</em><br />
+<em class="quotelev2">&gt;&gt; the algorithms specified by the Gregorian calendar to represent
+</em><br />
+<em class="quotelev2">&gt;&gt; February as having one more day than usual so that my YYYY-MM-DD
+</em><br />
+<em class="quotelev2">&gt;&gt; calendar date stays more closely aligned with Earth's position in
+</em><br />
+<em class="quotelev2">&gt;&gt; its orbit. Leap seconds are just like that. I don't add or subtract
+</em><br />
+<em class="quotelev2">&gt;&gt; anything from the counts my machine has. I use the algorithms
+</em><br />
+<em class="quotelev2">&gt;&gt; specified by the UTC time system to represent June 30 (in a year
+</em><br />
+<em class="quotelev2">&gt;&gt; when I have a leap second) as having one more second in the last
+</em><br />
+<em class="quotelev2">&gt;&gt; minute of the last hour so that my HH:MM:SS clock time stays more
+</em><br />
+<em class="quotelev2">&gt;&gt; closely aligned with Earth's position in its rotation.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; In the particular case of *nix systems using the Network Time
+</em><br />
+<em class="quotelev2">&gt;&gt; Protocol, getting the system to display the correct UTC time
+</em><br />
+<em class="quotelev2">&gt;&gt; actually is accomplished by subtracting a second from the elapsed
+</em><br />
+<em class="quotelev2">&gt;&gt; time being counted by the system, thus ensuring that any long term
+</em><br />
+<em class="quotelev2">&gt;&gt; recording of elapsed times since the computer was started does, in
+</em><br />
+<em class="quotelev2">&gt;&gt; fact, include leap second discontinuities. This can add a whole
+</em><br />
+<em class="quotelev2">&gt;&gt; other facet to the general problem of how to get all of this right
+</em><br />
+<em class="quotelev2">&gt;&gt; as a data producer if I'm getting my time from my *nix machine. I
+</em><br />
+<em class="quotelev2">&gt;&gt; don't know for sure how Windows boxes handle it, but I don't think
+</em><br />
+<em class="quotelev2">&gt;&gt; it's actually any better.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Grace and peace,
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Jim
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; On 5/13/15 12:54 PM, Jonathan Gregory wrote:
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Dear Jim
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; I think your last email (which didn't go to the email list) explains why we
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; have not been understanding each other about your points 2 and 3:
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; There shouldn't be (or there is no) good reason to use a different
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; calendar to encode and decode, but this is exactly what has been
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; done with regard to times. As a netCDF file producer, if you have a
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; set of observations that have attached correct Gregorian/UTC date &amp;
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; time strings and you use a POSIX calculator to encode your times
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; since your correct Gregorian/UTC reference date &amp; time string, then
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; you are at risk of producing incorrect elapsed time values. (Whether
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; you actually do or not depends on factors mentioned in previous
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; emails.) The contents of time variables *should* always be true
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; counts of time that has elapsed since the reference epoch and
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; *should* never, ever encode leap second induced discontinuities or
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; offsets.
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; That's not how I understand what we've been discussing. I think that if
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; calendar=&quot;gregorian[_nls]&quot; then the encoding/decoding should be done without
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; leap seconds (86400 s per day), but if calendar=&quot;gregorian_utc&quot; the encoding/
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; decoding should be done with leap seconds according to UTC. This why I see
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; the issue as being one that relates to the calendar, and not to the units
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; or the reference time, which are calendar-neutral. Is this what we disagree on?
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; I can see there's a difficulty with the UTC calendar that if a second is taken
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; out there will be two consecutive seconds with the same timestamp. This is
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; a problem for encoding - the data-writer would have to be careful that he
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; chose the right one. It's not a problem for using the encoded time coords,
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; which will be monotonic and run forward at 1 second per second, nor for
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; decoding, which will correctly produce the repeated timestamp. Inserting a
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; leap second is the same kind of discontinuity as the change from Julian to
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Gregorian calendar. It means that there is a range of date-times which cannot
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; be encoded because they are not valid, but decoding is no problem. Similarly
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; there are dates which are valid in some calendars but not others, such as
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 30 Feb being valid in the 360_day calendar.
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; I think my view is consistent with the general treatment of calendars by CF.
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; The encoding/decoding algorithm differs, but the same units string could
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; always be used.
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Best wishes
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Jonathan
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; _______________________________________________
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
 <em class="quotelev2">&gt;&gt; -- 
 </em><br />
-<em class="quotelev2">&gt;&gt; Sincerely,
+<em class="quotelev2">&gt;&gt; CICS-NC &lt;<a href="http://www.cicsnc.org/">http://www.cicsnc.org/</a>&gt; Visit us on
 </em><br />
-<em class="quotelev2">&gt;&gt; 
+<em class="quotelev2">&gt;&gt; Facebook &lt;<a href="http://www.facebook.com/cicsnc">http://www.facebook.com/cicsnc</a>&gt; 	*Jim Biard*
 </em><br />
-<em class="quotelev2">&gt;&gt; Bob Simons
+<em class="quotelev2">&gt;&gt; *Research Scholar*
 </em><br />
-<em class="quotelev2">&gt;&gt; IT Specialist
+<em class="quotelev2">&gt;&gt; Cooperative Institute for Climate and Satellites NC &lt;<a href="http://cicsnc.org/">http://cicsnc.org/</a>&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; Environmental Research Division
+<em class="quotelev2">&gt;&gt; North Carolina State University &lt;<a href="http://ncsu.edu/">http://ncsu.edu/</a>&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; NOAA Southwest Fisheries Science Center
+<em class="quotelev2">&gt;&gt; NOAA National Centers for Environmental Information &lt;<a href="http://ncdc.noaa.gov/">http://ncdc.noaa.gov/</a>&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; 99 Pacific St., Suite 255A      (New!)
+<em class="quotelev2">&gt;&gt; /formerly NOAA?s National Climatic Data Center/
 </em><br />
-<em class="quotelev2">&gt;&gt; Monterey, CA 93940               (New!)
+<em class="quotelev2">&gt;&gt; 151 Patton Ave, Asheville, NC 28801
 </em><br />
-<em class="quotelev2">&gt;&gt; Phone: (831)333-9878            (New!)
+<em class="quotelev2">&gt;&gt; e: jbiard at cicsnc.org &lt;mailto:jbiard at cicsnc.org&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; Fax:   (831)648-8440
+<em class="quotelev2">&gt;&gt; o: +1 828 271 4900
 </em><br />
-<em class="quotelev2">&gt;&gt; Email: bob.simons at noaa.gov &lt;mailto:bob.simons at noaa.gov&gt;
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; 
+<em class="quotelev2">&gt;&gt; /We will be updating our social media soon. Follow our current
 </em><br />
-<em class="quotelev2">&gt;&gt; The contents of this message are mine personally and
+<em class="quotelev2">&gt;&gt; Facebook (NOAA National Climatic Data Center
 </em><br />
-<em class="quotelev2">&gt;&gt; do not necessarily reflect any position of the
+<em class="quotelev2">&gt;&gt; &lt;<a href="https://www.facebook.com/NOAANationalClimaticDataCenter">https://www.facebook.com/NOAANationalClimaticDataCenter</a>&gt; and NOAA
 </em><br />
-<em class="quotelev2">&gt;&gt; Government or the National Oceanic and Atmospheric Administration.
+<em class="quotelev2">&gt;&gt; National Oceanographic Data Center
 </em><br />
-<em class="quotelev2">&gt;&gt; &lt;&gt;&lt; &lt;&gt;&lt; &lt;&gt;&lt; &lt;&gt;&lt; &lt;&gt;&lt; &lt;&gt;&lt; &lt;&gt;&lt; &lt;&gt;&lt; &lt;&gt;&lt;
+<em class="quotelev2">&gt;&gt; &lt;<a href="https://www.facebook.com/noaa.nodc">https://www.facebook.com/noaa.nodc</a>&gt;) and Twitter (_at_NOAANCDC
 </em><br />
-<em class="quotelev2">&gt;&gt; 
+<em class="quotelev2">&gt;&gt; &lt;<a href="https://twitter.com/NOAANCDC">https://twitter.com/NOAANCDC</a>&gt; and _at_NOAAOceanData
 </em><br />
-<em class="quotelev2">&gt;&gt; 
+<em class="quotelev2">&gt;&gt; &lt;<a href="https://twitter.com/NOAAOceanData">https://twitter.com/NOAAOceanData</a>&gt;) accounts for the latest
 </em><br />
-<em class="quotelev2">&gt;&gt; 
+<em class="quotelev2">&gt;&gt; information./
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;
 </em><br />
 <em class="quotelev2">&gt;&gt; _______________________________________________
 </em><br />
@@ -192,17 +469,48 @@ Without the ?T' the ISO compliance of the time stamp is in a gray area.
 </em><br />
 <em class="quotelev2">&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
-<em class="quotelev2">&gt;&gt; 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;_______________________________________________
+<em class="quotelev1">&gt; ----- End forwarded message -----
 </em><br />
-<em class="quotelev1">&gt;CF-metadata mailing list
+<em class="quotelev1">&gt; _______________________________________________
 </em><br />
-<em class="quotelev1">&gt;CF-metadata at cgd.ucar.edu
+<em class="quotelev1">&gt; CF-metadata mailing list
 </em><br />
-<em class="quotelev1">&gt;<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
 </em><br />
-<span id="received"><dfn>Received on</dfn> Thu Sep 22 2016 - 17:07:26 BST</span>
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<br /><pre>
+-- 
+CICS-NC &lt;<a href="http://www.cicsnc.org/">http://www.cicsnc.org/</a>&gt; Visit us on
+Facebook &lt;<a href="http://www.facebook.com/cicsnc">http://www.facebook.com/cicsnc</a>&gt; 	*Jim Biard*
+*Research Scholar*
+Cooperative Institute for Climate and Satellites NC &lt;<a href="http://cicsnc.org/">http://cicsnc.org/</a>&gt;
+North Carolina State University &lt;<a href="http://ncsu.edu/">http://ncsu.edu/</a>&gt;
+NOAA National Centers for Environmental Information &lt;<a href="http://ncdc.noaa.gov/">http://ncdc.noaa.gov/</a>&gt;
+/formerly NOAA?s National Climatic Data Center/
+151 Patton Ave, Asheville, NC 28801
+e: jbiard at cicsnc.org &lt;mailto:jbiard at cicsnc.org&gt;
+o: +1 828 271 4900
+/We will be updating our social media soon. Follow our current Facebook 
+(NOAA National Climatic Data Center 
+&lt;<a href="https://www.facebook.com/NOAANationalClimaticDataCenter">https://www.facebook.com/NOAANationalClimaticDataCenter</a>&gt; and NOAA 
+National Oceanographic Data Center &lt;<a href="https://www.facebook.com/noaa.nodc">https://www.facebook.com/noaa.nodc</a>&gt;) 
+and Twitter (_at_NOAANCDC &lt;<a href="https://twitter.com/NOAANCDC">https://twitter.com/NOAANCDC</a>&gt; and @NOAAOceanData 
+&lt;<a href="https://twitter.com/NOAAOceanData">https://twitter.com/NOAAOceanData</a>&gt;) accounts for the latest information./
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150518/802fc6d7/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150518/802fc6d7/attachment-0001.html</a>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: CicsLogoTiny.png
+Type: image/png
+Size: 15784 bytes
+Desc: not available
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150518/802fc6d7/attachment-0001.png">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150518/802fc6d7/attachment-0001.png</a>&gt;
+</pre>
+<span id="received"><dfn>Received on</dfn> Mon May 18 2015 - 11:35:32 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -210,11 +518,10 @@ Without the ?T' the ISO compliance of the time stamp is in a gray area.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start7799">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./7800.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Feedback requested on proposed CF Simple Geometries"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./7798.html" title="Previous message in the list">Seth McGinnis: "[CF-metadata] Temporal nitpicks."</a></li>
-<li><dfn>In reply to</dfn>: <a href="./7798.html" title="Message to which this message replies">Seth McGinnis: "[CF-metadata] Temporal nitpicks."</a></li>
+<li><dfn>Next message</dfn>: <a href="./7800.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] flux"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./7798.html" title="Previous message in the list">Jim Biard: "[CF-metadata] New standard name requests for TSI and SSI"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./7788.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./7797.html" title="Next message in this discussion thread">Seth McGinnis: "[CF-metadata] Temporal nitpicks."</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -225,7 +532,7 @@ Without the ?T' the ISO compliance of the time stamp is in a gray area.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:06 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./7798.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7800.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

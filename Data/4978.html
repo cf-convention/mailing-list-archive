@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] New standard name: datetime_iso8601 from Hedley, Mark on 2013-01-18 (mailing-list-archive)</title>
-<meta name="Author" content="Hedley, Mark (mark.hedley)" />
-<meta name="Subject" content="[CF-metadata] New standard name: datetime_iso8601" />
-<meta name="Date" content="2013-01-18" />
+<title>[CF-metadata] Proposal for better handling vector quantities in CF from Thomas Lavergne on 2012-02-22 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Thomas Lavergne (t.lavergne)" />
+<meta name="Subject" content="[CF-metadata] Proposal for better handling vector quantities in CF" />
+<meta name="Date" content="2012-02-22" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4977.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4979.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] New standard name: datetime_iso8601</h1>
-<!-- received="Fri Jan 18 03:06:32 2013" -->
-<!-- isoreceived="20130118030632" -->
-<!-- sent="Fri, 18 Jan 2013 10:06:32 -0000" -->
-<!-- isosent="20130118100632" -->
-<!-- name="Hedley, Mark" -->
-<!-- email="mark.hedley" -->
-<!-- subject="[CF-metadata] New standard name: datetime_iso8601" -->
-<!-- id="8AC4893FB411FA4AA8CFECD9C8913B660CB48281_at_EXXMAIL01.desktop.frd.metoffice.com" -->
+<a style="text-decoration:none" href="./4977.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4979.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Proposal for better handling vector quantities in CF</h1>
+<!-- received="Wed Feb 22 03:44:46 2012" -->
+<!-- isoreceived="20120222034446" -->
+<!-- sent="Wed, 22 Feb 2012 10:44:46 +0000 (UTC)" -->
+<!-- isosent="20120222104446" -->
+<!-- name="Thomas Lavergne" -->
+<!-- email="t.lavergne" -->
+<!-- subject="[CF-metadata] Proposal for better handling vector quantities in CF" -->
+<!-- id="941403563.34386.1329907486580.JavaMail.root_at_imap1a" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="19991.1358179003&#64;unidata.ucar.edu" -->
+<!-- inreplyto="20120105083800.GA21606_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4979.html" accesskey="d" title="Russ Rew: &quot;[CF-metadata] New standard name: datetime_iso8601&quot;">Next message</a> ]
-[ <a href="./4977.html" title="Dave Allured - NOAA Affiliate: &quot;[CF-metadata] New ticket: Julian/Gregorian calendar name and constraints&quot;">Previous message</a> ]
+[ <a href="./4979.html" accesskey="d" title="John Caron: &quot;[CF-metadata] How to represent &#0034;6-hourly diurnal monthly means&#0034; in CF ?&quot;">Next message</a> ]
+[ <a href="./4977.html" title="Jonathan Gregory: &quot;[CF-metadata] How to represent &#0034;6-hourly diurnal monthly means&#0034; in CF ?&quot;">Previous message</a> ]
+[ <a href="./4898.html" title="Jonathan Gregory: &quot;[CF-metadata] Proposal for better handling vector quantities in CF&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./4979.html" accesskey="t" title="Russ Rew: &quot;[CF-metadata] New standard name: datetime_iso8601&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -71,198 +70,86 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Hedley, Mark &lt;<a href="mailto:mark.hedley?Subject=Re%3A%20%5BCF-metadata%5D%20New%20standard%20name%3A%20datetime_iso8601">mark.hedley</a>&gt;
+<dfn>From</dfn>: Thomas Lavergne &lt;<a href="mailto:t.lavergne?Subject=Re%3A%20%5BCF-metadata%5D%20Proposal%20for%20better%20handling%20vector%20quantities%20in%20CF">t.lavergne</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 18 Jan 2013 10:06:32 -0000</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 22 Feb 2012 10:44:46 +0000 (UTC)</span><br />
 </address>
 <br />
-Hello Russ
+Dear all,
 <br />
-<br />Do the time parsing and string output options include appreciation of the CF calendars such as 360 day?
+<br />I finally got time to open a TRAC ticket on that subject:
 <br />
-<br />will a 360 day calendar enable a string of: 
+<br /><a href="https://cf-pcmdi.llnl.gov/trac/ticket/79">https://cf-pcmdi.llnl.gov/trac/ticket/79</a>
 <br />
-2012-02-30
+<br />All interested parties are very welcome to join the discussion and we can hopefully converge to an agreement for implementation in the convention.
 <br />
-to be printed
+<br />Cheers,
 <br />
-while a gregorian calendar will not?
+Thomas
 <br />
-<br />thank you
+<br />----- Original Message -----
 <br />
-mark
-<br />
-<br /><br />-----Original Message-----
-<br />
-From: CF-metadata on behalf of Russ Rew
-<br />
-Sent: Mon 14/01/2013 15:56
-<br />
-To: ngalbraith at whoi.edu
-<br />
-Cc: cf-metadata at cgd.ucar.edu
-<br />
-Subject: Re: [CF-metadata] New standard name: datetime_iso8601
-<br />
-&nbsp;
-<br />
-Nan and Chris,
-<br />
-<br /><em class="quotelev1">&gt; I agree with Chris.
+<em class="quotelev1">&gt; Dear Randy
 </em><br />
 <em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; Having ncdump or other clients show dates in an ISO-compliant format
+<em class="quotelev2">&gt; &gt; In the problem domain I am working, there are multiple related data
 </em><br />
-<em class="quotelev1">&gt; is a fine idea, as is using ISO strings for dates in attributes, but those
+<em class="quotelev2">&gt; &gt; variables in the same coordinate space for which the quality flags
 </em><br />
-<em class="quotelev1">&gt; are completely different from storing date variables as strings.
+<em class="quotelev2">&gt; &gt; are the same. It would be a stretch to call these multiple related
 </em><br />
-<br />Yes, since version 4.2, ncdump has supported the &quot;-t&quot; and &quot;-T&quot; options
-<br />
-for showing dates and times in human-readable and ISO-compliant format,
-<br />
-respecting the &quot;calendar&quot; attribute for interpreting dates.  Thanks to
-<br />
-an idea from Phil Bentley and some code contributed by Dave Allured,
-<br />
-those options also work for bounds attributes that are times.
-<br />
-<br />--Russ
-<br />
-<br /><em class="quotelev1">&gt; NetCDF uses a binary storage format and is not meant to be human
-</em><br />
-<em class="quotelev1">&gt; readable.
+<em class="quotelev2">&gt; &gt; data variables &quot;vectors&quot; in the true mathematical sense.
 </em><br />
 <em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; Thanks - Nan
+<em class="quotelev2">&gt; &gt; Given this looser definition of &quot;vector&quot;, the notion of having
+</em><br />
+<em class="quotelev2">&gt; &gt; standard names associated with the umbrella data variable does not
+</em><br />
+<em class="quotelev2">&gt; &gt; seem to make sense as different projects would potentially have
+</em><br />
+<em class="quotelev2">&gt; &gt; project-unique groupings of variables where it is desirable to share
+</em><br />
+<em class="quotelev2">&gt; &gt; quality flags, etc.
 </em><br />
 <em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; On 1/11/13 4:37 PM, Chris Barker - NOAA Federal wrote:
+<em class="quotelev1">&gt; I agree. The discussions of Thomas's umbrella variable have touched on
 </em><br />
-<em class="quotelev2">&gt; &gt; On Fri, Jan 11, 2013 at 9:00 AM, Aleksandar Jelenak - NOAA Affiliate
+<em class="quotelev1">&gt; this
 </em><br />
-<em class="quotelev2">&gt; &gt; &lt;aleksandar.jelenak at noaa.gov&gt;  wrote:
+<em class="quotelev1">&gt; point but it doesn't seem to suit the purpose of providing a single
 </em><br />
-<em class="quotelev2">&gt; &gt;
+<em class="quotelev1">&gt; quality
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; Here's the modified proposal for the datetime_iso8601 standard name:
+<em class="quotelev1">&gt; flag variable for an arbitrary selection of geophysical quantities.
 </em><br />
-<em class="quotelev2">&gt; &gt; ...
+<em class="quotelev1">&gt; Hence I
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; String representing date-time information according to the ISO
+<em class="quotelev1">&gt; think the idea of generalising the standard_name att to the format
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; 8601:2004(E) standard.
+<em class="quotelev1">&gt; standard_name [standard_name ...] modifier
 </em><br />
-<em class="quotelev2">&gt; &gt; I think we should NOT adopt a string option for datetime variables.
+<em class="quotelev1">&gt; i.e. permitting more than two words in it would be more suitable and
 </em><br />
-<em class="quotelev2">&gt; &gt;
+<em class="quotelev1">&gt; general-purpose. The main motivation for the umbrella variable is
 </em><br />
-<em class="quotelev2">&gt; &gt; To quote Jonathan Gregory:
+<em class="quotelev1">&gt; different
 </em><br />
-<em class="quotelev2">&gt; &gt;
+<em class="quotelev1">&gt; viz. to identify a group of data variables which together constitute a
 </em><br />
-<em class="quotelev2">&gt; &gt; &quot;&quot;&quot;
+<em class="quotelev1">&gt; single
 </em><br />
-<em class="quotelev2">&gt; &gt; In CF we have always applied the
-</em><br />
-<em class="quotelev2">&gt; &gt; principle that we only add to CF when there is a need to do so, i.e. there 
-</em><br />
-<em class="quotelev1">&gt; is
-</em><br />
-<em class="quotelev2">&gt; &gt; a use-case for something which cannot already be represented in CF
-</em><br />
-<em class="quotelev2">&gt; &gt; &quot;&quot;&quot;
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; We already have a way to encode datetimes in CF-netcdf.
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; I believe this proposal resulted from the discussion about adding a
-</em><br />
-<em class="quotelev2">&gt; &gt; more flexible approach to datetimes in the CF Data Model. I think
-</em><br />
-<em class="quotelev2">&gt; &gt; that's a good idea, but separate from what encoding is used in
-</em><br />
-<em class="quotelev2">&gt; &gt; CF-netcdf. ( see my recent note for more detail about the difference
-</em><br />
-<em class="quotelev2">&gt; &gt; between and encoding and a data model ).
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; 1) Having multiple ways to encode the same data in file format adds
-</em><br />
-<em class="quotelev2">&gt; &gt; complication to all client code -- client code would need a way to
-</em><br />
-<em class="quotelev2">&gt; &gt; process both ISO strings and &quot;time_unit since datetime&quot;
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; 2) Any client code that can process ISO strings is likely to need to
-</em><br />
-<em class="quotelev2">&gt; &gt; convert them to a client-specific datetime representation anyway, in
-</em><br />
-<em class="quotelev2">&gt; &gt; order to plot, calculate with, etc  them.
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; 3) Any client library that can process ISO strings is very likely to
-</em><br />
-<em class="quotelev2">&gt; &gt; be able to also work with &quot;time_unit since datetime&quot; encoded data
-</em><br />
-<em class="quotelev2">&gt; &gt; anyway -- and it had better, as that encoding is part of the standard
-</em><br />
-<em class="quotelev2">&gt; &gt; anyway.
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; As a result, we would be complicating client code, and getting no new
-</em><br />
-<em class="quotelev2">&gt; &gt; functionality.
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; The one advantage I can see at the moment is that simple, non-CF-aware
-</em><br />
-<em class="quotelev2">&gt; &gt; clients, like ncdump, could easily present a nice human-readable
-</em><br />
-<em class="quotelev2">&gt; &gt; format. But I don't think that is worth the additional complication.
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; -Chris
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt;
+<em class="quotelev1">&gt; higher-level geophysical quantity.
 </em><br />
 <em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; -- 
-</em><br />
-<em class="quotelev1">&gt; *******************************************************
-</em><br />
-<em class="quotelev1">&gt; * Nan Galbraith                        (508) 289-2444 *
-</em><br />
-<em class="quotelev1">&gt; * Upper Ocean Processes Group            Mail Stop 29 *
-</em><br />
-<em class="quotelev1">&gt; * Woods Hole Oceanographic Institution                *
-</em><br />
-<em class="quotelev1">&gt; * Woods Hole, MA 02543                                *
-</em><br />
-<em class="quotelev1">&gt; *******************************************************
+<em class="quotelev1">&gt; Best wishes
 </em><br />
 <em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; Jonathan
 </em><br />
 <em class="quotelev1">&gt; _______________________________________________
 </em><br />
@@ -272,15 +159,18 @@ those options also work for bounds attributes that are times.
 </em><br />
 <em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
-_______________________________________________
-<br />
-CF-metadata mailing list
-<br />
-CF-metadata at cgd.ucar.edu
-<br />
-<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-<br />
-<span id="received"><dfn>Received on</dfn> Fri Jan 18 2013 - 03:06:32 GMT</span>
+<br /><pre>
+-- 
+========================================== 
+Thomas Lavergne 
+Norwegian Meteorological Institute 
+P.O.BOX 43, Blindern, NO-0313 OSLO, Norway 
+Phone: (+47) 22963364  Fax: (+47) 22963380 
+Email: t.lavergne at met.no 
+OSISAF HL Portal:     <a href="http://osisaf.met.no">http://osisaf.met.no</a> 
+========================================== 
+</pre>
+<span id="received"><dfn>Received on</dfn> Wed Feb 22 2012 - 03:44:46 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -288,12 +178,10 @@ CF-metadata at cgd.ucar.edu
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4978">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4979.html" title="Next message in the list">Russ Rew: "[CF-metadata] New standard name: datetime_iso8601"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4977.html" title="Previous message in the list">Dave Allured - NOAA Affiliate: "[CF-metadata] New ticket: Julian/Gregorian calendar name and constraints"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4979.html" title="Next message in the list">John Caron: "[CF-metadata] How to represent &#0034;6-hourly diurnal monthly means&#0034; in CF ?"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4977.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] How to represent &#0034;6-hourly diurnal monthly means&#0034; in CF ?"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./4898.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] Proposal for better handling vector quantities in CF"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./4979.html" title="Next message in this discussion thread">Russ Rew: "[CF-metadata] New standard name: datetime_iso8601"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./4979.html" title="Message sent in reply to this message">Russ Rew: "[CF-metadata] New standard name: datetime_iso8601"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -304,7 +192,7 @@ CF-metadata at cgd.ucar.edu
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:13 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4977.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4979.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

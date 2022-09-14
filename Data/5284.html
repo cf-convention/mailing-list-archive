@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] new standard_name needed for cloud_phase (an enumeration type) from Jonathan Gregory on 2013-04-19 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] new standard_name needed for cloud_phase (an enumeration type)" />
-<meta name="Date" content="2013-04-19" />
+<title>[CF-metadata] X_to_direction in grid or true direction? from Heiko Klein on 2012-05-02 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Heiko Klein (Heiko.Klein)" />
+<meta name="Subject" content="[CF-metadata] X_to_direction in grid or true direction?" />
+<meta name="Date" content="2012-05-02" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5283.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5285.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new standard_name needed for cloud_phase (an enumeration type)</h1>
-<!-- received="Fri Apr 19 06:22:53 2013" -->
-<!-- isoreceived="20130419052253" -->
-<!-- sent="Fri, 19 Apr 2013 13:22:53 +0100" -->
-<!-- isosent="20130419122253" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] new standard_name needed for cloud_phase (an enumeration type)" -->
-<!-- id="20130419122252.GD15524_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./5283.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5285.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] X_to_direction in grid or true direction?</h1>
+<!-- received="Wed May  2 06:14:24 2012" -->
+<!-- isoreceived="20120502051424" -->
+<!-- sent="Wed, 02 May 2012 14:14:24 +0200" -->
+<!-- isosent="20120502121424" -->
+<!-- name="Heiko Klein" -->
+<!-- email="Heiko.Klein" -->
+<!-- subject="[CF-metadata] X_to_direction in grid or true direction?" -->
+<!-- id="4FA12520.6040905_at_met.no" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5285.html" accesskey="d" title="Randy Horne: &quot;[CF-metadata] new standard_name needed for cloud_phase (an enumeration type)&quot;">Next message</a> ]
-[ <a href="./5283.html" title="Randy Horne: &quot;[CF-metadata] new standard_name needed for cloud_phase (an enumeration type)&quot;">Previous message</a> ]
+[ <a href="./5285.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  X_to_direction in grid or true direction?&quot;">Next message</a> ]
+[ <a href="./5283.html" title="Steve Hankin: &quot;[CF-metadata] Reverse-time trajectory&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./5285.html" accesskey="t" title="Randy Horne: &quot;[CF-metadata] new standard_name needed for cloud_phase (an enumeration type)&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,54 +68,38 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20new%20standard_name%20needed%20for%20cloud_phase%20(an%20enumeration%20type)">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Heiko Klein &lt;<a href="mailto:Heiko.Klein?Subject=Re%3A%20%5BCF-metadata%5D%20X_to_direction%20in%20grid%20or%20true%20direction%3F">Heiko.Klein</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 19 Apr 2013 13:22:53 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 02 May 2012 14:14:24 +0200</span><br />
 </address>
 <br />
-Dear Randy
+Hi,
 <br />
-<br /><em class="quotelev1">&gt; We are planning on using flags with numeric values as you suggest  Your input is helpful in that is is deemed unnecessary to specifically identify values in the definition as is the case with the binary_masks,  This provides additional flexibility to data producers.
-</em><br />
-<br />Yes, exactly.
+<br />after having read the discussion about eastward_wind/x_wind, I just got 
 <br />
-<br /><em class="quotelev1">&gt; standard_name: cloud_phase_category
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; definition:
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; A numeric value indicating one of the following categories: clear; liquid water; super-cooled liquid water; mixed phase; ice, and; unknown.
-</em><br />
-<br />But it would be a string-valued quantity in principle, although netCDF does not
+curious about the X_to_direction parameters.
 <br />
-allow string-valued data variables. I think the definition should say
+<br />It is documented as: unit: degree,
 <br />
-<br />The variable is a string, taking one of the following values to indicate
+X_to_direction and indicates the direction towards which the velocity 
 <br />
-cloud phase category: clear_sky, liquid_water, super_cooled_liquid_water,
+vector of X is headed.
 <br />
-mixed_phase, ice, unknown. For a data variable it is encoded as an integer
+<br />but it doesn't explain exactly which direction:
 <br />
-using flag_values and flag_meanings.
+<br />Is it:
 <br />
-<br />Comments on the values:
+<br />wind_to_direction = atan(y_wind/x_wind)
 <br />
-<br />* clear_sky is a phrase already used in standard names. Could you use it
+<br />or
 <br />
-here for consistency?
+<br />wind_to_direction = atan(northward_wind/eastward_wind)
 <br />
-<br />* Is super_cooled_liquid_water a subset of liquid_water? If not, could you
+<br /><br />Best regards,
 <br />
-give an extra adjective to liquid_water to clarify this?
+<br />Heiko
 <br />
-<br />Cheers
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Fri Apr 19 2013 - 06:22:53 BST</span>
+<span id="received"><dfn>Received on</dfn> Wed May 02 2012 - 06:14:24 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -125,12 +107,9 @@ give an extra adjective to liquid_water to clarify this?
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5284">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5285.html" title="Next message in the list">Randy Horne: "[CF-metadata] new standard_name needed for cloud_phase (an enumeration type)"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5283.html" title="Previous message in the list">Randy Horne: "[CF-metadata] new standard_name needed for cloud_phase (an enumeration type)"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5285.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  X_to_direction in grid or true direction?"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5283.html" title="Previous message in the list">Steve Hankin: "[CF-metadata] Reverse-time trajectory"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./5285.html" title="Next message in this discussion thread">Randy Horne: "[CF-metadata] new standard_name needed for cloud_phase (an enumeration type)"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./5285.html" title="Message sent in reply to this message">Randy Horne: "[CF-metadata] new standard_name needed for cloud_phase (an enumeration type)"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -141,7 +120,7 @@ give an extra adjective to liquid_water to clarify this?
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:19 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5283.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5285.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

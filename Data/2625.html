@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] handling climatological bounds in CF from Upendra Dadi on 2010-04-28 (mailing-list-archive)</title>
-<meta name="Author" content="Upendra Dadi (Upendra.Dadi)" />
-<meta name="Subject" content="[CF-metadata] handling climatological bounds in CF" />
-<meta name="Date" content="2010-04-28" />
+<title>[CF-metadata] mixing ratio from Jonathan Gregory on 2008-11-24 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] mixing ratio" />
+<meta name="Date" content="2008-11-24" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2624.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2626.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] handling climatological bounds in CF</h1>
-<!-- received="Wed Apr 28 08:47:41 2010" -->
-<!-- isoreceived="20100428074741" -->
-<!-- sent="Wed, 28 Apr 2010 10:47:41 -0400" -->
-<!-- isosent="20100428144741" -->
-<!-- name="Upendra Dadi" -->
-<!-- email="Upendra.Dadi" -->
-<!-- subject="[CF-metadata] handling climatological bounds in CF" -->
-<!-- id="4BD84A8D.3060902_at_noaa.gov" -->
+<a style="text-decoration:none" href="./2624.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2626.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] mixing ratio</h1>
+<!-- received="Mon Nov 24 01:27:23 2008" -->
+<!-- isoreceived="20081124012723" -->
+<!-- sent="Mon, 24 Nov 2008 08:27:23 +0000" -->
+<!-- isosent="20081124082723" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] mixing ratio" -->
+<!-- id="20081124082723.GB13523_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2626.html" accesskey="d" title="V. Balaji: &quot;[CF-metadata] Separating geolocation/timing co-ordinates from measurement data&quot;">Next message</a> ]
-[ <a href="./2624.html" title="Jonathan Gregory: &quot;[CF-metadata] Separating geolocation/timing co-ordinates from measurement data&quot;">Previous message</a> ]
+[ <a href="./2626.html" accesskey="d" title="Robert Muetzelfeldt: &quot;[CF-metadata] CF standard names : request for statement of the issues&quot;">Next message</a> ]
+[ <a href="./2624.html" title="Christiane Textor: &quot;[CF-metadata] new names for AeroCom - remaining&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./2632.html" accesskey="t" title="Christiane.Textor at lsce.ipsl.fr: &quot;[CF-metadata] mixing ratio&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,46 +70,58 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Upendra Dadi &lt;<a href="mailto:Upendra.Dadi?Subject=Re%3A%20%5BCF-metadata%5D%20handling%20climatological%20bounds%20in%20CF">Upendra.Dadi</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20mixing%20ratio">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 28 Apr 2010 10:47:41 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 24 Nov 2008 08:27:23 +0000</span><br />
 </address>
 <br />
-Hello,
+Dear Christiane
 <br />
-&nbsp;I am trying to create a CF compliant NetCDF containing climatological 
+<br /><em class="quotelev1">&gt; Maybe I have missed the recent discussion, but to my understand, the
+</em><br />
+<em class="quotelev1">&gt; mixing ratio is generally defined as
+</em><br />
+<em class="quotelev1">&gt; x/(sum_of_all_components_including_x), which would mean in our case the
+</em><br />
+<em class="quotelev1">&gt; humidity_mixing_ratio would be equivalent to
+</em><br />
+<em class="quotelev1">&gt; mass_fraction_of_water_vapor_in_ambient_air.
+</em><br />
+<em class="quotelev1">&gt; For example, on the web I found that the mole mixing ratio of N2 in air 
+</em><br />
+<em class="quotelev1">&gt; is 78%, which means that my definition of the mixing ration is applied.
+</em><br />
+<em class="quotelev1">&gt; Could you please comment on this? At least a comment on the definition 
+</em><br />
+<em class="quotelev1">&gt; of humidity_mixing_ratio would be good.
+</em><br />
+<br />I also had a look at the web, and my understanding is that the terms &quot;mixing
 <br />
-statistics. The data consists of monthly means of a certain parameter 
+ratio of X in air&quot; and &quot;mass fraction of X in air&quot; are used effectively
 <br />
-which is calculated from data which starts on 1773-1-13 and ends on 
+interchangeably for all minor species X *except* water vapour. For water
 <br />
-2001-6-29. How do I represent this information using climatology 
+vapour, the common terms are (I believe) humidity mixing ratio and specific
 <br />
-variable ? The examples in the documentation don't tell how to represent 
+humidity. Specific humidity means
 <br />
-this information. All the examples in the documentation have their 
+mass_fraction_of_water_vapor_in_ambient_air
 <br />
-climatological bounds which start and end exactly at the start date and 
+=(water vapour)/(air including water vapour),
 <br />
-end date of the climatology intervals. But in general this is not the 
+while humidity mixing ratio
 <br />
-case. Climatology variable tries to represent more than one piece 
+=(water vapour)/(dry air)
 <br />
-information in a single variable - the climatology intervals(day, month, 
+Both specific_humidity and humidity_mixing_ratio are standard names at present
 <br />
-season,etc.) and the actual bounds (start date and end date). I am not 
+and I propose we keep them. For other X we could use different constructions.
 <br />
-sure if this is the reason for the problem.
+<br />Cheers
 <br />
-<br />Also, is there any significance to year in the time variable when 
+<br />Jonathan
 <br />
-representing climatological information? Or can I start from any year?
-<br />
-<br />Any help is appreciated.
-<br />
-<br />Upendra
-<br />
-<span id="received"><dfn>Received on</dfn> Wed Apr 28 2010 - 08:47:41 BST</span>
+<span id="received"><dfn>Received on</dfn> Mon Nov 24 2008 - 01:27:23 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -115,9 +129,12 @@ representing climatological information? Or can I start from any year?
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2625">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2626.html" title="Next message in the list">V. Balaji: "[CF-metadata] Separating geolocation/timing co-ordinates from measurement data"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2624.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Separating geolocation/timing co-ordinates from measurement data"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2626.html" title="Next message in the list">Robert Muetzelfeldt: "[CF-metadata] CF standard names : request for statement of the issues"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2624.html" title="Previous message in the list">Christiane Textor: "[CF-metadata] new names for AeroCom - remaining"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./2632.html" title="Next message in this discussion thread">Christiane.Textor at lsce.ipsl.fr: "[CF-metadata] mixing ratio"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./2632.html" title="Message sent in reply to this message">Christiane.Textor at lsce.ipsl.fr: "[CF-metadata] mixing ratio"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -128,7 +145,7 @@ representing climatological information? Or can I start from any year?
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:28 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2624.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2626.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

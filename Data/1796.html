@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] physically equivalent units from Jonathan Gregory on 2008-11-20 (mailing-list-archive)</title>
+<title>[CF-metadata] new chemical species from Jonathan Gregory on 2007-07-30 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] physically equivalent units" />
-<meta name="Date" content="2008-11-20" />
+<meta name="Subject" content="[CF-metadata] new chemical species" />
+<meta name="Date" content="2007-07-30" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1795.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1797.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] physically equivalent units</h1>
-<!-- received="Thu Nov 20 11:58:29 2008" -->
-<!-- isoreceived="20081120115829" -->
-<!-- sent="Thu, 20 Nov 2008 18:58:29 +0000" -->
-<!-- isosent="20081120185829" -->
+<a style="text-decoration:none" href="./1795.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1797.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new chemical species</h1>
+<!-- received="Mon Jul 30 02:28:45 2007" -->
+<!-- isoreceived="20070730012845" -->
+<!-- sent="Mon, 30 Jul 2007 09:28:45 +0100" -->
+<!-- isosent="20070730082845" -->
 <!-- name="Jonathan Gregory" -->
 <!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] physically equivalent units" -->
-<!-- id="20081120185829.GB4102_at_met.reading.ac.uk" -->
+<!-- subject="[CF-metadata] new chemical species" -->
+<!-- id="20070730082845.GF6120_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,10 +53,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1797.html" accesskey="d" title="Philip Bentley: &quot;[CF-metadata] physically equivalent units&quot;">Next message</a> ]
-[ <a href="./1795.html" title="Philip Bentley: &quot;[CF-metadata] CF standard names for	echam5-hammoz?model?(aerosol-chemistry-climate)&quot;">Previous message</a> ]
+[ <a href="./1797.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  proposed rules for changes to CF conventions&quot;">Next message</a> ]
+[ <a href="./1795.html" title="Pamment, JA: &quot;[CF-metadata] Standard Names Status Update&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./1797.html" accesskey="t" title="Philip Bentley: &quot;[CF-metadata] physically equivalent units&quot;">Next in thread</a> ]
+[ <a href="./1798.html" accesskey="t" title="Philip J. Cameron-smith: &quot;[CF-metadata] new chemical species&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,72 +70,26 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20physically%20equivalent%20units">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20new%20chemical%20species">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 20 Nov 2008 18:58:29 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 30 Jul 2007 09:28:45 +0100</span><br />
 </address>
 <br />
-Dear Phil
+Dear Stephen
 <br />
-<br />Units can be interconverted if they differ only because of purely numerical
+<br />When dealing with 5600 chemical species in a model, I guess that you must
 <br />
-factors. Apart from such factors all units can be translated into a product
+have arrays in which the chemical species is one of the dimensions, do you?
 <br />
-of a set of &quot;base units&quot; raised to various powers. In SI the base units are
+In that case, allowing a dimension for chemical species in CF would be
 <br />
-<br />metre 		m 	length
-<br />
-kilogram 	kg 	mass
-<br />
-second 		s 	time
-<br />
-ampere 		A 	electric current
-<br />
-kelvin 		K 	thermodynamic temperature
-<br />
-candela 	cd 	luminous intensity
-<br />
-mole		mol	amount of substance
-<br />
-<br />Thus, for instance, a newton N is kg m s-2, a joule J=N m=kg m2 s-2 and a
-<br />
-pascal is Pa=N m-2=kg m-1 s-2. Dimensionally, Pa and J m-3 are equivalent.
-<br />
-<br />K, degC and degF are all equivalent.
-<br />
-<br />A practical way to see whether two units are equivalent is to try to use
-<br />
-udunits to convert between them.
-<br />
-<br />$ udunits
-<br />
-You have: degF
-<br />
-You want: K
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;K&gt; = &lt;degF&gt;*0.555556 + 255.372
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;K&gt; = &lt;degF&gt;/1.8 + 255.372
-<br />
-You have: Pa
-<br />
-You want: J m-3
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;J m-3&gt; = &lt;Pa&gt;*1
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;J m-3&gt; = &lt;Pa&gt;/1
-<br />
-You have: K   
-<br />
-You want: kg
-<br />
-udunits: Units are incompatible
+an obvious generalisation, as with surface cover types.
 <br />
 <br />Cheers
 <br />
 <br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Thu Nov 20 2008 - 11:58:29 GMT</span>
+<span id="received"><dfn>Received on</dfn> Mon Jul 30 2007 - 02:28:45 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -143,12 +97,12 @@ udunits: Units are incompatible
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1796">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1797.html" title="Next message in the list">Philip Bentley: "[CF-metadata] physically equivalent units"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1795.html" title="Previous message in the list">Philip Bentley: "[CF-metadata] CF standard names for	echam5-hammoz?model?(aerosol-chemistry-climate)"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1797.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  proposed rules for changes to CF conventions"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1795.html" title="Previous message in the list">Pamment, JA: "[CF-metadata] Standard Names Status Update"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./1797.html" title="Next message in this discussion thread">Philip Bentley: "[CF-metadata] physically equivalent units"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./1798.html" title="Next message in this discussion thread">Philip J. Cameron-smith: "[CF-metadata] new chemical species"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./1797.html" title="Message sent in reply to this message">Philip Bentley: "[CF-metadata] physically equivalent units"</a></li>
+<dfn>Reply</dfn>: <a href="./1798.html" title="Message sent in reply to this message">Philip J. Cameron-smith: "[CF-metadata] new chemical species"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -159,7 +113,7 @@ udunits: Units are incompatible
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:13 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1795.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1797.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF standard names for chemical constituents? from Heinke Hoeck on 2008-10-14 (mailing-list-archive)</title>
-<meta name="Author" content="Heinke Hoeck (heinke.hoeck)" />
-<meta name="Subject" content="[CF-metadata] CF standard names for chemical constituents?" />
-<meta name="Date" content="2008-10-14" />
+<title>[CF-metadata]  representing model times in climate models from Ansley Manke on 2007-03-30 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Ansley Manke (Ansley.B.Manke)" />
+<meta name="Subject" content="[CF-metadata]  representing model times in climate models" />
+<meta name="Date" content="2007-03-30" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1597.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1599.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF standard names for chemical constituents?</h1>
-<!-- received="Tue Oct 14 01:40:29 2008" -->
-<!-- isoreceived="20081014004029" -->
-<!-- sent="Tue, 14 Oct 2008 09:40:29 +0200" -->
-<!-- isosent="20081014074029" -->
-<!-- name="Heinke Hoeck" -->
-<!-- email="heinke.hoeck" -->
-<!-- subject="[CF-metadata] CF standard names for chemical constituents?" -->
-<!-- id="48F44CED.50602_at_zmaw.de" -->
+<a style="text-decoration:none" href="./1597.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1599.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  representing model times in climate models</h1>
+<!-- received="Fri Mar 30 12:41:32 2007" -->
+<!-- isoreceived="20070330114132" -->
+<!-- sent="Fri, 30 Mar 2007 11:41:32 -0700" -->
+<!-- isosent="20070330184132" -->
+<!-- name="Ansley Manke" -->
+<!-- email="Ansley.B.Manke" -->
+<!-- subject="[CF-metadata]  representing model times in climate models" -->
+<!-- id="460D59DC.9020401_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20081010095515.GA19768_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1599.html" accesskey="d" title="Roy Lowry: &quot;[CF-metadata] NDG Vocabulary Server and CF Standard Names&quot;">Next message</a> ]
-[ <a href="./1597.html" title="Jonathan Gregory: &quot;[CF-metadata] CF errata&quot;">Previous message</a> ]
-[ <a href="./1584.html" title="Jonathan Gregory: &quot;[CF-metadata] CF standard names for chemical constituents?&quot;">In reply to</a> ]
+[ <a href="./1599.html" accesskey="d" title="Steve Hankin: &quot;[CF-metadata] attributes for min/max data values for	visualization&quot;">Next message</a> ]
+[ <a href="./1597.html" title="Jonathan Gregory: &quot;[CF-metadata] representing model times in climate models&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,134 +68,66 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Heinke Hoeck &lt;<a href="mailto:heinke.hoeck?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20standard%20names%20for%20chemical%20constituents%3F">heinke.hoeck</a>&gt;
+<dfn>From</dfn>: Ansley Manke &lt;<a href="mailto:Ansley.B.Manke?Subject=Re%3A%20%5BCF-metadata%5D%20%20representing%20model%20times%20in%20climate%20models">Ansley.B.Manke</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 14 Oct 2008 09:40:29 +0200</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 30 Mar 2007 11:41:32 -0700</span><br />
 </address>
 <br />
-Dear Jonathan and Stephan,
+Hello,
 <br />
-<br /><em class="quotelev1">&gt;Recognising that a common concept would be valuable to combine the
-</em><br />
-constituent
+If I might chime in with what we've done in Ferret to deal with 
 <br />
-<em class="quotelev1">&gt;name and the concept description implies, I think, that it is more
-</em><br />
-convenient
+different calendars, applying what's in the CF standards for calendar 
 <br />
-<em class="quotelev1">&gt;to keep them together.
-</em><br />
-Sorry, but I don't agree and I think this is not what you told me before.
+types at  <a href="http://www.cgd.ucar.edu/cms/eaton/cf-metadata/CF-1.0.html#cal">http://www.cgd.ucar.edu/cms/eaton/cf-metadata/CF-1.0.html#cal</a>. 
 <br />
-See email:
+That list includes the various &quot;year&quot; definitions that are in Udunits, 
 <br />
-(<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2007/001654.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2007/001654.html</a>)
+plus a 360-day calendar.
 <br />
-The important part starts with 'Alison's analysis' and ends with
+*
 <br />
-'outside the netCDF file.'
+*As Jonathon says, &quot;year&quot; isn't a fixed quantity. Neither is &quot;month&quot; for 
 <br />
-Or did I misunderstood you 2007 ?
+the same reasons. But the application can use that fact as a basis for 
 <br />
-<br /><em class="quotelev1">&gt;Although I agree that in principle the current method
-</em><br />
-<em class="quotelev1">&gt;could lead to thousands of names, so far the number of chemical names
-</em><br />
-is not
+comparing data on different calendars, and for computing the date 
 <br />
-<em class="quotelev1">&gt;large and causes no problems.
-</em><br />
-I think the number of chemical names is very large and we are at the
+corresponding to a time step on any defined calendar. Using the length 
 <br />
-beginning.
+in seconds (or days) of the year for the particular calendar we can 
 <br />
-Stephen gives us an estimation. 4500 species. Thank you for that.
+convert a time step to the correct date. The definition of the time axis 
 <br />
-<br /><em class="quotelev1">&gt; So while I agree we should keep possible
-</em><br />
-<em class="quotelev1">&gt;solutions in mind, I do not think we need to solve the problem until it
-</em><br />
-really
+axis, having for instance, calendar attribute time:calendar = &quot;julian&quot;  
 <br />
-<em class="quotelev1">&gt;threatens us.
-</em><br />
-This looks very dangerous to me. When is the point of no return ?
+and units attribute time:units=&quot;days since 1990-1-1 0:0:0&quot; gives us 
 <br />
-Can we reverse the standard names ?
+everything needed to convert the time step 1000 to the correct date in 
 <br />
-How many standard names will blow up the system? I think no one is able
+September 1992.
 <br />
-to give a number.
+<br />If model data computed on a 360-day calendar is compared with 
 <br />
-<em class="quotelev1">&gt; I feel we should continue with the present approach, which is
-</em><br />
-<em class="quotelev1">&gt;more convenient.
-</em><br />
-At this point we can't do anything else, because we have no agreement,
+observational data on the Gregorian calendar we have a way to make the 
 <br />
-but we
+appropriate conversion of data on one calendar to the other.  Even if 
 <br />
-should work on it.
+the time unit is &quot;days&quot; or &quot;seconds&quot; we need the information about the 
 <br />
-We have Martina's list. Sorry, but I can't say yes to this. The
+length of the year to convert to formatted dates or to compare data that 
 <br />
-procedure is to accept
+has different time axes.
 <br />
-standard names which are really used. If we open the CF for translation
+<br />Ansley Manke
 <br />
-to other
+-------------- next part --------------
 <br />
-standardization projects we need a new procedure.
+An HTML attachment was scrubbed...
 <br />
-<br /><em class="quotelev1">&gt;What is the source of the threatening deluge? The ones from Martina, for
-</em><br />
-<em class="quotelev1">&gt;instance, don't look to be a serious problem to me. There are two
-</em><br />
-issues for
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20070330/958b8f8d/attachment-0002.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20070330/958b8f8d/attachment-0002.html</a>&gt;
 <br />
-<em class="quotelev1">&gt;stdnames:
-</em><br />
-I don't agree. This is the beginning see
-<br />
-(<a href="http://wiki.esipfed.org/index.php/CF_Standard_Names_-_Construction_of_Atmospheric_Chemistry_and_Aerosol_Terms">http://wiki.esipfed.org/index.php/CF_Standard_Names_-_Construction_of_Atmospheric_Chemistry_and_Aerosol_Terms</a>)
-<br />
-with the combination of 4500 species.
-<br />
-<br /><em class="quotelev1">&gt;* Thinking about how they should be constructed. That is usually the
-</em><br />
-bottleneck
-<br />
-<em class="quotelev1">&gt;because it is hard work, and not many brains are available.
-</em><br />
-The possible combination is hard work too.
-<br />
-<br /><em class="quotelev1">&gt;I would say that in Earth system models including more components, it
-</em><br />
-will become even more
-<br />
-<em class="quotelev1">&gt;important to have a common standard namespace for all the components
-</em><br />
-Yes !
-<br />
-<em class="quotelev1">&gt;so that developers and models talk a common language.
-</em><br />
-That is the problem. I think they will never talk a common language. But
-<br />
-we can give help to translate it.
-<br />
-<br />I have some problems with the chemical units. Are ug=10-6g and ppm allowed ?
-<br />
-<br />Dear Steve,
-<br />
-<br />I am not well versed in ontology. Could you give me more information
-<br />
-about the meeting ?
-<br />
-<br /><br /><br />Best whishes
-<br />
-Heinke
-<br />
-<span id="received"><dfn>Received on</dfn> Tue Oct 14 2008 - 01:40:29 BST</span>
+<span id="received"><dfn>Received on</dfn> Fri Mar 30 2007 - 12:41:32 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -205,9 +135,8 @@ Heinke
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1598">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1599.html" title="Next message in the list">Roy Lowry: "[CF-metadata] NDG Vocabulary Server and CF Standard Names"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1597.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] CF errata"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./1584.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] CF standard names for chemical constituents?"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1599.html" title="Next message in the list">Steve Hankin: "[CF-metadata] attributes for min/max data values for	visualization"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1597.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] representing model times in climate models"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -219,7 +148,7 @@ Heinke
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:10 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1597.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1599.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CMIP6 Sea Ice MIP: Integrated quantities from Dirk Notz on 2016-08-05 (mailing-list-archive)</title>
-<meta name="Author" content="Dirk Notz (dirk.notz)" />
-<meta name="Subject" content="[CF-metadata] CMIP6 Sea Ice MIP: Integrated quantities" />
-<meta name="Date" content="2016-08-05" />
+<title>[CF-metadata] How to define time coordinate in GPS? from Jim Biard on 2015-05-01 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jim Biard (jbiard)" />
+<meta name="Subject" content="[CF-metadata] How to define time coordinate in GPS?" />
+<meta name="Date" content="2015-05-01" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./7736.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7738.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CMIP6 Sea Ice MIP: Integrated quantities</h1>
-<!-- received="Fri Aug  5 00:08:55 2016" -->
-<!-- isoreceived="20160804230855" -->
-<!-- sent="Fri, 5 Aug 2016 08:08:55 +0200" -->
-<!-- isosent="20160805060855" -->
-<!-- name="Dirk Notz" -->
-<!-- email="dirk.notz" -->
-<!-- subject="[CF-metadata] CMIP6 Sea Ice MIP: Integrated quantities" -->
-<!-- id="7474d96c-f933-9588-772d-db3c8a7fd1c2_at_mpimet.mpg.de" -->
+<a style="text-decoration:none" href="./7736.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7738.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] How to define time coordinate in GPS?</h1>
+<!-- received="Fri May  1 07:42:55 2015" -->
+<!-- isoreceived="20150501064255" -->
+<!-- sent="Fri, 01 May 2015 09:42:55 -0400" -->
+<!-- isosent="20150501134255" -->
+<!-- name="Jim Biard" -->
+<!-- email="jbiard" -->
+<!-- subject="[CF-metadata] How to define time coordinate in GPS?" -->
+<!-- id="554382DF.30704_at_cicsnc.org" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="014539AC4976BE4490A360410A8C2017ED89DAB4_at_exchmbx01" -->
+<!-- inreplyto="3B970FB76033264EB34479EC8A365E1101BA32B870_at_vwiexc030.acri.local" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./7738.html" accesskey="d" title="Roger Brugge: &quot;[CF-metadata] Atmospheric electrical measurements&quot;">Next message</a> ]
-[ <a href="./7736.html" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] CMIP6 Sea Ice MIP: Ice thickness&quot;">Previous message</a> ]
-[ <a href="./7734.html" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] CMIP6 Sea Ice MIP: Integrated quantities&quot;">In reply to</a> ]
+[ <a href="./7738.html" accesskey="d" title="Charlie Zender: &quot;[CF-metadata] Is there ambiguity in labelling climatological time?&quot;">Next message</a> ]
+[ <a href="./7736.html" title="Seth McGinnis: &quot;[CF-metadata] Is there ambiguity in labelling climatological time. Was: CF-metadata Digest, Vol 144, Issue 25&quot;">Previous message</a> ]
+[ <a href="./7735.html" title="Julien Demaria: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./7739.html" accesskey="t" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] CMIP6 Sea Ice MIP: Integrated quantities&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,243 +70,535 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Dirk Notz &lt;<a href="mailto:dirk.notz?Subject=Re%3A%20%5BCF-metadata%5D%20CMIP6%20Sea%20Ice%20MIP%3A%20Integrated%20quantities">dirk.notz</a>&gt;
+<dfn>From</dfn>: Jim Biard &lt;<a href="mailto:jbiard?Subject=Re%3A%20%5BCF-metadata%5D%20How%20to%20define%20time%20coordinate%20in%20GPS%3F">jbiard</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 5 Aug 2016 08:08:55 +0200</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 01 May 2015 09:42:55 -0400</span><br />
 </address>
 <br />
-Dear Alison,
+Julien,
 <br />
-<br />thank you very much for your thoughtful comments, which we had 
+<br />The general understanding, as far as I am aware, of how to read Section 
 <br />
-considered carefully before submitting our proposal to the CF list. As 
+4.4 &quot;Time Coordinate&quot; in the CF Conventions is that the format for the 
 <br />
-you will have noticed, we followed your advice on almost all other 
+units attribute is
 <br />
-variables, but for the integrated properties area/extent/volume, our 
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;interval&gt; since YYYY-MM-DD [HH:MM:SS[.n...]] [+/-HH:MM]
 <br />
-suggestion to the list differed from your suggestion.
+<br />where the '[]' indicate optional elements. (And, yes, there are 
 <br />
-<br />This is because in a sea-ice context, combining the two terms &quot;area&quot; and 
+variations, but this is the basic form.) I believe the intent of the 
 <br />
-&quot;extent&quot; within single variable names would give rise to substantial 
+statements about defaults is to say that omission of a time zone offset 
 <br />
-confusion. The two terms simply describe two very different things, 
+is to be interpreted as time counted at 0 degrees longitude. UTC is used 
 <br />
-which are used to describe sea-ice coverage in all climate literature:
+in the text as a shorthand, but as our discussion has brought out, it 
 <br />
-<br />&quot;area&quot; always describes the areal coverage of the sea ice itself.
+wasn't really intended to indicate Coordinated Universal Time with its 
 <br />
-<br />&quot;extent&quot;, in contrast, always describes the areal coverage of all grid 
+full set of implications about leap seconds, etc.
 <br />
-cells that have a certain amount of sea ice in them. This is the only 
+<br />You have to be careful about using the udunits2 app to determine intent, 
 <br />
-variable that relates to a threshold within individual grid cells in our 
+since it was not available when this section was written. If you use the 
 <br />
-variable proposal, and there is no meaningful definition of 
+older udunits app, you will find that it accepts any random set of 
 <br />
-sea_ice_extent without such threshold. Despite it's unusual definition, 
+characters after the time and just passes them through. (I specified an 
 <br />
-this variable has been the standard variable to evaluate model 
+input time unit of &quot;hours since 2001-02-04 00:00:00 dog&quot;, and it was 
 <br />
-simulations of sea-ice coverage, and is shown in virtually all satellite 
+fine with it.) If that set of characters is a time offset like -03:00, 
 <br />
-time series that describe the sea-ice loss in the Arctic, for example. 
+it will include that in the calculations. udunits2 has been expanded to 
 <br />
-This is because observational uncertainty of sea-ice extent is much 
+recognize both UTC and GMT and treat them as synonyms for +00:00, but 
 <br />
-small than the uncertainty for sea-ice area, which is why sea-ice extent 
+there's nothing in the CF documentation that indicates that a symbolic 
 <br />
-has been the preferred way of evaluating models. There are substantial 
+time zone offset is expected or allowed.
 <br />
-issues with this approach, but that's a different story :-)
+<br />Notice too that the udunits API documentation strongly encourages people 
 <br />
-<br />Any variable containing in its name the phrase &quot;area_extent&quot; would hence 
+*not* to use the udunits or udunits2 package to handle time.
 <br />
-make it very difficult to figure out what this variable actually 
+<br />Grace and peace,
 <br />
-describes. We hence think that we would do more harm than good in 
+<br />Jim
 <br />
-combining these two words within individual variable names. It was 
-<br />
-therefore that we decided to not follow your naming suggestion on these 
-<br />
-two variables.
-<br />
-<br />Regarding volume the terminology &quot;volume_extent&quot; would be highly 
-<br />
-confusing to the community, as &quot;extent&quot; describes an areal coverage 
-<br />
-(units m?), whereas volume has units m?.
-<br />
-<br />We therefore found Jonathan's suggestion to simply use sea_ice_area, 
-<br />
-sea_ice_extent and sea_ice_volume very good, since they most clearly 
-<br />
-describe the physical meaning of the variables we want to describe. 
-<br />
-Given that sea_ice_extent already exists within the CF convention, 
-<br />
-simply updating its definition should be sufficient, since in the 
-<br />
-published literature sea_ice_extent only ever has the single meaning of 
-<br />
-an integrated quantity over several grid cells.
-<br />
-<br />Regarding your individual comments:
-<br />
-<br /><br /><em class="quotelev1">&gt; Initially, Dirk sent me a list of variables to preview before proposing the standard names to the mailing list. In it there were several variables relating to sea ice extent, area and volume, some of which refer to a threshold and others which don't. I've reproduced my original comments below with some additional explanation.
-</em><br />
-<br />sea-ice area and volume: These are defined in individual grid cells, and 
-<br />
-we additionally suggest to use them to describe integrated measures over 
-<br />
-full hemispheres.
-<br />
-<br />sea-ice extent: This is only defined over several grid cells, and is the 
-<br />
-only variable that refers to a threshold. There is no meaningful 
-<br />
-application of the terminology sea-ice extent for individual grid cells.
-<br />
-<br /><em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; 1. Current CF proposal: sea_ice_extent_in_region
-</em><br />
-<em class="quotelev1">&gt; CMIP6 short name: siextentn
-</em><br />
-<em class="quotelev1">&gt; Long name: Sea ice extent North
-</em><br />
-<em class="quotelev1">&gt; Units: 10^6 km?
-</em><br />
-<em class="quotelev1">&gt; Description: Total area of all Northern-Hemisphere grid cells that are covered by at least 15 % areal fraction of sea ice
-</em><br />
-<em class="quotelev1">&gt; My suggestion:
-</em><br />
-<em class="quotelev1">&gt; Standard name: area_extent_of_grid_cells_with_sea_ice_above_threshold (canonical units: m2)
-</em><br />
-<em class="quotelev1">&gt; + new standardized region name 'northern hemisphere' which could be supplied in a scalar coordinate variable.
-</em><br />
-<em class="quotelev1">&gt; The standard name definition can be written so as to allow a threshold of sea_ice coverage to be specified, in this case 15%, using a scalar coordinate variable. If no threshold is specified it is assumed to be zero. This would follow the practice adopted for existing names such as time_when_flood_water_falls_below_threshold.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; I appreciate that the existing name sea_ice_extent doesn't have a definition, and maybe we could write something that would allow us to use it for the aforementioned variable, but I don't  like that solution for the following reason. The existing name sea_ice_area has the definition ' &quot;X_area&quot; means the horizontal area occupied by X within the grid cell', i.e. it is the area of the sea_ice itself. By analogy, I would expect sea_ice_extent to be defined as something like ' &quot;X_extent&quot; means the horizontal area occupied by X summed across the horizontal domain of the data variable as described by the associated coordinate variables and coordinate bounds or a scalar coordinate variable with a standard name of &quot;region&quot; '. However, if I have understood Dirk's variable correctly, it is the sum of the area of the grid cells that contain at least 15 per cent sea ice, not the area of the sea ice itself, and I would favour introducing a new standard name for that concept. Plus it gives us the opportunity to mention t</em><br />
-he threshold.
+<br />On 4/30/15 6:28 PM, Julien Demaria wrote:
 <br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Dirk's original list contained an analogous variable for the southern hemisphere for which we could use the same standard name. Instead of using a &quot;region&quot; scalar coordinate variable, we could specify the latitude and longitude extents of the northern and southern hemispheres using coordinate variables as others have already suggested. I'd be happy with either approach, so on that point I'll go along with  the majority decision.
+<em class="quotelev1">&gt; Jim,
 </em><br />
-<br />We find the definition suggested by Jonathan very helpful and good: 
-<br />
-&quot;sea-ice_extent: Total area of all grid cells in which the sea ice area 
-<br />
-fraction equals or exceeds a threshold. By default the threshold is 15%. 
-<br />
-The threshold can be specified by supplying a coordinate variable or 
-<br />
-scalar coordinate variable with standard_name of sea_ice_area_fraction.&quot;
-<br />
-<br />Regarding the variable name, there is no other possibility to define the 
-<br />
-existing variable sea_ice_extent in a meaningful way, we believe. Unless 
-<br />
-we drop that variable from the CF convention, there doesn't seem to be 
-<br />
-any real need to define a new variable from our point of view.
-<br />
-<br />Regarding the decision on whether the hemispheres should be defined by 
-<br />
-lat/lon, or simply by a new region definition, I don't have a strong 
-<br />
-opinion, and would be happy to follow either common practice or the 
-<br />
-majority.
-<br />
-<br /><br /><br /><em class="quotelev1">&gt;
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; 2. Current CF proposal: sea_ice_area_in_region
+<em class="quotelev1">&gt; Are you sure that the units attribute cannot have &quot;UTC&quot; in it?
 </em><br />
-<em class="quotelev1">&gt; CMIP6 short name: siarean
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Long name: Sea ice area North
+<em class="quotelev1">&gt; CF specifies that a time zone may be represented in a time string like 
 </em><br />
-<em class="quotelev1">&gt; Units: 10^6 km?
+<em class="quotelev1">&gt; the &quot;-6:00&quot; in:
 </em><br />
-<em class="quotelev1">&gt; Description: Total area of sea ice in the Northern hemisphere
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; My suggestion:
+<em class="quotelev1">&gt;   &quot;seconds since 1992-10-8 15:15:42.5 -6:00&quot;
 </em><br />
-<em class="quotelev1">&gt; Standard name: sea_ice_area_extent (canonical units: m2)
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; + new standardized region name 'northern hemisphere' or specify horizontal domain via coordinate variables.
+<em class="quotelev1">&gt; and CF also says:
 </em><br />
-<em class="quotelev1">&gt; I think the existing name of sea_ice_extent (with added definition as above: &quot;X_extent&quot; means the horizontal area occupied by X summed across the horizontal domain of the data variable as described by the associated coordinate variables and coordinate bounds or a scalar coordinate variable with a standard name of &quot;region&quot;) can definitely be used for this variable, and for added clarity I'm suggesting we also modify the name itself. Thus sea_ice_extent would become an alias of sea_ice_area_extent. This name would also work for the analogous southern hemisphere quantity in Dirk's original list.
+<em class="quotelev1">&gt;
 </em><br />
-<br />If we were to use the existing term &quot;sea-ice extent&quot; to describe actual 
-<br />
-&quot;sea-ice area&quot;, the CF convention would get in conflict with the entire 
-<br />
-scientific literature, as described above. We don't think this would be 
-<br />
-a good idea, and rather suggest to simply follow Jonathan's suggestion 
-<br />
-to use the existing sea_ice_area, which then should be summed over a 
-<br />
-given region. This would also underpin how closely related sea-ice area 
-<br />
-in individual grid cells is to the integrated sea-ice area that we ask 
-<br />
-for here.
-<br />
-<br /><em class="quotelev1">&gt;
+<em class="quotelev1">&gt;   Note: if the time zone is omitted the default is UTC, and if both 
 </em><br />
-<em class="quotelev1">&gt; 3. Current CF proposal: sea_ice_volume_in_region
+<em class="quotelev1">&gt; time and time zone are omitted the default is 00:00:00 UTC.
 </em><br />
-<em class="quotelev1">&gt; CMIP6 short name: sivoln
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Long name: Sea ice volume North
+<em class="quotelev1">&gt; and it seems that the trailing ?UTC? string is accepted by udunits and 
 </em><br />
-<em class="quotelev1">&gt; Units: 10^3 km?
+<em class="quotelev1">&gt; is present in the canonical form:
 </em><br />
-<em class="quotelev1">&gt; Description: Total volume of sea ice in the Northern hemisphere
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; My suggestion:
+<em class="quotelev1">&gt; $ udunits2
 </em><br />
-<em class="quotelev1">&gt; Standard name: sea_ice_volume_extent (canonical units: m3)
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;  + new standardized region name 'northern hemisphere' or specify horizontal domain via coordinate variables.
+<em class="quotelev1">&gt; You have: microseconds since 2000-01-01 00:00:00 UTC
 </em><br />
-<em class="quotelev1">&gt; We have an existing name sea_ice_volume which does not have a definition. I think we should add a definition and by analogy with sea_ice_area I suggest it should be ' &quot;X_volume&quot; means the volume occupied by X within the grid cell'. To indicate the sum of the volumes across a horizontal domain we would then need a new standard name. For consistency with sea_ice_area_extent  I suggest  'sea_ice_volume_extent' for this name. This would be defined as ' &quot;X_volume_extent&quot; means the volume occupied by X summed across the horizontal domain of the data variable as described by the associated coordinate variables and coordinate bounds or a scalar coordinate variable with a standard name of &quot;region&quot; '. Again, this name would work for both northern and southern hemispheres.
+<em class="quotelev1">&gt;
 </em><br />
-<br />We don't think it's helpful to use extent (which has units m?) to 
-<br />
-describe a quantity that has units m?. Hence, as for sea-ice area, we 
-<br />
-feel it's best to use the existing standard name sea_ice_volume, and to 
-<br />
-ask that this should be summed up over a certain region. We also here 
-<br />
-find Jonathan's respective remark very intuitive.
-<br />
-<br />I hope this makes sense - and sorry for the lengthy reply. It's length 
-<br />
-was also born out of the fact that I'll be offline for the coming three 
-<br />
-weeks, and tried to clarify our view in one go.
-<br />
-<br />Alexandra Jahn, who is co-chair of our CMIP6 sea-ice MIP, might have 
-<br />
-additional comments while I'm gone.
-<br />
-<br />Thank you very much once again for this constructive exchange!
-<br />
-<br />All the best,
-<br />
-<br />&nbsp;&nbsp;Dirk
-<br />
-<span id="received"><dfn>Received on</dfn> Fri Aug 05 2016 - 00:08:55 BST</span>
+<em class="quotelev1">&gt; You want:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;     (1e-06 s) _at_ 20000101T000000.000000000 UTC
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Thanks,
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Julien
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;Jim Biard jbiard at cicsnc.org
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;Fri Apr 24 11:07:15 MDT 2015
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;Julien,
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;The units attribute cannot have &quot;UTC&quot; in it. UTC is implied. Other than
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;that, it looks great!
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;Jim
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; *De :*Julien Demaria
+</em><br />
+<em class="quotelev1">&gt; *Envoy? :* vendredi 24 avril 2015 18:14
+</em><br />
+<em class="quotelev1">&gt; *? :* 'Manning, Evan M (398B)'; Chris Barker
+</em><br />
+<em class="quotelev1">&gt; *Cc :* Jonathan Gregory; cf-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; *Objet :* RE: [CF-metadata] How to define time coordinate in GPS?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Hi,
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Thanks a lot for all your accurate answers!
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; With all these information, for the moment we think the best way to 
+</em><br />
+<em class="quotelev1">&gt; represent our time in CF is to convert the time stamp of the units 
+</em><br />
+<em class="quotelev1">&gt; attribute from GPS to UTC.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; We cannot change it for the GPS beginning 1980-01-06 so we must 
+</em><br />
+<em class="quotelev1">&gt; transform the 2000-01-01 from GPS to UTC to be more CF compliant.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; We also specify GPS in the long name and in a new non standard 
+</em><br />
+<em class="quotelev1">&gt; time_reference attribute :
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; int64 time_stamp(rows) ;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; time_stamp:standard_name = &quot;time&quot; ;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;     time_stamp:units = &quot;microseconds since 2000-01-01 00:00:*13*UTC&quot; ;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; time_stamp:long_name = &quot;Elapsed time since 01 Jan 2000 0h GPS&quot; ;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; time_stamp:time_reference = &quot;GPS&quot;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I think with this solution a CF compliant software (which not support 
+</em><br />
+<em class="quotelev1">&gt; leap second) should interpret time ?correctly?.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Let me know if I missed something.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Thanks,
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Julien
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; *De :*Manning, Evan M (398B) [mailto:Evan.M.Manning at jpl.nasa.gov]
+</em><br />
+<em class="quotelev1">&gt; *Envoy? :* vendredi 24 avril 2015 14:30
+</em><br />
+<em class="quotelev1">&gt; *? :* Chris Barker; Julien Demaria
+</em><br />
+<em class="quotelev1">&gt; *Cc :* Jonathan Gregory; cf-metadata at cgd.ucar.edu 
+</em><br />
+<em class="quotelev1">&gt; &lt;mailto:cf-metadata at cgd.ucar.edu&gt;
+</em><br />
+<em class="quotelev1">&gt; *Objet :* RE: [CF-metadata] How to define time coordinate in GPS?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; It's probably overkill but for Suomi NPP CrIS and ATMS we are planning 
+</em><br />
+<em class="quotelev1">&gt; to provide
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; timestamps for each obs in both TAI and UTC.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; TAI is the true time dimension, but UTC gives users a correct UTC if 
+</em><br />
+<em class="quotelev1">&gt; that's what they want and should minimize the temptation for them to 
+</em><br />
+<em class="quotelev1">&gt; do TAI to UTC conversions using tools which don't understand leap seconds.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; -- Evan
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; ------------------------------------------------------------------------
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; *From:*Chris Barker [chris.barker at noaa.gov]
+</em><br />
+<em class="quotelev1">&gt; *Sent:* Thursday, April 23, 2015 4:48 PM
+</em><br />
+<em class="quotelev1">&gt; *To:* Julien Demaria
+</em><br />
+<em class="quotelev1">&gt; *Cc:* Jonathan Gregory; cf-metadata at cgd.ucar.edu 
+</em><br />
+<em class="quotelev1">&gt; &lt;mailto:cf-metadata at cgd.ucar.edu&gt;
+</em><br />
+<em class="quotelev1">&gt; *Subject:* Re: [CF-metadata] How to define time coordinate in GPS?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; On Thu, Apr 23, 2015 at 7:19 AM, Julien Demaria 
+</em><br />
+<em class="quotelev1">&gt; &lt;Julien.Demaria at acri-st.fr &lt;mailto:Julien.Demaria at acri-st.fr&gt;&gt; wrote:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I?m also not an expert on this:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; ?GPS, Global Positioning System time, is the atomic time scale 
+</em><br />
+<em class="quotelev1">&gt; implemented by the atomic clocks in the GPS ground control stations 
+</em><br />
+<em class="quotelev1">&gt; and the GPS satellites themselves. GPS time was zero at 0h 6-Jan-1980 
+</em><br />
+<em class="quotelev1">&gt; and since it is not perturbed by leap seconds GPS is now ahead of UTC 
+</em><br />
+<em class="quotelev1">&gt; by 16 seconds.?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; It seems to me then, that the &quot;right&quot; way is to express this time as:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; time_unit since 1908-01-06T00:00:00Z
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; since that is technically exactly correct.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; clients are likely to translate to year-month-day-hour-minute-second 
+</em><br />
+<em class="quotelev1">&gt; using UTC, but maybe not. And as others have pointed out, most libs 
+</em><br />
+<em class="quotelev1">&gt; don't do leap seconds anyway, so are using &quot;GPS time&quot; whether they 
+</em><br />
+<em class="quotelev1">&gt; specify it or not.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I guess what I am saying is that this isn't really a &quot;how to encode it 
+</em><br />
+<em class="quotelev1">&gt; in CF&quot; question -- if you use that epoch, then it becomes entirely up 
+</em><br />
+<em class="quotelev1">&gt; to the client what time it wants to translate to.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; -Chris
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;     <a href="http://www.leapsecond.com/java/gpsclock.htm">http://www.leapsecond.com/java/gpsclock.htm</a>
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;     a more detailed explanation:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;     <a href="https://confluence.qps.nl/display/KBE/UTC+to+GPS+Time+Correction">https://confluence.qps.nl/display/KBE/UTC+to+GPS+Time+Correction</a>
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;     Thanks in advance,
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;     Julien
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;     &gt;Jonathan Gregory j.m.gregory at reading.ac.uk &lt;<a href="http://reading.ac.uk">http://reading.ac.uk</a>&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;     &gt;Thu Apr 23 07:58:09 MDT 2015
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;     &gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;     &gt;Dear Julien
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;     &gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;     &gt;Could you explain what the difference is between GPS time and UTC (for
+</em><br />
+<em class="quotelev1">&gt;     a non-
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;     &gt;expert such as me)?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;     &gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;     &gt;Thanks
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;     &gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;     &gt;Jonathan
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;     *De :*Julien Demaria
+</em><br />
+<em class="quotelev1">&gt;     *Envoy? :* jeudi 23 avril 2015 14:51
+</em><br />
+<em class="quotelev1">&gt;     *? :* 'cf-metadata at cgd.ucar.edu &lt;mailto:cf-metadata at cgd.ucar.edu&gt;'
+</em><br />
+<em class="quotelev1">&gt;     *Objet :* How to define time coordinate in GPS?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;     Hi,
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;     I need to define a time coordinate variable which use the GPS time
+</em><br />
+<em class="quotelev1">&gt;     referential instead of UTC, but I did not found how to specify this.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;     For the moment my variable look like this :
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;     int64 time_stamp(rows) ;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;     time_stamp:standard_name = &quot;time&quot; ;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;     time_stamp:units = &quot;microseconds since 2000-01-01 00:00:00&quot; ;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;     time_stamp:_FillValue = -1L ;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;     Thanks in advance,
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;     Julien
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;     _______________________________________________
+</em><br />
+<em class="quotelev1">&gt;     CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt;     CF-metadata at cgd.ucar.edu &lt;mailto:CF-metadata at cgd.ucar.edu&gt;
+</em><br />
+<em class="quotelev1">&gt;     <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; -- 
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Christopher Barker, Ph.D.
+</em><br />
+<em class="quotelev1">&gt; Oceanographer
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Emergency Response Division
+</em><br />
+<em class="quotelev1">&gt; NOAA/NOS/OR&amp;R (206) 526-6959 voice
+</em><br />
+<em class="quotelev1">&gt; 7600 Sand Point Way NE (206) 526-6329 fax
+</em><br />
+<em class="quotelev1">&gt; Seattle, WA  98115 (206) 526-6317 main reception
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Chris.Barker at noaa.gov &lt;mailto:Chris.Barker at noaa.gov&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<br /><pre>
+-- 
+CICS-NC &lt;<a href="http://www.cicsnc.org/">http://www.cicsnc.org/</a>&gt; Visit us on
+Facebook &lt;<a href="http://www.facebook.com/cicsnc">http://www.facebook.com/cicsnc</a>&gt; 	*Jim Biard*
+*Research Scholar*
+Cooperative Institute for Climate and Satellites NC &lt;<a href="http://cicsnc.org/">http://cicsnc.org/</a>&gt;
+North Carolina State University &lt;<a href="http://ncsu.edu/">http://ncsu.edu/</a>&gt;
+NOAA National Centers for Environmental Information &lt;<a href="http://ncdc.noaa.gov/">http://ncdc.noaa.gov/</a>&gt;
+/formerly NOAA?s National Climatic Data Center/
+151 Patton Ave, Asheville, NC 28801
+e: jbiard at cicsnc.org &lt;mailto:jbiard at cicsnc.org&gt;
+o: +1 828 271 4900
+/We will be updating our social media soon. Follow our current Facebook 
+(NOAA National Climatic Data Center 
+&lt;<a href="https://www.facebook.com/NOAANationalClimaticDataCenter">https://www.facebook.com/NOAANationalClimaticDataCenter</a>&gt; and NOAA 
+National Oceanographic Data Center &lt;<a href="https://www.facebook.com/noaa.nodc">https://www.facebook.com/noaa.nodc</a>&gt;) 
+and Twitter (_at_NOAANCDC &lt;<a href="https://twitter.com/NOAANCDC">https://twitter.com/NOAANCDC</a>&gt; and @NOAAOceanData 
+&lt;<a href="https://twitter.com/NOAAOceanData">https://twitter.com/NOAAOceanData</a>&gt;) accounts for the latest information./
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150501/f6149df0/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150501/f6149df0/attachment-0001.html</a>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: CicsLogoTiny.png
+Type: image/png
+Size: 15784 bytes
+Desc: not available
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150501/f6149df0/attachment-0001.png">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150501/f6149df0/attachment-0001.png</a>&gt;
+</pre>
+<span id="received"><dfn>Received on</dfn> Fri May 01 2015 - 07:42:55 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -316,13 +606,10 @@ additional comments while I'm gone.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start7737">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./7738.html" title="Next message in the list">Roger Brugge: "[CF-metadata] Atmospheric electrical measurements"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./7736.html" title="Previous message in the list">alison.pamment at stfc.ac.uk: "[CF-metadata] CMIP6 Sea Ice MIP: Ice thickness"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./7734.html" title="Message to which this message replies">alison.pamment at stfc.ac.uk: "[CF-metadata] CMIP6 Sea Ice MIP: Integrated quantities"</a></li>
+<li><dfn>Next message</dfn>: <a href="./7738.html" title="Next message in the list">Charlie Zender: "[CF-metadata] Is there ambiguity in labelling climatological time?"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./7736.html" title="Previous message in the list">Seth McGinnis: "[CF-metadata] Is there ambiguity in labelling climatological time. Was: CF-metadata Digest, Vol 144, Issue 25"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./7735.html" title="Message to which this message replies">Julien Demaria: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./7739.html" title="Next message in this discussion thread">alison.pamment at stfc.ac.uk: "[CF-metadata] CMIP6 Sea Ice MIP: Integrated quantities"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./7739.html" title="Message sent in reply to this message">alison.pamment at stfc.ac.uk: "[CF-metadata] CMIP6 Sea Ice MIP: Integrated quantities"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -333,7 +620,7 @@ additional comments while I'm gone.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:05 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./7736.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7738.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

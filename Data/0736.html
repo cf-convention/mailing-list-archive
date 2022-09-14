@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] some concerns about the &quot;ensemble axis&quot; proposal from V. Balaji on 2007-03-06 (mailing-list-archive)</title>
-<meta name="Author" content="V. Balaji (V.Balaji)" />
-<meta name="Subject" content="[CF-metadata] some concerns about the &quot;ensemble axis&quot; proposal" />
-<meta name="Date" content="2007-03-06" />
+<title>[CF-metadata] GIS versus CF conventions from Jonathan Gregory on 2005-08-31 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] GIS versus CF conventions" />
+<meta name="Date" content="2005-08-31" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0735.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0737.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] some concerns about the &quot;ensemble axis&quot; proposal</h1>
-<!-- received="Tue Mar  6 11:10:22 2007" -->
-<!-- isoreceived="20070306111022" -->
-<!-- sent="Tue, 06 Mar 2007 13:10:22 -0500 (EST)" -->
-<!-- isosent="20070306181022" -->
-<!-- name="V. Balaji" -->
-<!-- email="V.Balaji" -->
-<!-- subject="[CF-metadata] some concerns about the &quot;ensemble axis&quot; proposal" -->
-<!-- id="Pine.LNX.4.64.0703061237300.5489_at_localhost" -->
+<a style="text-decoration:none" href="./0735.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0737.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] GIS versus CF conventions</h1>
+<!-- received="Wed Aug 31 03:20:02 2005" -->
+<!-- isoreceived="20050831022002" -->
+<!-- sent="Wed, 31 Aug 2005 10:20:02 +0100" -->
+<!-- isosent="20050831092002" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] GIS versus CF conventions" -->
+<!-- id="20050831092002.GA3335_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20070304163519.GA28713_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0737.html" accesskey="d" title="Bryan Lawrence: &quot;[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal&quot;">Next message</a> ]
-[ <a href="./0735.html" title="V. Balaji: &quot;[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal&quot;">Previous message</a> ]
-[ <a href="./0729.html" title="Jonathan Gregory: &quot;[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal&quot;">In reply to</a> ]
+[ <a href="./0737.html" accesskey="d" title="Pepe S. D. Juevara: &quot;[CF-metadata] Optical properties&quot;">Next message</a> ]
+[ <a href="./0735.html" title="Bryan Lawrence: &quot;[CF-metadata] GIS versus CF conventions&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,74 +68,32 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: V. Balaji &lt;<a href="mailto:V.Balaji?Subject=Re%3A%20%5BCF-metadata%5D%20some%20concerns%20about%20the%20%22ensemble%20axis%22%20proposal">V.Balaji</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20GIS%20versus%20CF%20conventions">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 06 Mar 2007 13:10:22 -0500 (EST)</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 31 Aug 2005 10:20:02 +0100</span><br />
 </address>
 <br />
-Jonathan Gregory writes:
+To clarify, I think there are three separate issues:
 <br />
-<br /><em class="quotelev1">&gt;...
-</em><br />
-<em class="quotelev1">&gt; It is also a limitation that the data have to be on the same space-time grid.
-</em><br />
-<em class="quotelev1">&gt;For many analysis operations, however, this is necessary, even if the data were
-</em><br />
-<em class="quotelev1">&gt;not generated like that. In Balaji's case of the AR4 archive, the models do not
-</em><br />
-<em class="quotelev1">&gt;have the same grid. It is necessary to put them on a common grid nonetheless in
-</em><br />
-<em class="quotelev1">&gt;order to produce some familiar diagnostics such as appear in the AR4 and recent
-</em><br />
-<em class="quotelev1">&gt; papers, like the average lat-lon field of surface temperature change, or the
-</em><br />
-<em class="quotelev1">&gt; time-depth field of ocean temperature change averaged over models with
-</em><br />
-<em class="quotelev1">&gt; volcanoes. Even if the archive did not originally hold that data like that, I
-</em><br />
-<em class="quotelev1">&gt; am sure that somewhere along the way the ensemble dimension will be needed.
-</em><br />
-<br />Jonathan, if I understand the proposal here, it's that experiments will
+<br />* Aggregation over files, which means coordinates etc. might be missing in
 <br />
-be archived independently, and when someone constructs an ensemble out
+the file containing the data. CF does not formally allow this at present.
 <br />
-of a set of archived runs, then some software will go in and add the
+Should it?
 <br />
-ensemble dimension?
+<br />* Description of how grids are constructed when they are not lat-lon. This is
 <br />
-<br />Do you foresee that at some future date, data centres will take a number
+in addition to the lat-lon auxiliary coordinates and is the idea of grid
 <br />
-of archived experiments, reorganize some set of runs into an ensemble,
+mapping (appendix F) but could be more general.
 <br />
-and deliver a packaged ensemble dataset following the rules proposed
+<br />* Relationship between different grids, for the sake of software which wishes
 <br />
-here?
+to relate u and v or u and T, etc. Balaji's proposal is relevant to this.
 <br />
-<br />I'm still only able to see performance problems, and apologize if I
+<br />Jonathan
 <br />
-missed something from earlier on in the discussion. As I've stated,
-<br />
-I do see aggregation as a fact of life. It's possible at small cost to
-<br />
-add attributes, and make minor changes to the netCDF file header after
-<br />
-the fact, but reorganizing data along a new axis is non-trivial.
-<br />
-<br />My preference would still be to use the auxiliary coordinates to
-<br />
-identify individual datasets as belonging to a set or ensemble, but
-<br />
-defer the aggregation step as far as possible to the end-use software.
-<br />
-<br /><em class="quotelev1">&gt; ...
-</em><br />
-<pre>
--- 
-V. Balaji                               Office:  +1-609-452-6516
-Head, Modeling Systems Group, GFDL      Home:    +1-212-253-6662
-Princeton University                    Email: v.balaji at noaa.gov
-</pre>
-<span id="received"><dfn>Received on</dfn> Tue Mar 06 2007 - 11:10:22 GMT</span>
+<span id="received"><dfn>Received on</dfn> Wed Aug 31 2005 - 03:20:02 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -145,9 +101,8 @@ Princeton University                    Email: v.balaji at noaa.gov
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start736">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0737.html" title="Next message in the list">Bryan Lawrence: "[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0735.html" title="Previous message in the list">V. Balaji: "[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0729.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0737.html" title="Next message in the list">Pepe S. D. Juevara: "[CF-metadata] Optical properties"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0735.html" title="Previous message in the list">Bryan Lawrence: "[CF-metadata] GIS versus CF conventions"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -159,7 +114,7 @@ Princeton University                    Email: v.balaji at noaa.gov
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:54 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0735.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0737.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

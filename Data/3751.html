@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] standard names for stations from Jonathan Gregory on 2011-09-19 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] standard names for stations" />
-<meta name="Date" content="2011-09-19" />
+<title>[CF-metadata] time	as ISO strings from Ben Hetland on 2010-10-25 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Ben Hetland (ben.a.hetland)" />
+<meta name="Subject" content="[CF-metadata] time	as ISO strings" />
+<meta name="Date" content="2010-10-25" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./3750.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3752.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard names for stations</h1>
-<!-- received="Mon Sep 19 11:28:45 2011" -->
-<!-- isoreceived="20110919102845" -->
-<!-- sent="Mon, 19 Sep 2011 18:28:45 +0100" -->
-<!-- isosent="20110919172845" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] standard names for stations" -->
-<!-- id="20110919172845.GA10644_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./3750.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3752.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] time	as ISO strings</h1>
+<!-- received="Mon Oct 25 13:43:07 2010" -->
+<!-- isoreceived="20101025124307" -->
+<!-- sent="Mon, 25 Oct 2010 21:43:07 +0200" -->
+<!-- isosent="20101025194307" -->
+<!-- name="Ben Hetland" -->
+<!-- email="ben.a.hetland" -->
+<!-- subject="[CF-metadata] time	as ISO strings" -->
+<!-- id="4CC5DDCB.5030204_at_sintef.no" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="4CC0E38F.9030106_at_noaa.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,9 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./3752.html" accesskey="d" title="Hedley, Mark: &quot;[CF-metadata] standard names for defined global attribute names&quot;">Next message</a> ]
-[ <a href="./3750.html" title="Jim Biard: &quot;[CF-metadata] Request for a region standard_name&quot;">Previous message</a> ]
+[ <a href="./3752.html" accesskey="d" title="Nan Galbraith: &quot;[CF-metadata] time	as ISO strings&quot;">Next message</a> ]
+[ <a href="./3750.html" title="Ben Hetland: &quot;[CF-metadata] time as ISO strings&quot;">Previous message</a> ]
+[ <a href="./3730.html" title="Steve Hankin: &quot;[CF-metadata] time	as ISO strings&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./3752.html" accesskey="t" title="Nan Galbraith: &quot;[CF-metadata] time	as ISO strings&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,108 +72,52 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20standard%20names%20for%20stations">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Ben Hetland &lt;<a href="mailto:ben.a.hetland?Subject=Re%3A%20%5BCF-metadata%5D%20time%09as%20ISO%20strings">ben.a.hetland</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 19 Sep 2011 18:28:45 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 25 Oct 2010 21:43:07 +0200</span><br />
 </address>
 <br />
-Dear John
+Hi all,
 <br />
-<br />Thanks for your useful points.
+<br />On 22.10.2010 03:06, Steve Hankin wrote:
 <br />
-<br />On the cf_role, my understanding is not the same as yours. As you say, we
-<br />
-put in the convention
-<br />
-<br /><em class="quotelev1">&gt; 1) station variable (which may be of any type) with the attribute
+<em class="quotelev1">&gt; Since this email thread already contains an element of informal voting
 </em><br />
-<em class="quotelev1">&gt; cf_role=?timeseries_id?, whose values uniquely identify the
+<em class="quotelev1">&gt; I'll cast my ballot:  CF is a better standard WITHOUT admitting ISO
 </em><br />
-<em class="quotelev1">&gt; stations.
+<em class="quotelev1">&gt; date strings as an encoding for time coordinates.
 </em><br />
-<br />but I don't think cf_role is an alternative to standard_name. I think its
+<br />I also support this view.
 <br />
-purpose is to say, &quot;This is the station variable which provides the unique ID
+<br />I do believe, though, that ISO date/time strings do have a utility
 <br />
-of the stations.&quot; The cf_role doesn't say what sort of ID the variable
+in--or as part of-- textual metadata fields associated with such
 <br />
-provides. The variable can (and should, I think) describe itself further by
+coordinates, for instance as in the unit property of the time dimension
 <br />
-having a long_name or a standard_name attribute. In the examples in the
+(&quot;minutes since 2001-01-01T00Z&quot;).
 <br />
-document, it is the station name variable which has cf_role=&quot;timeseries_id&quot;
-<br />
-and long_name=&quot;station name&quot;. It could equally well have a standard_name, and
-<br />
-in fact that might be more useful.
-<br />
-<br />Although we proposed standard names of station_description and station_wmo_id
-<br />
-in the discrete sampling geometry ticket, the discussion we are having now
-<br />
-suggests this might not be the best choice. Obviously we don't want to change
-<br />
-the ticket now, but I reckon we could probably sort this out as a &quot;defect&quot; if
-<br />
-we want to change that part of it and Jeff is still working on the 1.6 doc.
-<br />
-<br /><em class="quotelev1">&gt; 5) Generally i like the idea of richer metadata for stations and
+<br /><br /><br /><em class="quotelev1">&gt; Bloat and run away complexity are a continual threat to the quality
 </em><br />
-<em class="quotelev1">&gt; platforms etc, and a naming authority is a really good idea. In
+<em class="quotelev1">&gt; of a standard as it evolves.  I'd argue that the measure of whether
 </em><br />
-<em class="quotelev1">&gt; service of Getting Things Done, i would recommend that we agree on
+<em class="quotelev1">&gt; a new feature deserves inclusion should be whether it adds useful
 </em><br />
-<em class="quotelev1">&gt; something that works for &quot;human readable&quot; metadata, and then start
+<em class="quotelev1">&gt; new functionality and does so in a manner that is &quot;clean&quot; --
 </em><br />
-<em class="quotelev1">&gt; to experiment with machine readable versions, eg JSON.
+<em class="quotelev1">&gt; preserving the consistency and simplicity of the standard to the
 </em><br />
-<br />OK.
-<br />
-<br /><em class="quotelev1">&gt; whether the naming authority is part of the name or not is a bit of
+<em class="quotelev1">&gt; degree feasible.
 </em><br />
-<em class="quotelev1">&gt; style, but ill say that i like it.
-</em><br />
-<br />Good. So do I!
+<br />And one extra vote to support this argument too, please, if I may!  ;-)
 <br />
-<br />My proposal would be that we add standard_names of platform_name and
-<br />
-platform_id, instead of station_description and station_wmo_id. &quot;Platform&quot; is
-<br />
-more general. platform_name is a name, and platform_id is a string which
-<br />
-contains IDs and identifies the authorities that supply them, in some way
-<br />
-which at present is not standardised, but which could be in CF 1.7.
-<br />
-<br />This isn't the best place to talk about cf_role in general, but I would like
-<br />
-to comment that I'm unsure about it at the moment. I do think it would be
-<br />
-valuable to use cf_role so that different variables could identify their
-<br />
-structural purpose in the CF dataset. This would be in addition to the
-<br />
-mechanisms we already have, in which roles are indicated by the way variables
-<br />
-point to other variables. It would be useful to go both ways. Although it is
-<br />
-redundant and therefore inconsistency could arise, it could be checked
-<br />
-automatically. However I think that with piecemeal introduction of cf_role,
-<br />
-in gridspec and in the discrete sampling geometries, we have not thought
-<br />
-generally about what kind of information cf_role should contain. If you (or
-<br />
-anyone else) would like to express a view on this, it would be great, but it
-<br />
-might be helpful to start a different email thread!
-<br />
-<br />Best wishes
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Mon Sep 19 2011 - 11:28:45 BST</span>
+<br /><pre>
+-- 
+Regards,
+	-+-Ben-+-
+Opinions expressed are my own, not necessarily those of my employer.
+</pre>
+<span id="received"><dfn>Received on</dfn> Mon Oct 25 2010 - 13:43:07 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -177,9 +125,13 @@ might be helpful to start a different email thread!
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start3751">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./3752.html" title="Next message in the list">Hedley, Mark: "[CF-metadata] standard names for defined global attribute names"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./3750.html" title="Previous message in the list">Jim Biard: "[CF-metadata] Request for a region standard_name"</a></li>
+<li><dfn>Next message</dfn>: <a href="./3752.html" title="Next message in the list">Nan Galbraith: "[CF-metadata] time	as ISO strings"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./3750.html" title="Previous message in the list">Ben Hetland: "[CF-metadata] time as ISO strings"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./3730.html" title="Message to which this message replies">Steve Hankin: "[CF-metadata] time	as ISO strings"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./3752.html" title="Next message in this discussion thread">Nan Galbraith: "[CF-metadata] time	as ISO strings"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./3752.html" title="Message sent in reply to this message">Nan Galbraith: "[CF-metadata] time	as ISO strings"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -190,7 +142,7 @@ might be helpful to start a different email thread!
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:51 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./3750.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3752.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] axis attribute from John Caron on 2006-11-13 (mailing-list-archive)</title>
-<meta name="Author" content="John Caron (caron)" />
-<meta name="Subject" content="[CF-metadata] axis attribute" />
-<meta name="Date" content="2006-11-13" />
+<title>[CF-metadata] detaching the standard name table from Jonathan Gregory on 2004-06-25 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] detaching the standard name table" />
+<meta name="Date" content="2004-06-25" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0418.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0420.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] axis attribute</h1>
-<!-- received="Mon Nov 13 12:29:03 2006" -->
-<!-- isoreceived="20061113122903" -->
-<!-- sent="Mon, 13 Nov 2006 12:29:03 -0700" -->
-<!-- isosent="20061113192903" -->
-<!-- name="John Caron" -->
-<!-- email="caron" -->
-<!-- subject="[CF-metadata] axis attribute" -->
-<!-- id="4558C77F.7030509_at_unidata.ucar.edu" -->
+<a style="text-decoration:none" href="./0418.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0420.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] detaching the standard name table</h1>
+<!-- received="Fri Jun 25 12:27:15 2004" -->
+<!-- isoreceived="20040625112715" -->
+<!-- sent="Fri, 25 Jun 2004 19:27:15 +0100" -->
+<!-- isosent="20040625182715" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] detaching the standard name table" -->
+<!-- id="20040625182715.GA15663_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20061113084010.GA2018_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0420.html" accesskey="d" title="John Caron: &quot;[CF-metadata] axis attribute&quot;">Next message</a> ]
-[ <a href="./0418.html" title="Brian Eaton: &quot;[CF-metadata] axis attribute&quot;">Previous message</a> ]
-[ <a href="./0416.html" title="Jonathan Gregory: &quot;[CF-metadata] axis attribute&quot;">In reply to</a> ]
+[ <a href="./0420.html" accesskey="d" title="John Caron: &quot;[CF-metadata] convergence&quot;">Next message</a> ]
+[ <a href="./0418.html" title="Russ Rew: &quot;[CF-metadata] detaching the standard name table&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,106 +68,68 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20axis%20attribute">caron</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20detaching%20the%20standard%20name%20table">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 13 Nov 2006 12:29:03 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 25 Jun 2004 19:27:15 +0100</span><br />
 </address>
 <br />
-Jonathan Gregory wrote:
+Dear Bryan et al.
 <br />
-<em class="quotelev1">&gt; Dear all
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Jeff Cole has asked a question about the interpretation of the axis attribute
-</em><br />
-<em class="quotelev1">&gt; in current version of CF. It's not clear to me either, so I wonder if others
-</em><br />
-<em class="quotelev1">&gt; can remember or clarify the intention.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; In CF 4 we say
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; &quot;Because identification of a coordinate type by its units is complicated by
-</em><br />
-<em class="quotelev1">&gt; requiring the use of an external software package [UDUNITS], we provide two
-</em><br />
-<em class="quotelev1">&gt; optional methods that yield a direct identification. The attribute axis may be
-</em><br />
-<em class="quotelev1">&gt; attached to a coordinate variable and given one of the values X, Y, Z or T
-</em><br />
-<em class="quotelev1">&gt; which stand for a longitude, latitude, vertical, or time axis respectively.&quot;
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; &quot;Coordinate types other than latitude, longitude, vertical, and time are
-</em><br />
-<em class="quotelev1">&gt; allowed. To identify generic spatial coordinates we recommend that the axis
-</em><br />
-<em class="quotelev1">&gt; attribute be attached to these coordinates and given one of the values X, Y or
-</em><br />
-<em class="quotelev1">&gt; Z. We attach no specific meaning to the axis values in this case, but note
-</em><br />
-<em class="quotelev1">&gt; that they may provide a useful hint to an application that plots spatially
-</em><br />
-<em class="quotelev1">&gt; oriented data.&quot;
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Then CF 4.1 says
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; &quot;Coordinates of latitude with respect to a rotated pole should be given units
-</em><br />
-<em class="quotelev1">&gt; of degrees, not degrees_north or equivalents, because applications which use
-</em><br />
-<em class="quotelev1">&gt; the units to identify axes would have no means of distinguishing such an axis
-</em><br />
-<em class="quotelev1">&gt; from real latitude, and might draw incorrect coastlines, for instance. It
-</em><br />
-<em class="quotelev1">&gt; would also not generally be appropriate to attach an axis attribute to a
-</em><br />
-<em class="quotelev1">&gt; rotated-latitude coordinate variable.&quot;
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; We don't understand the last exclusion. Why shouldn't rotated-latitude coord
-</em><br />
-<em class="quotelev1">&gt; variables have axis=&quot;X&quot;? To attach this would seem to &quot;provide a useful hint
-</em><br />
-<em class="quotelev1">&gt; to an application&quot; about which to plot as the x-axis, and seems inconsistent
-</em><br />
-<em class="quotelev1">&gt; with the recommendation to use the axis attribute for spatial axes even when
-</em><br />
-<em class="quotelev1">&gt; they aren't lat, lon and vertical.
-</em><br />
-<br /><br />Im just looking at what I think is the same thing - &quot;rotated lat/lon&quot; from the WRF NMM model. 
+<br />Several people have said that we don't want proliferation to allow tables to
 <br />
-<br />I think you are right, that the lat/lon coordinate variables should have axis=X or Y.
+overlap, giving alternative choices of names. If that happens, it will defeat
 <br />
-<br />Im thinking we could specify the transformation, so that its treated like a projection. If anyone knows how to do this, or has a reference, please let me know. Ill try to post what my understanding is ASAP.
+the purpose of standard names. If we split up authority into domains which are
 <br />
-<br /><br /><br /><br /><em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Best wishes
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Jonathan
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<span id="received"><dfn>Received on</dfn> Mon Nov 13 2006 - 12:29:03 GMT</span>
+separately managed, there will be such problems at the interface (e.g. the
+<br />
+fluxes between the ocean and atmosphere will be given different names in the
+<br />
+two domains). No-one has suggested how we will prevent this happening. Bryan
+<br />
+writes, &quot;Projects should try very hard to identify synonyms in other tables,
+<br />
+but I think it will be an SEP (Somebody Elses Problem) to work on ontological
+<br />
+mappings between these tables.&quot; I think that means, in practice, no-one will
+<br />
+take responsibility for it and it will not be done.
+<br />
+<br />Bryan also writes, &quot;If the standard names are to become more widely used than
+<br />
+amongst the climate modelling community there has to be a visible mechanism by
+<br />
+which those wider communities can influence (even control) the name evolution
+<br />
+... A mechanism to achieve that would be to spawn a new mailing list, to which
+<br />
+anyone interested could subscribe. New name proposals could be discussed there
+<br />
+and possibly voted on.&quot; I wish that would happen, but I don't understand in
+<br />
+what sense the current arrangement is not visible! We already have a mailing
+<br />
+list. People have been invited to vote. Even in the domain on which most of the
+<br />
+current subscribers are knowledgeable, very few people vote or express an
+<br />
+opinion about the right choices to make. The majority presumably assume it's
+<br />
+someone else's problem.  Why should the situation be any different if we had a
+<br />
+new mailing list?
+<br />
+<br />I think that is a difficult task to identify and properly describe the
+<br />
+quantities we want to name. My question is, Whose reponsibility will it be to
+<br />
+do that thinking? Changing the arrangements will not make the need go away.
+<br />
+<br />Cheers
+<br />
+<br />Jonathan
+<br />
+<span id="received"><dfn>Received on</dfn> Fri Jun 25 2004 - 12:27:15 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -177,9 +137,8 @@ Jonathan Gregory wrote:
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start419">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0420.html" title="Next message in the list">John Caron: "[CF-metadata] axis attribute"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0418.html" title="Previous message in the list">Brian Eaton: "[CF-metadata] axis attribute"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0416.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] axis attribute"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0420.html" title="Next message in the list">John Caron: "[CF-metadata] convergence"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0418.html" title="Previous message in the list">Russ Rew: "[CF-metadata] detaching the standard name table"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -191,7 +150,7 @@ Jonathan Gregory wrote:
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:49 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0418.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0420.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

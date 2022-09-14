@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] can a cell method be an attribute of an auxiliary coordinate variable ? from rhorne at excaliburlabs.com on 2014-03-05 (mailing-list-archive)</title>
+<title>[CF-metadata] new standard name: effective_radius_of_cloud_particle_at_cloud_top from rhorne at excaliburlabs.com on 2013-05-06 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="rhorne at excaliburlabs.com (rhorne)" />
-<meta name="Subject" content="[CF-metadata] can a cell method be an attribute of an auxiliary coordinate variable ?" />
-<meta name="Date" content="2014-03-05" />
+<meta name="Subject" content="[CF-metadata] new standard name: effective_radius_of_cloud_particle_at_cloud_top" />
+<meta name="Date" content="2013-05-06" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./6126.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6128.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] can a cell method be an attribute of an auxiliary coordinate variable ?</h1>
-<!-- received="Wed Mar  5 05:57:00 2014" -->
-<!-- isoreceived="20140305055700" -->
-<!-- sent="Wed, 5 Mar 2014 07:57:00 -0500" -->
-<!-- isosent="20140305125700" -->
+<a style="text-decoration:none" href="./6126.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6128.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new standard name: effective_radius_of_cloud_particle_at_cloud_top</h1>
+<!-- received="Mon May  6 14:35:02 2013" -->
+<!-- isoreceived="20130506133502" -->
+<!-- sent="Mon, 6 May 2013 16:35:02 -0400" -->
+<!-- isosent="20130506203502" -->
 <!-- name="rhorne at excaliburlabs.com" -->
 <!-- email="rhorne" -->
-<!-- subject="[CF-metadata] can a cell method be an attribute of an auxiliary coordinate variable ?" -->
-<!-- id="588a6da3$44a529c1$3a2500$_at_excaliburlabs.com" -->
+<!-- subject="[CF-metadata] new standard name: effective_radius_of_cloud_particle_at_cloud_top" -->
+<!-- id="2968c8a$2094eae8$118af735$_at_excaliburlabs.com" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./6128.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] can a cell method be an attribute of an auxiliary coordinate variable ?&quot;">Next message</a> ]
-[ <a href="./6126.html" title="Jonathan Gregory: &quot;[CF-metadata] can a cell method be an attribute of an auxiliary coordinate variable ?&quot;">Previous message</a> ]
+[ <a href="./6128.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  New Standard Names for Satellite Data&quot;">Next message</a> ]
+[ <a href="./6126.html" title="Jonathan Gregory: &quot;[CF-metadata]  standard-name for stokes drift&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,160 +68,44 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: rhorne at excaliburlabs.com &lt;<a href="mailto:rhorne?Subject=Re%3A%20%5BCF-metadata%5D%20can%20a%20cell%20method%20be%20an%20attribute%20of%20an%20auxiliary%20coordinate%20variable%20%3F">rhorne</a>&gt;
+<dfn>From</dfn>: rhorne at excaliburlabs.com &lt;<a href="mailto:rhorne?Subject=Re%3A%20%5BCF-metadata%5D%20new%20standard%20name%3A%20effective_radius_of_cloud_particle_at_cloud_top">rhorne</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 5 Mar 2014 07:57:00 -0500</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 6 May 2013 16:35:02 -0400</span><br />
 </address>
 <br />
-Dear Jonathan:
+For GOES-R, there is a product that captures the effective radius of cloud 
 <br />
-&nbsp;&nbsp;
+particles at cloud top.  The particles can be liquid water or ice crystals. 
 <br />
-&nbsp;Your recommendation of changing the cell method name from the 
+&nbsp;There is a similar standard name but it is for liquid water only (i.e. 
 <br />
-standard_name to &quot;area&quot; is analogous to the recommendation you provided me 
+effective_radius_of_cloud_liquid_water_particle_at_liquid_water_cloud_top 
 <br />
-at the start of this message thread.
+).   Here is the proposal:   standard name: 
 <br />
-&nbsp;&nbsp;
+effective_radius_of_cloud_particle_at_cloud_top       definition:  The 
 <br />
-&nbsp;In para 7.3.4 (Cell methods when there are no coordinates). the first 
+effective radius of a size distribution of particles, such as aerosols, 
 <br />
-sentence is:
+cloud droplets or ice crystals, is the area weighted mean radius of 
 <br />
-&nbsp;&nbsp;
+particle size. It is calculated as the ratio of the third to the second 
 <br />
-&nbsp;&quot;To provide an indication that a particular cell method is relevant to the 
+moment of the particle size distribution. cloud_top refers to the top of 
 <br />
-data without having to provide a precise description of the corresponding 
+the highest cloud and cloud_particle refers to either a liquid water 
 <br />
-cell, the &quot;name&quot; that appears in a &quot;name: method&quot; pair may be an 
+droplet or ice crystal.     canonical units:  m        very respectfully,   
 <br />
-appropriate standard_name (which identifies the dimension) or the string, 
+&nbsp;&nbsp;randy 
 <br />
-&quot;area&quot; (rather than the name of a scalar coordinate variable or a dimension 
-<br />
-with a coordinate variable).&quot;
-<br />
-&nbsp;&nbsp;
-<br />
-&nbsp;Can you explain when standard_name serving as the name (rather than 
-<br />
-&quot;area&quot;) is appropriate ?
-<br />
-&nbsp;&nbsp;
-<br />
-&nbsp;very respectfully,
-<br />
-&nbsp;&nbsp;
-<br />
-&nbsp;randy
-<br />
-&nbsp;&nbsp;
-<br />
-&nbsp;&nbsp;
-<br />
-&nbsp;&nbsp;
-<br />
-&nbsp;&nbsp;
-<br />
-&nbsp;&nbsp;
-<br />
-<br />----------------------------------------
-<br />
-&nbsp;From: &quot;Jonathan Gregory&quot; &lt;j.m.gregory at reading.ac.uk&gt;
-<br />
-Sent: Wednesday, March 05, 2014 4:41 AM
-<br />
-To: cf-metadata at cgd.ucar.edu
-<br />
-Subject: [CF-metadata] can a cell method be an attribute of an auxiliary 
-<br />
-coordinate variable ?   
-<br />
-Dear Jim
-<br />
-<br /><em class="quotelev1">&gt; We are attempting to follow section 9. The centroid of the weather system 
-</em><br />
-is calculated at each time step, and we are planning to use the longitude 
-<br />
-and latitude calculated as the coordinates of the system. So, for example, 
-<br />
-would the variables below be OK? (I?ve left out time and numerous other 
-<br />
-variables.)
-<br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; float lat(trajectory, obs)
-</em><br />
-<em class="quotelev1">&gt; :standard_name = ?latitude?
-</em><br />
-<em class="quotelev1">&gt; :axis = ?Y?
-</em><br />
-<em class="quotelev1">&gt; :cell_methods = ?latitude:mean (over system)?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; float lon(trajectory, obs)
-</em><br />
-<em class="quotelev1">&gt; :standard_name = ?longitude?
-</em><br />
-<em class="quotelev1">&gt; :axis = ?X?
-</em><br />
-<em class="quotelev1">&gt; :cell_methods = ?longitude:mean (over system)?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; float maxlat(trajectory, obs)
-</em><br />
-<em class="quotelev1">&gt; :cell_methods = ?latitude:maximum (over system)&quot;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; float mtpwv(trajectory, obs)
-</em><br />
-<em class="quotelev1">&gt; :long_name = ?mean total precipitable water vapor?
-</em><br />
-<em class="quotelev1">&gt; :cell_methods = ?area:mean (over system)?
-</em><br />
-<br />I think the approach is OK but I would suggest for latitude and longitude
-<br />
-&quot;area: mean (over system)&quot; and for maxlat &quot;area: maximum (over system)&quot;. 
-<br />
-These
-<br />
-indicate statistics of lat and lon which are calculated from the variation 
-<br />
-over
-<br />
-the area of the system. Is that what you intend? The cell_methods is a 
-<br />
-blank-
-<br />
-separated list of words, so there's a space after &quot;:&quot;.
-<br />
-<br />Cheers
-<br />
-<br />Jonathan
-<br />
-_______________________________________________
-<br />
-CF-metadata mailing list
-<br />
-CF-metadata at cgd.ucar.edu
-<br />
-<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-<br />
-&nbsp;
-<br />
-<br />-------------- next part --------------
+-------------- next part --------------
 <br />
 An HTML attachment was scrubbed...
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140305/94054406/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140305/94054406/attachment.html</a>&gt;
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130506/955e90a5/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130506/955e90a5/attachment-0001.html</a>&gt;
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Mar 05 2014 - 05:57:00 GMT</span>
+<span id="received"><dfn>Received on</dfn> Mon May 06 2013 - 14:35:02 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -229,8 +113,8 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start6127">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./6128.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] can a cell method be an attribute of an auxiliary coordinate variable ?"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./6126.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] can a cell method be an attribute of an auxiliary coordinate variable ?"</a></li>
+<li><dfn>Next message</dfn>: <a href="./6128.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  New Standard Names for Satellite Data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./6126.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]  standard-name for stokes drift"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -242,7 +126,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:38 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./6126.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6128.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

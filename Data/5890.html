@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] new standard names: fire area, fire temperature, fire radiative power from Gary Meehan on 2013-11-26 (mailing-list-archive)</title>
-<meta name="Author" content="Gary Meehan (gmeehan)" />
-<meta name="Subject" content="[CF-metadata] new standard names: fire area, fire temperature, fire radiative power" />
-<meta name="Date" content="2013-11-26" />
+<title>[CF-metadata] Ancillary Data from Jim Biard on 2013-03-15 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jim Biard (jim.biard)" />
+<meta name="Subject" content="[CF-metadata] Ancillary Data" />
+<meta name="Date" content="2013-03-15" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5889.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5891.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new standard names: fire area, fire temperature, fire radiative power</h1>
-<!-- received="Tue Nov 26 12:36:48 2013" -->
-<!-- isoreceived="20131126123648" -->
-<!-- sent="Tue, 26 Nov 2013 14:36:48 -0500" -->
-<!-- isosent="20131126193648" -->
-<!-- name="Gary Meehan" -->
-<!-- email="gmeehan" -->
-<!-- subject="[CF-metadata] new standard names: fire area, fire temperature, fire radiative power" -->
-<!-- id="5294F850.5070705_at_aer.com" -->
+<a style="text-decoration:none" href="./5889.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5891.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Ancillary Data</h1>
+<!-- received="Fri Mar 15 06:58:43 2013" -->
+<!-- isoreceived="20130315065843" -->
+<!-- sent="Fri, 15 Mar 2013 08:58:43 -0400" -->
+<!-- isosent="20130315125843" -->
+<!-- name="Jim Biard" -->
+<!-- email="jim.biard" -->
+<!-- subject="[CF-metadata] Ancillary Data" -->
+<!-- id="709D3A93-F529-43D4-BEEF-FBB8518DC762_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="5289FDFB.5010807_at_aer.com" -->
+<!-- inreplyto="7819C496F4E10E47BCEFBE74551AAC9603DCFF_at_EXXCMPD1DAG3.cmpd1.metoffice.gov.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,10 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5891.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] new standard names: fire area, fire temperature, fire radiative power&quot;">Next message</a> ]
-[ <a href="./5889.html" title="John Graybeal: &quot;[CF-metadata] new standard name for primary production of carbon per unit volume&quot;">Previous message</a> ]
-[ <a href="./5874.html" title="Gary Meehan: &quot;[CF-metadata] new standard names: fire area, fire temperature, fire radiative power&quot;">In reply to</a> ]
+[ <a href="./5891.html" accesskey="d" title="Tuomas Karna: &quot;[CF-metadata] standard names for ocean model turbulent quantities&quot;">Next message</a> ]
+[ <a href="./5889.html" title="Hedley, Mark: &quot;[CF-metadata] Ancillary Data&quot;">Previous message</a> ]
+[ <a href="./5889.html" title="Hedley, Mark: &quot;[CF-metadata] Ancillary Data&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./6067.html" accesskey="t" title="Hedley, Mark: &quot;[CF-metadata] Ancillary Data&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,161 +72,780 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Gary Meehan &lt;<a href="mailto:gmeehan?Subject=Re%3A%20%5BCF-metadata%5D%20new%20standard%20names%3A%20fire%20area%2C%20fire%20temperature%2C%20fire%20radiative%20power">gmeehan</a>&gt;
+<dfn>From</dfn>: Jim Biard &lt;<a href="mailto:jim.biard?Subject=Re%3A%20%5BCF-metadata%5D%20Ancillary%20Data">jim.biard</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 26 Nov 2013 14:36:48 -0500</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 15 Mar 2013 08:58:43 -0400</span><br />
 </address>
 <br />
-Dear CF Community,
+Mark,
 <br />
-<br />This is a follow-up email to my note of 18 November in which I proposed 
+<br />I'm looking at this from the standpoint of the use of an ancillary variable to provide &quot;metadata about the individual values of another data variable&quot;.  The way I think of it, the atmosphere profile used to produce a given &lt;energy deposited&gt; value falls under the category of metadata for the &lt;energy deposited&gt; value.  I don't see any need to restrict this metadata to be a scalar value per primary variable value.  So, in my example, there is a model atmosphere density profile that can be associated with each value of the &lt;energy deposited&gt; variable.  I feel that the profile provides information about the &lt;energy deposited&gt; value.  In fact, we already do this sort of thing with bounds variables, which to my mind are specializations of ancillary variables.
 <br />
-standard names to fire area, fire temperature, and
+<br />If there is no driving reason to restrict the definition of ancillary variables, I'd encourage folks to leave it as is.  I think that with proper attention to use of names and coordinates, an ancillary variable that has multiple values for each primary variable can be made easily understandable.
 <br />
-fire radiative power. Are there any opinions to what I have proposed below?
+<br />Grace and peace,
 <br />
-<br />Sincerely,
+<br />Jim
 <br />
-<br />Gary Meehan
+<br />Jim Biard
 <br />
-<br /><br />On 11/18/2013 6:46 AM, Gary Meehan wrote:
+Research Scholar
 <br />
-<em class="quotelev1">&gt;
+Cooperative Institute for Climate and Satellites
+<br />
+Remote Sensing and Applications Division
+<br />
+National Climatic Data Center
+<br />
+151 Patton Ave, Asheville, NC 28801-5001
+<br />
+<br />jim.biard at noaa.gov
+<br />
+828-271-4900
+<br />
+<br />On Mar 15, 2013, at 7:37 AM, &quot;Hedley, Mark&quot; &lt;mark.hedley at metoffice.gov.uk&gt; wrote:
+<br />
+<br /><em class="quotelev1">&gt; Hello Jim
 </em><br />
-<em class="quotelev1">&gt; Dear CF community,
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; you present an interesting case, thank you
 </em><br />
-<em class="quotelev1">&gt; I have taken over from the original poster on the subject of new 
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; standard names for
+<em class="quotelev1">&gt; I can see how  I can relate
 </em><br />
-<em class="quotelev1">&gt; fire area, fire temperature, and fire radiative power. Area, in this 
+<em class="quotelev1">&gt;    &lt;energy deposited&gt;(x,y,z,t)
 </em><br />
-<em class="quotelev1">&gt; context, is meant
+<em class="quotelev1">&gt; to an ancillary variable of 
 </em><br />
-<em class="quotelev1">&gt; to be in terms of different types of biomass that are climatically and 
+<em class="quotelev1">&gt;    &lt;model atmosphere density profile&gt;(x,y,z)
 </em><br />
-<em class="quotelev1">&gt; geographically
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; defined (e.g., grasslands, forest, etc.).
+<em class="quotelev1">&gt; In this case, for any value in my &lt;energy deposited&gt; data array I can retrieve an appropriate value for my ancillary variable, &lt;model atmosphere density profile&gt;.
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; These definitions have been slightly amended from the originally 
+<em class="quotelev1">&gt; I am assuming that I can aggregate (integrate?) my &lt;energy deposited&gt; data over z,to result in the total energy deposited as a function of x, y and t.
 </em><br />
-<em class="quotelev1">&gt; posting as follows:
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; The atmosphere density profile was an input to this calculation, I believe.  
 </em><br />
-<em class="quotelev1">&gt; _Fire_Area_
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; If i try to store this as an ancillary variable for my result I am no longer able to reference an appropriate value in the &lt;model atmosphere density profile&gt; data array for a given value in the &lt;energy deposited&gt;.
 </em><br />
-<em class="quotelev1">&gt; Standard Name: fire_area
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; The conventions state 
 </em><br />
-<em class="quotelev1">&gt; Definition: The X_area means the horizontal area occupied by X within 
+<em class="quotelev1">&gt;    'The nature of the relationship between variables associated via ancillary_variables must be determined by other attributes.'
 </em><br />
-<em class="quotelev1">&gt; the grid cell.
+<em class="quotelev1">&gt;     (<a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.6/ch03s04.html">http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.6/ch03s04.html</a>)
 </em><br />
-<em class="quotelev1">&gt; &quot;Fire area&quot; means the area of detected biomass fire.
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; I am worried that in this case I can no longer understand this association.  The ancillary variable is defined with respect to a different domain from the data variable. 
 </em><br />
-<em class="quotelev1">&gt; Canonical units: m^2
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; I might happily choose to ship two data variables in the same file, but do I really mean that the &lt;model atmosphere density profile&gt; is an intrinsic part of my &lt;energy deposited&gt; dataset?
 </em><br />
-<em class="quotelev1">&gt; _Fire_Temperature_
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; what do you think?
 </em><br />
-<em class="quotelev1">&gt; Standard_Name: fire_temperature
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; mark
 </em><br />
-<em class="quotelev1">&gt; Definition: The overall temperature of a fire area due to 
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; contributions from smoldering
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; and flaming components.
+<em class="quotelev1">&gt; From: CF-metadata [cf-metadata-bounces at cgd.ucar.edu] on behalf of Jim Biard [jim.biard at noaa.gov]
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; Sent: 14 March 2013 13:51
 </em><br />
-<em class="quotelev1">&gt; Canonical units: K
+<em class="quotelev1">&gt; To: cf-metadata at cgd.ucar.edu
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; Subject: Re: [CF-metadata] Ancillary Data
 </em><br />
-<em class="quotelev1">&gt; _Fire_Radiative_Power_
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; Mark,
 </em><br />
-<em class="quotelev1">&gt; Standard_Name: fire_radiative_power
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; I've been following this thread silently, but your statement in your last posting has prompted me to speak up.  I can easily imagine a situation in which I might desire to have one variable reference another variable in which not all dimensions are shared.  As an example,  let's say that I have a variable a[X,Y,T], which contains the total energy deposited per day into the atmosphere by charged particles (from the solar wind &amp; Van Allen belts) on a lon/lat grid as a function of time.  (Something I used to work on many years ago.)  Let's then say that I have another variable, b[X,Y,Z], which represents the model atmosphere density profile on the same lon/lat grid as a function of altitude.  This density profile was used in the calculation of the energy deposition values stored in variable a.  Variable b is clearly valid as an ancillary variable for a, isn't it?
 </em><br />
-<em class="quotelev1">&gt; Definition: The product of the irradiance of a fire scene and the 
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; corresponding fire area.
+<em class="quotelev1">&gt; Grace and peace,
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; Canonical units: W
+<em class="quotelev1">&gt; Jim
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; With regards to this last item, radiative power is the only 
+<em class="quotelev1">&gt; Jim Biard
 </em><br />
-<em class="quotelev1">&gt; radiometric quantity for which we are seeking a standard name.
+<em class="quotelev1">&gt; Research Scholar
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; Cooperative Institute for Climate and Satellites
 </em><br />
-<em class="quotelev1">&gt; Sincerely,
+<em class="quotelev1">&gt; Remote Sensing and Applications Division
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; National Climatic Data Center
 </em><br />
-<em class="quotelev1">&gt; Gary
+<em class="quotelev1">&gt; 151 Patton Ave, Asheville, NC 28801-5001
 </em><br />
-<em class="quotelev1">&gt; _____________________________
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; Gary Meehan
+<em class="quotelev1">&gt; jim.biard at noaa.gov
 </em><br />
-<em class="quotelev1">&gt; Senior Staff Scientist
+<em class="quotelev1">&gt; 828-271-4900
 </em><br />
-<em class="quotelev1">&gt; Atmospheric and Environmental Research
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; 131 Hartwell Avenue, Lexington, MA
+<em class="quotelev1">&gt; On Mar 14, 2013, at 7:53 AM, &quot;Hedley, Mark&quot; &lt;mark.hedley at metoffice.gov.uk&gt; wrote:
 </em><br />
-<em class="quotelev1">&gt; 02421-3126
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; Tel (781) 761-2228 ? Fax (781) 761-2299
+<em class="quotelev2">&gt;&gt; Thank you for the responses on this topic.
 </em><br />
-<em class="quotelev1">&gt; e-mail: gmeehan at aer.com
+<em class="quotelev2">&gt;&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev2">&gt;&gt; So far I have not found an example of ancillary variable use where
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev2">&gt;&gt; 
 </em><br />
-<em class="quotelev1">&gt; _______________________________________________
+<em class="quotelev2">&gt;&gt;  the ancillary variable references file dimensions which are not referenced by the data variable with the referencing ancillary_variables attribute.
 </em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
+<em class="quotelev2">&gt;&gt; 
 </em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+<em class="quotelev2">&gt;&gt; I do not think this should be valid, as it is not practical to relate the ancillary variable data to the data variable.  However, I do not think the Conventions are clear enough in banning this.
 </em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+<em class="quotelev2">&gt;&gt; 
 </em><br />
-<br /><br /><pre>
--- 
-Gary Meehan
-Senior Staff Scientist
-Atmospheric and Environmental Research
-131 Hartwell Avenue, Lexington, MA 02421-3126
-Tel (781) 761-2228 ?  Fax (781) 761-2299
-e-mail: gmeehan at aer.com
-</pre>
-<span id="received"><dfn>Received on</dfn> Tue Nov 26 2013 - 12:36:48 GMT</span>
+<em class="quotelev2">&gt;&gt; I have raised a trac ticket:
+</em><br />
+<em class="quotelev2">&gt;&gt; <a href="https://cf-pcmdi.llnl.gov/trac/ticket/98">https://cf-pcmdi.llnl.gov/trac/ticket/98</a>,
+</em><br />
+<em class="quotelev2">&gt;&gt; which requires a moderator; please may someone volunteer to moderate this ticket?
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; thank you
+</em><br />
+<em class="quotelev2">&gt;&gt; mark 
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; ________________________________________
+</em><br />
+<em class="quotelev2">&gt;&gt; From: CF-metadata [cf-metadata-bounces at cgd.ucar.edu] on behalf of Hedley, Mark [mark.hedley at metoffice.gov.uk]
+</em><br />
+<em class="quotelev2">&gt;&gt; Sent: 18 February 2013 10:45
+</em><br />
+<em class="quotelev2">&gt;&gt; To: andrew walsh
+</em><br />
+<em class="quotelev2">&gt;&gt; Cc: cf-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt;&gt; Subject: Re: [CF-metadata] Ancillary Data
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Hello Andrew
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; thank you for the response, my reading of your cases is that they are all 'a' or 'b' in the terms I stated.
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; There are no ancillary variables which reference a dimension of the netCDF file not referenced by the data variable with the ancillary_variables attribute.
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; I think these are types of case I am particularly concerned to find examples of, or, preferably, discount explicitly.
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; much obliged
+</em><br />
+<em class="quotelev2">&gt;&gt; mark
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; On 2/13/13 12:15 PM, Hedley, Mark wrote:
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;   a. reference the same file dimensions as the data variable with the
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; ancillary_variables attribute references
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;   b. reference a subset of the file dimensions referenced by the data
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; variable with the ancillary_variables attribute
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;   c. reference file dimensions which are not referenced by the data variable
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; with the ancillary_variables attribute
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; -----Original Message-----
+</em><br />
+<em class="quotelev2">&gt;&gt; From: andrew walsh [mailto:awalsh at metoc.gov.au]
+</em><br />
+<em class="quotelev2">&gt;&gt; Sent: Fri 2/15/2013 3:20 AM
+</em><br />
+<em class="quotelev2">&gt;&gt; To: Hedley, Mark
+</em><br />
+<em class="quotelev2">&gt;&gt; Cc: ngalbraith at whoi.edu; cf-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt;&gt; Subject: Re: [CF-metadata] Ancillary Data
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Hi Mark,
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; We are using the ancilliary_variables attribute in a real world case for CTD
+</em><br />
+<em class="quotelev2">&gt;&gt; profile data
+</em><br />
+<em class="quotelev2">&gt;&gt; (1 netCDF per CTD profile). Not sure if our use case fits with with your
+</em><br />
+<em class="quotelev2">&gt;&gt; examples a,b,c but here is a abbreviated CDL version:-
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; dimensions:
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; pressure = UNLIMITED ; // (9 currently)
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; variables:
+</em><br />
+<em class="quotelev2">&gt;&gt; double time ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  time:standard_name = &quot;time&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt; ....
+</em><br />
+<em class="quotelev2">&gt;&gt; byte time_qc_flag;
+</em><br />
+<em class="quotelev2">&gt;&gt;  time_qc_flag:long_name = &quot;quality control flag for time (Level 1 flag)&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt; ....
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; double latitude ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  latitude:standard_name = &quot;latitude&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt; ...
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; double longitude ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  longitude:standard_name = &quot;longitude&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt; ...
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; byte position_qc_flag;
+</em><br />
+<em class="quotelev2">&gt;&gt;  position_qc_flag:long_name = &quot;quality control flag for position (Level 1
+</em><br />
+<em class="quotelev2">&gt;&gt; flag)&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt; ....
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; double pressure(pressure) ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  pressure:standard_name = &quot;sea_water_pressure&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt; ...
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; double temperature(pressure) ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  temperature:_FillValue = -99.99 ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  temperature:standard_name = &quot;sea_water_temperature&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  temperature:units = &quot;degrees_C&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  temperature:valid_min = -2 ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  temperature:valid_max = 40 ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  temperature:ancillary_variables = &quot;temperature_whole_profile_flag
+</em><br />
+<em class="quotelev2">&gt;&gt; temperature_qc_flag temperature_sd_test&quot;  ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  temperature:coordinates = &quot;time latitude longitude pressure&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; byte temperature_whole_profile_flag ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  temperature_whole_profile_flag:long_name = &quot;qc flag for whole temperature
+</em><br />
+<em class="quotelev2">&gt;&gt; profile (primary L1 flag)&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  temperature_whole_profile_flag:quality_control_convention = &quot;Proposed IODE qc
+</em><br />
+<em class="quotelev2">&gt;&gt; scheme March 2012&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  temperature_whole_profile_flag:valid_min = 1 ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  temperature_whole_profile_flag:valid_max = 9 ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  temperature_whole_profile_flag:flag_values = 1b, 2b, 3b, 4b, 9b ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  temperature_whole_profile_flag:flag_meanings = &quot;good not_evaluated_or_unknown
+</em><br />
+<em class="quotelev2">&gt;&gt; suspect bad missing&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; byte temperature_qc_flag(pressure) ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  temperature_qc_flag:long_name = &quot;quality control flag for temperature (primary
+</em><br />
+<em class="quotelev2">&gt;&gt; Level 1 flag)&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  temperature_qc_flag:standard_name = &quot;sea_water_temperature status_flag&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  temperature_qc_flag:quality_control_convention = &quot;Proposed IODE qc scheme
+</em><br />
+<em class="quotelev2">&gt;&gt; March 2012&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  temperature_qc_flag:valid_min = 1 ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  temperature_qc_flag:valid_max = 9 ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  temperature_qc_flag:flag_values = 1b, 2b, 3b, 4b, 9b ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  temperature_qc_flag:flag_meanings = &quot;good not_evaluated_or_unknown suspect bad
+</em><br />
+<em class="quotelev2">&gt;&gt; missing&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  temperature_qc_flag:coordinates = &quot;time latitude longitude pressure&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; byte temperature_sd_test(pressure) ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  temperature_sd_test:long_name = &quot;qc flag for monthly temperature standard
+</em><br />
+<em class="quotelev2">&gt;&gt; deviation test (secondary L2 flag)&quot;
+</em><br />
+<em class="quotelev2">&gt;&gt;  temperature_sd_test:quality_control_convention = &quot;Proposed IODE qc scheme
+</em><br />
+<em class="quotelev2">&gt;&gt; March 2012&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  temperature_sd_test:valid_min = 0 ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  temperature_sd_test:valid_max = 2 ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  temperature_sd_test:flag_values = 0b, 1b, 2b ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  temperature_sd_test:flag_meanings = &quot;passed failed unknown&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  temperature_sd_test:coordinates = &quot;time latitude longitude pressure&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; double salinity(pressure) ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  salinity:_FillValue = -99.99 ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  salinity:standard_name = &quot;sea_water_practical_salinity&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  salinity:units = &quot;psu&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  salinity:valid_min = 0 ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  salinity:valid_max = 45 ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  salinity:ancillary_variables = &quot;salinity_whole_profile_flag salinity_qc_flag
+</em><br />
+<em class="quotelev2">&gt;&gt; salinity_sd_test&quot;
+</em><br />
+<em class="quotelev2">&gt;&gt;  salinity:coordinates = &quot;time latitude longitude pressure&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; byte salinity_whole_profile_flag ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  salinity_whole_profile_flag:long_name = &quot;qc flag for whole salinity profile
+</em><br />
+<em class="quotelev2">&gt;&gt; (primary L1 flag)&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  salinity_whole_profile_flag:quality_control_convention = &quot;Proposed IODE qc
+</em><br />
+<em class="quotelev2">&gt;&gt; scheme March 2012&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  salinity_whole_profile_flag:valid_min = 1 ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  salinity_whole_profile_flag:valid_max = 9 ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  salinity_whole_profile_flag:flag_values = 1b, 2b, 3b, 4b, 9b ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  salinity_whole_profile_flag:flag_meanings = &quot;good not_evaluated_or_unknown
+</em><br />
+<em class="quotelev2">&gt;&gt; suspect bad missing&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; byte salinity_qc_flag(pressure) ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  salinity_qc_flag:long_name = &quot;quality control flag for salinity (primary Level
+</em><br />
+<em class="quotelev2">&gt;&gt; 1 flag)&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  salinity_qc_flag:standard_name = &quot;sea_water_practical_salinity status_flag&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  salinity_qc_flag:quality_control_convention = &quot;Proposed IODE qc scheme March
+</em><br />
+<em class="quotelev2">&gt;&gt; 2012&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  salinity_qc_flag:valid_min = 1 ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  salinity_qc_flag:valid_max = 9 ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  salinity_qc_flag:flag_values = 1b, 2b, 3b, 4b, 9b ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  salinity_qc_flag:flag_meanings = &quot;good not_evaluated_or_unknown suspect bad
+</em><br />
+<em class="quotelev2">&gt;&gt; missing&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  salinity_qc_flag:coordinates = &quot;time latitude longitude pressure&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; byte salinity_sd_test(pressure) ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  salinity_sd_test:long_name = &quot;qc flag for monthly salinity standard deviation
+</em><br />
+<em class="quotelev2">&gt;&gt; test (secondary L2 flag)&quot;
+</em><br />
+<em class="quotelev2">&gt;&gt;  salinity_sd_test:quality_control_convention = &quot;Proposed IODE qc scheme March
+</em><br />
+<em class="quotelev2">&gt;&gt; 2012&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  salinity_sd_test:valid_min = 0 ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  salinity_sd_test:valid_max = 2 ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  salinity_sd_test:flag_values = 0b, 1b, 2b ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  salinity_sd_test:flag_meanings = &quot;passed failed unknown&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  salinity_sd_test:coordinates = &quot;time latitude longitude pressure&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; int profile ; //Unique integer to identify each profile
+</em><br />
+<em class="quotelev2">&gt;&gt;  profile:long_name = &quot;profile identifier&quot;
+</em><br />
+<em class="quotelev2">&gt;&gt; ....
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Andrew Walsh
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; ----- Original Message -----
+</em><br />
+<em class="quotelev2">&gt;&gt; From: &quot;Hedley, Mark&quot; &lt;mark.hedley at metoffice.gov.uk&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; To: &lt;ngalbraith at whoi.edu&gt;; &lt;cf-metadata at cgd.ucar.edu&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Sent: Thursday, February 14, 2013 10:40 PM
+</em><br />
+<em class="quotelev2">&gt;&gt; Subject: Re: [CF-metadata] Ancillary Data
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Hi Nan
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; I think I understand you approach, it seems logical and helpful to me.
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; It feels like all your examples are in my category b:
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; b. reference a subset of the file dimensions referenced by the data variable
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; with the ancillary_variables attribute
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; and thus relate to the data variable in the same way auxiliary_coordinates do,
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; just with different inferred semantics.
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; many thanks for the feedback
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; mark
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; -----Original Message-----
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; From: CF-metadata on behalf of Nan Galbraith
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Sent: Wed 13/02/2013 19:55
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; To: cf-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Subject: Re: [CF-metadata] Ancillary Data
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; I use a singleton variable to record the magnetic correction that's been
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; applied to my wind and/or current variables; it's dim(1) and is listed  as
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; an ancillary to any variables that have been affected by the rotation.
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; It could be an attribute of each of those variables, but making it a
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; free-standing
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; variable lets me give it units and attributes. That's important because I
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; record the model name and version date, the URL of the NGDC calculator
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; site,
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; the inputs to the model (date and location for which the calculation was
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; done)
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; and the estimated rate of change.
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Maybe this is just a technicality - but I also use an empty 'container'
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; variable for
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; instruments, which has ancillary variables with a depth dimension for
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; manufacturer,
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; model, serial number, and reference URL.  The instrument variable is
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; tied to 'obs data'
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; variables via NODC's 'instrument' attribute, but has no dimensions of
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; its own; the
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; individual component variables (like serial number) have a dimension
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; that matches
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; the depth dimension of the obs data variables.
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; - Nan
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; On 2/13/13 12:15 PM, Hedley, Mark wrote:
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; Hello CF community
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; I have been perusing the CF conventions again, particularly the section on
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; Ancillary Data
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; <a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.6/ch03s04.html">http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.6/ch03s04.html</a>
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; The conventions make the statement:
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;   The nature of the relationship between variables associated via
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; ancillary_variables must be determined by other attributes.
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; The example given provides data variables which reference the same dimensions
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; in the file: thus they data arrays are the same size.  However, the
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; conventions do not seem to mandate this.
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; I am interested in the use of the
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;   ancillary_variables
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; attribute in real world datasets.
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; Do people have examples they can share of ancillary datasets which:
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;   a. reference the same file dimensions as the data variable with the
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; ancillary_variables attribute references
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;   b. reference a subset of the file dimensions referenced by the data
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; variable with the ancillary_variables attribute
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;   c. reference file dimensions which are not referenced by the data variable
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; with the ancillary_variables attribute
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; I am particularly interested in examples of case c, as I feel this is
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; markedly different from cases a and b and requires a different kind of
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; support if it is in use.
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; many thanks
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; mark
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; _______________________________________________
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; --
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; *******************************************************
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; * Nan Galbraith        Information Systems Specialist *
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; * Upper Ocean Processes Group            Mail Stop 29 *
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; * Woods Hole Oceanographic Institution                *
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; * Woods Hole, MA 02543                 (508) 289-2444 *
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; *******************************************************
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; _______________________________________________
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; _______________________________________________
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; _______________________________________________
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev2">&gt;&gt; _______________________________________________
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<br />-------------- next part --------------
+<br />
+An HTML attachment was scrubbed...
+<br />
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130315/127de0f4/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130315/127de0f4/attachment-0001.html</a>&gt;
+<br />
+<span id="received"><dfn>Received on</dfn> Fri Mar 15 2013 - 06:58:43 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -232,10 +853,13 @@ e-mail: gmeehan at aer.com
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5890">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5891.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] new standard names: fire area, fire temperature, fire radiative power"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5889.html" title="Previous message in the list">John Graybeal: "[CF-metadata] new standard name for primary production of carbon per unit volume"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./5874.html" title="Message to which this message replies">Gary Meehan: "[CF-metadata] new standard names: fire area, fire temperature, fire radiative power"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5891.html" title="Next message in the list">Tuomas Karna: "[CF-metadata] standard names for ocean model turbulent quantities"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5889.html" title="Previous message in the list">Hedley, Mark: "[CF-metadata] Ancillary Data"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./5889.html" title="Message to which this message replies">Hedley, Mark: "[CF-metadata] Ancillary Data"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./6067.html" title="Next message in this discussion thread">Hedley, Mark: "[CF-metadata] Ancillary Data"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./6067.html" title="Message sent in reply to this message">Hedley, Mark: "[CF-metadata] Ancillary Data"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -246,7 +870,7 @@ e-mail: gmeehan at aer.com
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:33 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5889.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5891.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Standard names for altimeter data from Karl Taylor on 2006-08-25 (mailing-list-archive)</title>
-<meta name="Author" content="Karl Taylor (taylor13)" />
-<meta name="Subject" content="[CF-metadata] Standard names for altimeter data" />
-<meta name="Date" content="2006-08-25" />
+<title>[CF-metadata] bounds from Jonathan Gregory on 2003-06-26 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] bounds" />
+<meta name="Date" content="2003-06-26" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0191.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0193.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Standard names for altimeter data</h1>
-<!-- received="Fri Aug 25 10:03:36 2006" -->
-<!-- isoreceived="20060825090336" -->
-<!-- sent="Fri, 25 Aug 2006 09:03:36 -0700" -->
-<!-- isosent="20060825160336" -->
-<!-- name="Karl Taylor" -->
-<!-- email="taylor13" -->
-<!-- subject="[CF-metadata] Standard names for altimeter data" -->
-<!-- id="44EF1F58.60902_at_llnl.gov" -->
+<a style="text-decoration:none" href="./0191.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0193.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] bounds</h1>
+<!-- received="Thu Jun 26 11:02:20 2003" -->
+<!-- isoreceived="20030626100220" -->
+<!-- sent="Thu, 26 Jun 2003 18:02:20 +0100" -->
+<!-- isosent="20030626170220" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] bounds" -->
+<!-- id="20030626170220.GA15988_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="6.1.1.1.2.20060823120216.021ec718_at_pop.cls.fr" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0193.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Standard names for altimeter data&quot;">Next message</a> ]
-[ <a href="./0191.html" title="Olivier Lauret: &quot;[CF-metadata] Standard names for altimeter data&quot;">Previous message</a> ]
-[ <a href="./0191.html" title="Olivier Lauret: &quot;[CF-metadata] Standard names for altimeter data&quot;">In reply to</a> ]
+[ <a href="./0193.html" accesskey="d" title="Stephens, A: &quot;[CF-metadata] Example of forecast data&quot;">Next message</a> ]
+[ <a href="./0191.html" title="Brian Eaton: &quot;[CF-metadata] bounds&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0193.html" accesskey="t" title="Jonathan Gregory: &quot;[CF-metadata] Standard names for altimeter data&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,204 +68,102 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Karl Taylor &lt;<a href="mailto:taylor13?Subject=Re%3A%20%5BCF-metadata%5D%20Standard%20names%20for%20altimeter%20data">taylor13</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20bounds">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 25 Aug 2006 09:03:36 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 26 Jun 2003 18:02:20 +0100</span><br />
 </address>
 <br />
-Dear all,
+Dear Brian
 <br />
-<br />I've not carefully followed all of the recent standard name discussion, 
+<br /><em class="quotelev1">&gt; If we allow this
+</em><br />
+<em class="quotelev1">&gt; representation for non-contiguous cells, then we must allow for the most
+</em><br />
+<em class="quotelev1">&gt; general case in which none of the cells are contiguous.  In that case, how
+</em><br />
+<em class="quotelev1">&gt; do you propose to specify how the vertices are indexed?
+</em><br />
+<br />It's defined in the same way as for 1D bounds. The 0-index is on the side of
 <br />
-&nbsp;&nbsp;but I thought the idea was to identify the physical quantity, not how 
+i-1 and the 1-index on the side of i+1. Taking some steps back, I think we
 <br />
-it was measured or estimated (i.e., what instrument was used, what kind 
+believed that the particular advantage of the 2,2 representation was just that
 <br />
-of model was used, what approximations were assumed).  If this is true, 
+it told you which vertices to test for contiguousness.
 <br />
-it would be inappropriate (and lead to a huge number of standard names) 
+<br />I wonder if we can get round the problem with not knowing which side faces in
 <br />
-to include geostrophic velocity as a variant on velocity.  If this 
+a certain direction by restricting 2,2 to the case where projection variables
 <br />
-degree of specification is required, then wouldn't names like 
+exist. In that case there is really is an &quot;underlying&quot; xy representation.
 <br />
-&quot;surface_temperature_from_an_energy_balance_climate_model&quot; or 
+<br />Try this:
 <br />
-&quot;surface_temperature_from_an_AOGCM&quot;  or &quot;quasi-geostropic_velocity&quot; also 
+<br />(1) For a 1D coordinate variable with bounds (x,2), define an ordering for the
 <br />
-become acceptable (which I would say is going too far).
+2nd index, namely that the bounds should be ordered in the same sense as the
 <br />
-<br />I would like to draw the line on the side of fewer variants; hence, 
+coordinates, so that the 0-bound of cell i is on the side that faces cell i-1
 <br />
-recommend simply &quot;surface_Xward_sea_water_velocity&quot;, with the details of 
+and the 1-bound on the side facing cell i+1. [At present, there is no ordering
 <br />
-how it was calculated stored elsewhere in the metadata.
+defined for 1D bounds.]
 <br />
-<br />my 2 cents
+<br />(2) If 1D cells i and i+1 are contiguous, bound (i,1) should exactly equal
 <br />
-Karl
+bound (i+1,0). The data-writer should ensure that this is so. [At present, the
 <br />
-<br /><br /><br /><br /><br /><br />Olivier Lauret wrote:
+standard does not state how contiguousness should be tested.]
 <br />
-<em class="quotelev1">&gt; Dear Jonathan and all
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I think what you suggested seems to be good, so I propose you some new 
-</em><br />
-<em class="quotelev1">&gt; satellite altimetry standard names.
-</em><br />
-<em class="quotelev1">&gt; I don't think we'll need 
-</em><br />
-<em class="quotelev1">&gt; &quot;surface_Xward_sea_water_geostrophic_velocity_assuming_reference_ellipsoid_for_geoid&quot;, 
-</em><br />
-<em class="quotelev1">&gt; so I haven't kept it.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I also tried to give an explanation based on the definitions given in 
-</em><br />
-<em class="quotelev1">&gt; the standard name table; please let me know if something is not clear.
-</em><br />
-<em class="quotelev1">&gt; So what do you think about:
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 1) sea_surface_height_above_reference_ellipsoid
-</em><br />
-<em class="quotelev1">&gt; units: m
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 2) surface_eastward_sea_water_geostrophic_velocity, ms-1
-</em><br />
-<em class="quotelev1">&gt; 3) surface_northward_sea_water_geostrophic_velocity, ms-1
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Explanation:
-</em><br />
-<em class="quotelev1">&gt; The surface called &quot;surface&quot; means the lower boundary of the atmosphere. 
-</em><br />
-<em class="quotelev1">&gt; &quot;Water&quot; means water in all phases, including frozen i.e. ice and snow. A 
-</em><br />
-<em class="quotelev1">&gt; velocity is a vector quantity. &quot;Eastward&quot; indicates a vector component 
-</em><br />
-<em class="quotelev1">&gt; which is positive when directed eastward (negative westward). 
-</em><br />
-<em class="quotelev1">&gt; &quot;Northward&quot; indicates a vector component which is positive when directed 
-</em><br />
-<em class="quotelev1">&gt; northward (negative southward). &quot;Geostrophic&quot; indicates that geostrophic 
-</em><br />
-<em class="quotelev1">&gt; balance is assumed.
-</em><br />
-<em class="quotelev1">&gt; surface_northward(eastward)_sea_water_geostrophic_velocity is the sum of 
-</em><br />
-<em class="quotelev1">&gt; a variable part 
-</em><br />
-<em class="quotelev1">&gt; [surface_northward(eastward)_sea_water_geostrophic_velocity_assuming_sea_level_for_geoid] 
-</em><br />
-<em class="quotelev1">&gt; and of a constant part due to the stationary component of ocean 
-</em><br />
-<em class="quotelev1">&gt; circulation.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 4) 
-</em><br />
-<em class="quotelev1">&gt; surface_eastward_sea_water_geostrophic_velocity_assuming_sea_level_for_geoid, 
-</em><br />
-<em class="quotelev1">&gt; ms-1
-</em><br />
-<em class="quotelev1">&gt; 5) 
-</em><br />
-<em class="quotelev1">&gt; surface_northward_sea_water_geostrophic_velocity_assuming_sea_level_for_geoid, 
-</em><br />
-<em class="quotelev1">&gt; ms-1
-</em><br />
-<em class="quotelev1">&gt; Explanation:
-</em><br />
-<em class="quotelev1">&gt; The surface called &quot;surface&quot; means the lower boundary of the atmosphere. 
-</em><br />
-<em class="quotelev1">&gt; &quot;Water&quot; means water in all phases, including frozen i.e. ice and snow. A 
-</em><br />
-<em class="quotelev1">&gt; velocity is a vector quantity. &quot;Eastward&quot; indicates a vector component 
-</em><br />
-<em class="quotelev1">&gt; which is positive when directed eastward (negative westward).  
-</em><br />
-<em class="quotelev1">&gt; &quot;Northward&quot; indicates a vector component which is positive when directed 
-</em><br />
-<em class="quotelev1">&gt; northward (negative southward).&quot;Geostrophic&quot; indicates that geostrophic 
-</em><br />
-<em class="quotelev1">&gt; balance is assumed. The geoid is a surface of constant geopotential.
-</em><br />
-<em class="quotelev1">&gt; surface_eastward 
-</em><br />
-<em class="quotelev1">&gt; (northward)_sea_water_geostrophic_velocity_assuming_sea_level_for_geoid 
-</em><br />
-<em class="quotelev1">&gt; is the variable part of [surface_northward_sea_water_geostrophic_velocity].
-</em><br />
-<em class="quotelev1">&gt; &quot;sea_level&quot; means mean sea level, and is assumed to be equal to the 
-</em><br />
-<em class="quotelev1">&gt; geoid so that the stationary component of ocean circulation is equal to 
-</em><br />
-<em class="quotelev1">&gt; zero.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Waiting for your feedback,
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Regards
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Olivier Lauret
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; CLS Space Oceanography Division
-</em><br />
-<em class="quotelev1">&gt; Data Information and Diffusion
-</em><br />
-<em class="quotelev1">&gt; 8-10 rue Hermes,
-</em><br />
-<em class="quotelev1">&gt; 31526 Ramonville-St-Agne, Cedex, France
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Email: olivier.lauret at cls.fr
-</em><br />
-<em class="quotelev1">&gt; Tel: (+33) (0) 561 39 48 51
-</em><br />
-<em class="quotelev1">&gt; Fax:(+33) (0) 561 39 48 51
-</em><br />
-<em class="quotelev1">&gt; Internet:
-</em><br />
-<em class="quotelev1">&gt; <a href="http://www.cls.fr">http://www.cls.fr</a>
-</em><br />
-<em class="quotelev1">&gt; <a href="http://www.aviso.oceanobs.com/">http://www.aviso.oceanobs.com/</a>
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<span id="received"><dfn>Received on</dfn> Fri Aug 25 2006 - 10:03:36 BST</span>
+<br />(3) In the case where the horizontal grid is described by two-dimensional
+<br />
+coordinate variables lat(n,m) and lon(n,m), the associated cells are
+<br />
+four-sided, and there exist continuous coordinate variables x(m) and y(n),
+<br />
+then the boundary variables are given in the form latbnd(n,m,2,2) and
+<br />
+lonbnd(n,m,2,2), where the first trailing index corresponds to the y dimension
+<br />
+and the second to the x. The trailing indexes have the same convention as for
+<br />
+1D points, such that the 0-bound in either x or y is on the side which faces
+<br />
+the cell with the next smallest index in that dimension, the 1-bound on the
+<br />
+side facing the cell with the next largest index.
+<br />
+<br />If the coordinate system x-y-upward is right-handed (like lon-lat-upward), the
+<br />
+elements (j,i,0,0), (j,i,0,1), (j,i,1,1), (j,i,1,0) in that order traverse the
+<br />
+vertices of cell (j,i) anticlockwise in the lon-lat plane as viewed from above.
+<br />
+If the coordinate system is left-handed, this sequence of elements traverse the
+<br />
+vertices clockwise.
+<br />
+<br />For 0 &lt; j &lt; n and 0 &lt; i &lt; m, 
+<br />
+<br />If cells (j,i) and (j,i+1) are contiguous, then
+<br />
+<br />bnd(j,i,0,1)=bnd(j,i+1,0,0) and bnd(j,i,1,1)=bnd(j,i+1,1,0)
+<br />
+<br />If cells (j,i) and (j+1,i) are contiguous, then
+<br />
+<br />bnd(j,i,1,0)=bnd(j+1,i,0,0) and bnd(j,i,1,1)=bnd(j+1,i,0,1)
+<br />
+<br />(4) In all other cases, the bounds should be dimensioned (...,n,p). The
+<br />
+vertices must be traversed anticlockwise in the lon-lat plane as viewed from
+<br />
+above. The starting vertex is not specified by the standard.  [At present, the
+<br />
+standard does not state any ordering.]
+<br />
+<br />Jonathan
+<br />
+<span id="received"><dfn>Received on</dfn> Thu Jun 26 2003 - 11:02:20 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -277,13 +171,9 @@ Karl
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start192">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0193.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Standard names for altimeter data"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0191.html" title="Previous message in the list">Olivier Lauret: "[CF-metadata] Standard names for altimeter data"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0191.html" title="Message to which this message replies">Olivier Lauret: "[CF-metadata] Standard names for altimeter data"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0193.html" title="Next message in the list">Stephens, A: "[CF-metadata] Example of forecast data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0191.html" title="Previous message in the list">Brian Eaton: "[CF-metadata] bounds"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0193.html" title="Next message in this discussion thread">Jonathan Gregory: "[CF-metadata] Standard names for altimeter data"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0193.html" title="Message sent in reply to this message">Jonathan Gregory: "[CF-metadata] Standard names for altimeter data"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -294,7 +184,7 @@ Karl
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:45 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0191.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0193.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

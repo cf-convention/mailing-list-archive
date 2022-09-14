@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] New area_types for LUMIP subgrid land-use tile reporting from David Lawrence on 2017-01-26 (mailing-list-archive)</title>
-<meta name="Author" content="David Lawrence (dlawren)" />
-<meta name="Subject" content="[CF-metadata] New area_types for LUMIP subgrid land-use tile reporting" />
-<meta name="Date" content="2017-01-26" />
+<title>[CF-metadata] How to define time coordinate in GPS? from Jim Biard on 2015-06-29 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jim Biard (jbiard)" />
+<meta name="Subject" content="[CF-metadata] How to define time coordinate in GPS?" />
+<meta name="Date" content="2015-06-29" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./7979.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7981.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] New area_types for LUMIP subgrid land-use tile reporting</h1>
-<!-- received="Wed Jan 25 19:49:09 2017" -->
-<!-- isoreceived="20170125194909" -->
-<!-- sent="Wed, 25 Jan 2017 19:49:09 -0700" -->
-<!-- isosent="20170126024909" -->
-<!-- name="David Lawrence" -->
-<!-- email="dlawren" -->
-<!-- subject="[CF-metadata] New area_types for LUMIP subgrid land-use tile reporting" -->
-<!-- id="CAGbponKGsdaAyEM8tSNjCzfGScFQg-+f5YH6qxck3c-JgeuMgQ_at_mail.gmail.com" -->
+<a style="text-decoration:none" href="./7979.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7981.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] How to define time coordinate in GPS?</h1>
+<!-- received="Mon Jun 29 10:38:21 2015" -->
+<!-- isoreceived="20150629093821" -->
+<!-- sent="Mon, 29 Jun 2015 12:38:21 -0400" -->
+<!-- isosent="20150629163821" -->
+<!-- name="Jim Biard" -->
+<!-- email="jbiard" -->
+<!-- subject="[CF-metadata] How to define time coordinate in GPS?" -->
+<!-- id="5591747D.2010104_at_cicsnc.org" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="014539AC4976BE4490A360410A8C201701069B5657_at_exchmbx03" -->
+<!-- inreplyto="55916A93.9010703_at_whoi.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./7981.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Feedback requested on proposed CF Simple Geometries&quot;">Next message</a> ]
-[ <a href="./7979.html" title="Karl Taylor: &quot;[CF-metadata] additional standard name for ISMIP6&quot;">Previous message</a> ]
-[ <a href="./7975.html" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] New area_types for LUMIP subgrid land-use tile reporting&quot;">In reply to</a> ]
+[ <a href="./7981.html" accesskey="d" title="Jim Biard: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">Next message</a> ]
+[ <a href="./7979.html" title="Jonathan Gregory: &quot;[CF-metadata] Specifying latitude and longitude of transects and regions&quot;">Previous message</a> ]
+[ <a href="./7976.html" title="Nan Galbraith: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./8006.html" accesskey="t" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] New area_types for LUMIP subgrid land-use tile reporting&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
+[ <a href="./7978.html" accesskey="t" title="Jim Biard: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,146 +71,174 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: David Lawrence &lt;<a href="mailto:dlawren?Subject=Re%3A%20%5BCF-metadata%5D%20New%20area_types%20for%20LUMIP%20subgrid%20land-use%20tile%20reporting">dlawren</a>&gt;
+<dfn>From</dfn>: Jim Biard &lt;<a href="mailto:jbiard?Subject=Re%3A%20%5BCF-metadata%5D%20How%20to%20define%20time%20coordinate%20in%20GPS%3F">jbiard</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 25 Jan 2017 19:49:09 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 29 Jun 2015 12:38:21 -0400</span><br />
 </address>
 <br />
-Hi Alison,
+Nan,
 <br />
-<br />The primary and secondary land definition looks good.  The urban definition
+<br />GPS time didn't exist, as such, before 1980-01-06 (year-month-day). It 
 <br />
-seems a bit excessive for these purposes.  I suggest simplifying to:
+is a continuous count from the reference date and time of 1980-01-06 
 <br />
-<br />Urban land is comprised of areas where much of the land is covered by
+00:00:00 using the Gregorian calendar and the UTC time system. UTC 
 <br />
-structures. Included in this category are cities, towns, and villages.
+started using leap seconds in 1972. Before that UTC was being adjusted 
 <br />
-<br />The reference is still suitable.
+by small arbitrary amounts on much shorter time scales than the current 
 <br />
-<br />Dave
+&quot;a couple of times every three years or so&quot; scale. To refer to times 
 <br />
-<br />On Wed, Jan 25, 2017 at 9:48 AM, &lt;alison.pamment at stfc.ac.uk&gt; wrote:
+prior to 1980-01-06 with the GPS time system, you would be using a 
 <br />
-<br /><em class="quotelev1">&gt; Dear David and Lena,
+&quot;proleptic&quot; version, and leap seconds would still matter.
+<br />
+<br />I like the idea of recording the time resolution or uncertainty. I think 
+<br />
+this could help signal to data consumers that you took the trouble 
+<br />
+needed with leap seconds, etc to achieve a certain level of accuracy and 
+<br />
+precision.
+<br />
+<br />Grace and peace,
+<br />
+<br />Jim
+<br />
+<br />On 6/29/15 11:56 AM, Nan Galbraith wrote:
+<br />
+<em class="quotelev1">&gt; Hi Tim -
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; I will shortly be making an update to the CF area_types table and I will
+<em class="quotelev1">&gt; I don't think there's any difference between GPS and UTC times
 </em><br />
-<em class="quotelev1">&gt; be adding the changes we agreed previously: <a href="http://mailman.cgd.ucar.edu/pi">http://mailman.cgd.ucar.edu/pi</a>
+<em class="quotelev1">&gt; before 1981-07-01, when the first leap second was accepted (if that's
 </em><br />
-<em class="quotelev1">&gt; permail/cf-metadata/2016/059111.html. I have found what appears to be a
+<em class="quotelev1">&gt; the right term), so, if your reference time is before that date, you
 </em><br />
-<em class="quotelev1">&gt; reasonable definition for 'urban' which I have quoted straight from the
+<em class="quotelev1">&gt; can use the GPS calendar attribute, and not worry about it being used
 </em><br />
-<em class="quotelev1">&gt; given reference. Is this OK or can you point me to a more recent reference,
-</em><br />
-<em class="quotelev1">&gt; perhaps one with a doi?
+<em class="quotelev1">&gt; to muck with your reference date.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; primary_and_secondary_land
+<em class="quotelev1">&gt; I've argued that 'instrument and measurement datasets' generally have
 </em><br />
-<em class="quotelev1">&gt; ' &quot;Primary and secondary land&quot; is all vegetated land that is not in active
+<em class="quotelev1">&gt; time values that can't be accurate enough to care about leap seconds,
 </em><br />
-<em class="quotelev1">&gt; use as cropland or pastureland, including forests, grasslands, bare ground
+<em class="quotelev1">&gt; and you've expressed the opposite view. To be honest, my instrument
 </em><br />
-<em class="quotelev1">&gt; and vegetated wetlands. &quot;Primary land&quot; is land that has never been
+<em class="quotelev1">&gt; clocks are mysterious, at best, and I often have to override them. Then,
 </em><br />
-<em class="quotelev1">&gt; subjected to human disturbance. &quot;Secondary land&quot; is land that has undergone
+<em class="quotelev1">&gt; to top things off, I use Matlab to generate elapsed time for CF, and have
 </em><br />
-<em class="quotelev1">&gt; human disturbance and has either subsequently been abandoned or is
-</em><br />
-<em class="quotelev1">&gt; currently being managed for human use (e.g., wood harvest). Reference:
-</em><br />
-<em class="quotelev1">&gt; Hurtt et al. (2011), Climatic Change, 109 - 117, Harmonization of land-use
-</em><br />
-<em class="quotelev1">&gt; scenarios for the period 1500-2100: 600 years of global gridded annual
-</em><br />
-<em class="quotelev1">&gt; land-use transitions, wood harvest, and resulting secondary lands, doi:
-</em><br />
-<em class="quotelev1">&gt; 10.1007/s10584-011-0153-2. &quot;Primary and secondary land&quot; refers to a land
-</em><br />
-<em class="quotelev1">&gt; use, rather than to specific categories of vegetation, and is distinct from
-</em><br />
-<em class="quotelev1">&gt; the area types for primary and secondary trees.'
+<em class="quotelev1">&gt; no clue whether that software knows anything about leap seconds.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; pastures
+<em class="quotelev1">&gt; Maybe an uncertainty attribute should be a best practice for time 
 </em><br />
-<em class="quotelev1">&gt; 'Pastures are assumed to be anthropogenic in origin. They include
+<em class="quotelev1">&gt; variables;
 </em><br />
-<em class="quotelev1">&gt; anthropogenically managed pastureland and rangeland.'
+<em class="quotelev1">&gt; OceanSITES recommends doing that, but I'm not sure often it's included 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; - or
 </em><br />
-<em class="quotelev1">&gt; urban
-</em><br />
-<em class="quotelev1">&gt; 'Urban or Built-up Land is comprised of areas of intensive use with much
-</em><br />
-<em class="quotelev1">&gt; of the land covered by structures. Included in this category are cities,
-</em><br />
-<em class="quotelev1">&gt; towns, villages, strip developments along highways, transportation, power,
-</em><br />
-<em class="quotelev1">&gt; and communications facilities, and areas such as those occupied by mills,
-</em><br />
-<em class="quotelev1">&gt; shopping centers, industrial and commercial complexes, and institutions
-</em><br />
-<em class="quotelev1">&gt; that may, in some instances, be isolated from urban areas. Reference:
-</em><br />
-<em class="quotelev1">&gt; Anderson, J.R, E. E. Hardy, J. T. Roach and R. E. Witmer (1976), A Land Use
-</em><br />
-<em class="quotelev1">&gt; And Land Cover Classification System For Use With Remote Sensor Data,
-</em><br />
-<em class="quotelev1">&gt; Appendix C Land Use Defintions, Geological Survey Professional Paper 964, A
-</em><br />
-<em class="quotelev1">&gt; revision of the land use classification system as presented in U.S.
-</em><br />
-<em class="quotelev1">&gt; Geological Survey Circular 671, <a href="https://www.usbr.gov/lc/socal/">https://www.usbr.gov/lc/socal/</a>
-</em><br />
-<em class="quotelev1">&gt; reports/SMappend_C.pdf.'
+<em class="quotelev1">&gt; noticed by data users.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Best wishes,
-</em><br />
-<em class="quotelev1">&gt; Alison
+<em class="quotelev1">&gt; Cheers - Nan
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; ------
+<em class="quotelev1">&gt; On 6/29/15 6:16 AM, Timothy Patterson wrote:
 </em><br />
-<em class="quotelev1">&gt; Alison Pamment                                                       Tel: +44
+<em class="quotelev2">&gt;&gt; I understand that for climate or forecast data that 30+ seconds of 
 </em><br />
-<em class="quotelev1">&gt; 1235 778065
+<em class="quotelev2">&gt;&gt; inaccuracy may not be significant, but even though the C and F in &quot;CF 
 </em><br />
-<em class="quotelev1">&gt; Centre for Environmental Data Analysis         Email:
+<em class="quotelev2">&gt;&gt; Conventions&quot; stand for &quot;Climate and Forecast&quot;, the conventions are 
 </em><br />
-<em class="quotelev1">&gt; alison.pamment at stfc.ac.uk
+<em class="quotelev2">&gt;&gt; also being increasingly adopted for instrument and measurement 
 </em><br />
-<em class="quotelev1">&gt; STFC Rutherford Appleton Laboratory
+<em class="quotelev2">&gt;&gt; datasets. In these cases, time accuracy at small time scales becomes 
 </em><br />
-<em class="quotelev1">&gt; R25, 2.22
+<em class="quotelev2">&gt;&gt; more important, which is why seeing a proposed convention that allows 
 </em><br />
-<em class="quotelev1">&gt; Harwell Campus, Didcot, OX11 0QX, U.K.
+<em class="quotelev2">&gt;&gt; the time to be written ambiguously (so that there may or may not be 
+</em><br />
+<em class="quotelev2">&gt;&gt; discontinuities or offsets) is rather disconcerting, like telling a 
+</em><br />
+<em class="quotelev2">&gt;&gt; climate scientist that the netCDF encoding of his temperature data 
+</em><br />
+<em class="quotelev2">&gt;&gt; may or may not have introduced an inaccuracy of a few Kelvin in some 
+</em><br />
+<em class="quotelev2">&gt;&gt; readings.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Under the CF1.6 conventions, I believe the base time or epoch time 
+</em><br />
+<em class="quotelev2">&gt;&gt; was always expressed in UTC and the calendar attribute was applied to 
+</em><br />
+<em class="quotelev2">&gt;&gt; the encoded time count. Using this convention, I could specify a UTC 
+</em><br />
+<em class="quotelev2">&gt;&gt; start time and then have a simple GPS-like count of elapsed seconds 
+</em><br />
+<em class="quotelev2">&gt;&gt; (with no discontinuities introduced by leap seconds). Under the 
+</em><br />
+<em class="quotelev2">&gt;&gt; proposals for the 1.7 convention, this doesn't seem possible. The 
+</em><br />
+<em class="quotelev2">&gt;&gt; epoch and time count must both be expressed either as UTC or as GPS 
+</em><br />
+<em class="quotelev2">&gt;&gt; time and the only &quot;mixed calendar&quot; options introduce the above 
+</em><br />
+<em class="quotelev2">&gt;&gt; mentioned ambiguity.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Regards,
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Tim Patterson
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
+<br /><pre>
+-- 
+CICS-NC &lt;<a href="http://www.cicsnc.org/">http://www.cicsnc.org/</a>&gt; Visit us on
+Facebook &lt;<a href="http://www.facebook.com/cicsnc">http://www.facebook.com/cicsnc</a>&gt; 	*Jim Biard*
+*Research Scholar*
+Cooperative Institute for Climate and Satellites NC &lt;<a href="http://cicsnc.org/">http://cicsnc.org/</a>&gt;
+North Carolina State University &lt;<a href="http://ncsu.edu/">http://ncsu.edu/</a>&gt;
+NOAA National Centers for Environmental Information &lt;<a href="http://ncdc.noaa.gov/">http://ncdc.noaa.gov/</a>&gt;
+/formerly NOAA?s National Climatic Data Center/
+151 Patton Ave, Asheville, NC 28801
+e: jbiard at cicsnc.org &lt;mailto:jbiard at cicsnc.org&gt;
+o: +1 828 271 4900
+/Connect with us on Facebook for climate 
+&lt;<a href="https://www.facebook.com/NOAANCEIclimate">https://www.facebook.com/NOAANCEIclimate</a>&gt; and ocean and geophysics 
+&lt;<a href="https://www.facebook.com/NOAANCEIoceangeo">https://www.facebook.com/NOAANCEIoceangeo</a>&gt; information, and follow us 
+on Twitter at _at_NOAANCEIclimate &lt;<a href="https://twitter.com/NOAANCEIclimate">https://twitter.com/NOAANCEIclimate</a>&gt; and 
+_at_NOAANCEIocngeo &lt;<a href="https://twitter.com/NOAANCEIocngeo">https://twitter.com/NOAANCEIocngeo</a>&gt;. /
 -------------- next part --------------
-<br />
 An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20170125/67b5f655/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20170125/67b5f655/attachment.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Wed Jan 25 2017 - 19:49:09 GMT</span>
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150629/b2b6ee7f/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150629/b2b6ee7f/attachment-0001.html</a>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: CicsLogoTiny.png
+Type: image/png
+Size: 15784 bytes
+Desc: not available
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150629/b2b6ee7f/attachment-0001.png">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150629/b2b6ee7f/attachment-0001.png</a>&gt;
+</pre>
+<span id="received"><dfn>Received on</dfn> Mon Jun 29 2015 - 10:38:21 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -219,13 +246,11 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start7980">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./7981.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Feedback requested on proposed CF Simple Geometries"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./7979.html" title="Previous message in the list">Karl Taylor: "[CF-metadata] additional standard name for ISMIP6"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./7975.html" title="Message to which this message replies">alison.pamment at stfc.ac.uk: "[CF-metadata] New area_types for LUMIP subgrid land-use tile reporting"</a></li>
+<li><dfn>Next message</dfn>: <a href="./7981.html" title="Next message in the list">Jim Biard: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./7979.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Specifying latitude and longitude of transects and regions"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./7976.html" title="Message to which this message replies">Nan Galbraith: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./8006.html" title="Next message in this discussion thread">alison.pamment at stfc.ac.uk: "[CF-metadata] New area_types for LUMIP subgrid land-use tile reporting"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./8006.html" title="Message sent in reply to this message">alison.pamment at stfc.ac.uk: "[CF-metadata] New area_types for LUMIP subgrid land-use tile reporting"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./7978.html" title="Next message in this discussion thread">Jim Biard: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -236,7 +261,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:08 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./7979.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7981.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

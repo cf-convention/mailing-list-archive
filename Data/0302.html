@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] species as species in chemical and aerosol names from Roy Lowry on 2006-10-09 (mailing-list-archive)</title>
-<meta name="Author" content="Roy Lowry (rkl)" />
-<meta name="Subject" content="[CF-metadata] species as species in chemical and aerosol names" />
-<meta name="Date" content="2006-10-09" />
+<title>[CF-metadata] missing_value vs. _FillValue from Russ Rew on 2003-11-06 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Russ Rew (russ)" />
+<meta name="Subject" content="[CF-metadata] missing_value vs. _FillValue" />
+<meta name="Date" content="2003-11-06" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0301.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0303.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] species as species in chemical and aerosol names</h1>
-<!-- received="Mon Oct  9 01:19:46 2006" -->
-<!-- isoreceived="20061009001946" -->
-<!-- sent="Mon, 09 Oct 2006 08:19:46 +0100" -->
-<!-- isosent="20061009071946" -->
-<!-- name="Roy Lowry" -->
-<!-- email="rkl" -->
-<!-- subject="[CF-metadata] species as species in chemical and aerosol names" -->
-<!-- id="s52a0643.046_at_wpo.nerc.ac.uk" -->
+<a style="text-decoration:none" href="./0301.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0303.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] missing_value vs. _FillValue</h1>
+<!-- received="Wed Nov  5 22:40:28 2003" -->
+<!-- isoreceived="20031105224028" -->
+<!-- sent="Wed, 05 Nov 2003 22:40:28 -0700" -->
+<!-- isosent="20031106054028" -->
+<!-- name="Russ Rew" -->
+<!-- email="russ" -->
+<!-- subject="[CF-metadata] missing_value vs. _FillValue" -->
+<!-- id="200311060540.hA65eTOb013334_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="eaton_at_ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,9 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0303.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] species as species in chemical and aerosol names&quot;">Next message</a> ]
-[ <a href="./0301.html" title="Jonathan Gregory: &quot;[CF-metadata] moving horizontal coordinate system&quot;">Previous message</a> ]
+[ <a href="./0303.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] missing_value vs. _FillValue&quot;">Next message</a> ]
+[ <a href="./0301.html" title="Brian Eaton: &quot;[CF-metadata] missing_value vs. _FillValue&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0305.html" accesskey="t" title="Brian Eaton: &quot;[CF-metadata] missing_value vs. _FillValue&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,120 +71,122 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Roy Lowry &lt;<a href="mailto:rkl?Subject=Re%3A%20%5BCF-metadata%5D%20species%20as%20species%20in%20chemical%20and%20aerosol%20names">rkl</a>&gt;
+<dfn>From</dfn>: Russ Rew &lt;<a href="mailto:russ?Subject=Re%3A%20%5BCF-metadata%5D%20missing_value%20vs.%20_FillValue">russ</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 09 Oct 2006 08:19:46 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 05 Nov 2003 22:40:28 -0700</span><br />
 </address>
 <br />
-Hi Jonathan,
+Brian,
 <br />
-<br />We need to be very careful about changing meaning here.  To me, 'mass_flux_of_nitrogen_as_all_nitrogen_oxides' implies that nitrogen in other forms such as ammonia/ammonium has been included in the flux.  However, 'mass_flux_of_all_nitrogen_oxides_as_nitrogen' is the flux of oxidised nitrogen species stoichmetrically recalculated as nitrogen. 
-<br />
-<br />Using this construct we need to have the actual 'thing' followed by the 'thing' it is expressed as.  'carbon_as_carbon_dioxide' and 'carbon_dioxide_as_carbon' are two completely different things.
-<br />
-<br />Cheers, Roy.
-<br />
-<br /><em class="quotelev3">&gt;&gt;&gt; Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt; 10/08/06 5:30 PM &gt;&gt;&gt;
+<br /><em class="quotelev1">&gt; _FillValue and missing_value are attributes that we inherit from the NUG.
 </em><br />
-Dear Christiane
-<br />
-<br /><em class="quotelev1">&gt; *species_as_species
+<em class="quotelev1">&gt; What is in the CF document is my best attempt at interpreting what's in the
 </em><br />
-<em class="quotelev1">&gt; -------------------
+<em class="quotelev1">&gt; NUG.  Unfortunately that's not easy, and what's currently in the NUG is not
 </em><br />
-<em class="quotelev1">&gt; Jonathan proposed to always use the construction 'X_as_Y' in
+<em class="quotelev1">&gt; implemented in any generic software that I'm aware of (except maybe Harvey
 </em><br />
-<em class="quotelev1">&gt; mass fluxes of molecules, and to use instead of 'X_as_X' 'X_as_such'.
+<em class="quotelev1">&gt; Davies' FAN operators since Harvey was the one responsible for the version
 </em><br />
-<em class="quotelev1">&gt; I agree and changed the table (which contains lots of 'as_such now'). 
+<em class="quotelev1">&gt; 3 NUG conventions).  Harvey wrote in a thread on the netCDF mail list that
 </em><br />
-<br />I did not work out all the consequences of this! I now find that some of
-<br />
-the results are unclear to me as they stand in various ways, for instance:
-<br />
-<br />mass_flux_of_all_nitrogen_oxides_as_nitrogen. I expected this to be the
-<br />
-other way round i.e.
-<br />
-mass_flux_of_nitrogen_as_all_nitrogen_oxides
-<br />
-Isn't this the mass flux of nitrogen, but the nitrogen is
-<br />
-delivered in various forms? That is, I expected this to be like
-<br />
-surface_emission_mass_flux_of_carbon_as_carbon_dioxide
-<br />
-which is about 6 Gt/yr integrated over the world - that's the mass of carbon,
-<br />
-not the mass of carbon dioxide.
-<br />
-<br />mass_flux_of_sulfate_as_such_dry_aerosol: by &quot;as such&quot; I mean &quot;as itself&quot;,
-<br />
-so I am not sure what this means exactly. Would it be sufficient to say
-<br />
-mass_flux_of_sulfate_as_dry_aerosol
-<br />
-or would that be ambiguous as to whether it was S or SO4 mass? If so perhaps
-<br />
-this should be
-<br />
-mass_flux_of_sulfate_dry_aerosol_as_such
-<br />
-for SO4 and
-<br />
-mass_flux_of_sulfur_as_sulfate_dry_aerosol
-<br />
-for S. This is quite complicated, isn't it. But I appreciate this distinction
-<br />
-needs to be drawn if it is ambiguous in practice.
-<br />
-<br /><em class="quotelev1">&gt; This is not necessary for mercury as it is not a molecule.
+<em class="quotelev1">&gt; the intention was to deprecate the missing_value attribute and that's why I
 </em><br />
-Is that really clear?
+<em class="quotelev1">&gt; included that statement in CF.
+</em><br />
+<br />The NUG (NetCDF User's Guide) does not deprecate the missing_value
 <br />
-mass_flux_of_mercury
+attribute, but instead states that its purpose is different from the
 <br />
-might mean the flux of Hg contained in any combination of atomic mercury,
+purpose for _FillValue:
 <br />
-mercury compounds, mercury aerosol, etc. If you want it to mean atomic
+<br />&nbsp;&nbsp;missing_value:  This attribute is not treated in any special way by
 <br />
-mercury specifically, should it not say that specifically?
+&nbsp;&nbsp;the library or conforming generic applications, but is often useful
 <br />
-<br />mass_flux_of_non_methane_volatile_organic_compounds: Why don't these ones
+&nbsp;&nbsp;documentation and may be used by specific applications. The
 <br />
-need as_such? Is it never counted as a mass flux of carbon?
+&nbsp;&nbsp;missing_value attribute can be a scalar or vector containing values
 <br />
-<br />Why do the mole_fractions need as_such? I would have thought
+&nbsp;&nbsp;indicating missing data. These values should all be outside the
 <br />
-mole_fraction_of_sulfur_dioxide_in_air
+&nbsp;&nbsp;valid range so that generic applications will treat them as missing.
 <br />
-could only be referring to moles of SO2, not moles of S, couldn't it?
+<br />Harvey was the last author of this section of the Users Guide on
 <br />
-<br />Finally, on a different subject, I'm unclear what ambient_optical_depth means,
+attribute conventions, and chose not to explicitly deprecate the
 <br />
-in the optical thickness names.
+missing_value attribute, although I think it was deprecated in an
 <br />
-<br />Cheers
+earlier draft.  Instead, he defined meanings for valid_range,
 <br />
-<br />Jonathan
+valid_min, and valid_max that would make any value outside of the
 <br />
-_______________________________________________
+valid_range suitable for use as a missing value.  You may be right
 <br />
-CF-metadata mailing list
+about Harvey deprecating it in an email message, but I think we can
 <br />
-CF-metadata at cgd.ucar.edu
+use the NUG definition above as providing a useful meaning for it.
 <br />
-<a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+<br />I think when John Caron wrote:
 <br />
-<br /><br /><pre>
--- 
-This message (and any attachments) is for the recipient only. NERC
-is subject to the Freedom of Information Act 2000 and the contents
-of this email and any reply you make may be disclosed by NERC unless
-it is exempt from release under the Act. Any material supplied to
-NERC may be stored in an electronic records management system.
-</pre>
-<span id="received"><dfn>Received on</dfn> Mon Oct 09 2006 - 01:19:46 BST</span>
+<br /><em class="quotelev1">&gt; We think that the NUG deprecation is out-of-data and should be, uh, 
+</em><br />
+<em class="quotelev1">&gt; deprecated ;^}
+</em><br />
+<br />he was referring to the old NUWG conventions
+<br />
+&lt;<a href="http://www.unidata.ucar.edu/packages/netcdf/NUWG/">http://www.unidata.ucar.edu/packages/netcdf/NUWG/</a>&gt;, last modified in
+<br />
+1995, which did imply that the missing_value attribute should not be
+<br />
+used for NUWG-compliant datasets.
+<br />
+<br /><em class="quotelev1">&gt; The netCDF library does use _FillValue to prefill data.  But this does not
+</em><br />
+<em class="quotelev1">&gt; make it easy to catch the mistake of incompletely written data for several
+</em><br />
+<em class="quotelev1">&gt; reasons:
+</em><br />
+<em class="quotelev1">&gt; 1. The use of data prefill can be turned off.  Basically data prefill
+</em><br />
+<em class="quotelev1">&gt; doubles the cost of outputting your data, so it's often turned off for
+</em><br />
+<em class="quotelev1">&gt; efficiency reasons (we do this in our atmosphere model).
+</em><br />
+<em class="quotelev1">&gt; 2. The default _FillValue is not defined in a portable way.  It's a literal
+</em><br />
+<em class="quotelev1">&gt; constant in the netcdf header file, hence it is possible that it may have
+</em><br />
+<em class="quotelev1">&gt; different binary representations on different machines.
+</em><br />
+<br />A minor point, but the default _FillValue was intended to be portable,
+<br />
+even for floats and doubles, by specifying it to be a value (15 *
+<br />
+2^119) that only requires three 1 bits followed by all 0 bits in a
+<br />
+normalized mantissa, so it can be represented exactly as an IEEE float
+<br />
+or double and in any floating point representation that has at least 4
+<br />
+bits of precision.  We tested this on all platforms we had access to
+<br />
+when developing netCDF, and checked that an equality comparison
+<br />
+actually worked for this value, as specified in netcdf.h.  I would be
+<br />
+interested in a platform where an equality test does not work for
+<br />
+this.  There may be a more portable way to specify this constant in
+<br />
+netcdf.h that does not assume IEEE floating-point.  If so, I would be
+<br />
+happy to change it.
+<br />
+<br />--Russ
+<br />
+<span id="received"><dfn>Received on</dfn> Wed Nov 05 2003 - 22:40:28 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -189,9 +194,12 @@ NERC may be stored in an electronic records management system.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start302">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0303.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] species as species in chemical and aerosol names"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0301.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] moving horizontal coordinate system"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0303.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] missing_value vs. _FillValue"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0301.html" title="Previous message in the list">Brian Eaton: "[CF-metadata] missing_value vs. _FillValue"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0305.html" title="Next message in this discussion thread">Brian Eaton: "[CF-metadata] missing_value vs. _FillValue"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0305.html" title="Message sent in reply to this message">Brian Eaton: "[CF-metadata] missing_value vs. _FillValue"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -202,7 +210,7 @@ NERC may be stored in an electronic records management system.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:47 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0301.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0303.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

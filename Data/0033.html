@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Announce: Common Data Model Coordinate System	validation from Tony Jolibois on 2006-02-13 (mailing-list-archive)</title>
-<meta name="Author" content="Tony Jolibois (tjolibois)" />
-<meta name="Subject" content="[CF-metadata] Announce: Common Data Model Coordinate System	validation" />
-<meta name="Date" content="2006-02-13" />
+<title>[CF-metadata] bounds for &quot;reduced grids&quot; from Karl E.Taylor on 2002-08-29 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Karl E.Taylor (taylor13)" />
+<meta name="Subject" content="[CF-metadata] bounds for &quot;reduced grids&quot;" />
+<meta name="Date" content="2002-08-29" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0032.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0034.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Announce: Common Data Model Coordinate System	validation</h1>
-<!-- received="Mon Feb 13 06:24:30 2006" -->
-<!-- isoreceived="20060213062430" -->
-<!-- sent="Mon, 13 Feb 2006 14:24:30 +0100" -->
-<!-- isosent="20060213132430" -->
-<!-- name="Tony Jolibois" -->
-<!-- email="tjolibois" -->
-<!-- subject="[CF-metadata] Announce: Common Data Model Coordinate System	validation" -->
-<!-- id="43F0888E.20300_at_cls.fr" -->
+<a style="text-decoration:none" href="./0032.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0034.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] bounds for &quot;reduced grids&quot;</h1>
+<!-- received="Wed Aug 28 17:31:55 2002" -->
+<!-- isoreceived="20020828163155" -->
+<!-- sent="Wed, 28 Aug 2002 16:31:55 -0700" -->
+<!-- isosent="20020828233155" -->
+<!-- name="Karl E.Taylor" -->
+<!-- email="taylor13" -->
+<!-- subject="[CF-metadata] bounds for &quot;reduced grids&quot;" -->
+<!-- id="3D6D5D6B.D8068C4B_at_llnl.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="43E8B74A.60900_at_unidata.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,10 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0034.html" accesskey="d" title="Karl Taylor: &quot;[CF-metadata] cellmethods=&#0034;lat: lon: mean over land&#0034;&quot;">Next message</a> ]
-[ <a href="./0032.html" title="John Caron: &quot;[CF-metadata] Announce: CDM Validator improvements&quot;">Previous message</a> ]
-[ <a href="./0019.html" title="John Caron: &quot;[CF-metadata] Announce: Common Data Model Coordinate System validation&quot;">In reply to</a> ]
+[ <a href="./0034.html" accesskey="d" title="Brian Eaton: &quot;[CF-metadata] bounds for &#0034;reduced grids&#0034;&quot;">Next message</a> ]
+[ <a href="./0032.html" title="Russ Rew: &quot;[CF-metadata] NetCDF x Minc&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0034.html" accesskey="t" title="Brian Eaton: &quot;[CF-metadata] bounds for &#0034;reduced grids&#0034;&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,81 +70,174 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Tony Jolibois &lt;<a href="mailto:tjolibois?Subject=Re%3A%20%5BCF-metadata%5D%20Announce%3A%20Common%20Data%20Model%20Coordinate%20System%09validation">tjolibois</a>&gt;
+<dfn>From</dfn>: Karl E.Taylor &lt;<a href="mailto:taylor13?Subject=Re%3A%20%5BCF-metadata%5D%20bounds%20for%20%22reduced%20grids%22">taylor13</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 13 Feb 2006 14:24:30 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 28 Aug 2002 16:31:55 -0700</span><br />
 </address>
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;Hi,
+Dear all,
 <br />
-<br />This is a great tool, thank you !
+<br />At PCMDI we are now receiving data on grids that are not the
 <br />
-A technical question : how can I test an opendap dataset protected with 
+regular latitude x longitude arrays.  In particular we have
 <br />
-http login/passwd ? I tested using the syntax <a href="http://login:passwd">http://login:passwd</a> at url 
+received a &quot;reduced&quot; longitude-latitude grid with the number
 <br />
-but did not succeed.
+of longitudes depending on latitude.  In trying to determine
 <br />
-Another thredds question : When the version 3 of thredds server will 
+whether the data is CF-compliant, I became confused reading
 <br />
-have aggregation functionnality ?
+the example in section 5.3.  I'm writing to see if anyone
 <br />
-<br />Thanks in advance.
+has some idea how we might make it easier to follow; I'm 
 <br />
-Best,
+afraid I don't.  Maybe the grid_mapping method could be set
 <br />
-Tony
+to &quot;reduced_grid&quot; to define this type of grid explicitly.
 <br />
-<br />John Caron wrote:
+<br />In this example we recommend that &quot;this type of gridded data
 <br />
-<br /><em class="quotelev1">&gt; An experimental web service is available that examines NetCDF files 
-</em><br />
-<em class="quotelev1">&gt; and tries to validate their use of Conventions such as CF-1.0 for 
-</em><br />
-<em class="quotelev1">&gt; gridded data. We will be improving this in the future based on user 
-</em><br />
-<em class="quotelev1">&gt; experience and feedback, and we will make it a part of the THREDDS 
-</em><br />
-<em class="quotelev1">&gt; Data Server.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Please have a look and send any comments to me (or to this list):
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  <a href="http://motherlode.ucar.edu:9080/thredds/cdmValidate.html">http://motherlode.ucar.edu:9080/thredds/cdmValidate.html</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Thanks!
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<br /><pre>
--- 
-Tony Jolibois
-CLS - Direction Oc?anographie Spatiale
-8-10 rue herm?s - 31520 Ramonville Saint-Agne
-tjolibois at cls.fr
-T?l : +33 (0) 561 393 797
-Fax : +33 (0) 561 393 782
-</pre>
-<span id="received"><dfn>Received on</dfn> Mon Feb 13 2006 - 06:24:30 GMT</span>
+be stored using the compression scheme described in section
+<br />
+8.2&quot;  I guess we recommend this because if the software
+<br />
+reading the data is smart enough, it can infer the grid
+<br />
+structure, whereas without the compression attribute, this 
+<br />
+might not be possible.  O.K., that seems like a good idea.  
+<br />
+<br />The reason I had trouble understanding the example, is that 
+<br />
+two dimensions (lon and lat) were defined to be 128 and
+<br />
+64, but none of the variables in the file requires either
+<br />
+of these, unless you want some help inferring the grid
+<br />
+structure.  Furthermore, the two &quot;coordinates&quot; are also
+<br />
+named lon and lat (but both are dimensioned rgrid).   I 
+<br />
+think this is the confusing aspect of the example. 
+<br />
+<br />Also, am I correct in the following interpretation?
+<br />
+Software that makes use of the compress information must
+<br />
+extract two pieces of information from the compress list.
+<br />
+In the example, the software should look for the variables
+<br />
+named &quot;lat&quot; and &quot;lon&quot; and discover that &quot;lat&quot; containes the
+<br />
+latitude coordinate values and &quot;lon&quot; the longitude
+<br />
+coordinate values.  This tells it also that in uncompressing
+<br />
+the data into a logically rectangular array, the order is
+<br />
+(&quot;latitude&quot;, &quot;longitude&quot;).  The software must also look for the 
+<br />
+&quot;dimensions&quot; named &quot;lat&quot; and &quot;lon&quot; to determine what size to
+<br />
+define the &quot;uncompressed&quot; representation of the grid (64,128).  
+<br />
+Furthermore, the software must use the &quot;lon&quot; dimension (128)
+<br />
+to construct the index values (j=rgrid(n)/128; i=regrid(n) - 128*j).  
+<br />
+<br />I don't see any way to simplify things, but I think we're
+<br />
+expecting both the data writers and the software writers
+<br />
+to work pretty hard here.
+<br />
+<br />Things become even more complicated when we consider how to
+<br />
+store the cell &quot;bounds&quot;.  The way to do this seems to be:
+<br />
+<br />dimensions:
+<br />
+&nbsp;&nbsp;lon = 128;
+<br />
+&nbsp;&nbsp;lat = 64 ;
+<br />
+&nbsp;&nbsp;rgrid = 6144 ;
+<br />
+variables:
+<br />
+&nbsp;&nbsp;float PS(rgrid) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;PS:long_name = &quot;surface pressure&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;PS:units = &quot;Pa&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;PS:coordinates = &quot;lon lat&quot; ;
+<br />
+&nbsp;&nbsp;float lon(rgrid) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lon:long_name = &quot;longitude&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lon:units = &quot;degrees_east&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lon:bounds = &quot;lon_bounds&quot; ;
+<br />
+&nbsp;&nbsp;float lat(regrid) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lat:long_name = &quot;latitude&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lat:units = &quot;degrees_north&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lat:bounds = &quot;lat_bounds&quot; ;
+<br />
+&nbsp;&nbsp;int rgrid(rgrid) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;rgrid:compress = &quot;lat lon&quot; ;
+<br />
+&nbsp;&nbsp;float lon_bounds(rgrid,2) ;
+<br />
+&nbsp;&nbsp;float lat_bounds(rgrid,2) ;
+<br />
+<br /><br />Some comments follow:
+<br />
+<br />&nbsp;&nbsp;&nbsp;1) Although lat_bounds in this case could be specified
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;more concisely as lat_bounds(lat,2), I don't think
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;we can allow this.
+<br />
+<br />&nbsp;&nbsp;&nbsp;2) Also, one way to graph the data, is to use a polygon
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fill algorithm, but this requires that the vertices
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;be known.  It's not trivial to construct the vertices
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given the bounds supplied in the above example (although
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it is also not terribly difficult).
+<br />
+<br />&nbsp;&nbsp;&nbsp;3) In the example, there is no guarantee that the lon 
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coordinate values are ordered monotonically.  In fact
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the reduced grid file we received had longitudes 
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;increasing from 0 to near 180, then switching to a
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value near -180 and increasing to near 0.  This again
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;may make it difficult to write smart and error-free
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;software. 
+<br />
+<br />Please let me know if I've incorrectly represented the bounds
+<br />
+in the above example.  Any other comments are also welcome.
+<br />
+<br />Karl
+<br />
+<span id="received"><dfn>Received on</dfn> Wed Aug 28 2002 - 17:31:55 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -152,10 +245,12 @@ Fax : +33 (0) 561 393 782
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start33">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0034.html" title="Next message in the list">Karl Taylor: "[CF-metadata] cellmethods=&#0034;lat: lon: mean over land&#0034;"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0032.html" title="Previous message in the list">John Caron: "[CF-metadata] Announce: CDM Validator improvements"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0019.html" title="Message to which this message replies">John Caron: "[CF-metadata] Announce: Common Data Model Coordinate System validation"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0034.html" title="Next message in the list">Brian Eaton: "[CF-metadata] bounds for &#0034;reduced grids&#0034;"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0032.html" title="Previous message in the list">Russ Rew: "[CF-metadata] NetCDF x Minc"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0034.html" title="Next message in this discussion thread">Brian Eaton: "[CF-metadata] bounds for &#0034;reduced grids&#0034;"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0034.html" title="Message sent in reply to this message">Brian Eaton: "[CF-metadata] bounds for &#0034;reduced grids&#0034;"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -166,7 +261,7 @@ Fax : +33 (0) 561 393 782
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:43 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0032.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0034.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

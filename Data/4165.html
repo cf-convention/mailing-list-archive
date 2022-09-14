@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Question regarding flag_values and flag_masks from Jim Biard on 2012-02-21 (mailing-list-archive)</title>
-<meta name="Author" content="Jim Biard (jim.biard)" />
-<meta name="Subject" content="[CF-metadata] Question regarding flag_values and flag_masks" />
-<meta name="Date" content="2012-02-21" />
+<title>[CF-metadata] udunits handling of fuzzy time units from Steve Hankin on 2011-03-15 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Steve Hankin (Steven.C.Hankin)" />
+<meta name="Subject" content="[CF-metadata] udunits handling of fuzzy time units" />
+<meta name="Date" content="2011-03-15" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4164.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4166.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Question regarding flag_values and flag_masks</h1>
-<!-- received="Tue Feb 21 10:44:06 2012" -->
-<!-- isoreceived="20120221104406" -->
-<!-- sent="Tue, 21 Feb 2012 12:44:06 -0500" -->
-<!-- isosent="20120221174406" -->
-<!-- name="Jim Biard" -->
-<!-- email="jim.biard" -->
-<!-- subject="[CF-metadata] Question regarding flag_values and flag_masks" -->
-<!-- id="4F43D7E6.9030803_at_noaa.gov" -->
+<a style="text-decoration:none" href="./4164.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4166.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] udunits handling of fuzzy time units</h1>
+<!-- received="Tue Mar 15 12:07:06 2011" -->
+<!-- isoreceived="20110315120706" -->
+<!-- sent="Tue, 15 Mar 2011 11:07:06 -0700" -->
+<!-- isosent="20110315180706" -->
+<!-- name="Steve Hankin" -->
+<!-- email="Steven.C.Hankin" -->
+<!-- subject="[CF-metadata] udunits handling of fuzzy time units" -->
+<!-- id="4D7FAACA.1070308_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="4D7F93C8.6040806_at_unidata.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,9 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4166.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] How to represent &#0034;6-hourly diurnal monthly means&#0034; in CF ?&quot;">Next message</a> ]
-[ <a href="./4164.html" title="Jim Biard: &quot;[CF-metadata] How to represent &#0034;6-hourly diurnal monthly means&#0034; in CF ?&quot;">Previous message</a> ]
+[ <a href="./4166.html" accesskey="d" title="Jon Blower: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">Next message</a> ]
+[ <a href="./4164.html" title="John Caron: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">Previous message</a> ]
+[ <a href="./4108.html" title="John Caron: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./4117.html" accesskey="t" title="John Caron: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,45 +72,108 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jim Biard &lt;<a href="mailto:jim.biard?Subject=Re%3A%20%5BCF-metadata%5D%20Question%20regarding%20flag_values%20and%20flag_masks">jim.biard</a>&gt;
+<dfn>From</dfn>: Steve Hankin &lt;<a href="mailto:Steven.C.Hankin?Subject=Re%3A%20%5BCF-metadata%5D%20udunits%20handling%20of%20fuzzy%20time%20units">Steven.C.Hankin</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 21 Feb 2012 12:44:06 -0500</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 15 Mar 2011 11:07:06 -0700</span><br />
 </address>
 <br />
-Hi.
+On 3/15/2011 9:28 AM, John Caron wrote:
 <br />
-<br />Is it legal to have a flag value of zero that is associated with a flag 
+<em class="quotelev1">&gt; On 3/15/2011 9:19 AM, Benno Blumenthal wrote:
+</em><br />
+<em class="quotelev2">&gt;&gt; I am sorry, but this conversation is more confusing that it needs to 
+</em><br />
+<em class="quotelev2">&gt;&gt; be -- once calendar 360_day is chosen, there is nothing &quot;fuzzy&quot; about 
+</em><br />
+<em class="quotelev2">&gt;&gt; month or year, and once calendar 365_day or 366_day is chosen, there 
+</em><br />
+<em class="quotelev2">&gt;&gt; is nothing &quot;fuzzy&quot; about year.   udunits does not support calendar, 
+</em><br />
+<em class="quotelev2">&gt;&gt; so its poor choice of month/year support is not an issue -- if it did 
+</em><br />
+<em class="quotelev2">&gt;&gt; support calendar (which is in the standard), then it would handle 
+</em><br />
+<em class="quotelev2">&gt;&gt; year/month correctly for these choices of calendar.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; i think the issue is that udunits is not a good reference library for 
+</em><br />
+<em class="quotelev1">&gt; date handling, and that we should create a new reference library.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; the problem with udunits is:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;   1) it does not support calenders.
+</em><br />
+<em class="quotelev1">&gt;   2) it allows units of month and year, but implements them in a way 
+</em><br />
+<em class="quotelev1">&gt; thats appropriate to dimensional units, not calendar dates.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+Hi John,
 <br />
-mask?  That is to say, is it OK to do something like
+<br />I'd propose that a good way of thinking about the distinction between 
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flag_masks = 3b, 3b, 3b, 4b, 4b;
+dates and times is that &quot;time&quot; is a geospatial unit of measure , whereas 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flag_values = 1b, 2b, 3b, 0b, 4b;
+&quot;date&quot; (which includes &quot;time of day&quot;) is a way of formatting time units 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flag_meanings = &quot;subsystem1 subsystem2 subsystem3 warning failure&quot;;
+for human readability.   The distinction is much the same as &quot;200&quot; 
 <br />
-<br />The implication would be that a value of 1, 2, or 3 would indicate a 
+versus &quot;140W&quot; as an encoding versus formatting of longitude 
 <br />
-warning in the corresponding subsystem, and 5, 6, or 7 would indicate a 
+coordinates.   From this perspective what is needed is more flexible 
 <br />
-failure.
+_formatting methods for udunits times_, rather than a new reference 
 <br />
-<br />Grace and peace,
+library that handles dates as a distinct concept.  The current udunits 
 <br />
-<br />Jim
+representations are wholly satisfactory for capturing times.
 <br />
-<br /><pre>
--- 
-Jim Biard
-Government Contractor, STG Inc.
-Remote Sensing and Applications Division (RSAD)
-National Climatic Data Center
-151 Patton Ave.
-Asheville, NC 28801-5001
-jim.biard at noaa.gov
-828-271-4900
-</pre>
-<span id="received"><dfn>Received on</dfn> Tue Feb 21 2012 - 10:44:06 GMT</span>
+<br />ISO 8601 has standardized the formatting of dates, which is definitely a 
+<br />
+good thing.  But too often we are tempted to borrow this standard into 
+<br />
+science a an encoding of time.  ISO dates seem to work adequately for 
+<br />
+encoding times in the world of finance, social sciences, etc, because 
+<br />
+the primary purpose of the encoding is to provide a human-readable 
+<br />
+metadata stamp.  Computing time differences is an occasional operation 
+<br />
+in this context;  time-based computations, such as derivatives, 
+<br />
+smoothers, and integrals are much rarer.   It is a safe bet that when 
+<br />
+time-based calculations are done, they are frequently done incorrectly 
+<br />
+-- as when we see &quot;monthly&quot; smoothing and averaging -- because they have 
+<br />
+bypassed the precise (and much simpler) definition of time.  Treating 
+<br />
+January and February as equal &quot;units&quot; introduces a 10% error in many 
+<br />
+calculations!  How rare for our other measurements to be this sloppy in 
+<br />
+climate science, and how easily this could be fixed.
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Steve
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Steve
+<br />
+-------------- next part --------------
+<br />
+An HTML attachment was scrubbed...
+<br />
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20110315/da3f1c3e/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20110315/da3f1c3e/attachment-0001.html</a>&gt;
+<br />
+<span id="received"><dfn>Received on</dfn> Tue Mar 15 2011 - 12:07:06 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -114,9 +181,13 @@ jim.biard at noaa.gov
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4165">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4166.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] How to represent &#0034;6-hourly diurnal monthly means&#0034; in CF ?"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4164.html" title="Previous message in the list">Jim Biard: "[CF-metadata] How to represent &#0034;6-hourly diurnal monthly means&#0034; in CF ?"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4166.html" title="Next message in the list">Jon Blower: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4164.html" title="Previous message in the list">John Caron: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./4108.html" title="Message to which this message replies">John Caron: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./4117.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./4117.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -127,7 +198,7 @@ jim.biard at noaa.gov
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:58 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4164.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4166.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

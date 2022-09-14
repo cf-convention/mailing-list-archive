@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]  CF Conventions 1.2 from Jonathan Gregory on 2008-05-08 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata]  CF Conventions 1.2" />
-<meta name="Date" content="2008-05-08" />
+<title>[CF-metadata] Proposed standard names for biological model outputs from Steve Emmerson on 2006-12-02 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Steve Emmerson (steve)" />
+<meta name="Subject" content="[CF-metadata] Proposed standard names for biological model outputs" />
+<meta name="Date" content="2006-12-02" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1349.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1351.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  CF Conventions 1.2</h1>
-<!-- received="Thu May  8 05:04:14 2008" -->
-<!-- isoreceived="20080508040414" -->
-<!-- sent="Thu, 8 May 2008 12:04:14 +0100" -->
-<!-- isosent="20080508110414" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata]  CF Conventions 1.2" -->
-<!-- id="20080508110414.GA1858_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./1349.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1351.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Proposed standard names for biological model outputs</h1>
+<!-- received="Fri Dec  1 20:29:32 2006" -->
+<!-- isoreceived="20061201202932" -->
+<!-- sent="Fri, 01 Dec 2006 20:29:32 -0700" -->
+<!-- isosent="20061202032932" -->
+<!-- name="Steve Emmerson" -->
+<!-- email="steve" -->
+<!-- subject="[CF-metadata] Proposed standard names for biological model outputs" -->
+<!-- id="200612020329.kB23TWXX016215_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="Godin_at_mbari.org" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,11 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1351.html" accesskey="d" title="Jon Blower: &quot;[CF-metadata] Tools and CF compliance Was: CF Conventions 1.2&quot;">Next message</a> ]
-[ <a href="./1349.html" title="Philip Bentley: &quot;[CF-metadata] CF Conventions 1.2&quot;">Previous message</a> ]
+[ <a href="./1351.html" accesskey="d" title="Russ Rew: &quot;[CF-metadata] time&quot;">Next message</a> ]
+[ <a href="./1349.html" title="John Caron: &quot;[CF-metadata] curvilinear cartesian coordinates case&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./1352.html" accesskey="t" title="John Caron: &quot;[CF-metadata] CF Conventions 1.2&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,64 +69,106 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20CF%20Conventions%201.2">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Steve Emmerson &lt;<a href="mailto:steve?Subject=Re%3A%20%5BCF-metadata%5D%20Proposed%20standard%20names%20for%20biological%20model%20outputs">steve</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 8 May 2008 12:04:14 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 01 Dec 2006 20:29:32 -0700</span><br />
 </address>
 <br />
-Dear Phil
+Michael,
 <br />
-<br /><em class="quotelev1">&gt;    Perhaps the recent
+<br /><em class="quotelev1">&gt;Date: Fri, 1 Dec 2006 16:14:19 -0800
 </em><br />
-<em class="quotelev1">&gt;    flurry of CF proposal activity in part reflects a general desire to
+<em class="quotelev1">&gt;From: &quot;Godin, Michael&quot; &lt;Godin at mbari.org&gt;
 </em><br />
-<em class="quotelev1">&gt;    'play catch-up'.
+<em class="quotelev1">&gt;To: &lt;cf-metadata at cgd.ucar.edu&gt;
 </em><br />
-<br />Yes, I think that is the case. It certainly is the case for the two proposals
-<br />
-I have made, on the axis and cell_methods attributes. These were discussed on
-<br />
-the email list and in abeyance for a long time because we had no way to adopt
-<br />
-them formally until we agreed the new rules.
-<br />
-<br /><em class="quotelev1">&gt;    I can produce some simple test files for the changes at CF 1.2. But
+<em class="quotelev1">&gt;Subject: [CF-metadata] Proposed standard names for biological model outputs
 </em><br />
-<em class="quotelev1">&gt;    the question of what constitutes application conformance is, I
+<br />The above message contained the following:
+<br />
+<br /><em class="quotelev1">&gt; For working with data from biological models, I'd like to propose the =
 </em><br />
-<em class="quotelev1">&gt;    suggest, not easily defined. For instance, I could create a noddy
+<em class="quotelev1">&gt; following standard names:
 </em><br />
-<em class="quotelev1">&gt;    netcdf file with two new grid mapping attributes, as follows:
+<em class="quotelev1">&gt; =20
 </em><br />
-<br />Yes, I think such a file would be useful, because it does at least provide
+<em class="quotelev1">&gt; molar_concentration_of_nitrogen_in_sea_water_due_to_diatoms (mol m-3)
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; molar_concentration_of_nitrogen_in_sea_water_due_to_phytoplankton (mol =
+</em><br />
+<em class="quotelev1">&gt; m-3)
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; molar_concentration_of_nitrogen_in_sea_water_due_to_mesozooplankton (mol =
+</em><br />
+<em class="quotelev1">&gt; m-3)
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; molar_concentration_of_nitrogen_in_sea_water_due_to_ =
+</em><br />
+<em class="quotelev1">&gt; microzooplankton(mol m-3)
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; molar_concentration_of_nitrogen_in_sea_water_due_to_detritus (mol m-3)
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; molar_concentration_of_silicate_in_sea_water_due_to_detritus (mol m-3)
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; molar_concentration_of_ammonium_in_sea_water (mol m-3)
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; molar_concentration_of_nitrate_in_sea_water (mol m-3)
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; molar_concentration_of_silicate_in_sea_water (mol m-3)
+</em><br />
+<em class="quotelev1">&gt; =20
+</em><br />
+<br />This might be from left field, but has a hierarchical namspace been
 <br />
-input data that the cf-checker can check for conformance, and other
+considered?  for example:
 <br />
-applications could likewise check that they can read in and interpret, if they
+<br />&nbsp;&nbsp;&nbsp;&nbsp;concentration/nitrogen/sea_water/diatoms
 <br />
-are interested in these features. I agree with you that what &quot;compliance&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;concentration/nitrogen/sea_water/plankton/phyto
 <br />
-actually means for an application is ill-defined. This is an issue which has
+&nbsp;&nbsp;&nbsp;&nbsp;concentration/nitrogen/sea_water/plankton/mesozoo
 <br />
-come up before, of course. Since most of CF is optional, in one sense (but not
+&nbsp;&nbsp;&nbsp;&nbsp;concentration/nitrogen/sea_water/plankton/mesozoo
 <br />
-a very useful sense) an application is compliant even if it ignores all that
+&nbsp;&nbsp;&nbsp;&nbsp;concentration/nitrogen/sea_water/plankton/micro
 <br />
-optional metadata. On the other hand I am sure no application currently exists
+&nbsp;&nbsp;&nbsp;&nbsp;concentration/nitrogen/sea_water/plankton/detritus
 <br />
-which interprets all the metadata. But I don't think that means the metadata is
+&nbsp;&nbsp;&nbsp;&nbsp;concentration/silicate/sea_water/plankton/detritus
 <br />
-not useful. It can still be read by humans, it describes the data properly,
+&nbsp;&nbsp;&nbsp;&nbsp;concentration/ammonium/sea_water
 <br />
-and we only add features when people have a need for them (usually people who
+&nbsp;&nbsp;&nbsp;&nbsp;concentration/nitrate/sea_water
 <br />
-intend to produce data).
+&nbsp;&nbsp;&nbsp;&nbsp;concentration/silicate/sea_water
 <br />
-<br />Best wishes
+<br />In any case, the &quot;molar&quot; component is probably redundant because that
 <br />
-<br />Jonathan
+fact is encoded in the &quot;units&quot; attribute.
 <br />
-<span id="received"><dfn>Received on</dfn> Thu May 08 2008 - 05:04:14 BST</span>
+<br />Disclaimer: I'm only on this mailing-list because of my UDUNITS work.
+<br />
+<br />Regards,
+<br />
+Steve Emmerson
+<br />
+<span id="received"><dfn>Received on</dfn> Fri Dec 01 2006 - 20:29:32 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -135,12 +176,9 @@ intend to produce data).
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1350">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1351.html" title="Next message in the list">Jon Blower: "[CF-metadata] Tools and CF compliance Was: CF Conventions 1.2"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1349.html" title="Previous message in the list">Philip Bentley: "[CF-metadata] CF Conventions 1.2"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1351.html" title="Next message in the list">Russ Rew: "[CF-metadata] time"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1349.html" title="Previous message in the list">John Caron: "[CF-metadata] curvilinear cartesian coordinates case"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./1352.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] CF Conventions 1.2"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./1352.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] CF Conventions 1.2"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -151,7 +189,7 @@ intend to produce data).
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:04 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1349.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1351.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

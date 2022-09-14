@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF from Bryan Lawrence on 2007-04-27 (mailing-list-archive)</title>
-<meta name="Author" content="Bryan Lawrence (b.n.lawrence)" />
-<meta name="Subject" content="[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF" />
-<meta name="Date" content="2007-04-27" />
+<title>[CF-metadata] cell methods: interval differs from interval given by time bounds from Jonathan Gregory on 2006-01-17 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] cell methods: interval differs from interval given by time bounds" />
+<meta name="Date" content="2006-01-17" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0817.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0819.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF</h1>
-<!-- received="Fri Apr 27 11:11:13 2007" -->
-<!-- isoreceived="20070427101113" -->
-<!-- sent="Fri, 27 Apr 2007 18:11:13 +0100" -->
-<!-- isosent="20070427171113" -->
-<!-- name="Bryan Lawrence" -->
-<!-- email="b.n.lawrence" -->
-<!-- subject="[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF" -->
-<!-- id="1177693873.4875.81.camel_at_localhost.localdomain" -->
+<a style="text-decoration:none" href="./0817.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0819.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] cell methods: interval differs from interval given by time bounds</h1>
+<!-- received="Tue Jan 17 01:51:38 2006" -->
+<!-- isoreceived="20060117015138" -->
+<!-- sent="Tue, 17 Jan 2006 08:51:38 +0000" -->
+<!-- isosent="20060117085138" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] cell methods: interval differs from interval given by time bounds" -->
+<!-- id="20060117085138.GC3412_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20070427165659.GA8992_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0819.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  vector quantities (e.g. velocities) in CF-NetCDF&quot;">Next message</a> ]
-[ <a href="./0817.html" title="Jonathan Gregory: &quot;[CF-metadata] new standard names proposal for CEOP-II model ouput&quot;">Previous message</a> ]
-[ <a href="./0816.html" title="Jonathan Gregory: &quot;[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF&quot;">In reply to</a> ]
+[ <a href="./0819.html" accesskey="d" title="Bryan Lawrence: &quot;[CF-metadata] cf2 progress&quot;">Next message</a> ]
+[ <a href="./0817.html" title="Beate.Geyer at gkss.de: &quot;[CF-metadata] cell methods: interval differs from interval given by time bounds&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,82 +68,36 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Bryan Lawrence &lt;<a href="mailto:b.n.lawrence?Subject=Re%3A%20%5BCF-metadata%5D%20vector%20quantities%20(e.g.%20velocities)%20in%20CF-NetCDF">b.n.lawrence</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20cell%20methods%3A%20interval%20differs%20from%20interval%20given%20by%20time%20bounds">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 27 Apr 2007 18:11:13 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 17 Jan 2006 08:51:38 +0000</span><br />
 </address>
 <br />
-<em class="quotelev1">&gt; For particular purposes, programs need to know &quot;scientific&quot; relations of this
-</em><br />
-<em class="quotelev1">&gt; kind, but we can't possibly encode all such relationships in the netCDF file.
-</em><br />
-<em class="quotelev1">&gt; That is not metadata, but instructions on what you can do with the data.
-</em><br />
-<br />define metadata for me! If that's not metadata, I don't know what is!
+Dear Beat
 <br />
-It's a separate point as to whether it belongs in CF and if so,
+<br />This is described in CF 7.3. The format of cell_methods is
 <br />
-where ... Surely knowing about vectors
+time: maximum (interval: 1 h)
 <br />
-is something we care about?
+to record the original temporal resolution of the data, and the cell bounds
 <br />
-<br /><em class="quotelev1">&gt; My proposal therefore would be that we maintain another table in a machineable
-</em><br />
-<em class="quotelev1">&gt; form listing the components of vectors (for your case). We can compile this
-</em><br />
-<em class="quotelev1">&gt; table now from the standard name table, and add to it as we add to the standard
-</em><br />
-<em class="quotelev1">&gt; name table. Possibly some ingenious system of flags in the standard name table
-</em><br />
-<em class="quotelev1">&gt; itself might avoid the need for a separate table.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Some relationships can be deduced, given the systematic construction
-</em><br />
-<em class="quotelev1">&gt; of standard names. If you open your file, read in a list of all the standard
-</em><br />
-<em class="quotelev1">&gt; names which occur in it, and do something like this to the list:
-</em><br />
-<em class="quotelev1">&gt; s/northward/NE/
-</em><br />
-<em class="quotelev1">&gt; s/eastward/NE/
-</em><br />
-<em class="quotelev1">&gt; then identical results will occur in pairs for vectors expressed as northward
-</em><br />
-<em class="quotelev1">&gt; and eastward components. But other cases can't be dealt with like this, so
-</em><br />
-<em class="quotelev1">&gt; a table is needed in general.
-</em><br />
-<br />I think that would a far more cumbersome solution, than say, defining a
-<br />
-variable attribute which took a value which could be used as a vector
-<br />
-basket, e.g.
-<br />
-<br />var u:
-<br />
-&nbsp;attribute:vector_parent=wind
-<br />
-var v:
-<br />
-&nbsp;attribute:vector_parent=wind
-<br />
-<br />with apologies for not using the right notation, I'm kind of frantic
-<br />
-right now, and don't even know why I'm doing this instead of what I
-<br />
-should be ...
-<br />
-<br />where the &quot;wind&quot; thing can be any string the user wants to use as a
-<br />
-label ...
+should indicate intervals of 3 h over which the maximum has been calculated.
 <br />
 <br />Cheers
 <br />
-Bryan
+<br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Fri Apr 27 2007 - 11:11:13 BST</span>
+<br /><em class="quotelev1">&gt; I want to write 2m Maximum Temperature which is given hourly into 
+</em><br />
+<em class="quotelev1">&gt; cf-standard. The maximum is calculated taking the last 3 hours into 
+</em><br />
+<em class="quotelev1">&gt; account.
+</em><br />
+<em class="quotelev1">&gt; 'cell_methods' time: 3h maximum 
+</em><br />
+<em class="quotelev1">&gt; is not accepted by the compliance checker - what would be the correct way?
+</em><br />
+<span id="received"><dfn>Received on</dfn> Tue Jan 17 2006 - 01:51:38 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -153,9 +105,8 @@ Bryan
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start818">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0819.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  vector quantities (e.g. velocities) in CF-NetCDF"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0817.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] new standard names proposal for CEOP-II model ouput"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0816.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0819.html" title="Next message in the list">Bryan Lawrence: "[CF-metadata] cf2 progress"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0817.html" title="Previous message in the list">Beate.Geyer at gkss.de: "[CF-metadata] cell methods: interval differs from interval given by time bounds"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -167,7 +118,7 @@ Bryan
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:56 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0817.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0819.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

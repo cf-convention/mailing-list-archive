@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] change_in from Jonathan Gregory on 2006-03-19 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] change_in" />
-<meta name="Date" content="2006-03-19" />
+<title>[CF-metadata] Re: projections in CF from Jonathan Gregory on 2003-02-10 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (jonathan.gregory)" />
+<meta name="Subject" content="[CF-metadata] Re: projections in CF" />
+<meta name="Date" content="2003-02-10" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0064.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0066.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] change_in</h1>
-<!-- received="Sun Mar 19 09:29:45 2006" -->
-<!-- isoreceived="20060319092945" -->
-<!-- sent="Sun, 19 Mar 2006 16:29:45 +0000" -->
-<!-- isosent="20060319162945" -->
+<a style="text-decoration:none" href="./0064.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0066.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Re: projections in CF</h1>
+<!-- received="Mon Feb 10 04:49:48 2003" -->
+<!-- isoreceived="20030210044948" -->
+<!-- sent="Mon, 10 Feb 2003 11:49:48 +0000" -->
+<!-- isosent="20030210114948" -->
 <!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] change_in" -->
-<!-- id="20060319162945.GA29865_at_met.reading.ac.uk" -->
+<!-- email="jonathan.gregory" -->
+<!-- subject="[CF-metadata] Re: projections in CF" -->
+<!-- id="20030210114948.B7386_at_hc1500.meto.gov.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,10 +53,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0066.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] accessory parameters&quot;">Next message</a> ]
-[ <a href="./0064.html" title="Jonathan Gregory: &quot;[CF-metadata] Geyer and Ruane standard names&quot;">Previous message</a> ]
+[ <a href="./0066.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] control run base time convention&quot;">Next message</a> ]
+[ <a href="./0064.html" title="John Caron: &quot;[CF-metadata] Re: GDV convention&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0068.html" accesskey="t" title="Burkhardt.Rockel at gkss.de: &quot;[CF-metadata] change_in&quot;">Next in thread</a> ]
+[ <a href="./0068.html" accesskey="t" title="Brian Eaton: &quot;[CF-metadata] Re: projections in CF&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,40 +70,138 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20change_in">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:jonathan.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Re%3A%20projections%20in%20CF">jonathan.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Sun, 19 Mar 2006 16:29:45 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 10 Feb 2003 11:49:48 +0000</span><br />
 </address>
 <br />
-Dear Burkhardt
+Dear John and Russ
 <br />
-<br /><em class="quotelev1">&gt; is there any news or any decision on the &quot;change_in_&quot; issue?
+<br />Thank you for your constructive attitude expressed here:
+<br />
+<br /><em class="quotelev1">&gt; while we think these would be improvements, the current proposal is also
 </em><br />
-No-one expressed any view.
+<em class="quotelev1">&gt; reasonable and we are anxious for a CF Convention that includes projections
+</em><br />
+<em class="quotelev1">&gt; soon.
+</em><br />
+<br />Brian and I have also been talking about these points.
 <br />
-<br />Having thought about it a bit more, I think change_in_ is OK if it has the
+<br />(1)
 <br />
-same kind of uses as tendency_of. They are really the same except change_in
+<em class="quotelev1">&gt; It would be better to specify the individual projection parameters as
+</em><br />
+<em class="quotelev1">&gt; individual attributes, rather than parsing strings. eg instead of
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; float T(lev, y, x) ;
+</em><br />
+<em class="quotelev1">&gt;   T:grid_mapping = &quot;lambert_conformal_conic standard_parallel: 25.0 \n&quot;;
+</em><br />
+<em class="quotelev1">&gt;    &quot;longitude_of_central_meridian: -95.0 latitude_of_projection_origin: 25.0&quot;;
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; use:
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; float T(lev, y, x) ;
+</em><br />
+<em class="quotelev1">&gt;    T:projectionName = &quot;Lambert_Conformal_Conic&quot;;
+</em><br />
+<em class="quotelev1">&gt;    T:Standard_Parallel=&quot;25.0&quot;;
+</em><br />
+<em class="quotelev1">&gt;    T:Longitude_of_Central_Meridian=&quot;-95.0&quot;;
+</em><br />
+<em class="quotelev1">&gt;    T:Latitude_of_Projection_Origin=&quot;25.0&quot;;
+</em><br />
+<br />I prefer having a single string because
 <br />
-is extensive in time and tendency_of is intensive. They have the same bounds
+<br />(a) it's the approach that we've adopted for other parts of CF such as the
 <br />
-in time. The units of tendency_of are X s-1 if change_in has units X. We must
+cell_methods and formula_terms, so maintains a consistent feel.
 <br />
-be clear that change_in should *not* be used to describe every possible kind of
+<br />(b) I think it is actually easier to use. Using the netCDF library, separate
 <br />
-difference e.g. between locations or climates. It specifically means the change
+calls are needed to get and set each attribute. Manipulating a string to make
 <br />
-in a quantity as a function of time. Do you agree?
+several changes is less work (in many languages). Since we have other strings
 <br />
-<br />Hence let us propose
+with this kind of syntax, we could/should provide subroutines to parse and
 <br />
-change_in_atmospheric_water_content_due_to_advection (kg m-2)
+reassemble them in languages in which it is not a single statement anyway, as
+<br />
+utilities to support CF.
+<br />
+<br />(2)
+<br />
+<em class="quotelev1">&gt; the common case is to replicate the projection specification on all variables; 
+</em><br />
+<em class="quotelev1">&gt; it would be useful to be able to factor the projection out so it is specified
+</em><br />
+<em class="quotelev1">&gt; in only one place. 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; it seems that software to subset a file already has to know to keep the coordinate variables and
+</em><br />
+<em class="quotelev1">&gt; other auxiliary information, so having to know to include projection info seems not much different.
+</em><br />
+<br />You're right, it is like coordinates. Nonetheless I would prefer to copy the
+<br />
+information to every variable as currently proposed rather than factoring it
+<br />
+out. Unlike coordinates, the space requirement of duplication is trivial. In
+<br />
+this case there is no problem with lack of consistency in redundant information.
+<br />
+If the projection is going to be changed, every variable will have to be
+<br />
+processed anyway - it can't be done just by changing the factored-out attribute.
+<br />
+On the other hand, if the projection metadata is wrong, fixing it in the same
+<br />
+way on every instance of an attribute is not much more difficult to program
+<br />
+than making a change in a single global attribute.
+<br />
+<br />The reason why I prefer the per-variable approach is that it makes it easier to
+<br />
+split up files and assemble them from different sources if each variable carries
+<br />
+its own metadata as far as possible. We've adopted this approach for all other
+<br />
+attributes, and in general have deprecated global attributes.
+<br />
+<br />When you put together a file from two different sources, you will have to check
+<br />
+whether their global transformation attributes have the same parameters.
+<br />
+Identity of name is not sufficient. You might have Lambert_Conformal_Conic
+<br />
+defined as (Standard_Parallel=&quot;25.0&quot;, Longitude_of_Central_Meridian=&quot;-95.0&quot;,
+<br />
+Latitude_of_Projection_Origin=&quot;25.0&quot;) in one file and (Standard_Parallel=&quot;30.0&quot;,
+<br />
+Longitude_of_Central_Meridian=&quot;-90.0&quot;, Latitude_of_Projection_Origin=&quot;20.0&quot;)
+<br />
+in the other. If they are not the same, you have to rename at least one of them
+<br />
+and change all the attributes which point to it. Since you need functionality
+<br />
+to be able to compare two projections explicitly for this situation, why not
+<br />
+always store per-variable projections and use this comparison function if you
+<br />
+want to know which ones are the same?
 <br />
 <br />Best wishes
 <br />
 <br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Sun Mar 19 2006 - 09:29:45 GMT</span>
+<span id="received"><dfn>Received on</dfn> Mon Feb 10 2003 - 04:49:48 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -111,13 +209,12 @@ change_in_atmospheric_water_content_due_to_advection (kg m-2)
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start65">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0066.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] accessory parameters"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0064.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Geyer and Ruane standard names"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0066.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] control run base time convention"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0064.html" title="Previous message in the list">John Caron: "[CF-metadata] Re: GDV convention"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0068.html" title="Next message in this discussion thread">Burkhardt.Rockel at gkss.de: "[CF-metadata] change_in"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./0068.html" title="Next message in this discussion thread">Brian Eaton: "[CF-metadata] Re: projections in CF"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0068.html" title="Message sent in reply to this message">Burkhardt.Rockel at gkss.de: "[CF-metadata] change_in"</a></li>
-<li><dfn>Reply</dfn>: <a href="./0071.html" title="Message sent in reply to this message">Bryan Lawrence: "[CF-metadata] change_in"</a></li>
+<dfn>Reply</dfn>: <a href="./0068.html" title="Message sent in reply to this message">Brian Eaton: "[CF-metadata] Re: projections in CF"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -128,7 +225,7 @@ change_in_atmospheric_water_content_due_to_advection (kg m-2)
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:43 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0064.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0066.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

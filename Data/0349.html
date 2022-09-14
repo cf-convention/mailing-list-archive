@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Recommendation for use of standard_name attribute from Bryan Lawrence on 2006-10-17 (mailing-list-archive)</title>
-<meta name="Author" content="Bryan Lawrence (b.n.lawrence)" />
-<meta name="Subject" content="[CF-metadata] Recommendation for use of standard_name attribute" />
-<meta name="Date" content="2006-10-17" />
+<title>[CF-metadata] RE Array Subscript Convention from Tom Gross on 2004-01-29 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Tom Gross (Tom.Gross)" />
+<meta name="Subject" content="[CF-metadata] RE Array Subscript Convention" />
+<meta name="Date" content="2004-01-29" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0348.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0350.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Recommendation for use of standard_name attribute</h1>
-<!-- received="Tue Oct 17 11:17:04 2006" -->
-<!-- isoreceived="20061017101704" -->
-<!-- sent="Tue, 17 Oct 2006 18:17:04 +0100" -->
-<!-- isosent="20061017171704" -->
-<!-- name="Bryan Lawrence" -->
-<!-- email="b.n.lawrence" -->
-<!-- subject="[CF-metadata] Recommendation for use of standard_name attribute" -->
-<!-- id="1161105424.5624.0.camel_at_localhost.localdomain" -->
+<a style="text-decoration:none" href="./0348.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0350.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] RE Array Subscript Convention</h1>
+<!-- received="Thu Jan 29 09:34:12 2004" -->
+<!-- isoreceived="20040129093412" -->
+<!-- sent="Thu, 29 Jan 2004 11:34:12 -0500" -->
+<!-- isosent="20040129163412" -->
+<!-- name="Tom Gross" -->
+<!-- email="Tom.Gross" -->
+<!-- subject="[CF-metadata] RE Array Subscript Convention" -->
+<!-- id="815ad7a633.7a633815ad_at_hermes.nos.noaa.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20061017102012.GA17924_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0350.html" accesskey="d" title="Karl Taylor: &quot;[CF-metadata] CF and multi-forecast system ensemble data&quot;">Next message</a> ]
-[ <a href="./0348.html" title="Francisco Doblas-Reyes: &quot;[CF-metadata] CF and multi-forecast system ensemble data&quot;">Previous message</a> ]
-[ <a href="./0342.html" title="Jonathan Gregory: &quot;[CF-metadata] Recommendation for use of standard_name attribute&quot;">In reply to</a> ]
+[ <a href="./0350.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Array Subscript Convention&quot;">Next message</a> ]
+[ <a href="./0348.html" title="Brian Eaton: &quot;[CF-metadata] WRF staggered grids and vertical coordinates&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0352.html" accesskey="t" title="Rosalyn Hatcher: &quot;[CF-metadata] Recommendation for use of standard_name attribute&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,54 +68,56 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Bryan Lawrence &lt;<a href="mailto:b.n.lawrence?Subject=Re%3A%20%5BCF-metadata%5D%20Recommendation%20for%20use%20of%20standard_name%20attribute">b.n.lawrence</a>&gt;
+<dfn>From</dfn>: Tom Gross &lt;<a href="mailto:Tom.Gross?Subject=Re%3A%20%5BCF-metadata%5D%20RE%20Array%20Subscript%20Convention">Tom.Gross</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 17 Oct 2006 18:17:04 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 29 Jan 2004 11:34:12 -0500</span><br />
 </address>
 <br />
-Hi Ros
+A universal convention might be simpler, but that is the sort of assumed
 <br />
-Why make explicit exceptions?
+data typing that gets us into trouble later on.  Giving an explict name
 <br />
-Bryan
+to the index type variable would be better.  Also we should anticipate
 <br />
-<br />On Tue, 2006-10-17 at 11:20 +0100, Jonathan Gregory wrote:
+that the same data file might be read by both C and Fortran programs in
 <br />
-<em class="quotelev1">&gt; Dear Ros
+the future.  If they can test for the variable type when inputing the
+<br />
+data then no mistakes will be made. 
+<br />
+<br />I second the proposal for :
+<br />
+index_start_0    index_start_1.
+<br />
+<br />tom gross
+<br />
+NOAA/CSDL
+<br />
+<br /><br />Dear All
+<br />
+<br /><em class="quotelev1">&gt; I think this is best handled by adding standard names since the issue is
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; how to describe a quantity.  I propose adding the standard names
 </em><br />
-<em class="quotelev2">&gt; &gt; * All variables should use the standard_name attribute to describe their 
+<em class="quotelev1">&gt; index_start_0, and index_start_1.
 </em><br />
-<em class="quotelev2">&gt; &gt; content. Exceptions
-</em><br />
-<em class="quotelev2">&gt; &gt; are boundary, climatology and grid_mapping variables.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I support this. Maybe just &quot;should&quot; is too strong - it sounds mandatory -
-</em><br />
-<em class="quotelev1">&gt; and it would be better to say &quot;It is recommended that ...&quot;. We could add a
-</em><br />
-<em class="quotelev1">&gt; sentence about requesting new standard names if necessary.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Thanks. Cheers
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Jonathan
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<span id="received"><dfn>Received on</dfn> Tue Oct 17 2006 - 11:17:04 BST</span>
+<br />I certainly agree this is a possible approach, but if we could adopt a
+<br />
+universal convention it might be simpler. If you write a program to store
+<br />
+indices in a data variable, you have the choice of numbering from 0 or 1;
+<br />
+this choice is independent of whether the program itself is in C or Fortran,
+<br />
+I should imagine.
+<br />
+<br />Cheers
+<br />
+<br />Jonathan
+<br />
+------------------------------
+<br />
+<span id="received"><dfn>Received on</dfn> Thu Jan 29 2004 - 09:34:12 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -127,13 +125,9 @@ Bryan
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start349">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0350.html" title="Next message in the list">Karl Taylor: "[CF-metadata] CF and multi-forecast system ensemble data"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0348.html" title="Previous message in the list">Francisco Doblas-Reyes: "[CF-metadata] CF and multi-forecast system ensemble data"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0342.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] Recommendation for use of standard_name attribute"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0350.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Array Subscript Convention"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0348.html" title="Previous message in the list">Brian Eaton: "[CF-metadata] WRF staggered grids and vertical coordinates"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0352.html" title="Next message in this discussion thread">Rosalyn Hatcher: "[CF-metadata] Recommendation for use of standard_name attribute"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0352.html" title="Message sent in reply to this message">Rosalyn Hatcher: "[CF-metadata] Recommendation for use of standard_name attribute"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -144,7 +138,7 @@ Bryan
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:48 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0348.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0350.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

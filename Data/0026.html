@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] request for new netCDF standart names from Elke Keup on 2006-02-08 (mailing-list-archive)</title>
-<meta name="Author" content="Elke Keup (keup)" />
-<meta name="Subject" content="[CF-metadata] request for new netCDF standart names" />
-<meta name="Date" content="2006-02-08" />
+<title>[CF-metadata] ungridded data from Jonathan Gregory on 2002-06-25 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (jonathan.gregory)" />
+<meta name="Subject" content="[CF-metadata] ungridded data" />
+<meta name="Date" content="2002-06-25" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0025.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0027.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] request for new netCDF standart names</h1>
-<!-- received="Wed Feb  8 08:28:22 2006" -->
-<!-- isoreceived="20060208082822" -->
-<!-- sent="Wed, 08 Feb 2006 16:28:22 +0100" -->
-<!-- isosent="20060208152822" -->
-<!-- name="Elke Keup" -->
-<!-- email="keup" -->
-<!-- subject="[CF-metadata] request for new netCDF standart names" -->
-<!-- id="43EA0E16.5000203_at_dkrz.de" -->
+<a style="text-decoration:none" href="./0025.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0027.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] ungridded data</h1>
+<!-- received="Tue Jun 25 01:55:09 2002" -->
+<!-- isoreceived="20020625005509" -->
+<!-- sent="Tue, 25 Jun 2002 08:55:09 +0100" -->
+<!-- isosent="20020625075509" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="jonathan.gregory" -->
+<!-- subject="[CF-metadata] ungridded data" -->
+<!-- id="20020625085509.D25689_at_hc0500.meto.gov.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0027.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] CF2 and standard names&quot;">Next message</a> ]
-[ <a href="./0025.html" title="Elke Keup: &quot;[CF-metadata] request for new netCDF standart names&quot;">Previous message</a> ]
+[ <a href="./0027.html" accesskey="d" title="Brian Eaton: &quot;Fwd: Re: [CF-metadata] ungridded data&quot;">Next message</a> ]
+[ <a href="./0025.html" title="Bob Drach: &quot;Fwd: Re: [CF-metadata] ungridded data&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,68 +68,48 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Elke Keup &lt;<a href="mailto:keup?Subject=Re%3A%20%5BCF-metadata%5D%20request%20for%20new%20netCDF%20standart%20names">keup</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:jonathan.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20ungridded%20data">jonathan.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 08 Feb 2006 16:28:22 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 25 Jun 2002 08:55:09 +0100</span><br />
 </address>
 <br />
-Dear colleagues,
+Dear Bob
 <br />
-<br />I want to make an application for a few more standart names I missed in the
+<br />Thanks for your further comments and definitions. Yes, I agree with you.
 <br />
-netCDF standart name table.
+Structurally, a horizontal grid that is represented as 1D because lat and lon
 <br />
-<br />1. forest_area_fraction
+are not independent looks the same as irregularly scattered data. But, as you
 <br />
-<br />It describes the part of the grid volume covered with forest, MKS unit=1
+say,
 <br />
-<br />2. skin_reservoir_content
+<br /><em class="quotelev1">&gt; Conceptually, a horizontal grid represents a discretization and
+</em><br />
+<em class="quotelev1">&gt; structuring/ordering of lat-lon space.
+</em><br />
+<br />whereas irregularly scattered data do not have an natural order and are not
 <br />
-<br />A part of this quantity is the canopy water amount but additionally this
+constructed in such a way as to discretize the entire horizontal area. In both
 <br />
-quantity contains the wetting of the bare soil. MKS unit=m
+cases, there may or may not be boundary information.
 <br />
-<br />3. frozen_soil_fraction
+<br />You having put it that way, I would suggest again that the presence of the
 <br />
-<br />This quantity describes the part of the soil which is frozen, MKS unit=1
+grid_mapping attribute tells you which case you have. This attribute indicates
 <br />
-<br />4. surface_snow_amount_change
+how the horizontal space has been discretised. It therefore also implies how
 <br />
-<br />This quantity describes the change of the snow amount at the surface, 
+the boundary lines should be drawn, and the connectivity information of the
 <br />
-MKS unit=kg/m**2
+points. Would it be sufficient to rely on the application to know how to
 <br />
-<br />Please inform me wether it's possible for you to add
+understand the grid_mapping in order to produce this information?
 <br />
-these 4 quantities to the standart name table.
+<br />Best wishes
 <br />
-Thank's a lot.
+<br />Jonathan
 <br />
-<br />Kindly Regards
-<br />
-<br />Elke Keup-Thiel
-<br />
-<br /><br />o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
-<br />
-<br /><br />&nbsp;&nbsp;Dr. Elke Keup-Thiel
-<br />
-<br />&nbsp;&nbsp;Max-Planck-Institut fuer Meteorologie
-<br />
-&nbsp;&nbsp;Bundesstrasse 53
-<br />
-&nbsp;&nbsp;D-20146 Hamburg
-<br />
-<br />&nbsp;&nbsp;Tel: +49 40 41173 406
-<br />
-&nbsp;&nbsp;Fax: +49 40 41173 476
-<br />
-&nbsp;&nbsp;E-mail: keup at dkrz.de
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sga at dkrz.de
-<br />
-<br />o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o---o
-<br />
-<span id="received"><dfn>Received on</dfn> Wed Feb 08 2006 - 08:28:22 GMT</span>
+<span id="received"><dfn>Received on</dfn> Tue Jun 25 2002 - 01:55:09 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -137,8 +117,8 @@ Thank's a lot.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start26">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0027.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] CF2 and standard names"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0025.html" title="Previous message in the list">Elke Keup: "[CF-metadata] request for new netCDF standart names"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0027.html" title="Next message in the list">Brian Eaton: "Fwd: Re: [CF-metadata] ungridded data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0025.html" title="Previous message in the list">Bob Drach: "Fwd: Re: [CF-metadata] ungridded data"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -150,7 +130,7 @@ Thank's a lot.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:43 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0025.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0027.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] New standard name: datetime_iso8601 from Russ Rew on 2013-01-18 (mailing-list-archive)</title>
-<meta name="Author" content="Russ Rew (russ)" />
-<meta name="Subject" content="[CF-metadata] New standard name: datetime_iso8601" />
-<meta name="Date" content="2013-01-18" />
+<title>[CF-metadata] How to represent &quot;6-hourly diurnal monthly means&quot; in CF ? from John Caron on 2012-02-24 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] How to represent &quot;6-hourly diurnal monthly means&quot; in CF ?" />
+<meta name="Date" content="2012-02-24" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4978.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4980.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] New standard name: datetime_iso8601</h1>
-<!-- received="Fri Jan 18 06:59:39 2013" -->
-<!-- isoreceived="20130118065939" -->
-<!-- sent="Fri, 18 Jan 2013 06:59:39 -0700" -->
-<!-- isosent="20130118135939" -->
-<!-- name="Russ Rew" -->
-<!-- email="russ" -->
-<!-- subject="[CF-metadata] New standard name: datetime_iso8601" -->
-<!-- id="25414.1358517579_at_unidata.ucar.edu" -->
+<a style="text-decoration:none" href="./4978.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4980.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] How to represent &quot;6-hourly diurnal monthly means&quot; in CF ?</h1>
+<!-- received="Fri Feb 24 13:37:44 2012" -->
+<!-- isoreceived="20120224133744" -->
+<!-- sent="Fri, 24 Feb 2012 13:37:44 -0700" -->
+<!-- isosent="20120224203744" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] How to represent &quot;6-hourly diurnal monthly means&quot; in CF ?" -->
+<!-- id="4F47F518.7030005_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="8AC4893FB411FA4AA8CFECD9C8913B660CB48281_at_EXXMAIL01.desktop.frd.metoffice.com" -->
+<!-- inreplyto="4F43AEC8.6070102_at_noaa.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4980.html" accesskey="d" title="Christophe Lerot: &quot;[CF-metadata] standard name for ozone partial column in atmosphere layer&quot;">Next message</a> ]
-[ <a href="./4978.html" title="Hedley, Mark: &quot;[CF-metadata] New standard name: datetime_iso8601&quot;">Previous message</a> ]
-[ <a href="./4978.html" title="Hedley, Mark: &quot;[CF-metadata] New standard name: datetime_iso8601&quot;">In reply to</a> ]
+[ <a href="./4980.html" accesskey="d" title="John Caron: &quot;[CF-metadata] How to represent &#0034;6-hourly diurnal monthly means&#0034; in CF ?&quot;">Next message</a> ]
+[ <a href="./4978.html" title="Thomas Lavergne: &quot;[CF-metadata] Proposal for better handling vector quantities in CF&quot;">Previous message</a> ]
+[ <a href="./4975.html" title="Jim Biard: &quot;[CF-metadata] How to represent &#0034;6-hourly diurnal monthly means&#0034; in CF ?&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,274 +70,344 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Russ Rew &lt;<a href="mailto:russ?Subject=Re%3A%20%5BCF-metadata%5D%20New%20standard%20name%3A%20datetime_iso8601">russ</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20How%20to%20represent%20%226-hourly%20diurnal%20monthly%20means%22%20in%20CF%20%3F">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 18 Jan 2013 06:59:39 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 24 Feb 2012 13:37:44 -0700</span><br />
 </address>
 <br />
-Hi Mark,
+On 2/21/2012 7:48 AM, Jim Biard wrote:
 <br />
-<br /><em class="quotelev1">&gt; Do the time parsing and string output options include appreciation of
+<em class="quotelev1">&gt; John,
 </em><br />
-<em class="quotelev1">&gt; the CF calendars such as 360 day?
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; Is this actually climatology data?  If it were climatology data, it 
 </em><br />
-<em class="quotelev1">&gt; will a 360 day calendar enable a string of
+<em class="quotelev1">&gt; would usually be the average for a given hour, day, or whatever, where 
 </em><br />
-<em class="quotelev1">&gt; 2012-02-30
+<em class="quotelev1">&gt; the average is taken over a decade or so.  I think you may just need 
 </em><br />
-<em class="quotelev1">&gt; to be printed
+<em class="quotelev1">&gt; to apply regular bounds.
 </em><br />
-<em class="quotelev1">&gt; while a gregorian calendar will not?
-</em><br />
-<br />Yes.  You can verify this by saving the following in caltest.cdl:
+<br />You might be right, Im trying to get clarification on this. Thanks for 
 <br />
-<br />netcdf caltest {
+your comments.
 <br />
-dimensions:
+<br />John
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time = 1;
-<br />
-variables:
-<br />
-&nbsp;&nbsp;double t1(time);
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t1:units = &quot;days since 2013-01-01&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t1:calendar = &quot;gregorian&quot;;
-<br />
-&nbsp;&nbsp;double t1_360(time);
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t1_360:calendar = &quot;360_day&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t1_360:units = &quot;days since 2013-01-01&quot;;
-<br />
-<br />data:
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t1 = 59;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;t1_360 = 59;
-<br />
-}
-<br />
-<br /><br />Then create the corresponding binary netCDF file using ncgen, and run
-<br />
-&quot;ncdump -t&quot; on it:
-<br />
-<br />&nbsp;&nbsp;$ ncgen -b caltest.cdl
-<br />
-&nbsp;&nbsp;$ ncdump -t caltest.nc
-<br />
-<br />If you don't get output that includes
-<br />
-<br />&nbsp;&nbsp;t1 = &quot;2013-03-01&quot; ;
-<br />
-&nbsp;&nbsp;t1_360 = &quot;2013-02-30&quot; ;
-<br />
-<br />it's time (using *any* calendar) to update your netCDF software :-).
-<br />
-<br />--Russ 
-<br />
-<br /><em class="quotelev1">&gt; -----Original Message-----
+<br /><em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; From: CF-metadata on behalf of Russ Rew
+<em class="quotelev1">&gt; Grace and peace,
 </em><br />
-<em class="quotelev1">&gt; Sent: Mon 14/01/2013 15:56
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; To: ngalbraith at whoi.edu
+<em class="quotelev1">&gt; Jim
 </em><br />
-<em class="quotelev1">&gt; Cc: cf-metadata at cgd.ucar.edu
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Subject: Re: [CF-metadata] New standard name: datetime_iso8601
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; =20
+<em class="quotelev1">&gt; On 2/20/2012 12:27 PM, John Caron wrote:
 </em><br />
-<em class="quotelev1">&gt; Nan and Chris,
+<em class="quotelev2">&gt;&gt; Im working with NOAA's CFSR dataset, reading it into the CDM, which 
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev2">&gt;&gt; essentially means converting GRIB into CF/netCDF.
 </em><br />
-<em class="quotelev2">&gt; &gt; I agree with Chris.
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev2">&gt; &gt;=20
+<em class="quotelev2">&gt;&gt; ref:
 </em><br />
-<em class="quotelev2">&gt; &gt; Having ncdump or other clients show dates in an ISO-compliant format
+<em class="quotelev2">&gt;&gt; <a href="http://nomads.ncdc.noaa.gov/data.php#cfs-reanal-data">http://nomads.ncdc.noaa.gov/data.php#cfs-reanal-data</a>
 </em><br />
-<em class="quotelev2">&gt; &gt; is a fine idea, as is using ISO strings for dates in attributes, but =
+<em class="quotelev2">&gt;&gt; <a href="http://dss.ucar.edu/datasets/ds093.2/">http://dss.ucar.edu/datasets/ds093.2/</a>
 </em><br />
-<em class="quotelev1">&gt; those
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev2">&gt; &gt; are completely different from storing date variables as strings.
+<em class="quotelev2">&gt;&gt; from NCAR's DSS page:
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev1">&gt; Yes, since version 4.2, ncdump has supported the &quot;-t&quot; and &quot;-T&quot; options
+<em class="quotelev2">&gt;&gt;  &quot;CFSR monthly atmospheric, oceanic and land surface output products 
 </em><br />
-<em class="quotelev1">&gt; for showing dates and times in human-readable and ISO-compliant format,
+<em class="quotelev2">&gt;&gt; are available as 6-hourly diurnal monthly means (00Z, 06Z, 12Z, and 18Z)&quot;
 </em><br />
-<em class="quotelev1">&gt; respecting the &quot;calendar&quot; attribute for interpreting dates.  Thanks to
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev1">&gt; an idea from Phil Bentley and some code contributed by Dave Allured,
+<em class="quotelev2">&gt;&gt; If I understand this correctly, the monthly mean data is as follows:
 </em><br />
-<em class="quotelev1">&gt; those options also work for bounds attributes that are times.
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev2">&gt;&gt;   for each month:
 </em><br />
-<em class="quotelev1">&gt; --Russ
+<em class="quotelev2">&gt;&gt;       for each day of the month:
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev2">&gt;&gt;         compute separate averages of the data at the 0,6,12, and 18Z 
 </em><br />
-<em class="quotelev2">&gt; &gt; NetCDF uses a binary storage format and is not meant to be human
+<em class="quotelev2">&gt;&gt; time coordinate.
 </em><br />
-<em class="quotelev2">&gt; &gt; readable.
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev2">&gt; &gt;=20
+<em class="quotelev2">&gt;&gt; So one ends up with 4 time coordinates per month, and the data 
 </em><br />
-<em class="quotelev2">&gt; &gt; Thanks - Nan
+<em class="quotelev2">&gt;&gt; represents the average for that month at that time. The time 
 </em><br />
-<em class="quotelev2">&gt; &gt;=20
+<em class="quotelev2">&gt;&gt; coordinate is not a real calendar date, for example for the month 
 </em><br />
-<em class="quotelev2">&gt; &gt; On 1/11/13 4:37 PM, Chris Barker - NOAA Federal wrote:
+<em class="quotelev2">&gt;&gt; 2008-08, the time coordinate is not really
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; On Fri, Jan 11, 2013 at 9:00 AM, Aleksandar Jelenak - NOAA Affiliate
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; &lt;aleksandar.jelenak at noaa.gov&gt;  wrote:
+<em class="quotelev2">&gt;&gt;    2008-08-01T00:00:00.000Z
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt;
+<em class="quotelev2">&gt;&gt;    2008-08-01T06:00:00.000Z
 </em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt; Here's the modified proposal for the datetime_iso8601 standard =
+<em class="quotelev2">&gt;&gt;    2008-08-01T12:00:00.000Z
 </em><br />
-<em class="quotelev1">&gt; name:
+<em class="quotelev2">&gt;&gt;    2008-08-01T18:00:00.000Z
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; ...
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt; String representing date-time information according to the ISO
+<em class="quotelev2">&gt;&gt; but more like:
 </em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt; 8601:2004(E) standard.
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; I think we should NOT adopt a string option for datetime variables.
+<em class="quotelev2">&gt;&gt;    2008-08-*T00:00:00.000Z
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt;
+<em class="quotelev2">&gt;&gt;    2008-08-*T06:00:00.000Z
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; To quote Jonathan Gregory:
+<em class="quotelev2">&gt;&gt;    2008-08-*T12:00:00.000Z
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt;
+<em class="quotelev2">&gt;&gt;    2008-08-*T18:00:00.000Z
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; &quot;&quot;&quot;
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; In CF we have always applied the
+<em class="quotelev2">&gt;&gt; where the * indicates an average over the days in that month.
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; principle that we only add to CF when there is a need to do so, i.e. =
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev1">&gt; there=20
+<em class="quotelev2">&gt;&gt; From
 </em><br />
-<em class="quotelev2">&gt; &gt; is
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; a use-case for something which cannot already be represented in CF
+<em class="quotelev2">&gt;&gt; <a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.6/cf-conventions.html#climatological-statistics">http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.6/cf-conventions.html#climatological-statistics</a>
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; &quot;&quot;&quot;
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt;
+<em class="quotelev2">&gt;&gt; It appears that CF would represent this as:
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; We already have a way to encode datetimes in CF-netcdf.
+<em class="quotelev2">&gt;&gt; dimensions:
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt;
+<em class="quotelev2">&gt;&gt;    time=4;
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; I believe this proposal resulted from the discussion about adding a
+<em class="quotelev2">&gt;&gt;    nv=2;
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; more flexible approach to datetimes in the CF Data Model. I think
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; that's a good idea, but separate from what encoding is used in
+<em class="quotelev2">&gt;&gt;   variables:
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; CF-netcdf. ( see my recent note for more detail about the difference
+<em class="quotelev2">&gt;&gt;    float temperature(time,lat,lon);
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; between and encoding and a data model ).
+<em class="quotelev2">&gt;&gt;      temperature:long_name=&quot;surface air temperature&quot;;
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt;
+<em class="quotelev2">&gt;&gt;      temperature:cell_methods=&quot;time: point within days time: mean over days&quot;;
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; 1) Having multiple ways to encode the same data in file format adds
+<em class="quotelev2">&gt;&gt;      temperature:units=&quot;K&quot;;
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; complication to all client code -- client code would need a way to
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; process both ISO strings and &quot;time_unit since datetime&quot;
+<em class="quotelev2">&gt;&gt;   double time(time);
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt;
+<em class="quotelev2">&gt;&gt;      time:climatology=&quot;climatology_bounds&quot;;
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; 2) Any client code that can process ISO strings is likely to need to
+<em class="quotelev2">&gt;&gt;      time:units=&quot;days since 2008-01-01&quot;;
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; convert them to a client-specific datetime representation anyway, in
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; order to plot, calculate with, etc  them.
+<em class="quotelev2">&gt;&gt;   double climatology_bounds(time,nv);
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt;
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; 3) Any client library that can process ISO strings is very likely to
+<em class="quotelev2">&gt;&gt; data: 
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; be able to also work with &quot;time_unit since datetime&quot; encoded data
+<em class="quotelev2">&gt;&gt;    time=&quot;2008-08-01T00:00Z&quot;,&quot;2008-08-01T06:00Z&quot;,&quot;2008-08-01T12:00Z&quot;,&quot;2008-08-01T18:00Z&quot; ;
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; anyway -- and it had better, as that encoding is part of the =
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev1">&gt; standard
+<em class="quotelev2">&gt;&gt;    climatology_bounds=&quot;2008-08-01T00:00Z&quot;, &quot;2008-08-31T00:00Z&quot;,
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; anyway.
+<em class="quotelev2">&gt;&gt;                       &quot;2008-08-01T06:00Z&quot;, &quot;2008-08-31T06:00Z&quot;,
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt;
+<em class="quotelev2">&gt;&gt;                       &quot;2008-08-01T12:00Z&quot;, &quot;2008-08-31T12:00Z&quot;,
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; As a result, we would be complicating client code, and getting no =
+<em class="quotelev2">&gt;&gt;                       &quot;2008-08-01T18:00Z&quot;, &quot;2008-08-31T18:00Z&quot; ;
 </em><br />
-<em class="quotelev1">&gt; new
+<em class="quotelev2">&gt;&gt; Using &quot;point within days&quot; because  we have an instantaneous quantity.
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; functionality.
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt;
+<em class="quotelev2">&gt;&gt; However, im not sure what this sentence in 7.4 means: &quot;When 
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; The one advantage I can see at the moment is that simple, =
+<em class="quotelev2">&gt;&gt; considering intervals within days, if the earlier time of day is 
 </em><br />
-<em class="quotelev1">&gt; non-CF-aware
+<em class="quotelev2">&gt;&gt; equal to the later time of day, then the method is applied to a full 
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; clients, like ncdump, could easily present a nice human-readable
+<em class="quotelev2">&gt;&gt; 24 hour day.&quot;
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; format. But I don't think that is worth the additional complication.
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt;
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt; -Chris
+<em class="quotelev2">&gt;&gt; Another case is when the data are on time intervals, for example 
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt;
+<em class="quotelev2">&gt;&gt; &quot;Total Precipitation Accumulation&quot;. In this case, the original data 
 </em><br />
-<em class="quotelev3">&gt; &gt; &gt;
+<em class="quotelev2">&gt;&gt; are on time intervals which i represent as (start,end) dates:
 </em><br />
-<em class="quotelev2">&gt; &gt;=20
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev2">&gt; &gt;=20
+<em class="quotelev2">&gt;&gt; 2008-08-01T00:00:00.000Z, 2008-08-01T00:00:06.000Z
 </em><br />
-<em class="quotelev2">&gt; &gt; --=20
+<em class="quotelev2">&gt;&gt; 2008-08-01T06:00:00.000Z, 2008-08-01T00:00:12.000Z
 </em><br />
-<em class="quotelev2">&gt; &gt; *******************************************************
+<em class="quotelev2">&gt;&gt; 2008-08-01T12:00:00.000Z, 2008-08-01T00:00:18.000Z
 </em><br />
-<em class="quotelev2">&gt; &gt; * Nan Galbraith                        (508) 289-2444 *
+<em class="quotelev2">&gt;&gt; 2008-08-01T18:00:00.000Z, 2008-08-01T00:00:24.000Z
 </em><br />
-<em class="quotelev2">&gt; &gt; * Upper Ocean Processes Group            Mail Stop 29 *
+<em class="quotelev2">&gt;&gt; 2008-08-02T00:00:00.000Z, 2008-08-02T00:00:06.000Z
 </em><br />
-<em class="quotelev2">&gt; &gt; * Woods Hole Oceanographic Institution                *
+<em class="quotelev2">&gt;&gt; 2008-08-02T06:00:00.000Z, 2008-08-02T00:00:12.000Z
 </em><br />
-<em class="quotelev2">&gt; &gt; * Woods Hole, MA 02543                                *
+<em class="quotelev2">&gt;&gt; 2008-08-02T12:00:00.000Z, 2008-08-02T00:00:18.000Z
 </em><br />
-<em class="quotelev2">&gt; &gt; *******************************************************
+<em class="quotelev2">&gt;&gt; 2008-08-02T18:00:00.000Z, 2008-08-02T00:00:24.000Z
 </em><br />
-<em class="quotelev2">&gt; &gt;=20
+<em class="quotelev2">&gt;&gt; 2008-08-03T00:00:00.000Z, 2008-08-03T00:00:06.000Z
 </em><br />
-<em class="quotelev2">&gt; &gt;=20
+<em class="quotelev2">&gt;&gt; ...
 </em><br />
-<em class="quotelev2">&gt; &gt;=20
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev2">&gt; &gt; _______________________________________________
+<em class="quotelev2">&gt;&gt; which are are averaged over days, giving 4 averages for each month, 
 </em><br />
-<em class="quotelev2">&gt; &gt; CF-metadata mailing list
+<em class="quotelev2">&gt;&gt; which i denote as:
 </em><br />
-<em class="quotelev2">&gt; &gt; CF-metadata at cgd.ucar.edu
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev2">&gt; &gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+<em class="quotelev2">&gt;&gt; 2008-08-*T00:00:00.000Z, 2008-08-*T00:00:06.000Z
+</em><br />
+<em class="quotelev2">&gt;&gt; 2008-08-*T06:00:00.000Z, 2008-08-*T00:00:12.000Z
+</em><br />
+<em class="quotelev2">&gt;&gt; 2008-08-*T12:00:00.000Z, 2008-08-*T00:00:18.000Z
+</em><br />
+<em class="quotelev2">&gt;&gt; 2008-08-*T18:00:00.000Z, 2008-08-*T00:00:24.000Z
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; So perhaps this is:
+</em><br />
+<em class="quotelev2">&gt;&gt; dimensions:
+</em><br />
+<em class="quotelev2">&gt;&gt;    time=4;
+</em><br />
+<em class="quotelev2">&gt;&gt;    nv=2;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;   variables:
+</em><br />
+<em class="quotelev2">&gt;&gt;    float precipitation(time,lat,lon);
+</em><br />
+<em class="quotelev2">&gt;&gt;      precipitation:long_name=&quot;surface air temperature&quot;;
+</em><br />
+<em class="quotelev2">&gt;&gt;      precipitation:cell_methods=&quot;time: sum within days time: mean over days&quot;;
+</em><br />
+<em class="quotelev2">&gt;&gt;      precipitation:units=&quot;K&quot;;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;   double time(time);
+</em><br />
+<em class="quotelev2">&gt;&gt;      time:climatology=&quot;climatology_bounds&quot;;
+</em><br />
+<em class="quotelev2">&gt;&gt;      time:units=&quot;days since 2008-01-01&quot;;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;   double climatology_bounds(time,nv);
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; data: 
+</em><br />
+<em class="quotelev2">&gt;&gt;    time=&quot;2008-08-01T03:00Z&quot;,&quot;2008-08-01T09:00Z&quot;,&quot;2008-08-01T15:00Z&quot;,&quot;2008-08-01T21:00Z&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;    climatology_bounds=&quot;2008-08-01T00:00Z&quot;, &quot;2008-08-31T06:00Z&quot;,
+</em><br />
+<em class="quotelev2">&gt;&gt;                       &quot;2008-08-01T06:00Z&quot;, &quot;2008-08-31T12:00Z&quot;,
+</em><br />
+<em class="quotelev2">&gt;&gt;                       &quot;2008-08-01T12:00Z&quot;, &quot;2008-08-31T18:00Z&quot;,
+</em><br />
+<em class="quotelev2">&gt;&gt;                       &quot;2008-08-01T18:00Z&quot;, &quot;2008-08-31T24:00Z&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt; ??
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; thanks for any insights,
+</em><br />
+<em class="quotelev2">&gt;&gt;  John
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; _______________________________________________
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; -- 
+</em><br />
+<em class="quotelev1">&gt; Jim Biard
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Government Contractor, STG Inc.
+</em><br />
+<em class="quotelev1">&gt; Remote Sensing and Applications Division (RSAD)
+</em><br />
+<em class="quotelev1">&gt; National Climatic Data Center
+</em><br />
+<em class="quotelev1">&gt; 151 Patton Ave.
+</em><br />
+<em class="quotelev1">&gt; Asheville, NC 28801-5001
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; jim.biard at noaa.gov
+</em><br />
+<em class="quotelev1">&gt; 828-271-4900
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
 </em><br />
 <em class="quotelev1">&gt; _______________________________________________
 </em><br />
@@ -347,11 +417,13 @@ variables:
 </em><br />
 <em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<span id="received"><dfn>Received on</dfn> Fri Jan 18 2013 - 06:59:39 GMT</span>
+<br />-------------- next part --------------
+<br />
+An HTML attachment was scrubbed...
+<br />
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120224/f916d4af/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120224/f916d4af/attachment-0001.html</a>&gt;
+<br />
+<span id="received"><dfn>Received on</dfn> Fri Feb 24 2012 - 13:37:44 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -359,9 +431,9 @@ variables:
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4979">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4980.html" title="Next message in the list">Christophe Lerot: "[CF-metadata] standard name for ozone partial column in atmosphere layer"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4978.html" title="Previous message in the list">Hedley, Mark: "[CF-metadata] New standard name: datetime_iso8601"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./4978.html" title="Message to which this message replies">Hedley, Mark: "[CF-metadata] New standard name: datetime_iso8601"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4980.html" title="Next message in the list">John Caron: "[CF-metadata] How to represent &#0034;6-hourly diurnal monthly means&#0034; in CF ?"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4978.html" title="Previous message in the list">Thomas Lavergne: "[CF-metadata] Proposal for better handling vector quantities in CF"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./4975.html" title="Message to which this message replies">Jim Biard: "[CF-metadata] How to represent &#0034;6-hourly diurnal monthly means&#0034; in CF ?"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -373,7 +445,7 @@ variables:
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:13 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4978.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4980.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

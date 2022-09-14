@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] proposals for new standard names (ECMWF-GCM) from Jonathan Gregory on 2006-02-07 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] proposals for new standard names (ECMWF-GCM)" />
-<meta name="Date" content="2006-02-07" />
+<title>[CF-metadata] CF question from Bob Drach on 2002-06-18 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Bob Drach (drach)" />
+<meta name="Subject" content="[CF-metadata] CF question" />
+<meta name="Date" content="2002-06-18" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0017.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0019.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] proposals for new standard names (ECMWF-GCM)</h1>
-<!-- received="Tue Feb  7 02:47:26 2006" -->
-<!-- isoreceived="20060207024726" -->
-<!-- sent="Tue, 7 Feb 2006 09:47:26 +0000" -->
-<!-- isosent="20060207094726" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] proposals for new standard names (ECMWF-GCM)" -->
-<!-- id="20060207094726.GB14634_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0017.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0019.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF question</h1>
+<!-- received="Tue Jun 18 12:03:55 2002" -->
+<!-- isoreceived="20020618110355" -->
+<!-- sent="Tue, 18 Jun 2002 11:03:55 -0700" -->
+<!-- isosent="20020618180355" -->
+<!-- name="Bob Drach" -->
+<!-- email="drach" -->
+<!-- subject="[CF-metadata] CF question" -->
+<!-- id="3D0F760B.E5E650C9_at_llnl.gov" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,10 +53,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0019.html" accesskey="d" title="John Caron: &quot;[CF-metadata] Announce: Common Data Model Coordinate System validation&quot;">Next message</a> ]
-[ <a href="./0017.html" title="Beate.Geyer at gkss.de: &quot;[CF-metadata] proposals for new standard names (ECMWF-GCM)&quot;">Previous message</a> ]
+[ <a href="./0019.html" accesskey="d" title="Brian Eaton: &quot;[CF-metadata] CF question&quot;">Next message</a> ]
+[ <a href="./0017.html" title="Jonathan Gregory: &quot;[CF-metadata] grid_mapping&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0021.html" accesskey="t" title="Bert Jagers: &quot;[CF-metadata] CF2 and standard names&quot;">Next in thread</a> ]
+[ <a href="./0019.html" accesskey="t" title="Brian Eaton: &quot;[CF-metadata] CF question&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,88 +70,52 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20proposals%20for%20new%20standard%20names%20(ECMWF-GCM)">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Bob Drach &lt;<a href="mailto:drach?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20question">drach</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 7 Feb 2006 09:47:26 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 18 Jun 2002 11:03:55 -0700</span><br />
 </address>
 <br />
-Dear Beate
+All,
 <br />
-<br /><em class="quotelev1">&gt;   dry_static_energy_flux_due_to_diffusion,  T flux: Vert diffusion, W m-2
-</em><br />
-needs upward_ or downward_ as a prefix. We can include both.
+<br />A question on CF arose in the context of the Earth System Grid project.
 <br />
-<br /><em class="quotelev1">&gt;   specific_humidity_flux_due_to_diffusion,  Q flux: Vert diffusion, kg m-2 
-</em><br />
-<em class="quotelev1">&gt; s-1
-</em><br />
-We already have upward_water_vapor_flux_in_air, so I think this new quantity
+We've started to design a database for CF/NetCDF metadata, and are at
 <br />
-should be upward_water_vapor_flux_in_air_due_to_diffusion. (It doesn't have
+the point of developing an object model for the database. One of the
 <br />
-the right units to be a &quot;specific humidity flux&quot;; since specific humidity is
+classes is GriddedVariable, that is, a variable defined on a spatial or
 <br />
-dimensionless, so a flux of it would have units m-2 s-1.) We can add both
+temporal grid. Station data and trajectories would not be considered as
 <br />
-upward_ and downward_.
+GriddedVariables.
 <br />
-<br /><em class="quotelev1">&gt;   eastward_momentum_flux_due_to_diffusion,  U flux: Vert diffusion, Pa
-</em><br />
-<em class="quotelev1">&gt;   northward_momentum_flux_due_to_diffusion, V flux: Vert diffusion, Pa
-</em><br />
-A momentum flux is called a stress in existing standard names. We have names
+<br />The question centers around how an application, say a metadata
 <br />
-of atmosphere_eastward|northward_stress_due_to_gravity_wave_drag, so these
+harvesting utility, would recognize that a variable is gridded. One way
 <br />
-new quantities could be atmosphere_eastward|northward_stress_due_to_diffusion,
+would be to check if the associated coordinate variable(s) have boundary
 <br />
-correspondingly.
+variables. But the concern was raised that CF data producers might opt
 <br />
-<br />OK
+not to store boundary variables, either because it's unimportant for
 <br />
-<em class="quotelev1">&gt;   water_evaporation_amount_from_canopy, Intercepted water evap, kg m-2
-</em><br />
-<em class="quotelev1">&gt;   liquid_water_content_of_soil_layer, Soil water, kg m-2
-</em><br />
-<em class="quotelev1">&gt;   surface_snow_melt_and_sublimation_heat_flux,Snow phase change energy, W 
-</em><br />
-<em class="quotelev1">&gt; m-2 
-</em><br />
-<em class="quotelev1">&gt; for evaporation from Snow (not Ice)
-</em><br />
-<em class="quotelev1">&gt;   surface_snow_sublimation_amount, Snow evaporation, kg m-2
-</em><br />
-I wish I could think of a single word for &quot;melt and sublimation&quot;!
+their application or it's too much trouble. In such cases it would not
 <br />
-<br />OK except I think we should have _for_ instead of _of_. I propose that the
+be possible to infer that the data was in fact gridded.
 <br />
-roughness length names ought similarly to have _for_. 
+<br />So the question is: should an application assume that a variable is
 <br />
-<em class="quotelev1">&gt;   surface_roughness_length_of_momentum, surface roughness length momentum, 
-</em><br />
-<em class="quotelev1">&gt; 1
-</em><br />
-<em class="quotelev1">&gt;   surface_roughness_length_of_heat, surface roughness length heat, 1
-</em><br />
-<br /><em class="quotelev1">&gt;   snow_basal_heat_flux, Snow basal heat flux, W m-2 
-</em><br />
-Is this the heat flux into or out of the ground? That is, does it relate
+non-gridded if it is missing explicit boundary data? Or would it be
 <br />
-specifically to snow? If not, we could relate this to the existing name
+better to require that nongridded data be tagged in some fashion, with
 <br />
-downward_heat_flux_in_soil. I would propose
+the expectation that most CF data will be gridded, and infer that a
 <br />
-upward|downward_heat_flux_at_ground_level_in_snow|soil
+variable is gridded unless otherwise indicated?
 <br />
-with the _in_ part indicating whether measured/calculated on the snow or the
+<br />Bob
 <br />
-soil side of the interface.
-<br />
-<br />Best wishes
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Tue Feb 07 2006 - 02:47:26 GMT</span>
+<span id="received"><dfn>Received on</dfn> Tue Jun 18 2002 - 12:03:55 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -159,12 +123,12 @@ soil side of the interface.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start18">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0019.html" title="Next message in the list">John Caron: "[CF-metadata] Announce: Common Data Model Coordinate System validation"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0017.html" title="Previous message in the list">Beate.Geyer at gkss.de: "[CF-metadata] proposals for new standard names (ECMWF-GCM)"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0019.html" title="Next message in the list">Brian Eaton: "[CF-metadata] CF question"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0017.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] grid_mapping"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0021.html" title="Next message in this discussion thread">Bert Jagers: "[CF-metadata] CF2 and standard names"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./0019.html" title="Next message in this discussion thread">Brian Eaton: "[CF-metadata] CF question"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0021.html" title="Message sent in reply to this message">Bert Jagers: "[CF-metadata] CF2 and standard names"</a></li>
+<dfn>Reply</dfn>: <a href="./0019.html" title="Message sent in reply to this message">Brian Eaton: "[CF-metadata] CF question"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -175,7 +139,7 @@ soil side of the interface.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:43 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0017.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0019.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

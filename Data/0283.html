@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] standard names for aerosols and chemistry from Jonathan Gregory on 2006-10-05 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] standard names for aerosols and chemistry" />
-<meta name="Date" content="2006-10-05" />
+<title>[CF-metadata] WRF staggered grids from John Caron on 2003-10-21 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] WRF staggered grids" />
+<meta name="Date" content="2003-10-21" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0282.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0284.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard names for aerosols and chemistry</h1>
-<!-- received="Thu Oct  5 09:20:25 2006" -->
-<!-- isoreceived="20061005082025" -->
-<!-- sent="Thu, 5 Oct 2006 16:20:25 +0100" -->
-<!-- isosent="20061005152025" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] standard names for aerosols and chemistry" -->
-<!-- id="20061005152025.GA1512_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0282.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0284.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] WRF staggered grids</h1>
+<!-- received="Tue Oct 21 13:18:41 2003" -->
+<!-- isoreceived="20031021121841" -->
+<!-- sent="Tue, 21 Oct 2003 13:18:41 -0600" -->
+<!-- isosent="20031021191841" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] WRF staggered grids" -->
+<!-- id="3F958691.5070807_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0284.html" accesskey="d" title="Karl Taylor: &quot;[CF-metadata] cell metrics&quot;">Next message</a> ]
-[ <a href="./0282.html" title="Manuel Fuentes: &quot;[CF-metadata] question and time and standard_name...&quot;">Previous message</a> ]
+[ <a href="./0284.html" accesskey="d" title="John Caron: &quot;[CF-metadata] UTM projections&quot;">Next message</a> ]
+[ <a href="./0282.html" title="John Caron: &quot;[CF-metadata] standard names&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,46 +68,40 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20standard%20names%20for%20aerosols%20and%20chemistry">j.m.gregory</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20WRF%20staggered%20grids">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 5 Oct 2006 16:20:25 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 21 Oct 2003 13:18:41 -0600</span><br />
 </address>
 <br />
-Dear Christiane
+Has there been any discusion of staggered coordinate systems? Im looking 
 <br />
-<br /><em class="quotelev1">&gt; Here is the opinion of an expert (Ian Hedgecock):
-</em><br />
-<em class="quotelev2">&gt; &gt;Yep,
-</em><br />
-<em class="quotelev2">&gt; &gt;no confusion that way!
-</em><br />
-<em class="quotelev2">&gt; &gt;cheers,
-</em><br />
-<em class="quotelev2">&gt; &gt;Ian 
-</em><br />
-<em class="quotelev1">&gt; Roy Lowry a ?crit :
-</em><br />
-<em class="quotelev2">&gt; &gt;Christiane/Jonatathan
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt;Would divalent_mercury just to confirm that the II refers to valency be 
-</em><br />
-<em class="quotelev2">&gt; &gt;better?
-</em><br />
-<br />Well, I hesitate to disagree with an expert, but I thought that valency meant
+at the WRF model output to recomend how to convert it to using CF. It 
 <br />
-the potential to combine in a certain way, and is not the same as an actual
+has variables on various staggerings, for example U is on (z,y,x_stag) 
 <br />
-oxidation state. Aren't &quot;atom&quot; and &quot;ion&quot; the accurate description of the thing?
+while V is on (z, y_stag, x), and W is on (z_stag,y,x), where the 
 <br />
-Elemental mercury can exist as Hg atoms, Hg2+ ions and no doubt in other forms.
+staggered coordinates are the  &quot;edges&quot; of the non-staggered coordinates.
 <br />
-<br />Cheers
+<br />On first pass these could constitute seperate coordinate systems, but it 
 <br />
-<br />Jonathan
+seems like it would be better to represent how they are related.
 <br />
-<span id="received"><dfn>Received on</dfn> Thu Oct 05 2006 - 09:20:25 BST</span>
+<br />Also, WRF outputs two fields whoch if you add together, gives you the 
+<br />
+pressure field on the non-staggered grid. To get a pressure coordinate 
+<br />
+on the staggered grids, one has to interpolate. One could express all 
+<br />
+that as a formula, as we do other vertical coordinate systems, but it 
+<br />
+seems a little clumsy.
+<br />
+<br />Any thoughts in general, or specifics from anyone familiar with the WRF 
+<br />
+model?
+<br />
+<span id="received"><dfn>Received on</dfn> Tue Oct 21 2003 - 13:18:41 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -115,8 +109,8 @@ Elemental mercury can exist as Hg atoms, Hg2+ ions and no doubt in other forms.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start283">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0284.html" title="Next message in the list">Karl Taylor: "[CF-metadata] cell metrics"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0282.html" title="Previous message in the list">Manuel Fuentes: "[CF-metadata] question and time and standard_name..."</a></li>
+<li><dfn>Next message</dfn>: <a href="./0284.html" title="Next message in the list">John Caron: "[CF-metadata] UTM projections"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0282.html" title="Previous message in the list">John Caron: "[CF-metadata] standard names"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -128,7 +122,7 @@ Elemental mercury can exist as Hg atoms, Hg2+ ions and no doubt in other forms.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:47 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0282.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0284.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

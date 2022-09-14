@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Keeping taxon names out of Standard Names from Lowry, Roy K. on 2013-03-24 (mailing-list-archive)</title>
-<meta name="Author" content="Lowry, Roy K. (rkl)" />
-<meta name="Subject" content="[CF-metadata] Keeping taxon names out of Standard Names" />
-<meta name="Date" content="2013-03-24" />
+<title>[CF-metadata] The use of CF cell constructs for point data from Jonathan Gregory on 2012-04-11 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] The use of CF cell constructs for point data" />
+<meta name="Date" content="2012-04-11" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5178.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5180.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Keeping taxon names out of Standard Names</h1>
-<!-- received="Sun Mar 24 03:36:08 2013" -->
-<!-- isoreceived="20130324033608" -->
-<!-- sent="Sun, 24 Mar 2013 09:36:08 +0000" -->
-<!-- isosent="20130324093608" -->
-<!-- name="Lowry, Roy K." -->
-<!-- email="rkl" -->
-<!-- subject="[CF-metadata] Keeping taxon names out of Standard Names" -->
-<!-- id="40829B0E077C1145A6DE44D39B3830A922AC4273A8_at_nerckwmb1.ad.nerc.ac.uk" -->
+<a style="text-decoration:none" href="./5178.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5180.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] The use of CF cell constructs for point data</h1>
+<!-- received="Wed Apr 11 06:48:33 2012" -->
+<!-- isoreceived="20120411054833" -->
+<!-- sent="Wed, 11 Apr 2012 13:48:33 +0100" -->
+<!-- isosent="20120411124833" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] The use of CF cell constructs for point data" -->
+<!-- id="20120411124833.GA9536_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5180.html" accesskey="d" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] Standard name table update&quot;">Next message</a> ]
-[ <a href="./5178.html" title="Cameron-smith, Philip: &quot;[CF-metadata] [sdn2-tech] RE: proposed standard names for Enterococcus and Clostridium perfringens&quot;">Previous message</a> ]
+[ <a href="./5180.html" accesskey="d" title="Randy Horne: &quot;[CF-metadata] Using add_offset &#0038; scale_factor with coordinate variables&quot;">Next message</a> ]
+[ <a href="./5178.html" title="Randy Horne: &quot;[CF-metadata] The use of CF cell constructs for point data&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,36 +68,46 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Lowry, Roy K. &lt;<a href="mailto:rkl?Subject=Re%3A%20%5BCF-metadata%5D%20Keeping%20taxon%20names%20out%20of%20Standard%20Names">rkl</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20The%20use%20of%20CF%20cell%20constructs%20for%20point%20data">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Sun, 24 Mar 2013 09:36:08 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 11 Apr 2012 13:48:33 +0100</span><br />
 </address>
 <br />
-Dear All,
+Dear Randy
 <br />
-<br />I am considering setting up a Trac ticket aimed at making the following changes to the standard
+<br /><em class="quotelev1">&gt; Why have you not used a &quot;cell_measure&quot; attribute in the event_energy data variable to associate this data variable with the event_area data variable as shown in example 7.3 in the CF standard (e.g. :cell_measures = &quot;area: event_area&quot; ?
+</em><br />
+<br />I wondered about doing that too. I didn't do it because it seemed to me that
 <br />
-<br />1) Addition of a section on handling biological data in CF
+the area of the event was really a measured quantity i.e. a data variable,
 <br />
-<br />2) Addition of a couple of parameter attributes for taxon name and taxon identifier (e.g. Aphia ID)
+rather than being a property of the space of measurement. But it could be done
 <br />
-<br />3) Proposing a set of generic biological Standard Names
+as you describe. Would you describe the lightning area as a &quot;cell_area&quot;? If
 <br />
-<br />Before I take this on, I'd appreciate indications of support/opposition and a volunteer to moderate the ticket.  I would also like to get this either accepted or killed off completely before the next Standard Names update at the end of April so I don't end up causing the same work-blocking frustrations to John Maurer that have been endured by the proposer of ISO8601.
+not, I think it is probably not a cell_measure.
 <br />
-<br />Cheers, Roy.
+<br /><em class="quotelev1">&gt; (2)
+</em><br />
+<em class="quotelev1">&gt; Should the CF convention standard be updated to state that a featureType of &quot;point&quot; can make use of cell constructs ?  Currently chapter 7 starts &quot;When gridded data does not represent ?..&quot;.
+</em><br />
+<br />Perhaps we should drop the word &quot;gridded&quot;! It is not really clear what it
 <br />
-<br />________________________________
+means, I would say. You describe your dataset as not gridded, because it is
 <br />
-This message (and any attachments) is for the recipient only. NERC is subject to the Freedom of Information Act 2000 and the contents of this email and any reply you make may be disclosed by NERC unless it is exempt from release under the Act. Any material supplied to NERC may be stored in an electronic records management system.
+not a structured grid, but it's still got cells, so cell_methods could apply.
 <br />
--------------- next part --------------
+cell_measures could definitely apply too, even if the cells are not in a
 <br />
-An HTML attachment was scrubbed...
+structured grid. They may still need to be averaged, integrated, etc., for
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130324/38b1cce7/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130324/38b1cce7/attachment.html</a>&gt;
+which the metrics are useful.
 <br />
-<span id="received"><dfn>Received on</dfn> Sun Mar 24 2013 - 03:36:08 GMT</span>
+<br />Best wishes
+<br />
+<br />Jonathan
+<br />
+<span id="received"><dfn>Received on</dfn> Wed Apr 11 2012 - 06:48:33 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -105,8 +115,8 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5179">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5180.html" title="Next message in the list">alison.pamment at stfc.ac.uk: "[CF-metadata] Standard name table update"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5178.html" title="Previous message in the list">Cameron-smith, Philip: "[CF-metadata] [sdn2-tech] RE: proposed standard names for Enterococcus and Clostridium perfringens"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5180.html" title="Next message in the list">Randy Horne: "[CF-metadata] Using add_offset &#0038; scale_factor with coordinate variables"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5178.html" title="Previous message in the list">Randy Horne: "[CF-metadata] The use of CF cell constructs for point data"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -118,7 +128,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:17 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5178.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5180.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

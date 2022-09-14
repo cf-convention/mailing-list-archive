@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Re: attributes for min/max data values for visualization from Chris Webster on 2007-01-01 (mailing-list-archive)</title>
-<meta name="Author" content="Chris Webster (cjw)" />
-<meta name="Subject" content="[CF-metadata] Re: attributes for min/max data values for visualization" />
-<meta name="Date" content="2007-01-01" />
+<title>[CF-metadata] &quot;grid relative&quot; vector components revisited from Rich Signell on 2005-05-05 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Rich Signell (rsignell)" />
+<meta name="Subject" content="[CF-metadata] &quot;grid relative&quot; vector components revisited" />
+<meta name="Date" content="2005-05-05" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0638.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0640.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Re: attributes for min/max data values for visualization</h1>
-<!-- received="Mon Jan  1 15:54:53 2007" -->
-<!-- isoreceived="20070101155453" -->
-<!-- sent="Mon, 01 Jan 2007 15:54:53 -0700" -->
-<!-- isosent="20070101225453" -->
-<!-- name="Chris Webster" -->
-<!-- email="cjw" -->
-<!-- subject="[CF-metadata] Re: attributes for min/max data values for visualization" -->
-<!-- id="4599913D.3080207_at_ucar.edu" -->
+<a style="text-decoration:none" href="./0638.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0640.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] &quot;grid relative&quot; vector components revisited</h1>
+<!-- received="Thu May  5 07:17:05 2005" -->
+<!-- isoreceived="20050505061705" -->
+<!-- sent="Thu, 05 May 2005 09:17:05 -0400" -->
+<!-- isosent="20050505131705" -->
+<!-- name="Rich Signell" -->
+<!-- email="rsignell" -->
+<!-- subject="[CF-metadata] &quot;grid relative&quot; vector components revisited" -->
+<!-- id="427A1CD1.5020106_at_usgs.gov" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="41A1ECCE.20705_at_usgs.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0640.html" accesskey="d" title="Steve Hankin: &quot;[CF-metadata] Getting back to ensembles&quot;">Next message</a> ]
-[ <a href="./0638.html" title="Jonathan Gregory: &quot;[CF-metadata] Standard names for wave model data.&quot;">Previous message</a> ]
+[ <a href="./0640.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] &#0034;grid relative&#0034; vector components revisited&quot;">Next message</a> ]
+[ <a href="./0638.html" title="Kettleborough, JA: &quot;[CF-metadata] propsed new due_to_process&quot;">Previous message</a> ]
+[ <a href="./0507.html" title="Rich Signell: &quot;[CF-metadata] U and V &#0034;grid relative&#0034; velocities&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,26 +70,165 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Chris Webster &lt;<a href="mailto:cjw?Subject=Re%3A%20%5BCF-metadata%5D%20Re%3A%20attributes%20for%20min%2Fmax%20data%20values%20for%20visualization">cjw</a>&gt;
+<dfn>From</dfn>: Rich Signell &lt;<a href="mailto:rsignell?Subject=Re%3A%20%5BCF-metadata%5D%20%22grid%20relative%22%20vector%20components%20revisited">rsignell</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 01 Jan 2007 15:54:53 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 05 May 2005 09:17:05 -0400</span><br />
 </address>
 <br />
-Don Murray wrote:
+All,
 <br />
-<em class="quotelev1">&gt; This is what I would like to see - the actual minimum and maximum
-</em><br />
-<em class="quotelev1">&gt; values for the dataset as optional attributes for the variables.
-</em><br />
-<em class="quotelev1">&gt; The problem we face now is having to read the data to determine
-</em><br />
-<em class="quotelev1">&gt; this.  If we had the attributes available, we could circumvent that.
-</em><br />
-<br />So what would/do we call these attributes?
+<br />Last fall I asked about how to represent &quot;grid relative&quot; vector components and 
 <br />
-<br />--Chris
+the answer was to use the &quot;standard_name&quot; attribute to indicate this.  I'm 
 <br />
-<span id="received"><dfn>Received on</dfn> Mon Jan 01 2007 - 15:54:53 GMT</span>
+beginning to wonder whether this will get us into trouble. Here's why;
+<br />
+<br />For u and v velocity components oriented along &quot;i&quot; and &quot;j&quot; directions we specify:
+<br />
+<br />u:standard_name=&quot;sea_water_x_velocity&quot;
+<br />
+v:standard_name=&quot;sea_water_y_velocity&quot;.
+<br />
+<br />Great.  That's fine as long as we only have a few of these standard_names, but 
+<br />
+what about grid-relative fluxes?  We often store fluxes of material in the 
+<br />
+NetCDF file because we cannot store the velocity and tracer fields at sufficient 
+<br />
+intervals to compute accurate fluxes a posteriori.
+<br />
+<br />The problem is we have *lots* of these.  We have many tracer variables and we 
+<br />
+therefore have endless grid-relative fluxs with components like &quot;200 micron sand 
+<br />
+concentration *  sea_water_x_velocity&quot;.   We don't really want to invent 
+<br />
+standard_names for all these, and require that tools like IDV parse the whole 
+<br />
+standard_name list just to figure out whether to rotate the vectors or not when 
+<br />
+it puts arrows on a map.  I think it would be much simpler to have some sort of 
+<br />
+property that just indicates &quot;grid_relative&quot;.   Perhaps via the linkage to a 
+<br />
+&quot;grid&quot; variable, as I suggested below?
+<br />
+<br />-Rich
+<br />
+<br /><br />Rich Signell wrote:
+<br />
+<em class="quotelev1">&gt; All,
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; The U and V staggered velocities computed in Arakawa C grid
+</em><br />
+<em class="quotelev1">&gt; models are oriented relative to the grid in the &quot;I&quot; and &quot;J&quot;
+</em><br />
+<em class="quotelev1">&gt; directions, not true east and north (unless the grid happens to
+</em><br />
+<em class="quotelev1">&gt; be oriented N/S, E/W).  On a general curvilinear orthogonal grid,
+</em><br />
+<em class="quotelev1">&gt; the orientation of these components change at every grid cell.
+</em><br />
+<em class="quotelev1">&gt;                                                                                
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; It seems the proper way to specify this in CF is through the
+</em><br />
+<em class="quotelev1">&gt; use of
+</em><br />
+<em class="quotelev1">&gt;                                                                                
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; u:standard_name=&quot;sea_water_x_velocity&quot;
+</em><br />
+<em class="quotelev1">&gt; v:standard_name=&quot;sea_water_y_velocity&quot;,
+</em><br />
+<em class="quotelev1">&gt;                                                                                
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Is this right?
+</em><br />
+<em class="quotelev1">&gt;                                                                                
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; One could alternatively have this be inferred for U and V
+</em><br />
+<em class="quotelev1">&gt; variables that have Arakawa C grid defined (via the proposed
+</em><br />
+<em class="quotelev1">&gt; &quot;grid&quot; attribute and &quot;grid_type&quot;=&quot;Arakawa C&quot;)
+</em><br />
+<em class="quotelev1">&gt;                                                                                
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; -Rich
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+Jonathan Gregory wrote:
+<br />
+<em class="quotelev1"> &gt; Dear Rich
+</em><br />
+<em class="quotelev1"> &gt;
+</em><br />
+<em class="quotelev1"> &gt;
+</em><br />
+<em class="quotelev2"> &gt;&gt;It seems the proper way to specify this in CF is through the use of
+</em><br />
+<em class="quotelev2"> &gt;&gt;u:standard_name=&quot;sea_water_x_velocity&quot;
+</em><br />
+<em class="quotelev2"> &gt;&gt;v:standard_name=&quot;sea_water_y_velocity&quot;,
+</em><br />
+<em class="quotelev2"> &gt;&gt;Is this right?
+</em><br />
+<em class="quotelev1"> &gt;
+</em><br />
+<em class="quotelev1"> &gt;
+</em><br />
+<em class="quotelev1"> &gt; Yes.
+</em><br />
+<em class="quotelev1"> &gt;
+</em><br />
+<em class="quotelev1"> &gt; The file might also contain northward and eastward velocity components.
+</em><br />
+<em class="quotelev1"> &gt; Velocity components relative to lat and lon and relative to the grid are
+</em><br />
+<em class="quotelev1"> &gt; different quantities so need different standard names, I think, just like
+</em><br />
+<em class="quotelev1"> &gt; northward and eastward components themselves have different names.
+</em><br />
+<em class="quotelev1"> &gt;
+</em><br />
+<em class="quotelev1"> &gt; Cheers
+</em><br />
+<em class="quotelev1"> &gt;
+</em><br />
+<em class="quotelev1"> &gt; Jonathan
+</em><br />
+<em class="quotelev1"> &gt; _______________________________________________
+</em><br />
+<em class="quotelev1"> &gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1"> &gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1"> &gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1"> &gt;
+</em><br />
+<pre>
+-- 
+Richard P. Signell
+U.S. Geological Survey       Phone: (508) 457-2229
+384 Woods Hole Road          Fax:   (508) 457-2310
+Woods Hole, MA  02543-1598
+</pre>
+<span id="received"><dfn>Received on</dfn> Thu May 05 2005 - 07:17:05 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -95,8 +236,9 @@ Don Murray wrote:
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start639">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0640.html" title="Next message in the list">Steve Hankin: "[CF-metadata] Getting back to ensembles"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0638.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Standard names for wave model data."</a></li>
+<li><dfn>Next message</dfn>: <a href="./0640.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] &#0034;grid relative&#0034; vector components revisited"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0638.html" title="Previous message in the list">Kettleborough, JA: "[CF-metadata] propsed new due_to_process"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0507.html" title="Message to which this message replies">Rich Signell: "[CF-metadata] U and V &#0034;grid relative&#0034; velocities"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -108,7 +250,7 @@ Don Murray wrote:
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:53 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0638.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0640.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

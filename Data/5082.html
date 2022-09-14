@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] how to specify time dimension for monthly averages from Andreas Hilboll on 2013-03-15 (mailing-list-archive)</title>
-<meta name="Author" content="Andreas Hilboll (lists)" />
-<meta name="Subject" content="[CF-metadata] how to specify time dimension for monthly averages" />
-<meta name="Date" content="2013-03-15" />
+<title>[CF-metadata] CF-1.6 Conformance Requirements/Recommendations from John Caron on 2012-03-26 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] CF-1.6 Conformance Requirements/Recommendations" />
+<meta name="Date" content="2012-03-26" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5081.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5083.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] how to specify time dimension for monthly averages</h1>
-<!-- received="Fri Mar 15 15:45:39 2013" -->
-<!-- isoreceived="20130315154539" -->
-<!-- sent="Fri, 15 Mar 2013 22:45:39 +0100" -->
-<!-- isosent="20130315214539" -->
-<!-- name="Andreas Hilboll" -->
-<!-- email="lists" -->
-<!-- subject="[CF-metadata] how to specify time dimension for monthly averages" -->
-<!-- id="51439683.8000909_at_hilboll.de" -->
+<a style="text-decoration:none" href="./5081.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5083.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF-1.6 Conformance Requirements/Recommendations</h1>
+<!-- received="Mon Mar 26 08:28:16 2012" -->
+<!-- isoreceived="20120326072816" -->
+<!-- sent="Mon, 26 Mar 2012 08:28:16 -0600" -->
+<!-- isosent="20120326142816" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] CF-1.6 Conformance Requirements/Recommendations" -->
+<!-- id="4F707D00.4080107_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20120326082408.GA17750_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5083.html" accesskey="d" title="Seth McGinnis: &quot;[CF-metadata] how to specify time dimension for monthly averages&quot;">Next message</a> ]
-[ <a href="./5081.html" title="John Caron: &quot;[CF-metadata] New standard name: datetime_iso8601&quot;">Previous message</a> ]
+[ <a href="./5083.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] CF-1.6 Conformance Requirements/Recommendations&quot;">Next message</a> ]
+[ <a href="./5081.html" title="Nan Galbraith: &quot;[CF-metadata] CF-1.6 Conformance Requirements/Recommendations&quot;">Previous message</a> ]
+[ <a href="./5080.html" title="Jonathan Gregory: &quot;[CF-metadata] CF-1.6 Conformance Requirements/Recommendations&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./5083.html" accesskey="t" title="Seth McGinnis: &quot;[CF-metadata] how to specify time dimension for monthly averages&quot;">Next in thread</a> ]
+[ <a href="./5083.html" accesskey="t" title="Jonathan Gregory: &quot;[CF-metadata] CF-1.6 Conformance Requirements/Recommendations&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,28 +72,78 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Andreas Hilboll &lt;<a href="mailto:lists?Subject=Re%3A%20%5BCF-metadata%5D%20how%20to%20specify%20time%20dimension%20for%20monthly%20averages">lists</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20CF-1.6%20Conformance%20Requirements%2FRecommendations">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 15 Mar 2013 22:45:39 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 26 Mar 2012 08:28:16 -0600</span><br />
 </address>
 <br />
-Hi,
+On 3/26/2012 2:24 AM, Jonathan Gregory wrote:
 <br />
-<br />I want to store monthly averages of gridded satellite measurements of
+<em class="quotelev1">&gt; Dear Ros
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Regarding this requirement:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; 9.6 Where any auxiliary coordinate variable contains a missing value, all
+</em><br />
+<em class="quotelev2">&gt;&gt; other coordinate, auxiliary coordinate and data values corresponding to that
+</em><br />
+<em class="quotelev2">&gt;&gt; element should also contain missing values.
+</em><br />
+<em class="quotelev1">&gt; Appendix A notes that missing data is allowed in aux coord vars only in the
+</em><br />
+<em class="quotelev1">&gt; case of discrete sampling geometries. This means the checker could regard it as
+</em><br />
+<em class="quotelev1">&gt; an error also if it finds any missing data in aux coord vars, unless a valid
+</em><br />
+<em class="quotelev1">&gt; featureType att is present, arising from 9.6, in addition to the above.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; However, I think the convention should be clear that this is not allowed except
+</em><br />
+<em class="quotelev1">&gt; for discrete sampling geometries, so I'll open a defect ticket for that.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Best wishes
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Jonathan
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<br />I think this may be more complicated.
 <br />
-atmospheric trace gas columns. I'm wondering how I should specify the
+<br />Consider a geosynch satellite with lat/lon aux coordinates. the nature 
 <br />
-time axis, i.e. set the time for each monthly aggregate to the first, or
+of the image is that there are many points around the outside of the 
 <br />
-the central, or the last day of the month. How should I specify that the
+image that are not located on the earth. i dont see any good choices 
 <br />
-values are actually monthly averages?
+other than to put missing values there for lat/lon..
 <br />
-<br />Thanks for your ideas!
+<br />To add insult to injury, it seems possible that there are valid data 
 <br />
-Cheers, Andreas.
+values at these locations. Not sure about that however. Can anyone with 
 <br />
-<span id="received"><dfn>Received on</dfn> Fri Mar 15 2013 - 15:45:39 GMT</span>
+geosynch data expertise comment?
+<br />
+<br />It seems at minimum this is another case where missing values in aux 
+<br />
+coordinates are needed.
+<br />
+<span id="received"><dfn>Received on</dfn> Mon Mar 26 2012 - 08:28:16 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -99,13 +151,13 @@ Cheers, Andreas.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5082">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5083.html" title="Next message in the list">Seth McGinnis: "[CF-metadata] how to specify time dimension for monthly averages"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5081.html" title="Previous message in the list">John Caron: "[CF-metadata] New standard name: datetime_iso8601"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5083.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5081.html" title="Previous message in the list">Nan Galbraith: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./5080.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./5083.html" title="Next message in this discussion thread">Seth McGinnis: "[CF-metadata] how to specify time dimension for monthly averages"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./5083.html" title="Next message in this discussion thread">Jonathan Gregory: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./5083.html" title="Message sent in reply to this message">Seth McGinnis: "[CF-metadata] how to specify time dimension for monthly averages"</a></li>
-<li><dfn>Reply</dfn>: <a href="./5090.html" title="Message sent in reply to this message">Jim Biard: "[CF-metadata] how to specify time dimension for monthly averages"</a></li>
+<dfn>Reply</dfn>: <a href="./5083.html" title="Message sent in reply to this message">Jonathan Gregory: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -116,7 +168,7 @@ Cheers, Andreas.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:15 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5081.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5083.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

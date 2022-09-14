@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Parameter Ontology Project from Bryan Lawrence on 2006-09-22 (mailing-list-archive)</title>
-<meta name="Author" content="Bryan Lawrence (b.n.lawrence)" />
-<meta name="Subject" content="[CF-metadata] Parameter Ontology Project" />
-<meta name="Date" content="2006-09-22" />
+<title>[CF-metadata] Example of forecast data from Stephens, A on 2003-07-24 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Stephens, A (A.Stephens)" />
+<meta name="Subject" content="[CF-metadata] Example of forecast data" />
+<meta name="Date" content="2003-07-24" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0217.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0219.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Parameter Ontology Project</h1>
-<!-- received="Fri Sep 22 01:02:36 2006" -->
-<!-- isoreceived="20060922000236" -->
-<!-- sent="Fri, 22 Sep 2006 08:02:36 +0100" -->
-<!-- isosent="20060922070236" -->
-<!-- name="Bryan Lawrence" -->
-<!-- email="b.n.lawrence" -->
-<!-- subject="[CF-metadata] Parameter Ontology Project" -->
-<!-- id="1158908556.2672.10.camel_at_localhost.localdomain" -->
+<a style="text-decoration:none" href="./0217.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0219.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Example of forecast data</h1>
+<!-- received="Thu Jul 24 01:35:45 2003" -->
+<!-- isoreceived="20030724003545" -->
+<!-- sent="Thu, 24 Jul 2003 08:35:45 +0100" -->
+<!-- isosent="20030724073545" -->
+<!-- name="Stephens, A" -->
+<!-- email="A.Stephens" -->
+<!-- subject="[CF-metadata] Example of forecast data" -->
+<!-- id="49F73BEED865D3119F8700902773C9F902D1917D_at_exchange09.rl.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20060921202800.GB5486_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,10 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0219.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Parameter Ontology Project&quot;">Next message</a> ]
-[ <a href="./0217.html" title="Jonathan Gregory: &quot;[CF-metadata] Parameter Ontology Project&quot;">Previous message</a> ]
-[ <a href="./0217.html" title="Jonathan Gregory: &quot;[CF-metadata] Parameter Ontology Project&quot;">In reply to</a> ]
+[ <a href="./0219.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Example of forecast data&quot;">Next message</a> ]
+[ <a href="./0217.html" title="Jonathan Gregory: &quot;[CF-metadata] Vertical Coordinate Systems&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0219.html" accesskey="t" title="Jonathan Gregory: &quot;[CF-metadata] Example of forecast data&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,78 +70,142 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Bryan Lawrence &lt;<a href="mailto:b.n.lawrence?Subject=Re%3A%20%5BCF-metadata%5D%20Parameter%20Ontology%20Project">b.n.lawrence</a>&gt;
+<dfn>From</dfn>: Stephens, A &lt;<a href="mailto:A.Stephens?Subject=Re%3A%20%5BCF-metadata%5D%20Example%20of%20forecast%20data">A.Stephens</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 22 Sep 2006 08:02:36 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 24 Jul 2003 08:35:45 +0100</span><br />
 </address>
 <br />
-Hi Jonathan
+Dear Jonathan,
 <br />
-<br />Not sure what's behind your question. Do you have a problem with
+<br />Sorry, that was me being a bit slow on the uptake! Of course we don't want
 <br />
-versioning per se?
+to define the actual variable against two dimensions as the data itself is
 <br />
-<br />I think one wants to think carefully about names not being withdrawn. 
+still only really defined against one time dimension.
 <br />
-<br />Quite clearly one can never withdraw the fact that someone used a name
+<br />I have just tried the following example in CDMS to see how it deals with the
 <br />
-with an associated definition, but one can and should envisage that in
+time dimension and it tries to encode &quot;time_index&quot; as the dimension and
 <br />
-time the use of a specific name should be deprecated and then
+loses the time:units attribute from which it understands time. Might we be
 <br />
-withdrawn/replaced for *current* use. This is one specific use case
+safer in defining the &quot;time&quot; dimension as the index that is also used for
 <br />
-which we do need to support with versioning.
+&quot;forecast_reference_time&quot;. Eg:
 <br />
-<br />For example, imagine that the definition of some specific quantity was
+<br />dimensions:
 <br />
-found to be wrong? What would we do then? This is almost a dead cert to
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat = 181 ;
 <br />
-happen as we expand from things which are physical measurements on to
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon = 360 ;
 <br />
-chemical measurements and classifications (with no disrespect to anyone,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time = 10 ;
 <br />
-somethings are inherently defined and some are not).
+variables:
 <br />
-<br />Further, one might in time add specific further detail to a quantity,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double time(time) ;
 <br />
-allowing more precise standard names. For a rather contrived example,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:standard_name = &quot;time&quot; ;
 <br />
-perhaps we might start with chemical definitions which are for a family
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:units = &quot;hours since 1991-01-01 00:00&quot; ;
 <br />
-of molecules. We might not at the time include standard names for all
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:axis= &quot;T&quot; ;
 <br />
-the constituents. Someone wanting to use a standard name might use the
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double forecast_reference_time(time) ;
 <br />
-family name (which is all that is available). That should be versioned,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;forecast_reference_time:standard_name =
 <br />
-so that in the future when perhaps we have gotten around to standard
+&quot;forecast_reference_time&quot; ;
 <br />
-names for all the constituents, we can read this file, and know that the
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;forecast_reference_time:units = &quot;hours since 1991-01-01
 <br />
-originator did not have the facility to be more precise, and not
+00:00&quot; ;
 <br />
-therefore overinterpret the data.
+<br />CDMS will then pick it up. I would argue for this version in line with our
 <br />
-<br />Regards,
+previous discussion about using 'time' instead of 'forecast_validity_time'.
 <br />
-Bryan
+It means that the description will be more compatible with current (non
 <br />
-<br />On Thu, 2006-09-21 at 21:28 +0100, Jonathan Gregory wrote:
+CF-compliant) software.
 <br />
-<em class="quotelev1">&gt; Dear Roy
+<br />Kind regards,
+<br />
+<br />Ag
+<br />
+<br /><br /><em class="quotelev1">&gt; -----Original Message-----
+</em><br />
+<em class="quotelev1">&gt; From: Jonathan Gregory [mailto:j.m.gregory at reading.ac.uk]
+</em><br />
+<em class="quotelev1">&gt; Sent: 23 July 2003 17:28
+</em><br />
+<em class="quotelev1">&gt; To: cf-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; Subject: [CF-metadata] Example of forecast data
 </em><br />
 <em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; Versioning of standard names: Once introduced, they are never withdrawn, though
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; they might be made into aliases if a mistake is discovered or a change of mind
-</em><br />
-<em class="quotelev1">&gt; takes place. What version info do you need?
+<em class="quotelev1">&gt; Dear Ag
 </em><br />
 <em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; Cheers
+<em class="quotelev2">&gt; &gt; I hadn't thought about the introduction of an index 
+</em><br />
+<em class="quotelev1">&gt; dimension to describe
+</em><br />
+<em class="quotelev2">&gt; &gt; the length of 'time' and 'validity time'.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; I thought this was our intention for the case where you had various
+</em><br />
+<em class="quotelev1">&gt; combinations of analysis and forecast time e.g. 0, 6 and 12 h 
+</em><br />
+<em class="quotelev1">&gt; forecasts
+</em><br />
+<em class="quotelev1">&gt; from an analysis at 0Z, 0 and 6 h from 6Z and 0 h from 12Z. That makes
+</em><br />
+<em class="quotelev1">&gt; six altogether. Since you don't have every combination of analysis and
+</em><br />
+<em class="quotelev1">&gt; forecast time, you can't have two orthogonal time axes. What 
+</em><br />
+<em class="quotelev1">&gt; I meant was
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt;  dimensions:
+</em><br />
+<em class="quotelev1">&gt;  	time_index = 6 ;
+</em><br />
+<em class="quotelev1">&gt;  
+</em><br />
+<em class="quotelev1">&gt;  variables:
+</em><br />
+<em class="quotelev1">&gt;  	double time(time_index);
+</em><br />
+<em class="quotelev1">&gt;           time:units=&quot;hours since 2003-7-23&quot;;
+</em><br />
+<em class="quotelev1">&gt;  	double forecast_reference_time(time_index);
+</em><br />
+<em class="quotelev1">&gt;           time:units=&quot;hours since 2003-7-23&quot;;
+</em><br />
+<em class="quotelev1">&gt;  	float myvar(time_index, lat, lon);
+</em><br />
+<em class="quotelev1">&gt;           myvar:coordinates=&quot;time forecast_reference_time&quot;;
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt;  data:
+</em><br />
+<em class="quotelev1">&gt;         forecast_reference_time=0, 0, 0, 6, 6, 12;
+</em><br />
+<em class="quotelev1">&gt;         time=0, 6, 12, 6, 12, 12; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Best wishes
 </em><br />
 <em class="quotelev1">&gt; 
 </em><br />
@@ -155,7 +219,9 @@ Bryan
 </em><br />
 <em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
-<span id="received"><dfn>Received on</dfn> Fri Sep 22 2006 - 01:02:36 BST</span>
+<em class="quotelev1">&gt; 
+</em><br />
+<span id="received"><dfn>Received on</dfn> Thu Jul 24 2003 - 01:35:45 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -163,10 +229,12 @@ Bryan
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start218">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0219.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Parameter Ontology Project"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0217.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Parameter Ontology Project"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0217.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] Parameter Ontology Project"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0219.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Example of forecast data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0217.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Vertical Coordinate Systems"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0219.html" title="Next message in this discussion thread">Jonathan Gregory: "[CF-metadata] Example of forecast data"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0219.html" title="Message sent in reply to this message">Jonathan Gregory: "[CF-metadata] Example of forecast data"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -177,7 +245,7 @@ Bryan
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:46 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0217.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0219.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

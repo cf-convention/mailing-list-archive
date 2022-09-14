@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Request for 4 new standard names - CMIP6 HighResMIP from Roberts, Malcolm on 2017-01-23 (mailing-list-archive)</title>
-<meta name="Author" content="Roberts, Malcolm (malcolm.roberts)" />
-<meta name="Subject" content="[CF-metadata] Request for 4 new standard names - CMIP6 HighResMIP" />
-<meta name="Date" content="2017-01-23" />
+<title>[CF-metadata] How to define time coordinate in GPS? from Timothy Patterson on 2015-06-29 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Timothy Patterson (Timothy.Patterson)" />
+<meta name="Subject" content="[CF-metadata] How to define time coordinate in GPS?" />
+<meta name="Date" content="2015-06-29" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./7971.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7973.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Request for 4 new standard names - CMIP6 HighResMIP</h1>
-<!-- received="Mon Jan 23 05:16:26 2017" -->
-<!-- isoreceived="20170123051626" -->
-<!-- sent="Mon, 23 Jan 2017 12:16:26 +0000" -->
-<!-- isosent="20170123121626" -->
-<!-- name="Roberts, Malcolm" -->
-<!-- email="malcolm.roberts" -->
-<!-- subject="[CF-metadata] Request for 4 new standard names - CMIP6 HighResMIP" -->
-<!-- id="C6026D1D24408A488330D512127D11733F4BB87D_at_EXXCMPD1DAG4.cmpd1.metoffice.gov.uk" -->
+<a style="text-decoration:none" href="./7971.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7973.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] How to define time coordinate in GPS?</h1>
+<!-- received="Mon Jun 29 04:16:11 2015" -->
+<!-- isoreceived="20150629031611" -->
+<!-- sent="Mon, 29 Jun 2015 12:16:11 +0200" -->
+<!-- isosent="20150629101611" -->
+<!-- name="Timothy Patterson" -->
+<!-- email="Timothy.Patterson" -->
+<!-- subject="[CF-metadata] How to define time coordinate in GPS?" -->
+<!-- id="888F94E85551044BAE03E23F711A43F4D7D45F8F7D_at_EXW10.eum.root.eumetsat.int" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="558D637C.3000200_at_whoi.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./7973.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Request for 4 new standard names - CMIP6 HighResMIP&quot;">Next message</a> ]
-[ <a href="./7971.html" title="Roy Mendelssohn - NOAA Federal: &quot;[CF-metadata] source, institution, and history&quot;">Previous message</a> ]
+[ <a href="./7973.html" accesskey="d" title="martin.juckes at stfc.ac.uk: &quot;[CF-metadata] Specifying latitude and longitude of transects and regions&quot;">Next message</a> ]
+[ <a href="./7971.html" title="Maarten Sneep: &quot;[CF-metadata] Proposal for standard names: radiance and irradiance as measured from satellite&quot;">Previous message</a> ]
+[ <a href="./7963.html" title="Nan Galbraith: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./7973.html" accesskey="t" title="Jonathan Gregory: &quot;[CF-metadata] Request for 4 new standard names - CMIP6 HighResMIP&quot;">Next in thread</a> ]
+[ <a href="./7976.html" accesskey="t" title="Nan Galbraith: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,170 +72,22 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Roberts, Malcolm &lt;<a href="mailto:malcolm.roberts?Subject=Re%3A%20%5BCF-metadata%5D%20Request%20for%204%20new%20standard%20names%20-%20CMIP6%20HighResMIP">malcolm.roberts</a>&gt;
+<dfn>From</dfn>: Timothy Patterson &lt;<a href="mailto:Timothy.Patterson?Subject=Re%3A%20%5BCF-metadata%5D%20How%20to%20define%20time%20coordinate%20in%20GPS%3F">Timothy.Patterson</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 23 Jan 2017 12:16:26 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 29 Jun 2015 12:16:11 +0200</span><br />
 </address>
 <br />
-I'd like to propose 4 new standard names as part of the HighResMIP data request for CMIP6.
+I understand that for climate or forecast data that 30+ seconds of inaccuracy may not be significant, but even though the C and F in &quot;CF Conventions&quot; stand for &quot;Climate and Forecast&quot;, the conventions are also being increasingly adopted for instrument and measurement datasets. In these cases, time accuracy at small time scales becomes more important, which is why seeing a proposed convention that allows the time to be written ambiguously (so that there may or may not be discontinuities or offsets) is rather disconcerting, like telling a climate scientist that the netCDF encoding of his temperature data may or may not have introduced an inaccuracy of a few Kelvin in some readings.  
 <br />
-<br />1. prcsh shallow_conv_precipitation_flux
+<br />Under the CF1.6 conventions, I believe the base time or epoch time was always expressed in UTC and the calendar attribute was applied to the encoded time count. Using this convention, I could specify a UTC start time and then have a simple GPS-like count of elapsed seconds (with no discontinuities introduced by leap seconds). Under the proposals for the 1.7 convention, this doesn't seem possible. The epoch and time count must both be expressed either as UTC or as GPS time and the only &quot;mixed calendar&quot; options introduce the above mentioned ambiguity.
 <br />
-2. uqint integrated_eastward_wind_times_humidity
+<br />Regards,
 <br />
-3. vqint integrated_northward_wind_times_humidity
+<br />Tim Patterson
 <br />
-4. wbptemp wet_bulb_potential_temperature
+<br /><br />Any email message from EUMETSAT is sent in good faith but shall neither be binding nor construed as constituting a commitment by EUMETSAT, except where provided for in a written agreement or contract or if explicitly stated in the email. Please note that any views or opinions presented in this email are solely those of the sender and do not necessarily represent those of EUMETSAT. This message and any attachments are intended for the sole use of the addressee(s) and may contain confidential and privileged information. Any unauthorised use, disclosure, dissemination or distribution (in whole or in part) of its contents is not permitted. If you received this message in error, please notify the sender and delete it from your system.
 <br />
-<br />1.
-<br />
-Reason:
-<br />
-Many models use both a shallow and a deep convective parameterisation, but until now only the total precipitation from both schemes has been diagnosed. The contribution from deep convection is expected to dominate, and adding this diagnostic will enable more detailed assessment of model processes.
-<br />
-<br />CF standard name
-<br />
-shallow_convective_precipitation_flux
-<br />
-<br />short name
-<br />
-prcsh
-<br />
-<br />Comment:
-<br />
-Analogous to existing name convective_precipitation_flux
-<br />
-<br />Native grid:
-<br />
-atmos
-<br />
-<br />Units
-<br />
-kg m-2 s-1
-<br />
-<br />Long name:
-<br />
-shallow_conv_precipitation_flux
-<br />
-<br />Description:
-<br />
-Convection precipitation from shallow convection
-<br />
-<br />2.
-<br />
-Reason: Column-integrated moisture fluxes will make it much easier to run metrics and diagnostics on many models without the need to do imperfect column integration on different grids.
-<br />
-<br />CF standard name
-<br />
-atmosphere_product_of_eastward_wind_and_specific_humidity
-<br />
-<br />short name
-<br />
-uqint
-<br />
-<br />Comment:
-<br />
-There is an existing standard name of product_of_eastward_wind_and_specific_humidity and we use &quot;atmosphere&quot; in existing names to mean the atmospheric column, so I suggest we combine these into a new standard name. The definition in the CF standard name table will also state that this quantity applies to the entire atmospheric column.
-<br />
-<br />Native grid:
-<br />
-atmos
-<br />
-<br />Units
-<br />
-m2 s-1
-<br />
-<br />Long name:
-<br />
-integrated_eastward_wind_times_humidity
-<br />
-<br />Description:
-<br />
-Column integrated eastward wind times specific humidity
-<br />
-<br />3.
-<br />
-Reason: Column-integrated moisture fluxes will make it much easier to run metrics and diagnostics on many models without the need to do imperfect column integration on different grids.
-<br />
-<br />CF standard name
-<br />
-atmosphere_product_of_northward_wind_and_specific_humidity
-<br />
-<br />short name
-<br />
-vqint
-<br />
-<br />Comment:
-<br />
-There is an existing standard name of product_of_northward_wind_and_specific_humidity and we use &quot;atmosphere&quot; in existing names to mean the atmospheric column, so I suggest we combine these into a new standard name. The definition in the CF standard name table will also state that this quantity applies to the entire atmospheric column.
-<br />
-<br />Native grid:
-<br />
-atmos
-<br />
-<br />Units
-<br />
-m2 s-1
-<br />
-<br />Long name:
-<br />
-integrated_northward_wind_times_humidity
-<br />
-<br />Description:
-<br />
-Column integrated northward wind times specific humidity
-<br />
-<br />4.
-<br />
-Reason: Wet bulb potential temperature is an important diagnostic for extreme weather and climate events, particularly drivers of rainfall events.
-<br />
-<br />CF standard name
-<br />
-wet_bulb_potential_temperature
-<br />
-<br />short name
-<br />
-wbptemp
-<br />
-<br />Comment:
-<br />
-<br />Native grid:
-<br />
-atmos
-<br />
-<br />Units
-<br />
-K
-<br />
-<br />Long name:
-<br />
-wet_bulb_potential_temperature
-<br />
-<br />Description:
-<br />
-Wet bulb potential temperature
-<br />
-<br /><br />Thanks,
-<br />
-Malcolm
-<br />
-<br /><br />Malcolm Roberts    Manager, High resolution global climate modelling; Coordinator, H2020 PRIMAVERA
-<br />
-Met Office Hadley Centre
-<br />
-FitzRoy Rd, Exeter, Devon EX1 3PB, UK
-<br />
-Tel: +44 1392 884537     Fax: +44 1392 885681
-<br />
-email: malcolm.roberts at metoffice.gov.uk  <a href="http://www.metoffice.gov.uk/research/people/malcolm-roberts">http://www.metoffice.gov.uk/research/people/malcolm-roberts</a>
-<br />
-<br />-------------- next part --------------
-<br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20170123/2b52fef5/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20170123/2b52fef5/attachment.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Mon Jan 23 2017 - 05:16:26 GMT</span>
+<span id="received"><dfn>Received on</dfn> Mon Jun 29 2015 - 04:16:11 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -241,12 +95,14 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start7972">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./7973.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Request for 4 new standard names - CMIP6 HighResMIP"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./7971.html" title="Previous message in the list">Roy Mendelssohn - NOAA Federal: "[CF-metadata] source, institution, and history"</a></li>
+<li><dfn>Next message</dfn>: <a href="./7973.html" title="Next message in the list">martin.juckes at stfc.ac.uk: "[CF-metadata] Specifying latitude and longitude of transects and regions"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./7971.html" title="Previous message in the list">Maarten Sneep: "[CF-metadata] Proposal for standard names: radiance and irradiance as measured from satellite"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./7963.html" title="Message to which this message replies">Nan Galbraith: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./7973.html" title="Next message in this discussion thread">Jonathan Gregory: "[CF-metadata] Request for 4 new standard names - CMIP6 HighResMIP"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./7976.html" title="Next message in this discussion thread">Nan Galbraith: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./7973.html" title="Message sent in reply to this message">Jonathan Gregory: "[CF-metadata] Request for 4 new standard names - CMIP6 HighResMIP"</a></li>
+<dfn>Reply</dfn>: <a href="./7976.html" title="Message sent in reply to this message">Nan Galbraith: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
+<li><dfn>Reply</dfn>: <a href="./7978.html" title="Message sent in reply to this message">Jim Biard: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -257,7 +113,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:08 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./7971.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7973.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

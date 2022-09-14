@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] file with both run time and forecast (valid) time coordinates from John Caron on 2006-09-05 (mailing-list-archive)</title>
-<meta name="Author" content="John Caron (caron)" />
-<meta name="Subject" content="[CF-metadata] file with both run time and forecast (valid) time coordinates" />
-<meta name="Date" content="2006-09-05" />
+<title>[CF-metadata] CF-checker has moved to new URL from Stephens, A on 2003-07-02 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Stephens, A (A.Stephens)" />
+<meta name="Subject" content="[CF-metadata] CF-checker has moved to new URL" />
+<meta name="Date" content="2003-07-02" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0194.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0196.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] file with both run time and forecast (valid) time coordinates</h1>
-<!-- received="Mon Sep  4 17:08:30 2006" -->
-<!-- isoreceived="20060904160830" -->
-<!-- sent="Mon, 04 Sep 2006 17:08:30 -0600" -->
-<!-- isosent="20060904230830" -->
-<!-- name="John Caron" -->
-<!-- email="caron" -->
-<!-- subject="[CF-metadata] file with both run time and forecast (valid) time coordinates" -->
-<!-- id="44FCB1EE.4030803_at_unidata.ucar.edu" -->
+<a style="text-decoration:none" href="./0194.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0196.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF-checker has moved to new URL</h1>
+<!-- received="Wed Jul  2 03:00:15 2003" -->
+<!-- isoreceived="20030702020015" -->
+<!-- sent="Wed, 2 Jul 2003 10:00:15 +0100 " -->
+<!-- isosent="20030702090015" -->
+<!-- name="Stephens, A" -->
+<!-- email="A.Stephens" -->
+<!-- subject="[CF-metadata] CF-checker has moved to new URL" -->
+<!-- id="49F73BEED865D3119F8700902773C9F902D190A5_at_exchange09.rl.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0196.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] file with both run time and forecast (valid) time coordinates&quot;">Next message</a> ]
-[ <a href="./0194.html" title="Olivier Lauret: &quot;[CF-metadata] Standard names for altimeter data&quot;">Previous message</a> ]
+[ <a href="./0196.html" accesskey="d" title="John Caron: &quot;[CF-metadata] 2D latitude, longitude coordinates detection&quot;">Next message</a> ]
+[ <a href="./0194.html" title="Jonathan Gregory: &quot;[CF-metadata] bounds&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0201.html" accesskey="t" title="John Evans: &quot;[CF-metadata] scratching my head re CF-checker on packed data&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,114 +70,48 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20file%20with%20both%20run%20time%20and%20forecast%20(valid)%20time%20coordinates">caron</a>&gt;
+<dfn>From</dfn>: Stephens, A &lt;<a href="mailto:A.Stephens?Subject=Re%3A%20%5BCF-metadata%5D%20CF-checker%20has%20moved%20to%20new%20URL">A.Stephens</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 04 Sep 2006 17:08:30 -0600</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 2 Jul 2003 10:00:15 +0100 </span><br />
 </address>
 <br />
-Do the CF conventions describe how to encode two time coordinates, run time and forecast (valid) time ?
+Dear all,
 <br />
-<br />I notice that there is a standard name &quot;forecast_reference_time&quot;:
+<br />The Hadley Centre CF-checker hosted by the BADC has been moved to an
 <br />
-<br />&nbsp;&quot;The forecast reference time in NWP is the &quot;data time&quot;, the time of the analysis from which the forecast was made. It is not the time for which the forecast is valid; the standard name of time should be used for that time.&quot;
+operational server and is now available at:
 <br />
-<br />and standard name &quot;forecast_period&quot;:
+<br /><a href="http://titania.badc.rl.ac.uk/cgi-bin/cf-checker.pl">http://titania.badc.rl.ac.uk/cgi-bin/cf-checker.pl</a>
 <br />
-<br />&nbsp;&quot;Forecast period is the time interval between the forecast reference time and the validity time. A period is an interval of time, or the time-period of an oscillation.&quot;
+<br />This service allows you to upload a NetCDF file and the output will report
 <br />
-<br />So I would guess we can just annotate the vaiables with the standard names forecast_reference_time and/or forecast_period?
+whether the file conforms to the CF Metadata Convention.
 <br />
-<br /><br />This issue is a bit non-obvious for some synthetic datasets we are creating, which are based on a collection of runs, where we end up with a dataset with 2 time coordinates, one of them 2 dimensional:
+<br />Apologies to those that were unable to access this service whilst it was
 <br />
-<br />&nbsp;&nbsp;&nbsp;String run(run=5);
+down.
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:long_name = &quot;Run time for ForecastModelRunCollection&quot;;
+<br />Kind regards,
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:standard_name = &quot;forecast_reference_time&quot;;
+<br />Ag
 <br />
-<br />&nbsp;&nbsp;double time(run=5, time=11);
+-------------------------------------------------------------
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:units = &quot;hours since 2006-08-11T00:00:00Z&quot;;
+Ag Stephens                           Ph : +44 (0)1235 446220
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:long_name = &quot;Coordinate variable for time dimension&quot;;
+Data Scientist,                       Fax: +44 (0)1235 446314
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:standard_name = &quot;time&quot;;
+British Atmospheric Data Centre,     
 <br />
-<br />&nbsp;data:
+Rutherford Appleton Laboratory,               
 <br />
-<br />&nbsp;&nbsp;{
+Chilton, Didcot, OX11 0QX, U.K. 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;{0.0, 6.0, 12.0, 18.0, 24.0, 30.0, 36.0, 42.0, 48.0, 54.0, 60.0},
+Email:   A.Stephens at rl.ac.uk      Web: <a href="http://badc.nerc.ac.uk">http://badc.nerc.ac.uk</a>
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;{12.0, 18.0, 24.0, 30.0, 36.0, 42.0, 48.0, 54.0, 60.0, 66.0, 72.0},
+-------------------------------------------------------------
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;{24.0, 30.0, 36.0, 42.0, 48.0, 54.0, 60.0, 66.0, 72.0, 78.0, 84.0},
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;{180.0, 186.0, 192.0, 198.0, 204.0, 210.0, 216.0, 222.0, 228.0, 234.0, 240.0},
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;{192.0, 198.0, 204.0, 210.0, 216.0, 222.0, 228.0, 234.0, 240.0, 246.0, 252.0}
-<br />
-&nbsp;&nbsp;}
-<br />
-<br /><br />We also create a number of synthetic datasets with a 1D time coordinate, eg:
-<br />
-<br />&nbsp;&nbsp;double time(time=28);
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;:units = &quot;hours since 2006-08-28T06:00:00Z&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;:long_name = &quot;forecast time coordinate&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;:standard_name = &quot;time&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;
-<br />
-&nbsp;&nbsp;String time_run(time=28)
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;:long_name = &quot;model run dates for coordinate = time&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;:standard_name = &quot;forecast_reference_time&quot;;
-<br />
-<br />&nbsp;&nbsp;&nbsp;double time_offset(time=28);
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:long_name = &quot;hour offset from start of run for coordinate = time&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:units = &quot;hour&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:standard_name = &quot;forecast_period&quot;;
-<br />
-<br />&nbsp;data:
-<br />
-<br />&nbsp;&nbsp;{0.0, 6.0, 0.0, 6.0, 0.0, 6.0, 12.0, 18.0, 24.0, 30.0, 36.0, 42.0, 48.0, 54.0, 60.0, 0.0, 6.0, 0.0, 6.0, 12.0, 18.0, 24.0, 30.0, 36.0, 42.0, 48.0, 54.0, 60.0}
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;
-<br />
-Another synthetic dataset uses all the data at the same valid time, so we are considering using the run time as the time coordinate: 
-<br />
-<br />&nbsp;double time(time=3);
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;:units = &quot;hours since 2006-08-28T06:00:00Z&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;:long_name = &quot;run time coordinate&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;:standard_name = &quot;forecast_reference_time&quot;;
-<br />
-<br />&nbsp;&nbsp;double time_offset(time=3);
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:long_name = &quot;hour offset from start of run for coordinate = time&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:units = &quot;hour&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:standard_name = &quot;forecast_period&quot;;
-<br />
-<br />&nbsp;data:
-<br />
-<br />&nbsp;&nbsp;{30.0, 18.0, 6.0}
-<br />
-<br />this may be too confusing, since many will asssume that the time coordinate variable is the forecast (valid) time.
-<br />
-<br />Has anyone dealt with these issues?
-<br />
-<span id="received"><dfn>Received on</dfn> Mon Sep 04 2006 - 17:08:30 BST</span>
+<span id="received"><dfn>Received on</dfn> Wed Jul 02 2003 - 03:00:15 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -183,9 +119,12 @@ Another synthetic dataset uses all the data at the same valid time, so we are co
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start195">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0196.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] file with both run time and forecast (valid) time coordinates"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0194.html" title="Previous message in the list">Olivier Lauret: "[CF-metadata] Standard names for altimeter data"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0196.html" title="Next message in the list">John Caron: "[CF-metadata] 2D latitude, longitude coordinates detection"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0194.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] bounds"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0201.html" title="Next message in this discussion thread">John Evans: "[CF-metadata] scratching my head re CF-checker on packed data"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0201.html" title="Message sent in reply to this message">John Evans: "[CF-metadata] scratching my head re CF-checker on packed data"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -196,7 +135,7 @@ Another synthetic dataset uses all the data at the same valid time, so we are co
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:45 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0194.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0196.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

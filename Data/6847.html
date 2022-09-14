@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Applying multiple conventions from Signell, Richard on 2015-03-13 (mailing-list-archive)</title>
-<meta name="Author" content="Signell, Richard (rsignell)" />
-<meta name="Subject" content="[CF-metadata] Applying multiple conventions" />
-<meta name="Date" content="2015-03-13" />
+<title>[CF-metadata] How to handle a forecast model with non-monotonic coordinate variables from Seth McGinnis on 2014-02-05 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Seth McGinnis (mcginnis)" />
+<meta name="Subject" content="[CF-metadata] How to handle a forecast model with non-monotonic coordinate variables" />
+<meta name="Date" content="2014-02-05" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./6846.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6848.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Applying multiple conventions</h1>
-<!-- received="Fri Mar 13 11:59:37 2015" -->
-<!-- isoreceived="20150313115937" -->
-<!-- sent="Fri, 13 Mar 2015 13:59:37 -0400" -->
-<!-- isosent="20150313175937" -->
-<!-- name="Signell, Richard" -->
-<!-- email="rsignell" -->
-<!-- subject="[CF-metadata] Applying multiple conventions" -->
-<!-- id="CAFhraUwUHpotaGcy1H_sn86-Ey8zDQq6oWfLkq9uCsig+9vmzw_at_mail.gmail.com" -->
+<a style="text-decoration:none" href="./6846.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6848.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] How to handle a forecast model with non-monotonic coordinate variables</h1>
+<!-- received="Wed Feb  5 14:09:25 2014" -->
+<!-- isoreceived="20140205140925" -->
+<!-- sent="Wed, 05 Feb 2014 14:09:25 -0700" -->
+<!-- isosent="20140205210925" -->
+<!-- name="Seth McGinnis" -->
+<!-- email="mcginnis" -->
+<!-- subject="[CF-metadata] How to handle a forecast model with non-monotonic coordinate variables" -->
+<!-- id="52F2A885.7010401_at_ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20150306122101.GB31034_at_met.reading.ac.uk" -->
+<!-- inreplyto="CAFhraUyb3baWEx+RBiSmj4QcU2pHXPy59MfrOtkTJ3hqLheZ1A_at_mail.gmail.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./6848.html" accesskey="d" title="Nan Galbraith: &quot;[CF-metadata] Applying multiple conventions&quot;">Next message</a> ]
-[ <a href="./6846.html" title="Jim Biard: &quot;[CF-metadata] Overlapping time_bounds (running mean data)&quot;">Previous message</a> ]
-[ <a href="./6836.html" title="David Hassell: &quot;[CF-metadata] Applying multiple conventions&quot;">In reply to</a> ]
+[ <a href="./6848.html" accesskey="d" title="Bodas-Salcedo, Alejandro: &quot;[CF-metadata] New standard name: volume_extinction_coefficient_in_air_due_to_cloud&quot;">Next message</a> ]
+[ <a href="./6846.html" title="Signell, Richard: &quot;[CF-metadata] How to handle a forecast model with non-monotonic coordinate variables&quot;">Previous message</a> ]
+[ <a href="./6846.html" title="Signell, Richard: &quot;[CF-metadata] How to handle a forecast model with non-monotonic coordinate variables&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./6848.html" accesskey="t" title="Nan Galbraith: &quot;[CF-metadata] Applying multiple conventions&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,178 +70,88 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Signell, Richard &lt;<a href="mailto:rsignell?Subject=Re%3A%20%5BCF-metadata%5D%20Applying%20multiple%20conventions">rsignell</a>&gt;
+<dfn>From</dfn>: Seth McGinnis &lt;<a href="mailto:mcginnis?Subject=Re%3A%20%5BCF-metadata%5D%20How%20to%20handle%20a%20forecast%20model%20with%20non-monotonic%20coordinate%20variables">mcginnis</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 13 Mar 2015 13:59:37 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 05 Feb 2014 14:09:25 -0700</span><br />
 </address>
 <br />
-David,
+In this dataset, lat and lon aren't coordinate variables, they're
 <br />
-<br />I looked at this a bit and I'm not sure that
+auxiliary coordinate variables.  There's no requirement that auxiliary
 <br />
-<a href="http://cf-trac.llnl.gov/trac/ticket/76">http://cf-trac.llnl.gov/trac/ticket/76</a> actually captures this need, as
+coordinate variables be monotonic or lacking in missing_values.  Your
 <br />
-UGRID is intended to *extend* CF, rather than a stand-alone
+coordinate variables will be the ones associated with the I and J
 <br />
-alternative.
+dimensions of the arrays.
 <br />
-<br />For situations like CF and UGRID, which *extends* CF, it would appear
+<br />To make this data CF compliant, I believe all you'll have to do is:
 <br />
-from this guidance
+<br />1) Make sure there are coordinate variables for the I and J dimensions.
 <br />
-(<a href="http://www.unidata.ucar.edu/software/netcdf/conventions.html">http://www.unidata.ucar.edu/software/netcdf/conventions.html</a>)
+&nbsp;(These can just have nondimensional dummy values.)
 <br />
-that the foward slash separator should be used:
+<br />2) List the lat and lon variables in the coordinate attribute of each
 <br />
-<br />Conventions = &quot;CF-1.6/UGRID-0.9&quot;
+data variable.
 <br />
-<br />This is discussed more in github issue
+<br />Cheers,
 <br />
-(<a href="https://github.com/ugrid-conventions/ugrid-conventions/issues/11#issuecomment-79157891">https://github.com/ugrid-conventions/ugrid-conventions/issues/11#issuecomment-79157891</a>)
+<br />--Seth
 <br />
-<br />-Rich
+<br /><br />On 2/5/14 1:49 PM, Signell, Richard wrote:
 <br />
-<br />P.S. Chris also points out that the current CF-1.6 document
-<br />
-<a href="http://cfconventions.org/Data/cf-conventions/cf-conventions-1.6/build/cf-conventions.html">http://cfconventions.org/Data/cf-conventions/cf-conventions-1.6/build/cf-conventions.html</a>
-<br />
-there is an unfortunate error/typo that says the convention should look like
-<br />
-<br />Conventions = &quot; CF-1.6 &quot;  (e.g. with spaces on either side of the quotes)
-<br />
-<br />Happily, this is gone in the 1.7 version at:
-<br />
-<a href="http://cfconventions.org/Data/cf-conventions/cf-conventions-1.7/build/cf-conventions.html">http://cfconventions.org/Data/cf-conventions/cf-conventions-1.7/build/cf-conventions.html</a>
-<br />
-<br />But perhaps it would be good to edit the CF-1.6 doc if that is indeed a typo.
-<br />
-<br />On Fri, Mar 6, 2015 at 7:21 AM, David Hassell &lt;d.c.hassell at reading.ac.uk&gt; wrote:
-<br />
-<em class="quotelev1">&gt; Hello Martin,
+<em class="quotelev1">&gt; CF folks,
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; Good news - this is covered by trac ticket #76 &quot;More than one name in
+<em class="quotelev1">&gt; Many ocean models have curvilinear grids, but most of the ones I've
 </em><br />
-<em class="quotelev1">&gt; Conventions attribute&quot; (<a href="http://cf-trac.llnl.gov/trac/ticket/76">http://cf-trac.llnl.gov/trac/ticket/76</a>).
+<em class="quotelev1">&gt; encountered have 2D coordinate variables lon,lat that are monotonic
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; and have no missing_values.
 </em><br />
-<em class="quotelev1">&gt; This has been accepted and should be in 1.7 (if it wasn't already in
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; 1.6?):
+<em class="quotelev1">&gt; The NOAA forecast model for the St. Johns River Operational Forecast
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; System, however, has a complex geometry, and used a grid generator
 </em><br />
-<em class="quotelev1">&gt;     It is possible for a netCDF file to adhere to more than one set of
+<em class="quotelev1">&gt; that allowed for &quot;cuts&quot; in the grid, so that in the resulting grid
 </em><br />
-<em class="quotelev1">&gt;     conventions, even when there is no inheritance relationship among
+<em class="quotelev1">&gt; system lthe coordinate variables on/lat are not monotonic and  have
 </em><br />
-<em class="quotelev1">&gt;     the conventions. In this case, the value of the Conventions
+<em class="quotelev1">&gt; missing values.
 </em><br />
-<em class="quotelev1">&gt;     attribute may be a single text string containing a list of the
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;     convention names separated by blank space (recommended) or commas
+<em class="quotelev1">&gt; I did an experiment to see if I could fill in the missing lon/lat
 </em><br />
-<em class="quotelev1">&gt;     (if a convention name contains blanks). This is the Unidata
+<em class="quotelev1">&gt; values via interpolation, but this exercise only made it clear that
 </em><br />
-<em class="quotelev1">&gt;     recommended syntax from NetCDF Users Guide, Appendix B. If the
+<em class="quotelev1">&gt; this cannot work, as the data being interpolated are not monotonic.
 </em><br />
-<em class="quotelev1">&gt;     string contains any commas, it is assumed to be a comma-separated
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;     list.
+<em class="quotelev1">&gt; Check out the first figure here to see the issue:
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; <a href="https://www.wakari.io/sharing/bundle/rsignell/SJROFS">https://www.wakari.io/sharing/bundle/rsignell/SJROFS</a>
 </em><br />
-<em class="quotelev1">&gt;     For example:
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; Is there any way this operational forecast data could be made to be CF
 </em><br />
-<em class="quotelev1">&gt;          :Conventions = &quot;CF-1.6 ACDD-1.0&quot; ;
+<em class="quotelev1">&gt; compliant?
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; Thanks,
 </em><br />
-<em class="quotelev1">&gt; All the best,
+<em class="quotelev1">&gt; Rich
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; David
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; ---- Original message from martin.juckes at stfc.ac.uk (12PM 06 Mar 15)
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Date: Fri, 6 Mar 2015 12:02:29 +0000
-</em><br />
-<em class="quotelev2">&gt;&gt; From: martin.juckes at stfc.ac.uk
-</em><br />
-<em class="quotelev2">&gt;&gt; To: cf-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev2">&gt;&gt; Subject: [CF-metadata] Applying multiple conventions
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Hello,
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; There is a proposal floating around to use the UGRID conventions for unstructured grids in CMIP6 data. One issue is that the CF Convention specifies a specific string for the &quot;Conventions&quot; and the UGRID convention specific a different specific string. Is there any chance of modifying CF to accept, e.g. Conventions = &quot;CF-1.8, UGRID-0.9&quot;?
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; regards,
-</em><br />
-<em class="quotelev2">&gt;&gt; Martin
-</em><br />
-<em class="quotelev2">&gt;&gt; _______________________________________________
-</em><br />
-<em class="quotelev2">&gt;&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev2">&gt;&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev2">&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; --
-</em><br />
-<em class="quotelev1">&gt; David Hassell
-</em><br />
-<em class="quotelev1">&gt; National Centre for Atmospheric Science (NCAS)
-</em><br />
-<em class="quotelev1">&gt; Department of Meteorology, University of Reading,
-</em><br />
-<em class="quotelev1">&gt; Earley Gate, PO Box 243,
-</em><br />
-<em class="quotelev1">&gt; Reading RG6 6BB, U.K.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Tel   : +44 118 3785613
-</em><br />
-<em class="quotelev1">&gt; E-mail: d.c.hassell at reading.ac.uk
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<br /><br /><br /><pre>
--- 
-Dr. Richard P. Signell   (508) 457-2229
-USGS, 384 Woods Hole Rd.
-Woods Hole, MA 02543-1598
-</pre>
-<span id="received"><dfn>Received on</dfn> Fri Mar 13 2015 - 11:59:37 GMT</span>
+<span id="received"><dfn>Received on</dfn> Wed Feb 05 2014 - 14:09:25 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -251,13 +159,10 @@ Woods Hole, MA 02543-1598
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start6847">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./6848.html" title="Next message in the list">Nan Galbraith: "[CF-metadata] Applying multiple conventions"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./6846.html" title="Previous message in the list">Jim Biard: "[CF-metadata] Overlapping time_bounds (running mean data)"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./6836.html" title="Message to which this message replies">David Hassell: "[CF-metadata] Applying multiple conventions"</a></li>
+<li><dfn>Next message</dfn>: <a href="./6848.html" title="Next message in the list">Bodas-Salcedo, Alejandro: "[CF-metadata] New standard name: volume_extinction_coefficient_in_air_due_to_cloud"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./6846.html" title="Previous message in the list">Signell, Richard: "[CF-metadata] How to handle a forecast model with non-monotonic coordinate variables"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./6846.html" title="Message to which this message replies">Signell, Richard: "[CF-metadata] How to handle a forecast model with non-monotonic coordinate variables"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./6848.html" title="Next message in this discussion thread">Nan Galbraith: "[CF-metadata] Applying multiple conventions"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./6848.html" title="Message sent in reply to this message">Nan Galbraith: "[CF-metadata] Applying multiple conventions"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -268,7 +173,7 @@ Woods Hole, MA 02543-1598
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:53 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./6846.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6848.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Standard names manager from Pamment, JA on 2006-04-11 (mailing-list-archive)</title>
-<meta name="Author" content="Pamment, JA (J.A.Pamment)" />
-<meta name="Subject" content="[CF-metadata] Standard names manager" />
-<meta name="Date" content="2006-04-11" />
+<title>[CF-metadata] Radar data and the 'dB' and 'dBZ' units from Stephens, A on 2003-03-25 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Stephens, A (A.Stephens)" />
+<meta name="Subject" content="[CF-metadata] Radar data and the 'dB' and 'dBZ' units" />
+<meta name="Date" content="2003-03-25" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0122.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0124.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Standard names manager</h1>
-<!-- received="Tue Apr 11 10:33:55 2006" -->
-<!-- isoreceived="20060411093355" -->
-<!-- sent="Tue, 11 Apr 2006 17:33:55 +0100" -->
-<!-- isosent="20060411163355" -->
-<!-- name="Pamment, JA" -->
-<!-- email="J.A.Pamment" -->
-<!-- subject="[CF-metadata] Standard names manager" -->
-<!-- id="EB861CD59F6DAA4BBC25EAE9987C5BC938D26A_at_EXCHANGE29.fed.cclrc.ac.uk" -->
+<a style="text-decoration:none" href="./0122.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0124.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Radar data and the 'dB' and 'dBZ' units</h1>
+<!-- received="Tue Mar 25 02:34:49 2003" -->
+<!-- isoreceived="20030325023449" -->
+<!-- sent="Tue, 25 Mar 2003 09:34:49 -0000" -->
+<!-- isosent="20030325093449" -->
+<!-- name="Stephens, A" -->
+<!-- email="A.Stephens" -->
+<!-- subject="[CF-metadata] Radar data and the 'dB' and 'dBZ' units" -->
+<!-- id="49F73BEED865D3119F8700902773C9F901B3D17E_at_exchange09.rl.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0124.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Standard names manager&quot;">Next message</a> ]
-[ <a href="./0122.html" title="Beate.Geyer at gkss.de: &quot;[CF-metadata] new standard names&quot;">Previous message</a> ]
+[ <a href="./0124.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Encoding Errors on variables in CF&quot;">Next message</a> ]
+[ <a href="./0122.html" title="John Caron: &quot;[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,50 +68,72 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Pamment, JA &lt;<a href="mailto:J.A.Pamment?Subject=Re%3A%20%5BCF-metadata%5D%20Standard%20names%20manager">J.A.Pamment</a>&gt;
+<dfn>From</dfn>: Stephens, A &lt;<a href="mailto:A.Stephens?Subject=Re%3A%20%5BCF-metadata%5D%20Radar%20data%20and%20the%20'dB'%20and%20'dBZ'%20units">A.Stephens</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 11 Apr 2006 17:33:55 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 25 Mar 2003 09:34:49 -0000</span><br />
 </address>
 <br />
-Dear CF-metadata list members,
+Dear John,
 <br />
-<br />I would like to introduce myself to you as the person who from this week
+<br />Bryan Lawrence (BADC) and I were discussing the CF Conventions and the issue
 <br />
-will be responsible for responding to requests on this mailing list for
+of non-compliant units in regard to radar data. Bryan mentioned that you are
 <br />
-new standard names.  I am based at the British Atmospheric Data Centre
+dealing with radar data and it is likely that you have been encountering the
 <br />
-and will work in a part-time capacity on standard names.
+same issues as ourselves.
 <br />
-<br />Jonathan has looked after standard names superbly and he will be a hard
+<br />Our radar data providers have use 'dB' and 'dBZ for a number of parameters
 <br />
-act to follow, but I will endeavour to maintain the high standards he
+such as:
 <br />
-has set.  We are in the process of handing over outstanding requests and
+<br />radar_reflectivity_factor       dBZ
 <br />
-I will be responding to these in due course.
+signal_to_noise_ratio           dB
 <br />
-<br />My thanks go to Jonathan for the help he has given so far to enable me
+linear_depolarization_ratio     dB
 <br />
-to take on this role and I am sure his advice will continue to be
+differential_reflectivity       dB
 <br />
-invaluable in the future.
+<br />These are relative dimensions not included in UDUNITS. One solution is
 <br />
-<br />Alison
+therefore to include them as units=&quot;dimensionless&quot; with an appropriate
 <br />
-<br />------
+comment to explain the relative unit. However, radar people will be confused
 <br />
-Alison Pamment
+if they do not see dB as the unit for such parameters. 
 <br />
-NCAS/British Atmospheric Data Centre
+<br />Another solution might be to ask udunits to include these units in their
 <br />
-Rutherford Appleton Laboratory,
+list.
 <br />
-Chilton, Didcot, OX11 0QX, U.K.
+<br />Have you come across this problem? What do you propose is the best solution?
 <br />
-Email: J.A.Pamment at rl.ac.uk
+We have chatted to Jonathan Gregory about it briefly but it would be good to
 <br />
-<span id="received"><dfn>Received on</dfn> Tue Apr 11 2006 - 10:33:55 BST</span>
+hear your comments.
+<br />
+<br />Kind regards,
+<br />
+<br />Ag
+<br />
+-------------------------------------------------------------
+<br />
+Ag Stephens                           Ph : +44 (0)1235 446220
+<br />
+Data Scientist,                       Fax: +44 (0)1235 446314
+<br />
+British Atmospheric Data Centre,     
+<br />
+Rutherford Appleton Laboratory,               
+<br />
+Chilton, Didcot, OX11 0QX, U.K. 
+<br />
+Email:   A.Stephens at rl.ac.uk      Web: <a href="http://badc.nerc.ac.uk">http://badc.nerc.ac.uk</a>
+<br />
+-------------------------------------------------------------
+<br />
+<span id="received"><dfn>Received on</dfn> Tue Mar 25 2003 - 02:34:49 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -119,8 +141,8 @@ Email: J.A.Pamment at rl.ac.uk
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start123">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0124.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Standard names manager"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0122.html" title="Previous message in the list">Beate.Geyer at gkss.de: "[CF-metadata] new standard names"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0124.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Encoding Errors on variables in CF"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0122.html" title="Previous message in the list">John Caron: "[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -132,7 +154,7 @@ Email: J.A.Pamment at rl.ac.uk
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:44 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0122.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0124.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

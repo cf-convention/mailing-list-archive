@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Need help writing point netCDF 3 dataset from Ethan Davis on 2006-11-28 (mailing-list-archive)</title>
-<meta name="Author" content="Ethan Davis (edavis)" />
-<meta name="Subject" content="[CF-metadata] Need help writing point netCDF 3 dataset" />
-<meta name="Date" content="2006-11-28" />
+<title>[CF-metadata]  The &quot;grid&quot; attribute seems to solve both unstructured and staggered grid issues from John Caron on 2004-11-22 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata]  The &quot;grid&quot; attribute seems to solve both unstructured and staggered grid issues" />
+<meta name="Date" content="2004-11-22" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0508.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0510.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Need help writing point netCDF 3 dataset</h1>
-<!-- received="Tue Nov 28 16:34:29 2006" -->
-<!-- isoreceived="20061128163429" -->
-<!-- sent="Tue, 28 Nov 2006 16:34:29 -0700" -->
-<!-- isosent="20061128233429" -->
-<!-- name="Ethan Davis" -->
-<!-- email="edavis" -->
-<!-- subject="[CF-metadata] Need help writing point netCDF 3 dataset" -->
-<!-- id="456CC785.8000709_at_unidata.ucar.edu" -->
+<a style="text-decoration:none" href="./0508.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0510.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  The &quot;grid&quot; attribute seems to solve both unstructured and staggered grid issues</h1>
+<!-- received="Mon Nov 22 11:11:30 2004" -->
+<!-- isoreceived="20041122111130" -->
+<!-- sent="Mon, 22 Nov 2004 11:11:30 -0700" -->
+<!-- isosent="20041122181130" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata]  The &quot;grid&quot; attribute seems to solve both unstructured and staggered grid issues" -->
+<!-- id="41A22BD2.8050201_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="456C6C46.2000609_at_noaa.gov" -->
+<!-- inreplyto="41A1EC72.50908_at_usgs.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0510.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] curvilinear cartesian coordinates case&quot;">Next message</a> ]
-[ <a href="./0508.html" title="Brian Eaton: &quot;[CF-metadata] curvilinear cartesian coordinates case&quot;">Previous message</a> ]
-[ <a href="./0507.html" title="Mark Ohrenschall: &quot;[CF-metadata] Need help writing point netCDF 3 dataset&quot;">In reply to</a> ]
+[ <a href="./0510.html" accesskey="d" title="Steve Hankin: &quot;[CF-metadata] The &#0034;grid&#0034; attribute seems to solve both unstructured  and staggeredgrid issues&quot;">Next message</a> ]
+[ <a href="./0508.html" title="Jonathan Gregory: &quot;[CF-metadata] U and V &#0034;grid relative&#0034; velocities&quot;">Previous message</a> ]
+[ <a href="./0506.html" title="Rich Signell: &quot;[CF-metadata]  The &#0034;grid&#0034; attribute seems to solve both unstructured and staggered grid issues&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,165 +70,316 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Ethan Davis &lt;<a href="mailto:edavis?Subject=Re%3A%20%5BCF-metadata%5D%20Need%20help%20writing%20point%20netCDF%203%20dataset">edavis</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20%20The%20%22grid%22%20attribute%20seems%20to%20solve%20both%20unstructured%20and%20staggered%20grid%20issues">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 28 Nov 2006 16:34:29 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 22 Nov 2004 11:11:30 -0700</span><br />
 </address>
 <br />
-Hi Mark,
+&nbsp;I agree that Brian and Steve's idea of adding a new variable to contain 
 <br />
-<br />It looks OK to me and I can get it to open in both ToolsUI and IDV 
+the grid mesh or staggered info is the right way to do it. Still to do 
 <br />
-2.1RC2 (but not 2.0).
+is to agree on the exact attributes and their meanings.
 <br />
-<br />One problem is that the PointObs tab in ToolsUI isn't very highly 
+<br />FYI there are some differences in way the CF does things and a design i 
 <br />
-developed. ToolsUI is more a debugging tool than anything else and for 
+have been working on as part of the netcdf-java and netcdf-4 work. CF 
 <br />
-PointObs it isn't particularly great for that. First off, you have to 
+now has 2 &quot;container variables&quot;: the &quot;grid mapping&quot; and now the &quot;grid 
 <br />
-hit the far-right icon (&quot;arrow pointing down at box&quot;) which is the &quot;get 
+description&quot;. The dependent variables must all seperately point to 
 <br />
-ALL data&quot; request. Then it will show the points on the map and list them 
+these. From my POV, both are properties of a &quot;coordinate system&quot; object, 
 <br />
-to the right. However, it displays all the lat, lon, alt, time stuff but 
+so i prefer a design that attaches the grid mapping and description (and 
 <br />
-not the observation data. We'll try to make it more useful in our next 
+whatever else will eventually be needed) to a coordinate system 
 <br />
-pass over the PointObs tab.
+&quot;container variable&quot;; the dependent variables then only have to point to 
 <br />
-<br />What version of the IDV are you using? The data failed to read into IDV 
+this, and all the information is contained in one place. I think i can 
 <br />
-2.0 but it read fine into IDV 2.1RC2. When I pointed the IDV Data 
+also incorporate &quot;dimensionless vertical coordinates&quot; in the same 
 <br />
-Chooser at the file, I also selected &quot;netCDF Point Data files&quot; from the 
+framework: rather than having a seperate mechanism for specifying 
 <br />
-&quot;Data Source Type&quot; pull down list. It popped me over to the &quot;Field 
+&quot;grid_mappings&quot; and &quot;dimensionless vertical coordinates&quot;, both are kinds 
 <br />
-Selector&quot; tab and it gave me two &quot;Point Data&quot; options: Plot and List. I 
+of &quot;coordinate system transformations&quot;. Not really a big deal, but as we 
 <br />
-don't know how to drive the IDV Point Data interfaces but I could see 
+try for a richer description of grids, a bit simpler syntax perhaps.
 <br />
-the data when I went with the &quot;Point Data List&quot; option.
+<br />Rich Signell wrote:
 <br />
-<br />Hope this helps. Sorry it isn't a bit more straight forward. Let me know 
-<br />
-if you have more questions
-<br />
-<br />Ethan
-<br />
-<br /><br />Mark Ohrenschall wrote:
-<br />
-<em class="quotelev1">&gt; Thanks Ethan, I appreciate it. Here's the current CDL and the attached 
-</em><br />
-<em class="quotelev1">&gt; test file (I wasn't toggling the flower pot icon, just what I was 
-</em><br />
-<em class="quotelev1">&gt; writing to the header):
-</em><br />
-<em class="quotelev1">&gt; netcdf D:/test.nc {
-</em><br />
-<em class="quotelev1">&gt;  dimensions:
-</em><br />
-<em class="quotelev1">&gt;    recNum = UNLIMITED;   // (99 currently)
-</em><br />
-<em class="quotelev1">&gt;  variables:
-</em><br />
-<em class="quotelev1">&gt;    short sst(recNum=99);
-</em><br />
-<em class="quotelev1">&gt;      :standard_name = &quot;sea_surface_temperature aerosol-corrected&quot;;
-</em><br />
-<em class="quotelev1">&gt;      :long_name = &quot;Aerosol Corrected SST&quot;;
-</em><br />
-<em class="quotelev1">&gt;      :units = &quot;degC&quot;;
-</em><br />
-<em class="quotelev1">&gt;      :add_offset = 0.0f; // float
-</em><br />
-<em class="quotelev1">&gt;      :scale_factor = 0.1f; // float
-</em><br />
-<em class="quotelev1">&gt;      :valid_range = -20s, 350s; // short
-</em><br />
-<em class="quotelev1">&gt;      :coordinates = &quot;latitude longitude obstime&quot;;
-</em><br />
-<em class="quotelev1">&gt;    short latitude(recNum=99);
-</em><br />
-<em class="quotelev1">&gt;      :standard_name = &quot;latitude&quot;;
-</em><br />
-<em class="quotelev1">&gt;      :long_name = &quot;Latitude&quot;;
-</em><br />
-<em class="quotelev1">&gt;      :units = &quot;degrees_north&quot;;
-</em><br />
-<em class="quotelev1">&gt;      :add_offset = 0.0f; // float
-</em><br />
-<em class="quotelev1">&gt;      :scale_factor = 0.01f; // float
-</em><br />
-<em class="quotelev1">&gt;      :valid_range = -9000s, 9000s; // short
-</em><br />
-<em class="quotelev1">&gt;      :_CoordinateAxisType = &quot;Lat&quot;;
-</em><br />
-<em class="quotelev1">&gt;    int obstime(recNum=99);
-</em><br />
-<em class="quotelev1">&gt;      :standard_name = &quot;time&quot;;
-</em><br />
-<em class="quotelev1">&gt;      :long_name = &quot;Date and Time of Observation&quot;;
-</em><br />
-<em class="quotelev1">&gt;      :units = &quot;seconds since 1970-01-01 00:00:00 GMT&quot;;
-</em><br />
-<em class="quotelev1">&gt;      :_CoordinateAxisType = &quot;Time&quot;;
-</em><br />
-<em class="quotelev1">&gt;    short longitude(recNum=99);
-</em><br />
-<em class="quotelev1">&gt;      :standard_name = &quot;longitude&quot;;
-</em><br />
-<em class="quotelev1">&gt;      :long_name = &quot;Longitude&quot;;
-</em><br />
-<em class="quotelev1">&gt;      :units = &quot;degrees_east&quot;;
-</em><br />
-<em class="quotelev1">&gt;      :add_offset = 0.0f; // float
-</em><br />
-<em class="quotelev1">&gt;      :scale_factor = 0.01f; // float
-</em><br />
-<em class="quotelev1">&gt;      :valid_range = -18000s, 17999s; // short
-</em><br />
-<em class="quotelev1">&gt;      :_CoordinateAxisType = &quot;Lon&quot;;
+<br /><em class="quotelev1">&gt; CF Community,
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;  :Conventions = &quot;Unidata Observation Dataset v1.0&quot;;
+<em class="quotelev1">&gt; I think Brian's idea of a &quot;grid&quot; attribute is great!
 </em><br />
-<em class="quotelev1">&gt;  :title = &quot;Sea Surface Temperatures calculated at points based on satellite observations.&quot;;
+<em class="quotelev1">&gt; By creating an attribute pointing to  a
 </em><br />
-<em class="quotelev1">&gt;  :cdm_datatype = &quot;Point&quot;;
+<em class="quotelev1">&gt; variable with metadata  about the grid is a great solution
 </em><br />
-<em class="quotelev1">&gt;  :observationDimension = &quot;recNum&quot;;
+<em class="quotelev1">&gt; that not only solves the unstructured mesh problem, but the
 </em><br />
-<em class="quotelev1">&gt;  :geospatial_lat_max = 90; // int
+<em class="quotelev1">&gt; previously unresolved staggered grid problem as well.
 </em><br />
-<em class="quotelev1">&gt;  :geospatial_lat_min = -90; // int
+<em class="quotelev1">&gt;                                                                                
 </em><br />
-<em class="quotelev1">&gt;  :geospatial_lon_max = 180; // int
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;  :geospatial_lon_min = -180; // int
+<em class="quotelev1">&gt; I would argue (I think along with John Caron, if I interpret
 </em><br />
-<em class="quotelev1">&gt;  :time_coverage_start = &quot;2000-01-01 00:00:00 UTC&quot;;
+<em class="quotelev1">&gt; his posts from a year ago correctly) that there *is* value
 </em><br />
-<em class="quotelev1">&gt;  :time_coverage_end = &quot;2007-01-01 00:00:00 UTC&quot;;
+<em class="quotelev1">&gt; in the explicit specification of staggered grid information.
+</em><br />
+<em class="quotelev1">&gt; For example, the C grid is used by most ocean models (POM,
+</em><br />
+<em class="quotelev1">&gt; NCOM, ROMS, to name a few), and these models also have
+</em><br />
+<em class="quotelev1">&gt; dimensionless coordinates that need to be calculated based on
+</em><br />
+<em class="quotelev1">&gt; time dependent variables like the sea surface height.  Since the
+</em><br />
+<em class="quotelev1">&gt; sea surface height does not  exist at the u and v points,
+</em><br />
+<em class="quotelev1">&gt; a client application trying to plot a vertical section of u
+</em><br />
+<em class="quotelev1">&gt; needs to interpolate the sea surface height (and the depth)
+</em><br />
+<em class="quotelev1">&gt; to the u locations.   Clients *could* be made smart enough
+</em><br />
+<em class="quotelev1">&gt; to do interpolations whenever something doesn't exist at the
+</em><br />
+<em class="quotelev1">&gt; location it is needed, but if we *know* that we are dealing
+</em><br />
+<em class="quotelev1">&gt; with a C grid, the clients can be simpler and more efficient,
+</em><br />
+<em class="quotelev1">&gt; just averaging the sea surface height and depth from pressure
+</em><br />
+<em class="quotelev1">&gt; points  &quot;to the right&quot; and &quot;to the left&quot; of the u points.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Of course the pressure point &quot;to the right&quot; of a u(i,j) point
+</em><br />
+<em class="quotelev1">&gt; might be p(i,j) or it might be p(i+1,j).  Again, the client
+</em><br />
+<em class="quotelev1">&gt; *could* be smart enough to figure this out by looking at the
+</em><br />
+<em class="quotelev1">&gt; relative location of the lon,lat points for u and p, but why
+</em><br />
+<em class="quotelev1">&gt; not specify this explicitly to make it easy for client builders?
+</em><br />
+<em class="quotelev1">&gt; So for C grid, we could specify something like this:
+</em><br />
+<em class="quotelev1">&gt;                         netcdf c_grid_example {   
+</em><br />
+<em class="quotelev1">&gt; ....                                                   u:grid = 
+</em><br />
+<em class="quotelev1">&gt; &quot;grid_info&quot;
+</em><br />
+<em class="quotelev1">&gt;                                                                                
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;    v:grid = &quot;grid_info&quot;
+</em><br />
+<em class="quotelev1">&gt;                                                                                
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; char grid_info
+</em><br />
+<em class="quotelev1">&gt;      grid_info:grid_name = &quot;Arakawa_C_grid&quot;
+</em><br />
+<em class="quotelev1">&gt;      grid_info:u_relative_to_pressure = &quot;left&quot;
+</em><br />
+<em class="quotelev1">&gt;      grid_info:v_relative_to_pressure = &quot;below&quot;
 </em><br />
 <em class="quotelev1">&gt; }
 </em><br />
-<em class="quotelev1">&gt;   
+<em class="quotelev1">&gt;                                                                                    
 </em><br />
-<em class="quotelev1">&gt; Cheers *--* Mark
+<em class="quotelev1">&gt;
 </em><br />
-<br /><pre>
--- 
-Ethan R. Davis                                Telephone: (303) 497-8155
-Software Engineer                             Fax:       (303) 497-8690
-UCAR Unidata Program Center                   E-mail:    edavis at ucar.edu
-P.O. Box 3000
-Boulder, CO  80307-3000                       <a href="http://www.unidata.ucar.edu/">http://www.unidata.ucar.edu/</a>
----------------------------------------------------------------------------
-</pre>
-<span id="received"><dfn>Received on</dfn> Tue Nov 28 2006 - 16:34:29 GMT</span>
+<em class="quotelev1">&gt; where the last two attributes would signify that u(i,j) is
+</em><br />
+<em class="quotelev1">&gt; &quot;left&quot; of p(i,j) and v(i,j) is &quot;below&quot; 
+</em><br />
+<em class="quotelev1">&gt; p(i,j).                            
+</em><br />
+<em class="quotelev1">&gt;                                                                                
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Specifying C-grid would also allow the lon and lat positions
+</em><br />
+<em class="quotelev1">&gt; of the u and v points to be estimated in the case that they
+</em><br />
+<em class="quotelev1">&gt; were not supplied.  This is often the case -- there are many
+</em><br />
+<em class="quotelev1">&gt; C-grid netcdf data sets I know of where only then lon,lat of
+</em><br />
+<em class="quotelev1">&gt; the pressure points is given.
+</em><br />
+<em class="quotelev1">&gt;                                                                                
+</em><br />
+<em class="quotelev1">&gt;             Again I think this is a great development and hope we get 
+</em><br />
+<em class="quotelev1">&gt; some
+</em><br />
+<em class="quotelev1">&gt; discussion and or confirmation of these ideas!
+</em><br />
+<em class="quotelev1">&gt;                                                                                
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; -Rich Signell
+</em><br />
+<em class="quotelev1">&gt; Brian Eaton wrote:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; All,
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; I agree with Steve's general comments on the current proposal.  And I 
+</em><br />
+<em class="quotelev2">&gt;&gt; agree
+</em><br />
+<em class="quotelev2">&gt;&gt; with adding new attributes to point to the variables that will describe
+</em><br />
+<em class="quotelev2">&gt;&gt; properties of the mesh.  The only thing I'd like to modify about Steve's
+</em><br />
+<em class="quotelev2">&gt;&gt; proposal is that rather than attaching those attributes directly to the
+</em><br />
+<em class="quotelev2">&gt;&gt; dependent variables, I'd prefer an analogous approach to the one we 
+</em><br />
+<em class="quotelev2">&gt;&gt; chose
+</em><br />
+<em class="quotelev2">&gt;&gt; (after a lengthy discussion) for describing grid mappings.  In this case
+</em><br />
+<em class="quotelev2">&gt;&gt; we're trying to describe the grid, so I propose a &quot;grid&quot; attribute to
+</em><br />
+<em class="quotelev2">&gt;&gt; attach to the dependent variable, and that attribute points to a 
+</em><br />
+<em class="quotelev2">&gt;&gt; variable
+</em><br />
+<em class="quotelev2">&gt;&gt; which just acts as a container for all the specific attributes needed to
+</em><br />
+<em class="quotelev2">&gt;&gt; describe connections and boundary nodes for a particular type of mesh.
+</em><br />
+<em class="quotelev2">&gt;&gt; I've modified the original proposal to illustrate the idea, without 
+</em><br />
+<em class="quotelev2">&gt;&gt; having
+</em><br />
+<em class="quotelev2">&gt;&gt; given much thought to whether or not the specific attribute names are 
+</em><br />
+<em class="quotelev2">&gt;&gt; the
+</em><br />
+<em class="quotelev2">&gt;&gt; best ones.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; netcdf umesh_cf {
+</em><br />
+<em class="quotelev2">&gt;&gt; dimensions:
+</em><br />
+<em class="quotelev2">&gt;&gt;  node = 9700 ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  nele = 17925 ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  nbnd = 1476 ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  nface = 3 ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  nbi = 4 ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  sigma = 1 ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  time = UNLIMITED ; // (0 currently)
+</em><br />
+<em class="quotelev2">&gt;&gt; variables:
+</em><br />
+<em class="quotelev2">&gt;&gt;  float time(time) ;
+</em><br />
+<em class="quotelev2">&gt;&gt;    time:long_name = &quot;Time&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;    time:units = &quot;days since 2003-01-01  0:00:00 00:00&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;    time:base_date = 2003, 1, 1, 0 ;
+</em><br />
+<em class="quotelev2">&gt;&gt;    time:standard_name = &quot;time&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  float lon(node) ;
+</em><br />
+<em class="quotelev2">&gt;&gt;    lon:long_name = &quot;Longitude&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;    lon:units = &quot;degrees_east&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;    lon:standard_name = &quot;longitude&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  float lat(node) ;
+</em><br />
+<em class="quotelev2">&gt;&gt;    lat:long_name = &quot;Latitude&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;    lat:units = &quot;degrees_north&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;    lat:standard_name = &quot;latitude&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  float depth(node) ;
+</em><br />
+<em class="quotelev2">&gt;&gt;    depth:long_name = &quot;Bathymetry&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;    depth:units = &quot;meters&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;    depth:positive = &quot;down&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;    depth:standard_name = &quot;depth&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;    depth:grid = &quot;grid_description&quot;;
+</em><br />
+<em class="quotelev2">&gt;&gt;  char grid_description
+</em><br />
+<em class="quotelev2">&gt;&gt;    mesh:grid_name = &quot;triangular_mesh&quot;;
+</em><br />
+<em class="quotelev2">&gt;&gt;    mesh:Horizontal_Triangular_Element_Incidence_List = &quot;ele&quot;;
+</em><br />
+<em class="quotelev2">&gt;&gt;    mesh:Boundary_Segment_Node_List = &quot;bnd&quot;;
+</em><br />
+<em class="quotelev2">&gt;&gt;    mesh:index_start = 1;
+</em><br />
+<em class="quotelev2">&gt;&gt;  int ele(nele, nface) ;
+</em><br />
+<em class="quotelev2">&gt;&gt;  int bnd(nbnd, nbi) ;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Brian
+</em><br />
+<em class="quotelev2">&gt;&gt; _______________________________________________
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt;&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev2">&gt;&gt;  
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<span id="received"><dfn>Received on</dfn> Mon Nov 22 2004 - 11:11:30 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -236,9 +387,9 @@ Boulder, CO  80307-3000                       <a href="http://www.unidata.ucar.e
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start509">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0510.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] curvilinear cartesian coordinates case"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0508.html" title="Previous message in the list">Brian Eaton: "[CF-metadata] curvilinear cartesian coordinates case"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0507.html" title="Message to which this message replies">Mark Ohrenschall: "[CF-metadata] Need help writing point netCDF 3 dataset"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0510.html" title="Next message in the list">Steve Hankin: "[CF-metadata] The &#0034;grid&#0034; attribute seems to solve both unstructured  and staggeredgrid issues"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0508.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] U and V &#0034;grid relative&#0034; velocities"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0506.html" title="Message to which this message replies">Rich Signell: "[CF-metadata]  The &#0034;grid&#0034; attribute seems to solve both unstructured and staggered grid issues"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -250,7 +401,7 @@ Boulder, CO  80307-3000                       <a href="http://www.unidata.ucar.e
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:51 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0508.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0510.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF and multi-forecast system ensemble data from Bryan Lawrence on 2006-10-31 (mailing-list-archive)</title>
+<title>[CF-metadata] regions from Bryan Lawrence on 2004-04-01 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="Bryan Lawrence (b.n.lawrence)" />
-<meta name="Subject" content="[CF-metadata] CF and multi-forecast system ensemble data" />
-<meta name="Date" content="2006-10-31" />
+<meta name="Subject" content="[CF-metadata] regions" />
+<meta name="Date" content="2004-04-01" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0380.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0382.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF and multi-forecast system ensemble data</h1>
-<!-- received="Tue Oct 31 08:54:46 2006" -->
-<!-- isoreceived="20061031085446" -->
-<!-- sent="Tue, 31 Oct 2006 15:54:46 +0000" -->
-<!-- isosent="20061031155446" -->
+<a style="text-decoration:none" href="./0380.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0382.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] regions</h1>
+<!-- received="Wed Mar 31 23:59:21 2004" -->
+<!-- isoreceived="20040331225921" -->
+<!-- sent="Thu, 1 Apr 2004 07:59:21 +0100" -->
+<!-- isosent="20040401065921" -->
 <!-- name="Bryan Lawrence" -->
 <!-- email="b.n.lawrence" -->
-<!-- subject="[CF-metadata] CF and multi-forecast system ensemble data" -->
-<!-- id="1162310086.5406.88.camel_at_localhost.localdomain" -->
+<!-- subject="[CF-metadata] regions" -->
+<!-- id="200404010759.21460.b.n.lawrence_at_rl.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20061027165947.GA12280_at_met.reading.ac.uk" -->
+<!-- inreplyto="406B47A5.1090204_at_llnl.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0382.html" accesskey="d" title="Steve Hankin: &quot;[CF-metadata] CF and multi-forecast system ensemble data&quot;">Next message</a> ]
-[ <a href="./0380.html" title="Bryan Lawrence: &quot;[CF-metadata] CF and multi-forecast system ensemble data&quot;">Previous message</a> ]
-[ <a href="./0376.html" title="Jonathan Gregory: &quot;[CF-metadata] CF and multi-forecast system ensemble data&quot;">In reply to</a> ]
+[ <a href="./0382.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] regions&quot;">Next message</a> ]
+[ <a href="./0380.html" title="Jonathan Gregory: &quot;[CF-metadata] regions&quot;">Previous message</a> ]
+[ <a href="./0379.html" title="Karl Taylor: &quot;[CF-metadata] regions&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,90 +70,142 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Bryan Lawrence &lt;<a href="mailto:b.n.lawrence?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20and%20multi-forecast%20system%20ensemble%20data">b.n.lawrence</a>&gt;
+<dfn>From</dfn>: Bryan Lawrence &lt;<a href="mailto:b.n.lawrence?Subject=Re%3A%20%5BCF-metadata%5D%20regions">b.n.lawrence</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 31 Oct 2006 15:54:46 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 1 Apr 2004 07:59:21 +0100</span><br />
 </address>
 <br />
-Hi Jonathan
+Hi Guys
 <br />
-<br /><em class="quotelev2">&gt; &gt; a) we should create some standard names which exactly correspond to
-</em><br />
-<em class="quotelev2">&gt; &gt; some recommended global variables, and model integrations should use
-</em><br />
-<em class="quotelev2">&gt; &gt; global variables where they contain exactly one realization to indicate
-</em><br />
-<em class="quotelev2">&gt; &gt; these.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; In netCDF terms that should be &quot;global attributes&quot; rather than &quot;global
-</em><br />
-<em class="quotelev1">&gt; variables&quot;. I think that if a file contains data variables which have come
-</em><br />
-<em class="quotelev1">&gt; from various sources, but the variables are not aggregated across sources,
-</em><br />
-<em class="quotelev1">&gt; the global attributes could simply be converted into data variable attributes.
-</em><br />
-<em class="quotelev1">&gt; There is no need to make them into scalar or size-one coordinate variables.
-</em><br />
-<br />Agreed, Sorry, it was sloppy language on my part. I meant global
+<br />I note that CF1.0 already has a very out of date list of geographical names 
 <br />
-attributes!
+(as in the GCMD keyword list has grown much longer), which brings me to a 
 <br />
-<br /><em class="quotelev2">&gt; &gt; Issue C: should we have a standard name modifier associated with a
+crucial point that the CF community needs to consider - relationship with 
+<br />
+other communities.
+<br />
+<br />I recommend that 
+<br />
+<br />1) the CF convention defines acceptable geographical keywords to be those in 
+<br />
+the GCMD list (i.e. they will change in time as more are added), and
+<br />
+2) possibly provides a rule for reformatting them to be consistent with CF 
+<br />
+style, and
+<br />
+3) puts a link to the recommended gcmd way of adding new geographical 
+<br />
+keywords.
+<br />
+<br />I would then argue the right response for this problem would be to get 
+<br />
+indo-pacific added to the gcmd list, and if that doesn't fly, then we
+<br />
+<br />a) provide a mechanism for linking existing regions, or 
+<br />
+b) force the user to define a bounding box.
+<br />
+<br />I think this would make it far clearer how to deal with new geographical 
+<br />
+regions in a consistent manner. It may require we keep an archive of the GCMD 
+<br />
+parameter list as proper xml-schema, and get them to version their list more 
+<br />
+carefully, so we can put a uri to the namespace used.  
+<br />
+<br />Note that 1) above is slightly different than CF1.0 which lists the acceptable 
+<br />
+names rather than the acceptable namespace.
+<br />
+<br />If we think this through, we might have some resource implications (keeping 
+<br />
+track of GCMD, representing our community to GCMD).  If the CF community so 
+<br />
+desire, I'm happy to commit the BADC to maintaining such links, as part of 
+<br />
+our standard curation activities.
+<br />
+<br />Bryan
+<br />
+<br /><br />On Wednesday 31 March 2004 11:35 pm, Karl Taylor wrote:
+<br />
+<em class="quotelev1">&gt; Dear Jonathan,
 </em><br />
-<em class="quotelev2">&gt; &gt; variable on the aggregation dimension to show that it was produced by
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt; &gt; aggregating file attributes?
+<em class="quotelev1">&gt; Frank Bryan at NCAR was requesting &quot;Indo-Pacific&quot; for a region, which I
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; guess is commonly used for calculating northward ocean heat transport in
 </em><br />
-<em class="quotelev1">&gt; Maybe I have misunderstood, but I don't see a need for a standard name
+<em class="quotelev1">&gt; those basins.
 </em><br />
-<em class="quotelev1">&gt; modifier here. Ancillary data, labelled by standard name modifiers, supplies
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; metadata about the *individual* values of another data variable (CF 3.4), not
+<em class="quotelev1">&gt; cheers,
 </em><br />
-<em class="quotelev1">&gt; about a particular dimension. If you wish to supply extra information along
+<em class="quotelev1">&gt; Karl
 </em><br />
-<em class="quotelev1">&gt; a particular dimension, this can be done by including another auxiliary
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; coordinate variable (CF 6.1), as you also mention.
+<em class="quotelev1">&gt; Jonathan Gregory wrote:
 </em><br />
-<br />In the suggestion I've just made, I allowed ancillary data dimensioned
-<br />
-with different dimensionality. Reading your email makes me realise I
-<br />
-should have used auxiliary coordinate variables as Jamie was actually
-<br />
-suggesting, in which case his example was exactly right.
-<br />
-<br />(Mind you, rereading 6.1.1 reminded me that an external vocab option
-<br />
-would make handling geographic regions cleaner too - while we can define
-<br />
-things all we like in CF, to actually use these names in software we
-<br />
-need regional boundaries coordinate datasets etc which we can only get
-<br />
-if we use external vocabs and their information systems).
-<br />
-<br /><em class="quotelev1">&gt; I'd say what is currently being considered is quite a modest expansion of
+<em class="quotelev2">&gt; &gt; Dear Karl
 </em><br />
-<em class="quotelev1">&gt; the kind of approach we already have with global attributes.
+<em class="quotelev2">&gt; &gt;
 </em><br />
-<br />The trouble with modest extensions is that after a lot of them one has
-<br />
-spaghetti. I'm also suggesting named containers, I just don't want them
-<br />
-to be confused with standard names of variable content.
-<br />
-<br />Cheers
-<br />
-Bryan
-<br />
-<span id="received"><dfn>Received on</dfn> Tue Oct 31 2006 - 08:54:46 GMT</span>
+<em class="quotelev3">&gt; &gt;&gt;Is there a CF-compliant way to combine official regions (e.g., a region
+</em><br />
+<em class="quotelev3">&gt; &gt;&gt;that includes both North America and South America)?
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; I don't think so. We can either invent one, or introduce additional names
+</em><br />
+<em class="quotelev2">&gt; &gt; for combined regions. I would prefer the latter, as it involves no new
+</em><br />
+<em class="quotelev2">&gt; &gt; machinery, if it's practical. I think it would work if the combined
+</em><br />
+<em class="quotelev2">&gt; &gt; regions requiring names are a finite set, which I guess would be the case
+</em><br />
+<em class="quotelev2">&gt; &gt; e.g. I suspect you will not want a region name for Afghanistan plus
+</em><br />
+<em class="quotelev2">&gt; &gt; Zimbabwe.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; Best wishes
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; Jonathan
+</em><br />
+<em class="quotelev2">&gt; &gt; _______________________________________________
+</em><br />
+<em class="quotelev2">&gt; &gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev2">&gt; &gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt; &gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<br /><pre>
+-- 
+Bryan Lawrence, Head NCAS/British Atmospheric Data Centre
+web: www.badc.nerc.ac.uk  phone: +44 1235 445012
+CLRC: Rutherford Appleton Laboratory, Chilton, Didcot, OX110QX, UK
+</pre>
+<span id="received"><dfn>Received on</dfn> Wed Mar 31 2004 - 23:59:21 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -161,9 +213,9 @@ Bryan
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start381">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0382.html" title="Next message in the list">Steve Hankin: "[CF-metadata] CF and multi-forecast system ensemble data"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0380.html" title="Previous message in the list">Bryan Lawrence: "[CF-metadata] CF and multi-forecast system ensemble data"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0376.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] CF and multi-forecast system ensemble data"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0382.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] regions"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0380.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] regions"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0379.html" title="Message to which this message replies">Karl Taylor: "[CF-metadata] regions"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -175,7 +227,7 @@ Bryan
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:49 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0380.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0382.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

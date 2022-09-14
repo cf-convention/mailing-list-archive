@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF2 and standard names from Jonathan Gregory on 2006-02-07 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] CF2 and standard names" />
-<meta name="Date" content="2006-02-07" />
+<title>[CF-metadata] ungridded data from Bob Drach on 2002-06-19 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Bob Drach (drach)" />
+<meta name="Subject" content="[CF-metadata] ungridded data" />
+<meta name="Date" content="2002-06-19" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0021.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0023.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF2 and standard names</h1>
-<!-- received="Tue Feb  7 12:47:01 2006" -->
-<!-- isoreceived="20060207124701" -->
-<!-- sent="Tue, 7 Feb 2006 19:47:01 +0000" -->
-<!-- isosent="20060207194701" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] CF2 and standard names" -->
-<!-- id="20060207194701.GA2624_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0021.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0023.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] ungridded data</h1>
+<!-- received="Wed Jun 19 13:02:18 2002" -->
+<!-- isoreceived="20020619120218" -->
+<!-- sent="Wed, 19 Jun 2002 12:02:18 -0700" -->
+<!-- isosent="20020619190218" -->
+<!-- name="Bob Drach" -->
+<!-- email="drach" -->
+<!-- subject="[CF-metadata] ungridded data" -->
+<!-- id="3D10D53A.33262519_at_llnl.gov" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20020619091635.A3911_at_hc1600.meto.gov.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,9 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0023.html" accesskey="d" title="John Caron: &quot;[CF-metadata] Announce: Common Data Model Coordinate System validation&quot;">Next message</a> ]
-[ <a href="./0021.html" title="Bert Jagers: &quot;[CF-metadata] CF2 and standard names&quot;">Previous message</a> ]
+[ <a href="./0023.html" accesskey="d" title="Brian Eaton: &quot;[CF-metadata] ungridded data&quot;">Next message</a> ]
+[ <a href="./0021.html" title="Jonathan Gregory: &quot;[CF-metadata] ungridded data&quot;">Previous message</a> ]
+[ <a href="./0021.html" title="Jonathan Gregory: &quot;[CF-metadata] ungridded data&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0023.html" accesskey="t" title="Brian Eaton: &quot;[CF-metadata] ungridded data&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,110 +72,116 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20CF2%20and%20standard%20names">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Bob Drach &lt;<a href="mailto:drach?Subject=Re%3A%20%5BCF-metadata%5D%20ungridded%20data">drach</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 7 Feb 2006 19:47:01 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 19 Jun 2002 12:02:18 -0700</span><br />
 </address>
 <br />
-Dear Bert
+Jonathan,
 <br />
-<br />Thanks for your questions.
-<br />
-<br /><em class="quotelev1">&gt; when it comes to the use of standard names, I'm still not certain what to do.
+<br /><em class="quotelev1">&gt;
 </em><br />
-<br />Standard names, like most features of CF, are optional. You don't have to use
-<br />
-them if you don't think they will help you.
-<br />
-<br /><em class="quotelev1">&gt; some kind of standardisation can
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; be helpful for users to understand model output from various sources and as
+<em class="quotelev2">&gt; &gt; I guess part of the exercise is to reach an agreed upon terminology!
 </em><br />
-<em class="quotelev1">&gt; such it may be a valuable source of information when setting up a coupling
+<em class="quotelev1">&gt; Indeed. As Brian's reply shows, an alternative definition of &quot;gridded&quot; includes
 </em><br />
-<em class="quotelev1">&gt; between model components of different origin
+<em class="quotelev1">&gt; anything which is discretised. In that case, gridded doesn't imply independent
 </em><br />
-<br />That is the first reason to your question
-<br />
-<em class="quotelev1">&gt; (1) what are the main reasons for using standard names
+<em class="quotelev1">&gt; sets of x and y coordinates, with the valid points being at any choice of x
 </em><br />
-It's not only for coupling, but for any activity where data from different
-<br />
-sources is to be brought together, for example in the comparative analysis of
-<br />
-data from various climate models. The second reason is that within a data
-<br />
-source, standard names may be a convenient and precise help in distinguishing
-<br />
-among quantities.
-<br />
-<br /><em class="quotelev1">&gt; I feel a bit uneasy about
+<em class="quotelev1">&gt; and y from the sets.
 </em><br />
-<em class="quotelev1">&gt; introducing the standard name &quot;sea_surface_height_above_sea_level&quot; in the
+<br />I wish there were a better term than 'grid', which has several definitions. The
+<br />
+term is used here in the sense of a model grid, which relates to model-generated
+<br />
+data as well as your example of the UM timeseries with associated gridboxes.
+<br />
+<br /><em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; output of modelling systems that have so far been using &quot;water level&quot; or
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; similarly simple looking phrasings.
+<em class="quotelev1">&gt; Rather than introducing more metadata at a &quot;higher level&quot;, which would be
 </em><br />
-<br />You know what you mean by &quot;water level&quot; in the context of your own model, but
-<br />
-the standard name is a more precise description of a particular quantity.
-<br />
-However, it may not be the quantity you want, or precise enough for your
-<br />
-purposes. We should introduce further standard names which are more appropriate
-<br />
-for other kinds of application, as they arise. There is an awkwardness about
-<br />
-&quot;lake&quot;, &quot;sea&quot; and &quot;river&quot; which we haven't properly dealt with yet. The choice
-<br />
-of &quot;sea&quot; reflects the origin of the standard names. Some word was needed to
-<br />
-distinguish water in the atmosphere (as cloud or vapour) from water in the
-<br />
-ocean.
-<br />
-<br /><em class="quotelev1">&gt; reference level is not everywhere the same: a
+<em class="quotelev1">&gt; redundant in principle, I think it would be better to deduce what you need
 </em><br />
-<em class="quotelev1">&gt; river in Tibet may be modelled using a completely different reference level
+<em class="quotelev1">&gt; from the metadata we already have. It's not quite clear to me what the
 </em><br />
-<em class="quotelev1">&gt; than a lowland river like the Rhine or the Mississippi.
+<em class="quotelev1">&gt; distinction is between a GriddedVariable and other variables, but if we're
 </em><br />
-<br />Quite right. It has previously been proposed that we should have a facility,
-<br />
-via a standard name parameter, to specify the reference surface. This is not
-<br />
-necessary in all applications (for instance in climate models, which have
-<br />
-idealised Earth geometry), so it should be optional. Different kinds of
-<br />
-application require different levels of precision, so standard naming has to
-<br />
-offer such levels.
-<br />
-<br /><em class="quotelev1">&gt; (3) or, wouldn't it be better to define a name space and some mapping as has
+<em class="quotelev1">&gt; talking about lon-lat-vertical, it sounds as though a GriddedVariable is
 </em><br />
-<em class="quotelev1">&gt; been suggested in relation to CF2 standards
+<em class="quotelev1">&gt; one which has dimensions of lat, lon and vertical. Station data will not have
 </em><br />
-<br />If sufficiently precise names exist in other domains, we could devise some way
+<em class="quotelev1">&gt; lat and lon dimensions; it will have some &quot;site&quot; dimension instead, with
+</em><br />
+<em class="quotelev1">&gt; lat and lon as auxiliary coordinate variables. A trajectory in 3D will not
+</em><br />
+<em class="quotelev1">&gt; have lat lon or vertical dimensions, but probably all three will be
+</em><br />
+<em class="quotelev1">&gt; auxiliary coordinates with a time dimension. It would be quite easy to make
+</em><br />
+<em class="quotelev1">&gt; tests like this. Is that the right distinction?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<br />This gets to the heart of the question, because it doesn't seem easy to make such
 <br />
-of mapping them into the standard name space. This would save effort and
+a distinction. For example, suppose two variables are defined as in section 5.3
 <br />
-duplication in the community. However we have to be careful that in doing this
+and 5.4 of the CF document:
 <br />
-we don't accidentally allow different domains to give alternative names to the
+<br />variables:
 <br />
-same quantity without the equivalence being noted, because if that happened the
+&nbsp;&nbsp;float humidity(time, station) ;
 <br />
-names would not be useful for their original purpose of indicating which data
+&nbsp;&nbsp;&nbsp;&nbsp;humidity:coordinates = &quot;lat lon&quot; ;
 <br />
-are comparable.
+&nbsp;&nbsp;float lon(station) ;
 <br />
-<br />Best wishes
+&nbsp;&nbsp;float lat(station) ;
 <br />
-<br />Jonathan
+<br />variables:
 <br />
-<span id="received"><dfn>Received on</dfn> Tue Feb 07 2006 - 12:47:01 GMT</span>
+&nbsp;&nbsp;float ps(rgrid) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ps:coordinates = &quot;lat lon&quot; ;
+<br />
+&nbsp;&nbsp;lon(rgrid) ;
+<br />
+&nbsp;&nbsp;lat(rgrid) ;
+<br />
+<br />The humidity variable represents station data which may or may not have a related
+<br />
+grid. The ps variable does have a related reduced grid, but no boundary variables
+<br />
+are defined, so it is 'implicit'. Structurally the two are identical.
+<br />
+<br />In some contexts the distinction may be unimportant. If a user passes variable ps
+<br />
+to a visualization app, the app may be smart enough to make a reasonable
+<br />
+approximation of the grid cells for plotting purposes, and this is fine since the
+<br />
+user 'knows' that it makes sense. Typically this is how rectilinear grids are
+<br />
+handled now. But as we move to support more server side functionality (as in ESG)
+<br />
+where the user may not know as much about the data, this kind of distinction will
+<br />
+become important.
+<br />
+<br />So I'm left with the operating definition, not entirely satisfactory, that a
+<br />
+variable is gridded if it has associated coordinate and/or auxiliary coordinate
+<br />
+variables with boundaries.
+<br />
+<br />Bob
+<br />
+<span id="received"><dfn>Received on</dfn> Wed Jun 19 2002 - 13:02:18 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -179,9 +189,13 @@ are comparable.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start22">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0023.html" title="Next message in the list">John Caron: "[CF-metadata] Announce: Common Data Model Coordinate System validation"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0021.html" title="Previous message in the list">Bert Jagers: "[CF-metadata] CF2 and standard names"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0023.html" title="Next message in the list">Brian Eaton: "[CF-metadata] ungridded data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0021.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] ungridded data"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0021.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] ungridded data"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0023.html" title="Next message in this discussion thread">Brian Eaton: "[CF-metadata] ungridded data"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0023.html" title="Message sent in reply to this message">Brian Eaton: "[CF-metadata] ungridded data"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -192,7 +206,7 @@ are comparable.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:43 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0021.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0023.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

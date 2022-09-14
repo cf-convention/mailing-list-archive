@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Last minute changes to CMIP5 carbon cycle names from alison.pamment at stfc.ac.uk on 2010-10-12 (mailing-list-archive)</title>
-<meta name="Author" content="alison.pamment at stfc.ac.uk (alison.pamment)" />
-<meta name="Subject" content="[CF-metadata] Last minute changes to CMIP5 carbon cycle names" />
-<meta name="Date" content="2010-10-12" />
+<title>[CF-metadata] new standard name request for pH from Lowry, Roy K on 2009-05-07 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Lowry, Roy K (rkl)" />
+<meta name="Subject" content="[CF-metadata] new standard name request for pH" />
+<meta name="Date" content="2009-05-07" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2850.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2852.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Last minute changes to CMIP5 carbon cycle names</h1>
-<!-- received="Tue Oct 12 07:01:48 2010" -->
-<!-- isoreceived="20101012060148" -->
-<!-- sent="Tue, 12 Oct 2010 14:01:48 +0100" -->
-<!-- isosent="20101012130148" -->
-<!-- name="alison.pamment at stfc.ac.uk" -->
-<!-- email="alison.pamment" -->
-<!-- subject="[CF-metadata] Last minute changes to CMIP5 carbon cycle names" -->
-<!-- id="EB1E7CB92F5B35459E0B926D2A614DB60445498B_at_EXCHANGE19.fed.cclrc.ac.uk" -->
+<a style="text-decoration:none" href="./2850.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2852.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new standard name request for pH</h1>
+<!-- received="Thu May  7 06:14:26 2009" -->
+<!-- isoreceived="20090507051426" -->
+<!-- sent="Thu, 7 May 2009 13:14:26 +0100" -->
+<!-- isosent="20090507121426" -->
+<!-- name="Lowry, Roy K" -->
+<!-- email="rkl" -->
+<!-- subject="[CF-metadata] new standard name request for pH" -->
+<!-- id="40829B0E077C1145A6DE44D39B3830A90425CD66A8_at_nerckwmb1.ad.nerc.ac.uk" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="82C87206-8F5C-44CD-B54A-3ABDA01CCB58_at_mbari.org" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,9 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2852.html" accesskey="d" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] Standard name table update&quot;">Next message</a> ]
-[ <a href="./2850.html" title="andrew walsh: &quot;[CF-metadata] Seeking new CF standard names (9) for sea surface wave parameters&quot;">Previous message</a> ]
+[ <a href="./2852.html" accesskey="d" title="John Graybeal: &quot;[CF-metadata] new standard name request for pH&quot;">Next message</a> ]
+[ <a href="./2850.html" title="Jonathan Gregory: &quot;[CF-metadata]  new standard name request for pH&quot;">Previous message</a> ]
+[ <a href="./2846.html" title="John Graybeal: &quot;[CF-metadata] new standard name request for pH&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./2852.html" accesskey="t" title="John Graybeal: &quot;[CF-metadata] new standard name request for pH&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,148 +72,272 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: alison.pamment at stfc.ac.uk &lt;<a href="mailto:alison.pamment?Subject=Re%3A%20%5BCF-metadata%5D%20Last%20minute%20changes%20to%20CMIP5%20carbon%20cycle%20names">alison.pamment</a>&gt;
+<dfn>From</dfn>: Lowry, Roy K &lt;<a href="mailto:rkl?Subject=Re%3A%20%5BCF-metadata%5D%20new%20standard%20name%20request%20for%20pH">rkl</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 12 Oct 2010 14:01:48 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 7 May 2009 13:14:26 +0100</span><br />
 </address>
 <br />
-Dear Pierre,
+Hi John,
 <br />
-<br />In preparing the update to the standard name table I have been producing
+<br />Your suggestion that we disallow storage of NBS scale pH in CF by not creating a Standard Name for it worries me.  We have significant quantities of NBS-scale pH in BODC (from estuarine systems and the days before ocean chemists discovered the kilogram) that we may wish to put into CF in the future.  Whilst conversion based on approximation to free_scale is possible in some (but not all) cases (need additional data), it's something I'd rather not do.  I would much rather label precisely and leave any manipulations up to the user who is aware of the proposed usage and what is fit for that purpose.
 <br />
-explanations to go with all the new standard names. During this process
+<br />My attraction to Jonathan's simple 'pH_in sea_water' is that it gives us a way of handling data in CF where 0.1 pH units don't matter.  We have one dataset monitoring waters off a chrome plating plant where pH varies between 2 and 6. At the same time I am acutely aware of the effects errors of that magnitude have on deep ocean carbon budget calculations.
 <br />
-I have realised that two of the carbon cycle names really didn't match
+<br />Cheers, Roy.
 <br />
-their full meanings. This is because, when proposing the names, I think
+<br />-----Original Message-----
 <br />
-I had given too much weight to the comments in the CMIP5 output document
+From: cf-metadata-bounces at cgd.ucar.edu [mailto:cf-metadata-bounces at cgd.ucar.edu] On Behalf Of John Graybeal
 <br />
-regarding various sources of fire and I had overlooked other sources of
+Sent: 02 May 2009 01:28
 <br />
-carbon emissions such as grazing and crop harvesting.
+To: CF Metadata List; Lowry, Roy K
 <br />
-<br />(1) We had agreed the name
+Subject: Re: [CF-metadata] new standard name request for pH
 <br />
-surface_net_downward_flux_of_carbon_dioxide_expressed_as_carbon_due_to_p
+<br />Hi everyone,
 <br />
-hotosynthesis_and_respiration_and_fires_including_land_use_change
+<br />Thanks very much for considering and responding to the pH terms
 <br />
-but I see now that in an earlier email you explained that the quantity
+proposal.  To respond, I spent considerable time being educated by our
 <br />
-should cover all land processes, including grazing, harvesting and
+in-house pH expert, even reading pages myself from the referenced book
 <br />
-natural fires which aren't mentioned in the name.  Rather than adding
+[1], and reviewed this email with him. So I claim this email
 <br />
-further processes to the already long list I have changed this name to
+represents a high level of expertise in this scientific field. I
 <br />
-surface_net_downward_mass_flux_of_carbon_dioxide_expressed_as_carbon_due
+apologize for the length, but it seemed necessary to present
 <br />
-_to_all_land_processes.
+justifying details.
 <br />
-<br />(2) In a similar vein I have changed the agreed name
+<br />To recap, the original proposal as revised was for 4 names related to
 <br />
-surface_net_downward_mass_flux_of_carbon_dioxide_expressed_as_carbon_due
+pH:
 <br />
-_to_photosynthesis_and_respiration_and_fires_excluding_land_use_change
+A)  sea_water_pH_NBS_scale  (moles/liter)
 <br />
-to
+B)  sea_water_pH_free_scale (moles/kg)
 <br />
-surface_net_downward_mass_flux_of_carbon_dioxide_expressed_as_carbon_due
+C)  sea_water_pH_total_scale  (moles/kg)    &lt;-- the one we care about
 <br />
-_to_all_land_processes_excluding_anthropogenic_land_use_change.
+D)  sea_water_pH_seawater_scale  (moles/kg)
 <br />
-<br />(3)
+<br />Through this thread we have had several suggestions for replacements
 <br />
-The modified names are now more consistent with the agreed name
+[5], most recently arriving at
 <br />
-surface_net_upward_mass_flux_of_carbon_dioxide_expressed_as_carbon_due_t
+a) pH_of_sea_water_defined_by_moles_of_hydrogen_ion_per_unit_mass
 <br />
-o_emission_from_anthropogenic_land_use_change
+b) pH_of_sea_water_defined_by_mole_concentration_of_hydrogen_ion
 <br />
-which I have left unchanged.
+c)
 <br />
-<br />You explained in your email that the relationship between the three
+mole_concentration_of_H_and_HSO4_per_unit_mass_in_sea_water_expressed_as_pH
 <br />
-quantities is
+d) mole_concentration_of_H_and_HSO4_and_HF_per_unit_mass
 <br />
-(1) = (2) - (3).
+in_sea_water_expressed_as_pH
 <br />
-I think that these names are now shorter and clearer and the
+e) (added) pH_of_sea_water
 <br />
-relationship between them is more obvious.  (I have included information
+<br />I believe the focus of these responses was on the concentration of the
 <br />
-about their relationship in the explanatory text of each name, as well
+solution, but this mis-states the actual chemical definition of this
 <br />
-as a full list of the processes  included in &quot;all land processes&quot;). The
+particular concept. (Unfortunately we incorrectly presented this in
 <br />
-names are now more consistent with their meanings because &quot;all land
+the original definitions for B, C, and D.)  In the reference[1]  it is
 <br />
-processes&quot; includes grazing, crop harvesting and natural fires. I have
+made clear that:
 <br />
-assumed that &quot;all land processes&quot; does NOT include surface based fossil
+(a) pH is strongly affected by abundance of hydrogen (actually
 <br />
-fuel emissions - is that correct? As it includes anthropogenic land use
+hydrate) ions, but is not defined by their quantity; it is determined
 <br />
-change I assume that will include the fate of wood products - is that
+according to the *activity* of those ions, and this is not a linear
 <br />
-also correct?
+relationship (though it is close to 1 in some regimes)[2].   We will
 <br />
-<br />For consistency with names (2) and (3) above, I have made sure that all
+change the proposed definitions to replace 'concentration' with
 <br />
-names referring to land use change contain the string
+'activity'; my apologies for this error.
 <br />
-&quot;anthropogenic_land_use_change&quot;.  This means that 
+(b) The use of the NBS scale is not recommended for sea water[3], as
 <br />
-carbon_content_of_products_of_land_use_change
+errors will be induced (up to at least 0.1 units in situ); in this
 <br />
-has become
+light we propose to simply withdraw [A] from consideration, especially
 <br />
-carbon_content_of_products_of_anthropogenic_land_use_change
+as we don't need it.
 <br />
-and
+(c) There are significant differences in the values obtained for these
 <br />
-tendency_of_atmosphere_carbon_dioxide_expressed_as_carbon_content_due_to
+different quantitiies, up to .12 units; thus to say just
 <br />
-_emission_from_fires_excluding_land_use_change
+'pH_of_sea_water' is to have a very loose concern about the accurate
 <br />
-has become
+meaning of the so-labelled pH values[4]. For comparison, measurements
 <br />
-tendency_of_atmosphere_carbon_dioxide_expressed_as_carbon_content_due_to
+are often made, and needed, at the level of 0.0005 units.
 <br />
-_emission_from_fires_excluding_anthropogenic_land_use_change.
+(d) All 3 of {B, C, D} above are in regular use, but (C) is the most
 <br />
-<br />I believe that these changes constitute an improvement and I have gone
+promising for the common reference[4].
 <br />
-ahead and included the names in the table update. However, if you
+<br />Additionally, the units are expressed as noted above by common
 <br />
-disagree please let me know and we can revert to the versions of the
+convention (see for example UCUM units section on pH [5]), in order to
 <br />
-names agreed earlier.  Apologies for the very late notification, but
+make certain conversions handy for the enlightened.  Yet the second
 <br />
-occasionally it is only when I come to write the precise wording of the
+sentence of the following statement does not hold true for pH, given
 <br />
-explanations that I realise the full implications of the names.
+the depths at which these measurements are being made:
 <br />
-<br />Best wishes,
+<br />On Apr 30, 2009, at 9:22 AM, Jonathan Gregory wrote:
 <br />
-Alison
+<em class="quotelev1">&gt; Boussinesq models (most ocean climate models are Boussinesq) treat
+</em><br />
+<em class="quotelev1">&gt; density
+</em><br />
+<em class="quotelev1">&gt; as constant 1000 kg m-3 except in the computation of pressure
+</em><br />
+<em class="quotelev1">&gt; gradients, where
+</em><br />
+<em class="quotelev1">&gt; it matters to the dynamics. Therefore in dealing with concentrations
+</em><br />
+<em class="quotelev1">&gt; of
+</em><br />
+<em class="quotelev1">&gt; tracers, per kg and per litre are identical and to choose one or the
+</em><br />
+<em class="quotelev1">&gt; other
+</em><br />
+<em class="quotelev1">&gt; would be arbitrary and hence unhelpful for data exchange.
+</em><br />
+<br />We therefore do not believe a substitution of moles/liter or moles/
 <br />
-<br />------
+m**3 is appropriate for the canonical moles/kg, as this would force
 <br />
-Alison Pamment                          Tel: +44 1235 778065
+most practitioners to convert their data before naming it with this
 <br />
-NCAS/British Atmospheric Data Centre    Fax: +44 1235 446314
+name. [7] Obviously if there is a set of practitioners that are
 <br />
-Rutherford Appleton Laboratory          Email: alison.pamment at stfc.ac.uk
+working with seawater pH using a different canonical unit, that would
 <br />
-Chilton, Didcot, OX11 0QX, U.K.
+be another matter to consider; we think it is unlikely that any
+<br />
+observationalists are doing so.
+<br />
+<br />So, in summary, the longer, explicit terms being proposed are so
+<br />
+approximate (for the reasons descrX-MailScanner-NERC-SpamCheck: not spam, SpamAssassin (not cached, score=-3.5,
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;required 5, autolibed above) as to be inaccurate to
+<br />
+the scientists that use this data. Indeed, they would not use these
+<br />
+terms. Therefore we re-propose the original terms (B), (C), and (D),
+<br />
+or alternatively simply (C), as these represent the common and most
+<br />
+descriptive usage.
+<br />
+<br />John
+<br />
+<br /><br />[1] Zeebe &amp; Wolf-Gladrow (2001). CO2 in Seawater: Equilibrium, Kinetics,
+<br />
+Isotopes. Published by Elsevier as part of their oceanographic series.
+<br />
+<br />[2] Ibid, p 54 ff.  The exact quote was helpful to me, so I provide it
+<br />
+here: &quot;In high school we all learned that pH is the negative common
+<br />
+logarithm of the concentration of hydrogen ions. ... Things are a bit
+<br />
+more complicated for several reasons... The symbol H+ represents
+<br />
+hydrate complexes rather than the concentration of free hydrogen
+<br />
+ions.... In a refined theory one should use activity (an 'effective'
+<br />
+concentration...) instead of concentration....&quot;  It goes on to explain
+<br />
+the derivation of the various scales, in case that is of interest.
+<br />
+<br />[3] Ibid, p 55
+<br />
+<br />[4] Ibid, p 59
+<br />
+<br />[5] Section 45 in <a href="http://aurora.regenstrief.org/~ucum/ucum.html#section-Other-Legacy-Units">http://aurora.regenstrief.org/~ucum/ucum.html#section-Other-Legacy-Units</a>
+<br />
+&nbsp;&nbsp;(which unfortunately does not agree with the cited reference [1]
+<br />
+about the meaning of this term.
+<br />
+<br />[6]  Proposal chain for reference:
+<br />
+a1)  pH_per_unit_volume_in_sea_water =&gt;
+<br />
+&nbsp;&nbsp;&nbsp;a2) pH_of_sea_water_defined_by_mole_concentration_of_hydrogen_ion =&gt;
+<br />
+&nbsp;&nbsp;&nbsp;a3)
+<br />
+pH_of_sea_water_defined_by_mole_concentration_of_hydrogen_ion_per_unit_volume
+<br />
+&nbsp;&nbsp;=&gt;
+<br />
+&nbsp;&nbsp;&nbsp;a4) pH_of_sea_water_defined_by_moles_of_hydrogen_ion_per_unit_mass
+<br />
+b1)  pH_per_unit_mass_in_sea_water  =&gt;
+<br />
+&nbsp;&nbsp;&nbsp;b2) pH_of_sea_water_defined_by_mass_concentration_of_hydrogen_ion =&gt;
+<br />
+&nbsp;&nbsp;&nbsp;b3)
+<br />
+pH_of_sea_water_defined_by_mole_concentration_of_hydrogen_ion_per_unit_mass
+<br />
+&nbsp;&nbsp;=&gt;
+<br />
+&nbsp;&nbsp;&nbsp;b4) pH_of_sea_water_defined_by_mole_concentration_of_hydrogen_ion
+<br />
+c1)
+<br />
+mole_concentration_of_H_and_HSO4_per_unit_mass_in_sea_water_expressed_as_pH
+<br />
+d1) mole_concentration_of_H_and_HSO4_and_HF_per_unit_mass
+<br />
+in_sea_water_expressed_as_pH
+<br />
+e1) pH_of_sea_water
+<br />
+<br />[7] If I understand CF canonical units correctly, it is OK to have
+<br />
+one's standard-named data in units that are physically equivalent to
+<br />
+the canonical unit -- for example, moles per gram is OK if the
+<br />
+canonical unit is moles/kg -- but it is not OK if the conversion is to
+<br />
+a fundamentally different unit -- like moles / liter in the example.
+<br />
+<br />_______________________________________________
+<br />
+CF-metadata mailing list
+<br />
+CF-metadata at cgd.ucar.edu
+<br />
+<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 <br />
 <br /><pre>
 -- 
-Scanned by iCritical.
+This message (and any attachments) is for the recipient only. NERC
+is subject to the Freedom of Information Act 2000 and the contents
+of this email and any reply you make may be disclosed by NERC unless
+it is exempt from release under the Act. Any material supplied to
+NERC may be stored in an electronic records management system.
 </pre>
-<span id="received"><dfn>Received on</dfn> Tue Oct 12 2010 - 07:01:48 BST</span>
+<span id="received"><dfn>Received on</dfn> Thu May 07 2009 - 06:14:26 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -217,9 +345,13 @@ Scanned by iCritical.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2851">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2852.html" title="Next message in the list">alison.pamment at stfc.ac.uk: "[CF-metadata] Standard name table update"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2850.html" title="Previous message in the list">andrew walsh: "[CF-metadata] Seeking new CF standard names (9) for sea surface wave parameters"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2852.html" title="Next message in the list">John Graybeal: "[CF-metadata] new standard name request for pH"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2850.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]  new standard name request for pH"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./2846.html" title="Message to which this message replies">John Graybeal: "[CF-metadata] new standard name request for pH"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./2852.html" title="Next message in this discussion thread">John Graybeal: "[CF-metadata] new standard name request for pH"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./2852.html" title="Message sent in reply to this message">John Graybeal: "[CF-metadata] new standard name request for pH"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -230,7 +362,7 @@ Scanned by iCritical.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:33 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2850.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2852.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

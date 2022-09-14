@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Practical salinity units from Jim Biard on 2015-05-26 (mailing-list-archive)</title>
-<meta name="Author" content="Jim Biard (jbiard)" />
-<meta name="Subject" content="[CF-metadata] Practical salinity units" />
-<meta name="Date" content="2015-05-26" />
+<title>[CF-metadata] [CF Metadata] #107: CF Data Model 1.7 from Little, Chris on 2014-04-16 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Little, Chris (chris.little)" />
+<meta name="Subject" content="[CF-metadata] [CF Metadata] #107: CF Data Model 1.7" />
+<meta name="Date" content="2014-04-16" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./7026.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7028.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Practical salinity units</h1>
-<!-- received="Tue May 26 08:43:21 2015" -->
-<!-- isoreceived="20150526074321" -->
-<!-- sent="Tue, 26 May 2015 10:43:21 -0400" -->
-<!-- isosent="20150526144321" -->
-<!-- name="Jim Biard" -->
-<!-- email="jbiard" -->
-<!-- subject="[CF-metadata] Practical salinity units" -->
-<!-- id="55648689.2030706_at_cicsnc.org" -->
+<a style="text-decoration:none" href="./7026.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7028.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] [CF Metadata] #107: CF Data Model 1.7</h1>
+<!-- received="Wed Apr 16 06:14:44 2014" -->
+<!-- isoreceived="20140416051444" -->
+<!-- sent="Wed, 16 Apr 2014 12:14:44 +0000" -->
+<!-- isosent="20140416121444" -->
+<!-- name="Little, Chris" -->
+<!-- email="chris.little" -->
+<!-- subject="[CF-metadata] [CF Metadata] #107: CF Data Model 1.7" -->
+<!-- id="3DAD8A5A545D7644A066C4F2E820728806F64349_at_EXXCMPD1DAG4.cmpd1.metoffice.gov.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="55647F36.30005_at_whoi.edu" -->
+<!-- inreplyto="7819C496F4E10E47BCEFBE74551AAC9606EDE0CE_at_EXXCMPD1DAG3.cmpd1.metoffice.gov.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./7028.html" accesskey="d" title="Signell, Richard: &quot;[CF-metadata] Salinity units&quot;">Next message</a> ]
-[ <a href="./7026.html" title="Nan Galbraith: &quot;[CF-metadata] Practical salinity units&quot;">Previous message</a> ]
-[ <a href="./7026.html" title="Nan Galbraith: &quot;[CF-metadata] Practical salinity units&quot;">In reply to</a> ]
+[ <a href="./7028.html" accesskey="d" title="Randy Horne: &quot;[CF-metadata] new standard name proposal: brightness_temperature_at_cloud_top&quot;">Next message</a> ]
+[ <a href="./7026.html" title="Signell, Richard: &quot;[CF-metadata] How to help correct problems with CF documents on github&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./7022.html" accesskey="t" title="Nan Galbraith: &quot;[CF-metadata] Salinity units&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -71,381 +69,121 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jim Biard &lt;<a href="mailto:jbiard?Subject=Re%3A%20%5BCF-metadata%5D%20Practical%20salinity%20units">jbiard</a>&gt;
+<dfn>From</dfn>: Little, Chris &lt;<a href="mailto:chris.little?Subject=Re%3A%20%5BCF-metadata%5D%20%5BCF%20Metadata%5D%20%23107%3A%20CF%20Data%20Model%201.7">chris.little</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 26 May 2015 10:43:21 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 16 Apr 2014 12:14:44 +0000</span><br />
 </address>
 <br />
-Nan,
+Dear CF community,
 <br />
-<br />So the problem is more about udunits using 0.001 to mean parts per 
+<br />I would like to add some more considerations to Mark Hedley and Jim Biard's detailed and well founded technical comments over the debate about some fundamental concepts of abstract data models for geospatial interoperability. I apologise if I am teaching anyone to suck eggs etc, but it does help to get my thoughts in order.
 <br />
-thousand than about a fundamental incompatibility between quantities? 
+<br />The UK Met Office, and other national met services and institutions, such as NCAR, NWS, BoM, DWD and M?t?o-France, have put significant efforts over the last five years, at the level of the equivalent of several full time staff per institution per year to make meteorological data and services, for both weather forecasting and climate prediction, more readily accessible to a much wider, and richer, world of geospatial services, both now and for decades into the future.
 <br />
-Would it be wrong to multiply your fractional value by 1000 to get parts 
+<br />Significant effort has gone into making meteorological and aviation data have a common, shared conceptual model to ensure interoperability well into the future. A simple version of such a model has existed in peoples' heads for decades, but many modern software tools (which many meteorologists tend not to use yet) are predicated on a formal version of a conceptual model, whether expressed in UML, XML or other languages.
 <br />
-per thousand? (That's what I would assume should be done if your values 
+<br />Discovery and use of data and services are also predicated on search engines and similar mechanisms and these are increasingly relying on underpinning conceptual models and their semantics to ensure good results.
 <br />
-were fractions of 1 and I wanted parts per thousand.)
+<br />Such formal models tend to have more layers of abstraction than na?ve users expect. This gives 'loose coupling' enabling flexible software, and also tight semantics, giving clear meaning. The models also tend to be richer than expected because they are encompassing the full domain, of which only a subset may be implemented at any one time. Providing the conceptual components are stable, this gives some measure of future proofing too.
 <br />
-<br />Don't let me take up too much of your time here. This is just me trying 
+<br />Processing such conceptual models is not particularly resource intensive, as, for example, most modern phones contain such a software kernel to handle internet activities.
 <br />
-to understand what the particular problem is as part of my ongoing 
+<br />To summarise, I do not see why a conceptual model should not have two concepts that are different, and modular, even if implementations of current software conflate the two for reasons of history or efficiency. In the future, software implementers will still have the opportunity to conflate concepts for the sake of efficiency. This is a well recognised pattern in IT, e.g. 3rd Normal Form and denormalised databases, XML and lots of tools, shared application memory, etc.
 <br />
-education.
+<br />Another IT pattern, that I would like to break from, is that of embedding backward compatibility for too long, distorting future software and imposing undue costs of maintenance and complexity.
 <br />
-<br />Jim
+<br />Chris
 <br />
-<br />On 5/26/15 10:12 AM, Nan Galbraith wrote:
+<br />-----Original Message-----
 <br />
-<em class="quotelev1">&gt; Hi Jim -
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Not too simplistic, but that 'factor of 1000' is the exact problem.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; If I'm using '1' as the unit for practical salinity, and the canonical 
-</em><br />
-<em class="quotelev1">&gt; unit is
-</em><br />
-<em class="quotelev1">&gt; '.001', the user (maybe via udunits) will assume the data values 
-</em><br />
-<em class="quotelev1">&gt; should be
-</em><br />
-<em class="quotelev1">&gt; divided by 1000 before using.  That wasn't my intention, and will probably
-</em><br />
-<em class="quotelev1">&gt; mean my data is discarded.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; And yes, I think we'd meant this to only be about practical salinity.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Cheers -
-</em><br />
-<em class="quotelev1">&gt; Nan
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; On 5/26/15 9:56 AM, Jim Biard wrote:
-</em><br />
-<em class="quotelev2">&gt;&gt; Hi.
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; I checked the operation of udunits2, and I found that it is fine with 
-</em><br />
-<em class="quotelev2">&gt;&gt; converting between parts per thousand, fraction of whole, and g/kg. 
-</em><br />
-<em class="quotelev2">&gt;&gt; From a simple dimensional analysis perspective they sure look like 
-</em><br />
-<em class="quotelev2">&gt;&gt; they are all dimensionless and differ from each other only by a 
-</em><br />
-<em class="quotelev2">&gt;&gt; factor of 1000 at the most. Is that too simplistic?
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Grace and peace,
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Jim
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; On 5/22/15 4:37 PM, Lowry, Roy K. wrote:
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Hi Rich,
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; I should clarify that my comment was following on from Nan's and referred only to practical salinity, otherwise known as PSS-78. Absolute salinity has dimensions mass/mass and so is not dimensionless.
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Cheers, Roy.
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; ________________________________________
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; From: Signell, Richard [rsignell at usgs.gov]
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Sent: 22 May 2015 20:01
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Subject: Re: [CF-metadata] Salinity units
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Roy,
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; For sure dimensionless.  But &quot;1.0&quot;, &quot;0.001&quot; or &quot;g/kg&quot;?
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; The latest version (27) of the CF Standard Name list
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; (<a href="http://cfconventions.org/Data/cf-standard-names/27/build/cf-standard-name-table.html">http://cfconventions.org/Data/cf-standard-names/27/build/cf-standard-name-table.html</a>)
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; states:
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; sea_water_salinity: &quot;0.001&quot;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; sea_water_absolute_salinity: &quot;g kg-1&quot;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; sea_water_practical_salinity:    &quot;0.001&quot;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; sea_water_preformed_salinity:  &quot;g kg-1&quot;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; sea_water_cox_salinity: &quot;0.001&quot;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; and units packages, of course, would treat &quot;g kg-1&quot; the same as &quot;0.001&quot;.
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Yet in the IOC manual on equation of seawater:
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; <a href="http://www.teos-10.org/pubs/TEOS-10_Manual.pdf">http://www.teos-10.org/pubs/TEOS-10_Manual.pdf</a>
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; it states (PDF page 176, printed page 166) that Practical Salinity
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; should have units of &quot;1&quot;, while &quot;Absolute Salinity&quot; (the argument used
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; in the toolbox functions) and &quot;Preformed Salinity&quot; (used in numerical
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; ocean models) should have units &quot;g kg-1&quot;.
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; So it appears that TEOS agrees with CF on units for Absolute Salinity
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; and Preformed Salinity, but not on Practical Salinity.
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; And OceanSites (as least here:
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; <a href="http://www.oceansites.org/docs/OS_PAP-3_201205_P_deepTS.txt">http://www.oceansites.org/docs/OS_PAP-3_201205_P_deepTS.txt</a>)
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; is using &quot;sea_water_practical_salinity&quot; with units of &quot;1&quot;, so they are
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; consistent with the TEOS publication, but not the current CF
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; convention (v27).
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; On the TEOS site, there is software to calculate Absolute Salinity
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; from Practical Salinity.   So it would seem that the technically
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; correct thing to do would be to use the &quot;gsw_SA_from_SP&quot; routine to
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; convert OceanSites Practical Salinity (in units of &quot;1&quot;) to Absolute
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Salinity (in units of &quot;g/kg&quot;) before comparing with the &quot;Preformed
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Salinity&quot; output &quot;g/kg&quot; from ocean models.
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; I'm pretty confused though, so I'm cc'ing Rich Pawlowicz on this,
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; hoping for his input.
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Thanks,
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; -Rich
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; On Fri, May 22, 2015 at 1:49 PM, Lowry, Roy K.&lt;rkl at bodc.ac.uk&gt;  wrote:
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; Dimensionless. Please????
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; This is the view of physical oceanographers for whom I have the greatest respect.
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; Cheers, Roy.
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; ________________________________________
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; From: Reyna Jenkyns [reyna at uvic.ca]
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; Sent: 22 May 2015 18:06
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; Subject: Re: [CF-metadata] Salinity units
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; I'm interested in this topic since I didn't realize what had been discussed previously, and now I think we must be non-compliant as well.  Is this documented formally in the CF documentation?
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; Reyna Jenkyns
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; ________________________________________
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; From: CF-metadata&lt;cf-metadata-bounces at cgd.ucar.edu&gt;  on behalf of Nan Galbraith&lt;ngalbraith at whoi.edu&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; Sent: Friday, May 22, 2015 10:03 AM
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; Subject: Re: [CF-metadata] Salinity units
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; Hello all -
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; It's been a long time, but is anyone interested in re-visiting the subject
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; of units for practical salinity in CF?
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; I was recently notified that my salinity data was likely to be
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; overlooked by
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; some users, because I'd used '1' as the units, not '.001'. Somehow, I'd
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; forgotten the (long-ago) discussion on the CF list about salinity units.
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; Some members of  the OceanSITES project are interested in revising our
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; format spec to encourage the use of '1' as an indication that salinity does
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; not have units - but, of course, we'd mostly rather remain CF-compliant.
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; Thanks for any feedback on this.
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; Cheers - Nan
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; On 6/17/09 2:48 AM, Lowry, Roy K wrote:
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;   &gt; Dear All,
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;   &gt;
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;   &gt; During an exercise with Alison mapping the CF Standard Names to a
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;   &gt; units vocabulary in the BODC vocabulary server I noticed that the
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;   &gt; units for salinity were '1.00E-03', i.e. parts per thousand. My
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;   &gt; understanding in that since the introduction of the Practical
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;   &gt; Salinity Scale that salinity is dimensionless with units of '1'.  Is
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;   &gt; there agreement for our changing the units in the Standard Name
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;   &gt; table?
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;   &gt;
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;   &gt; Cheers, Roy.
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; -- 
-</em><br />
-<em class="quotelev1">&gt; *******************************************************
-</em><br />
-<em class="quotelev1">&gt; * Nan Galbraith        Information Systems Specialist *
-</em><br />
-<em class="quotelev1">&gt; * Upper Ocean Processes Group            Mail Stop 29 *
-</em><br />
-<em class="quotelev1">&gt; * Woods Hole Oceanographic Institution                *
-</em><br />
-<em class="quotelev1">&gt; * Woods Hole, MA 02543                 (508) 289-2444 *
-</em><br />
-<em class="quotelev1">&gt; *******************************************************
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
+From: owner-cf-metadata at lists.llnl.gov [mailto:owner-cf-metadata at lists.llnl.gov] On Behalf Of Mark Hedley
+<br />
+Sent: Tuesday, April 15, 2014 4:51 PM
+<br />
+Subject: Re: [CF Metadata] #107: CF Data Model 1.7
+<br />
+<br />This message came from the CF Trac system.  Do not reply.  Instead, enter your comments in the CF Trac system at <a href="http://kitt.llnl.gov/trac/">http://kitt.llnl.gov/trac/</a>.
+<br />
+<br />#107: CF Data Model 1.7
+<br />
+-----------------------------+------------------------------
+<br />
+&nbsp;&nbsp;Reporter:  markh           |      Owner:  cf-conventions_at_?
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type:  task            |     Status:  new
+<br />
+&nbsp;&nbsp;Priority:  medium          |  Milestone:
+<br />
+&nbsp;Component:  cf-conventions  |    Version:
+<br />
+Resolution:                  |   Keywords:
+<br />
+-----------------------------+------------------------------
+<br />
+\
+<br />
+\
+<br />
+\
+<br />
+\
+<br />
+\
+<br />
+\
+<br />
+<br />Comment (by markh):
+<br />
+<br />&nbsp;Replying to [comment:79 jonathan]:
+<br />
+&nbsp;Hello Jonathan
+<br />
+<br /><em class="quotelev1"> &gt; Both `grid_mapping` and `formula_terms` can be described logically by  the [<a href="http://kitt.llnl.gov/trac/ticket/107?replyto=55#comment:55">http://kitt.llnl.gov/trac/ticket/107?replyto=55#comment:55</a> text which  David posted]. For instance,
+</em><br />
+<br />&nbsp;I can see that this can be done, the important question for me is should  it be done?
+<br />
+<br />&nbsp;Where are the benefits and where are the costs?
+<br />
+<br />&nbsp;I do not perceive the benefits of this conflation to form a new  `geolocation` type, based on the comments to date.
+<br />
+<br />&nbsp;This conflation is quite a jump from the current CF conventions  terminology, which concerns me;  I think it is difficult to explain.
+<br />
+<br /><em class="quotelev1"> &gt; What is to be gained in clarity or simplicity by regarding these two  things as distinct concepts? We don't talk about transforms or coordinate  reference systems because these terms have technical and sometimes  restrictive meanings, and therefore may make the description less clear.
+</em><br />
+<br />&nbsp;A particular benefit I see in having two separate concepts in the CF data  model is interoperability with other domains and concepts.
+<br />
+<br />&nbsp;If a concept in the CF data model cleanly and clearly relates to a concept  in another domain then this is a big supporting factor for  interoperability.
+<br />
+<br />&nbsp;I think this is the case here: the georeferencing capability provided by a  coordinate reference system type of thing in CF is very closely aligned to  the ISO19111 definition of a coordinate reference system.  This brings  huge benefits in providing interoperability with other ISO aware  communities, such as the OGC, as highlighted by [comment:80 edavis]. I  think this is the approach Stefano has taken with the OGC to date.  The  documents he has written link grid_mapping variables to OGC CRS instances.
+<br />
+<br />&nbsp;The derivation of coordinate values, perhaps for georeferencing purposes,  based on bespoke defined algorithms and reference data sets is a much more  specialised field, which is not widely used in the ISO and OGC communities  (for example).
+<br />
+<br />&nbsp;Conflating the well known georeferencing function of coordinate reference  systems with these derived coordinate functionality in a single data model  type is making it very hard for that type to be understood and used  effectively by other communities.
+<br />
+<br />&nbsp;It also makes it much harder for CF to adopt useful building blocks for  other communities, as the interfaces are all in different places.
+<br />
+<br />&nbsp;So, the cost of the approach of conflating these concepts is it isolates  the CF community from other communities, just when we and they stand to  benefit so much from better interoperability.
+<br />
+<br />&nbsp;The benefit has to significantly outweigh this cost, and I am afraid I  cannot see this.
+<br />
+<br />&nbsp;With this in mind I strongly favour the separation of these concepts  within the data model.  Whilst they can be logically conflated, I think  the cost is prohibitive and the benefit minimal.
+<br />
+<br />&nbsp;all the best
+<br />
+&nbsp;mark
+<br />
+\
+<br />
+\
+<br />
+\
+<br />
 <br /><pre>
--- 
-CICS-NC &lt;<a href="http://www.cicsnc.org/">http://www.cicsnc.org/</a>&gt; Visit us on
-Facebook &lt;<a href="http://www.facebook.com/cicsnc">http://www.facebook.com/cicsnc</a>&gt; 	*Jim Biard*
-*Research Scholar*
-Cooperative Institute for Climate and Satellites NC &lt;<a href="http://cicsnc.org/">http://cicsnc.org/</a>&gt;
-North Carolina State University &lt;<a href="http://ncsu.edu/">http://ncsu.edu/</a>&gt;
-NOAA National Centers for Environmental Information &lt;<a href="http://ncdc.noaa.gov/">http://ncdc.noaa.gov/</a>&gt;
-/formerly NOAA?s National Climatic Data Center/
-151 Patton Ave, Asheville, NC 28801
-e: jbiard at cicsnc.org &lt;mailto:jbiard at cicsnc.org&gt;
-o: +1 828 271 4900
-/We will be updating our social media soon. Follow our current Facebook 
-(NOAA National Climatic Data Center 
-&lt;<a href="https://www.facebook.com/NOAANationalClimaticDataCenter">https://www.facebook.com/NOAANationalClimaticDataCenter</a>&gt; and NOAA 
-National Oceanographic Data Center &lt;<a href="https://www.facebook.com/noaa.nodc">https://www.facebook.com/noaa.nodc</a>&gt;) 
-and Twitter (_at_NOAANCDC &lt;<a href="https://twitter.com/NOAANCDC">https://twitter.com/NOAANCDC</a>&gt; and @NOAAOceanData 
-&lt;<a href="https://twitter.com/NOAAOceanData">https://twitter.com/NOAAOceanData</a>&gt;) accounts for the latest information./
--------------- next part --------------
-An HTML attachment was scrubbed...
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150526/ea6d8e57/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150526/ea6d8e57/attachment-0001.html</a>&gt;
--------------- next part --------------
-A non-text attachment was scrubbed...
-Name: CicsLogoTiny.png
-Type: image/png
-Size: 15784 bytes
-Desc: not available
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150526/ea6d8e57/attachment-0001.png">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150526/ea6d8e57/attachment-0001.png</a>&gt;
+--
+Ticket URL: &lt;<a href="http://kitt.llnl.gov/trac/ticket/107#comment:82">http://kitt.llnl.gov/trac/ticket/107#comment:82</a>&gt;
+CF Metadata &lt;<a href="http://cf-convention.github.io/">http://cf-convention.github.io/</a>&gt; CF Metadata This message came from the CF Trac system.  To unsubscribe, without unsubscribing to the regular cf-metadata list, send a message to &quot;majordomo at lists.llnl.gov&quot; with &quot;unsubscribe cf-metadata&quot; in the body of your message.
 </pre>
-<span id="received"><dfn>Received on</dfn> Tue May 26 2015 - 08:43:21 BST</span>
+<span id="received"><dfn>Received on</dfn> Wed Apr 16 2014 - 06:14:44 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -453,11 +191,9 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start7027">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./7028.html" title="Next message in the list">Signell, Richard: "[CF-metadata] Salinity units"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./7026.html" title="Previous message in the list">Nan Galbraith: "[CF-metadata] Practical salinity units"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./7026.html" title="Message to which this message replies">Nan Galbraith: "[CF-metadata] Practical salinity units"</a></li>
+<li><dfn>Next message</dfn>: <a href="./7028.html" title="Next message in the list">Randy Horne: "[CF-metadata] new standard name proposal: brightness_temperature_at_cloud_top"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./7026.html" title="Previous message in the list">Signell, Richard: "[CF-metadata] How to help correct problems with CF documents on github"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./7022.html" title="Next message in this discussion thread">Nan Galbraith: "[CF-metadata] Salinity units"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -468,7 +204,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:55 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./7026.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7028.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

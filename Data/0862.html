@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Gaussian Lat/Lon grids from Karl Taylor on 2007-06-27 (mailing-list-archive)</title>
-<meta name="Author" content="Karl Taylor (taylor13)" />
-<meta name="Subject" content="[CF-metadata] Gaussian Lat/Lon grids" />
-<meta name="Date" content="2007-06-27" />
+<title>[CF-metadata] Azimuthal Equidistant Projection from sdj at tiscali.it on 2006-02-27 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="sdj at tiscali.it (sdj)" />
+<meta name="Subject" content="[CF-metadata] Azimuthal Equidistant Projection" />
+<meta name="Date" content="2006-02-27" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0861.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0863.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Gaussian Lat/Lon grids</h1>
-<!-- received="Wed Jun 27 11:46:22 2007" -->
-<!-- isoreceived="20070627104622" -->
-<!-- sent="Wed, 27 Jun 2007 10:46:22 -0700" -->
-<!-- isosent="20070627174622" -->
-<!-- name="Karl Taylor" -->
-<!-- email="taylor13" -->
-<!-- subject="[CF-metadata] Gaussian Lat/Lon grids" -->
-<!-- id="4682A26E.7030308_at_llnl.gov" -->
+<a style="text-decoration:none" href="./0861.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0863.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Azimuthal Equidistant Projection</h1>
+<!-- received="Mon Feb 27 10:08:24 2006" -->
+<!-- isoreceived="20060227100824" -->
+<!-- sent="Mon, 27 Feb 2006 18:08:24 +0100 (CET)" -->
+<!-- isosent="20060227170824" -->
+<!-- name="sdj at tiscali.it" -->
+<!-- email="sdj" -->
+<!-- subject="[CF-metadata] Azimuthal Equidistant Projection" -->
+<!-- id="24071084.1141060104212.JavaMail.root_at_ps21" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4682877C.7010203_at_unidata.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +53,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0863.html" accesskey="d" title="Brian Eaton: &quot;[CF-metadata] Gaussian Lat/Lon grids&quot;">Next message</a> ]
-[ <a href="./0861.html" title="John Caron: &quot;[CF-metadata] Gaussian Lat/Lon grids&quot;">Previous message</a> ]
-[ <a href="./0861.html" title="John Caron: &quot;[CF-metadata] Gaussian Lat/Lon grids&quot;">In reply to</a> ]
+[ <a href="./0863.html" accesskey="d" title="Brian Eaton: &quot;[CF-metadata] Azimuthal Equidistant Projection&quot;">Next message</a> ]
+[ <a href="./0861.html" title="Bert Jagers: &quot;[CF-metadata] CF convention for vector quantities&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0863.html" accesskey="t" title="Brian Eaton: &quot;[CF-metadata] Gaussian Lat/Lon grids&quot;">Next in thread</a> ]
+[ <a href="./0863.html" accesskey="t" title="Brian Eaton: &quot;[CF-metadata] Azimuthal Equidistant Projection&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,228 +70,110 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Karl Taylor &lt;<a href="mailto:taylor13?Subject=Re%3A%20%5BCF-metadata%5D%20Gaussian%20Lat%2FLon%20grids">taylor13</a>&gt;
+<dfn>From</dfn>: sdj at tiscali.it &lt;<a href="mailto:sdj?Subject=Re%3A%20%5BCF-metadata%5D%20Azimuthal%20Equidistant%20Projection">sdj</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 27 Jun 2007 10:46:22 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 27 Feb 2006 18:08:24 +0100 (CET)</span><br />
 </address>
 <br />
-Hi John and all,
+Dear All,
 <br />
-<br />A couple of comments:
+<br />Please accept my apologies for yet another querie.
 <br />
-<br />I mentioned earlier that for a given spherical harmonic truncation the 
+<br />I have browsed through the documentation to find the way to represent 
 <br />
-number of guassian latitudes and longitudes is not determined uniquely. 
+data in Azimuthal Equidistant Projection, but unfortunately had no 
 <br />
-&nbsp;&nbsp;As is noted in one of Brian's links,
+success.
 <br />
-&quot;The actual values of J and P (number of latitude and longitude grid 
+<br />Considering I have two arrays which specifiy the values of my 
 <br />
-cells) are often not set equal to the lower limit in order to allow use 
+longitudes and latitudes, how do I represent my data ?
 <br />
-of more efficient transform programs.&quot;  Perhaps this is a somewhat 
+<br />With a simple equidistant cylindrical projection I had the following 
 <br />
-tangential point as far as CF is concerned.
+notation:
 <br />
-<br />I don't see any major advantage to including the information that the 
+<br />dimensions:
 <br />
-grid is gaussian.  I'm not sure why a  user (or piece of software) would 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude = x ;
 <br />
-need to know this unless either the cell bounds and/or the cell areas 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude = y ;
 <br />
-were not included in the file, in which case the user could calculate 
+variables:
 <br />
-these if he knew that it were a gaussian grid.  It would be much easier 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float longitude(longitude) ;
 <br />
-for software to handle a variety of grids if for all of these the bounds 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude:standard_name = &quot;longitude&quot; ;
 <br />
-were available, and the software didn't have to recognize lots of 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude:long_name = &quot;Longitude&quot; ;
 <br />
-different types of grids.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude:units = &quot;degrees_east&quot; ;
 <br />
-<br />Note that the gaussian weights are conventionally defined as being 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude:step = &quot;lon_delta&quot; ;
 <br />
-proportional to the grid-cell area, but normalized to sum to 2.0 (or in 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude:valid_min = &quot;lon_min&quot; ;
 <br />
-some cases, I think, to 1.0).  Thus, there seems to be no need to store 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude:valid_max = &quot;lon_max&quot; ;
 <br />
-the weights, when equivalently areas can already be stored.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude:axis = &quot;X&quot; ;
 <br />
-<br />Karl
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float latitude(latitude) ;
 <br />
-<br />John Caron wrote:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude:standard_name = &quot;latitude&quot; ;
 <br />
-<em class="quotelev1">&gt; thanks Brian!
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; would you also recommend storing the gaussian weights in the file? somehow otherwise documenting this?
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Brian Eaton wrote:
-</em><br />
-<em class="quotelev2">&gt;&gt; Hi John,
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; In order to construct latitude cell bounds so that the cell areas give
-</em><br />
-<em class="quotelev2">&gt;&gt; identical integrals over the surface of a unit sphere to those that would
-</em><br />
-<em class="quotelev2">&gt;&gt; be obtained by Gaussian integration, we do the following:
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Let phi(j), j = 1, nlat  be the Gauss points ordered from S.P. to N.P.
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Let phi_bnd(j), j = 1, nlat+1  be the latitude cell edges which satisfy
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;  phi_bnd(j) &lt; phi(j) &lt; phi_bnd(j+1)  for all j = 1, nlat
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;  and phi_bnd(1) = -pi/2,  phi_bnd(nlat+1) = pi/2.
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Let gw(j), j = 1, nlat be the Gauss weights corresponding to Gauss points
-</em><br />
-<em class="quotelev2">&gt;&gt; phi(j). 
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; In psuedo code:
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; sin_phi_bnd(1) = -1.0
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; do j = 1, nlat
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;   sin_phi_bnd(j+1) = sin_phi_bnd(j) + gw(j)
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; end do
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Then compute corresponding latitudes by taking arc sine.
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Note that since sin_phi_bnd(1) = -1, and since the Gauss weights sum to
-</em><br />
-<em class="quotelev2">&gt;&gt; 2.0, then sin_phi_bnd(nlat+1) will equal 1.0 to within the accuracy that
-</em><br />
-<em class="quotelev2">&gt;&gt; the Gauss weights sum to 2.0.  We generally set sin_phi_bnd(nlat+1) = 1.0
-</em><br />
-<em class="quotelev2">&gt;&gt; and let the accumulated error in the sum of the Gauss weights (hopefully at
-</em><br />
-<em class="quotelev2">&gt;&gt; the double precision roundoff level) be included in the last latitude cell.
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Brian
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; On Tue, Jun 26, 2007 at 10:08:57AM -0600, John Caron wrote:
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Hi Karl:
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Is there a standard way that the latitude bounds should be calculated that reflects the gaussian?
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; If I do include the weights, sounds like I should include a description of how they were calculated. I used &quot;the roots of the ordinary Legendre polynomial of degree NLAT using Newton's iteration method&quot;. Does that seem sufficient and useful?
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; BTW, it appears you didnt send to list, so i forwarded.
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Karl Taylor wrote:
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; Dear John,
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; I think that CF doesn't bother identifying gaussian grids or weights as 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; such, but simply stores the latitude values and the latitude bounds. 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; This avoids the problem that there is no unique way of defining weights 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; for a given spherical harmonic truncation (although conventionally 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; nearly everyone does this in the same way).
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; I hope someone will correct me if I've said anything incorrect.
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; cheers,
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; Karl
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; John Caron wrote:
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; I dont see a standard for encoding gaussian weights for a gaussian 
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; Latitude grid (eg GRIB GDS type 4 &quot;Gaussian Lat/Lon&quot;). Does this seem 
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; needed? If so, any suggestions?
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; _______________________________________________
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<span id="received"><dfn>Received on</dfn> Wed Jun 27 2007 - 11:46:22 BST</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude:long_name = &quot;Latitude&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude:units = &quot;degrees_north&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude:step = &quot;lat_delta&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude:valid_min = &quot;lat_min&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude:valid_max = &quot;lat_max&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude:axis = &quot;Y&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short variable_mean(latitude, longitude) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;variable:standard_name = &quot;standard_name&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;variable:units = &quot;units&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;variable:cell_method = &quot;mean (interval: 1 month)&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;variable:scale_factor = &quot;scale_factor&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;variable:add_offset = &quot;offset&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;variable:valid_min = &quot;valid_min&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;variable:valid_max = &quot;valid_max&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;variable:missing_value = &quot;missing_value&quot; ;
+<br />
+<br />What do I need to do in order to construct a netCDF file following the 
+<br />
+CF conventions for data projected on an azimuthal equidistant 
+<br />
+projection.
+<br />
+<br />Many thanks for your help.
+<br />
+<br />Best Regards,
+<br />
+Pepe
+<br />
+<br /><br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br />
+Tiscali ADSL 4 Mega Flat
+<br />
+Naviga senza limiti con l'unica Adsl a 4 Mega di velocit? a soli 19,95 ? al mese!
+<br />
+Attivala subito e hai GRATIS 2 MESI e l'ATTIVAZIONE. 
+<br />
+<a href="http://abbonati.tiscali.it/banner/middlepagetracking.html?c=webmailadsl&amp;r=http://abbonati.tiscali.it/adsl/sa/4flat_tc/&amp;a=webmail&amp;z=webmail&amp;t=14">http://abbonati.tiscali.it/banner/middlepagetracking.html?c=webmailadsl&amp;r=http://abbonati.tiscali.it/adsl/sa/4flat_tc/&amp;a=webmail&amp;z=webmail&amp;t=14</a>
+<br />
+<span id="received"><dfn>Received on</dfn> Mon Feb 27 2006 - 10:08:24 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -301,13 +181,12 @@ the weights, when equivalently areas can already be stored.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start862">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0863.html" title="Next message in the list">Brian Eaton: "[CF-metadata] Gaussian Lat/Lon grids"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0861.html" title="Previous message in the list">John Caron: "[CF-metadata] Gaussian Lat/Lon grids"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0861.html" title="Message to which this message replies">John Caron: "[CF-metadata] Gaussian Lat/Lon grids"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0863.html" title="Next message in the list">Brian Eaton: "[CF-metadata] Azimuthal Equidistant Projection"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0861.html" title="Previous message in the list">Bert Jagers: "[CF-metadata] CF convention for vector quantities"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0863.html" title="Next message in this discussion thread">Brian Eaton: "[CF-metadata] Gaussian Lat/Lon grids"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./0863.html" title="Next message in this discussion thread">Brian Eaton: "[CF-metadata] Azimuthal Equidistant Projection"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0863.html" title="Message sent in reply to this message">Brian Eaton: "[CF-metadata] Gaussian Lat/Lon grids"</a></li>
+<dfn>Reply</dfn>: <a href="./0863.html" title="Message sent in reply to this message">Brian Eaton: "[CF-metadata] Azimuthal Equidistant Projection"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -318,7 +197,7 @@ the weights, when equivalently areas can already be stored.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:57 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0861.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0863.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] udunits 1 or 2 for CF? from Comiskey, Glenn on 2011-06-01 (mailing-list-archive)</title>
-<meta name="Author" content="Comiskey, Glenn (g.comiskey)" />
-<meta name="Subject" content="[CF-metadata] udunits 1 or 2 for CF?" />
-<meta name="Date" content="2011-06-01" />
+<title>[CF-metadata] standard_name for coordinate variable corresponding to complex parts (real and imaginary) from Bryan Lawrence on 2010-06-24 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Bryan Lawrence (bryan.lawrence)" />
+<meta name="Subject" content="[CF-metadata] standard_name for coordinate variable corresponding to complex parts (real and imaginary)" />
+<meta name="Date" content="2010-06-24" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./3529.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3531.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] udunits 1 or 2 for CF?</h1>
-<!-- received="Wed Jun  1 10:22:25 2011" -->
-<!-- isoreceived="20110601092225" -->
-<!-- sent="Wed, 01 Jun 2011 16:22:25 -0000" -->
-<!-- isosent="20110601162225" -->
-<!-- name="Comiskey, Glenn" -->
-<!-- email="g.comiskey" -->
-<!-- subject="[CF-metadata] udunits 1 or 2 for CF?" -->
-<!-- id="BBFDF85BF71AD64FAC2CB716502BA1513F20EA_at_fgwfexch03.geos.co.uk" -->
+<a style="text-decoration:none" href="./3529.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3531.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard_name for coordinate variable corresponding to complex parts (real and imaginary)</h1>
+<!-- received="Thu Jun 24 04:45:55 2010" -->
+<!-- isoreceived="20100624034555" -->
+<!-- sent="Thu, 24 Jun 2010 11:45:55 +0100" -->
+<!-- isosent="20100624104555" -->
+<!-- name="Bryan Lawrence" -->
+<!-- email="bryan.lawrence" -->
+<!-- subject="[CF-metadata] standard_name for coordinate variable corresponding to complex parts (real and imaginary)" -->
+<!-- id="201006241145.55571.bryan.lawrence_at_stfc.ac.uk" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20100617154137.GA25985_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./3531.html" accesskey="d" title="Cameron-smith, Philip: &quot;[CF-metadata] udunits 1 or 2 for CF?&quot;">Next message</a> ]
-[ <a href="./3529.html" title="John Caron: &quot;[CF-metadata] Units: degrees - COARDS/CF Convention&quot;">Previous message</a> ]
+[ <a href="./3531.html" accesskey="d" title="Benno Blumenthal: &quot;[CF-metadata] standard_name for coordinate variable corresponding to complex parts (real and imaginary)&quot;">Next message</a> ]
+[ <a href="./3529.html" title="Nan Galbraith: &quot;[CF-metadata] water flow rate through sensor [Sec=Unclassified]&quot;">Previous message</a> ]
+[ <a href="./3526.html" title="Jonathan Gregory: &quot;[CF-metadata] standard_name for coordinate variable corresponding to complex parts (real and imaginary)&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./3531.html" accesskey="t" title="Cameron-smith, Philip: &quot;[CF-metadata] udunits 1 or 2 for CF?&quot;">Next in thread</a> ]
+[ <a href="./3531.html" accesskey="t" title="Benno Blumenthal: &quot;[CF-metadata] standard_name for coordinate variable corresponding to complex parts (real and imaginary)&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,130 +72,151 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Comiskey, Glenn &lt;<a href="mailto:g.comiskey?Subject=Re%3A%20%5BCF-metadata%5D%20udunits%201%20or%202%20for%20CF%3F">g.comiskey</a>&gt;
+<dfn>From</dfn>: Bryan Lawrence &lt;<a href="mailto:bryan.lawrence?Subject=Re%3A%20%5BCF-metadata%5D%20standard_name%20for%20coordinate%20variable%20corresponding%20to%20complex%20parts%20(real%20and%20imaginary)">bryan.lawrence</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 01 Jun 2011 16:22:25 -0000</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 24 Jun 2010 11:45:55 +0100</span><br />
 </address>
 <br />
-Hi All,
+Hi Folks
 <br />
-&nbsp;
+<br />I've not been following this in as much detail as I'd like, but I'd make 
 <br />
-As a new comer to the world of metorological/oceanographic datasets, I
+the observation that the change from
 <br />
-am currently reading up on a number of subject matters including the use
+<br />&nbsp;- physical quantity on a physical grid to
 <br />
-of the UDUNITS package and the use of version 1 or 2 for CF conformance.
+&nbsp;- a fourier transform (in one or more spatial dimensions) to
 <br />
-As a result of a URL kindly provided by Mike Grant, Plymouth Marine
+&nbsp;- spherical harmonics
 <br />
-Laboratory I came across a posting by Andrew Clegg in March 2010:
+<br />hasn't changed *what* is measured, nor where, it is, as Benno states, a 
 <br />
-&nbsp;
+transformation. We don't give things different standard names when 
 <br />
-<em class="quotelev1">&gt;I'm running into some problems regarding units in CF-compliant files.
+they're on different physical grids, or do we ...
+<br />
+<br />(Then we have the situation where we have a FT in time, which again, 
+<br />
+logically, hasn't changed what has been measured, but simply changed the 
+<br />
+4d grid.)
+<br />
+<br />... yes we do.
+<br />
+<br />We do split the vector components on a physical grid, so if we did a 
+<br />
+regrid from a lat/lon grid, to, say, a polar stereographic grid, the 
+<br />
+data has been reprojected and information has been propagated between 
+<br />
+things - ie the same information now has been projected into quantities 
+<br />
+with different standard names.
+<br />
+<br />So I don't think what we have done gives us a hard and fast rule about 
+<br />
+what we *should* do here, but it perhaps suggests that Jonathan's 
+<br />
+position is close to the status quo.
+<br />
+<br />BUT
+<br />
+<br /><em class="quotelev1">&gt; 3)  CF should handle spectral harmonics as well.
 </em><br />
-Up 
-<br />
-<em class="quotelev1">&gt;until now I've been using udunits 1 to check units, but I recently
+<em class="quotelev2">&gt;&gt; Yes, when it is requested to do so.
 </em><br />
-tried 
+<br />We would write spherical harmonic data now in CF if we could! But there 
 <br />
-<em class="quotelev1">&gt;the CF checker which uses udunits2. There are some unit strings which 
+are only so many things we can push at any one time ...
+<br />
+<br /><em class="quotelev1">&gt;I'd probably agree with you that in that case we would have a 
 </em><br />
-<em class="quotelev1">&gt;are valid in one but not the other. In particular, I am dealing with 
+coordinate dimension, because it would be multivalued and
+<br />
+<em class="quotelev1">&gt;the number and identity of the components would depend on the spectral
 </em><br />
-<em class="quotelev1">&gt;milligrams per cubic meter. In udunits1, I used 'ukg m^-3', which 
+<em class="quotelev1">&gt;resolution.
 </em><br />
-<em class="quotelev1">&gt;udunits2 rejects as invalid. udunits2 accepts 'mg m^-3' (which is much 
+<br />seems like an argument for solving Fourier Transforms in the same way. I 
+<br />
+think overloading cell-methods would be a dead end for this direction.
+<br />
+<br />However, despite the discussion thus far, I'm not entirely sure I 
+<br />
+understand exactly what Benno is proposing, not least because there are 
+<br />
+different ways of arranging FT components in an array - or exactly what 
+<br />
+Jonathan is implying for spherical harmonics.
+<br />
+<br />Bryan
+<br />
+<br /><br />On Thursday 17 Jun 2010 16:41:37 Jonathan Gregory wrote:
+<br />
+<em class="quotelev1">&gt; Dear Brian
 </em><br />
-<em class="quotelev1">&gt;better!), but udunits1 interprets this as to do with gravity. Because
+<em class="quotelev1">&gt; 
 </em><br />
-of 
-<br />
-<em class="quotelev1">&gt;this, I can't include a unit string which is generally compatible with 
+<em class="quotelev2">&gt; &gt; Isn't the use of &quot;cell_methods&quot; with a value of &quot;variance&quot; an
 </em><br />
-<em class="quotelev1">&gt; udunits...
+<em class="quotelev2">&gt; &gt; example where we don't require a different standard_name even
 </em><br />
-<br />My query relates to the specifications quoted for dealing with
-<br />
-milligrams per cubic meter values, i.e. 'ukg m^-3' for version 1, and
-<br />
-'mg m^-3' for version 2. When I enter either value, or indeed 'mg/m3',
-<br />
-into my installed version 1 (v1.12.11) of 'udunits' it reports the
-<br />
-definition as '1e-06 kilogram metre-3' implying a unit value of
-<br />
-'0.000001 kg/m3' - and what I would expect, i.e. kilograms per cubic
-<br />
-metre.
-<br />
-<br />However, when I enter the same values into my installed version 2
-<br />
-(v2.1.23) of 'udunits2' it reports the definition as '1e-06 m-3 kg'
-<br />
-implying a unit value of '0.000001 m3/kg' - and not what I would expect,
-<br />
-i.e. cubic metres per kilogram.
-<br />
-<br />Has anyone else noted this, or can somebody correct my interpretation of
-<br />
-the meaning of 'm-3 kg'. 
-<br />
-&nbsp;
-<br />
-Kind regards,
-<br />
-&nbsp;
-<br />
-Glenn Comiskey
-<br />
-Data System Administrator
-<br />
-&nbsp;
-<br />
-Fugro Global Environment &amp; Ocean Sciences
-<br />
-Fugro House, Hithercroft Road
-<br />
-Wallingford, Oxfordshire OX10 9RB, UK
-<br />
-Registration No: 2985431 / VAT No: GB 655475606
-<br />
-&nbsp;
-<br />
-Tel: +44 (0) 1491 820500 (Switchboard) / Tel: +44 (0) 1491 820559
-<br />
-(Direct) / Fax: +44 (0) 1491 820599
-<br />
-E-mail: g.comiskey at geos.com &lt;mailto:g.comiskey at g.comiskey_at_geos.com&gt;  /
-<br />
-Website: www.geos.com &lt;<a href="http://www.geos.com/">http://www.geos.com/</a>&gt; 
-<br />
-&nbsp;
-<br />
-Please note:
-<br />
-<br />*		The information contained in this message is privileged
-<br />
-and confidential and intended only for the use of the addresses.  If you
-<br />
-are not the intended recipient you should not read, copy, distribute or
-<br />
-otherwise use the information;
-<br />
-*		Fugro Global Environment &amp; Ocean Sciences accepts no
-<br />
-responsibility for loss or damage of any kind arising from the use of
-<br />
-this message;
-<br />
-*		If you have received this message in error, please note
-<br />
-the sender immediately and delete the message.
-<br />
-<span id="received"><dfn>Received on</dfn> Wed Jun 01 2011 - 10:22:25 BST</span>
+<em class="quotelev2">&gt; &gt; though the units are different?
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Yes. I simplified what I said in order not to be confusing, but
+</em><br />
+<em class="quotelev1">&gt;  perhaps the result was confusing! Cell methods specifies statistical
+</em><br />
+<em class="quotelev1">&gt;  computations done on the values of the variable in order to
+</em><br />
+<em class="quotelev1">&gt;  represent its subgrid variation, and the resulting statistic might
+</em><br />
+<em class="quotelev1">&gt;  have a different unit.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Maybe cell_methods could be extended to represent some kinds of
+</em><br />
+<em class="quotelev1">&gt;  transformation, such a calculating a probability density function or
+</em><br />
+<em class="quotelev1">&gt;  a Fourier transform. That would be new kind of purpose for it. I
+</em><br />
+<em class="quotelev1">&gt;  don't see a reason to prefer that to using the standard name to
+</em><br />
+<em class="quotelev1">&gt;  indicate the transformation, though, following the the guidelines
+</em><br />
+<em class="quotelev1">&gt;  for construction of standard names.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Best wishes
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Jonathan
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<br /><pre>
+-- 
+Bryan Lawrence
+Director of Environmental Archival and Associated Research
+(NCAS/British Atmospheric Data Centre and NCEO/NERC NEODC)
+STFC, Rutherford Appleton Laboratory
+Phone +44 1235 445012; Fax ... 5848; 
+Web: home.badc.rl.ac.uk/lawrence
+</pre>
+<span id="received"><dfn>Received on</dfn> Thu Jun 24 2010 - 04:45:55 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -201,12 +224,13 @@ the sender immediately and delete the message.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start3530">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./3531.html" title="Next message in the list">Cameron-smith, Philip: "[CF-metadata] udunits 1 or 2 for CF?"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./3529.html" title="Previous message in the list">John Caron: "[CF-metadata] Units: degrees - COARDS/CF Convention"</a></li>
+<li><dfn>Next message</dfn>: <a href="./3531.html" title="Next message in the list">Benno Blumenthal: "[CF-metadata] standard_name for coordinate variable corresponding to complex parts (real and imaginary)"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./3529.html" title="Previous message in the list">Nan Galbraith: "[CF-metadata] water flow rate through sensor [Sec=Unclassified]"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./3526.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] standard_name for coordinate variable corresponding to complex parts (real and imaginary)"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./3531.html" title="Next message in this discussion thread">Cameron-smith, Philip: "[CF-metadata] udunits 1 or 2 for CF?"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./3531.html" title="Next message in this discussion thread">Benno Blumenthal: "[CF-metadata] standard_name for coordinate variable corresponding to complex parts (real and imaginary)"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./3531.html" title="Message sent in reply to this message">Cameron-smith, Philip: "[CF-metadata] udunits 1 or 2 for CF?"</a></li>
+<dfn>Reply</dfn>: <a href="./3531.html" title="Message sent in reply to this message">Benno Blumenthal: "[CF-metadata] standard_name for coordinate variable corresponding to complex parts (real and imaginary)"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -217,7 +241,7 @@ the sender immediately and delete the message.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:46 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./3529.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3531.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

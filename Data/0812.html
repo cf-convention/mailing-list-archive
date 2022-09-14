@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] new standard names proposal for CEOP-II model ouput from m-hirai at met.kishou.go.jp on 2007-04-25 (mailing-list-archive)</title>
-<meta name="Author" content="m-hirai at met.kishou.go.jp (m-hirai)" />
-<meta name="Subject" content="[CF-metadata] new standard names proposal for CEOP-II model ouput" />
-<meta name="Date" content="2007-04-25" />
+<title>[CF-metadata] cf2 progress from Bryan Lawrence on 2006-01-10 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Bryan Lawrence (b.n.lawrence)" />
+<meta name="Subject" content="[CF-metadata] cf2 progress" />
+<meta name="Date" content="2006-01-10" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0811.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0813.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new standard names proposal for CEOP-II model ouput</h1>
-<!-- received="Wed Apr 25 03:50:34 2007" -->
-<!-- isoreceived="20070425025034" -->
-<!-- sent="Wed, 25 Apr 2007 18:50:34 +0900" -->
-<!-- isosent="20070425095034" -->
-<!-- name="m-hirai at met.kishou.go.jp" -->
-<!-- email="m-hirai" -->
-<!-- subject="[CF-metadata] new standard names proposal for CEOP-II model ouput" -->
-<!-- id="OF7A68D607.DAE3A328-ON492572C8.00361002-492572C8.003611C9_at_met.kishou.go.jp" -->
+<a style="text-decoration:none" href="./0811.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0813.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] cf2 progress</h1>
+<!-- received="Tue Jan 10 09:27:36 2006" -->
+<!-- isoreceived="20060110092736" -->
+<!-- sent="Tue, 10 Jan 2006 16:27:36 +0000" -->
+<!-- isosent="20060110162736" -->
+<!-- name="Bryan Lawrence" -->
+<!-- email="b.n.lawrence" -->
+<!-- subject="[CF-metadata] cf2 progress" -->
+<!-- id="200601101627.36339.b.n.lawrence_at_rl.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0813.html" accesskey="d" title="Jon Blower: &quot;[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF&quot;">Next message</a> ]
-[ <a href="./0811.html" title="Pamment, JA: &quot;[CF-metadata] statistic indices&quot;">Previous message</a> ]
+[ <a href="./0813.html" accesskey="d" title="Steve Hankin: &quot;[CF-metadata] cf2 progress&quot;">Next message</a> ]
+[ <a href="./0811.html" title="Alexander C Ruane: &quot;[CF-metadata] New standard names proposal for ECPC CEOP data&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0813.html" accesskey="t" title="Steve Hankin: &quot;[CF-metadata] cf2 progress&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,46 +70,48 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: m-hirai at met.kishou.go.jp &lt;<a href="mailto:m-hirai?Subject=Re%3A%20%5BCF-metadata%5D%20new%20standard%20names%20proposal%20for%20CEOP-II%20model%20ouput">m-hirai</a>&gt;
+<dfn>From</dfn>: Bryan Lawrence &lt;<a href="mailto:b.n.lawrence?Subject=Re%3A%20%5BCF-metadata%5D%20cf2%20progress">b.n.lawrence</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 25 Apr 2007 18:50:34 +0900</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 10 Jan 2006 16:27:36 +0000</span><br />
 </address>
 <br />
-__________________
+Hi Folks
 <br />
-<br />Dear Dr. Jonathan Gregory,
+<br />I thought I should report that I hope to summarise the feedback on the 
 <br />
-<br />My name is Masayuki Hirai.  I take over from Takuya Sakashita.
+whitepaper very shortly ...
 <br />
-<br />In general, there are two kinds of definitions for the volume ratio of
+<br />Meanwhile, the BADC is taking a few steps forward: Alison Pamment will be 
 <br />
-water in soil.
+taking responsibility here for the CF name management (to try and relieve 
 <br />
-* the volume ratio of soil water in soil (mass), which includes soil
+Jonathan).  She'll be beginning one day a week from February, working up to 
 <br />
-particles and soil pore.  This value must be from 0 to soil porosity (about
+three days a week in April. 
 <br />
-0.4).
+<br />Her first activities will be: 
 <br />
-* the volume ratio of soil water in soil pore.  This value must be from 0
+* Educating herself on CF, 
 <br />
-to 1.
+* Understanding how Jonathan has managed CF standard name evolution 
 <br />
-<br />On the other hand, it is not serious problem for us whether using the word
+<br />and in March we will move the standard name part of CF to the BADC (unless 
 <br />
-?condensed? water or ?water?.
+anyone has violent objections).
 <br />
-This distinction may be required if the model treat water vapor in soil
+<br />Cheers
 <br />
-separately from water in soil.
+Bryan
 <br />
-<br />Thank you very much.
-<br />
-<br />Best Regards,
-<br />
-Masayuki Hirai
-<br />
-<span id="received"><dfn>Received on</dfn> Wed Apr 25 2007 - 03:50:34 BST</span>
+<br /><pre>
+-- 
+Bryan Lawrence
+Director of Environmental Archival and Associated Research
+Head of the NCAS/British Atmospheric Data Centre
+CCLRC, Rutherford Appleton Laboratory
+Phone +44 1235 445012; Fax ... 5848; Web: home.badc.rl.ac.uk/lawrence
+</pre>
+<span id="received"><dfn>Received on</dfn> Tue Jan 10 2006 - 09:27:36 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -115,9 +119,13 @@ Masayuki Hirai
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start812">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0813.html" title="Next message in the list">Jon Blower: "[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0811.html" title="Previous message in the list">Pamment, JA: "[CF-metadata] statistic indices"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0813.html" title="Next message in the list">Steve Hankin: "[CF-metadata] cf2 progress"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0811.html" title="Previous message in the list">Alexander C Ruane: "[CF-metadata] New standard names proposal for ECPC CEOP data"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0813.html" title="Next message in this discussion thread">Steve Hankin: "[CF-metadata] cf2 progress"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0813.html" title="Message sent in reply to this message">Steve Hankin: "[CF-metadata] cf2 progress"</a></li>
+<li><dfn>Reply</dfn>: <a href="./0819.html" title="Message sent in reply to this message">Bryan Lawrence: "[CF-metadata] cf2 progress"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -128,7 +136,7 @@ Masayuki Hirai
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:56 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0811.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0813.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

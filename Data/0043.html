@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] one new standard name from Jonathan Gregory on 2006-02-24 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] one new standard name" />
-<meta name="Date" content="2006-02-24" />
+<title>[CF-metadata] Polar Stereographic Projection in CF from Brian Eaton on 2002-10-10 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Brian Eaton (eaton)" />
+<meta name="Subject" content="[CF-metadata] Polar Stereographic Projection in CF" />
+<meta name="Date" content="2002-10-10" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0042.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0044.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] one new standard name</h1>
-<!-- received="Fri Feb 24 05:12:58 2006" -->
-<!-- isoreceived="20060224051258" -->
-<!-- sent="Fri, 24 Feb 2006 12:12:58 +0000" -->
-<!-- isosent="20060224121258" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] one new standard name" -->
-<!-- id="20060224121258.GG11074_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0042.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0044.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Polar Stereographic Projection in CF</h1>
+<!-- received="Thu Oct 10 11:00:43 2002" -->
+<!-- isoreceived="20021010100043" -->
+<!-- sent="Thu, 10 Oct 2002 11:00:43 -0600 (MDT)" -->
+<!-- isosent="20021010170043" -->
+<!-- name="Brian Eaton" -->
+<!-- email="eaton" -->
+<!-- subject="[CF-metadata] Polar Stereographic Projection in CF" -->
+<!-- id="Pine.GSO.4.30.0210101056190.799-100000_at_siskiyou.cgd.ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="3DA4590D.4050603_at_unidata.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,9 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0044.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] one new standard name&quot;">Next message</a> ]
-[ <a href="./0042.html" title="Burkhardt.Rockel at gkss.de: &quot;Antwort: [CF-metadata] one new standard name&quot;">Previous message</a> ]
+[ <a href="./0044.html" accesskey="d" title="Brian Eaton: &quot;[CF-metadata] Re: [ccsm-progs] Re: [Esmf_tech] Standard names in ESMF...&quot;">Next message</a> ]
+[ <a href="./0042.html" title="John Caron: &quot;[CF-metadata] Polar Stereographic Projection in CF&quot;">Previous message</a> ]
+[ <a href="./0042.html" title="John Caron: &quot;[CF-metadata] Polar Stereographic Projection in CF&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0045.html" accesskey="t" title="John Caron: &quot;[CF-metadata] Polar Stereographic Projection in CF&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,26 +72,114 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20one%20new%20standard%20name">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Brian Eaton &lt;<a href="mailto:eaton?Subject=Re%3A%20%5BCF-metadata%5D%20Polar%20Stereographic%20Projection%20in%20CF">eaton</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 24 Feb 2006 12:12:58 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 10 Oct 2002 11:00:43 -0600 (MDT)</span><br />
 </address>
 <br />
-Dear Burkhardt
+Hi John,
 <br />
-<br /><em class="quotelev1">&gt; I need a standard name for water in all phases, thus
+<br />CF compliance requires that the horizontal location of each grid point be
+<br />
+specified by latitude and longitude coordinates.  In the case of a grid
+<br />
+resulting from a polar stereographic projection this could be accomplished
+<br />
+by the use of 2D lat/lon arrays as described in sec 5.2.  Note that the
+<br />
+specification of a projection and the projection coordinates is not
+<br />
+sufficient for compliance.
+<br />
+<br />The current working draft (linked to the CF home page as CF-1.0-beta4)
+<br />
+contains a new section on grid mappings and projections.  The only mapping
+<br />
+currently provided is a rotated pole grid.  We intend to handle projections
+<br />
+using the same mechanism, but haven't yet determined a source of key/value
+<br />
+pairs to describe projections.  It would be best to have an external
+<br />
+reference for this rather than making up our own and listing them in an
+<br />
+appendix as we've done for the rotated pole example (which is not a
+<br />
+projection).  Do you think the FGDC specification of projections would be
+<br />
+suitable for this (and could you point me towards a reference for them)?
+<br />
+Also, are you aware of any ISO standards related to this?
+<br />
+<br />Thanks,
+<br />
+Brian
+<br />
+<br />On Wed, 9 Oct 2002, John Caron wrote:
+<br />
+<br /><em class="quotelev1">&gt; IMHO, its important to store the actual projection. So the base coordinate
 </em><br />
-<em class="quotelev1">&gt; tendency_of_atmosphere_water_content_due_to_advection (kg m-2)
+<em class="quotelev1">&gt; system is x,y in units (typically) of &quot;km on the projection plane&quot;. hopefully
 </em><br />
-<br />kg m-2 s-1, I think.
-<br />
-<br />Good! Please assume we will add this at the next convenient opportunity.
-<br />
-<br />Cheers
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Fri Feb 24 2006 - 05:12:58 GMT</span>
+<em class="quotelev1">&gt; you are using a standard projection (eg polar stereographic), and then you use
+</em><br />
+<em class="quotelev1">&gt; some well-known way of specifying the projection, eg FGDC. knowing the
+</em><br />
+<em class="quotelev1">&gt; projection is necessary to allow full interoperability with GIS. This doesnt
+</em><br />
+<em class="quotelev1">&gt; cost much, just 2 1D coordinate variables.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; In addition, you might want to encode the lat/lon positions of each grid point,
+</em><br />
+<em class="quotelev1">&gt; using the 2D coordinate axes as per section 5.2. This costs 2 2D variables in
+</em><br />
+<em class="quotelev1">&gt; storage, which may or may not be small compared to the size of the file.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I dont see anywhere in the CF that standardizes how to specify the
+</em><br />
+<em class="quotelev1">&gt; projection(?). I think its very important, perhaps it could be done for the next
+</em><br />
+<em class="quotelev1">&gt; version ?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Mark A Ohrenschall wrote:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; Hello,
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; I'm wondering if I should follow section 5.2 of the CF Conventions in
+</em><br />
+<em class="quotelev2">&gt; &gt; representing data that is in a polar stereographic projection. And at
+</em><br />
+<em class="quotelev2">&gt; &gt; the risk of belaboring the obvious, are the two-dimensional coordinate
+</em><br />
+<em class="quotelev2">&gt; &gt; variables respectively grids of latitude and longitude values for each
+</em><br />
+<em class="quotelev2">&gt; &gt; grid cell in the poloar stereographic grid?
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; Thanks,
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; Mark
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<span id="received"><dfn>Received on</dfn> Thu Oct 10 2002 - 11:00:43 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -95,9 +187,13 @@ Dear Burkhardt
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start43">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0044.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] one new standard name"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0042.html" title="Previous message in the list">Burkhardt.Rockel at gkss.de: "Antwort: [CF-metadata] one new standard name"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0044.html" title="Next message in the list">Brian Eaton: "[CF-metadata] Re: [ccsm-progs] Re: [Esmf_tech] Standard names in ESMF..."</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0042.html" title="Previous message in the list">John Caron: "[CF-metadata] Polar Stereographic Projection in CF"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0042.html" title="Message to which this message replies">John Caron: "[CF-metadata] Polar Stereographic Projection in CF"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0045.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] Polar Stereographic Projection in CF"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0045.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] Polar Stereographic Projection in CF"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -108,7 +204,7 @@ Dear Burkhardt
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:43 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0042.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0044.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

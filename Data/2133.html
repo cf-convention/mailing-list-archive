@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] defining two lat-lon grids in same file from Steve Hankin on 2009-07-17 (mailing-list-archive)</title>
-<meta name="Author" content="Steve Hankin (Steven.C.Hankin)" />
-<meta name="Subject" content="[CF-metadata] defining two lat-lon grids in same file" />
-<meta name="Date" content="2009-07-17" />
+<title>[CF-metadata] what standard names are for from John Graybeal on 2008-04-11 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Graybeal (graybeal)" />
+<meta name="Subject" content="[CF-metadata] what standard names are for" />
+<meta name="Date" content="2008-04-11" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2132.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2134.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] defining two lat-lon grids in same file</h1>
-<!-- received="Fri Jul 17 13:09:45 2009" -->
-<!-- isoreceived="20090717120945" -->
-<!-- sent="Fri, 17 Jul 2009 12:09:45 -0700" -->
-<!-- isosent="20090717190945" -->
-<!-- name="Steve Hankin" -->
-<!-- email="Steven.C.Hankin" -->
-<!-- subject="[CF-metadata] defining two lat-lon grids in same file" -->
-<!-- id="4A60CC79.1070000_at_noaa.gov" -->
+<a style="text-decoration:none" href="./2132.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2134.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] what standard names are for</h1>
+<!-- received="Fri Apr 11 00:05:30 2008" -->
+<!-- isoreceived="20080410230530" -->
+<!-- sent="Thu, 10 Apr 2008 23:05:30 -0700" -->
+<!-- isosent="20080411060530" -->
+<!-- name="John Graybeal" -->
+<!-- email="graybeal" -->
+<!-- subject="[CF-metadata] what standard names are for" -->
+<!-- id="p06240868c424aa1fc5d0_at_[134.89.11.100]" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="1247798946.3083.7.camel_at_argo.antcrc.utas.edu.au" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2134.html" accesskey="d" title="Brown, Jennifer: &quot;[CF-metadata] CF standard names for Ocean Dynamics&quot;">Next message</a> ]
-[ <a href="./2132.html" title="Paola Petrelli: &quot;[CF-metadata] defining two lat-lon grids in same file&quot;">Previous message</a> ]
-[ <a href="./2132.html" title="Paola Petrelli: &quot;[CF-metadata] defining two lat-lon grids in same file&quot;">In reply to</a> ]
+[ <a href="./2134.html" accesskey="d" title="olivier lauret: &quot;[CF-metadata] Adding new standard names for satellite altimetry&quot;">Next message</a> ]
+[ <a href="./2132.html" title="John Graybeal: &quot;[CF-metadata] what standard names are for&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,64 +68,59 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Steve Hankin &lt;<a href="mailto:Steven.C.Hankin?Subject=Re%3A%20%5BCF-metadata%5D%20defining%20two%20lat-lon%20grids%20in%20same%20file">Steven.C.Hankin</a>&gt;
+<dfn>From</dfn>: John Graybeal &lt;<a href="mailto:graybeal?Subject=Re%3A%20%5BCF-metadata%5D%20what%20standard%20names%20are%20for">graybeal</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 17 Jul 2009 12:09:45 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 10 Apr 2008 23:05:30 -0700</span><br />
 </address>
 <br />
-Hi Paola,
+Sorry, should have read trac tickets 27 and 24 before posting my response.  But I have since read those and posted my painfully extensive contributions there; they are consistent with what I wrote here.  (I think <a href="http://cf-pcmdi.llnl.gov/trac/ticket/">http://cf-pcmdi.llnl.gov/trac/ticket/</a>&lt;<a href="http://cf-pcmdi.llnl.gov/trac/ticket/24">http://cf-pcmdi.llnl.gov/trac/ticket/24</a>&gt;24   has some particularly heavy lifting re your points, Steve.)
 <br />
-<br />There are no problems to having multiple lat-long grids in the same 
+<br />John
 <br />
-file.  The individual axes (coordinate variables) are identified as 
+<br /><br />At 12:02 PM -0700 4/10/08, Steve Hankin wrote:
 <br />
-latitudes/longitudes by their units attributes and by the optional (but 
-<br />
-recommended) standard_name and axis attributes.  Just give the multiple 
-<br />
-latitude and longitude axes distinct varaible names and self-describing 
-<br />
-long_names and you are on your way.
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;- Steve
-<br />
-<br />===================
-<br />
-<br />Paola Petrelli wrote:
-<br />
-<em class="quotelev1">&gt; Hi,
+<em class="quotelev1">&gt;All,
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; I'm new to the CF conventions,
-</em><br />
-<em class="quotelev1">&gt; I'll like to create a CF compliant file for some oceanographic data
-</em><br />
-<em class="quotelev1">&gt; where
-</em><br />
-<em class="quotelev1">&gt;  observational data are defined on a 97X131 lat-lon grid, and
-</em><br />
-<em class="quotelev1">&gt;  derived current velocity are defined on a 96X130 lat-lon grid
+<em class="quotelev1">&gt;This thread and the other couple that are going in parallel are getting us to examine important fundamentals of CF &quot;philosophy&quot;.  In the spirit of reaching a shared understanding of those fundamentals (effectively &quot;voting&quot;), I'm tossing my own viewpoint (a probably idiosyncratic and definitely simplified hat) into the ring here:
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; My question is:  can two lat-lon grids co-exist in the same file and how
-</em><br />
-<em class="quotelev1">&gt; do I describe them?
+<em class="quotelev1">&gt;   ==&gt;Note: We clearly need to develop use cases that clarify when and for what specific purposes standard_names are being used (Balaji's point).  The following points presume that valid use cases do exist.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Many thanks,
+<em class="quotelev1">&gt;1.	The CF standard name list should be self-contained, internally-consistent and as complete as we deem its needs to be for our identified user base.
+</em><br />
+<em class="quotelev1">&gt;It should not attempt to be so extensible that it can address all possible user communities.  (Jonathan's point)
+</em><br />
+<em class="quotelev1">&gt;Individual standard names should not attempt to be so complete that they serve as definitions. (Bryan's point)
+</em><br />
+<em class="quotelev1">&gt;(We hope that controlled vocabularies created by other communities will try to achieve similar goals.)
+</em><br />
+<em class="quotelev1">&gt;2.	Vocabulary translation services should provide the means for translation between lists generated by different communities.  (Roy's point)
+</em><br />
+<em class="quotelev1">&gt;3.	CF should define optional attributes that allow a CF file to point to &quot;external&quot; vocabularies, but there should be no aspect of strict CF compliance that requires reference to these external resources. (Benno's point -- see <a href="http://cf-pcmdi.llnl.gov/trac/ticket/27">http://cf-pcmdi.llnl.gov/trac/ticket/27</a>)
+</em><br />
+<em class="quotelev1">&gt;Specialized communities can use these means to &quot;personalize&quot; their CF files, while retaining CF compliance.
+</em><br />
+<em class="quotelev1">&gt;    - Steve
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Dr Paola Petrelli
+<em class="quotelev1">&gt;P.S.  The implication of this approach is that if no CF standard_name for a given parameter exists at the time that files must be created, then no standard_name attribute should be included for that parameter.   However,  bullet #3 allows the file to include a non-CF, community-specific standardized parameter name and a link to its vocabulary.  Vocabulary translation services can hope to provide the link back to a CF standard_name if one is created at a later time.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;   
-</em><br />
-<span id="received"><dfn>Received on</dfn> Fri Jul 17 2009 - 13:09:45 BST</span>
+<br /><br /><pre>
+-- 
+----------
+John Graybeal   &lt;mailto:graybeal at mbari.org&gt;  -- 831-775-1956
+Monterey Bay Aquarium Research Institute
+Marine Metadata Initiative: <a href="http://marinemetadata.org">http://marinemetadata.org</a>   ||  Shore Side Data System: <a href="http://www.mbari.org/ssds">http://www.mbari.org/ssds</a>
+</pre>
+<span id="received"><dfn>Received on</dfn> Fri Apr 11 2008 - 00:05:30 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -135,9 +128,8 @@ long_names and you are on your way.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2133">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2134.html" title="Next message in the list">Brown, Jennifer: "[CF-metadata] CF standard names for Ocean Dynamics"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2132.html" title="Previous message in the list">Paola Petrelli: "[CF-metadata] defining two lat-lon grids in same file"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./2132.html" title="Message to which this message replies">Paola Petrelli: "[CF-metadata] defining two lat-lon grids in same file"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2134.html" title="Next message in the list">olivier lauret: "[CF-metadata] Adding new standard names for satellite altimetry"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2132.html" title="Previous message in the list">John Graybeal: "[CF-metadata] what standard names are for"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -149,7 +141,7 @@ long_names and you are on your way.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:20 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2132.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2134.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

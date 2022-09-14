@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Rotated pole definition from DeTracey, Brendan on 2014-10-16 (mailing-list-archive)</title>
-<meta name="Author" content="DeTracey, Brendan (Brendan.DeTracey)" />
-<meta name="Subject" content="[CF-metadata] Rotated pole definition" />
-<meta name="Date" content="2014-10-16" />
+<title>[CF-metadata] standard names for sediment trap data from Thomas Trull on 2013-10-10 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Thomas Trull (Tom.Trull)" />
+<meta name="Subject" content="[CF-metadata] standard names for sediment trap data" />
+<meta name="Date" content="2013-10-10" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./6596.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6598.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Rotated pole definition</h1>
-<!-- received="Thu Oct 16 05:49:02 2014" -->
-<!-- isoreceived="20141016044902" -->
-<!-- sent="Thu, 16 Oct 2014 11:49:02 +0000" -->
-<!-- isosent="20141016114902" -->
-<!-- name="DeTracey, Brendan" -->
-<!-- email="Brendan.DeTracey" -->
-<!-- subject="[CF-metadata] Rotated pole definition" -->
-<!-- id="22C6A8A4889F0C45B71BF3272671822EE286_at_SVNSBIOMBX02.ENT.dfo-mpo.ca" -->
+<a style="text-decoration:none" href="./6596.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6598.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard names for sediment trap data</h1>
+<!-- received="Thu Oct 10 03:28:08 2013" -->
+<!-- isoreceived="20131010022808" -->
+<!-- sent="Thu, 10 Oct 2013 09:28:08 +0000" -->
+<!-- isosent="20131010092808" -->
+<!-- name="Thomas Trull" -->
+<!-- email="Tom.Trull" -->
+<!-- subject="[CF-metadata] standard names for sediment trap data" -->
+<!-- id="76A5BC52-F421-4183-86E8-A340E29E1404_at_utas.edu.au" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="201310091616.25139.mlankhorst_at_ucsd.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./6598.html" accesskey="d" title="Hedley, Mark: &quot;[CF-metadata] Rotated pole definition&quot;">Next message</a> ]
-[ <a href="./6596.html" title="Jim Biard: &quot;[CF-metadata] Auxiliary coordinates without associated data variables&quot;">Previous message</a> ]
+[ <a href="./6598.html" accesskey="d" title="Maureen Conte: &quot;[CF-metadata] standard names for sediment trap data&quot;">Next message</a> ]
+[ <a href="./6596.html" title="John Graybeal: &quot;[CF-metadata] standard names for sediment trap data&quot;">Previous message</a> ]
+[ <a href="./6595.html" title="Matthias Lankhorst: &quot;[CF-metadata] standard names for sediment trap data&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./6598.html" accesskey="t" title="Hedley, Mark: &quot;[CF-metadata] Rotated pole definition&quot;">Next in thread</a> ]
+[ <a href="./6598.html" accesskey="t" title="Maureen Conte: &quot;[CF-metadata] standard names for sediment trap data&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,24 +72,164 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: DeTracey, Brendan &lt;<a href="mailto:Brendan.DeTracey?Subject=Re%3A%20%5BCF-metadata%5D%20Rotated%20pole%20definition">Brendan.DeTracey</a>&gt;
+<dfn>From</dfn>: Thomas Trull &lt;<a href="mailto:Tom.Trull?Subject=Re%3A%20%5BCF-metadata%5D%20standard%20names%20for%20sediment%20trap%20data">Tom.Trull</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 16 Oct 2014 11:49:02 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 10 Oct 2013 09:28:08 +0000</span><br />
 </address>
 <br />
-Hi,
+Hi Matthias,
 <br />
-<br />I am looking for clarification on the rotated pole definition.  Is the globe rotated such that the north pole traces a great circle from its original to its new position? And then rotated counter clockwise  about the new pole by north_pole_grid_longitude degrees? There is not enough detail in the CF document describing this.
+I like your proposed canonical units and terms.  The names are also systematic and clear.  I do not see the need to include the word total when an elemental flux is not split into molecular or other components.  Items that I think might need further consideration:
 <br />
-<br />Brendan
+1. In the list of XXX items, would it be clearer to specify silicon rather than silica for all terms related to silica  (since the molecular composition of lithogenic, biogenic silica forms are often unknown)?  Or do we have to write XXX as '_biogenic_silica_as_silicon'
 <br />
--------------- next part --------------
+2. Is it worth settling on a standard approach to isotopic (and other) compositions  ?  For example, 13C-POC.  Units of flux rather than composition would be somewhat unusual for isotopes, making variables starting with 'sinking_mass_flux' somewhat odd.  That is unfortunate, since indicating sinking flux as the overall sample type seems to be the top category worth retaining.  One way around this would be a slight reordering to two groups of variables, e.g.:
 <br />
-An HTML attachment was scrubbed...
+sinking_flux_mass_lithogenic_silicon
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20141016/ddd01f76/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20141016/ddd01f76/attachment.html</a>&gt;
+sinking_flux_composition_lithogenic_silicon_isotopic_ratio_30_28
 <br />
-<span id="received"><dfn>Received on</dfn> Thu Oct 16 2014 - 05:49:02 BST</span>
+<br />Or is that clumsy?
+<br />
+<br />Of course we could force all compositional information (isotopes, diatom species relative abundances, etc. )into mass flux units, with satisfyingly simple units, but then they all have to be reconverted into units people want to use. This would mean carrying absolute isotopic abundance for standards within the files for completeness.
+<br />
+<br />As usual there are many ways to skin a cat, but none are easy when the cat sees you coming!
+<br />
+<br />Best wishes,
+<br />
+Tom
+<br />
+<br /><br />On 10/10/2013, at 10:16, &quot;Matthias Lankhorst&quot; &lt;mlankhorst at ucsd.edu&gt; wrote:
+<br />
+<br />Dear CF community,
+<br />
+<br />in the OceanSITES project, we would like to publish data from sediment traps 
+<br />
+in files, using the CF conventions. Sediment traps are devices moored 
+<br />
+underwater in the ocean, which collect sinking particles (detritus) in a 
+<br />
+funnel and into sample bottles for later analyses. Analyses can be done for a 
+<br />
+variety of substances. It looks like we need a few more standard names for 
+<br />
+these, and possibly a discussion whether some of them should be expressed as 
+<br />
+mass fluxes or as substance amount (mole) fluxes.
+<br />
+<br />I noticed that CF already has these standard names, all as mole fluxes with 
+<br />
+canonical units of mol m-2 s-1:
+<br />
+<br />sinking_mole_flux_of_aragonite_expressed_as_carbon_in_sea_water
+<br />
+sinking_mole_flux_of_calcite_expressed_as_carbon_in_sea_water
+<br />
+sinking_mole_flux_of_particulate_iron_in_sea_water
+<br />
+sinking_mole_flux_of_particulate_organic_matter_expressed_as_carbon_in_sea_water
+<br />
+sinking_mole_flux_of_particulate_organic_nitrogen_in_sea_water
+<br />
+sinking_mole_flux_of_particulate_organic_phosphorus_in_sea_water
+<br />
+sinking_mole_flux_of_particulate_silicon_in_sea_water
+<br />
+<br />Here is the list of quantities that we need to address in OceanSITES. My 
+<br />
+initial proposal is to introduce them all as mass fluxes with canonical units 
+<br />
+of kg m-2 s-1. If we should rather go with mole fluxes like the ones above, 
+<br />
+please chime in.
+<br />
+<br />Total/organic mass:
+<br />
+Propose new standard names:
+<br />
+sinking_mass_flux_of_particulate_matter_in_sea_water
+<br />
+sinking_mass_flux_of_particulate_organic_matter_in_sea_water
+<br />
+(I suppose these are understood as dry mass, i.e. weighed after water has 
+<br />
+evaporated.)
+<br />
+<br />Particulate organic, inorganic, total carbon:
+<br />
+Propose new standard names:
+<br />
+sinking_mass_flux_of_particulate_organic_carbon_in_sea_water
+<br />
+sinking_mass_flux_of_particulate_inorganic_carbon_in_sea_water
+<br />
+sinking_mass_flux_of_particulate_carbon_in_sea_water
+<br />
+(or should we include &quot;total&quot; somewhere in the latter?)
+<br />
+<br />Particulate organic, inorganic, total nitrogen:
+<br />
+Propose new standard names:
+<br />
+sinking_mass_flux_of_particulate_organic_nitrogen_in_sea_water
+<br />
+sinking_mass_flux_of_particulate_inorganic_nitrogen_in_sea_water
+<br />
+sinking_mass_flux_of_particulate_nitrogen_in_sea_water
+<br />
+(or should we include &quot;total&quot; somewhere in the latter?)
+<br />
+<br />Other particulate substances from a list:
+<br />
+Propose new standard names for each of the following, to be constructed as:
+<br />
+sinking_mass_flux_of_particulate_XXX_in_sea_water,
+<br />
+where XXX is:
+<br />
+- aluminum
+<br />
+- iron
+<br />
+- phosphorous
+<br />
+- silica
+<br />
+- biogenic_silica
+<br />
+- lithogenic_silica
+<br />
+- calcium
+<br />
+- titanium
+<br />
+- manganese
+<br />
+- barium
+<br />
+- magnesium
+<br />
+<br />Your expert comments are highly appreciated!
+<br />
+<br />Respectfully,  Matthias
+<br />
+<br /><br /><pre>
+-- 
+_______________________________________
+Dr. Matthias Lankhorst
+Scripps Institution of Oceanography
+9500 Gilman Drive, Mail Code 0230
+La Jolla, CA 92093-0230
+USA
+Phone:  +1 858 822 5013
+Fax:    +1 858 534 9820
+E-Mail: mlankhorst at ucsd.edu
+<a href="http://www-pord.ucsd.edu/~mlankhorst/">http://www-pord.ucsd.edu/~mlankhorst/</a>
+                          Cliquez sur l'url suivante 
+<a href="https://www.mailcontrol.com/sr/lY1WG0lkPnzGX2PQPOmvUpJBCTqJzJUe2yY2IM9UP7ZY+SeOyXIDbMOdGGRUOm5ehsBIKC7m4TwFoPzuIXnePg">https://www.mailcontrol.com/sr/lY1WG0lkPnzGX2PQPOmvUpJBCTqJzJUe2yY2IM9UP7ZY+SeOyXIDbMOdGGRUOm5ehsBIKC7m4TwFoPzuIXnePg</a>==  
+                   si ce message est ind?sirable (pourriel).
+</pre>
+<span id="received"><dfn>Received on</dfn> Thu Oct 10 2013 - 03:28:08 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -95,12 +237,14 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start6597">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./6598.html" title="Next message in the list">Hedley, Mark: "[CF-metadata] Rotated pole definition"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./6596.html" title="Previous message in the list">Jim Biard: "[CF-metadata] Auxiliary coordinates without associated data variables"</a></li>
+<li><dfn>Next message</dfn>: <a href="./6598.html" title="Next message in the list">Maureen Conte: "[CF-metadata] standard names for sediment trap data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./6596.html" title="Previous message in the list">John Graybeal: "[CF-metadata] standard names for sediment trap data"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./6595.html" title="Message to which this message replies">Matthias Lankhorst: "[CF-metadata] standard names for sediment trap data"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./6598.html" title="Next message in this discussion thread">Hedley, Mark: "[CF-metadata] Rotated pole definition"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./6598.html" title="Next message in this discussion thread">Maureen Conte: "[CF-metadata] standard names for sediment trap data"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./6598.html" title="Message sent in reply to this message">Hedley, Mark: "[CF-metadata] Rotated pole definition"</a></li>
+<dfn>Reply</dfn>: <a href="./6598.html" title="Message sent in reply to this message">Maureen Conte: "[CF-metadata] standard names for sediment trap data"</a></li>
+<li><dfn>Reply</dfn>: <a href="./6599.html" title="Message sent in reply to this message">Cameron-smith, Philip: "[CF-metadata] standard names for sediment trap data"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -111,7 +255,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:48 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./6596.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6598.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

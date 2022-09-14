@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] axis attribute from John Caron on 2006-11-23 (mailing-list-archive)</title>
-<meta name="Author" content="John Caron (caron)" />
-<meta name="Subject" content="[CF-metadata] axis attribute" />
-<meta name="Date" content="2006-11-23" />
+<title>[CF-metadata] Re: meaning of depth in the ocean from Rich Signell on 2004-10-27 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Rich Signell (rsignell)" />
+<meta name="Subject" content="[CF-metadata] Re: meaning of depth in the ocean" />
+<meta name="Date" content="2004-10-27" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0486.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0488.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] axis attribute</h1>
-<!-- received="Thu Nov 23 10:32:22 2006" -->
-<!-- isoreceived="20061123103222" -->
-<!-- sent="Thu, 23 Nov 2006 10:32:22 -0700" -->
-<!-- isosent="20061123173222" -->
-<!-- name="John Caron" -->
-<!-- email="caron" -->
-<!-- subject="[CF-metadata] axis attribute" -->
-<!-- id="4565DB26.7040500_at_unidata.ucar.edu" -->
+<a style="text-decoration:none" href="./0486.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0488.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Re: meaning of depth in the ocean</h1>
+<!-- received="Wed Oct 27 14:13:46 2004" -->
+<!-- isoreceived="20041027131346" -->
+<!-- sent="Wed, 27 Oct 2004 16:13:46 -0400" -->
+<!-- isosent="20041027201346" -->
+<!-- name="Rich Signell" -->
+<!-- email="rsignell" -->
+<!-- subject="[CF-metadata] Re: meaning of depth in the ocean" -->
+<!-- id="4180017A.7050806_at_usgs.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20061122112751.GA8728_at_met.reading.ac.uk" -->
+<!-- inreplyto="20041026223749.GA24030_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0488.html" accesskey="d" title="John Caron: &quot;[CF-metadata] axis attribute - curvilinear cartesian coordinates case&quot;">Next message</a> ]
-[ <a href="./0486.html" title="Jonathan Gregory: &quot;Fwd: Re: [CF-metadata] axis attribute&quot;">Previous message</a> ]
-[ <a href="./0476.html" title="Jonathan Gregory: &quot;[CF-metadata] axis attribute&quot;">In reply to</a> ]
+[ <a href="./0488.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] meaning of depth in the ocean&quot;">Next message</a> ]
+[ <a href="./0486.html" title="Jonathan Gregory: &quot;[CF-metadata] tides&quot;">Previous message</a> ]
+[ <a href="./0485.html" title="Jonathan Gregory: &quot;[CF-metadata] Re: meaning of depth in the ocean&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,78 +70,185 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20axis%20attribute">caron</a>&gt;
+<dfn>From</dfn>: Rich Signell &lt;<a href="mailto:rsignell?Subject=Re%3A%20%5BCF-metadata%5D%20Re%3A%20meaning%20of%20depth%20in%20the%20ocean">rsignell</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 23 Nov 2006 10:32:22 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 27 Oct 2004 16:13:46 -0400</span><br />
 </address>
 <br />
 Jonathan Gregory wrote:
 <br />
-<br /><em class="quotelev1">&gt;I've argued so far in favour of restricting axis X and Y to 1D lon and lat
-</em><br />
-<em class="quotelev1">&gt;coord variables. Now I'd like to argue the alternative of generalising them
-</em><br />
-<em class="quotelev1">&gt;to be used with any 1D horizontal coord variables i.e. removing the exclusion
-</em><br />
-<em class="quotelev1">&gt;that they can't be used for rotated lon and lat.
+<br /><em class="quotelev1">&gt;Dear Rich
 </em><br />
 <em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;For 1D lon and lat, the axis attribute is still redundant while we adhere to
-</em><br />
-<em class="quotelev1">&gt;COARDS, because such coord vars must be identifiable by units (and can
-</em><br />
-<em class="quotelev1">&gt;optionally also be identified by standard name). However for other horizontal
-</em><br />
-<em class="quotelev1">&gt;coordinates the axis attribute is not redundant if generalised. It tells you
-</em><br />
-<em class="quotelev1">&gt;that this axis is a horizontal axis. If you had some non-spatiotemporal
-</em><br />
-<em class="quotelev1">&gt;axes e.g. realization or land cover type, it might be useful to be told which
-</em><br />
-<em class="quotelev1">&gt;of the axes are the horizontal coordinates, since this is not easy to deduce
-</em><br />
-<em class="quotelev1">&gt;from the standard names without some intelligence. Is it useful to know?
 </em><br />
 <em class="quotelev1">&gt;  
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-Perhaps this is not an intrinsic property of the data, but more of a 
-<br />
-plotting preference?
-<br />
-<br /><em class="quotelev1">&gt;I think the choice of X and Y is arbitrary. Both of them indicate horizontal,
+<em class="quotelev2">&gt;&gt;mean sea level should *not* be thought of as the local geopotential 
 </em><br />
-<em class="quotelev1">&gt;and the only difference is a preferred choice for plotting, I imagine. Rotated
+<em class="quotelev2">&gt;&gt;for ocean models.
 </em><br />
-<em class="quotelev1">&gt;lon is not necessarily X, for instance, if the pole is tipped over a long way.
+<em class="quotelev2">&gt;&gt;Consider the Gulf Stream region, where there is a jump in mean sea level 
+</em><br />
+<em class="quotelev2">&gt;&gt;of order 1 meter!
+</em><br />
+<em class="quotelev2">&gt;&gt;    
+</em><br />
+<em class="quotelev2">&gt;&gt;
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;I would not favour allowing X and Y on 2D aux coord variables. I think that
+<em class="quotelev1">&gt;Exactly. Hence the geoid (or geopotential surface) and the &quot;surface&quot; (= mean
 </em><br />
-<em class="quotelev1">&gt;in cases where there are 2D horizontal aux coord variables, the X and Y
+<em class="quotelev1">&gt;sea level) should not be confused in defining standard names.
 </em><br />
-<em class="quotelev1">&gt;designations still properly belong to the 1D axes e.g. the projection coords.
-</em><br />
-<em class="quotelev1">&gt;Because these axes are thus designated, you can tell which 2D coord vars are
-</em><br />
-<em class="quotelev1">&gt;horizontal; they have dimensions belonging to axes which are labelled with
-</em><br />
-<em class="quotelev1">&gt;X and Y. Perhaps we should make it mandatory to attach standard_names of
-</em><br />
-<em class="quotelev1">&gt;longitude and latitude to 2D auxiliary lon and lat variables so that they can
-</em><br />
-<em class="quotelev1">&gt;be easily identified as such.
+<em class="quotelev1">&gt;
 </em><br />
 <em class="quotelev1">&gt;  
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-I agree with  mandatory standard_names for 2D lat, lon.
+<em class="quotelev2">&gt;&gt;We could have differing standard names, or we could just say that depth 
+</em><br />
+<em class="quotelev2">&gt;&gt;is defined
+</em><br />
+<em class="quotelev2">&gt;&gt;relative to &quot;the datum&quot; and have a &quot;datum_offset&quot; field that contains the
+</em><br />
+<em class="quotelev2">&gt;&gt;offset between &quot;the datum&quot; and the geoid.
+</em><br />
+<em class="quotelev2">&gt;&gt;    
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;I tend to think it is better to make the surface/geoid distinction even more
+</em><br />
+<em class="quotelev1">&gt;blatant by putting it in the standard name. 
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+Ok, that's fine.   I would just like to make sure that we allow  the 
 <br />
-<span id="received"><dfn>Received on</dfn> Thu Nov 23 2006 - 10:32:22 GMT</span>
+possibility of using a
+<br />
+local datum for z=0 and specifying the offset between this local datum 
+<br />
+and the geoid.
+<br />
+This is important, since many people use local datums that are not the 
+<br />
+geoid, and we don't want
+<br />
+to break any of their software.  (we don't break anything if we only 
+<br />
+*add* variables and attributes)
+<br />
+<br />Here's another possible solution:  
+<br />
+Just as we allow different units, origin and offset for time:
+<br />
+(e.g.   units:&quot;days since 1968-05-23 00:00:00 EST&quot;)
+<br />
+<br />&nbsp;we could allow different units, origin and offset for height:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;units:&quot;meters above WGS84   -10.24&quot;
+<br />
+<br />where you specify the geoid and the offset to the geoid (-10.24) in this 
+<br />
+case.
+<br />
+<br />Well, I guess that would create more problems than it would solve.  But 
+<br />
+I mention it
+<br />
+just in case it's a helpful way to think about this issue...
+<br />
+<br /><br /><em class="quotelev2">&gt;&gt;z=0 means the same thing whether free surface or rigid lid.
+</em><br />
+<em class="quotelev2">&gt;&gt;In free surface models, there is a variable (e.g. &quot;zeta&quot;) that 
+</em><br />
+<em class="quotelev2">&gt;&gt;represents the departure
+</em><br />
+<em class="quotelev2">&gt;&gt;of the free surface from the &quot;datum&quot; (z=0).
+</em><br />
+<em class="quotelev2">&gt;&gt;    
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;The difference is that a rigid-lid ocean has fixed volume so z=0 is always its
+</em><br />
+<em class="quotelev1">&gt;geoid in effect. However, unless zeta is constrained to have a zero global
+</em><br />
+<em class="quotelev1">&gt;average, in a free-surface model the volume is not fixed so it might be that
+</em><br />
+<em class="quotelev1">&gt;the geoid is a field with z = the global average of zeta, rather than z=0, if
+</em><br />
+<em class="quotelev1">&gt;you define the geoid to be the surface the ocean would assume at rest. What
+</em><br />
+<em class="quotelev1">&gt;do you think?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+I agree with you that the average of the free-surface is not the datum 
+<br />
+(z=0).    I'm not
+<br />
+sure I understand the issue, however.    This is why we want to be able 
+<br />
+to specify the
+<br />
+offset between the datum and some pedigreed geoid.
+<br />
+<br /><em class="quotelev2">&gt;&gt;Yes, why not list the reference ellipsoid.
+</em><br />
+<em class="quotelev2">&gt;&gt;    
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev1">&gt;if relevant, yes. If OGC has a standard naming convention for them, as John
+</em><br />
+<em class="quotelev1">&gt;Caron suggests, we could adopt it. Does anyone know where to find it?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;Best wishes
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;Jonathan
+</em><br />
+<em class="quotelev1">&gt;_______________________________________________
+</em><br />
+<em class="quotelev1">&gt;CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt;CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt;<a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt;  
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<br /><br /><pre>
+-- 
+Richard P. Signell           rsignell at usgs.gov
+U.S. Geological Survey       Phone: (508) 457-2229
+384 Woods Hole Road          Fax:   (508) 457-2310
+Woods Hole, MA  02543-1598  
+</pre>
+<span id="received"><dfn>Received on</dfn> Wed Oct 27 2004 - 14:13:46 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -149,9 +256,9 @@ I agree with  mandatory standard_names for 2D lat, lon.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start487">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0488.html" title="Next message in the list">John Caron: "[CF-metadata] axis attribute - curvilinear cartesian coordinates case"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0486.html" title="Previous message in the list">Jonathan Gregory: "Fwd: Re: [CF-metadata] axis attribute"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0476.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] axis attribute"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0488.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] meaning of depth in the ocean"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0486.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] tides"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0485.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] Re: meaning of depth in the ocean"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -163,7 +270,7 @@ I agree with  mandatory standard_names for 2D lat, lon.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:51 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0486.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0488.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

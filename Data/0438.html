@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] species as species in chemical and aerosol?names - &quot;mercury&quot; from Jonathan Gregory on 2006-11-15 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] species as species in chemical and aerosol?names - &quot;mercury&quot;" />
-<meta name="Date" content="2006-11-15" />
+<title>[CF-metadata] Units: absolute vs difference from Brian Eaton on 2004-08-11 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Brian Eaton (eaton)" />
+<meta name="Subject" content="[CF-metadata] Units: absolute vs difference" />
+<meta name="Date" content="2004-08-11" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0437.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0439.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] species as species in chemical and aerosol?names - &quot;mercury&quot;</h1>
-<!-- received="Wed Nov 15 01:56:22 2006" -->
-<!-- isoreceived="20061115015622" -->
-<!-- sent="Wed, 15 Nov 2006 08:56:22 +0000" -->
-<!-- isosent="20061115085622" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] species as species in chemical and aerosol?names - &quot;mercury&quot;" -->
-<!-- id="20061115085622.GC16515_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0437.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0439.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Units: absolute vs difference</h1>
+<!-- received="Tue Aug 10 18:40:58 2004" -->
+<!-- isoreceived="20040810174058" -->
+<!-- sent="Tue, 10 Aug 2004 18:40:58 -0600" -->
+<!-- isosent="20040811004058" -->
+<!-- name="Brian Eaton" -->
+<!-- email="eaton" -->
+<!-- subject="[CF-metadata] Units: absolute vs difference" -->
+<!-- id="20040811004058.GI13218_at_ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20040810214933.GB2551_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0439.html" accesskey="d" title="Kettleborough, Jamie: &quot;[CF-metadata] CF and multi-forecast system ensemble data&quot;">Next message</a> ]
-[ <a href="./0437.html" title="Jonathan Gregory: &quot;[CF-metadata] aerosol water&quot;">Previous message</a> ]
+[ <a href="./0439.html" accesskey="d" title="Steve Hankin: &quot;[CF-metadata] Units: absolute vs difference&quot;">Next message</a> ]
+[ <a href="./0437.html" title="Jonathan Gregory: &quot;[CF-metadata] Units: absolute vs difference&quot;">Previous message</a> ]
+[ <a href="./0437.html" title="Jonathan Gregory: &quot;[CF-metadata] Units: absolute vs difference&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,64 +70,78 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20species%20as%20species%20in%20chemical%20and%20aerosol%3Fnames%20-%20%22mercury%22">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Brian Eaton &lt;<a href="mailto:eaton?Subject=Re%3A%20%5BCF-metadata%5D%20Units%3A%20absolute%20vs%20difference">eaton</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 15 Nov 2006 08:56:22 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 10 Aug 2004 18:40:58 -0600</span><br />
 </address>
 <br />
-Dear Christiane, Roy, Steve and Ian
+I agree with Jonathan that the distinction should be made in the
 <br />
-<br /><em class="quotelev1">&gt; In my experience attempts at brevity when describing complexity results in misunderstandings. Your example:
+description of the quantity, and not in the units.  We do have the standard
+<br />
+name air_temperature_anomaly, but anomaly implies that the difference is
+<br />
+with a climatology.  If we had a standard name like
+<br />
+air_temperature_difference it seems that would be appropriate.  But that
+<br />
+leaves an unresolved issue as to what the difference is with respect to.
+<br />
+Of course the same issue is present with an anomaly; we don't currently
+<br />
+have a mechanism for connecting an anomaly with the appropriate
+<br />
+climatology.
+<br />
+<br />In view of the problems with interpreting exactly what a difference field
+<br />
+means, the question that comes to mind is why is WRF writing temperature
+<br />
+differences to the output file?  Why not convert to a standard quantity
+<br />
+before output (or during conversion to CF compliant output)?
+<br />
+<br />Brian
+<br />
+<br />On Tue, Aug 10, 2004 at 10:49:33PM +0100, Jonathan Gregory wrote:
+<br />
+<em class="quotelev1">&gt; Dear John
 </em><br />
 <em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; surface_dry_deposition_mass_flux_of_particulate_organic_matter_dry_aerosol 
+<em class="quotelev2">&gt; &gt; we're looking at WRF model output with temperature differences in 
 </em><br />
-<em class="quotelev1">&gt; _expressed_as_mass_of_particulate_organic_matter
+<em class="quotelev2">&gt; &gt; Kelvin. unfortunately, our software package converts to Celsius by 
+</em><br />
+<em class="quotelev2">&gt; &gt; subtracting 273. We could fix if we knew it was a temp difference 
+</em><br />
+<em class="quotelev2">&gt; &gt; instead of an absolute temp.
 </em><br />
 <em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; appeals to me because I instantly feel I have an understanding of the parameter that is being described, whereas with more compact syntax I find myself asking the 'What is meant by....?' question.
+<em class="quotelev1">&gt; I don't think the units would be able to help you. Does the WRF model output
 </em><br />
-<br />I certainly support explicitness and don't have a problem with long standard
-<br />
-name in general. But this name raises two questions with me:
-<br />
-<br />* How can a mass flux be expressed as a mass? Of course, I know what it means,
-<br />
-but it does cause a temporary upset. I don't have that problem if it just says
-<br />
-&quot;expressed_as&quot;, not &quot;expressed_as_mass_of&quot;.
-<br />
-<br />* Why is &quot;dry aerosol&quot; omitted the second time? Is the expressed_as really
-<br />
-needed at all in this kind of case? I mean, could particulate_organic_matter_
-<br />
-dry_aerosol be expressed as anything other than particulate_organic_matter_dry_
-<br />
-aerosol? What alternatives are there? This may be a different situation from
-<br />
-carbon_dioxide_expressed_as_carbon or expressed_as_carbon_dioxide, when there
-<br />
-is an obvious ambiguity.
-<br />
-<br />* I proposed expressed_as_such (so carbon_dioxide_expressed_as_such) to avoid
-<br />
-the repetition of a lengthy name of a substance, and because for a human (for
-<br />
-this human, anyway) it is more efficient to be told immediately that two things
-<br />
-are the same than to compare two long strings to see whether they are
-<br />
-identical. That is, I think X_expressed_as_such is easier to understand than
-<br />
-X_expressed_as_X if X is a long string. But maybe others find it cryptic.
-<br />
-<br />Best wishes
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Wed Nov 15 2006 - 01:56:22 GMT</span>
+<em class="quotelev1">&gt; distinguish in any other way between temperatures and temperature differences?
+</em><br />
+<em class="quotelev1">&gt; Would your software be able to look at other attributes to decide what to do?
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Cheers
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Jonathan
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<span id="received"><dfn>Received on</dfn> Tue Aug 10 2004 - 18:40:58 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -133,8 +149,9 @@ X_expressed_as_X if X is a long string. But maybe others find it cryptic.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start438">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0439.html" title="Next message in the list">Kettleborough, Jamie: "[CF-metadata] CF and multi-forecast system ensemble data"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0437.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] aerosol water"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0439.html" title="Next message in the list">Steve Hankin: "[CF-metadata] Units: absolute vs difference"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0437.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Units: absolute vs difference"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0437.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] Units: absolute vs difference"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -146,7 +163,7 @@ X_expressed_as_X if X is a long string. But maybe others find it cryptic.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:50 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0437.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0439.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

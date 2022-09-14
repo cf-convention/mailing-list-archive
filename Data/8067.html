@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] example H4 (was Pre-proposal for &quot;charset&quot;) from Jonathan Gregory on 2017-03-03 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] example H4 (was Pre-proposal for &quot;charset&quot;)" />
-<meta name="Date" content="2017-03-03" />
+<title>[CF-metadata] original_ensemble_size from Hedley, Mark on 2015-07-29 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Hedley, Mark (mark.hedley)" />
+<meta name="Subject" content="[CF-metadata] original_ensemble_size" />
+<meta name="Date" content="2015-07-29" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./8066.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8068.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] example H4 (was Pre-proposal for &quot;charset&quot;)</h1>
-<!-- received="Fri Mar  3 07:25:18 2017" -->
-<!-- isoreceived="20170303072518" -->
-<!-- sent="Fri, 3 Mar 2017 14:25:18 +0000" -->
-<!-- isosent="20170303142518" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] example H4 (was Pre-proposal for &quot;charset&quot;)" -->
-<!-- id="20170303142517.GB4768_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./8066.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8068.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] original_ensemble_size</h1>
+<!-- received="Wed Jul 29 02:10:55 2015" -->
+<!-- isoreceived="20150729011055" -->
+<!-- sent="Wed, 29 Jul 2015 08:10:55 +0000" -->
+<!-- isosent="20150729081055" -->
+<!-- name="Hedley, Mark" -->
+<!-- email="mark.hedley" -->
+<!-- subject="[CF-metadata] original_ensemble_size" -->
+<!-- id="7819C496F4E10E47BCEFBE74551AAC96346FD1CD_at_EXXCMPD1DAG3.cmpd1.metoffice.gov.uk" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="55B189DB.7000701_at_llnl.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,9 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./8068.html" accesskey="d" title="Manning, Evan M: &quot;[CF-metadata] Overlapping vertical bounds&quot;">Next message</a> ]
-[ <a href="./8066.html" title="Jim Biard: &quot;[CF-metadata] Overlapping vertical bounds&quot;">Previous message</a> ]
+[ <a href="./8068.html" accesskey="d" title="martin.juckes at stfc.ac.uk: &quot;[CF-metadata] Applying multiple conventions&quot;">Next message</a> ]
+[ <a href="./8066.html" title="martin.juckes at stfc.ac.uk: &quot;[CF-metadata] Specifying latitude and longitude of transects and regions (Karl Taylor)&quot;">Previous message</a> ]
+[ <a href="./8060.html" title="Karl Taylor: &quot;[CF-metadata] original_ensemble_size&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./8065.html" accesskey="t" title="Hedley, Mark: &quot;[CF-metadata] original_ensemble_size&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,968 +71,190 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20example%20H4%20(was%20Pre-proposal%20for%20%22charset%22)">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Hedley, Mark &lt;<a href="mailto:mark.hedley?Subject=Re%3A%20%5BCF-metadata%5D%20original_ensemble_size">mark.hedley</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 3 Mar 2017 14:25:18 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 29 Jul 2015 08:10:55 +0000</span><br />
 </address>
 <br />
-Dear David
+Hello Karl
 <br />
-<br />As Bob has separately pointed out, my last posting might be less clear than it
+<br />I agree with your analysis that it is unlikely that a data variable will ever vary with ensemble_size, so having ensemble_size as a scalar coordinate is slightly odd, in that we'd not expect it to be anything other than scalar.
 <br />
-should be because the sentence starting &quot;What if you had&quot; was garbled. I think
+It would meet my use case, but I can see the interest in other options.
 <br />
-H4 is not ambiguous if that's the entire contents of the file, but mostly the
+<br />It seems to me that the rest of your thoughts are centred around cell_methods.
 <br />
-CF examples don't imply that. Is there a rule that you can't have data vars
+The conventions describe Cell Methods as:
 <br />
-from more that one station in the file? If it's legal to do that, consider:
+7.3. Cell Methods
+<br />
+<br />To describe the characteristic of a field that is represented by cell values, we define the cell_methods attribute of the variable.
+<br />
+<br />It earlier describes Cells:
+<br />
+7. Data Representative of Cells
+<br />
+<br />When gridded data does not represent the point values of a field but instead represents some characteristic of the field within cells of finite &quot;volume,&quot; a complete description of the variable should include metadata that describes the domain or extent of each cell, and the characteristic of the field that the cell values represent.
+<br />
+<br />It is not clear to me that the case of defining an ensemble fits with this model as described. What is the 'characteristic of the field' within 'cells of finite volume' in this case?
+<br />
+<br />Is there appetite to extend the scope of Cell Methods to define such characteristics? What are the risks in doing this?  Is this proposal  extending Cell Methods into realms which are already nearly covered by other CF concepts?
+<br />
+<br />I don't have coherent answers to these queries, but I think they are worth a little thought before we delve too far into the details of encoding
+<br />
+<br />many thanks
+<br />
+mark
+<br />
+<br /><br />________________________________
+<br />
+From: CF-metadata [cf-metadata-bounces at cgd.ucar.edu] on behalf of Karl Taylor [taylor13 at llnl.gov]
+<br />
+Sent: 24 July 2015 01:42
+<br />
+To: cf-metadata at cgd.ucar.edu
+<br />
+Subject: Re: [CF-metadata] original_ensemble_size
+<br />
+<br />Hi all,
+<br />
+<br />This addresses the issue of how to associate an ensemble size with a variable.  It also suggests an alternate way of proceeding that is more general and will allow us to record, for example, which models were included in a multi-model mean.
+<br />
+<br />First to consider Jim's suggestion:
+<br />
+I agree with Jim that you might want to indicate which member (or members) of an ensemble were represented by the variable so you might want to include a coordinate variable of &quot;realization&quot;.  You could then also define an *attribute* of that coordinate as &quot;ensemble_size&quot; which would record the size, but currently that approach is not standardized (but of course is permitted) by our conventions.
+<br />
+<br />Now Mark's suggestion:
+<br />
+Mark's alternative approach to make &quot;ensemble_size&quot; a coordinate variable (presumably in addition to possibly including &quot;realization&quot;) would also relate it to the variable of interest, but this would be a bit unconventional since a variable would normally be considered to be a *function* of its (independent) coordinates.  I don't think T(x,realization,ensemble_size)  is a proper function, since T depends on x and realization, but should be independent of ensemble size in most cases.
+<br />
+<br />Jonathan's suggestion:
+<br />
+I think Jonathan suggested including ensemble_size in a cell_methods attribute.  For example
 <br />
 <br />dimensions:
 <br />
-&nbsp;&nbsp;time = 100233 ;
+&nbsp;&nbsp;&nbsp;&nbsp;lon=72
 <br />
-&nbsp;&nbsp;name_strlen = 23 ;
+&nbsp;&nbsp;&nbsp;&nbsp;lat=96
 <br />
-variables:
+&nbsp;&nbsp;&nbsp;&nbsp;e_size=5
 <br />
-&nbsp;&nbsp;float lon1 ;
+<br />variables:
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;lon:standard_name = &quot;longitude&quot;;
+&nbsp;&nbsp;&nbsp;&nbsp;float precip(lon,lat)
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;lon:long_name = &quot;station longitude&quot;;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;precip: cell_methods=&quot;realization: point (sample_size: e_size)
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;lon:units = &quot;degrees_east&quot;;
+<br />where because &quot;realization&quot; is a standard name, it does not need to be explicitly declared with a &quot;coordinates&quot; attribute.  Jonathan originally used &quot;dimension&quot; rather than &quot;sample_size&quot;, but I prefer &quot;sample_size&quot;.   If this approach were followed, then CF would need to be modified so that &quot;sample_size&quot; (along with &quot;interval&quot;) was designated to be one of the options for providing &quot;standardized&quot; extra information in the cell_methods attribute.  Note that the variable &quot;pointed to&quot; by original_domain would not necessarily be a coordinate variable; it need not be monotonic and it could be a character variable (i.e., a list).
 <br />
-&nbsp;&nbsp;float lat1 ;
+<br />Alternative &quot;new approach&quot;
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;lat:standard_name = &quot;latitude&quot;;
+<br />An approach that is a slight variant on Jonathan's and would allow even more information to be provided concerning the ensemble is illustrated by the following example:
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;lat:long_name = &quot;station latitude&quot; ;
+<br />dimensions:
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;lat:units = &quot;degrees_north&quot; ;
+&nbsp;&nbsp;&nbsp;&nbsp;lon=72
 <br />
-&nbsp;&nbsp;float lon2 ;
+&nbsp;&nbsp;&nbsp;&nbsp;lat=96
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;lon:standard_name = &quot;longitude&quot;;
+&nbsp;&nbsp;&nbsp;&nbsp;members=5
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;lon:long_name = &quot;station longitude&quot;;
+<br />variables:
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;lon:units = &quot;degrees_east&quot;;
+&nbsp;&nbsp;&nbsp;&nbsp;float precip(lon,lat)
 <br />
-&nbsp;&nbsp;float lat2 ;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;precip: cell_methods=&quot;member: point (sample_pool: members)
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;lat:standard_name = &quot;latitude&quot;;
+&nbsp;&nbsp;&nbsp;&nbsp;int member
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;lat:long_name = &quot;station latitude&quot; ;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;member: standard_name=&quot;realization&quot;
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;lat:units = &quot;degrees_north&quot; ;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int members(members)
 <br />
-&nbsp;&nbsp;char station_name(name_strlen) ;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;members: standard_name=&quot;realization&quot;
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;station_name:long_name = &quot;station name&quot; ;
+<br />data:
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;station_name:cf_role = &quot;timeseries_id&quot;;
+&nbsp;&nbsp;&nbsp;&nbsp;member = 3
 <br />
-&nbsp;&nbsp;double time(time) ;
+&nbsp;&nbsp;&nbsp;&nbsp;members = 1, 3, 5, 6, 10
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;time:standard_name = &quot;time&quot;;
+<br />This would tell you T was from the realization labeled 3 of a 5-member ensemble (with labels 1, 3, 5, 6, and 10).  If this approach were adopted, then CF would need to be modified so that &quot;sample_pool&quot; (along with &quot;interval&quot;) was designated to be one of the the options for providing &quot;standardized&quot; extra information in the cell_methods attribute.
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;time:long_name = &quot;time of measurement&quot; ;
+<br />Under Jonathan's approach and also the &quot;new approach&quot;, there wouldn't be a need to define the standard_name &quot;ensemble_size&quot; because that would be provided by the dimension size (5 in the above).
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;time:units = &quot;days since 1970-01-01 00:00:00&quot; ;
+<br />Note that the new approach could also be used to record a multi-model ensemble mean (I'm not absolutely sure this example complies with the current convention, but I think it would if  the option to designate the &quot;original_domain&quot; were added to CF):
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;time:missing_value = -999.9;
+<br />dimensions:
 <br />
-&nbsp;&nbsp;float temp1(time) ;
+&nbsp;&nbsp;&nbsp;&nbsp;lon=72
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;temp:standard_name = ?air_temperature? ;
+&nbsp;&nbsp;&nbsp;&nbsp;lat=96
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;temp:units = &quot;Celsius&quot; ;
+&nbsp;&nbsp;&nbsp;&nbsp;models=5
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;temp:coordinates = &quot;time lat1 lon1&quot; ;
+&nbsp;&nbsp;&nbsp;&nbsp;max_len = 10
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;temp:_FillValue = -999.9;
+<br />variables:
 <br />
-&nbsp;&nbsp;float temp2(time) ;
+&nbsp;&nbsp;&nbsp;&nbsp;float precip(lon,lat)
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;temp:standard_name = ?air_temperature? ;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;precip: cell_methods=&quot;realization: mean (sample_pool: models)
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;temp:units = &quot;Celsius&quot; ;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char models(models, max_len)
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;temp:coordinates = &quot;time lat2 lon2&quot; ;
+<br />data:
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;temp:_FillValue = -999.9;
+&nbsp;&nbsp;&nbsp;&nbsp;models = &quot;CanESM2&quot;, &quot;CESM1&quot;, &quot;CNRM-CM5&quot;, &quot;HadGEM2&quot;, &quot;MIROC-ESM&quot;
 <br />
-attributes:
+<br />Note also that the flexibility of this new approach could be useful for dimensions other than realization when, for example, the sampling interval for a spatial mean is from scattered stations.  If one were computing an spatial mean from 5 stations, for example, this could be recorded as follows:
 <br />
-&nbsp;&nbsp;:featureType = &quot;timeSeries&quot;;
+<br />dimensions:
 <br />
-<br />You cannot tell which of the locations is described by the station_name. That
+&nbsp;&nbsp;&nbsp;&nbsp;stations=5
 <br />
-is my objection to example H4.
+&nbsp;&nbsp;&nbsp;&nbsp;max_len=16
 <br />
-<br />Best wishes
+<br />variables:
 <br />
-<br />Jonathan
+&nbsp;&nbsp;&nbsp;&nbsp;float precmean
 <br />
-<br /><br />----- Forwarded message from David Hassell &lt;david.hassell at ncas.ac.uk&gt; -----
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;precmean: cell_methods=&quot;area: mean (sample_pool: stations)&quot;
 <br />
-<br /><em class="quotelev1">&gt; Date: Fri, 3 Mar 2017 09:02:01 +0000
-</em><br />
-<em class="quotelev1">&gt; From: David Hassell &lt;david.hassell at ncas.ac.uk&gt;
-</em><br />
-<em class="quotelev1">&gt; To: Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt;
-</em><br />
-<em class="quotelev1">&gt; CC: Bob Simons - NOAA Federal &lt;bob.simons at noaa.gov&gt;, CF Metadata
-</em><br />
-<em class="quotelev1">&gt; 	&lt;cf-metadata at cgd.ucar.edu&gt;, &quot;Signell, Richard&quot; &lt;rsignell at usgs.gov&gt;
-</em><br />
-<em class="quotelev1">&gt; Subject: Re: example H4 (was Pre-proposal for &quot;charset&quot;)
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Hello,
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I still think that H4 is OK: The featureType attribute is set and the
-</em><br />
-<em class="quotelev1">&gt; station_name variable has the cf_role attribute, so I think that it is
-</em><br />
-<em class="quotelev1">&gt; clear that it applies to all of the variables dimensioned &quot;time&quot; - just as
-</em><br />
-<em class="quotelev1">&gt; clear as if there were more an explicit station dimension. Even if the
-</em><br />
-<em class="quotelev1">&gt; featureType were not set in the file (which is allowed for orthogonal
-</em><br />
-<em class="quotelev1">&gt; multidimensional array representations) then the presence of cf_role
-</em><br />
-<em class="quotelev1">&gt; attribute would still be enough, I think.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; That said, I still support Jonathan's first suggestion:
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev2">&gt; &gt; require there to be a station dimension if you want to include any
-</em><br />
-<em class="quotelev1">&gt; station-
-</em><br />
-<em class="quotelev2">&gt; &gt; related variables in the file which aren't listed in the coordinates
-</em><br />
-<em class="quotelev1">&gt; attribute.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I am currently writing software to parse DGSs, and having infer these
-</em><br />
-<em class="quotelev1">&gt; relationships (rather than getting them directly from the coordinates
-</em><br />
-<em class="quotelev1">&gt; attribute) is, for me, challenging the goal that the conventions make it
-</em><br />
-<em class="quotelev1">&gt; &quot;practical to write software&quot; (section1.1)!
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; All the best,
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; David
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; On 2 March 2017 at 19:26, Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt;
-</em><br />
-<em class="quotelev1">&gt; wrote:
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev2">&gt; &gt; Dear Bob et al.
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; Yes, this thread is currently not about your charset proposal, but about
-</em><br />
-<em class="quotelev2">&gt; &gt; H4,
-</em><br />
-<em class="quotelev2">&gt; &gt; because of its being an example. My request for an example arises because I
-</em><br />
-<em class="quotelev2">&gt; &gt; guess that when CF metadata contains char arrays, it should already be
-</em><br />
-<em class="quotelev2">&gt; &gt; clear
-</em><br />
-<em class="quotelev2">&gt; &gt; from their purpose (within CF) whether they are characters or strings.
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; However that doesn't seem to work in the case of H4, as you say. As David
-</em><br />
-<em class="quotelev2">&gt; &gt; says,
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; I think that such a variable contains spatial information for the
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; implied instance dimension. Therefore I think that the &quot;cf_role&quot; variable
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; should be an auxiliary coordinate variable and treated accordingly, thus
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; removing the ambiguity that Jonathan points out.
-</em><br />
-<em class="quotelev2">&gt; &gt; ... but it isn't. I recall discussing this point with Steve Hankin and John
-</em><br />
-<em class="quotelev2">&gt; &gt; Caron when ch 9 was being drafted, but I hadn't seen the full implications.
-</em><br />
-<em class="quotelev2">&gt; &gt; John argued that we shouldn't require all station variables to be listed in
-</em><br />
-<em class="quotelev2">&gt; &gt; the coordinates attribute, thus making them formally auxiliary coordinate
-</em><br />
-<em class="quotelev2">&gt; &gt; variables, in case there were lots of them. He argued that association by
-</em><br />
-<em class="quotelev2">&gt; &gt; sharing the same dimension is sufficient. Although it's not like the rest
-</em><br />
-<em class="quotelev2">&gt; &gt; of
-</em><br />
-<em class="quotelev2">&gt; &gt; the CF convention, I would say, association in this way *is* sufficient,
-</em><br />
-<em class="quotelev2">&gt; &gt; when
-</em><br />
-<em class="quotelev2">&gt; &gt; there *is* a station dimension. In this case there isn't!
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; What if you had, in the same file, two data variables, containing a
-</em><br />
-<em class="quotelev2">&gt; &gt; timeseries
-</em><br />
-<em class="quotelev2">&gt; &gt; timeseries from a single locations, with no station dimension, so each
-</em><br />
-<em class="quotelev2">&gt; &gt; timeseries has just a time-dimension. You can include some station
-</em><br />
-<em class="quotelev2">&gt; &gt; identifier
-</em><br />
-<em class="quotelev2">&gt; &gt; with cf_role=&quot;timeseries_id&quot;, but there's no way to know which station it
-</em><br />
-<em class="quotelev2">&gt; &gt; identifies, so this is useless. As far as I know it's legal - or have I
-</em><br />
-<em class="quotelev2">&gt; &gt; over-
-</em><br />
-<em class="quotelev2">&gt; &gt; looked something? If it's legal now, I would say this is the first case
-</em><br />
-<em class="quotelev2">&gt; &gt; we've
-</em><br />
-<em class="quotelev2">&gt; &gt; had where the CF convention is actually defective - I mean, not just the
-</em><br />
-<em class="quotelev2">&gt; &gt; text,
-</em><br />
-<em class="quotelev2">&gt; &gt; but the design of the convention - so we must change it.
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; It could be fixed by any of these methods:
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; * require there to be a station dimension if you want to include any
-</em><br />
-<em class="quotelev2">&gt; &gt; station-
-</em><br />
-<em class="quotelev2">&gt; &gt; related variables in the file which aren't listed in the coordinates
-</em><br />
-<em class="quotelev2">&gt; &gt; attribute.
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; * require all station variables to be listed in the coordinates attribute
-</em><br />
-<em class="quotelev2">&gt; &gt; (if
-</em><br />
-<em class="quotelev2">&gt; &gt; there is no station dimension).
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; * require all data variables in the file to apply to the same station, so
-</em><br />
-<em class="quotelev2">&gt; &gt; that
-</em><br />
-<em class="quotelev2">&gt; &gt; the file deals with only one location (if there is no station dimension).
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; Of these, I dislike the last one, because it puts a requirement on the
-</em><br />
-<em class="quotelev2">&gt; &gt; file as
-</em><br />
-<em class="quotelev2">&gt; &gt; a whole, whereas most of CF deals with data variable, for which files are
-</em><br />
-<em class="quotelev2">&gt; &gt; just
-</em><br />
-<em class="quotelev2">&gt; &gt; containers.
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; Best wishes
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; Jonathan
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; On Wed, Mar 01, 2017 at 08:39:10AM +0000, David Hassell wrote:
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; Date: Wed, 1 Mar 2017 08:39:10 +0000
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; From: David Hassell &lt;david.hassell at ncas.ac.uk&gt;
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; To: Bob Simons - NOAA Federal &lt;bob.simons at noaa.gov&gt;
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; CC: Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt;, CF Metadata
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt;  &lt;cf-metadata at cgd.ucar.edu&gt;, &quot;Signell, Richard&quot; &lt;rsignell at usgs.gov&gt;
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; Subject: Re: [CF-metadata] example Re: Pre-proposal for &quot;charset&quot;
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt;
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; Hello,
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt;
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; On the validity of H4 ...
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt;
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; The problem for me (in H4 and Bob's file) is that the &quot;cf_role&quot; variable
-</em><br />
-<em class="quotelev2">&gt; &gt; is
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; not listed by the coordinates attribute of any of the data variables to
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; which it applies. But should it be? To my reading the conventions are a
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; little vague. On one hand it says that *all* spatiotemporal coordinates
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; should be listed in this fashion (section 9.5), but also doesn't say
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; explicitly that the &quot;cf_role&quot; variable should an auxiliary coordinate
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; &quot;station_info&quot; variable in H4.)
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt;
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; This sounds like a defect to me. The conventions could perhaps replace
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; &quot;Where feasible a variable with the attribute cf_role should be included&quot;
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; with &quot;Where feasible *an auxiliary coordinate *variable with the
-</em><br />
-<em class="quotelev2">&gt; &gt; attribute
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; cf_role should be included&quot;.
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt;
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; All the best,
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt;
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; David
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt;
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; On 28 February 2017 at 21:22, Bob Simons - NOAA Federal &lt;
-</em><br />
-<em class="quotelev2">&gt; &gt; bob.simons at noaa.gov
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; wrote:
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt;
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; [This has degenerated into a debate about whether a given file is a
-</em><br />
-<em class="quotelev2">&gt; &gt; valid
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; CF DSG file, but I'll continue.]
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt;
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; Perhaps I am misunderstanding this, but it is very hard for me to
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; interpret H4 as &quot;defective&quot;, as if it were a minor error within an
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; otherwise valid CF DSG file.
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt;
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; The description right above it says &quot;When the intention of a data
-</em><br />
-<em class="quotelev2">&gt; &gt; variable
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; is to contain only a single time series, *the preferred encoding* is a
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; special case of the multidimensional array representation.&quot; [emphasis
-</em><br />
-<em class="quotelev2">&gt; &gt; mine]
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt;
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; That reference to an encoding that is a special case of the
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; multidimensional array representation is almost certainly a reference
-</em><br />
-<em class="quotelev2">&gt; &gt; to an
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; entire paragraph in section 9.2 which starts with
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; &quot;If there is only a single feature to be stored in a data variable,
-</em><br />
-<em class="quotelev2">&gt; &gt; there
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; is no need for an instance dimension and it is permitted to omit it.&quot;
-</em><br />
-<em class="quotelev2">&gt; &gt; and
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; then discusses that.
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt;
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; So the whole point of H4 is to give an example where there is an
-</em><br />
-<em class="quotelev2">&gt; &gt; *implied*
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; time series dimension, not an actual one.  [I'm not happy about this
-</em><br />
-<em class="quotelev2">&gt; &gt; type
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; of file either, but CF DSG seems to explicitly allow it, and even
-</em><br />
-<em class="quotelev2">&gt; &gt; actively
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; encourage it. I'm just trying to follow the rules.]
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt;
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; ---
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; And if H4 is defective, several groups that now make this type of file
-</em><br />
-<em class="quotelev2">&gt; &gt; are
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; going to be surprised to hear it.
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt;
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt;
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; On Tue, Feb 28, 2017 at 12:16 PM, Jonathan Gregory &lt;
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; j.m.gregory at reading.ac.uk&gt; wrote:
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt;
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; Dear Rich, Bob
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt;
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; Rich asked
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt; What is the difference that makes example CF H.4 okay, but not Bob's
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; example?
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt;
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; That's a good question. You're right, I think example H4 has the same
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; problem! I didn't read it carefully enough - sorry. The
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; station_name:cf_role
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; attribute in H4 says it's a station ID, but there's no association
-</em><br />
-<em class="quotelev2">&gt; &gt; with
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; the
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; data variable. If you had more than one data variable in the file, as
-</em><br />
-<em class="quotelev2">&gt; &gt; in
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; Bob's
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; example as he gave it originally, you couldn't tell which one it
-</em><br />
-<em class="quotelev2">&gt; &gt; belonged
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; to,
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; so it can't be used as identification. In examples H6 and H7, however,
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; where
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; there are several timeseries, there is an instance (station)
-</em><br />
-<em class="quotelev2">&gt; &gt; dimension,
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; and the
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; timeseries_id variable is station_name(station, name_strlen). So
-</em><br />
-<em class="quotelev2">&gt; &gt; here's
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; it's
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; clear that the station_name belongs to the stations, and you can infer
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; that
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; it's an array of strings, not a 2D character array.
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt;
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; Therefore I think H4 and H5 are defective.
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt;
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; In Bob's example, he has several data variables (five, I think) each
-</em><br />
-<em class="quotelev2">&gt; &gt; of
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; size
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; 996, and a variable
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt;
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt;     char timeseries(timeseries=10);
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt;       :cf_role = &quot;timeseries_id&quot;;
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt;       :long_name = &quot;timeseries&quot;;
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt;
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; I don't know what this refers to - that's my problem. Does it belong
-</em><br />
-<em class="quotelev2">&gt; &gt; to
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; any
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; of the data variables? The dimension timeseries is not otherwise used.
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt;
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; Best wishes
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt;
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; Jonathan
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt;
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt;
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; On Mon, Feb 27, 2017 at 02:41:49PM -0500, Signell, Richard wrote:
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt; Date: Mon, 27 Feb 2017 14:41:49 -0500
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt; From: &quot;Signell, Richard&quot; &lt;rsignell at usgs.gov&gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt; To: Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt; Subject: Re: [CF-metadata] Pre-proposal for &quot;charset&quot;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt; On Mon, Feb 27, 2017 at 1:11 PM, Jonathan Gregory
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt; &lt;j.m.gregory at reading.ac.uk&gt; wrote:
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; &gt;&gt; &gt; &gt; Dear Bob
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; &gt;&gt; &gt; &gt;
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; &gt;&gt; &gt; &gt; That's right, there doesn't have to be an instance dimension. The
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; problem with
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; &gt;&gt; &gt; &gt; the file is that the variable you're concerned with (timeseries)
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; isn't linked
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; &gt;&gt; &gt; &gt; to any of the other variables, so its purpose is not clear.
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; &gt;&gt; &gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt; Jonathan,
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt; #1 CF Example H.4
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt; <a href="http://cfconventions.org/cf-conventions/v1.6.0/cf-convention">http://cfconventions.org/cf-conventions/v1.6.0/cf-convention</a>
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt; s.html#example-h.4
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt; dimensions:
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       time = 100233 ;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       name_strlen = 23 ;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;    variables:
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       float lon ;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;           lon:standard_name = &quot;longitude&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;           lon:long_name = &quot;station longitude&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;           lon:units = &quot;degrees_east&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       float lat ;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;           lat:standard_name = &quot;latitude&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;           lat:long_name = &quot;station latitude&quot; ;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;           lat:units = &quot;degrees_north&quot; ;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       float alt ;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;           alt:long_name = &quot;vertical distance above the surface&quot; ;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;           alt:standard_name = &quot;height&quot; ;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;           alt:units = &quot;m&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;           alt:positive = &quot;up&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;           alt:axis = &quot;Z&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       char station_name(name_strlen) ;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;           station_name:long_name = &quot;station name&quot; ;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;           station_name:cf_role = &quot;timeseries_id&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       double time(time) ;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;           time:standard_name = &quot;time&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;           time:long_name = &quot;time of measurement&quot; ;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;           time:units = &quot;days since 1970-01-01 00:00:00&quot; ;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;           time:missing_value = -999.9;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       float humidity(time) ;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;           humidity:standard_name = ?specific_humidity? ;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;           humidity:coordinates = &quot;time lat lon alt&quot; ;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;           humidity:_FillValue = -999.9;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       float temp(time) ;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;           temp:standard_name = ?air_temperature? ;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;           temp:units = &quot;Celsius&quot; ;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;           temp:coordinates = &quot;time lat lon alt&quot; ;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;           temp:_FillValue = -999.9;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;    attributes:
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;           :featureType = &quot;timeSeries&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt; #2 Bob's example:
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt; netcdf summary_allTB2007.nc {
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;   dimensions:
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;     timeseries = 10;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;     time = 996;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;   variables:
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;     char timeseries(timeseries=10);
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :cf_role = &quot;timeseries_id&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :long_name = &quot;timeseries&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;     double time(time=996);
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :units = &quot;seconds since 1970-01-01T00:00:00Z&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :standard_name = &quot;time&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :long_name = &quot;time&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :calendar = &quot;gregorian&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :axis = &quot;T&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;     double latitude;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :valid_min = -90.0; // double
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :valid_max = 90.0; // double
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :axis = &quot;Y&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :long_name = &quot;latitude&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :standard_name = &quot;latitude&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :units = &quot;degrees_north&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;     double longitude;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :valid_min = -180.0; // double
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :valid_max = 180.0; // double
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :axis = &quot;X&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :long_name = &quot;longitude&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :standard_name = &quot;longitude&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :units = &quot;degrees_east&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;     double depth;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :positive = &quot;down&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :axis = &quot;Z&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :valid_min = 0.0; // double
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :valid_max = 10971.0; // double
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :long_name = &quot;depth&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :standard_name = &quot;depth&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :units = &quot;m&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;     char platform;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :long_name = &quot;MVCO ASIT&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;     char instrument;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :long_name = &quot;Imaging FlowCytobot&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;     double crs;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :grid_mapping_name = &quot;latitude_longitude&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :longitude_of_prime_meridian = 0.0; // double
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :semi_major_axis = 6378137.0; // double
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :inverse_flattening = 298.257223563; // double
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :epsg_code = &quot;EPSG:4326&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;     double Phaeocystis(time=996);
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :_FillValue = -9999.9; // double
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :long_name = &quot;Phaeocystis&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :standard_name = &quot;Phaeocystis&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :units = &quot;1&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :coordinates = &quot;time depth latitude longitude&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :grid_mapping = &quot;crs&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :platform = &quot;platform&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;       :instrument = &quot;instrument&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;   // global attributes:
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;   :featureType = &quot;timeSeries&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;   :cdm_data_type = &quot;TimeSeries&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;   :Conventions = &quot;CF-1.6&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;   :summary = &quot;Phytoplankton concentration by class derived from
-</em><br />
-<em class="quotelev2">&gt; &gt; images
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt; collected by Imaging FlowCytobot\n&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;   :institution = &quot;WHOI&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;   :title = &quot;Phytoplankton concentration by class&quot;;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt; }
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt; --
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt; Dr. Richard P. Signell   (508) 457-2229
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt; USGS, 384 Woods Hole Rd.
-</em><br />
-<em class="quotelev2">&gt; &gt; &gt; &gt;&gt; &gt; Woods Hole, MA 02543-1598
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt; &gt;&gt;
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt;
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt;
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt;
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; --
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; Sincerely,
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt;
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; Bob Simons
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; IT Specialist
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; Environmental Research Division
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; NOAA Southwest Fisheries Science Center
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; 99 Pacific St., Suite 255A      (New!)
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; Monterey, CA 93940               (New!)
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; Phone: (831)333-9878 &lt;(831)%20333-9878&gt;            (New!)
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; Fax:   (831)648-8440 &lt;(831)%20648-8440&gt;
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; Email: bob.simons at noaa.gov
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt;
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; The contents of this message are mine personally and
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; do not necessarily reflect any position of the
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; Government or the National Oceanic and Atmospheric Administration.
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; &lt;&gt;&lt; &lt;&gt;&lt; &lt;&gt;&lt; &lt;&gt;&lt; &lt;&gt;&lt; &lt;&gt;&lt; &lt;&gt;&lt; &lt;&gt;&lt; &lt;&gt;&lt;
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt;
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt;
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; _______________________________________________
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt;
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt; &gt;
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt;
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt;
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; --
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; David Hassell
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; National Centre for Atmospheric Science
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; Department of Meteorology, University of Reading,
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; Earley Gate, PO Box 243, Reading RG6 6BB
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; Tel: +44 118 378 5613
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; <a href="http://www.met.reading.ac.uk/">http://www.met.reading.ac.uk/</a>
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; -- 
-</em><br />
-<em class="quotelev1">&gt; David Hassell
-</em><br />
-<em class="quotelev1">&gt; National Centre for Atmospheric Science
-</em><br />
-<em class="quotelev1">&gt; Department of Meteorology, University of Reading,
-</em><br />
-<em class="quotelev1">&gt; Earley Gate, PO Box 243, Reading RG6 6BB
-</em><br />
-<em class="quotelev1">&gt; Tel: +44 118 378 5613
-</em><br />
-<em class="quotelev1">&gt; <a href="http://www.met.reading.ac.uk/">http://www.met.reading.ac.uk/</a>
-</em><br />
-<br />----- End forwarded message -----
+&nbsp;&nbsp;&nbsp;&nbsp;char stations(stations,max_len)
 <br />
-<span id="received"><dfn>Received on</dfn> Fri Mar 03 2017 - 07:25:18 GMT</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stations: coordinates=&quot;lat lon&quot;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lat(stations)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat: standard_name=&quot;latitude&quot;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lon(stations)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon: standard_name=&quot;longitude&quot;
+<br />
+<br />data:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;stations = &quot;Oakland&quot;, &quot;San Francisco&quot;, &quot;Livermore&quot;, &quot;San Jose&quot;, &quot;Palo Alto&quot;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lat = 37.62, 37.77, ...
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lon = -122.27, -122.42, ....
+<br />
+<br />I would find it very nice to be able to specify the models contributing to a multi-model mean using the above approach.  Anyone else think so?  It would also satisfy Mark's use case of wanting to record the size of the ensemble.
+<br />
+<br />Best regards,
+<br />
+Karl
+<br />
+<br />-------------- next part --------------
+<br />
+An HTML attachment was scrubbed...
+<br />
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150729/67962dad/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150729/67962dad/attachment.html</a>&gt;
+<br />
+<span id="received"><dfn>Received on</dfn> Wed Jul 29 2015 - 02:10:55 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -1037,9 +262,11 @@ is my objection to example H4.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start8067">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./8068.html" title="Next message in the list">Manning, Evan M: "[CF-metadata] Overlapping vertical bounds"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./8066.html" title="Previous message in the list">Jim Biard: "[CF-metadata] Overlapping vertical bounds"</a></li>
+<li><dfn>Next message</dfn>: <a href="./8068.html" title="Next message in the list">martin.juckes at stfc.ac.uk: "[CF-metadata] Applying multiple conventions"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./8066.html" title="Previous message in the list">martin.juckes at stfc.ac.uk: "[CF-metadata] Specifying latitude and longitude of transects and regions (Karl Taylor)"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./8060.html" title="Message to which this message replies">Karl Taylor: "[CF-metadata] original_ensemble_size"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./8065.html" title="Next message in this discussion thread">Hedley, Mark: "[CF-metadata] original_ensemble_size"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -1050,7 +277,7 @@ is my objection to example H4.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:10 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./8066.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8068.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

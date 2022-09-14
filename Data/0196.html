@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] file with both run time and forecast (valid) time coordinates from Jonathan Gregory on 2006-09-05 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] file with both run time and forecast (valid) time coordinates" />
-<meta name="Date" content="2006-09-05" />
+<title>[CF-metadata] 2D latitude, longitude coordinates detection from John Caron on 2003-07-03 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] 2D latitude, longitude coordinates detection" />
+<meta name="Date" content="2003-07-03" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0195.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0197.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] file with both run time and forecast (valid) time coordinates</h1>
-<!-- received="Tue Sep  5 02:38:10 2006" -->
-<!-- isoreceived="20060905013810" -->
-<!-- sent="Tue, 5 Sep 2006 09:38:10 +0100" -->
-<!-- isosent="20060905083810" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] file with both run time and forecast (valid) time coordinates" -->
-<!-- id="20060905083810.GB24449_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0195.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0197.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] 2D latitude, longitude coordinates detection</h1>
+<!-- received="Thu Jul  3 13:22:43 2003" -->
+<!-- isoreceived="20030703122243" -->
+<!-- sent="Thu, 03 Jul 2003 13:22:43 -0600" -->
+<!-- isosent="20030703192243" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] 2D latitude, longitude coordinates detection" -->
+<!-- id="3F048283.3030701_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,10 +53,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0197.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Standard names for altimeter data&quot;">Next message</a> ]
-[ <a href="./0195.html" title="John Caron: &quot;[CF-metadata] file with both run time and forecast (valid) time coordinates&quot;">Previous message</a> ]
+[ <a href="./0197.html" accesskey="d" title="Brian Eaton: &quot;[CF-metadata] 2D latitude, longitude coordinates detection&quot;">Next message</a> ]
+[ <a href="./0195.html" title="Stephens, A: &quot;[CF-metadata] CF-checker has moved to new URL&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0199.html" accesskey="t" title="John Caron: &quot;[CF-metadata] file with both run time and forecast (valid) time coordinates&quot;">Next in thread</a> ]
+[ <a href="./0197.html" accesskey="t" title="Brian Eaton: &quot;[CF-metadata] 2D latitude, longitude coordinates detection&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,152 +70,198 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20file%20with%20both%20run%20time%20and%20forecast%20(valid)%20time%20coordinates">j.m.gregory</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%202D%20latitude%2C%20longitude%20coordinates%20detection">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 5 Sep 2006 09:38:10 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 03 Jul 2003 13:22:43 -0600</span><br />
 </address>
 <br />
-Dear John
+below is the ncdump of a file. the CF convention checker passes it with 
 <br />
-<br />We had a long discussion, initiated by Ag, on the CF email list in summer 2003
+&quot;0 errors&quot;. my parser doesnt find the 2D latitude, longitude coordainte 
 <br />
-about forecast time etc. but no-one has ever had time to put the outcome into
+variables, because i assumed that they have to be named by a 
 <br />
-the CF standard. I have just been looking through the emails and below is what
+&quot;coordinate&quot; attribute (section 5.2). Opinions?
 <br />
-I have found. Maybe we can find the time to put it in the standard now before
+<br />netcdf C:\data\conventions\cf\signell_july2_03.nc {
 <br />
-we forget again! Please have a look yourself at the past emails.
+&nbsp;dimensions:
 <br />
-<br />In a discussion about five years ago in PCMDI, we identified four cases, and
+&nbsp;&nbsp;&nbsp;s_rho = 20;   // (has coord.var)
 <br />
-the discussion in 2003 added a fifth case, in effect. They are:
+&nbsp;&nbsp;&nbsp;latitude = 60;
 <br />
-<br />(i) A forecast run with multiple forecast periods (12 h, 24 h, 36 h, etc.)
+&nbsp;&nbsp;&nbsp;longitude = 160;
 <br />
-from a single analysis. This can be done with a single-valued analysis time
+&nbsp;&nbsp;&nbsp;time = UNLIMITED;   // (2 currently)   // (has coord.var)
 <br />
-and a separate validity time axis. If the reference time for the validity time
+<br />&nbsp;variables:
 <br />
-units is the analysis time, the values of the validity time coordinates equal
+&nbsp;&nbsp;&nbsp;double Cs_r(s_rho);
 <br />
-the forecast period.
+&nbsp;&nbsp;&nbsp;&nbsp;:long_name = &quot;S-coordinate stretching curves at RHO-points&quot;;
 <br />
-<br />(ii) A set of forecasts for the same validity time, made from different
+&nbsp;&nbsp;&nbsp;&nbsp;:valid_min = -1.0; // double
 <br />
-analyses. This can be done with a single-valued validity time and a separate
+&nbsp;&nbsp;&nbsp;&nbsp;:valid_max = 0.0; // double
 <br />
-analysis time axis.
+&nbsp;&nbsp;&nbsp;double theta_s;
 <br />
-<br />(iii) Multiple validity and analysis times, where all combinations exist.
+&nbsp;&nbsp;&nbsp;&nbsp;:long_name = &quot;S-coordinate surface control parameter&quot;;
 <br />
-<br />(iv) Multiple forecast periods from various analyses, where all combinations
+&nbsp;&nbsp;&nbsp;double theta_b;
 <br />
-exist.
+&nbsp;&nbsp;&nbsp;&nbsp;:long_name = &quot;S-coordinate bottom control parameter&quot;;
 <br />
-<br />(v) Multiple validity and analysis times, where not all cases exist.
+&nbsp;&nbsp;&nbsp;double h(latitude, longitude);
 <br />
-<br />The outcome of the discussion on the email list in 2003 was that we identified
+&nbsp;&nbsp;&nbsp;&nbsp;:long_name = &quot;bathymetry at RHO-points&quot;;
 <br />
-two structurally different situations.
+&nbsp;&nbsp;&nbsp;&nbsp;:units = &quot;meter&quot;;
 <br />
-<br />(a) If validity time and analysis time, or both, are single-valued (cases i
+&nbsp;&nbsp;&nbsp;double hc;
 <br />
-and ii), we have independent coordinates for them. Single-valued coordinates
+&nbsp;&nbsp;&nbsp;&nbsp;:long_name = &quot;S-coordinate parameter, critical depth&quot;;
 <br />
-can be supplied either as scalar coordinate variables or as size-one axes.
+&nbsp;&nbsp;&nbsp;&nbsp;:units = &quot;meter&quot;;
 <br />
-<br />(b) If they are both multivalued (cases iii, iv and v), we introduce an index
+&nbsp;&nbsp;&nbsp;double latitude(latitude, longitude);
 <br />
-dimension and make them both one-dimensional auxiliary coordinate variables
+&nbsp;&nbsp;&nbsp;&nbsp;:long_name = &quot;latitude of RHO-points&quot;;
 <br />
-with this dimension.
+&nbsp;&nbsp;&nbsp;&nbsp;:units = &quot;degrees_north&quot;;
 <br />
-<br />The standard name for the analysis time is &quot;forecast_reference_time&quot;, and for
+&nbsp;&nbsp;&nbsp;double longitude(latitude, longitude);
 <br />
-validity time is &quot;time&quot;. There is an example in CF 5.7 of structure
+&nbsp;&nbsp;&nbsp;&nbsp;:long_name = &quot;longitude of RHO-points&quot;;
 <br />
-(a) (case i), with a scalar coordinate variable for forecast_reference_time
+&nbsp;&nbsp;&nbsp;&nbsp;:units = &quot;degrees_east&quot;;
 <br />
-and a multivalued time axis for validity time.
+&nbsp;&nbsp;&nbsp;double s_rho(s_rho);
 <br />
-<br />In that example, the &quot;since&quot; date and time in the units string of the validity
+&nbsp;&nbsp;&nbsp;&nbsp;:long_name = &quot;S-coordinate at RHO-points&quot;;
 <br />
-time is the analysis time, which means that the values of the validity time
+&nbsp;&nbsp;&nbsp;&nbsp;:valid_min = -1.0; // double
 <br />
-coordinates are equal to the forecast periods.  But if that were not so, you
+&nbsp;&nbsp;&nbsp;&nbsp;:valid_max = 0.0; // double
 <br />
-could have another auxiliary coordinate variable with a standard name
+&nbsp;&nbsp;&nbsp;&nbsp;:standard_name = &quot;ocean_s_coordinate&quot;;
 <br />
-of forecast_period.
+&nbsp;&nbsp;&nbsp;&nbsp;:positive = &quot;up&quot;;
 <br />
-<br />I think what we need to do is add an example of structure (b), and here is
+&nbsp;&nbsp;&nbsp;&nbsp;:formula_terms = &quot;s: s_rho eta: zeta depth: h a: theta_s b: theta_b 
 <br />
-one (an instance of case v) from the earlier discussion.
+depth_c: hc&quot;;
 <br />
-<br /><em class="quotelev1">&gt; 20030101 12:00 analysis (at 00hr) and 12hr,36hr forecasts
-</em><br />
-<em class="quotelev1">&gt; 20030101 00:00 analysis 6hr,12hr,18hr,24hr forecasts
-</em><br />
-<em class="quotelev1">&gt; 20030101 06:00 analysis 6hr,18hr forecasts
-</em><br />
-<br />could be expressed as follows (ordering the time samples as they are above)
+&nbsp;&nbsp;&nbsp;float temp(time, s_rho, latitude, longitude);
 <br />
-<br />variables:
+&nbsp;&nbsp;&nbsp;&nbsp;:long_name = &quot;potential temperature&quot;;
 <br />
-&nbsp;&nbsp;double reftime(record);
+&nbsp;&nbsp;&nbsp;&nbsp;:units = &quot;Celsius&quot;;
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;time1:standard_name = &quot;forecast_reference_time&quot; ;
+&nbsp;&nbsp;&nbsp;double time(time);
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;time1:units = &quot;hours since 2003-01-01 00:00&quot; ;
+&nbsp;&nbsp;&nbsp;&nbsp;:long_name = &quot;time since initialization&quot;;
 <br />
-&nbsp;&nbsp;double valtime(record);
+&nbsp;&nbsp;&nbsp;&nbsp;:units = &quot;seconds since 1968-05-23 00:00:00 UTC&quot;;
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;time2:standard_name = &quot;time&quot; ;
+&nbsp;&nbsp;&nbsp;&nbsp;:calendar = &quot;gregorian&quot;;
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;time2:units = &quot;hours since 2003-01-01 00:00&quot; ;
+&nbsp;&nbsp;&nbsp;float zeta(time, latitude, longitude);
 <br />
-&nbsp;&nbsp;float temp(record,level,lat,lon);
+&nbsp;&nbsp;&nbsp;&nbsp;:long_name = &quot;free-surface&quot;;
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;temp:long_name = &quot;Air temperature on model levels&quot; ;
+&nbsp;&nbsp;&nbsp;&nbsp;:units = &quot;meter&quot;;
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;temp:standard_name = &quot;air_temperature&quot; ;
+<br />&nbsp;// Global Attributes:
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;temp:units = &quot;K&quot; ;
+&nbsp;&nbsp;&nbsp;&nbsp;:Conventions = &quot;CF-1.0&quot;;
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;temp:coordinates = &quot;valtime reftime&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;:type = &quot;ROMS/TOMS output averages file&quot;;
 <br />
-data:
+<br />}
 <br />
-&nbsp;&nbsp;reftime = 12., 12., 12.,  0.,  0.,  0.,  0.,  6.,  6. ; 
+<br /><br /><br />File name:      C:\data\conventions\cf\signell_july2_03.nc
 <br />
-&nbsp;&nbsp;valtime = 12., 24., 48.,  6., 12., 18., 24., 12., 24. ;
+<br /><br />--------------------------------------------------------------------------------
 <br />
-<br />In this example, again you could add another auxiliary coordinate of
+Output of CF-Checker follows...
 <br />
-forecast_period, which would have values
+<br />CHECKING NetCDF FILE
 <br />
-0, 12, 36, 6, 12, 18, 24, 6, 18;
+=====================
 <br />
-i.e. it's just the difference valtime-reftime, so it doesn't really seem
+<br />------------------
 <br />
-to be necessary.
+Checking variable: theta_b
 <br />
-<br />In the earlier discussion, we did *not* propose to introduce a structure with
+------------------
 <br />
-two multivalued time axes, because those situations can be handled by
+<br />------------------
 <br />
-structure (b). It's less efficient, but simpler not to have lots of different
+Checking variable: Cs_r
 <br />
-structures.
+------------------
 <br />
-<br />Does this cover your needs?
+<br />------------------
 <br />
-<br />Best wishes
+Checking variable: temp
 <br />
-<br />Jonathan
+------------------
 <br />
-<span id="received"><dfn>Received on</dfn> Tue Sep 05 2006 - 02:38:10 BST</span>
+<br />------------------
+<br />
+Checking variable: h
+<br />
+------------------
+<br />
+<br />------------------
+<br />
+Checking variable: longitude
+<br />
+------------------
+<br />
+<br />------------------
+<br />
+Checking variable: s_rho
+<br />
+------------------
+<br />
+<br />------------------
+<br />
+Checking variable: theta_s
+<br />
+------------------
+<br />
+<br />------------------
+<br />
+Checking variable: time
+<br />
+------------------
+<br />
+<br />------------------
+<br />
+Checking variable: latitude
+<br />
+------------------
+<br />
+<br />------------------
+<br />
+Checking variable: hc
+<br />
+------------------
+<br />
+<br />------------------
+<br />
+Checking variable: zeta
+<br />
+------------------
+<br />
+<br />ERRORS detected: 0
+<br />
+WARNINGS given: 0
+<br />
+<span id="received"><dfn>Received on</dfn> Thu Jul 03 2003 - 13:22:43 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -223,12 +269,12 @@ structures.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start196">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0197.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Standard names for altimeter data"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0195.html" title="Previous message in the list">John Caron: "[CF-metadata] file with both run time and forecast (valid) time coordinates"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0197.html" title="Next message in the list">Brian Eaton: "[CF-metadata] 2D latitude, longitude coordinates detection"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0195.html" title="Previous message in the list">Stephens, A: "[CF-metadata] CF-checker has moved to new URL"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0199.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] file with both run time and forecast (valid) time coordinates"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./0197.html" title="Next message in this discussion thread">Brian Eaton: "[CF-metadata] 2D latitude, longitude coordinates detection"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0199.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] file with both run time and forecast (valid) time coordinates"</a></li>
+<dfn>Reply</dfn>: <a href="./0197.html" title="Message sent in reply to this message">Brian Eaton: "[CF-metadata] 2D latitude, longitude coordinates detection"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -239,7 +285,7 @@ structures.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:45 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0195.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0197.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

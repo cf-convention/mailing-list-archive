@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] species as species in chemical and aerosol names from Jonathan Gregory on 2006-10-23 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] species as species in chemical and aerosol names" />
-<meta name="Date" content="2006-10-23" />
+<title>[CF-metadata] CF surface variable names from Robb Kambic on 2004-02-24 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Robb Kambic (rkambic)" />
+<meta name="Subject" content="[CF-metadata] CF surface variable names" />
+<meta name="Date" content="2004-02-24" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0368.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0370.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] species as species in chemical and aerosol names</h1>
-<!-- received="Mon Oct 23 02:22:29 2006" -->
-<!-- isoreceived="20061023012229" -->
-<!-- sent="Mon, 23 Oct 2006 09:22:29 +0100" -->
-<!-- isosent="20061023082229" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] species as species in chemical and aerosol names" -->
-<!-- id="20061023082229.GA12435_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0368.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0370.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF surface variable names</h1>
+<!-- received="Tue Feb 24 14:35:54 2004" -->
+<!-- isoreceived="20040224143554" -->
+<!-- sent="Tue, 24 Feb 2004 14:35:54 -0700 (MST)" -->
+<!-- isosent="20040224213554" -->
+<!-- name="Robb Kambic" -->
+<!-- email="rkambic" -->
+<!-- subject="[CF-metadata] CF surface variable names" -->
+<!-- id="Pine.GSO.4.51.0402241427540.20816_at_laraine.unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,10 +53,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0370.html" accesskey="d" title="Kettleborough, Jamie: &quot;[CF-metadata] CF and multi-forecast system ensemble data&quot;">Next message</a> ]
-[ <a href="./0368.html" title="Jonathan Gregory: &quot;[CF-metadata] RE: new standard names 1.-33.&quot;">Previous message</a> ]
+[ <a href="./0370.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] CF surface variable names&quot;">Next message</a> ]
+[ <a href="./0368.html" title="Jonathan Gregory: &quot;[CF-metadata] omega&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0383.html" accesskey="t" title="Christiane Textor: &quot;[CF-metadata] species as species in chemical and aerosol names - &#0034;expressed as such&#0034;&quot;">Next in thread</a> ]
+[ <a href="./0370.html" accesskey="t" title="Jonathan Gregory: &quot;[CF-metadata] CF surface variable names&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,30 +70,248 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20species%20as%20species%20in%20chemical%20and%20aerosol%20names">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Robb Kambic &lt;<a href="mailto:rkambic?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20surface%20variable%20names">rkambic</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 23 Oct 2006 09:22:29 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 24 Feb 2004 14:35:54 -0700 (MST)</span><br />
 </address>
 <br />
-Dear all
+Hiya,
 <br />
-<br />Since Alison has reminded us this is still under discussion, I'd like to ask
+<br />I'm in the process of modifying a surface (METAR) decoder that stores the
 <br />
-again whether anyone has a better idea than to use the phrases
+results in a netCDF file. It would be good if the variables names followed
 <br />
-X_expressed_as_Y, or X_expressed_as_such, if X=Y for mass fluxes of chemical
+the CF conventions to get the benefit of standardized names, etc. Currently
 <br />
-species, to indicate that there is a flux of X (carbon dioxide, for instance)
+the CF conventions don't have all the variable names needed to represent
 <br />
-but the mass units count it in terms of Y (carbon, for instance). Are these
+the METAR data. So I made an attempt to expand/modify a CF convention name to
 <br />
-phrase clear enough?
+represent a needed variable name. For instance, the CF convention name
 <br />
-<br />Cheers
+wind_speed was used to create the needed variable wind_gust. Following is a
 <br />
-<br />Jonathan
+list of new variable names needed to represent the METAR data. I would
 <br />
-<span id="received"><dfn>Received on</dfn> Mon Oct 23 2006 - 02:22:29 BST</span>
+appreciate if the names would be added to the CF conventions so others
+<br />
+writing decoders would have standard set of names. Also, in the future my
+<br />
+plan is to modify the other decoders in the Unidata decoders package to use
+<br />
+the CF conventions.
+<br />
+<br />Thanks,
+<br />
+Robb...
+<br />
+<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Report time information
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char datetime( station, interval, time_len ) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;datetime:long_name = &quot;Observation time&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;datetime:_FillValue = &quot;\0&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// units YYYY-MM-DD hh:mm:ssZ  (ISO 8601)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;long time_observation( station, interval ) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time_observation:long_name = &quot;time of Observation&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time_observation:_FillValue = -99999;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time_observation:units = &quot;seconds since 1970-01-01 00 UTC&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;long time_nominal( station, interval ) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time_nominal:long_name = &quot;time nominal&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time_nominal:_FillValue = -99999;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time_nominal:units = &quot;seconds since 1970-01-01 00 UTC&quot;;
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Wind
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float wind_gust( station, interval ) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_gust:long_name = &quot;Wind Gust&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_gust:_FillValue = -99999.f;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_gust:units = &quot;m/s&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int wind_from_direction_min( station, interval ) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_from_direction_min:long_name = &quot;wind from direction minimum&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_from_direction_min:_FillValue = -99999;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_from_direction_min:valid_range = 0, 360;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_from_direction_min:units = &quot;degrees&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int wind_from_direction_max( station, interval ) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_from_direction_max:long_name = &quot;wind from direction maximum&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_from_direction_max:_FillValue = -99999;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_from_direction_max:valid_range = 0, 360;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_from_direction_max:units = &quot;degrees&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int wind_peak_from_direction( station, interval ) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_peak_from_direction:long_name = &quot;Peak wind direction&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_peak_from_direction:_FillValue = -99999;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_peak_from_direction:valid_range = 0, 360;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_peak_from_direction:units = &quot;degrees&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float wind_peak_speed( station, interval ) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_peak_speed:long_name = &quot;Peak wind speed&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_peak_speed:_FillValue = -99999.f;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_peak_speed:units = &quot;m/s&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char wind_peak_time( station, interval, time_len ) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_peak_time:long_name = &quot;Peak wind time&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_peak_time:_FillValue = &quot;\0&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// units YYYY-MM-DD hh:mm:ssZ  (ISO 8601)
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Visibility
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char visibility_in_air_direction( station, interval, vis_len ) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visibility_in_air_direction:long_name = &quot;visibility in
+<br />
+air direction&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visibility_in_air_direction:_FillValue = &quot;\0&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//visibility_in_air_direction:units = &quot;degrees&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float visibility_in_air_vertical( station, interval ) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visibility_in_air_vertical:long_name = &quot;Vertical visibility in air&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visibility_in_air_vertical:_FillValue = -99999.f;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visibility_in_air_vertical:units = &quot;meters&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float visibility_in_air_surface( station, interval ) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visibility_in_air_surface:long_name = &quot;Visibility in air at surface&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visibility_in_air_surface:_FillValue = -99999.f;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visibility_in_air_surface:units = &quot;meters&quot;;
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Clouds
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float low_cloud_area_fraction( station, interval ) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;low_cloud_area_fraction:long_name = &quot;Low cloud area fraction&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;low_cloud_area_fraction:_FillValue = -99999.f;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;low_cloud_area_fraction:units = &quot;fraction&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float low_cloud_base_altitude( station, interval ) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;low_cloud_base_altitude:long_name = &quot;Low cloud base&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;low_cloud_base_altitude:_FillValue = -99999.f;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;low_cloud_base_altitude:units = &quot;meters&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float middle_cloud_area_fraction( station, interval ) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;middle_cloud_area_fraction:long_name = &quot;Middle cloud area fraction&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;middle_cloud_area_fraction:_FillValue = -99999.f;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;middle_cloud_area_fraction:units = &quot;fraction&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float middle_cloud_base_altitude( station, interval ) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;middle_cloud_base_altitude:long_name = &quot;Middle cloud base&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;middle_cloud_base_altitude:_FillValue = -99999.f;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;middle_cloud_base_altitude:units = &quot;meters&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float high_cloud_area_fraction( station, interval ) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;high_cloud_area_fraction:long_name = &quot;High cloud area fraction&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;high_cloud_area_fraction:_FillValue = -99999.f;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;high_cloud_area_fraction:units = &quot;fraction&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float high_cloud_base_altitude( station, interval ) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;high_cloud_base_altitude:long_name = &quot;High cloud base&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;high_cloud_base_altitude:_FillValue = -99999.f;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;high_cloud_base_altitude:units = &quot;meters&quot;;
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Weather
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char weather( station, interval, weather_len ) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;weather:long_name = &quot;Weather phenomena&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;weather:_FillValue = &quot;\0&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;weather:reference = &quot;WMO #306, code table 4658&quot;;
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Precipitation
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float snowfall_amount_last_hour( station, interval ) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snowfall_amount_last_hour:long_name = &quot;Snow fall amount last hour&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snowfall_amount_last_hour:_FillValue = -99999.f;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snowfall_amount_last_hour:units = &quot;inches&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float precipitation_amount_hourly( station, interval ) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;precipitation_amount_hourly:long_name = &quot;Hourly precipitation amount&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;precipitation_amount_hourly:_FillValue = -99999.f;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;precipitation_amount_hourly:units = &quot;.01 inches&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float precipitation_amount_24( station, interval ) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;precipitation_amount_24:long_name = &quot;24 hour precipitation amount&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;precipitation_amount_24:_FillValue = -99999.f;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;precipitation_amount_24:units = &quot;.01 inches&quot;;
+<br />
+<br /><br />===============================================================================
+<br />
+Robb Kambic        			   Unidata Program Center
+<br />
+Software Engineer III			   Univ. Corp for Atmospheric Research
+<br />
+rkambic at unidata.ucar.edu		   WWW: <a href="http://www.unidata.ucar.edu/">http://www.unidata.ucar.edu/</a>
+<br />
+===============================================================================
+<br />
+<span id="received"><dfn>Received on</dfn> Tue Feb 24 2004 - 14:35:54 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -101,13 +319,12 @@ phrase clear enough?
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start369">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0370.html" title="Next message in the list">Kettleborough, Jamie: "[CF-metadata] CF and multi-forecast system ensemble data"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0368.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] RE: new standard names 1.-33."</a></li>
+<li><dfn>Next message</dfn>: <a href="./0370.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] CF surface variable names"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0368.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] omega"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0383.html" title="Next message in this discussion thread">Christiane Textor: "[CF-metadata] species as species in chemical and aerosol names - &#0034;expressed as such&#0034;"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./0370.html" title="Next message in this discussion thread">Jonathan Gregory: "[CF-metadata] CF surface variable names"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0383.html" title="Message sent in reply to this message">Christiane Textor: "[CF-metadata] species as species in chemical and aerosol names - &#0034;expressed as such&#0034;"</a></li>
-<li><dfn>Reply</dfn>: <a href="./0384.html" title="Message sent in reply to this message">Christiane Textor: "[CF-metadata] species as species in chemical and aerosol names -  &#0034;mercury&#0034;"</a></li>
+<dfn>Reply</dfn>: <a href="./0370.html" title="Message sent in reply to this message">Jonathan Gregory: "[CF-metadata] CF surface variable names"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -118,7 +335,7 @@ phrase clear enough?
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:49 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0368.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0370.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] New standard name: datetime_iso8601 from Aleksandar Jelenak - NOAA Affiliate on 2013-01-15 (mailing-list-archive)</title>
-<meta name="Author" content="Aleksandar Jelenak - NOAA Affiliate (aleksandar.jelenak)" />
-<meta name="Subject" content="[CF-metadata] New standard name: datetime_iso8601" />
-<meta name="Date" content="2013-01-15" />
+<title>[CF-metadata] [lc-cci] proposal for new CF standard names for land cover observation and classification from Martin Boettcher on 2012-01-31 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Martin Boettcher (martin.boettcher)" />
+<meta name="Subject" content="[CF-metadata] [lc-cci] proposal for new CF standard names for land cover observation and classification" />
+<meta name="Date" content="2012-01-31" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4960.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4962.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] New standard name: datetime_iso8601</h1>
-<!-- received="Mon Jan 14 20:54:48 2013" -->
-<!-- isoreceived="20130114205448" -->
-<!-- sent="Mon, 14 Jan 2013 22:54:48 -0500" -->
-<!-- isosent="20130115035448" -->
-<!-- name="Aleksandar Jelenak - NOAA Affiliate" -->
-<!-- email="aleksandar.jelenak" -->
-<!-- subject="[CF-metadata] New standard name: datetime_iso8601" -->
-<!-- id="CAAth-n_8uyXuiHSANEk5JYQxCyz-DGEXs+BkSKrU2XCqzp4q1g_at_mail.gmail.com" -->
+<a style="text-decoration:none" href="./4960.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4962.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] [lc-cci] proposal for new CF standard names for land cover observation and classification</h1>
+<!-- received="Tue Jan 31 07:23:43 2012" -->
+<!-- isoreceived="20120131072343" -->
+<!-- sent="Tue, 31 Jan 2012 15:23:43 +0100" -->
+<!-- isosent="20120131142343" -->
+<!-- name="Martin Boettcher" -->
+<!-- email="martin.boettcher" -->
+<!-- subject="[CF-metadata] [lc-cci] proposal for new CF standard names for land cover observation and classification" -->
+<!-- id="4F27F96F.4040905_at_brockmann-consult.de" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="CALGmxELi=YPrTybDOZW-1eOSpYJAyqsQW4MO-7OwJG3RvoniyQ_at_mail.gmail.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +53,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4962.html" accesskey="d" title="John Graybeal: &quot;[CF-metadata] New Standard Names for Satellite Data&quot;">Next message</a> ]
-[ <a href="./4960.html" title="Aleksandar Jelenak - NOAA Affiliate: &quot;[CF-metadata] New Standard Names for Satellite Data&quot;">Previous message</a> ]
-[ <a href="./4948.html" title="Chris Barker - NOAA Federal: &quot;[CF-metadata] New standard name: datetime_iso8601&quot;">In reply to</a> ]
+[ <a href="./4962.html" accesskey="d" title="Schultz, Martin: &quot;[CF-metadata] mailing list and trac tickets&quot;">Next message</a> ]
+[ <a href="./4960.html" title="Stephane TAROT: &quot;[CF-metadata] Sea surface height&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./4963.html" accesskey="t" title="Heiko Klein: &quot;[CF-metadata] New standard name: datetime_iso8601&quot;">Next in thread</a> ]
+[ <a href="./5097.html" accesskey="t" title="Jonathan Gregory: &quot;[CF-metadata] [lc-cci] proposal for new CF standard names for land cover observation and classification&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,132 +70,397 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Aleksandar Jelenak - NOAA Affiliate &lt;<a href="mailto:aleksandar.jelenak?Subject=Re%3A%20%5BCF-metadata%5D%20New%20standard%20name%3A%20datetime_iso8601">aleksandar.jelenak</a>&gt;
+<dfn>From</dfn>: Martin Boettcher &lt;<a href="mailto:martin.boettcher?Subject=Re%3A%20%5BCF-metadata%5D%20%5Blc-cci%5D%20proposal%20for%20new%20CF%20standard%20names%20for%20land%20cover%20observation%20and%20classification">martin.boettcher</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 14 Jan 2013 22:54:48 -0500</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 31 Jan 2012 15:23:43 +0100</span><br />
 </address>
 <br />
-Hello Nan, Chris:
+Dear CF maintainers,
 <br />
-<br />I am not proposing that time coordinate variables can also be ISO 8601
+<br />we would like to propose a few new standard names, a new set of values 
 <br />
-datetime strings. The description for this standard name clearly
+for the standard name 'land_cover', and standard name modifiers. The 
 <br />
-states:
+names are proposals for variables used by the climate change initiative 
 <br />
-<br />&quot;
+of the European Space Agency for the essential climate variable 'land 
 <br />
-Variables with this standard name cannot serve as coordinate variables.
+cover' (<a href="http://www.esa-landcover-cci.org/">http://www.esa-landcover-cci.org/</a>). Which additional information 
 <br />
-&quot;
+shall we provide to define names (or find existing ones)?
 <br />
-<br />I am merely proposing a standard name for those who are willing to
+<br />The proposed standard names are 'surface_reflectance', 
 <br />
-spend a few more kilobytes of their CF-netCDF files on duplicating
+'probability_of_fire_occurrence', 'probability_of_snow_occurrence', 
 <br />
-time data as ISO 8601 strings.
+'probability_of_water_occurrence'. The proposed valids for 'land_cover' 
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Aleksandar
+stem from the UN land cover classification system LCCS and from plant 
 <br />
-<br /><br />On Fri, Jan 11, 2013 at 4:37 PM, Chris Barker - NOAA Federal
+functional types (PFT). The proposed modifiers are 'confidence_level', 
 <br />
-&lt;chris.barker at noaa.gov&gt; wrote:
+'consistency_level', and 'source_flag', Our proposals for definitions 
 <br />
-<em class="quotelev1">&gt; On Fri, Jan 11, 2013 at 9:00 AM, Aleksandar Jelenak - NOAA Affiliate
-</em><br />
-<em class="quotelev1">&gt; &lt;aleksandar.jelenak at noaa.gov&gt; wrote:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Here's the modified proposal for the datetime_iso8601 standard name:
-</em><br />
-<em class="quotelev1">&gt; ...
-</em><br />
-<em class="quotelev2">&gt;&gt; String representing date-time information according to the ISO
-</em><br />
-<em class="quotelev2">&gt;&gt; 8601:2004(E) standard.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; I think we should NOT adopt a string option for datetime variables.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; To quote Jonathan Gregory:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; &quot;&quot;&quot;
-</em><br />
-<em class="quotelev1">&gt; In CF we have always applied the
-</em><br />
-<em class="quotelev1">&gt; principle that we only add to CF when there is a need to do so, i.e. there is
-</em><br />
-<em class="quotelev1">&gt; a use-case for something which cannot already be represented in CF
-</em><br />
-<em class="quotelev1">&gt; &quot;&quot;&quot;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; We already have a way to encode datetimes in CF-netcdf.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; I believe this proposal resulted from the discussion about adding a
-</em><br />
-<em class="quotelev1">&gt; more flexible approach to datetimes in the CF Data Model. I think
-</em><br />
-<em class="quotelev1">&gt; that's a good idea, but separate from what encoding is used in
-</em><br />
-<em class="quotelev1">&gt; CF-netcdf. ( see my recent note for more detail about the difference
-</em><br />
-<em class="quotelev1">&gt; between and encoding and a data model ).
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; 1) Having multiple ways to encode the same data in file format adds
-</em><br />
-<em class="quotelev1">&gt; complication to all client code -- client code would need a way to
-</em><br />
-<em class="quotelev1">&gt; process both ISO strings and &quot;time_unit since datetime&quot;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; 2) Any client code that can process ISO strings is likely to need to
-</em><br />
-<em class="quotelev1">&gt; convert them to a client-specific datetime representation anyway, in
-</em><br />
-<em class="quotelev1">&gt; order to plot, calculate with, etc  them.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; 3) Any client library that can process ISO strings is very likely to
-</em><br />
-<em class="quotelev1">&gt; be able to also work with &quot;time_unit since datetime&quot; encoded data
-</em><br />
-<em class="quotelev1">&gt; anyway -- and it had better, as that encoding is part of the standard
-</em><br />
-<em class="quotelev1">&gt; anyway.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; As a result, we would be complicating client code, and getting no new
-</em><br />
-<em class="quotelev1">&gt; functionality.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; The one advantage I can see at the moment is that simple, non-CF-aware
-</em><br />
-<em class="quotelev1">&gt; clients, like ncdump, could easily present a nice human-readable
-</em><br />
-<em class="quotelev1">&gt; format. But I don't think that is worth the additional complication.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; -Chris
-</em><br />
-<span id="received"><dfn>Received on</dfn> Mon Jan 14 2013 - 20:54:48 GMT</span>
+are as follows.
+<br />
+<br />standard name: surface_reflectance
+<br />
+definition: fraction of incident 
+<br />
+radiation&lt;<a href="http://en.wikipedia.org/wiki/Reflection_%28physics%29">http://en.wikipedia.org/wiki/Reflection_%28physics%29</a>&gt; 
+<br />
+reflected by a surface, wavelength dependent
+<br />
+unit: none
+<br />
+attribute: wavelength [unit nm]
+<br />
+example:
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float sr_2_mean(time, lat, lon) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sr_2_mean:long_name = &quot;normalised surface reflectance of 
+<br />
+channel 2&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sr_2_mean:standard_name = &quot;surface_reflectance&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sr_2_mean:wavelength = 442.5 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sr_2_mean:valid_min = 0 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sr_2_mean:valid_max = 1 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sr_2_mean:_FillValue = -999.f ;
+<br />
+<br />standard name: probability_of_fire_occurrence
+<br />
+definition: probability that the observed pixel shows a burned area
+<br />
+unit: none (a value between 0 and 1)
+<br />
+example:
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;byte fire_probability(time, lat, lon) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fire_probability:long_name = &quot;probability of fire&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fire_probability:standard_name = &quot;probability_of_fire_occurrence&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fire_probability:valid_min = 0 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fire_probability:valid_max = 100 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fire_probability:_FillValue = -1b ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fire_probability:scale_factor = 0.01f ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fire_probability:ancillary_variables = &quot;fire_source 
+<br />
+fire_observation_count fire_lcmap_consistency fire_lccond_consistency&quot; ;
+<br />
+<br />standard name: probability_of_snow_occurrence
+<br />
+definition: probability that the observed pixel shows snow or ice
+<br />
+unit: none (a value between 0 and 1)
+<br />
+example:
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;byte snow_probability(time, lat, lon) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snow_probability:long_name = &quot;probability of snow&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snow_probability:standard_name = &quot;propability_of_snow_occurrence&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snow_probability:valid_min = 0 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snow_probability:valid_max = 100 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snow_probability:_FillValue = -1b ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snow_probability:scale_factor = 0.01f ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snow_probability:ancillary_variables = &quot;snow_source 
+<br />
+snow_observation_count snow_lcmap_consistency snow_lccond_consistency&quot; ;
+<br />
+<br />standard name: probability_of_water_occurrence
+<br />
+definition: probability that the observed pixel shows water
+<br />
+unit: none (a value between 0 and 1)
+<br />
+example:
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;byte water_probability(time, lat, lon) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;water_probability:long_name = &quot;probability of water&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;water_probability:standard_name = 
+<br />
+&quot;propability_of_water_occurrence&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;water_probability:valid_min = 0 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;water_probability:valid_max = 100 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;water_probability:_FillValue = -1b ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;water_probability:scale_factor = 0.01f ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;water_probability:ancillary_variables = &quot;water_source 
+<br />
+water_observation_count water_lcmap_consistency water_lccond_consistency&quot; ;
+<br />
+<br />For the existing standard name land_cover which is a synonym of 
+<br />
+area_type we propose to allow for external vocabularies as valids. We 
+<br />
+propose to represent them as enumeration with flag_values and 
+<br />
+flag_meanings. (The current CF approach is to allow for string values 
+<br />
+with the valids listed in a CF area_type table. We have read the 
+<br />
+discussion on area_type e.g. in 
+<br />
+<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2011/022389.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2011/022389.html</a> and 
+<br />
+we do not think that the use of area_type table is appropriate for names 
+<br />
+already standardised elsewhere, and in our case we furthermore need 
+<br />
+valids from different classification schemes) There are in fact two 
+<br />
+classifications used in the LC CCI project. The first list is a subset 
+<br />
+of LCCS classifier combinations. The other list of valids from plant 
+<br />
+functional types (PFT) is listed in the second example below.
+<br />
+<br />valids for land_cover: no_data cropland_rainfed cropland_irrigated 
+<br />
+mosaic_cropland mosaic_natural_vegetation 
+<br />
+tree_broadleaved_evergreen_closed_to_open 
+<br />
+tree_broadleaved_deciduous_closed tree_broadleaved_deciduous_open 
+<br />
+tree_needleleaved_evergreen_closed tree_needleleaved_evergreen_open 
+<br />
+tree_needleleaved_deciduous_closed tree_needleleaved_deciduous_open 
+<br />
+tree_mixed mosaic_tree_and_shrub mosaic_herbaceous shrubland grassland 
+<br />
+sparse_vegetation tree_cover_flooded_fresh_or_brakish_water 
+<br />
+tree_cover_flooded_saline_water shrub_or_herbaceous_cover_flooded urban 
+<br />
+bare_areas water snow_and_ice
+<br />
+definition: composition of classifiers from LCCS (see Di Gregorio A., 
+<br />
+2005, UN Land Cover Classification System (LCCS) -- Classification 
+<br />
+concepts and user manual for Software version 2. Available at: 
+<br />
+<a href="http://www.fao.org/docrep/003/X0596E/x0596e01f.htm#p1153_114656">http://www.fao.org/docrep/003/X0596E/x0596e01f.htm#p1153_114656</a>)
+<br />
+unit: none (flag_values and flag_meanings)
+<br />
+attribute: vocabulary (proposal to refer to a vocabulary instead of 
+<br />
+re-defining in CF)
+<br />
+examples:
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;byte lccs_class(lat, lon) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lccs_class:long_name = &quot;Land cover class defined in LCCS&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lccs_class:standard_name = &quot;land_cover&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lccs_class:flag_values = 0b, 10b, 20b, 30b, 40b, 50b, 60b, 70b, 
+<br />
+80b, 90b, 100b, 110b, 120b, 130b, 140b, 150b, 160b, 170b, 180b, 190b, 
+<br />
+200b, 210b, 220b, 230b, 240b ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lccs_class:flag_meanings = &quot;no_data cropland_rainfed 
+<br />
+cropland_irrigated mosaic_cropland mosaic_natural_vegetation 
+<br />
+tree_broadleaved_evergreen_closed_to_open 
+<br />
+tree_broadleaved_deciduous_closed tree_broadleaved_deciduous_open 
+<br />
+tree_needleleaved_evergreen_closed tree_needleleaved_evergreen_open 
+<br />
+tree_needleleaved_deciduous_closed tree_needleleaved_deciduous_open 
+<br />
+tree_mixed mosaic_tree_and_shrub mosaic_herbaceous shrubland grassland 
+<br />
+sparse_vegetation tree_cover_flooded_fresh_or_brakish_water 
+<br />
+tree_cover_flooded_saline_water shrub_or_herbaceous_cover_flooded urban 
+<br />
+bare_areas water snow_and_ice&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lccs_class:vocabulary = &quot;UN-LCCS 2005&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lccs_class:valid_min = 1 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lccs_class:valid_max = 240 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lccs_class:_FillValue = 0b ;
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;byte pft_class(lat, lon) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pft_class:long_name = &quot;Land cover class defined in PFT&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pft_class:standard_name = &quot;land_cover&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pft_class:flag_values = 1b, 2b, 3b, 4b, 5b, 6b, 7b, 8b, 9b, 
+<br />
+10b, 11b ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pft_class:flag_meanings = &quot;broadleaved_evergreen 
+<br />
+broadleaved_deciduous needleleaved_evergreen needleleaved_deciduous 
+<br />
+shrubs natural_grass managed_grass wetland bare urban water&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pft_class:vocabulary = &quot;LC-CCI PFT 2011&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pft_class:valid_min = 1 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pft_class:valid_max = 11 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pft_class:_FillValue = 0b ;
+<br />
+<br />Finally, instead of adding new standard names we would like to ask 
+<br />
+whether it would be appropriate to extend the set of standard name 
+<br />
+modifiers. Our candidates are
+<br />
+<br />standard name modifier: confidence_level
+<br />
+definition: applied to some discrete variable, denotes the probability that the assignment of the value to the variable is correct
+<br />
+example:
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;byte algorithmic_confidence_level(lat, lon) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;algorithmic_confidence_level:long_name = &quot;LC map confidence 
+<br />
+level based on algorithm performance&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;algorithmic_confidence_level:standard_name = &quot;land_cover 
+<br />
+confidence_level&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;algorithmic_confidence_level:valid_min = 0 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;algorithmic_confidence_level:valid_max = 100 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;algorithmic_confidence_level:_FillValue = -1b ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;algorithmic_confidence_level:scale_factor = 0.01f ;
+<br />
+<br />standard name modifier: consistence_level
+<br />
+definition: applied to some variable, with relation to some other 
+<br />
+variable, denotes level of consistency within the dataset
+<br />
+example:
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;byte fire_lcmap_consistency(time, lat, lon) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fire_lcmap_consistency:long_name = &quot;consistency of fire 
+<br />
+condition with LC map&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fire_lcmap_consistency:standard_name = 
+<br />
+&quot;probability_of_fire_occurrence consistency_level&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fire_lcmap_consistency:valid_min = 0 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fire_lcmap_consistency:valid_max = 100 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fire_lcmap_consistency:_FillValue = -1b ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fire_lcmap_consistency:scale_factor = 0.01f ;
+<br />
+<br />more examples:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;propability_of_snow_occurrence consistency_level
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;propability_of_water_occurrence consistency_level
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;normalized_difference_vegetation_index consistency_level
+<br />
+<br />standard name modifier: source_flag
+<br />
+definition: applied to some variable, denotes information source used to 
+<br />
+derive the value
+<br />
+example:
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;byte fire_source(time, lat, lon) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fire_source:long_name = &quot;source of fire condition&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fire_source:standard_name = &quot;probability_of_fire_occurrence 
+<br />
+source_flag&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fire_source:flag_values = 1b, 2b, 3b ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fire_source:flag_meanings = &quot;ATSR_World_Fire_Atlas 
+<br />
+MODIS_Burned_Area_Product CCI_Fire_Product&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fire_source:valid_min = 1 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fire_source:valid_max = 3 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fire_source:_FillValue = 0b ;
+<br />
+<br />more examples:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;propability_of_snow_occurrence source_flag
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;propability_of_water_occurrence source_flag
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;normalized_difference_vegetation_index source_flag
+<br />
+<br />Best regards,
+<br />
+Martin Boettcher
+<br />
+for the ESA Land Cover CCI project
+<br />
+<br /><pre>
+-- 
+Dr. Martin Boettcher
+Brockmann Consult GmbH
+Max-Planck-Stra?e 2
+D-21502 Geesthacht
+Tel: +49 (0)4152 889 315
+Fax: +49 (0)4152 889 333
+www.brockmann-consult.de
+Amtsgericht Geesthacht HRB 698
+Gesch?ftsf?hrer Dr. Carsten Brockmann
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120131/c33725aa/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120131/c33725aa/attachment-0001.html</a>&gt;
+</pre>
+<span id="received"><dfn>Received on</dfn> Tue Jan 31 2012 - 07:23:43 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -205,13 +468,12 @@ time data as ISO 8601 strings.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4961">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4962.html" title="Next message in the list">John Graybeal: "[CF-metadata] New Standard Names for Satellite Data"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4960.html" title="Previous message in the list">Aleksandar Jelenak - NOAA Affiliate: "[CF-metadata] New Standard Names for Satellite Data"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./4948.html" title="Message to which this message replies">Chris Barker - NOAA Federal: "[CF-metadata] New standard name: datetime_iso8601"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4962.html" title="Next message in the list">Schultz, Martin: "[CF-metadata] mailing list and trac tickets"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4960.html" title="Previous message in the list">Stephane TAROT: "[CF-metadata] Sea surface height"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./4963.html" title="Next message in this discussion thread">Heiko Klein: "[CF-metadata] New standard name: datetime_iso8601"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./5097.html" title="Next message in this discussion thread">Jonathan Gregory: "[CF-metadata] [lc-cci] proposal for new CF standard names for land cover observation and classification"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./4963.html" title="Message sent in reply to this message">Heiko Klein: "[CF-metadata] New standard name: datetime_iso8601"</a></li>
+<dfn>Reply</dfn>: <a href="./5097.html" title="Message sent in reply to this message">Jonathan Gregory: "[CF-metadata] [lc-cci] proposal for new CF standard names for land cover observation and classification"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -222,7 +484,7 @@ time data as ISO 8601 strings.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:13 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4960.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4962.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

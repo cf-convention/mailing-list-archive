@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] standard_name.xml from Roy Lowry on 2006-04-06 (mailing-list-archive)</title>
-<meta name="Author" content="Roy Lowry (rkl)" />
-<meta name="Subject" content="[CF-metadata] standard_name.xml" />
-<meta name="Date" content="2006-04-06" />
+<title>[CF-metadata] CF-1.0-beta5: curvilinear bounds &quot;contiguous&quot;attribute from Jonathan Gregory on 2003-03-19 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (jonathan.gregory)" />
+<meta name="Subject" content="[CF-metadata] CF-1.0-beta5: curvilinear bounds &quot;contiguous&quot;attribute" />
+<meta name="Date" content="2003-03-19" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0111.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0113.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard_name.xml</h1>
-<!-- received="Thu Apr  6 10:27:05 2006" -->
-<!-- isoreceived="20060406092705" -->
-<!-- sent="Thu, 06 Apr 2006 17:27:05 +0100" -->
-<!-- isosent="20060406162705" -->
-<!-- name="Roy Lowry" -->
-<!-- email="rkl" -->
-<!-- subject="[CF-metadata] standard_name.xml" -->
-<!-- id="s4354f7b.094_at_wpo.nerc.ac.uk" -->
+<a style="text-decoration:none" href="./0111.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0113.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF-1.0-beta5: curvilinear bounds &quot;contiguous&quot;attribute</h1>
+<!-- received="Wed Mar 19 04:34:08 2003" -->
+<!-- isoreceived="20030319043408" -->
+<!-- sent="Wed, 19 Mar 2003 11:34:08 +0000" -->
+<!-- isosent="20030319113408" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="jonathan.gregory" -->
+<!-- subject="[CF-metadata] CF-1.0-beta5: curvilinear bounds &quot;contiguous&quot;attribute" -->
+<!-- id="20030319113407.A28740_at_hc1600.meto.gov.uk" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="&quot;from eaton&quot;_at_ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0113.html" accesskey="d" title="carl wolfteich: &quot;[CF-metadata] REASoN CAN Data Portal Project&quot;">Next message</a> ]
-[ <a href="./0111.html" title="Jonathan Gregory: &quot;[CF-metadata] Fwd: REASoN CAN Data Portal Project&quot;">Previous message</a> ]
+[ <a href="./0113.html" accesskey="d" title="Bryan Lawrence: &quot;[CF-metadata] Encoding Errors on variables in CF&quot;">Next message</a> ]
+[ <a href="./0111.html" title="Jonathan Gregory: &quot;[CF-metadata] Encoding Errors on variables in CF&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,222 +69,138 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Roy Lowry &lt;<a href="mailto:rkl?Subject=Re%3A%20%5BCF-metadata%5D%20standard_name.xml">rkl</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:jonathan.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20CF-1.0-beta5%3A%20curvilinear%20bounds%20%22contiguous%22attribute">jonathan.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 06 Apr 2006 17:27:05 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 19 Mar 2003 11:34:08 +0000</span><br />
 </address>
 <br />
-Hi Luis,
+Dear All
 <br />
-<br />I am certainly in favour of using the MMI approach to address this problem it was how I was going to approach the problem.   I now have a fully automated versioning vocab server backend in place - Michael is currently coding the web service interface - holding the BODC vocabs and a copy of GCMD (the management of which is something I need to take up with GCMD) and will try and persuade Bryan to adopt similar practices when BADC takes on the CF list. Armed with this, the ontology maintenance issue becomes tractable.
+<br />Here are some more points about boundary coordinates.
 <br />
-<br />Cheers, Roy.
+<br />I accept the argument that it is nice to be able to tell from (n+1) boundaries
 <br />
-<br /><em class="quotelev3">&gt;&gt;&gt; Luis Bermudez &lt;bermudez at mbari.org&gt; 4/6/2006 4:53:14 pm &gt;&gt;&gt;
-</em><br />
-Dear Roy and John,
+that the cells are contiguous. This is of course an advantage, and another
 <br />
-<br />There are a lot of issues when we want to perform mappings between  
+advantage is that this method has been commonly used. However, COARDS didn't
 <br />
-vocabularies that are continuously evolving, for example GCMD, CF and  
+standardise any method for boundaries so whatever we do will present problems
 <br />
-BODC.
+for some existing data.
 <br />
-<br />OWL is a very good mechanism to express mappings, but the  
+<br />Generic applications: As I've said, the reason I'm unhappy about supporting
 <br />
-vocabularies are not originally in OWL. This is the reason that we  
+both (n+1) and (n,2) boundaries is that it makes the standard more
 <br />
-have some tools at MMI to do an automatic conversion of this  
+complicated. I am worried in particular that writers of generic applications or
 <br />
-vocabularies to OWL. That way we have them all harmonized (expressed  
+data-users writing their own ad-hoc analysis code may not implement (n,2) if
 <br />
-in the same language/format) and we can resolve semantic  
+(n+1) is used more commonly.  That would mean we would have to wait longer for
 <br />
-heterogeneities in a better fashion.
+full CF support, and that some programs would have problems with some
 <br />
-<br />I just make publicly available the plan of a  strategy we have in  
+data. Bounds are a pretty basic requirement so this would be a nuisance.
 <br />
-mind at MMI. It is here:
+<br />Writing data: Even if we require (n+1) to be used for contiguous cells, writers
 <br />
-<a href="http://marinemetadata.org/examples/mmihostedwork/ontologieswork/">http://marinemetadata.org/examples/mmihostedwork/ontologieswork/</a> 
+of data might use (n,2) when it is more convenient. For example, if you are
 <br />
-watchdogstrategy/strategyt
+making a 3D variable (time,lat,lon) by concatenating separate (lat,lon)
 <br />
-<br />I have made some tests and look at a more concrete framework to allow  
+variables, each with its own 2-element time bounds, it is convenient to produce
 <br />
-the representation and mapping of these terms by using SKOS : http:// 
+a (n,2) time boundary variable. To require (n+1) to be used means the
 <br />
-www.w3.org/2004/02/skos/.
+data-writer has to do a contiguousness check and write data in two different
 <br />
-<br />John and Roy, maybe we can talk in more detail what are your ideas  
+formats according to the results. If we want to encourage people to write
 <br />
-and make a plan to move this forward. I'll be glad to know if the MMI  
+CF-compliant data, we don't want to make it more difficult for them to do
 <br />
-strategy sounds reasonable and if more people are interested in  
+so. On the other hand, if contiguous cells may be written in (2,n) format,
 <br />
-participating.
+applications reading data cannot make any assumptions and have to be able to
 <br />
-<br />Best Regards,
+check for themselves, just as if we did not support (n+1), so nothing has been
 <br />
-<br />Luis
+gained by complicating the standard.
 <br />
-<br /><br /><br />On Apr 6, 2006, at 12:14 AM, Roy Lowry wrote:
+<br />Record dimension: This problem has already been raised. Doesn't it mean that
 <br />
-<br /><em class="quotelev1">&gt; Hello John,
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Mapping CF Standard names to GCMD Parameter Valids to the public  
-</em><br />
-<em class="quotelev1">&gt; domain 'variable' level shouldn't be a problem as the GCMD  
-</em><br />
-<em class="quotelev1">&gt; vocabulary is clearly a discovery vocabulary.  The issues Bryan is  
-</em><br />
-<em class="quotelev1">&gt; eluding to result from trying to map a usage vocabulary (one  
-</em><br />
-<em class="quotelev1">&gt; containing terms that fully describe a data value) because vital  
-</em><br />
-<em class="quotelev1">&gt; information for the mapping (e.g. whether a value is a mean or a  
-</em><br />
-<em class="quotelev1">&gt; standard deviation) are held in CF fields other than the Standard  
-</em><br />
-<em class="quotelev1">&gt; Name.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Are you aware of the MMI vocabulary mapping workshop that was held  
-</em><br />
-<em class="quotelev1">&gt; in Boulder last August?  CF was one of the vocabs used, but the  
-</em><br />
-<em class="quotelev1">&gt; work really only scratched the surface looking at maybe half a  
-</em><br />
-<em class="quotelev1">&gt; dozen terms.  There should still be an OWL version of CF on the MMI  
-</em><br />
-<em class="quotelev1">&gt; site (as well as GCMD), but this will a snapshot that is now well  
-</em><br />
-<em class="quotelev1">&gt; out of date.  There is however an open source tool to convert the  
-</em><br />
-<em class="quotelev1">&gt; XML to OWL (voc2OWL) and a very neat mapping tool (VINE).  The  
-</em><br />
-<em class="quotelev1">&gt; resulting map is an OWL file that can be used with web services  
-</em><br />
-<em class="quotelev1">&gt; also provided by MMI to build a thesaurus server.  I would strongly  
-</em><br />
-<em class="quotelev1">&gt; recommend their approach.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; The one issue with the GCMD parameter valids that was never  
-</em><br />
-<em class="quotelev1">&gt; properly sorted at Boulder is that the mapping was done to GCMD  
-</em><br />
-<em class="quotelev1">&gt; variable terms without their overlying term hierarchy, which took  
-</em><br />
-<em class="quotelev1">&gt; no account of the fact that EARTH SCIENCE &gt; Biosphere &gt; Animal  
-</em><br />
-<em class="quotelev1">&gt; Taxonomy &gt; Fish and EARTH SCIENCE &gt;  Oceans &gt; Marine Biology &gt; Fish  
-</em><br />
-<em class="quotelev1">&gt; are different.  I know Luis Bermudez of MMI was looking at this  
-</em><br />
-<em class="quotelev1">&gt; issue, but don't know how far he got.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Building an ontology mapping between CF and GCMD was on my agenda  
-</em><br />
-<em class="quotelev1">&gt; for later this year to provide the capability to NDG for entering a  
-</em><br />
-<em class="quotelev1">&gt; CF Standard Name into a discovery portal and finding DIFs marked up  
-</em><br />
-<em class="quotelev1">&gt; using GCMD parameter valids.  But I'm more than happy for someone  
-</em><br />
-<em class="quotelev1">&gt; else to make a start and would of course be happy to help once the  
-</em><br />
-<em class="quotelev1">&gt; time slot I've allocated for later this year comes around.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Cheers, Roy.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; John Caron &lt;caron at unidata.ucar.edu&gt; 4/5/2006 8:51:15 pm &gt;&gt;&gt;
-</em><br />
-<em class="quotelev1">&gt; Is the standard name table in XML at:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;   <a href="http://www.cgd.ucar.edu/cms/eaton/cf-metadata/standard_name.xml">http://www.cgd.ucar.edu/cms/eaton/cf-metadata/standard_name.xml</a> 
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; being kept resonably up-to-date?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; I'm thinking about using it to map to, eg DIF vocabulary. Has  
-</em><br />
-<em class="quotelev1">&gt; anyone else done any mappings like that?
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu 
-</em><br />
-<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a> 
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; -- 
-</em><br />
-<em class="quotelev1">&gt; This message (and any attachments) is for the recipient only. NERC
-</em><br />
-<em class="quotelev1">&gt; is subject to the Freedom of Information Act 2000 and the contents
-</em><br />
-<em class="quotelev1">&gt; of this email and any reply you make may be disclosed by NERC unless
-</em><br />
-<em class="quotelev1">&gt; it is exempt from release under the Act. Any material supplied to
-</em><br />
-<em class="quotelev1">&gt; NERC may be stored in an electronic records management system.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu 
-</em><br />
-<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a> 
-</em><br />
-<br />---------------------------------------
+(n+1) can't be used for the unlimited dimension? Wouldn't that imply, again,
 <br />
-Luis Bermudez Ph.D.
+that applications need to be able to check (n,2) for contiguousness?
 <br />
-Software Engineer
+<br />Wrap-round axis: A longitude axis spanning the whole world has only (n)
 <br />
-MMI Liaison - <a href="http://marinemetadata.org">http://marinemetadata.org</a> 
+boundaries. Even if written in (n+1) form it must contain extreme boundaries
 <br />
-bermudez at mbari.org 
+which are equal under modulo 360; it is not possible to avoid having to check
 <br />
-Tel:  (831) 775-1929
+for contiguousness in order to determine whether it is a wrap-round axis.
 <br />
-Monterey Bay Aquarium Research Institute
+<br />1D case: In an earlier posting I said that you couldn't depend on the order of
 <br />
-<br /><br /><br /><br /><pre>
--- 
-This message (and any attachments) is for the recipient only. NERC
-is subject to the Freedom of Information Act 2000 and the contents
-of this email and any reply you make may be disclosed by NERC unless
-it is exempt from release under the Act. Any material supplied to
-NERC may be stored in an electronic records management system.
-</pre>
-<span id="received"><dfn>Received on</dfn> Thu Apr 06 2006 - 10:27:05 BST</span>
+the boundaries in (n,2). Obviously we could adopt one. For instance, we could
+<br />
+say that the sequence bound(i,0), point(i), bound(i,1), bound(i+1,0), ...  must
+<br />
+be monotonic. In that case the extrema are bound(0,0) and bound(n-1,1), and
+<br />
+contiguousness is tested by comparing bound(i,1) with bound(i+1,0) e.g. if
+<br />
+(abs(bound(i+1,0)-bound(i,1)).lt.1e-5*abs(point(i+1)-point(i))) i.e. the
+<br />
+boundaries between adjacent cells are much closer together - even if not
+<br />
+exactly coincident because of numerical imprecision - than the grid
+<br />
+points. This convention is easy to implement and check for correctness because
+<br />
+it depends on numerical comparison.
+<br />
+<br />2D case: I think we ought to distinguish between the polygon case and the
+<br />
+quadrilateral case. The bounds for the former cannot be decomposed into two
+<br />
+separate dimensions. Any number of vertices may be needed. The cells themselves
+<br />
+may not be in a 2D array. Contiguousness is complicated to test. In the
+<br />
+quadrilateral case, however, the bounds arrays can be dimensioned
+<br />
+bounds(n,m,2,2), as Steve says. If we adopt the above 1D convention for
+<br />
+ordering, we then know which 2D bounds to compare for contiguousness of any
+<br />
+pair of adjacent cells. This has the same purpose as saying the four points
+<br />
+must be ordered clockwise or anticlockwise.  (The reason I am worried about
+<br />
+(anti)clockwise ordering is that I fear people might sometimes get confused
+<br />
+about whether they were considering index space or real space to decide the
+<br />
+sign convention.) Two notes on this:
+<br />
+<br />* bounds(n,m,2,2) can be equivalenced/reformed to bounds(n,m,4) if users prefer
+<br />
+to view them that way. The points would be arranged as a Z rather than as going
+<br />
+round the perimeter.
+<br />
+<br />* In the quadrilateral case, the 2D bounds are on auxiliary coordinate
+<br />
+variables. If the 1D coordinate variables have bounds as well, these can be
+<br />
+checked for contiguousness, which is easier.
+<br />
+<br />I am sorry this is rather long. I hope it makes sense.
+<br />
+<br />Jonathan
+<br />
+<span id="received"><dfn>Received on</dfn> Wed Mar 19 2003 - 04:34:08 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -291,8 +208,8 @@ NERC may be stored in an electronic records management system.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start112">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0113.html" title="Next message in the list">carl wolfteich: "[CF-metadata] REASoN CAN Data Portal Project"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0111.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Fwd: REASoN CAN Data Portal Project"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0113.html" title="Next message in the list">Bryan Lawrence: "[CF-metadata] Encoding Errors on variables in CF"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0111.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Encoding Errors on variables in CF"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -304,7 +221,7 @@ NERC may be stored in an electronic records management system.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:44 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0111.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0113.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

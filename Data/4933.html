@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] [CF Metadata] #68: CF data model and reference implementation in Python from Chris Barker - NOAA Federal on 2013-01-10 (mailing-list-archive)</title>
-<meta name="Author" content="Chris Barker - NOAA Federal (chris.barker)" />
-<meta name="Subject" content="[CF-metadata] [CF Metadata] #68: CF data model and reference implementation in Python" />
-<meta name="Date" content="2013-01-10" />
+<title>[CF-metadata] query regarding gridded products from ghansham sangar on 2012-01-25 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="ghansham sangar (ghanshamsangar)" />
+<meta name="Subject" content="[CF-metadata] query regarding gridded products" />
+<meta name="Date" content="2012-01-25" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4932.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4934.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] [CF Metadata] #68: CF data model and reference implementation in Python</h1>
-<!-- received="Thu Jan 10 11:47:41 2013" -->
-<!-- isoreceived="20130110114741" -->
-<!-- sent="Thu, 10 Jan 2013 10:47:41 -0800" -->
-<!-- isosent="20130110184741" -->
-<!-- name="Chris Barker - NOAA Federal" -->
-<!-- email="chris.barker" -->
-<!-- subject="[CF-metadata] [CF Metadata] #68: CF data model and reference implementation in Python" -->
-<!-- id="CALGmxELMFuVo5iXXJ+Wk6QkpNxzOmkawNo-=CfdNEfLWu5meGw_at_mail.gmail.com" -->
+<a style="text-decoration:none" href="./4932.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4934.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] query regarding gridded products</h1>
+<!-- received="Tue Jan 24 22:44:15 2012" -->
+<!-- isoreceived="20120124224415" -->
+<!-- sent="Wed, 25 Jan 2012 11:14:15 +0530" -->
+<!-- isosent="20120125054415" -->
+<!-- name="ghansham sangar" -->
+<!-- email="ghanshamsangar" -->
+<!-- subject="[CF-metadata] query regarding gridded products" -->
+<!-- id="CAD_jZhKBRYy-AF4Jebco4AD-0iLFr1jrXc2cc7wfdyOYGkjY3Q_at_mail.gmail.com" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="CALGmxELXC3tHyhd1JQnqAYeqdP=ip9fvAdDMgbvSZieyBQgtGQ_at_mail.gmail.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4934.html" accesskey="d" title="Cameron-smith, Philip: &quot;[CF-metadata] sea_water_pressure&quot;">Next message</a> ]
-[ <a href="./4932.html" title="Chris Barker - NOAA Federal: &quot;[CF-metadata] [CF Metadata] #68: CF data model and reference implementation in Python&quot;">Previous message</a> ]
-[ <a href="./4932.html" title="Chris Barker - NOAA Federal: &quot;[CF-metadata] [CF Metadata] #68: CF data model and reference implementation in Python&quot;">In reply to</a> ]
+[ <a href="./4934.html" accesskey="d" title="Dave Allured: &quot;[CF-metadata] More than one name in Conventions attribute&quot;">Next message</a> ]
+[ <a href="./4932.html" title="John Caron: &quot;[CF-metadata] MSG CPP standard names, projection and WMS service&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,46 +68,110 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Chris Barker - NOAA Federal &lt;<a href="mailto:chris.barker?Subject=Re%3A%20%5BCF-metadata%5D%20%5BCF%20Metadata%5D%20%2368%3A%20CF%20data%20model%20and%20reference%20implementation%20in%20Python">chris.barker</a>&gt;
+<dfn>From</dfn>: ghansham sangar &lt;<a href="mailto:ghanshamsangar?Subject=Re%3A%20%5BCF-metadata%5D%20query%20regarding%20gridded%20products">ghanshamsangar</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 10 Jan 2013 10:47:41 -0800</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 25 Jan 2012 11:14:15 +0530</span><br />
 </address>
 <br />
-On Thu, Jan 10, 2013 at 10:26 AM, Chris Barker - NOAA Federal
+The below given example I have picked from CF 1.6 convention
 <br />
-&lt;chris.barker at noaa.gov&gt; wrote:
+document.Does this mean that we have to provide x and y coordinate
 <br />
-<br /><em class="quotelev1">&gt; but is that the data model? or is that a particular encoding for a
-</em><br />
-<em class="quotelev1">&gt; particular file format? I think the later.
-</em><br />
-<br />Another example of encoding vs. data model:
+values in 'x' and 'y' variables and also provide the latitude and
 <br />
-<br />An array of integers is a data model
+longitude values corresponding to the grid as 2-D variables in 'lat'
 <br />
-<br />The binary representation of that array is encoding: is it big or
+and 'lon'. Does that not mean duplication of data as we can always
 <br />
-little endian, for instance.
+find out lat,lon values from the x, y values by using the given
 <br />
-<br />Netcdf already abstracts that out for you -- your code does not need
+projection parameters. Is there any possibility of getting one sample
 <br />
-to care. I think this principle could be extended to higher-lever
+product in Lambert Conformal Conic/Mercator projection. I will be
 <br />
-abstractions like datetimes, and encodings like integer*scale+offset
+really grateful to you.
 <br />
-<br />-Chris
+<br />dimensions:
 <br />
-<br /><br /><br /><pre>
--- 
-Christopher Barker, Ph.D.
-Oceanographer
-Emergency Response Division
-NOAA/NOS/OR&amp;R            (206) 526-6959   voice
-7600 Sand Point Way NE   (206) 526-6329   fax
-Seattle, WA  98115       (206) 526-6317   main reception
-Chris.Barker at noaa.gov
-</pre>
-<span id="received"><dfn>Received on</dfn> Thu Jan 10 2013 - 11:47:41 GMT</span>
+&nbsp;&nbsp;y = 228;
+<br />
+&nbsp;&nbsp;x = 306;
+<br />
+&nbsp;&nbsp;time = 41;
+<br />
+<br />variables:
+<br />
+&nbsp;&nbsp;int Lambert_Conformal;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Lambert_Conformal:grid_mapping_name = &quot;lambert_conformal_conic&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Lambert_Conformal:standard_parallel = 25.0;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Lambert_Conformal:longitude_of_central_meridian = 265.0;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Lambert_Conformal:latitude_of_projection_origin = 25.0;
+<br />
+&nbsp;&nbsp;double y(y);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;y:units = &quot;km&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;y:long_name = &quot;y coordinate of projection&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;y:standard_name = &quot;projection_y_coordinate&quot;;
+<br />
+&nbsp;&nbsp;double x(x);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;x:units = &quot;km&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;x:long_name = &quot;x coordinate of projection&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;x:standard_name = &quot;projection_x_coordinate&quot;;
+<br />
+&nbsp;&nbsp;double lat(y, x);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lat:units = &quot;degrees_north&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lat:long_name = &quot;latitude coordinate&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lat:standard_name = &quot;latitude&quot;;
+<br />
+&nbsp;&nbsp;double lon(y, x);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lon:units = &quot;degrees_east&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lon:long_name = &quot;longitude coordinate&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lon:standard_name = &quot;longitude&quot;;
+<br />
+&nbsp;&nbsp;int time(time);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;time:long_name = &quot;forecast time&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;time:units = &quot;hours since 2004-06-23T22:00:00Z&quot;;
+<br />
+&nbsp;&nbsp;float Temperature(time, y, x);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Temperature:units = &quot;K&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Temperature:long_name = &quot;Temperature _at_ surface&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Temperature:missing_value = 9999.0;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Temperature:coordinates = &quot;lat lon&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Temperature:grid_mapping = &quot;Lambert_Conformal&quot;;
+<br />
+<br /><br />regards
+<br />
+<br />Ghansham
+<br />
+-------------- next part --------------
+<br />
+An HTML attachment was scrubbed...
+<br />
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120125/98c745db/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120125/98c745db/attachment.html</a>&gt;
+<br />
+<span id="received"><dfn>Received on</dfn> Tue Jan 24 2012 - 22:44:15 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -117,9 +179,8 @@ Chris.Barker at noaa.gov
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4933">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4934.html" title="Next message in the list">Cameron-smith, Philip: "[CF-metadata] sea_water_pressure"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4932.html" title="Previous message in the list">Chris Barker - NOAA Federal: "[CF-metadata] [CF Metadata] #68: CF data model and reference implementation in Python"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./4932.html" title="Message to which this message replies">Chris Barker - NOAA Federal: "[CF-metadata] [CF Metadata] #68: CF data model and reference implementation in Python"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4934.html" title="Next message in the list">Dave Allured: "[CF-metadata] More than one name in Conventions attribute"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4932.html" title="Previous message in the list">John Caron: "[CF-metadata] MSG CPP standard names, projection and WMS service"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -131,7 +192,7 @@ Chris.Barker at noaa.gov
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:12 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4932.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4934.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

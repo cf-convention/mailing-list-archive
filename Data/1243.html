@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Handling data from land surface models with sub grid scale tiling from Jonathan Gregory on 2008-03-13 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] Handling data from land surface models with sub grid scale tiling" />
-<meta name="Date" content="2008-03-13" />
+<title>[CF-metadata] aerosol water from Christiane Textor on 2006-11-14 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Christiane Textor (christiane.textor)" />
+<meta name="Subject" content="[CF-metadata] aerosol water" />
+<meta name="Date" content="2006-11-14" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1242.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1244.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Handling data from land surface models with sub grid scale tiling</h1>
-<!-- received="Thu Mar 13 02:15:51 2008" -->
-<!-- isoreceived="20080313021551" -->
-<!-- sent="Thu, 13 Mar 2008 08:15:51 +0000" -->
-<!-- isosent="20080313081551" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] Handling data from land surface models with sub grid scale tiling" -->
-<!-- id="20080313081551.GA26491_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./1242.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1244.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] aerosol water</h1>
+<!-- received="Tue Nov 14 09:48:48 2006" -->
+<!-- isoreceived="20061114094848" -->
+<!-- sent="Tue, 14 Nov 2006 17:48:48 +0100" -->
+<!-- isosent="20061114164848" -->
+<!-- name="Christiane Textor" -->
+<!-- email="christiane.textor" -->
+<!-- subject="[CF-metadata] aerosol water" -->
+<!-- id="4559F370.5070204_at_aero.jussieu.fr" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20061114160138.GB12654_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1244.html" accesskey="d" title="Heinke Hoeck: &quot;[CF-metadata] new standard names for ECHAM5/CLM/ERA&quot;">Next message</a> ]
-[ <a href="./1242.html" title="Martin Dix: &quot;[CF-metadata] Handling data from land surface models with sub grid scale tiling&quot;">Previous message</a> ]
+[ <a href="./1244.html" accesskey="d" title="Steve Hankin: &quot;[CF-metadata] species as species in chemical and	aerosol	names - &#0034;mercury&#0034;&quot;">Next message</a> ]
+[ <a href="./1242.html" title="Jonathan Gregory: &quot;[CF-metadata] aerosol water&quot;">Previous message</a> ]
+[ <a href="./1242.html" title="Jonathan Gregory: &quot;[CF-metadata] aerosol water&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,56 +70,125 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Handling%20data%20from%20land%20surface%20models%20with%20sub%20grid%20scale%20tiling">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Christiane Textor &lt;<a href="mailto:christiane.textor?Subject=Re%3A%20%5BCF-metadata%5D%20aerosol%20water">christiane.textor</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 13 Mar 2008 08:15:51 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 14 Nov 2006 17:48:48 +0100</span><br />
 </address>
 <br />
-Dear Martin
+Hi Jonathan,
 <br />
-<br />You're right, the CF standard doesn't explicitly say how to deal with this, but
+<br /><em class="quotelev1"> &gt; OK, I see there could be a distinction between in_air and in_cloudy_air.
+</em><br />
+<br />and in_clouds or in_snow etc...
 <br />
-there are some precedents and provision. The currently open trac ticket 17
+<br /><br /><em class="quotelev1"> &gt; Do you need the &quot;ambient&quot;?
+</em><br />
+I think I do need the ambient, because it could also be given at a 
 <br />
-(<a href="http://cf-pcmdi.llnl.gov/trac/ticket/17">http://cf-pcmdi.llnl.gov/trac/ticket/17</a>) is concerned with related issues.
+certain rel. hum.
 <br />
-That has not been accepted yet, but almost three weeks have passed since any
+<br /><em class="quotelev1"> &gt;You draw a distinction with &quot;dry aerosol&quot;, &gt; but you wouldn't find 
+</em><br />
+&quot;dry &gt;aerosol&quot; in air.
 <br />
-further comment was added and I don't think there are any outstanding
+<br />Yes I would: in the model world.
 <br />
-disagreements, so I hope that it will be accepted. The up-to-date version of
+<br /><em class="quotelev1"> &gt; Doesn't &quot;dry aerosol&quot; mean you have
+</em><br />
+<em class="quotelev1"> &gt; collected and dried it, and that the water mass fraction is zero?
+</em><br />
+<em class="quotelev1"> &gt;
+</em><br />
+This is the meaning in the real world.
 <br />
-the proposed changes to the convention is near the end of the ticket.
+<br /><em class="quotelev1"> &gt; If aerosol particles are in cloud water or in precipitation, are they 
+</em><br />
+still &quot;ambient&quot; aerosol? Do they still have a meaningful mass fraction 
 <br />
-<br />The assumption in that ticket is that you would have a dimension for surface
+of water?
 <br />
-type (tile) as you have done. If there is a (1D) coordinate variable it could
+<br />This distinction would not make sense anymore. It could be dry or 
 <br />
-only be an index, like you have, but you can also include a string-valued
+ambient aerosol in air, or aerosol at a certain rel. humidity in air. Or 
 <br />
-auxiliary coordinate variable i.e. a char variable (tile,maxstringlength) with
+they could be contained another phase like clouds or precip, but not at 
 <br />
-standard name of area_type to identify the surface types. The possible values
+the same time in air.
 <br />
-of area_type will be specified by a list maintained with the standard name
+<br />Cheers,
 <br />
-table, and added to by proposing them to this email group, like stdnames.
+<br />Christiane
 <br />
-<br />CF doesn't require the dimensions to be in any particular order, but for
+<br /><br />Jonathan Gregory a ?crit :
 <br />
-compatibility with COARDS it is generally recommended to put
-<br />
-(time,depth,lat,lon) at the right (in CDL or C order), so the tile
-<br />
-would then come on the left. However that may not be convenient or efficient
-<br />
-for you.
-<br />
-<br />I hope that helps. Best wishes
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Thu Mar 13 2008 - 02:15:51 GMT</span>
+<em class="quotelev1">&gt; Dear Christiane
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;mass_fraction_of_water_in_ambient_aerosol_in_air
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;isn't an aerosol by definition in air?
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;Aerosol particles can be within hydrometeors (cloud, precip, ice...), so 
+</em><br />
+<em class="quotelev2">&gt;&gt;I would like to keep the in_air extension.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; OK, I see there could be a distinction between in_air and in_cloudy_air.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Do you need the &quot;ambient&quot;? You draw a distinction with &quot;dry aerosol&quot;, but you
+</em><br />
+<em class="quotelev1">&gt; wouldn't find &quot;dry aerosol&quot; in air. Doesn't &quot;dry aerosol&quot; mean you have
+</em><br />
+<em class="quotelev1">&gt; collected and dried it, and that the water mass fraction is zero?
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; If aerosol particles are in cloud water or in precipitation, are they still
+</em><br />
+<em class="quotelev1">&gt; &quot;ambient&quot; aerosol? Do they still have a meaningful mass fraction of water?
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Thanks for continuing the discussion. Cheers
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Jonathan
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<br /><pre>
+-- 
+Christiane Textor
+GMES France Atmosph?re - GEMS France
+Service d'A?ronomie INSU CNRS, Tour 46, RDC # 2
+Universit? Pierre et Marie Curie, Boite 102
+4 place Jussieu
+75252 Paris C?dex 05
+France
+Tel: ++33 1.44.27.21.82
+Fax: ++33 1.44.27.21.81
+Email: christiane.textor at aero.jussieu.fr
+</pre>
+<span id="received"><dfn>Received on</dfn> Tue Nov 14 2006 - 09:48:48 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -125,8 +196,9 @@ for you.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1243">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1244.html" title="Next message in the list">Heinke Hoeck: "[CF-metadata] new standard names for ECHAM5/CLM/ERA"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1242.html" title="Previous message in the list">Martin Dix: "[CF-metadata] Handling data from land surface models with sub grid scale tiling"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1244.html" title="Next message in the list">Steve Hankin: "[CF-metadata] species as species in chemical and	aerosol	names - &#0034;mercury&#0034;"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1242.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] aerosol water"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./1242.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] aerosol water"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -138,7 +210,7 @@ for you.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:02 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1242.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1244.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

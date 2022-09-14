@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] new standard name smoke_binary_mask - follow-up and modified proposal from Carlomusto, Michael on 2015-07-13 (mailing-list-archive)</title>
-<meta name="Author" content="Carlomusto, Michael (mcarlomu)" />
-<meta name="Subject" content="[CF-metadata] new standard name smoke_binary_mask - follow-up and modified proposal" />
-<meta name="Date" content="2015-07-13" />
+<title>[CF-metadata]  volume integral from Jonathan Gregory on 2014-07-30 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata]  volume integral" />
+<meta name="Date" content="2014-07-30" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./7211.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7213.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new standard name smoke_binary_mask - follow-up and modified proposal</h1>
-<!-- received="Mon Jul 13 08:51:07 2015" -->
-<!-- isoreceived="20150713075107" -->
-<!-- sent="Mon, 13 Jul 2015 14:51:07 +0000" -->
-<!-- isosent="20150713145107" -->
-<!-- name="Carlomusto, Michael" -->
-<!-- email="mcarlomu" -->
-<!-- subject="[CF-metadata] new standard name smoke_binary_mask - follow-up and modified proposal" -->
-<!-- id="64AC2C0D9169EA4D935BA702756D5149C3F01500_at_MLBMXUS21.cs.myharris.net" -->
+<a style="text-decoration:none" href="./7211.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7213.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  volume integral</h1>
+<!-- received="Wed Jul 30 08:04:54 2014" -->
+<!-- isoreceived="20140730070454" -->
+<!-- sent="Wed, 30 Jul 2014 15:04:54 +0100" -->
+<!-- isosent="20140730140454" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata]  volume integral" -->
+<!-- id="20140730140454.GA14452_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./7213.html" accesskey="d" title="Jim Biard: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">Next message</a> ]
-[ <a href="./7211.html" title="Jonathan Gregory: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">Previous message</a> ]
+[ <a href="./7213.html" accesskey="d" title="Karl Taylor: &quot;[CF-metadata] volume integral&quot;">Next message</a> ]
+[ <a href="./7211.html" title="Jonathan Gregory: &quot;[CF-metadata] normalized_radar_backscatter_coefficient&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./7213.html" accesskey="t" title="Karl Taylor: &quot;[CF-metadata] volume integral&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,86 +70,70 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Carlomusto, Michael &lt;<a href="mailto:mcarlomu?Subject=Re%3A%20%5BCF-metadata%5D%20new%20standard%20name%20smoke_binary_mask%20-%20follow-up%20and%20modified%20proposal">mcarlomu</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20volume%20integral">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 13 Jul 2015 14:51:07 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 30 Jul 2014 15:04:54 +0100</span><br />
 </address>
 <br />
-On 3 July 2015 Alison Pamment wrote:
+Dear Mark
 <br />
-<br />11b. Current status: Under discussion.
+<br /><em class="quotelev1">&gt; We have a requirement to calculate volume integrals for a large range of model diagnostics.  We would like a method to correctly identify these derived fields.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; I am interested in creating a new cell_method, an integral, which would allow us to use this approach with any standard name.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Such a cell method will necessarily alter the units of the quantity by a factor dependent on the dimensions integrated over.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; For example, I would like to store a data variable:
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; double deltaSeaIron(time, depth, lat, lon)
+</em><br />
+<em class="quotelev1">&gt;     deltaSeaIron:standard_name = &quot;tendency_of_mole_concentration_of_iron_in_sea_water_due_to_biological_production&quot; ;
+</em><br />
+<em class="quotelev1">&gt;     deltaSeaIron:units = &quot;mol s-1&quot; ;
+</em><br />
+<em class="quotelev1">&gt;     deltaSeaIron:cell_methods = &quot;depth: lat: lon: integral&quot; ;
+</em><br />
+<br />I can appreciate why you propose that but I would say that it is not consistent
 <br />
-<br />smoke_binary_mask (canonical units: 1)
+with the intention of cell_methods or the practice in the standard_name table.
 <br />
-<br />'X_binary_mask has 1 where condition X is met, 0 elsewhere. 1 = smoke present, 0 = smoke absent. If no threshold is supplied, the binary mask is 1 if there is any non-zero amount of smoke.'
+cell_methods is for describing variation within cells. Doing an integral is
 <br />
-<br /><br /><br />We would require a definition for the term 'smoke' which is new to standard names. Clearly this is some sort of atmospheric aerosol but is it defined by, for example, size distribution, composition, proximity to fires, any other characteristics? For consistency with existing standard names (see also my comments in 11c and 11d) I suggest we modify the name itself to smoke_ambient_aerosol_particles_binary_mask. Do you agree?
+a change of variable. It converts an intensive quantity into an extensive
 <br />
-<br /><br /><br />--------------------------------------------------------------------
+quantity. There are very many other examples of this - hundreds, I expect. For
 <br />
-<br /><br /><br />On 13 July Mike Carlomusto replied:
+example, rainfall_amount is a time-integral of rainfall_rate, and they are
 <br />
-<br />Alison - there are existing standard names that define &quot;ambient aerosol particles&quot; as &quot;aerosol particles that have taken up ambient water through hygroscopic growth&quot;.  This is not the case for smoke aerosol particles. There are however, standard names that use &quot;dry aerosol particles&quot; defined as &quot;aerosol particles without any water uptake&quot;.  That definition more accurately describes smoke.
+described by different standard_names, not distinguished by cell_methods.
 <br />
-<br /><br /><br />--------------------------------------------------------------------
+atmosphere_mole_content_of_ozone (mol m-2) is the vertical integral in the
 <br />
-<br /><br /><br />Alison Pamment also wrote:
+atmosphere of mole_concentration_of_ozone_in_air (mol m-3), again distinguished
 <br />
-The mailing list discussion on the binary mask names focused on including  provision to specify a threshold for deciding whether cloud/smoke/dust/aerosol is present in a given scene. It was stated that, for GOES-R, the masks will be assigned a value of 1 if there is any presence of the phenomenon in question, detected by any one of a series of objective tests. However, it was agreed that in order to make the names more generally applicable we should include provision in the definitions for the use of a coordinate variable to specify a non-zero threshold, should it be needed. In the case of the cloud mask, the existing standard name cloud_area_fraction is suitable for such a coordinate variable. For smoke, dust and aerosol, the choice of coordinate variable is less obvious and we may even need to add new standard names to  allow for this. Since GOES-R does not actually require a threshold, and currently we have no proposals for suitable coordinate variable names, I propose to add some text to the definitions <br />
-of the smoke/dust/aerosol masks suggested by Jim Biard (<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2013/056560.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2013/056560.html</a>): 'If a threshold is supplied, it may be specified by associating a coordinate variable or scalar coordinate variable with the data variable and giving the coordinate variable a standard name that specifies the quantity used for determining the threshold.  The values of the coordinate variable are the threshold values for the corresponding subarrays of the data variable.' This neatly side steps the need to decide coordinate variable names now, but leaves the door open for them to be proposed in the future if another data provider does want to use these names with a non-zero threshold. Would you be happy with this approach?
+by standard names. In the case you mention, I think a new standard_name is
 <br />
-<br />--------------------------------------------------------------------
+needed, something like
 <br />
-<br />Mike Carlomusto replied:
+tendency_of_ocean_moles_of_iron_due_to_biological_production
 <br />
-<br />1)      I agree with the argument for the threshold statement and I would like to submit this modified proposal for a smoke binary mask:
+A construction like that would be analogous to many existing standard names
 <br />
-<br /><br />smoke_dry_aerosol_particles_binary_mask (canonical units: 1)
+(for many different species) of the form tendency_of_atmosphere_moles_of_X.
 <br />
-' X_binary_mask has 1 where condition X is met, 0 elsewhere. 1 = smoke present, 0 = smoke absent. If no threshold is supplied, the binary mask is 1 if there is any non-zero amount of smoke. A threshold may be specified by associating a coordinate variable or scalar coordinate variable with the data variable and giving the coordinate variable a standard name of smoke_dry_aerosol_particles_area_fraction.  The values of the coordinate variable are the threshold values for the corresponding subarrays of the data variable. &quot;Smoke&quot; is an aerosol that is a visible suspension of carbon or other dry aerosol particles in air emitted from a burning substance.  Radiative signatures of smoke in an aerosol layer are detected by its scattering and absorption properties which are determined by the index of refraction and the shape and size of the particles, and various other possible measures depending on the characteristics of the sensing instrument or collection method. &quot;Aerosol&quot; means the system of suspended liquid or so<br />
-lid particles in air (except cloud droplets) and their carrier gas, the air itself. &quot;Dry aerosol particles&quot; means aerosol particles without any water uptake.   '
+<br />Best wishes
 <br />
-<br /><br />2)      And a request for a new smoke_dry_aerosol_particles_area_fraction standard name:
+<br />Jonathan
 <br />
-<br />smoke_dry_aerosol_particles_area_fraction (canonical units: 1)
-<br />
-' X_area_fraction means the fraction of horizontal area occupied by X. &quot;X_area&quot; means the horizontal area occupied by X within the grid cell. &quot;Smoke dry aerosol particles area fraction&quot; is the fraction of the horizontal area that contains dry aerosol particles identified as smoke as determined by the index of refraction and the shape and size of the particles, and various other possible measures depending on the characteristics of the sensing instrument or collection method. &quot;Aerosol&quot; means the system of suspended liquid or solid particles in air (except cloud droplets) and their carrier gas, the air itself. &quot;Dry aerosol particles&quot; means aerosol particles without any water uptake.  '
-<br />
-<br />Thank you.
-<br />
-Michael Carlomusto
-<br />
-mcarlomu at harris.com&lt;mailto:mcarlomu at harris.com&gt;
-<br />
-Harris Corp.
-<br />
-Government Communications Systems Division (GCSD), GOES-R Ground System
-<br />
-Melbourne, FL, USA
-<br />
-(321) 309-7905
-<br />
-<br /><br /><br />&quot;This information is only intended for the use of the individual or entity named in this email. If you are not the intended recipient, you are hereby notified that any disclosure, copying, distribution, or use of the contents of this information is strictly prohibited. If you have received this email in error, please notify me and delete it immediately.&quot;
-<br />
-Michael Carlomusto
-<br />
-mcarlomu at harris.com&lt;mailto:mcarlomu at harris.com&gt;
-<br />
-Harris Corp.
-<br />
-Government Communications Systems Division (GCSD)
-<br />
-Melbourne, FL
-<br />
-(321) 309-7905
-<br />
-<br />-------------- next part --------------
-<br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150713/4fc4c238/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150713/4fc4c238/attachment-0001.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Mon Jul 13 2015 - 08:51:07 BST</span>
+<span id="received"><dfn>Received on</dfn> Wed Jul 30 2014 - 08:04:54 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -155,9 +141,12 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start7212">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./7213.html" title="Next message in the list">Jim Biard: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./7211.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
+<li><dfn>Next message</dfn>: <a href="./7213.html" title="Next message in the list">Karl Taylor: "[CF-metadata] volume integral"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./7211.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] normalized_radar_backscatter_coefficient"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./7213.html" title="Next message in this discussion thread">Karl Taylor: "[CF-metadata] volume integral"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./7213.html" title="Message sent in reply to this message">Karl Taylor: "[CF-metadata] volume integral"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -168,7 +157,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:58 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./7211.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7213.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

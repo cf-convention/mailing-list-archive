@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] some concerns about the &quot;ensemble axis&quot; proposal from Jonathan Gregory on 2007-03-04 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] some concerns about the &quot;ensemble axis&quot; proposal" />
-<meta name="Date" content="2007-03-04" />
+<title>[CF-metadata] GIS versus CF conventions from V. Balaji on 2005-08-29 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="V. Balaji (v.balaji)" />
+<meta name="Subject" content="[CF-metadata] GIS versus CF conventions" />
+<meta name="Date" content="2005-08-29" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0728.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0730.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] some concerns about the &quot;ensemble axis&quot; proposal</h1>
-<!-- received="Sun Mar  4 09:35:19 2007" -->
-<!-- isoreceived="20070304093519" -->
-<!-- sent="Sun, 4 Mar 2007 16:35:19 +0000" -->
-<!-- isosent="20070304163519" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] some concerns about the &quot;ensemble axis&quot; proposal" -->
-<!-- id="20070304163519.GA28713_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0728.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0730.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] GIS versus CF conventions</h1>
+<!-- received="Mon Aug 29 11:04:26 2005" -->
+<!-- isoreceived="20050829100426" -->
+<!-- sent="Mon, 29 Aug 2005 13:04:26 -0400 (EDT)" -->
+<!-- isosent="20050829170426" -->
+<!-- name="V. Balaji" -->
+<!-- email="v.balaji" -->
+<!-- subject="[CF-metadata] GIS versus CF conventions" -->
+<!-- id="Pine.LNX.4.63.0508291259280.6541_at_vbpc.gfdl.noaa.gov" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20050826131750.GB27683_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,11 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0730.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Question about Coordinate System&quot;">Next message</a> ]
-[ <a href="./0728.html" title="V. Balaji: &quot;[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal&quot;">Previous message</a> ]
+[ <a href="./0730.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] GIS versus CF conventions&quot;">Next message</a> ]
+[ <a href="./0728.html" title="John Caron: &quot;[CF-metadata] GIS versus CF conventions&quot;">Previous message</a> ]
+[ <a href="./0727.html" title="Jonathan Gregory: &quot;[CF-metadata] GIS versus CF conventions&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0732.html" accesskey="t" title="Bryan Lawrence: &quot;[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,106 +70,64 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20some%20concerns%20about%20the%20%22ensemble%20axis%22%20proposal">j.m.gregory</a>&gt;
+<dfn>From</dfn>: V. Balaji &lt;<a href="mailto:v.balaji?Subject=Re%3A%20%5BCF-metadata%5D%20GIS%20versus%20CF%20conventions">v.balaji</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Sun, 4 Mar 2007 16:35:19 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 29 Aug 2005 13:04:26 -0400 (EDT)</span><br />
 </address>
 <br />
-Dear all
+Jonathan Gregory writes:
 <br />
-<br />Many people have made thoughtful contributions to this discussion. My
+<br /><em class="quotelev1">&gt; Dear John
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; The coordinate information is there so that the data can be used by any
+</em><br />
+<em class="quotelev1">&gt; software without having to be able to interpret a higher-level (but more
+</em><br />
+<em class="quotelev1">&gt; compact) grid description. Even though we may add map projections etc. to CF,
+</em><br />
+<em class="quotelev1">&gt; applications might not support them and if they don't the data is useless.
+</em><br />
+<em class="quotelev1">&gt; The basic question is not how to change the standard, but whether to change
+</em><br />
+<em class="quotelev1">&gt; it, I think. Obviously it is easy to omit the coordinate information, but
+</em><br />
+<em class="quotelev1">&gt; the consequence is that the data will not be usable by the majority of
+</em><br />
+<em class="quotelev1">&gt; applications (I suspect). What criteria could be used to decide whether this
+</em><br />
+<em class="quotelev1">&gt; would be the right choice to make?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; If there are many such fields, perhaps the coordinate information could be
+</em><br />
+<em class="quotelev1">&gt; sent in a separate file, just once. This is not CF-compliant, strictly
+</em><br />
+<em class="quotelev1">&gt; speaking, but data-reading software may be able to aggregate many files into
+</em><br />
+<em class="quotelev1">&gt; one dataset, like cdms can do.
+</em><br />
+<br />I think it is inevitable that we move toward defining datasets that
 <br />
-impression is that through the earlier discussions we reached a consensus on
+aren't single files... mosaics, various filesize limits (netCDF,
 <br />
-a convention for handling ensembles. There was one exception to this, namely
+apache...) are all going to run into this problem.
 <br />
-the issue of whether to use the standard_name attribute for new purposes, or
+<br />There are mechanisms for assuring integrity of linkages between multiple
 <br />
-define an alternative attribute, but that issue doesn't affect the structure
+files in a dataset, and _efficient_ software for the aggregation layers
 <br />
-proposed. This convention introduces an extra dimension and allow a combination
+is a requirement as well.
 <br />
-of auxiliary coordinate variables to identify the ensemble members along that
-<br />
-dimension. The convention is adequate for some needs that already exist. That
-<br />
-is why Paco raised the requirement in the first place. Balaji gives two use-
-<br />
-cases for it. The combination of auxiliary coordinates is really doing the job
-<br />
-of the &quot;lower-level&quot; identification (members within the ensemble) that Balaji
-<br />
-describes, but early on in the previous discussion it appeared useful to have
-<br />
-this factorised into various attributes rather than in a single string.
-<br />
-<br />I agree that because this axis doesn't have a meaningful monotonic coordinate
-<br />
-variable, you can't extract a range from it. That's because it's discrete, not
-<br />
-continuous. This is not an unprecedented situation. If you have a data variable
-<br />
-containing timeseries or vertical profiles at scattered points, or trajectories
-<br />
-from a number of parcels, you will have a similar kind of index dimension, with
-<br />
-auxiliary coordinates providing locations and other identification. You can
-<br />
-usefully subset such an axis, as people have commented. Subsetting may be a bit
-<br />
-more awkward for analysis softare, but it is an essential operation. You might
-<br />
-do it with continuous axes as well (e.g. to extract the Januaries from a time 
-<br />
-axis of months).
-<br />
-<br />It is also a limitation that the data have to be on the same space-time grid.
-<br />
-For many analysis operations, however, this is necessary, even if the data were
-<br />
-not generated like that. In Balaji's case of the AR4 archive, the models do not
-<br />
-have the same grid. It is necessary to put them on a common grid nonetheless in
-<br />
-order to produce some familiar diagnostics such as appear in the AR4 and recent
-<br />
-papers, like the average lat-lon field of surface temperature change, or the
-<br />
-time-depth field of ocean temperature change averaged over models with
-<br />
-volcanoes. Even if the archive did not originally hold that data like that, I
-<br />
-am sure that somewhere along the way the ensemble dimension will be needed.
-<br />
-<br />In regard to John's point, it's true that models don't generate all the same
-<br />
-quantities. But one purpose of standard names is to indicate which quantities
-<br />
-can be regarded as equivalent among models. You would put surface temperature
-<br />
-from various models in a single data variable with an ensemble dimension if
-<br />
-the data variables from the various models already had the same standard_name.
-<br />
-<br />It is certainly true that it would be good to have a solution that *could*
-<br />
-deal with data on different grids. We can't do that with the proposal we have
-<br />
-now. It may well be that netCDF-4 will offer a good technical solution for
-<br />
-that. However, I don't think we ought to wait for it. We have a good solution
-<br />
-now for cases which are of immediate practical relevance. If we find later that
-<br />
-a more general solution is efficient for these cases too, we can support both.
-<br />
-That would be fine. CF is always going to evolve for new needs and technology.
-<br />
-<br />Best wishes
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Sun Mar 04 2007 - 09:35:19 GMT</span>
+<br /><pre>
+-- 
+V. Balaji                               Office:  +1-609-452-6516
+Head, Modeling Systems Group, GFDL      Home:    +1-212-253-6662
+Princeton University                    Email: v.balaji at noaa.gov
+</pre>
+<span id="received"><dfn>Received on</dfn> Mon Aug 29 2005 - 11:04:26 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -177,13 +135,10 @@ That would be fine. CF is always going to evolve for new needs and technology.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start729">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0730.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Question about Coordinate System"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0728.html" title="Previous message in the list">V. Balaji: "[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0730.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] GIS versus CF conventions"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0728.html" title="Previous message in the list">John Caron: "[CF-metadata] GIS versus CF conventions"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0727.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] GIS versus CF conventions"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0732.html" title="Next message in this discussion thread">Bryan Lawrence: "[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0732.html" title="Message sent in reply to this message">Bryan Lawrence: "[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal"</a></li>
-<li><dfn>Reply</dfn>: <a href="./0736.html" title="Message sent in reply to this message">V. Balaji: "[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -194,7 +149,7 @@ That would be fine. CF is always going to evolve for new needs and technology.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:54 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0728.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0730.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

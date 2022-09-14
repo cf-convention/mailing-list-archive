@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] proposal for new standard names for various trace gas quantities from Maarten Sneep on 2015-07-10 (mailing-list-archive)</title>
-<meta name="Author" content="Maarten Sneep (maarten.sneep)" />
-<meta name="Subject" content="[CF-metadata] proposal for new standard names for various trace gas quantities" />
-<meta name="Date" content="2015-07-10" />
+<title>[CF-metadata] normalized_radar_backscatter_coefficient from Aleksandar Jelenak on 2014-07-25 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Aleksandar Jelenak (ajelenak)" />
+<meta name="Subject" content="[CF-metadata] normalized_radar_backscatter_coefficient" />
+<meta name="Date" content="2014-07-25" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./7202.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7204.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] proposal for new standard names for various trace gas quantities</h1>
-<!-- received="Fri Jul 10 07:31:34 2015" -->
-<!-- isoreceived="20150710063134" -->
-<!-- sent="Fri, 10 Jul 2015 15:31:34 +0200" -->
-<!-- isosent="20150710133134" -->
-<!-- name="Maarten Sneep" -->
-<!-- email="maarten.sneep" -->
-<!-- subject="[CF-metadata] proposal for new standard names for various trace gas quantities" -->
-<!-- id="559FC936.8010906_at_knmi.nl" -->
+<a style="text-decoration:none" href="./7202.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7204.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] normalized_radar_backscatter_coefficient</h1>
+<!-- received="Fri Jul 25 08:23:15 2014" -->
+<!-- isoreceived="20140725072315" -->
+<!-- sent="Fri, 25 Jul 2014 14:23:15 +0000" -->
+<!-- isosent="20140725142315" -->
+<!-- name="Aleksandar Jelenak" -->
+<!-- email="ajelenak" -->
+<!-- subject="[CF-metadata] normalized_radar_backscatter_coefficient" -->
+<!-- id="CFF7D886.4553%ajelenak_at_hdfgroup.org" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="014539AC4976BE4490A360410A8C201779250569_at_EXCHMBX03.fed.cclrc.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./7204.html" accesskey="d" title="Jim Biard: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">Next message</a> ]
-[ <a href="./7202.html" title="Ian Grant: &quot;[CF-metadata] New reflectance standard names [SEC=UNCLASSIFIED]&quot;">Previous message</a> ]
+[ <a href="./7204.html" accesskey="d" title="John Graybeal: &quot;[CF-metadata] normalized_radar_backscatter_coefficient&quot;">Next message</a> ]
+[ <a href="./7202.html" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] Standard name table update&quot;">Previous message</a> ]
+[ <a href="./7201.html" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] normalized_radar_backscatter_coefficient&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./7219.html" accesskey="t" title="Maarten Sneep: &quot;[CF-metadata] proposal for new standard names for various trace gas quantities&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
+[ <a href="./7204.html" accesskey="t" title="John Graybeal: &quot;[CF-metadata] normalized_radar_backscatter_coefficient&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,103 +71,62 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Maarten Sneep &lt;<a href="mailto:maarten.sneep?Subject=Re%3A%20%5BCF-metadata%5D%20proposal%20for%20new%20standard%20names%20for%20various%20trace%20gas%20quantities">maarten.sneep</a>&gt;
+<dfn>From</dfn>: Aleksandar Jelenak &lt;<a href="mailto:ajelenak?Subject=Re%3A%20%5BCF-metadata%5D%20normalized_radar_backscatter_coefficient">ajelenak</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 10 Jul 2015 15:31:34 +0200</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 25 Jul 2014 14:23:15 +0000</span><br />
 </address>
 <br />
-Hi,
+Dear Alison,
 <br />
-<br />Below are a few quantities that I'd like to define standard_name values for. Both the 
+<br />On 7/25/14, 8:15 AM, &quot;alison.pamment at stfc.ac.uk&quot;
 <br />
-structure of the names, and the elements in the descriptions are taken from existing 
+&lt;alison.pamment at stfc.ac.uk&gt; wrote:
 <br />
-standard_name values. Point of contention may be the definition of water vapor (not 
+<em class="quotelev1">&gt;It sounds as though it is not appropriate to say &quot;Scattering of radiation
+</em><br />
+<em class="quotelev1">&gt;is its deflection from its incident path without loss of energy&quot;, as in
+</em><br />
+<em class="quotelev1">&gt;the existing definition for
+</em><br />
+<em class="quotelev1">&gt;surface_backwards_scattering_coefficient_of_radar_wave, since John N says
+</em><br />
+<em class="quotelev1">&gt;this is factually incorrect. I'm not sure of the origin of the sentence,
+</em><br />
+<em class="quotelev1">&gt;but suspect that it may have crept into the definition of scattering
+</em><br />
+<em class="quotelev1">&gt;standard names to differentiate from absorption/attenuation/quantities.
+</em><br />
+<em class="quotelev1">&gt;However, if it is just plain wrong then perhaps we should change it to
+</em><br />
+<em class="quotelev1">&gt;read simpy &quot;scattering of radiation is its deflection from its incident
+</em><br />
+<em class="quotelev1">&gt;path&quot; in the definitions of all scattering names. Do others agree?
+</em><br />
+<br />I support this change. Lossless scattering is certainly not something that
 <br />
-all quantities in the list define what they mean with water vapor). A new compound is 
+can be assumed as default.
 <br />
-semiheavy water (HDO).
+<br /><em class="quotelev1">&gt;?? Backwards scattering refers to the sum of scattering into all backward
+</em><br />
+<em class="quotelev1">&gt;angles i.e. scattering_angle exceeding pi/2 radians. ?&quot;
+</em><br />
+<br />This is not correct. In this case only the signal scattered right back
 <br />
-<br />The canonical unit for all of these quantities is &quot;mol m-2&quot;.
+toward the instrument is measured. This is the situation where the
 <br />
-<br /><br />atmosphere_mole_content_of_carbon_monoxide
+scattering angle is 180 degrees.
 <br />
-&nbsp;&nbsp;&nbsp;&quot;Content&quot; indicates a quantity per unit area. The &quot;atmosphere content&quot; of a 
+<br />I am not sure that incident angles can always be a single value. That
 <br />
-quantity refers to the vertical integral from the surface to the top of the 
+depends on the scatterometer, I think. Also, another angle is needed to
 <br />
-atmosphere. For the content between specified levels in the atmosphere, standard 
+specify the position of the instrument to the scattering surface and the
 <br />
-names including &quot;content_of_atmosphere_layer&quot; are used. The construction 
+standard name to use for those values is platform_azimuth_angle.
 <br />
-&quot;atmosphere_mole_content_of_X&quot; means the vertically integrated number of moles of X 
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Aleksandar
 <br />
-above a unit area. The chemical formula for carbon monoxide is CO.
-<br />
-<br />atmosphere_mole_content_of_water_vapor
-<br />
-&nbsp;&nbsp;&nbsp;&quot;Content&quot; indicates a quantity per unit area. The &quot;atmosphere content&quot; of a 
-<br />
-quantity refers to the vertical integral from the surface to the top of the 
-<br />
-atmosphere. For the content between specified levels in the atmosphere, standard 
-<br />
-names including &quot;content_of_atmosphere_layer&quot; are used. The construction 
-<br />
-&quot;atmosphere_mole_content_of_X&quot; means the vertically integrated number of moles of X 
-<br />
-above a unit area. The atmosphere content only concerns water vapor as opposed to 
-<br />
-liquid water, i.e. water vapor that can be observed by optical spectroscopic methods. 
-<br />
-The chemical formula for water is H2O
-<br />
-<br />atmosphere_mole_content_of_semiheavy_water_vapor
-<br />
-&nbsp;&nbsp;&nbsp;&quot;Content&quot; indicates a quantity per unit area. The &quot;atmosphere content&quot; of a 
-<br />
-quantity refers to the vertical integral from the surface to the top of the 
-<br />
-atmosphere. For the content between specified levels in the atmosphere, standard 
-<br />
-names including &quot;content_of_atmosphere_layer&quot; are used. The construction 
-<br />
-&quot;atmosphere_mole_content_of_X&quot; means the vertically integrated number of moles of X 
-<br />
-above a unit area. The atmosphere content only concerns water vapor as opposed to 
-<br />
-liquid water, i.e. water vapor that can be observed by optical spectroscopic methods. 
-<br />
-Semiheavy water is water where one of the hydrogen atom has been replaced by 
-<br />
-deuterium. The chemical formula for semiheavy water is HDO.
-<br />
-<br />atmosphere_mole_content_of_methane
-<br />
-&nbsp;&nbsp;&nbsp;&quot;Content&quot; indicates a quantity per unit area. The &quot;atmosphere content&quot; of a 
-<br />
-quantity refers to the vertical integral from the surface to the top of the 
-<br />
-atmosphere. For the content between specified levels in the atmosphere, standard 
-<br />
-names including &quot;content_of_atmosphere_layer&quot; are used. The construction 
-<br />
-&quot;atmosphere_mole_content_of_X&quot; means the vertically integrated number of moles of X 
-<br />
-above a unit area. The chemical formula for methane is CH4.
-<br />
-<br />Kind regards,
-<br />
-<br />Maarten Sneep
-<br />
-<pre>
--- 
-KNMI
-T: 030 2206747
-E: maarten.sneep at knmi.nl
-R: A2.14
-</pre>
-<span id="received"><dfn>Received on</dfn> Fri Jul 10 2015 - 07:31:34 BST</span>
+<span id="received"><dfn>Received on</dfn> Fri Jul 25 2014 - 08:23:15 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -174,12 +134,11 @@ R: A2.14
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start7203">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./7204.html" title="Next message in the list">Jim Biard: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./7202.html" title="Previous message in the list">Ian Grant: "[CF-metadata] New reflectance standard names [SEC=UNCLASSIFIED]"</a></li>
+<li><dfn>Next message</dfn>: <a href="./7204.html" title="Next message in the list">John Graybeal: "[CF-metadata] normalized_radar_backscatter_coefficient"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./7202.html" title="Previous message in the list">alison.pamment at stfc.ac.uk: "[CF-metadata] Standard name table update"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./7201.html" title="Message to which this message replies">alison.pamment at stfc.ac.uk: "[CF-metadata] normalized_radar_backscatter_coefficient"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./7219.html" title="Next message in this discussion thread">Maarten Sneep: "[CF-metadata] proposal for new standard names for various trace gas quantities"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./7219.html" title="Message sent in reply to this message">Maarten Sneep: "[CF-metadata] proposal for new standard names for various trace gas quantities"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./7204.html" title="Next message in this discussion thread">John Graybeal: "[CF-metadata] normalized_radar_backscatter_coefficient"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -190,7 +149,7 @@ R: A2.14
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:58 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./7202.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7204.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

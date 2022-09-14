@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] [Fwd: Re: Problems reading NetCDF data - get NaNs] from Steve Hankin on 2006-10-20 (mailing-list-archive)</title>
-<meta name="Author" content="Steve Hankin (Steven.C.Hankin)" />
-<meta name="Subject" content="[CF-metadata] [Fwd: Re: Problems reading NetCDF data - get NaNs]" />
-<meta name="Date" content="2006-10-20" />
+<title>[CF-metadata] omega from Bryan Lawrence on 2004-02-12 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Bryan Lawrence (b.n.lawrence)" />
+<meta name="Subject" content="[CF-metadata] omega" />
+<meta name="Date" content="2004-02-12" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0361.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0363.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] [Fwd: Re: Problems reading NetCDF data - get NaNs]</h1>
-<!-- received="Fri Oct 20 11:02:12 2006" -->
-<!-- isoreceived="20061020100212" -->
-<!-- sent="Fri, 20 Oct 2006 10:02:12 -0700" -->
-<!-- isosent="20061020170212" -->
-<!-- name="Steve Hankin" -->
-<!-- email="Steven.C.Hankin" -->
-<!-- subject="[CF-metadata] [Fwd: Re: Problems reading NetCDF data - get NaNs]" -->
-<!-- id="45390114.8060406_at_noaa.gov" -->
+<a style="text-decoration:none" href="./0361.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0363.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] omega</h1>
+<!-- received="Thu Feb 12 00:26:19 2004" -->
+<!-- isoreceived="20040212002619" -->
+<!-- sent="Thu, 12 Feb 2004 07:26:19 +0000" -->
+<!-- isosent="20040212072619" -->
+<!-- name="Bryan Lawrence" -->
+<!-- email="b.n.lawrence" -->
+<!-- subject="[CF-metadata] omega" -->
+<!-- id="200402120726.20130.b.n.lawrence_at_rl.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4538EC2C.3070606_at_unidata.ucar.edu" -->
+<!-- inreplyto="20040211201004.GB28886_at_ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0363.html" accesskey="d" title="Brian Eaton: &quot;[CF-metadata] [Fwd: Re: Problems reading NetCDF data - get NaNs]&quot;">Next message</a> ]
-[ <a href="./0361.html" title="John Caron: &quot;[CF-metadata] [Fwd: Re: Problems reading NetCDF data - get NaNs]&quot;">Previous message</a> ]
-[ <a href="./0361.html" title="John Caron: &quot;[CF-metadata] [Fwd: Re: Problems reading NetCDF data - get NaNs]&quot;">In reply to</a> ]
+[ <a href="./0363.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] omega&quot;">Next message</a> ]
+[ <a href="./0361.html" title="Brian Eaton: &quot;[CF-metadata] omega&quot;">Previous message</a> ]
+[ <a href="./0361.html" title="Brian Eaton: &quot;[CF-metadata] omega&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0363.html" accesskey="t" title="Brian Eaton: &quot;[CF-metadata] [Fwd: Re: Problems reading NetCDF data - get NaNs]&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,80 +70,198 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Steve Hankin &lt;<a href="mailto:Steven.C.Hankin?Subject=Re%3A%20%5BCF-metadata%5D%20%5BFwd%3A%20Re%3A%20Problems%20reading%20NetCDF%20data%20-%20get%20NaNs%5D">Steven.C.Hankin</a>&gt;
+<dfn>From</dfn>: Bryan Lawrence &lt;<a href="mailto:b.n.lawrence?Subject=Re%3A%20%5BCF-metadata%5D%20omega">b.n.lawrence</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 20 Oct 2006 10:02:12 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 12 Feb 2004 07:26:19 +0000</span><br />
 </address>
 <br />
-Jon,
+Hi Folks
 <br />
-<br />It certainly does look like the wording as-is (as you have quoted) is 
+<br />Ok, trying to be really clear ...
 <br />
-self-contradictory.  But the phrase &quot;units of the packed values&quot;, while 
+<br />If we have s=(x,y,z), where s is displacement in cartesian coordinates, then
 <br />
-intuitively clear, is actually a mis-statement, since &quot;units&quot; do not 
+we all understand u =(Dx/Dt,Dy/Dt,Dz/Dt)=the velocity vector.
 <br />
-really apply to the packed data.  The right wording is tough to find ....
+<br />There is no fundamental difference should we change coordinates, so that
 <br />
-<br />How about
+&nbsp;s = (x,y,p), and u=(Dx/Dt,Dy/Dt,Dp/Dt) is still the velocity vector 
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&quot;When a variable uses a packed encoding (i.e. the variable has
+(unarguably I would argue :-)
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;scale_factor and/or add_offset attributes -- see section 8.1)
+<br />Traditionally we call the third component the vertical component, and we say 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;missing values are interpreted in the packed encoding.  In other
+things like the vertical velocity, where what we mean is the vertical 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;words, grid cells with missing values are detected before the data
+component of the velocity vector. This convention exists independent of 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;are unpacked.&quot;
+meteorology.
 <br />
-<br />Not entirely happy with this, either ... 
+<br />Introducing the word Lagrangian carries no new information, and implies, 
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;- Steve
+wrongly, that there is something special about Dp/Dt in comparison to
 <br />
-<br />=========================================
+any other velocity component in any coordinate system.
 <br />
-<br />John Caron wrote:
+<br />I'm sorry to be so picky about this, but as I said in private email to 
 <br />
-<em class="quotelev1">&gt; A user has misread section 2.5.1 on how missing values interact with 
-</em><br />
-<em class="quotelev1">&gt; scale/offset, resulting in incorrectly written files. We might want to 
-</em><br />
-<em class="quotelev1">&gt; consider some rewording on this in the future.
+Jonathan, I think it's important to be systematic and consistent where 
+<br />
+possible with other disciplines (ie physics and mathematics, neither of whom 
+<br />
+would see the need for the word Lagrangian here).
+<br />
+<br />Sign convention? Well, I  take the point there is the possibility of lazy 
+<br />
+people getting it wrong, but if we take this argument to it's illogical 
+<br />
+confusion, then we should never have names of books, simply books, because 
+<br />
+lazy people never bother reading the book ... they only read the names.
+<br />
+<br />Sign: Flux is a different animal, because we have to confront different 
+<br />
+conventions, but velocity is velocity, and has a direction and sign by 
+<br />
+definition.
+<br />
+<br />Confusion between w(x,y,p) and omega(x,y,p) is not possible if anyone reads 
+<br />
+the description, and uses the appropriate units (or looks at the alias 
+<br />
+omega).
+<br />
+<br />OK, I'm going to butt out now :-). Do what you will. You will note that I 
+<br />
+don't make a recommendation. I think you all know what I think, and I'm free 
+<br />
+to put my own name in the files as well as any other name anyway :-)
+<br />
+<br />Bryan
+<br />
+<br /><br />On Wednesday 11 February 2004 20:10, Brian Eaton wrote:
+<br />
+<em class="quotelev1">&gt; Hi Jonathan and Bryan,
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Here is the relevent conversation:
+<em class="quotelev1">&gt; I agree with Jonathan that &quot;lagrangian_tendency_of_air_pressure&quot; seems like
+</em><br />
+<em class="quotelev1">&gt; a good description for the total, substantive, or material (take your pick)
+</em><br />
+<em class="quotelev1">&gt; derivative Dp/Dt.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt; &quot;The missing values of a variable with scale_factor and/or 
+<em class="quotelev1">&gt; Bryan wrote:
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt; add_offset attributes (see section 8.1) are interpreted relative to 
+<em class="quotelev2">&gt; &gt; are partly Lagrangian, but when we calculate them in a model using
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt; the variable's external values, i.e., the values stored in the 
+<em class="quotelev2">&gt; &gt; differencing schemes that require us to evaluate the derivatives by using
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt; netCDF file. &quot;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; If I change this in my head to
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; &quot;The missing values of a packed variable are in the units of the 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; packed values, i.e., the values stored in the netCDF file.&quot;
+<em class="quotelev2">&gt; &gt; Eulerian coordinates, they're Eulerian quantities.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; I was confused by the &quot;relative to the variable's external values&quot;.
+<em class="quotelev1">&gt; I don't understand this statement.  There are relationships that allow one
 </em><br />
-<em class="quotelev2">&gt;&gt; In my mind the &quot;external values&quot; are the ones that an external app
+<em class="quotelev1">&gt; to compute material derivatives (following a material parcel) from the
 </em><br />
-<em class="quotelev2">&gt;&gt; sees, i.e. the unpacked values.  Your interpretation makes perfect
+<em class="quotelev1">&gt; partial derivatives obtained from a fixed (Eulerian) coordinate system.
 </em><br />
-<em class="quotelev2">&gt;&gt; sense though.
+<em class="quotelev1">&gt; Are you suggesting that a material derivative is an Eulerian quantity?  I
+</em><br />
+<em class="quotelev1">&gt; think of it as a Lagrangian quantity.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I'm actually comfortable with either Jonathan's suggestion or with Bryan's
+</em><br />
+<em class="quotelev1">&gt; preference of &quot;vertical_velocity_in_pressure_coordinates&quot; as that is a
+</em><br />
+<em class="quotelev1">&gt; commonly used description of omega.  But I don't understand the argument
+</em><br />
+<em class="quotelev1">&gt; against using the term Lagrangian.  My preference (currently) is
+</em><br />
+<em class="quotelev1">&gt; lagrangian_tendency_of_air_pressure.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Brian
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; On Wed, Feb 11, 2004 at 05:38:09PM +0000, Jonathan Gregory wrote:
+</em><br />
+<em class="quotelev2">&gt; &gt; Dear Bryan
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; I don't really understand, I'm afraid. Perhaps I'm using wrong
+</em><br />
+<em class="quotelev2">&gt; &gt; terminology. What more accurate term for D/Dt could we use instead of
+</em><br />
+<em class="quotelev2">&gt; &gt; Lagrangian tendency? If we can choose a term for it, then it seems a
+</em><br />
+<em class="quotelev2">&gt; &gt; clear and simple distinction to me that can be made between omega=Dp/Dt
+</em><br />
+<em class="quotelev2">&gt; &gt; on the one hand and partial dp/dt on the other, which we have already
+</em><br />
+<em class="quotelev2">&gt; &gt; called tendency_of_air_pressure.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; (see also Dtheta/Dt expressed as and called an &quot;isentropic 'vertical
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; velocity'&quot; where the inner quotes are David's, in AHL, Middle
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; Atmosphere Dynamics, p138).
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; I think the inner quotes imply that he's calling it a vertical velocity
+</em><br />
+<em class="quotelev2">&gt; &gt; as a kind of useful analogy, not because Dtheta/Dt is really a velocity
+</em><br />
+<em class="quotelev2">&gt; &gt; in the popularly understood sense of the term. It is instead &quot;standing
+</em><br />
+<em class="quotelev2">&gt; &gt; in&quot; for a vertical velocity.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; I really think we are trying to put too much information in one box
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; (the standard name).  I think standard bloat is a real issue to be
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; careful of. Don't we have a description field for the extended
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; explanation?
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; All we are trying to do is choose a name for omega! If we can't agree on
+</em><br />
+<em class="quotelev2">&gt; &gt; a reasonably short and unambiguous phrase for it, then I do think we
+</em><br />
+<em class="quotelev2">&gt; &gt; should just call it omega instead and explain what it is in the extended
+</em><br />
+<em class="quotelev2">&gt; &gt; description.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; Best wishes
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; Jonathan
+</em><br />
+<em class="quotelev2">&gt; &gt; _______________________________________________
+</em><br />
+<em class="quotelev2">&gt; &gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev2">&gt; &gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt; &gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
@@ -159,15 +275,11 @@ really apply to the packed data.  The right wording is tough to find ....
 </em><br />
 <br /><pre>
 -- 
---
-Steve Hankin, NOAA/PMEL -- Steven.C.Hankin at noaa.gov
-7600 Sand Point Way NE, Seattle, WA 98115-0070
-ph. (206) 526-6080, FAX (206) 526-6744
--------------- next part --------------
-An HTML attachment was scrubbed...
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20061020/fc2c6ec0/attachment-0002.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20061020/fc2c6ec0/attachment-0002.html</a>&gt;
+Bryan Lawrence, Head NCAS/British Atmospheric Data Centre
+web: www.badc.nerc.ac.uk  phone: +44 1235 445012
+CLRC: Rutherford Appleton Laboratory, Chilton, Didcot, OX110QX, UK
 </pre>
-<span id="received"><dfn>Received on</dfn> Fri Oct 20 2006 - 11:02:12 BST</span>
+<span id="received"><dfn>Received on</dfn> Thu Feb 12 2004 - 00:26:19 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -175,13 +287,10 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start362">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0363.html" title="Next message in the list">Brian Eaton: "[CF-metadata] [Fwd: Re: Problems reading NetCDF data - get NaNs]"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0361.html" title="Previous message in the list">John Caron: "[CF-metadata] [Fwd: Re: Problems reading NetCDF data - get NaNs]"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0361.html" title="Message to which this message replies">John Caron: "[CF-metadata] [Fwd: Re: Problems reading NetCDF data - get NaNs]"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0363.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] omega"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0361.html" title="Previous message in the list">Brian Eaton: "[CF-metadata] omega"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0361.html" title="Message to which this message replies">Brian Eaton: "[CF-metadata] omega"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0363.html" title="Next message in this discussion thread">Brian Eaton: "[CF-metadata] [Fwd: Re: Problems reading NetCDF data - get NaNs]"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0363.html" title="Message sent in reply to this message">Brian Eaton: "[CF-metadata] [Fwd: Re: Problems reading NetCDF data - get NaNs]"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -192,7 +301,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:49 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0361.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0363.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

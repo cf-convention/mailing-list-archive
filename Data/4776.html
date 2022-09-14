@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="US-ASCII"?>
+<?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]  Dimensionless vertical coordinate values from Jonathan Gregory on 2012-09-30 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata]  Dimensionless vertical coordinate values" />
-<meta name="Date" content="2012-09-30" />
+<title>[CF-metadata] Storing outline information in NetCDF/CF? from Øystein Godøy on 2011-11-29 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Øystein Godøy (o.godoy)" />
+<meta name="Subject" content="[CF-metadata] Storing outline information in NetCDF/CF?" />
+<meta name="Date" content="2011-11-29" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4775.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4777.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  Dimensionless vertical coordinate values</h1>
-<!-- received="Sun Sep 30 02:32:05 2012" -->
-<!-- isoreceived="20120930013205" -->
-<!-- sent="Sun, 30 Sep 2012 09:32:05 +0100" -->
-<!-- isosent="20120930083205" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata]  Dimensionless vertical coordinate values" -->
-<!-- id="20120930083204.GA28395_at_met.reading.ac.uk" -->
-<!-- charset="US-ASCII" -->
+<a style="text-decoration:none" href="./4775.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4777.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Storing outline information in NetCDF/CF?</h1>
+<!-- received="Tue Nov 29 04:49:38 2011" -->
+<!-- isoreceived="20111129044938" -->
+<!-- sent="Tue, 29 Nov 2011 12:49:38 +0100" -->
+<!-- isosent="20111129114938" -->
+<!-- name="Øystein Godøy" -->
+<!-- email="o.godoy" -->
+<!-- subject="[CF-metadata] Storing outline information in NetCDF/CF?" -->
+<!-- id="201111291249.38171.o.godoy_at_met.no" -->
+<!-- charset="iso-8859-1" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4777.html" accesskey="d" title="Rich Signell: &quot;[CF-metadata] Request for 2 new standard_names to be added to the vertical coordinate&quot;">Next message</a> ]
-[ <a href="./4775.html" title="Jonathan Gregory: &quot;[CF-metadata] A few new standard names for cloudmask and cloudtype&quot;">Previous message</a> ]
+[ <a href="./4777.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] FW: netcdf for particle trajectories&quot;">Next message</a> ]
+[ <a href="./4775.html" title="Vegard B&#0248;nes: &quot;[CF-metadata] standards for probabilities&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./4784.html" accesskey="t" title="Russ Rew: &quot;[CF-metadata] Storing outline information in NetCDF/CF?&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,66 +70,38 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20Dimensionless%20vertical%20coordinate%20values">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Øystein Godøy &lt;<a href="mailto:o.godoy?Subject=Re%3A%20%5BCF-metadata%5D%20Storing%20outline%20information%20in%20NetCDF%2FCF%3F">o.godoy</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Sun, 30 Sep 2012 09:32:05 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 29 Nov 2011 12:49:38 +0100</span><br />
 </address>
 <br />
-Dear Richard
+Dear all,
 <br />
-<br />I've just looked through the definitions again while thinking about Rich's
+<br />Is there a way to store outline information in NetCDF/CF? 
 <br />
-ticket 93, and I agree with you (again) that this needs clarification. In
+<br />I am looking for a way to store e.g. glacier outline, sea ice edge/extent etc 
 <br />
-some cases it could be made clearer which is the quantity that you would
+in NetCDF. It would simplify data management within heterogeneous systems. 
 <br />
-expect to be used as a vertical coordinate, with the standard name that is
+Data can then be dumped to Shapefiles, KML etc upon user request, but for long 
 <br />
-given in the relevant definition of Appendix D.
+term data management purposes they may be stored in NetCDF/CF along with 
 <br />
-<br />Hybrid height is a peculiar case. It says, &quot;There is no dimensionless hybrid
+gridded data, time series, trajectories etc.
 <br />
-height coordinate. The hybrid height is best approximated as a(k) if a
+<br />All the best
 <br />
-level-dependent constant is needed.&quot; There are two unusual things about this.
+?ystein
 <br />
-<br />* It seems inevitable that the vertical coordinate is indeed one of the
-<br />
-terms, as you said. There must be a 1D monotonic vertical coordinate variable,
-<br />
-and I can't see what it could be other than a(k), the height part of the
-<br />
-hybrid coordinate. Perhaps it is this quantity, therefore, which has the
-<br />
-standard_name of atmosphere_hybrid_height_coordinate, even though it is not
-<br />
-itself really a hybrid. What do you think?
-<br />
-<br />* It's not dimensionless. Although Appendix D was introduced for coordinates
-<br />
-which are dimensionless, I don't think that's a necessary restriction, because
-<br />
-formula terms can have a more general function of computing a multidimensional
-<br />
-vertical coordinate from various 1D terms, which might be either dimensional
-<br />
-or dimensionless, one of which could be the 1D monotonic vertical coordinate
-<br />
-variable.
-<br />
-<br />So I'm disagreeing with what I said before. The vertical coord var might have
-<br />
-to be one of the terms. If you agree and have time to draft a defect ticket,
-<br />
-or a ticket to modify the convention if it seems more substantial, that would
-<br />
-be interesting and useful.
-<br />
-<br />Best wishes and thanks
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Sun Sep 30 2012 - 02:32:05 BST</span>
+<pre>
+-- 
+Dr. Oystein Godoy
+Norwegian Meteorological Institute 
+P.O.BOX 43, Blindern, N-0313 OSLO, Norway
+Ph: (+47) 2296 3000 (switchb) 2296 3334 (direct line)
+<a href="Fax:(+47) 2296 3050 Institute home page: http://met.no/">Fax:(+47) 2296 3050 Institute home page: http://met.no/</a>
+</pre>
+<span id="received"><dfn>Received on</dfn> Tue Nov 29 2011 - 04:49:38 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -135,9 +109,12 @@ be interesting and useful.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4776">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4777.html" title="Next message in the list">Rich Signell: "[CF-metadata] Request for 2 new standard_names to be added to the vertical coordinate"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4775.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] A few new standard names for cloudmask and cloudtype"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4777.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] FW: netcdf for particle trajectories"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4775.html" title="Previous message in the list">Vegard B&#0248;nes: "[CF-metadata] standards for probabilities"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./4784.html" title="Next message in this discussion thread">Russ Rew: "[CF-metadata] Storing outline information in NetCDF/CF?"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./4784.html" title="Message sent in reply to this message">Russ Rew: "[CF-metadata] Storing outline information in NetCDF/CF?"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -148,7 +125,7 @@ be interesting and useful.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:09 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4775.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4777.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

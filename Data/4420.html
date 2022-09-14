@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] code that does semantic checking of CF headers from John Caron on 2012-04-23 (mailing-list-archive)</title>
-<meta name="Author" content="John Caron (caron)" />
-<meta name="Subject" content="[CF-metadata] code that does semantic checking of CF headers" />
-<meta name="Date" content="2012-04-23" />
+<title>[CF-metadata] the need to store lat/lon coordinates in a CF-compliant netCDF file from Jonathan Gregory on 2011-08-04 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] the need to store lat/lon coordinates in a CF-compliant netCDF file" />
+<meta name="Date" content="2011-08-04" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4419.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4421.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] code that does semantic checking of CF headers</h1>
-<!-- received="Mon Apr 23 10:08:09 2012" -->
-<!-- isoreceived="20120423090809" -->
-<!-- sent="Mon, 23 Apr 2012 10:08:09 -0600" -->
-<!-- isosent="20120423160809" -->
-<!-- name="John Caron" -->
-<!-- email="caron" -->
-<!-- subject="[CF-metadata] code that does semantic checking of CF headers" -->
-<!-- id="4F957E69.108_at_unidata.ucar.edu" -->
+<a style="text-decoration:none" href="./4419.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4421.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] the need to store lat/lon coordinates in a CF-compliant netCDF file</h1>
+<!-- received="Thu Aug  4 01:23:08 2011" -->
+<!-- isoreceived="20110804002308" -->
+<!-- sent="Thu, 4 Aug 2011 08:23:08 +0100" -->
+<!-- isosent="20110804072308" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] the need to store lat/lon coordinates in a CF-compliant netCDF file" -->
+<!-- id="20110804072308.GD27348_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="40829B0E077C1145A6DE44D39B3830A9213F4DDF1B_at_nerckwmb1.ad.nerc.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4421.html" accesskey="d" title="Hedley, Mark: &quot;[CF-metadata] identification of vector components&quot;">Next message</a> ]
-[ <a href="./4419.html" title="Nan Galbraith: &quot;[CF-metadata] Comment in coordinate variables (and CF checker)&quot;">Previous message</a> ]
-[ <a href="./4408.html" title="Gaffney, Sean P.: &quot;[CF-metadata] code that does semantic checking of CF headers&quot;">In reply to</a> ]
+[ <a href="./4421.html" accesskey="d" title="Jon Blower: &quot;[CF-metadata] the need to store lat/lon coordinates in a CF-compliant netCDF file&quot;">Next message</a> ]
+[ <a href="./4419.html" title="Heiko Klein: &quot;[CF-metadata] the need to store lat/lon coordinates in a CF-compliant netCDF file&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./4804.html" accesskey="t" title="Gaffney, Sean P.: &quot;[CF-metadata] use of CF to describe unstructured grid models&quot;">Next in thread</a> ]
+[ <a href="./4421.html" accesskey="t" title="Jon Blower: &quot;[CF-metadata] the need to store lat/lon coordinates in a CF-compliant netCDF file&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -71,48 +70,62 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20code%20that%20does%20semantic%20checking%20of%20CF%20headers">caron</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20the%20need%20to%20store%20lat%2Flon%20coordinates%20in%20a%20CF-compliant%20netCDF%20file">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 23 Apr 2012 10:08:09 -0600</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 4 Aug 2011 08:23:08 +0100</span><br />
 </address>
 <br />
-On 4/20/2012 4:54 AM, Gaffney, Sean P. wrote:
+Dear all
 <br />
-<em class="quotelev1">&gt; Hi everyone, Thanks for all your feedback.
+<br />I agree with Balaji about this:
+<br />
+<em class="quotelev1">&gt; It is perfectly possible to configure a GCM out of components with
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; inconsistent datums.
 </em><br />
-<em class="quotelev1">&gt; It's made things clearer for me now. Just to summarise then, a suite of attributes that would provide a precise numeric description of the data within a variable could then be (ignoring things such as scaling factors and offsets)
+...
+<br />
+<em class="quotelev1">&gt; I still feel my principal objection to specifying the datum is the
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; implication of precision that does not exist.
 </em><br />
-<em class="quotelev1">&gt; Actual_min, actual_max or actual_range: which describe the actual variable values held in the file, their minimum and maximum (e.g. for sea_water_salinity, I could have data with actual_min of 25.732, actual_max of 34.994)
+This kind of argument may apply more to models, but it appears from the
+<br />
+comments that it might apply to obs datasets as well, for instance when they
+<br />
+have been assembled from various sources, which could be poorly documented.
+<br />
+<br />Hence in terms of John's questions, I think this is good:
+<br />
+<br /><em class="quotelev1">&gt; 1) possible recommendations by CF to always include the datum, and
 </em><br />
-<em class="quotelev1">&gt; Valid_min, valid_max and valid_range: these detail the feasible range of data, so for salinity they could range from 0 to 41.5 (if following the BODC parameter vocabulary)
+<em class="quotelev1">&gt; making sure we have the right metadata to do so.
 </em><br />
-<em class="quotelev1">&gt; _FillValue which then presets the value that should be used for absent data - in the case of salinity, if keeping to the BODC parameter vocabulary, a value of -1.
+<br />We could make a recommendation in the standard document to include the
+<br />
+grid_mapping, if there is an applicable one, whenever there are horizontal
+<br />
+coordinates. The CF checker would then produce a warning if the grid_mapping
+<br />
+was absent. But I don't think it is the role of CF to include:
+<br />
+<br /><em class="quotelev1">&gt; 2) possible recommendations by CF as to what to do if the datum is not
 </em><br />
-My own idiom is to use _FillValue only for values that are never 
+<em class="quotelev1">&gt; present, or is only partially specified.
+</em><br />
+<br />CF is a convention for allowing metadata to be provided. Its purpose is not
 <br />
-written, which was its original intent. If I need missing values then I 
+to prescribe or guess what the metadata should be. There is lots of important
 <br />
-add an explicit attribute &quot;missing_value&quot;; if there are multiple missing 
+metadata which is optional, such as standard names and bounds, and we do not
 <br />
-values, the attribute can be a vector.
+recommend what should be done when they are missing.
 <br />
-<br />So, I never use _FillValue explicitly, nor valid_min or valid_max, and 
+<br />Cheers
 <br />
-always use missing_value if needed.
+<br />Jonathan
 <br />
-<br />I always code to write every value out, never relying on unwritten 
-<br />
-values == missing values. That means I can set fill to off, which can 
-<br />
-save a lot of time when writing (up to 2x)
-<br />
-<br />As I say, thats just my own personal idiom for writing netcdf.
-<br />
-<span id="received"><dfn>Received on</dfn> Mon Apr 23 2012 - 10:08:09 BST</span>
+<span id="received"><dfn>Received on</dfn> Thu Aug 04 2011 - 01:23:08 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -120,11 +133,12 @@ save a lot of time when writing (up to 2x)
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4420">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4421.html" title="Next message in the list">Hedley, Mark: "[CF-metadata] identification of vector components"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4419.html" title="Previous message in the list">Nan Galbraith: "[CF-metadata] Comment in coordinate variables (and CF checker)"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./4408.html" title="Message to which this message replies">Gaffney, Sean P.: "[CF-metadata] code that does semantic checking of CF headers"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4421.html" title="Next message in the list">Jon Blower: "[CF-metadata] the need to store lat/lon coordinates in a CF-compliant netCDF file"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4419.html" title="Previous message in the list">Heiko Klein: "[CF-metadata] the need to store lat/lon coordinates in a CF-compliant netCDF file"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./4804.html" title="Next message in this discussion thread">Gaffney, Sean P.: "[CF-metadata] use of CF to describe unstructured grid models"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./4421.html" title="Next message in this discussion thread">Jon Blower: "[CF-metadata] the need to store lat/lon coordinates in a CF-compliant netCDF file"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./4421.html" title="Message sent in reply to this message">Jon Blower: "[CF-metadata] the need to store lat/lon coordinates in a CF-compliant netCDF file"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -135,7 +149,7 @@ save a lot of time when writing (up to 2x)
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:02 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4419.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4421.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

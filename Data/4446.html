@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Ocean CTD data following CF Conventions v1.6 from andrew walsh on 2012-04-27 (mailing-list-archive)</title>
-<meta name="Author" content="andrew walsh (awalsh)" />
-<meta name="Subject" content="[CF-metadata] Ocean CTD data following CF Conventions v1.6" />
-<meta name="Date" content="2012-04-27" />
+<title>[CF-metadata] Is there a convention defining day offsets to use for monthly average time series? from John Caron on 2011-08-10 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] Is there a convention defining day offsets to use for monthly average time series?" />
+<meta name="Date" content="2011-08-10" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4445.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4447.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Ocean CTD data following CF Conventions v1.6</h1>
-<!-- received="Fri Apr 27 00:03:28 2012" -->
-<!-- isoreceived="20120426230328" -->
-<!-- sent="Fri, 27 Apr 2012 16:03:28 +1000" -->
-<!-- isosent="20120427060328" -->
-<!-- name="andrew walsh" -->
-<!-- email="awalsh" -->
-<!-- subject="[CF-metadata] Ocean CTD data following CF Conventions v1.6" -->
-<!-- id="C41C7866699C4FA8AD0B3BAAFC5A81FD_at_awalsh1" -->
+<a style="text-decoration:none" href="./4445.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4447.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Is there a convention defining day offsets to use for monthly average time series?</h1>
+<!-- received="Wed Aug 10 06:31:24 2011" -->
+<!-- isoreceived="20110810053124" -->
+<!-- sent="Wed, 10 Aug 2011 06:31:24 -0600" -->
+<!-- isosent="20110810123124" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] Is there a convention defining day offsets to use for monthly average time series?" -->
+<!-- id="4E427A1C.9010100_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4F989B72.8000907&#64;unidata.ucar.edu" -->
+<!-- inreplyto="4E405876.1020806_at_noaa.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4447.html" accesskey="d" title="andrew walsh: &quot;[CF-metadata] Fw:  Ocean CTD data following CF Conventions v1.6&quot;">Next message</a> ]
-[ <a href="./4445.html" title="Etienne Tourigny: &quot;[CF-metadata] batch compliance checking of CF netcdf files&quot;">Previous message</a> ]
+[ <a href="./4447.html" accesskey="d" title="John Caron: &quot;[CF-metadata] the need to store lat/lon coordinates in a CF metadata compliant netCDF file&quot;">Next message</a> ]
+[ <a href="./4445.html" title="Christopher Barker: &quot;[CF-metadata] Is there a convention defining day offsets to use for monthly average time series?&quot;">Previous message</a> ]
+[ <a href="./4441.html" title="Jim Biard: &quot;[CF-metadata] Is there a convention defining day offsets to use for monthly average time series?&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./4452.html" accesskey="t" title="John Caron: &quot;[CF-metadata] Ocean CTD data following CF Conventions v1.6&quot;">Next in thread</a> ]
+[ <a href="./4448.html" accesskey="t" title="Jim Biard: &quot;[CF-metadata] Is there a convention defining day offsets to use for monthly average time series?&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -71,276 +72,66 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: andrew walsh &lt;<a href="mailto:awalsh?Subject=Re%3A%20%5BCF-metadata%5D%20Ocean%20CTD%20data%20following%20CF%20Conventions%20v1.6">awalsh</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20Is%20there%20a%20convention%20defining%20day%20offsets%20to%20use%20for%20monthly%20average%20time%20series%3F">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 27 Apr 2012 16:03:28 +1000</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 10 Aug 2011 06:31:24 -0600</span><br />
 </address>
 <br />
-Hi John,
+On 8/8/2011 3:43 PM, Jim Biard wrote:
 <br />
-<br />Thanks for your advice.
-<br />
-For a single vertical profile and single valued time, lat, long.
-<br />
-it seems there are two acceptable ways i.e 1 element vector or single valued 
-<br />
-scalar.
-<br />
-<br />Quoting from 'section 2.4 Dimensions' of CF standard:
-<br />
-<br />1 element vector:
-<br />
-<br />&quot;Dimensions may be of any size, including unity. When a single value of some 
-<br />
-coordinate applies to all the values in a variable, the recommended means of 
-<br />
-attaching this information to the variable is by use of a dimension of size 
-<br />
-unity with a one-element coordinate variable.
-<br />
-<br />and in the next sentence a scalar:
-<br />
-<br />&quot;It is also acceptable to use a scalar coordinate variable which eliminates the 
-<br />
-need for an associated size one dimension in the data variable.&quot;
-<br />
-<br />1) ***Vector co-ordinate variables*******
-<br />
-<br />Dimensions:
-<br />
-&nbsp;time=1
-<br />
-&nbsp;pressure=56
-<br />
-&nbsp;lat=1
-<br />
-&nbsp;lon=1
-<br />
-<br />Variables:
-<br />
-&nbsp;time(time)
-<br />
-&nbsp;lat(lat)
-<br />
-&nbsp;lon(lon)
-<br />
-&nbsp;temperature(pressure)
-<br />
-<br />2) **Scalar co-ordinate varaibles****
-<br />
-<br />Dimensions:
-<br />
-<br />pressure =56
-<br />
-<br />Variables:
-<br />
-time
-<br />
-lat
-<br />
-lon
-<br />
-temperature(pressure)
-<br />
-<br />The scalar approach you suggest as in section &quot;H.3.3. Single profile&quot; of the CF 
-<br />
-v1.6 standard
-<br />
-is simpler than the vector approach so we will take your advice.
-<br />
-<br />Regards,
-<br />
-<br />Andrew
-<br />
-<br /><br />----- Original Message ----- 
-<br />
-From: &quot;John Caron&quot; &lt;caron at unidata.ucar.edu&gt;
-<br />
-To: &quot;andrew walsh&quot; &lt;awalsh at metoc.gov.au&gt;
-<br />
-Cc: &lt;cf-metadata at cgd.ucar.edu&gt;; &quot;Luke Callcut&quot; &lt;luke at metoc.gov.au&gt;; 
-<br />
-&lt;greg at metoc.gov.au&gt;
-<br />
-Sent: Thursday, April 26, 2012 10:48 AM
-<br />
-Subject: Re: [CF-metadata] Ocean CTD data following CF Conventions v1.6
-<br />
-<br /><br /><em class="quotelev1">&gt; Hi andrew:
+<em class="quotelev1">&gt; Hi.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; The file you sent (20110818T001140Z_M_HI504BEN.nc) appears to be a single 
+<em class="quotelev1">&gt; I have a time series of monthly averaged values.  I have an 
 </em><br />
-<em class="quotelev1">&gt; profile. Assuming that, you would use the following template:
+<em class="quotelev1">&gt; integer-valued time coordinate variable and an associated time_bounds 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; variable.  Is it correct to use the 15th of February and the 16th of 
 </em><br />
-<em class="quotelev1">&gt; <a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.6/cf-conventions.html#idp8363696">http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.6/cf-conventions.html#idp8363696</a>
+<em class="quotelev1">&gt; all the other months for my time centers, or should I use the 16th of 
 </em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; note that lat, lon and time coordinates all have to be scalars.
+<em class="quotelev1">&gt; every month?
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; John
+<em class="quotelev1">&gt; Also, should I do anything differently if my data are climatological 
+</em><br />
+<em class="quotelev1">&gt; monthly averages (say, over 30 years of data)?  And, in this case, 
+</em><br />
+<em class="quotelev1">&gt; should the time coordinate values be day numbers from the beginning of 
+</em><br />
+<em class="quotelev1">&gt; the 30-year time interval, the end of the time interval, or something 
+</em><br />
+<em class="quotelev1">&gt; else entirely?
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; On 4/18/2012 8:24 PM, andrew walsh wrote:
-</em><br />
-<em class="quotelev2">&gt;&gt; Hi John,
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; We have now constructed a real netCDF file for you to check. QC flag
-</em><br />
-<em class="quotelev2">&gt;&gt; variables have been added in. The QC flagging method is based on the
-</em><br />
-<em class="quotelev2">&gt;&gt; proposed IODE scheme in (1) below.
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Attached are the sample .nc file, text (ncdump) of same and a document
-</em><br />
-<em class="quotelev2">&gt;&gt; specifying the CDL.
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Thanks and Regards,
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Andrew Walsh
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Ref.
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; (1) Konovalov et. al (March 2012), Proposal to adopt a quality flag scheme 
-</em><br />
-<em class="quotelev2">&gt;&gt; standard
-</em><br />
-<em class="quotelev2">&gt;&gt; for oceanographic and marine meteorological data, Version 1.2.
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; ----- Original Message ----- From: &quot;John Caron&quot; &lt;caron at unidata.ucar.edu&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; To: &quot;andrew walsh&quot; &lt;awalsh at metoc.gov.au&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Sent: Thursday, April 05, 2012 10:44 AM
-</em><br />
-<em class="quotelev2">&gt;&gt; Subject: Re: [CF-metadata] Ocean CTD data following CF Conventions v1.6
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; ok
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; On 4/4/2012 6:42 PM, andrew walsh wrote:
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; Hi John,
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; Thank for your offer to check a sample netCDF CTD data file. At moment we 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; don't have
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; some real .nc file but when we do I can send you a file for checking.
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; Andrew
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; ----- Original Message ----- From: John Caron
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; To: cf-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; Sent: Wednesday, April 04, 2012 5:55 AM
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; Subject: Re: [CF-metadata] Ocean CTD data following CF Conventions v1.6
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; Hi all:
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; Lets see, I havent followed the entire conversation, but:
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; 1) Andrew if you can send me a sample file (not just the CDL) I can check 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; if it works in the CDM with the new 1.6 conventions, and maybe give you 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; some advice from my POV.
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; 2) Aggregation in the CDM comes in 2 flavors. 1) The original 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; implementation simply appends multidimensional arrays together, eg &quot;joinNew 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; &quot; and &quot;joinExisting&quot; NCML aggregation. I call it &quot;syntactic aggregation&quot; 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; because it doesnt know what its aggregating, and the homogeneity 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; requirements are strict. 2) &quot;Feature Type collections&quot; (aka &quot;semantic 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; aggregation&quot;) are the more recent development. These understand the 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; coordinate information of the data, and so can handle variations in the 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; representation, eg ragged arrays, scalar coordinates, etc. In this case, 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; the CDM understands a dataset as a collection of &quot;features objects&quot;, which 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; can be stored in a collection of files.  The interfaces to these 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; collections is still under development. Most current and future work in the 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; CDM is in this category.
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; John
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; snip ....
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; _______________________________________________
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
+<em class="quotelev1">&gt; Grace and peace,
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; Jim Biard
 </em><br />
-<span id="received"><dfn>Received on</dfn> Fri Apr 27 2012 - 00:03:28 BST</span>
+<em class="quotelev1">&gt;
+</em><br />
+<br />At the moment, IMO the best that can be done in CF is to accurately 
+<br />
+record the date range (using the bounds attribute). The coordinate value 
+<br />
+should then be considered for labeling purposes only. Make a one line 
+<br />
+description and put into the long_name attribute. Make sure you have 
+<br />
+human readable documentation that explains whats going on in detail, and 
+<br />
+add a global attribute that references it. Set up a 24-hour hotline to 
+<br />
+answer questions, staffed by post-docs wearing beepers. Ok, maybe not 
+<br />
+the last ;^)
+<br />
+<span id="received"><dfn>Received on</dfn> Wed Aug 10 2011 - 06:31:24 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -348,12 +139,14 @@ Subject: Re: [CF-metadata] Ocean CTD data following CF Conventions v1.6
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4446">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4447.html" title="Next message in the list">andrew walsh: "[CF-metadata] Fw:  Ocean CTD data following CF Conventions v1.6"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4445.html" title="Previous message in the list">Etienne Tourigny: "[CF-metadata] batch compliance checking of CF netcdf files"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4447.html" title="Next message in the list">John Caron: "[CF-metadata] the need to store lat/lon coordinates in a CF metadata compliant netCDF file"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4445.html" title="Previous message in the list">Christopher Barker: "[CF-metadata] Is there a convention defining day offsets to use for monthly average time series?"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./4441.html" title="Message to which this message replies">Jim Biard: "[CF-metadata] Is there a convention defining day offsets to use for monthly average time series?"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./4452.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] Ocean CTD data following CF Conventions v1.6"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./4448.html" title="Next message in this discussion thread">Jim Biard: "[CF-metadata] Is there a convention defining day offsets to use for monthly average time series?"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./4452.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] Ocean CTD data following CF Conventions v1.6"</a></li>
+<dfn>Reply</dfn>: <a href="./4448.html" title="Message sent in reply to this message">Jim Biard: "[CF-metadata] Is there a convention defining day offsets to use for monthly average time series?"</a></li>
+<li><dfn>Reply</dfn>: <a href="./4449.html" title="Message sent in reply to this message">Upendra Dadi: "[CF-metadata] Is there a convention defining day offsets to use for monthly average time series?"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -364,7 +157,7 @@ Subject: Re: [CF-metadata] Ocean CTD data following CF Conventions v1.6
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:02 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4445.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4447.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

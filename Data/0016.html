@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] standard names added from Jonathan Gregory on 2006-02-06 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] standard names added" />
-<meta name="Date" content="2006-02-06" />
+<title>Antwort: Re: [CF-metadata] grid_mapping from Burkhardt.Rockel at gkss.de on 2002-06-11 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Burkhardt.Rockel at gkss.de (Burkhardt.Rockel)" />
+<meta name="Subject" content="Antwort: Re: [CF-metadata] grid_mapping" />
+<meta name="Date" content="2002-06-11" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0015.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0017.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard names added</h1>
-<!-- received="Sun Feb  5 17:26:36 2006" -->
-<!-- isoreceived="20060205172636" -->
-<!-- sent="Mon, 6 Feb 2006 00:26:36 +0000" -->
-<!-- isosent="20060206002636" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] standard names added" -->
-<!-- id="20060206002636.GA17995_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0015.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0017.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>Antwort: Re: [CF-metadata] grid_mapping</h1>
+<!-- received="Tue Jun 11 00:05:12 2002" -->
+<!-- isoreceived="20020610230512" -->
+<!-- sent="Tue, 11 Jun 2002 08:05:12 +0200" -->
+<!-- isosent="20020611060512" -->
+<!-- name="Burkhardt.Rockel at gkss.de" -->
+<!-- email="Burkhardt.Rockel" -->
+<!-- subject="Antwort: Re: [CF-metadata] grid_mapping" -->
+<!-- id="OF6EE0B20B.343CCBDE-ONC1256BD5.001EAFF8-C1256BD5.00216EC1_at_gkss.de" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0017.html" accesskey="d" title="Beate.Geyer at gkss.de: &quot;[CF-metadata] proposals for new standard names (ECMWF-GCM)&quot;">Next message</a> ]
-[ <a href="./0015.html" title="Jonathan Gregory: &quot;[CF-metadata] snow temperature&quot;">Previous message</a> ]
+[ <a href="./0017.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] grid_mapping&quot;">Next message</a> ]
+[ <a href="./0015.html" title="Karl E.Taylor: &quot;[CF-metadata] grid_mapping&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,50 +68,84 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20standard%20names%20added">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Burkhardt.Rockel at gkss.de &lt;<a href="mailto:Burkhardt.Rockel?Subject=Re%3A%20Antwort%3A%20Re%3A%20%5BCF-metadata%5D%20grid_mapping">Burkhardt.Rockel</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 6 Feb 2006 00:26:36 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 11 Jun 2002 08:05:12 +0200</span><br />
 </address>
 <br />
-The following standard names have been added to the table, following requests
+Dear Karl,
 <br />
-from Knut Lisaeter, Tony Jolibois, Keith Dixon and Burkhardt Rockel, and
+<br />I guess the idea was to define a general attribute 
 <br />
-corrections have been made to some equivalences with ECMWF GRIB codes, thanks
+grid_mapping=&quot;gridding_method grid_parameter1: value1 grid_parameter2: 
 <br />
-to Martin Koehler.
+value2 .... grid_parametern: valuen&quot;
 <br />
-<br />Jonathan
+where the number and names of the grid_parameters are depending on the 
 <br />
-<br />sea_ice_x_velocity:m s-1
+gridding_method.
 <br />
-sea_ice_y_velocity:m s-1
+In the case of a rotated lat/lon grid this would be for example
 <br />
-surface_downward_x_stress:Pa
+grid_mapping=&quot;rotated_latitude_longitude   grid_north_pole_latitude: 32.5  grid_north_pole_longitude: -170. 
 <br />
-surface_downward_y_stress:Pa
+north_pole_grid_longitude: 10.&quot;
 <br />
-downward_x_stress_at_sea_ice_base:Pa
+I think that is what Brian and Jonathan have in mind, if I understand them 
 <br />
-downward_y_stress_at_sea_ice_base:Pa
+right.
 <br />
-ocean_mixed_layer_thickness_defined_by_mixing_scheme:m
+Thus the experts on the grids you mentioned may define the names for the 
 <br />
-ocean_mixed_layer_thickness_defined_by_temperature:m
+grid_method and the parameters for their grids, and propose this to the CF 
 <br />
-ocean_mixed_layer_thickness_defined_by_sigma_t:m
+group to become an official part of the CF conventions. 
 <br />
-ocean_mixed_layer_thickness_defined_by_sigma_theta:m
+<br /><br />regards
 <br />
-integral_of_air_temperature_excess_wrt_time:K s
+Burkhardt
 <br />
-integral_of_air_temperature_deficit_wrt_time:K s
+<br /><br /><br /><br /><br />&quot;Karl E.Taylor&quot; &lt;taylor13 at llnl.gov&gt;
 <br />
-air_temperature_threshold:K
+Gesendet von: cf-metadata-admin at cgd.ucar.edu
 <br />
-surface_temperature_where_snow:K
+10.06.2002 20:17
 <br />
-<span id="received"><dfn>Received on</dfn> Sun Feb 05 2006 - 17:26:36 GMT</span>
+<br />&nbsp;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An: 
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kopie:  cf-metadata at cgd.ucar.edu
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thema:  Re: [CF-metadata] grid_mapping
+<br />
+<br />Dear all,
+<br />
+<br />Is this system general enough? The French (LODYC) have a grid for their 
+<br />
+ORCA model in 
+<br />
+which both poles are located in the N. Hemisphere.  (Which is the north 
+<br />
+pole?). 
+<br />
+The HOPE model at MPI can have 3 poles (at least in one configuration).  I 
+<br />
+think we 
+<br />
+should try to make CF general enough to accommodate these.
+<br />
+<br />Karl
+<br />
+&nbsp;
+<br />
+<br /><br />-------------- next part --------------
+<br />
+An HTML attachment was scrubbed...
+<br />
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20020611/c30fee86/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20020611/c30fee86/attachment.html</a>&gt;
+<br />
+<span id="received"><dfn>Received on</dfn> Tue Jun 11 2002 - 00:05:12 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -119,8 +153,8 @@ surface_temperature_where_snow:K
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start16">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0017.html" title="Next message in the list">Beate.Geyer at gkss.de: "[CF-metadata] proposals for new standard names (ECMWF-GCM)"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0015.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] snow temperature"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0017.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] grid_mapping"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0015.html" title="Previous message in the list">Karl E.Taylor: "[CF-metadata] grid_mapping"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -132,7 +166,7 @@ surface_temperature_where_snow:K
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:43 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0015.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0017.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

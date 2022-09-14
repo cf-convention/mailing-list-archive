@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] axis attribute from Richard Gorman on 2006-11-22 (mailing-list-archive)</title>
-<meta name="Author" content="Richard Gorman (r.gorman)" />
-<meta name="Subject" content="[CF-metadata] axis attribute" />
-<meta name="Date" content="2006-11-22" />
+<title>[CF-metadata] Ocean S-coordinate respecification from Rich Signell on 2004-10-26 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Rich Signell (rsignell)" />
+<meta name="Subject" content="[CF-metadata] Ocean S-coordinate respecification" />
+<meta name="Date" content="2004-10-26" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0477.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0479.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] axis attribute</h1>
-<!-- received="Wed Nov 22 12:49:07 2006" -->
-<!-- isoreceived="20061122124907" -->
-<!-- sent="Thu, 23 Nov 2006 08:49:07 +1300" -->
-<!-- isosent="20061122194907" -->
-<!-- name="Richard Gorman" -->
-<!-- email="r.gorman" -->
-<!-- subject="[CF-metadata] axis attribute" -->
-<!-- id="4564A9B3.1030703_at_niwa.co.nz" -->
+<a style="text-decoration:none" href="./0477.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0479.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Ocean S-coordinate respecification</h1>
+<!-- received="Tue Oct 26 08:21:24 2004" -->
+<!-- isoreceived="20041026072124" -->
+<!-- sent="Tue, 26 Oct 2004 10:21:24 -0400" -->
+<!-- isosent="20041026142124" -->
+<!-- name="Rich Signell" -->
+<!-- email="rsignell" -->
+<!-- subject="[CF-metadata] Ocean S-coordinate respecification" -->
+<!-- id="417E5D64.5000309_at_usgs.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20061122074626.GA19787_at_met.reading.ac.uk" -->
+<!-- inreplyto="20041026083041.GD20195_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0479.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] axis attribute&quot;">Next message</a> ]
-[ <a href="./0477.html" title="Ed Hartnett: &quot;[CF-metadata] libcf alpha 4 released on Unidata web site...&quot;">Previous message</a> ]
-[ <a href="./0475.html" title="Jonathan Gregory: &quot;[CF-metadata] axis attribute&quot;">In reply to</a> ]
+[ <a href="./0479.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] meaning of depth in the ocean&quot;">Next message</a> ]
+[ <a href="./0477.html" title="Jonathan Gregory: &quot;[CF-metadata] Ocean S-coordinate respecification&quot;">Previous message</a> ]
+[ <a href="./0477.html" title="Jonathan Gregory: &quot;[CF-metadata] Ocean S-coordinate respecification&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,94 +70,117 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Richard Gorman &lt;<a href="mailto:r.gorman?Subject=Re%3A%20%5BCF-metadata%5D%20axis%20attribute">r.gorman</a>&gt;
+<dfn>From</dfn>: Rich Signell &lt;<a href="mailto:rsignell?Subject=Re%3A%20%5BCF-metadata%5D%20Ocean%20S-coordinate%20respecification">rsignell</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 23 Nov 2006 08:49:07 +1300</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 26 Oct 2004 10:21:24 -0400</span><br />
 </address>
 <br />
-Dear Jonathon,
+Jonathon,
 <br />
-<br />This was to interpolate fields onto a lat/lon grid for input to a wave 
+<br />Good point.  I didn't think about datums.    Most ocean modelers don't 
 <br />
-model. The interpolation subroutine was written to expect inputs in the 
+make explicit what
 <br />
-form of 2D arrays of latitude, longitude and the input field, with 
+vertical datum they are working with, but I guess if you are thinking 
 <br />
-indices in (x,y) order. So I wanted to identify which were the &quot;x-like&quot; 
+about using tools
 <br />
-and &quot;y-like&quot; dimensions in the original file.
+like IDV, they need to know!   Usually ocean modelere work with water 
 <br />
-<br />In this case, I suspect it would still work if the &quot;x&quot; and &quot;y&quot; indices 
+depths relative
 <br />
-are transposed, so as long as we can identify the two dimensions which 
+to some local geopotential, which for places like the Great Lakes could 
 <br />
-are horizontal. But there could be cases where the parity flip would 
+be hundreds of
 <br />
-matter, e.g. where axial quantities such as vorticity are involved. So I 
+meters above the geoid.
 <br />
-think it is useful to allow the axis = X and Y attribute for coordinate 
+<br />What do you think about adding to the CF convention the specification of 
 <br />
-variables that are a continuous transformation from cartesian 
+a 2D variable
 <br />
-coordinates or lat/lon coordinates (without a parity inversion).
+(function of lat, lon) called &quot;geoid_offset&quot; (or equivalent) that would 
 <br />
-<br />Regards,
+specify the
 <br />
-Richard
+offset between the &quot;local datum&quot; (z=0) and the geoid?   This would allow 
 <br />
-<br /><br />On 22/11/2006 20:46 p.m., Jonathan Gregory wrote:
+people to take
 <br />
-<em class="quotelev1">&gt; Dear Richard
+advantage of new software features in tools that support CF conventions 
+<br />
+without breaking
+<br />
+the tools they already have.
+<br />
+<br />And while we are on the subject, are we being intentionally ambiguous by 
+<br />
+referring
+<br />
+to &quot;the geoid&quot;?    I'm thinking about NAD27, GRS80, WGS84, etc..
+<br />
+<br />-Rich
+<br />
+<br />nathan Gregory wrote:
+<br />
+<br /><em class="quotelev1">&gt;Dear Rich
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; ----- Forwarded message from Richard Gorman &lt;r.gorman at niwa.co.nz&gt; -----
+<em class="quotelev1">&gt;I agree with you that it would be better to replace the existing definition
 </em><br />
-<em class="quotelev2">&gt;&gt; When I started writing code to handle NetCDF data, the files I was 
+<em class="quotelev1">&gt;of the ocean_s_coordinate with your new, less prescriptive, one. Contacting
 </em><br />
-<em class="quotelev2">&gt;&gt; dealing with used the axis = X and Y attribute for rotated pole 
+<em class="quotelev1">&gt;people who might be using it would be a good idea if they aren't subscribed
 </em><br />
-<em class="quotelev2">&gt;&gt; coordinates. So I took that interpretation to be standard and, like you, 
+<em class="quotelev1">&gt;to this group!
 </em><br />
-<em class="quotelev2">&gt;&gt; coded to use that attribute as one way to identify the spatial 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; coordinate variables and dimensions.
+<em class="quotelev1">&gt;Although you're right that sigma is a special case of s, I think we can keep
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;sigma, just as we have both atmosphere sigma and hybrid-sigma-pressure.
 </em><br />
-<em class="quotelev1">&gt; What was the importance of identifying them as X and Y? Is it to decide which
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; one is the horizontal axis of the plot, for instance?
+<em class="quotelev1">&gt;In all the definitions of sigma and s for ocean we have &quot;relative to ocean
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;datum (e.g. mean sea level)&quot;. Could we be more precise about these? We should
 </em><br />
-<em class="quotelev1">&gt; Cheers
+<em class="quotelev1">&gt;be clear what quantity the calculated z will be, and that depends on the
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;definition of its inputs. Would it be correct to say the heights and depths
 </em><br />
-<em class="quotelev1">&gt; Jonathan
+<em class="quotelev1">&gt;are all wrt geoid, for instance?
 </em><br />
-<em class="quotelev1">&gt; _______________________________________________
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
+<em class="quotelev1">&gt;Cheers
 </em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+<em class="quotelev1">&gt;Jonathan
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;_______________________________________________
+</em><br />
+<em class="quotelev1">&gt;CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt;CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt;<a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt;  
+</em><br />
+<em class="quotelev1">&gt;
 </em><br />
 <br /><pre>
 -- 
-=========================================================
-Richard Gorman
-National Institute of Water and Atmospheric Research
-PO Box 11-115, Hamilton, 3251, New Zealand
-Tel: +64 7 856 1736 Mob: 021 074 7490 Fax: +64 7 856 0151
-Email: r.gorman at niwa.co.nz   Web: <a href="http://www.niwa.co.nz">http://www.niwa.co.nz</a>
-=========================================================
+Richard P. Signell           rsignell at usgs.gov
+U.S. Geological Survey       Phone: (508) 457-2229
+384 Woods Hole Road          Fax:   (508) 457-2310
+Woods Hole, MA  02543-1598  
 </pre>
-<span id="received"><dfn>Received on</dfn> Wed Nov 22 2006 - 12:49:07 GMT</span>
+<span id="received"><dfn>Received on</dfn> Tue Oct 26 2004 - 08:21:24 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -165,9 +188,9 @@ Email: r.gorman at niwa.co.nz   Web: <a href="http://www.niwa.co.nz">http://www.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start478">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0479.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] axis attribute"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0477.html" title="Previous message in the list">Ed Hartnett: "[CF-metadata] libcf alpha 4 released on Unidata web site..."</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0475.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] axis attribute"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0479.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] meaning of depth in the ocean"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0477.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Ocean S-coordinate respecification"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0477.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] Ocean S-coordinate respecification"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -179,7 +202,7 @@ Email: r.gorman at niwa.co.nz   Web: <a href="http://www.niwa.co.nz">http://www.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:51 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0477.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0479.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

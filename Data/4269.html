@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF-1.6 Conformance Requirements/Recommendations from Jonathan Gregory on 2012-03-26 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] CF-1.6 Conformance Requirements/Recommendations" />
-<meta name="Date" content="2012-03-26" />
+<title>[CF-metadata] generalizing forecast_reference_time and forecast_period from Benno Blumenthal on 2011-05-17 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Benno Blumenthal (benno)" />
+<meta name="Subject" content="[CF-metadata] generalizing forecast_reference_time and forecast_period" />
+<meta name="Date" content="2011-05-17" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4268.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4270.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF-1.6 Conformance Requirements/Recommendations</h1>
-<!-- received="Mon Mar 26 02:24:08 2012" -->
-<!-- isoreceived="20120326012408" -->
-<!-- sent="Mon, 26 Mar 2012 09:24:08 +0100" -->
-<!-- isosent="20120326082408" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] CF-1.6 Conformance Requirements/Recommendations" -->
-<!-- id="20120326082408.GA17750_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./4268.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4270.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] generalizing forecast_reference_time and forecast_period</h1>
+<!-- received="Tue May 17 09:46:13 2011" -->
+<!-- isoreceived="20110517084613" -->
+<!-- sent="Tue, 17 May 2011 11:46:13 -0400" -->
+<!-- isosent="20110517154613" -->
+<!-- name="Benno Blumenthal" -->
+<!-- email="benno" -->
+<!-- subject="[CF-metadata] generalizing forecast_reference_time and forecast_period" -->
+<!-- id="BANLkTikjH=4+hDT3w9HyUU0sWX5qh8pfew_at_mail.gmail.com" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20120323185534.GA24756_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +53,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4270.html" accesskey="d" title="Nan Galbraith: &quot;[CF-metadata] CF-1.6 Conformance Requirements/Recommendations&quot;">Next message</a> ]
-[ <a href="./4268.html" title="John Caron: &quot;[CF-metadata] CF-1.6 Conformance Requirements/Recommendations&quot;">Previous message</a> ]
-[ <a href="./4266.html" title="Jonathan Gregory: &quot;[CF-metadata]  CF-1.6 Conformance Requirements/Recommendations&quot;">In reply to</a> ]
+[ <a href="./4270.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] generalizing forecast_reference_time and forecast_period&quot;">Next message</a> ]
+[ <a href="./4268.html" title="Lowry, Roy K.: &quot;[CF-metadata] [Standard name request] property changes over time&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./4271.html" accesskey="t" title="John Caron: &quot;[CF-metadata] CF-1.6 Conformance Requirements/Recommendations&quot;">Next in thread</a> ]
+[ <a href="./4270.html" accesskey="t" title="Jonathan Gregory: &quot;[CF-metadata] generalizing forecast_reference_time and forecast_period&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,38 +70,45 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20CF-1.6%20Conformance%20Requirements%2FRecommendations">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Benno Blumenthal &lt;<a href="mailto:benno?Subject=Re%3A%20%5BCF-metadata%5D%20generalizing%20forecast_reference_time%20and%20forecast_period">benno</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 26 Mar 2012 09:24:08 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 17 May 2011 11:46:13 -0400</span><br />
 </address>
 <br />
-Dear Ros
+CF has standard names  forecast_reference_time, forecast_period and
 <br />
-<br />Regarding this requirement:
+time  which are interrelated in a particular way.
 <br />
-<br /><em class="quotelev1">&gt; 9.6 Where any auxiliary coordinate variable contains a missing value, all
-</em><br />
-<em class="quotelev1">&gt; other coordinate, auxiliary coordinate and data values corresponding to that
-</em><br />
-<em class="quotelev1">&gt; element should also contain missing values.
-</em><br />
-<br />Appendix A notes that missing data is allowed in aux coord vars only in the
+<br />I have a trajectory dataset which also has   reference_time, period,
 <br />
-case of discrete sampling geometries. This means the checker could regard it as
+and time which are interrelated in the same way, but forecast is not
 <br />
-an error also if it finds any missing data in aux coord vars, unless a valid
+an appropriate descriptor:  the reference_time is the start of the
 <br />
-featureType att is present, arising from 9.6, in addition to the above.
+trajectory, the period is the time relative to the start_time along
 <br />
-<br />However, I think the convention should be clear that this is not allowed except
+the trajectory.
 <br />
-for discrete sampling geometries, so I'll open a defect ticket for that.
+<br />I am wondering how important &quot;forecast&quot; is in the semantics of these
 <br />
-<br />Best wishes
+particular standard_names -- does it really have to be a forecast?
 <br />
-<br />Jonathan
+After all, these are the standard names for the time coordinates, e.g.
 <br />
-<span id="received"><dfn>Received on</dfn> Mon Mar 26 2012 - 02:24:08 BST</span>
+independent variables, while forecast is a property of the dependent
+<br />
+variables, i.e. how they were computed.
+<br />
+<br />Do we need more general names?  Am I taking the current names too literally?
+<br />
+<br /><pre>
+-- 
+Dr. M. Benno Blumenthal? ? ? ? ? benno at iri.columbia.edu
+International Research Institute for climate and society
+The Earth Institute at Columbia University
+Lamont Campus, Palisades NY 10964-8000?? (845) 680-4450
+</pre>
+<span id="received"><dfn>Received on</dfn> Tue May 17 2011 - 09:46:13 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -111,13 +116,14 @@ for discrete sampling geometries, so I'll open a defect ticket for that.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4269">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4270.html" title="Next message in the list">Nan Galbraith: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4268.html" title="Previous message in the list">John Caron: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./4266.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata]  CF-1.6 Conformance Requirements/Recommendations"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4270.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] generalizing forecast_reference_time and forecast_period"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4268.html" title="Previous message in the list">Lowry, Roy K.: "[CF-metadata] [Standard name request] property changes over time"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./4271.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./4270.html" title="Next message in this discussion thread">Jonathan Gregory: "[CF-metadata] generalizing forecast_reference_time and forecast_period"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./4271.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
+<dfn>Reply</dfn>: <a href="./4270.html" title="Message sent in reply to this message">Jonathan Gregory: "[CF-metadata] generalizing forecast_reference_time and forecast_period"</a></li>
+<li><dfn>Reply</dfn>: <a href="./4273.html" title="Message sent in reply to this message">Karl Taylor: "[CF-metadata] generalizing forecast_reference_time and	forecast_period"</a></li>
+<li><dfn>Reply</dfn>: <a href="./4275.html" title="Message sent in reply to this message">Christopher Barker: "[CF-metadata] generalizing forecast_reference_time and	forecast_period"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -128,7 +134,7 @@ for discrete sampling geometries, so I'll open a defect ticket for that.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:59 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4268.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4270.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

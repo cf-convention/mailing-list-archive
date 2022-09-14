@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF-1.6 DSG clarification: time series &amp; lat/lon coordinates from John Maurer on 2013-05-29 (mailing-list-archive)</title>
-<meta name="Author" content="John Maurer (jmaurer)" />
-<meta name="Subject" content="[CF-metadata] CF-1.6 DSG clarification: time series &amp; lat/lon coordinates" />
-<meta name="Date" content="2013-05-29" />
+<title>[CF-metadata] How to include EPSG codes or WKT information in a CF file [SEC=UNCLASSIFIED] from Etienne Tourigny on 2012-07-31 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Etienne Tourigny (etourigny.dev)" />
+<meta name="Subject" content="[CF-metadata] How to include EPSG codes or WKT information in a CF file [SEC=UNCLASSIFIED]" />
+<meta name="Date" content="2012-07-31" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5438.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5440.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF-1.6 DSG clarification: time series &amp; lat/lon coordinates</h1>
-<!-- received="Wed May 29 12:35:24 2013" -->
-<!-- isoreceived="20130529113524" -->
-<!-- sent="Wed, 29 May 2013 08:35:24 -1000" -->
-<!-- isosent="20130529183524" -->
-<!-- name="John Maurer" -->
-<!-- email="jmaurer" -->
-<!-- subject="[CF-metadata] CF-1.6 DSG clarification: time series &amp; lat/lon coordinates" -->
-<!-- id="CAEoEVr=sU_AgHxjp9a_NCwB7ap-7aXarj=3ssSzqDnm-JcS8qg_at_mail.gmail.com" -->
+<a style="text-decoration:none" href="./5438.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5440.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] How to include EPSG codes or WKT information in a CF file [SEC=UNCLASSIFIED]</h1>
+<!-- received="Mon Jul 30 20:07:06 2012" -->
+<!-- isoreceived="20120730190706" -->
+<!-- sent="Mon, 30 Jul 2012 23:07:06 -0300" -->
+<!-- isosent="20120731020706" -->
+<!-- name="Etienne Tourigny" -->
+<!-- email="etourigny.dev" -->
+<!-- subject="[CF-metadata] How to include EPSG codes or WKT information in a CF file [SEC=UNCLASSIFIED]" -->
+<!-- id="CA+TxYvPa2sm2cQXFCr9qApCRt=iV8_afiL7YYCCXoYd5FbuLLA_at_mail.gmail.com" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="082899B024C30D459BA9ACD1C5E581190414EA44_at_msd9.MSD.local" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5440.html" accesskey="d" title="Jonathan Wrotny: &quot;[CF-metadata] new standard name: lifted_index&quot;">Next message</a> ]
-[ <a href="./5438.html" title="Jonathan Wrotny: &quot;[CF-metadata] new standard name: total_totals_index&quot;">Previous message</a> ]
+[ <a href="./5440.html" accesskey="d" title="Etienne Tourigny: &quot;[CF-metadata] How to include EPSG codes or WKT information in a CF file [SEC=UNCLASSIFIED]&quot;">Next message</a> ]
+[ <a href="./5438.html" title="Kennedy, Paul: &quot;[CF-metadata] How to include EPSG codes or WKT information in a CF file [SEC=UNCLASSIFIED]&quot;">Previous message</a> ]
+[ <a href="./5438.html" title="Kennedy, Paul: &quot;[CF-metadata] How to include EPSG codes or WKT information in a CF file [SEC=UNCLASSIFIED]&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./5444.html" accesskey="t" title="John Caron: &quot;[CF-metadata] CF-1.6 DSG clarification: time series &#0038; lat/lon coordinates&quot;">Next in thread</a> ]
+[ <a href="./5441.html" accesskey="t" title="Timothy Hume: &quot;[CF-metadata] How to include EPSG codes or WKT information in a CF file [SEC=UNCLASSIFIED]&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,150 +72,264 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: John Maurer &lt;<a href="mailto:jmaurer?Subject=Re%3A%20%5BCF-metadata%5D%20CF-1.6%20DSG%20clarification%3A%20time%20series%20%26%20lat%2Flon%20coordinates">jmaurer</a>&gt;
+<dfn>From</dfn>: Etienne Tourigny &lt;<a href="mailto:etourigny.dev?Subject=Re%3A%20%5BCF-metadata%5D%20How%20to%20include%20EPSG%20codes%20or%20WKT%20information%20in%20a%20CF%20file%20%5BSEC%3DUNCLASSIFIED%5D">etourigny.dev</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 29 May 2013 08:35:24 -1000</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 30 Jul 2012 23:07:06 -0300</span><br />
 </address>
 <br />
-Hi all,
-<br />
-We ran into a glitch after converting one of our buoys to the new CF-1.6
-<br />
-discrete sampling geometries (DSG) format, and I'm looking for advice. This
-<br />
-dataset uses the single time series format, like the one provided in the
-<br />
-template of the CF document in Example H.4:
-<br />
-<a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.6/cf-conventions.html#idp8320208">http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.6/cf-conventions.html#idp8320208</a>.
-<br />
-The problem we discovered is that the dataset is no longer readable in
-<br />
-software clients like GrADS and Dapper/DChart (likely others) because it
-<br />
-can't find the latitude and longitude coordinates anymore.
-<br />
-<br />While the dataset previously included the lat/lon dimensions of the buoy in
-<br />
-NetCDF coordinate variables, CF-1.6 DSG no longer defines lat/lon as
-<br />
-coordinate variables. Instead, they are scalar variables which are
-<br />
-referenced by other variables (temp, salinity, etc.) via a new
-<br />
-variable-level &quot;coordinates&quot; attribute: e.g.
-<br />
-<br />temp:coordinates = &quot;time lat lon alt&quot; ;
-<br />
-<br />In order to allow the DSG datasets to continue working in existing software
-<br />
-clients that do not know yet to look for this new &quot;coordinates&quot; variable
-<br />
-attribute, does it break CF-1.6 DSG compliance to *also* change the lat/lon
-<br />
-scalars to coordinate variables like they used to operate? Building on
-<br />
-Example H.4, the modified dataset would look like this, which is a melding
-<br />
-of the old and new ways:
-<br />
-<br />&nbsp;&nbsp;&nbsp;dimensions:
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time = 100233 ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name_strlen = 23 ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alt = 1 ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat = 1 ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon = 1 ;
-<br />
-&nbsp;&nbsp;&nbsp;variables:
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float lon(lon) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon:standard_name = &quot;longitude&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon:long_name = &quot;station longitude&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon:units = &quot;degrees_east&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float lat(lat) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat:standard_name = &quot;latitude&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat:long_name = &quot;station latitude&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat:units = &quot;degrees_north&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float alt(alt) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alt:long_name = &quot;vertical distance above the surface&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alt:standard_name = &quot;height&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alt:units = &quot;m&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alt:positive = &quot;up&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alt:axis = &quot;Z&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char station_name(name_strlen) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;station_name:long_name = &quot;station name&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;station_name:cf_role = &quot;timeseries_id&quot;;
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double time(time) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:standard_name = &quot;time&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:long_name = &quot;time of measurement&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:units = &quot;days since 1970-01-01 00:00:00&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:missing_value = -999.9;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float humidity(time, alt, lat, lon) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;humidity:standard_name = ?specific_humidity? ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;humidity:coordinates = &quot;time lat lon alt&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;humidity:_FillValue = -999.9;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float temp(time, alt, lat, lon) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp:standard_name = ?air_temperature? ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp:units = &quot;Celsius&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp:coordinates = &quot;time lat lon alt&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp:_FillValue = -999.9;
-<br />
-<br />&nbsp;&nbsp;&nbsp;attributes:
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:featureType = &quot;timeSeries&quot;;
-<br />
-<br /><br /><br />Thanks for any insights on this issue!
-<br />
-Cheers,
-<br />
-John Maurer
-<br />
-Pacific Islands Ocean Observing System (PacIOOS)
-<br />
-University of Hawaii at Manoa
-<br />
--------------- next part --------------
-<br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130529/23e4b73a/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130529/23e4b73a/attachment.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Wed May 29 2013 - 12:35:24 BST</span>
+On Mon, Jul 30, 2012 at 10:56 PM, Kennedy, Paul &lt;P.Kennedy at fugro.com.au&gt; wrote:
+<br />
+<em class="quotelev1">&gt; Tim,
+</em><br />
+<em class="quotelev1">&gt; I could not agree more.  Indeed, I would go even further and permit a simple EPSG code as a suitable definition of the geodesy.  EPSG:4326 is all you need to specify WGS ellipsoid, datum etc.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; crs:epsg_code = 4326 ; //this would be the 99% case.  This is how google openlayers, wms, google, bing and others handle the tricky subject of geodesy metadata.
+</em><br />
+<br />Unfortunately, the majority of CF community does not agree with the
+<br />
+use of codes because they are not &quot;self-describable&quot;. Have a look at
+<br />
+the archives of this mailing list and you will see a load of threads
+<br />
+on this subject.
+<br />
+<br />If you want EPSG:4326, there are parameters that describe it (see the
+<br />
+link you submitted)
+<br />
+<br />In fact, it is quite compact in CF notation (see example 5/9 of the
+<br />
+CF-1.6 document)
+<br />
+<br />&nbsp;int crs ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;crs:grid_mapping_name = &quot;latitude_longitude&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;crs:longitude_of_prime_meridian = 0.0 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;crs:semi_major_axis = 6378137.0 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;crs:inverse_flattening = 298.257223563 ;
+<br />
+<br /><em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; WKT is also very handy, but harder to generate and parse.  I suspect this is the 1% case.
+</em><br />
+<br />Thus the need to write the necessary CF parameters to describe WGS84.
+<br />
+This is easier than parsing WKT.
+<br />
+<br />Etienne
+<br />
+<br /><em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; <a href="http://spatialreference.org/ref/epsg/4326/">http://spatialreference.org/ref/epsg/4326/</a>
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; regards
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Paul Kennedy
+</em><br />
+<em class="quotelev1">&gt; Technical Development Manager
+</em><br />
+<em class="quotelev1">&gt; Fugro Survey Pty Ltd
+</em><br />
+<em class="quotelev1">&gt; 24 Geddes St, Balcatta
+</em><br />
+<em class="quotelev1">&gt; Western Australia 6021
+</em><br />
+<em class="quotelev1">&gt; ABN: 81 009 172 990
+</em><br />
+<em class="quotelev1">&gt; Ph    : +61 (0)8 6477 4400
+</em><br />
+<em class="quotelev1">&gt; Direct: +61 (0)8 6477 4418
+</em><br />
+<em class="quotelev1">&gt; Fax   : +61 (0)8 6477 4499
+</em><br />
+<em class="quotelev1">&gt; Mobile: +61 (0)439 518 265
+</em><br />
+<em class="quotelev1">&gt; Email : p.kennedy at fugro.com.au
+</em><br />
+<em class="quotelev1">&gt; Skype : p.kennedy.fugro.com
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; -----Original Message-----
+</em><br />
+<em class="quotelev1">&gt; From: CF-metadata [mailto:cf-metadata-bounces at cgd.ucar.edu] On Behalf Of Timothy Hume
+</em><br />
+<em class="quotelev1">&gt; Sent: Tuesday, 31 July 2012 9:34 AM
+</em><br />
+<em class="quotelev1">&gt; To: cf-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; Subject: Re: [CF-metadata] How to include EPSG codes or WKT information in a CF file [SEC=UNCLASSIFIED]
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Hi Jonathan,
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Thanks for the help. I can see that option 80 is probably better, but option 69 is a lot easier for software developers to bolt onto existing NetCDF files. Most of the people I talk to don't see why anyone is interested in anything other than latitudes and longitudes on a spherical Earth; all the stuff about shape of the Earth etc is irrelevant to their needs. The truth is, because most of the NWP data I use is on a rather coarse grid, the grid mapping information is not that important; two coordinate variables with the longitudes and latitudes is sufficient for most purposes.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Therefore, the path of least resistance is option 69 (with all its potential pit falls); I think option 80 will be too much, and a lot of data writers will simply decide to add no grid mapping information at all, a worse situation than option 69.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Cheers,
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Tim Hume
+</em><br />
+<em class="quotelev1">&gt; Bureau of Meteorology
+</em><br />
+<em class="quotelev1">&gt; ________________________________________
+</em><br />
+<em class="quotelev1">&gt; From: CF-metadata [cf-metadata-bounces at cgd.ucar.edu] On Behalf Of Jonathan Gregory [j.m.gregory at reading.ac.uk]
+</em><br />
+<em class="quotelev1">&gt; Sent: Monday, 30 July 2012 7:10 PM
+</em><br />
+<em class="quotelev1">&gt; To: cf-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; Subject: [CF-metadata] How to include EPSG codes or WKT information in a CF file [SEC=UNCLASSIFIED]
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Dear Tim
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; There are two open CF trac tickets that relate to this issue, proposing to add new conventions to store OGC information in different ways in CF. Ticket
+</em><br />
+<em class="quotelev1">&gt; 80 <a href="https://cf-pcmdi.llnl.gov/trac/ticket/80">https://cf-pcmdi.llnl.gov/trac/ticket/80</a> proposes several new attributes which correspond to WKT elements that currently do not have grid_mapping equivalents. Ticket 69 <a href="https://cf-pcmdi.llnl.gov/trac/ticket/69">https://cf-pcmdi.llnl.gov/trac/ticket/69</a> proposed to add an attribute to record the WKT information without translation. Personally I prefer the former because I am concerned about duplication and possible inconsistency of information, but please have a look at the tickets and form your own view, and add comments if you like. So the answer to your question is that there is not yet a CF standard way to do it, but there will be.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Best wishes
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Jonathan
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; ----- Forwarded message from Timothy Hume &lt;T.Hume at bom.gov.au&gt; -----
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Date: Mon, 30 Jul 2012 11:36:19 +1000
+</em><br />
+<em class="quotelev2">&gt;&gt; From: Timothy Hume &lt;T.Hume at bom.gov.au&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; To: &quot;cf-metadata at cgd.ucar.edu&quot; &lt;cf-metadata at cgd.ucar.edu&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Subject: [CF-metadata] How to include EPSG codes or WKT information in a CF
+</em><br />
+<em class="quotelev2">&gt;&gt;       file [SEC=UNCLASSIFIED]
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Hi,
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; I am adding grid mapping information to my NetCDF files. My data are on a lon-lat grid on a spherical Earth. I can put in the standard CF attributes, grid_mapping_name etc, but also want to include the EPSG and WKT codes to help software applications that might want these. I have not been able to find out how this is done in NetCDF-CF, so am using this format:
+</em><br />
+<em class="quotelev2">&gt;&gt; =
+</em><br />
+<em class="quotelev2">&gt;&gt; int crs ;
+</em><br />
+<em class="quotelev2">&gt;&gt;                 crs:grid_mapping_name = &quot;latitude_longitude&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;                 crs:earth_radius = 6371007.0 ;
+</em><br />
+<em class="quotelev2">&gt;&gt;                 crs:prime_meridian = 0.0 ;
+</em><br />
+<em class="quotelev2">&gt;&gt;                 crs:epsg_code = 4047 ;
+</em><br />
+<em class="quotelev2">&gt;&gt;                 crs:wkt = &quot;GEOGCS[\&quot;Unspecified datum based upon the
+</em><br />
+<em class="quotelev2">&gt;&gt; GRS 1980 Authalic Sphere\&quot;,DATUM[\&quot;Not_specified_based_on
+</em><br />
+<em class="quotelev2">&gt;&gt; _GRS_1980_Authalic_Sphere\&quot;,SPHEROID[\&quot;GRS 1980 Authalic
+</em><br />
+<em class="quotelev2">&gt;&gt; Sphere\&quot;,6371007,0,AUTHORITY[\&quot;EPSG\&quot;,\&quot;7048\&quot;]],AUTHORITY[\&quot;EPSG\&quot;,\
+</em><br />
+<em class="quotelev2">&gt;&gt; &quot;6047\&quot;]],PRIMEM[\&quot;Greenwich\&quot;,0,AUTHORITY[\&quot;EPSG\&quot;,\&quot;8901\&quot;]],UNIT[\&quot;
+</em><br />
+<em class="quotelev2">&gt;&gt; degree\&quot;,0.01745329251994328,AUTHORITY[\&quot;EPSG\&quot;,\&quot;9122\&quot;]],AUTHORITY[\
+</em><br />
+<em class="quotelev2">&gt;&gt; &quot;EPSG\&quot;,\&quot;4047\&quot;]]&quot; ;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; What do other people do when including this extra grid information?
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Cheers,
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Tim Hume
+</em><br />
+<em class="quotelev2">&gt;&gt; Centre for Australian Weather and Climate Research Bureau of
+</em><br />
+<em class="quotelev2">&gt;&gt; Meteorology Melbourne Australia
+</em><br />
+<em class="quotelev2">&gt;&gt; _______________________________________________
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; ----- End forwarded message -----
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<span id="received"><dfn>Received on</dfn> Mon Jul 30 2012 - 20:07:06 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -221,12 +337,14 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5439">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5440.html" title="Next message in the list">Jonathan Wrotny: "[CF-metadata] new standard name: lifted_index"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5438.html" title="Previous message in the list">Jonathan Wrotny: "[CF-metadata] new standard name: total_totals_index"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5440.html" title="Next message in the list">Etienne Tourigny: "[CF-metadata] How to include EPSG codes or WKT information in a CF file [SEC=UNCLASSIFIED]"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5438.html" title="Previous message in the list">Kennedy, Paul: "[CF-metadata] How to include EPSG codes or WKT information in a CF file [SEC=UNCLASSIFIED]"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./5438.html" title="Message to which this message replies">Kennedy, Paul: "[CF-metadata] How to include EPSG codes or WKT information in a CF file [SEC=UNCLASSIFIED]"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./5444.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] CF-1.6 DSG clarification: time series &#0038; lat/lon coordinates"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./5441.html" title="Next message in this discussion thread">Timothy Hume: "[CF-metadata] How to include EPSG codes or WKT information in a CF file [SEC=UNCLASSIFIED]"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./5444.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] CF-1.6 DSG clarification: time series &#0038; lat/lon coordinates"</a></li>
+<dfn>Reply</dfn>: <a href="./5441.html" title="Message sent in reply to this message">Timothy Hume: "[CF-metadata] How to include EPSG codes or WKT information in a CF file [SEC=UNCLASSIFIED]"</a></li>
+<li><dfn>Reply</dfn>: <a href="./5442.html" title="Message sent in reply to this message">Kennedy, Paul: "[CF-metadata] How to include EPSG codes or WKT information in a CF file [SEC=UNCLASSIFIED]"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -237,7 +355,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:23 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5438.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5440.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

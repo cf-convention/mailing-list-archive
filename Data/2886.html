@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] New standard names for satellite obs data from Aleksandar Jelenak on 2010-10-20 (mailing-list-archive)</title>
-<meta name="Author" content="Aleksandar Jelenak (Aleksandar.Jelenak)" />
-<meta name="Subject" content="[CF-metadata] New standard names for satellite obs data" />
-<meta name="Date" content="2010-10-20" />
+<title>[CF-metadata] Query on multiple variables with same standard names from Helen Snaith on 2009-06-02 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Helen Snaith (h.snaith)" />
+<meta name="Subject" content="[CF-metadata] Query on multiple variables with same standard names" />
+<meta name="Date" content="2009-06-02" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2885.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2887.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] New standard names for satellite obs data</h1>
-<!-- received="Tue Oct 19 18:46:53 2010" -->
-<!-- isoreceived="20101019174653" -->
-<!-- sent="Tue, 19 Oct 2010 20:46:53 -0400" -->
-<!-- isosent="20101020004653" -->
-<!-- name="Aleksandar Jelenak" -->
-<!-- email="Aleksandar.Jelenak" -->
-<!-- subject="[CF-metadata] New standard names for satellite obs data" -->
-<!-- id="4CBE3BFD.8050008_at_noaa.gov" -->
+<a style="text-decoration:none" href="./2885.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2887.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Query on multiple variables with same standard names</h1>
+<!-- received="Tue Jun  2 08:27:32 2009" -->
+<!-- isoreceived="20090602072732" -->
+<!-- sent="Tue, 2 Jun 2009 15:27:32 +0100" -->
+<!-- isosent="20090602142732" -->
+<!-- name="Helen Snaith" -->
+<!-- email="h.snaith" -->
+<!-- subject="[CF-metadata] Query on multiple variables with same standard names" -->
+<!-- id="CAA54F11-E5DC-4E0A-A9AA-BE356431875B_at_noc.soton.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="DDB20D8288D53E4D811673C30FAB857D018B36F5983C_at_NSPEXMBX-B.the-lab.llnl.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2887.html" accesskey="d" title="John Graybeal: &quot;[CF-metadata] New standard names for satellite obs data&quot;">Next message</a> ]
-[ <a href="./2885.html" title="Aleksandar Jelenak: &quot;[CF-metadata] New standard names for satellite obs data&quot;">Previous message</a> ]
-[ <a href="./2884.html" title="Cameron-smith, Philip: &quot;[CF-metadata] New standard names for satellite obs data&quot;">In reply to</a> ]
+[ <a href="./2887.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Query on multiple variables with same standard names&quot;">Next message</a> ]
+[ <a href="./2885.html" title="Jonathan Gregory: &quot;[CF-metadata]  new standard name request for pH&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./2887.html" accesskey="t" title="John Graybeal: &quot;[CF-metadata] New standard names for satellite obs data&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -71,34 +68,75 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Aleksandar Jelenak &lt;<a href="mailto:Aleksandar.Jelenak?Subject=Re%3A%20%5BCF-metadata%5D%20New%20standard%20names%20for%20satellite%20obs%20data">Aleksandar.Jelenak</a>&gt;
+<dfn>From</dfn>: Helen Snaith &lt;<a href="mailto:h.snaith?Subject=Re%3A%20%5BCF-metadata%5D%20Query%20on%20multiple%20variables%20with%20same%20standard%20names">h.snaith</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 19 Oct 2010 20:46:53 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 2 Jun 2009 15:27:32 +0100</span><br />
 </address>
 <br />
-Cameron-smith, Philip wrote on 10/19/10 7:44 PM:
+Dear all
 <br />
-<em class="quotelev1">&gt; Sometimes these instruments are also flown on aircraft, so do we want
-</em><br />
-<em class="quotelev1">&gt; to hardwire 'satellite' into the standard_name?
-</em><br />
-<br />Yes, that is the reason why I went with &quot;instrument_&quot;.
+<br />being new to the CF-Group, and to defining products using CF  
 <br />
-<br /><em class="quotelev1">&gt; It is a bit of a mouthful, but would 'remote_sensing_instrument_'
-</em><br />
-<em class="quotelev1">&gt; work?
-</em><br />
-<br />I am fine with &quot;remote_sensing_instrument_&quot; if using just &quot;instrument&quot; 
+conventions, I have what may be a rather basic question
 <br />
-is deemed too generic. I thought that combining &quot;instrument&quot; with 
+- is it permissible to have more than one variable in a CF compliant  
 <br />
-&quot;zenith/azimuth/scan&quot; terms is enough to indicate what kind of 
+file with the same standard name?
 <br />
-instrument is in question.
+<br />My particular application is in satellite altimetry, where I have one  
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Aleksandar
+file containing (eg) two different wet tropospheric correction  
 <br />
-<span id="received"><dfn>Received on</dfn> Tue Oct 19 2010 - 18:46:53 BST</span>
+variables, one determined from a microwave radiometer and one from an  
+<br />
+atmospheric model. Both are  
+<br />
+&quot;altimeter_range_correction_due_to_wet_troposphere&quot;
+<br />
+<br />Similarly, I have 6 different ionospheric correction variables - one  
+<br />
+each determined from the altimetric ranges, DORIS measurements and an  
+<br />
+ionospheric model, and to be applied to each of the 2 radar frequency  
+<br />
+ranges.
+<br />
+This brings me to the worse case - where I have 12 different range  
+<br />
+values - from each of the 2 frequencies, determined using 5 different  
+<br />
+signal tracking techniques, and at two different spatial resolutions.
+<br />
+<br />Should I simply use the same standard name for all of them? or is  
+<br />
+there a sensible qualifier I can use that won't break the conventions?
+<br />
+<br />Any suggestions gratefully received
+<br />
+<br />Thanks
+<br />
+Helen
+<br />
+<br /><br />Helen
+<br />
+<pre>
+---
+Dr. Helen Snaith
+Head of Scientific Data Management
+     254/23 National Oceanography Centre, Southampton
+     European Way, Southampton, SO14 3ZH, UK
+     Tel: +44 (0)23 8059 6410    Fax: +44 (0)23 8059 6400
+     e-mail: h.snaith at noc.soton.ac.uk
+This e-mail (and any attachments) is confidential and intended solely  
+for the use of the individual or entity to whom it is addressed. Both  
+NERC and the University of Southampton (who operate NOCS as a  
+collaboration) are subject to the Freedom of Information Act 2000. The  
+information contained in this e-mail and any reply&amp;nbsp; you make may  
+be disclosed unless it is legally exempt from disclosure. Any material  
+supplied to NOCS may be stored in the electronic records management  
+system of either the University or NERC as appropriate.
+</pre>
+<span id="received"><dfn>Received on</dfn> Tue Jun 02 2009 - 08:27:32 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -106,11 +144,9 @@ instrument is in question.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2886">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2887.html" title="Next message in the list">John Graybeal: "[CF-metadata] New standard names for satellite obs data"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2885.html" title="Previous message in the list">Aleksandar Jelenak: "[CF-metadata] New standard names for satellite obs data"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./2884.html" title="Message to which this message replies">Cameron-smith, Philip: "[CF-metadata] New standard names for satellite obs data"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2887.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Query on multiple variables with same standard names"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2885.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]  new standard name request for pH"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./2887.html" title="Next message in this discussion thread">John Graybeal: "[CF-metadata] New standard names for satellite obs data"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -121,7 +157,7 @@ instrument is in question.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:34 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2885.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2887.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] New standard names for satellite obs data from Seth McGinnis on 2010-10-19 (mailing-list-archive)</title>
-<meta name="Author" content="Seth McGinnis (mcginnis)" />
-<meta name="Subject" content="[CF-metadata] New standard names for satellite obs data" />
-<meta name="Date" content="2010-10-19" />
+<title>[CF-metadata]  new standard name request for pH from Jonathan Gregory on 2009-05-18 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata]  new standard name request for pH" />
+<meta name="Date" content="2009-05-18" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2877.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2879.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] New standard names for satellite obs data</h1>
-<!-- received="Tue Oct 19 08:27:10 2010" -->
-<!-- isoreceived="20101019072710" -->
-<!-- sent="Tue, 19 Oct 2010 08:27:10 -0600" -->
-<!-- isosent="20101019142710" -->
-<!-- name="Seth McGinnis" -->
-<!-- email="mcginnis" -->
-<!-- subject="[CF-metadata] New standard names for satellite obs data" -->
-<!-- id="web-32612015_at_mail.ucar.edu" -->
+<a style="text-decoration:none" href="./2877.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2879.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  new standard name request for pH</h1>
+<!-- received="Mon May 18 01:32:05 2009" -->
+<!-- isoreceived="20090518003205" -->
+<!-- sent="Mon, 18 May 2009 08:32:05 +0100" -->
+<!-- isosent="20090518073205" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata]  new standard name request for pH" -->
+<!-- id="20090518073205.GB803_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4CBD9B55.8020002_at_noaa.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2879.html" accesskey="d" title="John Caron: &quot;[CF-metadata] Is there some samples of netCDF CF-1.0/1.4 for polar stereographic and other non-lat lon geo-grided data&quot;">Next message</a> ]
-[ <a href="./2877.html" title="Aleksandar Jelenak: &quot;[CF-metadata] New standard names for satellite obs data&quot;">Previous message</a> ]
-[ <a href="./2877.html" title="Aleksandar Jelenak: &quot;[CF-metadata] New standard names for satellite obs data&quot;">In reply to</a> ]
+[ <a href="./2879.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  new standard name request for pH&quot;">Next message</a> ]
+[ <a href="./2877.html" title="John Graybeal: &quot;[CF-metadata] new standard name request for pH&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./2882.html" accesskey="t" title="Jonathan Gregory: &quot;[CF-metadata]  New standard names for satellite obs data&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,78 +68,90 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Seth McGinnis &lt;<a href="mailto:mcginnis?Subject=Re%3A%20%5BCF-metadata%5D%20New%20standard%20names%20for%20satellite%20obs%20data">mcginnis</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20new%20standard%20name%20request%20for%20pH">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 19 Oct 2010 08:27:10 -0600</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 18 May 2009 08:32:05 +0100</span><br />
 </address>
 <br />
-I believe this is correct; a 'time' has to be a numeric value.
+Dear John
 <br />
-<br />What about using 'date' for string-valued times?  That was my homebrew solution
+<br />I agree that
 <br />
-when I was considering a similar problem.
+<br /><em class="quotelev1">&gt; &quot;there are several systems of sea water  
+</em><br />
+<em class="quotelev1">&gt; chemistry (or its analogs) within which pH is measured or computed.&quot;   
+</em><br />
+<em class="quotelev1">&gt; I would say it is the chemical systems that vary, not merely the  
+</em><br />
+<em class="quotelev1">&gt; measurement technique.
+</em><br />
+<br />could mean that the different pH scales are different geophysical quantities
 <br />
-<br />(Note that string data is a big pain to deal with in NetCDF-3, because you're
+and therefore need different standard names. You also say
 <br />
-limited to fixed-length character arrays.  You need to use NetCDF-4 / HDF5 to
+<br /><em class="quotelev1">&gt; My non-expert impression is that the notion of pH is fairly well  
+</em><br />
+<em class="quotelev1">&gt; defined, but that different chemical systems will produce different pH  
+</em><br />
+<em class="quotelev1">&gt; measurements or calculated values, through no failure of the core  
+</em><br />
+<em class="quotelev1">&gt; definition of pH. 
+</em><br />
+<br />I am not an expert either, of course, but what I have read in this discussion
 <br />
-get Strings as a data type.)
+suggests to me that the notion of pH is actually inherently dependent on the
 <br />
-<br />Cheers,
+chemical system. These different scales are therefore *not* measuring the same
 <br />
-<br />--Seth
+quantity, given the same sample of sea water, but somewhat similar quantities
 <br />
-<br /><br />On Tue, 19 Oct 2010 09:21:25 -0400
+that have distinct definitions.
 <br />
-&nbsp;Aleksandar Jelenak &lt;Aleksandar.Jelenak at noaa.gov&gt; wrote:
+<br />I agree that it is not always possible to find a name that non-experts will
 <br />
-<em class="quotelev1">&gt;Dear Olivier,
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;Aleksandar Jelenak wrote on 10/19/10 7:58 AM:
-</em><br />
-<em class="quotelev2">&gt;&gt; Lauret Olivier wrote on 10/18/10 10:51 AM:
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; ? Are you sure you need a standard name such as &quot;time_label_iso8601&quot;?
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; I mean: isn't it possible to use &quot;time&quot; standard name instead? (And
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; put somewhere that it is ISO 8601 compliant information, like in
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; 'long name' attribute)
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; It is possible and I can think of several alternative ways of doing that
-</em><br />
-<em class="quotelev2">&gt;&gt; ('comments' variable attribute?). I am not sure though if it would be
-</em><br />
-<em class="quotelev2">&gt;&gt; appropriate to use the standard name associated with numerical time data.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;Actually, I don't think it is possible to use 'time' standard name in such
-</em><br />
-<em class="quotelev1">&gt;cases. If I correctly interpret CF rules for using standard names, 'time' data
-</em><br />
-<em class="quotelev1">&gt;can be only in the physically-equivalent units to &quot;seconds&quot;. Strings, being
-</em><br />
-<em class="quotelev1">&gt;dimensionless, do not qualify.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;	-Aleksandar
-</em><br />
-<em class="quotelev1">&gt;_______________________________________________
-</em><br />
-<em class="quotelev1">&gt;CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt;CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt;<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<span id="received"><dfn>Received on</dfn> Tue Oct 19 2010 - 08:27:10 BST</span>
+understand. For instance, atmosphere_sigma_coordinate tells a non-expert that
+<br />
+it is a kind of atmosphere coordinate, but if you don't know what sigma means,
+<br />
+you have to look at the definition. In many or most cases, however, we have
+<br />
+managed to find names that are somewhat more self-explanatory. That is why I
+<br />
+asked whether there were any more informative alternatives for &quot;total scale&quot;
+<br />
+and &quot;sea water scale&quot;, because these terms are jargon. They have a precise
+<br />
+meaning, and they are used for convenience, but they are uninformative to
+<br />
+non-experts.
+<br />
+<br />If we are to use these phrases in the standard name, I'd like to join them up
+<br />
+with some extra phrase to make their status clearer e.g.
+<br />
+sea_water_pH_defined_by_total_scale or _according_to_total_scale.
+<br />
+<br />Personally, I'd still prefer an alternative if anyone knows any! I think a
+<br />
+workable alternative is one which would convey the meaning to an expert. That
+<br />
+is, it would be a phrase to which an expert would say, &quot;Ah, you mean total
+<br />
+scale, of course!&quot; The expert would probably go on to say, &quot;Well, why didn't
+<br />
+you say total scale, then? It would be much clearer, and it's what is always
+<br />
+said.&quot; The answer to that would be that the chosen phrase would be more
+<br />
+informative to non-experts, if we had chosen it well. The definition would
+<br />
+confirm that it meant &quot;total scale&quot;.
+<br />
+<br />Best wishes
+<br />
+<br />Jonathan
+<br />
+<span id="received"><dfn>Received on</dfn> Mon May 18 2009 - 01:32:05 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -151,14 +159,9 @@ get Strings as a data type.)
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2878">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2879.html" title="Next message in the list">John Caron: "[CF-metadata] Is there some samples of netCDF CF-1.0/1.4 for polar stereographic and other non-lat lon geo-grided data"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2877.html" title="Previous message in the list">Aleksandar Jelenak: "[CF-metadata] New standard names for satellite obs data"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./2877.html" title="Message to which this message replies">Aleksandar Jelenak: "[CF-metadata] New standard names for satellite obs data"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2879.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  new standard name request for pH"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2877.html" title="Previous message in the list">John Graybeal: "[CF-metadata] new standard name request for pH"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./2882.html" title="Next message in this discussion thread">Jonathan Gregory: "[CF-metadata]  New standard names for satellite obs data"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./2882.html" title="Message sent in reply to this message">Jonathan Gregory: "[CF-metadata]  New standard names for satellite obs data"</a></li>
-<li><dfn>Reply</dfn>: <a href="./2889.html" title="Message sent in reply to this message">Ben Hetland: "[CF-metadata] New standard names for satellite obs data"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -169,7 +172,7 @@ get Strings as a data type.)
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:33 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2877.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2879.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

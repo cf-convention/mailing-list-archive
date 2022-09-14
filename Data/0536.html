@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] time from Jonathan Gregory on 2006-12-01 (mailing-list-archive)</title>
+<title>[CF-metadata] subgrid variation from Jonathan Gregory on 2005-01-05 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] time" />
-<meta name="Date" content="2006-12-01" />
+<meta name="Subject" content="[CF-metadata] subgrid variation" />
+<meta name="Date" content="2005-01-05" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0535.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0537.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] time</h1>
-<!-- received="Fri Dec  1 14:47:51 2006" -->
-<!-- isoreceived="20061201144751" -->
-<!-- sent="Fri, 1 Dec 2006 21:47:51 +0000" -->
-<!-- isosent="20061201214751" -->
+<a style="text-decoration:none" href="./0535.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0537.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] subgrid variation</h1>
+<!-- received="Wed Jan  5 04:46:26 2005" -->
+<!-- isoreceived="20050105044626" -->
+<!-- sent="Wed, 5 Jan 2005 11:46:26 +0000" -->
+<!-- isosent="20050105114626" -->
 <!-- name="Jonathan Gregory" -->
 <!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] time" -->
-<!-- id="20061201214751.GB5940_at_met.reading.ac.uk" -->
+<!-- subject="[CF-metadata] subgrid variation" -->
+<!-- id="20050105114626.GA20611_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0537.html" accesskey="d" title="Godin, Michael: &quot;[CF-metadata] Proposed standard names for biological model outputs&quot;">Next message</a> ]
-[ <a href="./0535.html" title="Jonathan Gregory: &quot;[CF-metadata] curvilinear cartesian coordinates case&quot;">Previous message</a> ]
+[ <a href="./0537.html" accesskey="d" title="Brian Eaton: &quot;[CF-metadata] subgrid variation&quot;">Next message</a> ]
+[ <a href="./0535.html" title="Brian Eaton: &quot;[CF-metadata] &#0034;High cloud amount&#0034;&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0537.html" accesskey="t" title="Brian Eaton: &quot;[CF-metadata] subgrid variation&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,30 +70,254 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20time">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20subgrid%20variation">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 1 Dec 2006 21:47:51 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 5 Jan 2005 11:46:26 +0000</span><br />
 </address>
 <br />
-Dear John
+Dear All
 <br />
-<br /><em class="quotelev1">&gt; Flattening those into a single dimension that has two auxilary coordinates, 
-</em><br />
-<em class="quotelev1">&gt; as you do, seems natural also, and solves the problem when there are a 
-</em><br />
-<em class="quotelev1">&gt; different number of forecast/valid times for each reftime. But if we had 
-</em><br />
-<em class="quotelev1">&gt; ragged arrays, I would prefer those.
-</em><br />
-<br />Yes, I agree, ragged arrays (in netCDF-4) would be a good solution to some
+<br />Happy New Year. This is quite a long message about a subject I have found
 <br />
-2D time problems.
+rather difficult, but I think it's important. Everyone's views will therefore
+<br />
+be most welcome.
+<br />
+<br />Karl Taylor has pointed out some lack of clarity and inconsistency in the
+<br />
+standard name definitions regarding quantities which apply to only part of a
+<br />
+gridbox. In the standard name guidelines, we said
+<br />
+<br />&quot;Unless indicated, a quantity is assumed to apply to the whole area of each
+<br />
+horizontal grid box. The qualifier where_type specifies instead that the
+<br />
+quantity applies only to the part of the grid box of the named type. The types
+<br />
+are where_cloud, where_land, where_open_sea (i.e. sea free of sea ice, or
+<br />
+leads), where_sea (i.e. not land), where_sea_ice, where_vegetation.&quot;
+<br />
+<br />Of course, further such types could be defined, but at present there are
+<br />
+actually only three standard_names with a where-qualifier. This statement in
+<br />
+the guidelines was intended to mean, for instance, that
+<br />
+* atmosphere_cloud_liquid_water_content is the gridbox average, not the
+<br />
+in-cloud average, which would be denoted by appending _where_cloud,
+<br />
+* sea_ice_area_fraction is the area of sea ice divided by the area of the box,
+<br />
+* sea_ice_thickness is gridbox average (i.e. sea ice volume in the box divided
+<br />
+by the area of the box), not the average over the part with sea ice,
+<br />
+* surface_snow_thickness is the average over the whole box, not the land
+<br />
+portion or the portion with snow.
+<br />
+However, if we apply the rule consistently, sea_ice_speed should include a
+<br />
+contribution from the ice-free part of the box, while ocean_mixed_layer_
+<br />
+thickness and sea_surface_temperature should have contributions from any land
+<br />
+area in the box. It is not obvious what these values should be - zero might be
+<br />
+OK in some cases, but in others doesn't make any sense. To avoid such
+<br />
+interpretations we would have to append _where_sea_ice and _where_sea, which
+<br />
+seems clumsy.
+<br />
+<br />One way to get round this would be to define for every quantity a subgrid area
+<br />
+to which it applies by default. In some cases, such as ocean mixed layer depth
+<br />
+and SST, this might be obvious. In others, such as sea ice, runoff, cloud
+<br />
+liquid water or convective precipitation, there isn't an obvious choice, since
+<br />
+different choices suit different purposes. For example, sea ice thickness
+<br />
+averaged over sea ice is good for plotting, but sea ice thickness averaged
+<br />
+over the whole gridbox is easier to integrate to obtain the total sea ice
+<br />
+volume. If choices which aren't obvious have to be defined for each standard
+<br />
+name, I'd be worried that mistakes will arise if people make wrong guesses
+<br />
+about these choices instead of looking them up.
+<br />
+<br />Since this distinction relates to subgrid variation, cell_methods should be
+<br />
+relevant. In 7.3 of the standard, we say that when cell_methods is not
+<br />
+specified, the default interpretation is &quot;point&quot; for intensive quantities.
+<br />
+Spatially this means the value at the gridpoint, not the mean over the
+<br />
+gridbox. This is also an appropriate interpretation for data variables defined
+<br />
+at scattered points in lat and lon rather than on a grid. I think the default
+<br />
+point interpretation does not raise a problem. If the value really claims to
+<br />
+apply to a point, it isn't so problematic whether zero or missing data is used
+<br />
+to indicate a &quot;lack&quot; of the quantity, as the value doesn't imply anything
+<br />
+about spatial variation. For instance, consider a time-series of sea ice
+<br />
+thickness and speed measured at a fixed point in the ocean. When there is no
+<br />
+ice, these quantities might be given either as zero or as missing data. I
+<br />
+expect that reporting practices vary.
+<br />
+<br />The point interpretation may be reasonable for some gridded quantities, such
+<br />
+as atmospheric pressure, but for many quantities, such as precipitation, a
+<br />
+mean over some area is likely to be what data-writers and users have in mind.
+<br />
+When there is acknowledged subgrid variation in the surface type or the
+<br />
+process, making the quantity undefinable in some part of the gridbox, such as
+<br />
+for sea ice velocity and sea surface temperature over land, the point
+<br />
+interpretation cannot truly be applicable. I think the implication is that
+<br />
+including cell_methods should be strongly recommended. Without harming COARDS
+<br />
+compatibility, we could make cell_methods mandatory if a standard_name is
+<br />
+defined. Would that be OK?
+<br />
+<br />The cell_methods attribute should indicate the area over which the mean has
+<br />
+been calculated. The current syntax is &quot;lat: lon: mean&quot; or &quot;lon: lat: mean&quot;
+<br />
+(they are equivalent) to indicate a mean over a lat-lon gridbox. I propose
+<br />
+that this should be taken as implying the entire gridbox area, and that we
+<br />
+should define new syntax for indicating means over parts of gridboxes. By
+<br />
+analogy with the treatment of climatological time-means, I propose that
+<br />
+spatial cell_methods entries should be able to have &quot;over TYPE&quot; appended,
+<br />
+where TYPE is one of the &quot;where&quot; types in standard names. Thus, for sea ice
+<br />
+thickness, &quot;lat: lon: mean&quot; means the average over the entire gridbox, with
+<br />
+zero for areas of no sea ice and of land, &quot;lat: lon: mean over sea&quot; the mean
+<br />
+over the sea area only with zero for no sea ice, and &quot;lat: lon: mean over
+<br />
+sea_ice&quot; the mean over the area with some sea ice. Where gridboxes contain
+<br />
+both land and sea, a point interpretation is impossible, so ocean mixed layer
+<br />
+thickness and sea surface temperature should have &quot;lat: lon: mean over
+<br />
+sea&quot;. In-cloud liquid water content would have &quot;lat: lon: mean over cloud&quot;
+<br />
+while &quot;lat: lon: mean&quot; would indicate a mean with zero in cloud-free areas.
+<br />
+<br />If this change is adopted, some existing data ought to have cell_methods
+<br />
+included to describe it properly, including some of the quantities being
+<br />
+collected by PCMDI for IPCC. However Karl and others have been very careful to
+<br />
+define in their instructions exactly what is wanted for that exercise, and
+<br />
+this can be relied on in the absence of metadata. I would say that this
+<br />
+proposed change is a recognition that we have not been sufficiently precise,
+<br />
+rather than a change in interpretation of existing metadata.
+<br />
+<br />Analogous issues arise for time-variation. When a time-mean is calculated from
+<br />
+a time-series of sea ice thickness, should the times when there was no ice
+<br />
+contribute zero to the mean thickness, or should they be excluded from the
+<br />
+mean? Either procedure might be used and they need to be distinguished. The
+<br />
+&quot;over TYPE&quot; qualifiers should therefore be made available for temporal
+<br />
+cell_methods entries as well, preceding any &quot;over&quot; qualifiers indicating
+<br />
+climatological time-processing.
+<br />
+<br />The &quot;where&quot; construction in standard names is still needed when a quantity is
+<br />
+applicable to various parts of the gridbox, but with different values. For
+<br />
+instance, in a mixed gridbox we might have values of both surface_upward_
+<br />
+latent_heat_flux_where_land and surface_upward_latent_heat_flux_where_sea
+<br />
+(these standard names aren't defined at present, but would conform to the
+<br />
+guidelines). The cell_methods should then have &quot;lat: lon: mean over sea&quot; or
+<br />
+&quot;lat: lon: mean over land&quot; to indicate the means over the areas to which they
+<br />
+apply, or &quot;lat: lon: mean&quot; if they have been multiplied by the sea and land
+<br />
+area fractions. This demonstrates that the area from which a quantity arises,
+<br />
+and the area over which it is averaged, aren't necessarily the same.
+<br />
+<br />I would propose a further addition to the cell_methods syntax, that it should
+<br />
+optionally be permissible to have an entry for &quot;area:&quot; indicating the
+<br />
+combination of dimensions that define gridboxes covering the horizontal
+<br />
+area. For lat-lon gridboxes, &quot;area:&quot; would be equivalent to &quot;lat: lon:&quot; or
+<br />
+&quot;lon: lat:&quot; and would be more convenient. However the main reason to propose
+<br />
+it is the need to recognise horizontal area without having to understand how
+<br />
+the horizontal grid has been constructed. In the general case, the horizontal
+<br />
+dimensions might be projection x and y coordinates, or there might even be
+<br />
+more than two horizontal dimensions of the data variable for some of the more
+<br />
+complex grids being devised. A generic application cannot be expected to
+<br />
+recognise which combination of dimensions means horizontal area.
+<br />
+<br />Summary of proposals:
+<br />
+<br />(1) Retain the default &quot;point&quot; interpretation and clarify what it means.
+<br />
+<br />(2) Make cell_methods mandatory if standard_name is supplied.
+<br />
+<br />(3) Clarify that unqualified gridbox area-mean implies the entire gridbox.
+<br />
+<br />(4) Introduce &quot;over TYPE&quot; qualifiers for spatial and temporal cell_methods.
+<br />
+<br />(5) Introduce &quot;area:&quot; entries for spatial cell_methods.
 <br />
 <br />Cheers
 <br />
 <br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Fri Dec 01 2006 - 14:47:51 GMT</span>
+<span id="received"><dfn>Received on</dfn> Wed Jan 05 2005 - 04:46:26 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -99,9 +325,13 @@ Dear John
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start536">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0537.html" title="Next message in the list">Godin, Michael: "[CF-metadata] Proposed standard names for biological model outputs"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0535.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] curvilinear cartesian coordinates case"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0537.html" title="Next message in the list">Brian Eaton: "[CF-metadata] subgrid variation"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0535.html" title="Previous message in the list">Brian Eaton: "[CF-metadata] &#0034;High cloud amount&#0034;"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0537.html" title="Next message in this discussion thread">Brian Eaton: "[CF-metadata] subgrid variation"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0537.html" title="Message sent in reply to this message">Brian Eaton: "[CF-metadata] subgrid variation"</a></li>
+<li><dfn>Reply</dfn>: <a href="./0551.html" title="Message sent in reply to this message">Steve Hankin: "[CF-metadata] subgrid variation"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -112,7 +342,7 @@ Dear John
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:51 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0535.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0537.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

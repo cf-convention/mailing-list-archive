@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] featureType attribute (was CF-1.6 DSG clarification: time series &amp; lat/lon coordinates) from Jonathan Gregory on 2013-12-03 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] featureType attribute (was CF-1.6 DSG clarification: time series &amp; lat/lon coordinates)" />
-<meta name="Date" content="2013-12-03" />
+<title>[CF-metadata] Proposal for standard names: tropospheric trace gas column amounts from alison.pamment at stfc.ac.uk on 2013-03-18 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="alison.pamment at stfc.ac.uk (alison.pamment)" />
+<meta name="Subject" content="[CF-metadata] Proposal for standard names: tropospheric trace gas column amounts" />
+<meta name="Date" content="2013-03-18" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5899.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5901.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] featureType attribute (was CF-1.6 DSG clarification: time series &amp; lat/lon coordinates)</h1>
-<!-- received="Tue Dec  3 14:06:03 2013" -->
-<!-- isoreceived="20131203140603" -->
-<!-- sent="Tue, 3 Dec 2013 21:06:03 +0000" -->
-<!-- isosent="20131203210603" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] featureType attribute (was CF-1.6 DSG clarification: time series &amp; lat/lon coordinates)" -->
-<!-- id="20131203210603.GB20930_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./5899.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5901.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Proposal for standard names: tropospheric trace gas column amounts</h1>
+<!-- received="Mon Mar 18 05:56:21 2013" -->
+<!-- isoreceived="20130318055621" -->
+<!-- sent="Mon, 18 Mar 2013 11:56:21 +0000" -->
+<!-- isosent="20130318115621" -->
+<!-- name="alison.pamment at stfc.ac.uk" -->
+<!-- email="alison.pamment" -->
+<!-- subject="[CF-metadata] Proposal for standard names: tropospheric trace gas column amounts" -->
+<!-- id="014539AC4976BE4490A360410A8C201756A61754_at_EXCHMBX03.fed.cclrc.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5901.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  cf standards for probabilities&quot;">Next message</a> ]
-[ <a href="./5899.html" title="John Graybeal: &quot;[CF-metadata] featureType attribute (was CF-1.6 DSG clarification: time series &#0038; lat/lon coordinates)&quot;">Previous message</a> ]
+[ <a href="./5901.html" accesskey="d" title="Jim Biard: &quot;[CF-metadata] how to specify time dimension for monthly averages&quot;">Next message</a> ]
+[ <a href="./5899.html" title="Andreas Hilboll: &quot;[CF-metadata] how to specify time dimension for monthly averages&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./5902.html" accesskey="t" title="Andreas Hilboll: &quot;[CF-metadata] Proposal for standard names: tropospheric trace gas column amounts&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,54 +70,124 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20featureType%20attribute%20(was%20CF-1.6%20DSG%20clarification%3A%20time%20series%20%26%20lat%2Flon%20coordinates)">j.m.gregory</a>&gt;
+<dfn>From</dfn>: alison.pamment at stfc.ac.uk &lt;<a href="mailto:alison.pamment?Subject=Re%3A%20%5BCF-metadata%5D%20Proposal%20for%20standard%20names%3A%20tropospheric%20trace%20gas%20column%20amounts">alison.pamment</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 3 Dec 2013 21:06:03 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 18 Mar 2013 11:56:21 +0000</span><br />
 </address>
 <br />
-Dear Nan
+Hi Andreas,
 <br />
-<br /><em class="quotelev1">&gt; Does the presence of a featureType attribute indicate that a file
+<br />In CF the rule about the units attribute is that it has to be a string that is recognized by the UDUNITS package - <a href="http://www.unidata.ucar.edu/software/udunits/">http://www.unidata.ucar.edu/software/udunits/</a>. Provided UDUNITS knows how to convert between the unit used in the file and the canonical units specified in the standard name table then the CF conventions are satisfied. The issue with using molecules cm-2 is that UDUNITS does not currently contain an entry for a unit of molecules although it does contain an entry for mole. (The list of currently supported units is held in a series of XML files: <a href="http://www.unidata.ucar.edu/software/udunits/udunits-2-units.html">http://www.unidata.ucar.edu/software/udunits/udunits-2-units.html</a>.)
+<br />
+<br />&nbsp;If we can get molecule added as a unit to UDUNITS along the lines suggested by Sander earlier in the discussion, then I think you could use molecules cm-2 in your files and we could still have mol m-2 as the canonical unit.
+<br />
+Sander Niemeijer wrote:
+<br />
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; uses the DSG
+<em class="quotelev1">&gt;    &lt;unit&gt;
 </em><br />
-<em class="quotelev1">&gt; &quot;machinery&quot; and should therefore follow the guidelines of limited axes that
+<em class="quotelev1">&gt;        &lt;def&gt;mol/6.02214179e23&lt;/def&gt;
 </em><br />
-<em class="quotelev1">&gt; are spelled out in chapter 9?
+<em class="quotelev1">&gt;        &lt;name&gt;
 </em><br />
-<br />featureType can have only those values which are shown in Table 9.1. Each
-<br />
-value means that the data has a particular geometry, as shown in the table.
-<br />
-Your data
-<br />
-<em class="quotelev1">&gt; float seatemp(time, depth, lat, lon)
+<em class="quotelev1">&gt;            &lt;singular&gt;molecule&lt;/singular&gt;
 </em><br />
-does not have one of those geometries. In words, it isn't apparently a set
-<br />
-of timeseries, or a set of profiles, or any other of the possibilities. It's
-<br />
-a variable with four independent spatiotemporal axes. This is the &quot;usual&quot;
-<br />
-type of gridded domain which CF has always supported. In the discrete
-<br />
-sampling geometries the spatiotemporal axes aren't all independent. Therefore I
-<br />
-don't think you can use the featureType attribute with your data as it stands.
-<br />
-<br />If the data was
-<br />
-<em class="quotelev1">&gt; float seatemp(station, time)
+<em class="quotelev1">&gt;            &lt;plural&gt;molecules&lt;/plural&gt;
 </em><br />
-it would look like a collection of timeseries, so you could give it
+<em class="quotelev1">&gt;        &lt;/name&gt;
+</em><br />
+<em class="quotelev1">&gt;        &lt;aliases&gt;
+</em><br />
+<em class="quotelev1">&gt;            &lt;name&gt;&lt;singular&gt;molec&lt;/singular&gt;&lt;/name&gt;
+</em><br />
+<em class="quotelev1">&gt;        &lt;/aliases&gt;
+</em><br />
+<em class="quotelev1">&gt;    &lt;/unit&gt;
+</em><br />
+<br />&nbsp;If you are happy for us to proceed down this route then I think the names could be accepted now and added to the standard name table with canonical units of mol m-2. I will then send a request to ask if molecules can be added to UDUNITS (although I'm not sure of the time scale for adding the new unit). Would that be an acceptable way forward?
 <br />
-featureType=&quot;timeseries&quot;.
+<br />Best wishes,
 <br />
-<br />Best wishes
+Alison
 <br />
-<br />Jonathan
+<br />------
 <br />
-<span id="received"><dfn>Received on</dfn> Tue Dec 03 2013 - 14:06:03 GMT</span>
+Alison Pamment                          Tel: +44 1235 778065
+<br />
+NCAS/British Atmospheric Data Centre    Email: alison.pamment at stfc.ac.uk
+<br />
+STFC Rutherford Appleton Laboratory     
+<br />
+R25, 2.22
+<br />
+Harwell Oxford, Didcot, OX11 0QX, U.K.
+<br />
+<br /><br /><br /><em class="quotelev1">&gt; -----Original Message-----
+</em><br />
+<em class="quotelev1">&gt; From: Andreas Hilboll [mailto:lists at hilboll.de]
+</em><br />
+<em class="quotelev1">&gt; Sent: 18 March 2013 11:15
+</em><br />
+<em class="quotelev1">&gt; To: Pamment, Alison (STFC,RAL,RALSP); cf-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; Subject: Re: [CF-metadata] how to specify time dimension for monthly
+</em><br />
+<em class="quotelev1">&gt; averages
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; I'm not sure if you noticed my post to the CF mailing list last week about
+</em><br />
+<em class="quotelev1">&gt; the tropospheric/stratospheric trace gas standard names you proposed back
+</em><br />
+<em class="quotelev1">&gt; in December: <a href="http://mailman.cgd.ucar.edu/pipermail/cf">http://mailman.cgd.ucar.edu/pipermail/cf</a>-
+</em><br />
+<em class="quotelev1">&gt; metadata/2013/056207.html. There is just one question remaining to be
+</em><br />
+<em class="quotelev1">&gt; resolved about the units - whether you are happy with the consensus view
+</em><br />
+<em class="quotelev1">&gt; that we should use mol m-2? I am hoping to make an update to the standard
+</em><br />
+<em class="quotelev1">&gt; name table later this week and it would be great if we are in a position to
+</em><br />
+<em class="quotelev1">&gt; include your names. Please could you let me know via the mailing list how
+</em><br />
+<em class="quotelev1">&gt; you would like to proceed?
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Hi Alison,
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; thanks for the reminder; somehow this mail didn't get through to me.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; In atmospheric trace gas remote sensing, nobody to my knowledge uses the
+</em><br />
+<em class="quotelev1">&gt; unit &quot;mol m-2&quot;.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; General question: Is it &quot;allowed&quot; to use a different unit in the
+</em><br />
+<em class="quotelev1">&gt; variables metadata than is specified in the standard name table? I.e. if
+</em><br />
+<em class="quotelev1">&gt; the new standard name table contains &quot;mol m-2&quot; as unit, would it still
+</em><br />
+<em class="quotelev1">&gt; be &quot;legal&quot; for me to use &quot;molecules cm-2&quot; in the file itself?
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Best regards, Andreas.
+</em><br />
+<pre>
+-- 
+Scanned by iCritical.
+</pre>
+<span id="received"><dfn>Received on</dfn> Mon Mar 18 2013 - 05:56:21 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -123,9 +195,12 @@ featureType=&quot;timeseries&quot;.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5900">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5901.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  cf standards for probabilities"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5899.html" title="Previous message in the list">John Graybeal: "[CF-metadata] featureType attribute (was CF-1.6 DSG clarification: time series &#0038; lat/lon coordinates)"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5901.html" title="Next message in the list">Jim Biard: "[CF-metadata] how to specify time dimension for monthly averages"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5899.html" title="Previous message in the list">Andreas Hilboll: "[CF-metadata] how to specify time dimension for monthly averages"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./5902.html" title="Next message in this discussion thread">Andreas Hilboll: "[CF-metadata] Proposal for standard names: tropospheric trace gas column amounts"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./5902.html" title="Message sent in reply to this message">Andreas Hilboll: "[CF-metadata] Proposal for standard names: tropospheric trace gas column amounts"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -136,7 +211,7 @@ featureType=&quot;timeseries&quot;.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:33 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5899.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5901.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] attributes for min/max data values for visualization from Jon Blower on 2007-03-29 (mailing-list-archive)</title>
-<meta name="Author" content="Jon Blower (jdb)" />
-<meta name="Subject" content="[CF-metadata] attributes for min/max data values for visualization" />
-<meta name="Date" content="2007-03-29" />
+<title>[CF-metadata] extended use of flag_values and flag_meanings from Bryan Lawrence on 2005-11-11 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Bryan Lawrence (b.n.lawrence)" />
+<meta name="Subject" content="[CF-metadata] extended use of flag_values and flag_meanings" />
+<meta name="Date" content="2005-11-11" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0780.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0782.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] attributes for min/max data values for visualization</h1>
-<!-- received="Thu Mar 29 03:28:08 2007" -->
-<!-- isoreceived="20070329022808" -->
-<!-- sent="Thu, 29 Mar 2007 10:28:08 +0100" -->
-<!-- isosent="20070329092808" -->
-<!-- name="Jon Blower" -->
-<!-- email="jdb" -->
-<!-- subject="[CF-metadata] attributes for min/max data values for visualization" -->
-<!-- id="2bb6ee950703290228vbc6cf57p6995888e3e9c4b48_at_mail.gmail.com" -->
+<a style="text-decoration:none" href="./0780.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0782.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] extended use of flag_values and flag_meanings</h1>
+<!-- received="Fri Nov 11 03:02:13 2005" -->
+<!-- isoreceived="20051111030213" -->
+<!-- sent="Fri, 11 Nov 2005 10:02:13 +0000" -->
+<!-- isosent="20051111100213" -->
+<!-- name="Bryan Lawrence" -->
+<!-- email="b.n.lawrence" -->
+<!-- subject="[CF-metadata] extended use of flag_values and flag_meanings" -->
+<!-- id="200511111002.14095.b.n.lawrence_at_rl.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20070328170807.GA7591_at_met.reading.ac.uk" -->
+<!-- inreplyto="20051111080222.GA14026_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0782.html" accesskey="d" title="Jon Blower: &quot;[CF-metadata] representing model times in climate models&quot;">Next message</a> ]
-[ <a href="./0780.html" title="Jonathan Gregory: &quot;[CF-metadata] identifying horizontal coordinate variables using the axis attribute&quot;">Previous message</a> ]
-[ <a href="./0778.html" title="Jonathan Gregory: &quot;[CF-metadata] attributes for min/max data values for visualization&quot;">In reply to</a> ]
+[ <a href="./0782.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] extended use of flag_values and flag_meanings&quot;">Next message</a> ]
+[ <a href="./0780.html" title="Stephens, A: &quot;[CF-metadata] extended use of flag_values and flag_meanings&quot;">Previous message</a> ]
+[ <a href="./0777.html" title="Jonathan Gregory: &quot;[CF-metadata] extended use of flag_values and flag_meanings&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0788.html" accesskey="t" title="Steve Hankin: &quot;[CF-metadata] attributes for min/max data values for	visualization&quot;">Next in thread</a> ]
+[ <a href="./0783.html" accesskey="t" title="Burkhardt Rockel: &quot;[CF-metadata] extended use of flag_values and flag_meanings&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,28 +72,124 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jon Blower &lt;<a href="mailto:jdb?Subject=Re%3A%20%5BCF-metadata%5D%20attributes%20for%20min%2Fmax%20data%20values%20for%20visualization">jdb</a>&gt;
+<dfn>From</dfn>: Bryan Lawrence &lt;<a href="mailto:b.n.lawrence?Subject=Re%3A%20%5BCF-metadata%5D%20extended%20use%20of%20flag_values%20and%20flag_meanings">b.n.lawrence</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 29 Mar 2007 10:28:08 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 11 Nov 2005 10:02:13 +0000</span><br />
 </address>
 <br />
-Dear Jonathan,
+Hi Jonathan, Rurkhardt
 <br />
-<br />OK, that sounds fine too.  How do we move forward to incorporate this
+<br />I think this is an issue that will come to us more and more ... so coming up 
 <br />
-into the CF standard?
+with a standard solution makes a lot of sense.
 <br />
-<br />Thanks, Jon
+<br />Firstly, I agree the file should be self describing, and I think the solution 
 <br />
-<br />On 3/28/07, Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt; wrote:
+you propose will be compact and appropriate. However I would recommend that 
 <br />
-<em class="quotelev1">&gt; Dear Jon and Phil
+we *eventually* standardise the string values *and* the numerical encoding 
+<br />
+values (ie the standard name system would have to include the values as well, 
+<br />
+and the numerical corrrespondents). 
+<br />
+<br />In doing so we should follow the ISO extension model for enumeriations, that 
+<br />
+is, not allow users to add their own additional enumerations (if they have 
+<br />
+extra classes of land cover for example that are not in the standard), but 
+<br />
+rather allow users to add their own long_names and enemerations which could 
+<br />
+eventually become standardised ...
+<br />
+<br />One might argue that if we have standardised the numerical encodings and the 
+<br />
+values in the standard name system then we don't need to repeat it in the 
+<br />
+file. However, I think it is a level of redundancy which costs very little, 
+<br />
+makes the software easier to build, and provides a lot of future proofing, in 
+<br />
+that folk can lay down files which use their own encodings but also have some 
+<br />
+hope of different folks doing things that are comparable (in time).
+<br />
+<br />Meanwhile, until we have the new standard name person in post, I think your 
+<br />
+proposed solution is workable and most of what I suggest above can be put in 
+<br />
+hold (until someone has the time to make it less incoherent).
+<br />
+<br />Cheers
+<br />
+Bryan
+<br />
+<br /><br />On Friday 11 November 2005 08:02, Jonathan Gregory wrote:
+<br />
+<em class="quotelev1">&gt; Dear all
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; I'd suggest actual_min and actual_max, because they would complement the
+<em class="quotelev1">&gt; Burkhardt Rockel asked whether it is possible to use flag_values and
 </em><br />
-<em class="quotelev1">&gt; already defined (Unidata standard) valid_min and valid_max.
+<em class="quotelev1">&gt; flag_meanings (CF 3.5) for string-valued data variables. These two
+</em><br />
+<em class="quotelev1">&gt; attributes were introduced with ancillary data (CF 3.4) in mind e.g. data
+</em><br />
+<em class="quotelev1">&gt; quality flags. Burkhardt's suggestion would be to use them to encode a data
+</em><br />
+<em class="quotelev1">&gt; variable. For instance, we could encode this
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;   variables:
+</em><br />
+<em class="quotelev1">&gt;     char land_cover(lat,max_string_length)
+</em><br />
+<em class="quotelev1">&gt;       land_cover:standard_name=&quot;land_cover&quot;;
+</em><br />
+<em class="quotelev1">&gt;   data:
+</em><br />
+<em class="quotelev1">&gt;     land_cover=&quot;needleleaf_tree&quot;,&quot;needleleaf_tree&quot;,&quot;shrub&quot;,&quot;ice&quot;,&quot;ice&quot;,
+</em><br />
+<em class="quotelev1">&gt; ...;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; like this
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;   variables:
+</em><br />
+<em class="quotelev1">&gt;     byte land_cover(lat)
+</em><br />
+<em class="quotelev1">&gt;       land_cover:standard_name=&quot;land_cover&quot;;
+</em><br />
+<em class="quotelev1">&gt;       land_cover:flag_values=0, 1, 2;
+</em><br />
+<em class="quotelev1">&gt;       land_cover:flag_meanings=&quot;needleleaf_tree shrub ice&quot;;
+</em><br />
+<em class="quotelev1">&gt;   data:
+</em><br />
+<em class="quotelev1">&gt;     land_cover=0,0,1,2,2,...;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; This doesn't require any new machinery, the file is no less
+</em><br />
+<em class="quotelev1">&gt; self-describing, it saves space and it might be more convenient for
+</em><br />
+<em class="quotelev1">&gt; plotting. The string values could be standardised but their numerical
+</em><br />
+<em class="quotelev1">&gt; encoding would not have to be. However this scheme requires a bit more work
+</em><br />
+<em class="quotelev1">&gt; to get the meaning out of it.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Any views?
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
@@ -103,21 +199,23 @@ into the CF standard?
 </em><br />
 <em class="quotelev1">&gt; Jonathan
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; _______________________________________________
 </em><br />
-<br /><br /><pre>
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<br /><pre>
 -- 
---------------------------------------------------------------
-Dr Jon Blower              Tel: +44 118 378 5213 (direct line)
-Technical Director         Tel: +44 118 378 8741 (ESSC)
-Reading e-Science Centre   Fax: +44 118 378 6413
-ESSC                       Email: jdb at mail.nerc-essc.ac.uk
-University of Reading
-3 Earley Gate
-Reading RG6 6AL, UK
---------------------------------------------------------------
+Bryan Lawrence
+Director of Environmental Archival and Associated Research
+Head of the NCAS/British Atmospheric Data Centre
+CCLRC, Rutherford Appleton Laboratory
+Phone +44 1235 445012; Fax ... 5848; Web: home.badc.rl.ac.uk/lawrence
 </pre>
-<span id="received"><dfn>Received on</dfn> Thu Mar 29 2007 - 03:28:08 BST</span>
+<span id="received"><dfn>Received on</dfn> Fri Nov 11 2005 - 03:02:13 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -125,13 +223,13 @@ Reading RG6 6AL, UK
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start781">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0782.html" title="Next message in the list">Jon Blower: "[CF-metadata] representing model times in climate models"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0780.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] identifying horizontal coordinate variables using the axis attribute"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0778.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] attributes for min/max data values for visualization"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0782.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] extended use of flag_values and flag_meanings"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0780.html" title="Previous message in the list">Stephens, A: "[CF-metadata] extended use of flag_values and flag_meanings"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0777.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] extended use of flag_values and flag_meanings"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0788.html" title="Next message in this discussion thread">Steve Hankin: "[CF-metadata] attributes for min/max data values for	visualization"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./0783.html" title="Next message in this discussion thread">Burkhardt Rockel: "[CF-metadata] extended use of flag_values and flag_meanings"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0788.html" title="Message sent in reply to this message">Steve Hankin: "[CF-metadata] attributes for min/max data values for	visualization"</a></li>
+<dfn>Reply</dfn>: <a href="./0783.html" title="Message sent in reply to this message">Burkhardt Rockel: "[CF-metadata] extended use of flag_values and flag_meanings"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -142,7 +240,7 @@ Reading RG6 6AL, UK
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:55 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0780.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0782.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

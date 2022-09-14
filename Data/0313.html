@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] units in cf standard names from Pamment, JA on 2006-10-10 (mailing-list-archive)</title>
-<meta name="Author" content="Pamment, JA (J.A.Pamment)" />
-<meta name="Subject" content="[CF-metadata] units in cf standard names" />
-<meta name="Date" content="2006-10-10" />
+<title>[CF-metadata] imminent standard_name table changes from Jonathan Gregory on 2003-11-17 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] imminent standard_name table changes" />
+<meta name="Date" content="2003-11-17" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0312.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0314.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] units in cf standard names</h1>
-<!-- received="Tue Oct 10 04:08:15 2006" -->
-<!-- isoreceived="20061010030815" -->
-<!-- sent="Tue, 10 Oct 2006 11:08:15 +0100" -->
-<!-- isosent="20061010100815" -->
-<!-- name="Pamment, JA" -->
-<!-- email="J.A.Pamment" -->
-<!-- subject="[CF-metadata] units in cf standard names" -->
-<!-- id="EB861CD59F6DAA4BBC25EAE9987C5BC938D31C_at_EXCHANGE29.fed.cclrc.ac.uk" -->
+<a style="text-decoration:none" href="./0312.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0314.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] imminent standard_name table changes</h1>
+<!-- received="Mon Nov 17 01:47:55 2003" -->
+<!-- isoreceived="20031117014755" -->
+<!-- sent="Mon, 17 Nov 2003 08:47:55 +0000" -->
+<!-- isosent="20031117084755" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] imminent standard_name table changes" -->
+<!-- id="20031117084755.GA20584_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="1160471847.22504.27.camel_at_localhost.localdomain" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0314.html" accesskey="d" title="Jonathan Gregory: &quot;Fwd: [CF-metadata] units in cf standard names&quot;">Next message</a> ]
-[ <a href="./0312.html" title="Bryan Lawrence: &quot;[CF-metadata] units in cf standard names&quot;">Previous message</a> ]
-[ <a href="./0312.html" title="Bryan Lawrence: &quot;[CF-metadata] units in cf standard names&quot;">In reply to</a> ]
+[ <a href="./0314.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] x- and y-components&quot;">Next message</a> ]
+[ <a href="./0312.html" title="Brian Eaton: &quot;[CF-metadata] standard names&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0310.html" accesskey="t" title="Christiane Textor: &quot;[CF-metadata] species as species in chemical and aerosol names&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -71,224 +68,122 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Pamment, JA &lt;<a href="mailto:J.A.Pamment?Subject=Re%3A%20%5BCF-metadata%5D%20units%20in%20cf%20standard%20names">J.A.Pamment</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20imminent%20standard_name%20table%20changes">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 10 Oct 2006 11:08:15 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 17 Nov 2003 08:47:55 +0000</span><br />
 </address>
 <br />
-Hi Bryan,
+Dear all
 <br />
-<br />I'm glad this issue has been raised.  At the time of preparing the most recent update to the standard name table I had a brief offline discussion with Jonathan and Brian on the subject of udunits. 
+<br />Several changes have been agreed to the standard name table in recent months,
 <br />
-<br />It emerged that there are already some units that have been identified as being useful for CF that are not currently part of udunits.
+but not yet implemented. The following changes are proposed to be made
 <br />
-Jonathan wrote:
+imminently.
 <br />
-<em class="quotelev1">&gt; sverdrup = 1e6 m3 s-1   (we can't use the usual abbrev Sv though as it
-</em><br />
-<em class="quotelev1">&gt; already has another definition)
-</em><br />
-<em class="quotelev1">&gt; PSU and psu = 1e-3      (practical salinity unit, effectively mass
-</em><br />
-<em class="quotelev1">&gt; fraction)
-</em><br />
-There is also decibel (dB).
+<br />* These quantities currently appear in the table without the phrase &quot;in_air&quot;:
 <br />
-<br />When I was updating the table it was decided to allow the units of dB for four names relating to sound pressure and sound intensity levels.
+<br />&nbsp;&nbsp;surface_downwelling_longwave_flux_in_air
 <br />
-<br />We discussed possible ways forward and one would be to define a udunits.dat file including extensions used for CF and link to this from the CF website.  However, Brian expressed the view that a better way forward would be to ask Unidata to include the additions as part of the official udunits, and I agree with that.  As units are so closely integrated with standard names I would be happy to pursue this.
+&nbsp;&nbsp;surface_downwelling_longwave_flux_in_air_assuming_clear_sky
 <br />
-<br />I don't want to open the flood gates to huge numbers of requests for additional units, and I can't guarantee that we will be successful in having them included in udunits, but I think this would be a good opportunity to discuss whether there are other additions needed apart from those listed above.
+&nbsp;&nbsp;surface_downwelling_shortwave_flux_in_air
 <br />
-<br />------
+&nbsp;&nbsp;surface_downwelling_shortwave_flux_in_air_assuming_clear_sky
 <br />
-Alison Pamment                            Tel: +44 1235 778065
+&nbsp;&nbsp;surface_upwelling_longwave_flux_in_air
 <br />
-NCAS/British Atmospheric Data Centre      Fax: +44 1235 445858
+&nbsp;&nbsp;surface_upwelling_longwave_flux_in_air_assuming_clear_sky
 <br />
-Rutherford Appleton Laboratory            Email: J.A.Pamment at rl.ac.uk
+&nbsp;&nbsp;surface_upwelling_shortwave_flux_in_air
 <br />
-Chilton, Didcot, OX11 0QX, U.K.
+&nbsp;&nbsp;surface_upwelling_shortwave_flux_in_air_assuming_clear_sky
 <br />
-<br /><em class="quotelev1">&gt; -----Original Message-----
-</em><br />
-<em class="quotelev1">&gt; From: cf-metadata-bounces at cgd.ucar.edu [mailto:cf-metadata-
-</em><br />
-<em class="quotelev1">&gt; bounces at cgd.ucar.edu] On Behalf Of Bryan Lawrence
-</em><br />
-<em class="quotelev1">&gt; Sent: 10 October 2006 10:17
-</em><br />
-<em class="quotelev1">&gt; To: christiane.textor at aero.jussieu.fr
-</em><br />
-<em class="quotelev1">&gt; Cc: cf-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; Subject: [CF-metadata] units in cf standard names
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Clearly with CF1.0 we are stuck with udunits.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; However, it's worth thinking about the future. I wasn't involved when
-</em><br />
-<em class="quotelev1">&gt; the decision to be udunit compatible was made. Can anyone summarise the
-</em><br />
-<em class="quotelev1">&gt; benefits that requiring udunit conformance confer on the CF community?
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Bryan
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; On Tue, 2006-10-10 at 09:38 +0200, Christiane Textor wrote:
-</em><br />
-<em class="quotelev2">&gt; &gt; Hi Egil,
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; This is a good suggestion, however units like kgN/m2/s are not allowed
-</em><br />
-<em class="quotelev2">&gt; &gt; in UDunits as far as I know.
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; (It is not necessary to give additional information for mole fractions,
-</em><br />
-<em class="quotelev2">&gt; &gt; it is only needed for masses.)
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; Best regards,
-</em><br />
-<em class="quotelev2">&gt; &gt; Christiane
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; Egil St?ren a ?crit :
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; Hi all,
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt;
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; I am following this discussion somewhat from the sideline, but with a
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; growing feeling of uneasiness. If this X_as_Y naming method is
-</em><br />
-<em class="quotelev1">&gt; accepted,
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; then standard names will tend to grow very large. I also think this
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; method makes the distinction between physical quantities and units
-</em><br />
-<em class="quotelev1">&gt; less
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; clear. As I see it, &quot;X_as_Y&quot; and &quot;X_as_such&quot; represents the same
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; physical quantity, but with different units. I strongly feel that the
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; &quot;as_Y&quot; part belongs to the units attribute. For example:
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt;
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; standard_name: mass_flux_of_NO2
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; units: moles N/m2/s
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt;
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; This will of course need some changes to CF regarding the units
-</em><br />
-<em class="quotelev1">&gt; attribute.
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt;
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; Best regards,
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt;
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt;    Egil St?ren
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt;    met.no, Norway
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt;
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt;
-</em><br />
-<em class="quotelev3">&gt; &gt; &gt; Jonathan Gregory wrote:
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt; Dear Roy
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt;
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt; Thanks. I note that when you say something is expressed in moles of
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt; nitrogen
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt; you mean moles of nitrogen atoms, to be precise.
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt;
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt;
-</em><br />
-<em class="quotelev1">&gt; &gt; &gt;&gt;&gt; Does the phrase 'expressed_as' do a better job?
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt;
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt;
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt; It does for me, yes. I interpreted X_as_Y as meaning X is what the
-</em><br />
-<em class="quotelev1">&gt; number
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt; applies to, but it comes in the form of Y, &quot;as&quot; meaning &quot;in form of&quot;
-</em><br />
-<em class="quotelev1">&gt; like
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt; &quot;water as ice&quot;. By X_as_Y you and Christiane mean Y is what the
-</em><br />
-<em class="quotelev1">&gt; number
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt; applies
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt; to, taking &quot;as&quot; to mean &quot;expressed as&quot;. So it would be better to have
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt; expressed_as, I would say, or any neater alternative if someone has
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt; one to
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt; suggest.
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt;
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt; Is it going to be OK to have names like
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt; mass_flux_of_ammonium_expressed_as_such
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt; do you think? Is there a better way to say that?
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt;
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt; Cheers
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt;
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt; Jonathan
-</em><br />
-<em class="quotelev4">&gt; &gt; &gt;&gt; _______________________________________________
-</em><br />
-<span id="received"><dfn>Received on</dfn> Tue Oct 10 2006 - 04:08:15 BST</span>
+<br />I believe they need &quot;in_air&quot; because upwelling and downwelling fluxes might be
+<br />
+discontinuous at the boundary with sea_water or sea_ice, owing to reflection.
+<br />
+Do others agree with that? However, the corresponding net fluxes don't need
+<br />
+in_air as there can be no absorption in an infinitesimally thin layer. If this
+<br />
+change is made, the equivalent names for the following PCMDI quantities will
+<br />
+change:
+<br />
+&nbsp;&nbsp;rlds rldscs rsds rsdscs rlus rsus rsuscs need
+<br />
+<br />* Clarify longwave/shortwave/spectral radiance as isotropic radiance i.e. with
+<br />
+no dependence on direction, and introduce new corresponding standard names
+<br />
+labelled as upwelling/downwelling, whose help text explains that they should
+<br />
+have a direction indicated, for instance by zenith angle. GRIB codes 119 and
+<br />
+120 are currently indicated as equivalent to longwave and shortwave radiance,
+<br />
+but this has been called into question by comparison with up-to-date versions
+<br />
+of the NCEP GRIB table, where they have different units, even though their
+<br />
+NCEP names are LWRAD and SWRAD. I propose we remove 119 and 120 from the NCEP
+<br />
+GRIB equivalence list until we can find out definitely what quantities they
+<br />
+are.
+<br />
+<br />* Add the following new quantities that have been requested:
+<br />
+<br />&nbsp;&nbsp;radiation_wavelength
+<br />
+&nbsp;&nbsp;moisture_content_of_soil_layer_at_field_capacity
+<br />
+&nbsp;&nbsp;sea_surface_height
+<br />
+&nbsp;&nbsp;toa_adjusted_longwave_forcing
+<br />
+&nbsp;&nbsp;toa_adjusted_radiative_forcing
+<br />
+&nbsp;&nbsp;toa_adjusted_shortwave_forcing
+<br />
+&nbsp;&nbsp;toa_instantaneous_longwave_forcing
+<br />
+&nbsp;&nbsp;toa_instantaneous_radiative_forcing
+<br />
+&nbsp;&nbsp;toa_instantaneous_shortwave_forcing
+<br />
+&nbsp;&nbsp;tropopause_adjusted_longwave_forcing
+<br />
+&nbsp;&nbsp;tropopause_adjusted_radiative_forcing
+<br />
+&nbsp;&nbsp;tropopause_adjusted_shortwave_forcing
+<br />
+&nbsp;&nbsp;tropopause_instantaneous_longwave_forcing
+<br />
+&nbsp;&nbsp;tropopause_instantaneous_radiative_forcing
+<br />
+&nbsp;&nbsp;tropopause_instantaneous_shortwave_forcing
+<br />
+&nbsp;&nbsp;zenith_angle
+<br />
+<br />radiation_wavelength was previously added as electromagnetic_wavelength, which
+<br />
+becomes an alias.
+<br />
+<br />* Clarify specific_potential_energy as specific_gravitational_potential_energy
+<br />
+and specific_convective_available_potential_energy as
+<br />
+atmosphere_specific_convective_available_potential_energy.
+<br />
+<br />Cheers
+<br />
+<br />Jonathan
+<br />
+<a href="http://www.cgam.nerc.ac.uk/~jonathan/">http://www.cgam.nerc.ac.uk/~jonathan/</a>
+<br />
+<span id="received"><dfn>Received on</dfn> Mon Nov 17 2003 - 01:47:55 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -296,11 +191,9 @@ Chilton, Didcot, OX11 0QX, U.K.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start313">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0314.html" title="Next message in the list">Jonathan Gregory: "Fwd: [CF-metadata] units in cf standard names"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0312.html" title="Previous message in the list">Bryan Lawrence: "[CF-metadata] units in cf standard names"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0312.html" title="Message to which this message replies">Bryan Lawrence: "[CF-metadata] units in cf standard names"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0314.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] x- and y-components"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0312.html" title="Previous message in the list">Brian Eaton: "[CF-metadata] standard names"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0310.html" title="Next message in this discussion thread">Christiane Textor: "[CF-metadata] species as species in chemical and aerosol names"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -311,7 +204,7 @@ Chilton, Didcot, OX11 0QX, U.K.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:48 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0312.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0314.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

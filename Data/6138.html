@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] general question on delimiters for multi-valued standard CF attributes from Jim Biard on 2014-03-10 (mailing-list-archive)</title>
-<meta name="Author" content="Jim Biard (jbiard)" />
-<meta name="Subject" content="[CF-metadata] general question on delimiters for multi-valued standard CF attributes" />
-<meta name="Date" content="2014-03-10" />
+<title>[CF-metadata] how to capture horizontal spatial resolution of imagery in a standard way from rhorne at excaliburlabs.com on 2013-05-09 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="rhorne at excaliburlabs.com (rhorne)" />
+<meta name="Subject" content="[CF-metadata] how to capture horizontal spatial resolution of imagery in a standard way" />
+<meta name="Date" content="2013-05-09" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./6137.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6139.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] general question on delimiters for multi-valued standard CF attributes</h1>
-<!-- received="Mon Mar 10 13:54:23 2014" -->
-<!-- isoreceived="20140310135423" -->
-<!-- sent="Mon, 10 Mar 2014 15:54:23 -0400" -->
-<!-- isosent="20140310195423" -->
-<!-- name="Jim Biard" -->
-<!-- email="jbiard" -->
-<!-- subject="[CF-metadata] general question on delimiters for multi-valued standard CF attributes" -->
-<!-- id="55C13E23-FAF2-4793-A345-C8B4682B9BA1_at_cicsnc.org" -->
+<a style="text-decoration:none" href="./6137.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6139.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] how to capture horizontal spatial resolution of imagery in a standard way</h1>
+<!-- received="Thu May  9 07:56:20 2013" -->
+<!-- isoreceived="20130509065620" -->
+<!-- sent="Thu, 9 May 2013 09:56:20 -0400" -->
+<!-- isosent="20130509135620" -->
+<!-- name="rhorne at excaliburlabs.com" -->
+<!-- email="rhorne" -->
+<!-- subject="[CF-metadata] how to capture horizontal spatial resolution of imagery in a standard way" -->
+<!-- id="7d670e4c$4b7f37dd$743d6903$_at_excaliburlabs.com" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="7c673854$271a0103$1d8d6d09$_at_excaliburlabs.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./6139.html" accesskey="d" title="Jeffrey F. Painter: &quot;[CF-metadata] Editing/publishing workflow&quot;">Next message</a> ]
-[ <a href="./6137.html" title="rhorne at excaliburlabs.com: &quot;[CF-metadata] general question on delimiters for multi-valued standard CF attributes&quot;">Previous message</a> ]
-[ <a href="./6137.html" title="rhorne at excaliburlabs.com: &quot;[CF-metadata] general question on delimiters for multi-valued standard CF attributes&quot;">In reply to</a> ]
+[ <a href="./6139.html" accesskey="d" title="Karl Taylor: &quot;[CF-metadata] Shortwave Downward Radiation&quot;">Next message</a> ]
+[ <a href="./6137.html" title="rhorne at excaliburlabs.com: &quot;[CF-metadata] using cell_methods with observation data&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,86 +68,56 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jim Biard &lt;<a href="mailto:jbiard?Subject=Re%3A%20%5BCF-metadata%5D%20general%20question%20on%20delimiters%20for%20multi-valued%20standard%20CF%20attributes">jbiard</a>&gt;
+<dfn>From</dfn>: rhorne at excaliburlabs.com &lt;<a href="mailto:rhorne?Subject=Re%3A%20%5BCF-metadata%5D%20how%20to%20capture%20horizontal%20spatial%20resolution%20of%20imagery%20in%20a%20standard%20way">rhorne</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 10 Mar 2014 15:54:23 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 9 May 2013 09:56:20 -0400</span><br />
 </address>
 <br />
-Randy,
+Folks: 
 <br />
-<br />The difference in CDL is that the value of an attribute such as coordinates is a single text string, where as the value of an attribute such as flag_values is an array of numbers.  The CF convention for delimiting the names in the coordinates text string is to use spaces.  The CDL syntax for delimiting elements of an array is to use commas.
+<br />We have done some more thinking about how to capture the resolution of gridded observation data (this is a more accurate term than used in previous posts - imagery) using a to-be-determined CF convention.  Note that a key underlying assumption here is that the gridded data has a homogeneous sampling interval. 
 <br />
-<br />Grace and peace,
+<br />Originally, I thought a cell_method related approach made sense, but the resolution of elements in a data variable is not pertinent to the functional intent of cell methods. 
 <br />
-<br />Jim
+<br />A suggestion from the board thought that a new coordinate type could be defined to provide this capability.  The problem with this is that data resolution is not a coordinate, but, rather, a size characteristic of each element in the data variable containing the gridded observation data. 
 <br />
-<br />Visit us on
+<br />&nbsp;&nbsp;
 <br />
-Facebook	Jim Biard
+<br />This brings you back to cells (1st sentence of chapter 7 - When gridded data does not represent the point values of a field but instead represents some characteristic of the field within cells of finite &quot;volume,&quot; a complete description of the variable should include metadata that describes the domain or extent of each cell, and ....) 
 <br />
-Research Scholar
+<br />&nbsp;&nbsp;
 <br />
-Cooperative Institute for Climate and Satellites NC
+<br />There are a variety of options available to support this including an additional syntax for cell boundaries or cell measures, or a new &quot;cell resolution&quot; that may only be associated with observation data. 
 <br />
-North Carolina State University
+<br />&nbsp;&nbsp;
 <br />
-NOAA's National Climatic Data Center
+<br />The core of any of these approaches would be the specification of a numeric resolution with its units.  Using the existing cell &quot;(interval: value unit)&quot; as a model, a GOES-R 2 km at nadir gridded product would have an attribute component that looks like: 
 <br />
-151 Patton Ave, Asheville, NC 28801
+<br />&nbsp;&quot;(resolution: y = 0.000056 rad  x = 0.000056 rad)&quot; if it were part of a broader category (i.e. &quot;bounds:&quot; or &quot;cell_measures&quot;), or 
 <br />
-e: jbiard at cicsnc.org
+<br />&nbsp;&nbsp;
 <br />
-o: +1 828 271 4900
+<br />&quot;resolution: y = 0.000056 rad  x = 0.000056 rad&quot;, if it was not associated with cell bounds or measures.  Note that the syntax to capture the resolution would need to be flexible to handle the different cell shapes for observation data.  &quot;y&quot; and &quot;x&quot; in these examples are intended to represent the spatial coordinate variables. 
 <br />
-<br /><br /><br /><br />On Mar 10, 2014, at 3:50 PM, rhorne at excaliburlabs.com wrote:
+<br />&nbsp;&nbsp;
 <br />
-<br /><em class="quotelev1">&gt; Dear All:
-</em><br />
-<em class="quotelev1">&gt;  
-</em><br />
-<em class="quotelev1">&gt; The CF standard includes examples for how to apply the CF conventions.
-</em><br />
-<em class="quotelev1">&gt;  
-</em><br />
-<em class="quotelev1">&gt; Some multi value standard attributes like &quot;coordinates&quot; are space delimited.
-</em><br />
-<em class="quotelev1">&gt;  
-</em><br />
-<em class="quotelev1">&gt; Some multi-valued standard attributes like flag_values and valid_range are comma delimited.
-</em><br />
-<em class="quotelev1">&gt;  
-</em><br />
-<em class="quotelev1">&gt; Are the use of the comma and space delimiters as identified in the CF standard considered mandatory ?
-</em><br />
-<em class="quotelev1">&gt;  
-</em><br />
-<em class="quotelev1">&gt; For example, can spaces be used as a delimiter for flag_values ?
-</em><br />
-<em class="quotelev1">&gt;  
-</em><br />
-<em class="quotelev1">&gt;  
-</em><br />
-<em class="quotelev1">&gt; very respectfully,
-</em><br />
-<em class="quotelev1">&gt;  
-</em><br />
-<em class="quotelev1">&gt; randy
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
+<br />Comments appreciated ! 
+<br />
+<br />&nbsp;&nbsp;
+<br />
+<br />very respectfully, 
+<br />
+<br />&nbsp;&nbsp;
+<br />
+<br />randy
+<br />
 <br />-------------- next part --------------
 <br />
 An HTML attachment was scrubbed...
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140310/edcf3e90/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140310/edcf3e90/attachment-0001.html</a>&gt;
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130509/03cb96ad/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130509/03cb96ad/attachment-0001.html</a>&gt;
 <br />
-<span id="received"><dfn>Received on</dfn> Mon Mar 10 2014 - 13:54:23 GMT</span>
+<span id="received"><dfn>Received on</dfn> Thu May 09 2013 - 07:56:20 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -157,9 +125,8 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start6138">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./6139.html" title="Next message in the list">Jeffrey F. Painter: "[CF-metadata] Editing/publishing workflow"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./6137.html" title="Previous message in the list">rhorne at excaliburlabs.com: "[CF-metadata] general question on delimiters for multi-valued standard CF attributes"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./6137.html" title="Message to which this message replies">rhorne at excaliburlabs.com: "[CF-metadata] general question on delimiters for multi-valued standard CF attributes"</a></li>
+<li><dfn>Next message</dfn>: <a href="./6139.html" title="Next message in the list">Karl Taylor: "[CF-metadata] Shortwave Downward Radiation"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./6137.html" title="Previous message in the list">rhorne at excaliburlabs.com: "[CF-metadata] using cell_methods with observation data"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -171,7 +138,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:38 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./6137.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6139.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

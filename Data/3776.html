@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Coordinate reference frame for discrete sampling geometries from Upendra Dadi on 2011-09-29 (mailing-list-archive)</title>
-<meta name="Author" content="Upendra Dadi (Upendra.Dadi)" />
-<meta name="Subject" content="[CF-metadata] Coordinate reference frame for discrete sampling geometries" />
-<meta name="Date" content="2011-09-29" />
+<title>[CF-metadata] point observation data in CF 1.4 from Christopher Barker on 2010-11-04 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Christopher Barker (Chris.Barker)" />
+<meta name="Subject" content="[CF-metadata] point observation data in CF 1.4" />
+<meta name="Date" content="2010-11-04" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./3775.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3777.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Coordinate reference frame for discrete sampling geometries</h1>
-<!-- received="Thu Sep 29 15:06:31 2011" -->
-<!-- isoreceived="20110929140631" -->
-<!-- sent="Thu, 29 Sep 2011 17:06:31 -0400" -->
-<!-- isosent="20110929210631" -->
-<!-- name="Upendra Dadi" -->
-<!-- email="Upendra.Dadi" -->
-<!-- subject="[CF-metadata] Coordinate reference frame for discrete sampling geometries" -->
-<!-- id="4E84DDD7.9000708_at_noaa.gov" -->
+<a style="text-decoration:none" href="./3775.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3777.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] point observation data in CF 1.4</h1>
+<!-- received="Thu Nov  4 10:16:54 2010" -->
+<!-- isoreceived="20101104101654" -->
+<!-- sent="Thu, 04 Nov 2010 09:16:54 -0700" -->
+<!-- isosent="20101104161654" -->
+<!-- name="Christopher Barker" -->
+<!-- email="Chris.Barker" -->
+<!-- subject="[CF-metadata] point observation data in CF 1.4" -->
+<!-- id="4CD2DC76.7060702_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="4CD21836.3050900_at_unidata.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,9 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./3777.html" accesskey="d" title="Culverwell, Ian: &quot;[CF-metadata] Is the &#0034;bits&#0034; unit CF-compliant?&quot;">Next message</a> ]
-[ <a href="./3775.html" title="Steve Emmerson: &quot;[CF-metadata] Is the &#0034;bits&#0034; unit CF-compliant?&quot;">Previous message</a> ]
+[ <a href="./3777.html" accesskey="d" title="Ben Hetland: &quot;[CF-metadata] point observation data in CF 1.4&quot;">Next message</a> ]
+[ <a href="./3775.html" title="John Caron: &quot;[CF-metadata] point observation data in CF 1.4&quot;">Previous message</a> ]
+[ <a href="./3773.html" title="John Caron: &quot;[CF-metadata] point observation data in CF 1.4&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./3778.html" accesskey="t" title="CJ Beegle-Krause: &quot;[CF-metadata] point observation data in CF 1.4&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,34 +72,152 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Upendra Dadi &lt;<a href="mailto:Upendra.Dadi?Subject=Re%3A%20%5BCF-metadata%5D%20Coordinate%20reference%20frame%20for%20discrete%20sampling%20geometries">Upendra.Dadi</a>&gt;
+<dfn>From</dfn>: Christopher Barker &lt;<a href="mailto:Chris.Barker?Subject=Re%3A%20%5BCF-metadata%5D%20point%20observation%20data%20in%20CF%201.4">Chris.Barker</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 29 Sep 2011 17:06:31 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 04 Nov 2010 09:16:54 -0700</span><br />
 </address>
 <br />
-Hi All,
+On 11/3/10 7:19 PM, John Caron wrote:
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;I am working with CF standard on discrete sampling geometries. In 
+<em class="quotelev1">&gt; 1) It seems clear that at each time step, you need to write out the data
+</em><br />
+<em class="quotelev1">&gt; for whatever particles currently exist. I assume that if you wanted to
+</em><br />
+<em class="quotelev1">&gt; break up the data for a very long run, you would partition by time, ie
+</em><br />
+<em class="quotelev1">&gt; time steps 1-1000, 1001-2000, etc. would be in seperate files.
+</em><br />
+<br />probably, yes.
 <br />
-all the examples in the CF document, there is no mention of grid_mapping 
+<br /><em class="quotelev1">&gt; 2) Apparently the common read pattern is to retrieve the set of
+</em><br />
+<em class="quotelev1">&gt; particles at a given time step. If so, that makes things easier.
+</em><br />
+<br />yes -- or a sequence of time steps, but also easy.
 <br />
-attribute. As I understand, the information stored within grid_mapping 
+<br /><em class="quotelev1">&gt; 3) I assume that you want to be able to figure out an individual
+</em><br />
+<em class="quotelev1">&gt; particle's trajectory, even if that doesnt need to be optimized for speed.
+</em><br />
+<br />It should be possible, yes, but correct, that is the less common use 
 <br />
-variable has nothing to do with whether the data is gridded or 
+case, and thus less important for good performance. And with particles 
 <br />
-non-gridded. So I am assuming that there is no mention of it purely 
+coming and going, a mess anyway.
 <br />
-because it is not the focus here. But someone please confirm that 
+<br /><em class="quotelev1">&gt; 1) is the avg number (Navg) of particles that exist much smaller, or
+</em><br />
+<em class="quotelev1">&gt; approx the same as the max number (Nmax) that exist at one time step?
+</em><br />
+<br />I think this is very use-case dependent -- how would that change what we 
 <br />
-grid_mapping attribute is still applicable in the same way as for 
+might want to do?
 <br />
-gridded data, i.e., using grid_mapping as an attribute of data 
+<br /><em class="quotelev1">&gt; 2) How much data is associated with each particle at a given time step
+</em><br />
+<em class="quotelev1">&gt; (just an estimate needed here - 10 bytes? 1000 bytes?)
+</em><br />
+<br />For us, it's currently about 40 bytes, but we'll be adding an unknown 
 <br />
-variables. Thanks!
+amount in the future -- maybe up to a couple hundred.
 <br />
-<br />Upendra
+<br /><em class="quotelev1">&gt; A more nasty example could be to represent an oil slick's shape and
+</em><br />
+<em class="quotelev1">&gt; position with a polygon. The number of vertices of that polygon would be
+</em><br />
+<em class="quotelev1">&gt; highly variable through time. (This is a typical GIS-like representation.)
+</em><br />
+<br />I think that is an entirely different use-case -- and one probably bet 
 <br />
-<span id="received"><dfn>Received on</dfn> Thu Sep 29 2011 - 15:06:31 BST</span>
+handles with GIS format -- although GIS does time (and 3d) really badly.
+<br />
+<br /><em class="quotelev1">&gt; How one decides to partition I think can depend a lot on the
+</em><br />
+<em class="quotelev1">&gt; application. Sometimes splitting them on data type can be more
+</em><br />
+<em class="quotelev1">&gt; appropriate. In a recent case I had, the data were to be transferred to
+</em><br />
+<em class="quotelev1">&gt; a client computer over the Internet for viewing locally. In that case
+</em><br />
+<em class="quotelev1">&gt; reducing the content of the file to the absolute minimum set of
+</em><br />
+<em class="quotelev1">&gt; properties (that the client needed in order to visualize) became
+</em><br />
+<em class="quotelev1">&gt; paramount. Even a fast Internet connection does have bandwidth
+</em><br />
+<em class="quotelev1">&gt; limitations... :-)
+</em><br />
+<br />I think that's a little different than partitioning -- it's more 
+<br />
+subsetting the data, and yes, I think we would often want to only put 
+<br />
+the relevant data for a given application in a given file.
+<br />
+<br />My thought is that there would be very few required variables (but 
+<br />
+hopefully some standard names for many more!)
+<br />
+<br /><em class="quotelev2">&gt;&gt; 3) I assume that you want to be able to figure out an individual
+</em><br />
+<em class="quotelev2">&gt;&gt; particle's trajectory, even if that doesnt need to be optimized
+</em><br />
+<em class="quotelev2">&gt;&gt; for speed.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Not my primary need, but if an object is &quot;tracked&quot; like that it would
+</em><br />
+<em class="quotelev1">&gt; not be unlikely that the trajectory might need to be accessed
+</em><br />
+<em class="quotelev1">&gt; &quot;interactively&quot;, eg. while a user is viewing a visualization of the data
+</em><br />
+<em class="quotelev1">&gt; directly on screen. Does that count as &quot;optimized for speed&quot;?
+</em><br />
+<br />well, yes. IIUC, then if we group by time step, then you'd essentially 
+<br />
+have to read all the data to follow a single particle through time. If 
+<br />
+that was a common need, then the data should be arranged differently. 
+<br />
+But then, the already-proposed standard for &quot;trajectories&quot; would work 
+<br />
+well for that already.
+<br />
+<br /><em class="quotelev1">&gt; It also wouldn't be very atypical if
+</em><br />
+<em class="quotelev1">&gt; this amount is then to be multiplied by say 20000 particles per time step.
+</em><br />
+<br />or more -- we use 1000 typically for surface trajectories, and 10,000 
+<br />
+for 3-d at a minimum -- if it's a long term spill, it could be a lot 
+<br />
+more (i.e.  the event in the Gulf this summer?)
+<br />
+<br />I think we're converging on something here.
+<br />
+<br />I just got some sample Sintef files sent to me, and I've been working on 
+<br />
+my own sample -- I'll see if I can reconcile those, and post something here.
+<br />
+<br />By the way -- it would be nice to have something that could accommodate 
+<br />
+ASA's models, too -- is there anyone from ASA on this list and paying 
+<br />
+attention?
+<br />
+<br />-Chris
+<br />
+<br /><br /><br /><br /><pre>
+-- 
+Christopher Barker, Ph.D.
+Oceanographer
+Emergency Response Division
+NOAA/NOS/OR&amp;R            (206) 526-6959   voice
+7600 Sand Point Way NE   (206) 526-6329   fax
+Seattle, WA  98115       (206) 526-6317   main reception
+Chris.Barker at noaa.gov
+</pre>
+<span id="received"><dfn>Received on</dfn> Thu Nov 04 2010 - 10:16:54 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -103,9 +225,13 @@ variables. Thanks!
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start3776">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./3777.html" title="Next message in the list">Culverwell, Ian: "[CF-metadata] Is the &#0034;bits&#0034; unit CF-compliant?"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./3775.html" title="Previous message in the list">Steve Emmerson: "[CF-metadata] Is the &#0034;bits&#0034; unit CF-compliant?"</a></li>
+<li><dfn>Next message</dfn>: <a href="./3777.html" title="Next message in the list">Ben Hetland: "[CF-metadata] point observation data in CF 1.4"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./3775.html" title="Previous message in the list">John Caron: "[CF-metadata] point observation data in CF 1.4"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./3773.html" title="Message to which this message replies">John Caron: "[CF-metadata] point observation data in CF 1.4"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./3778.html" title="Next message in this discussion thread">CJ Beegle-Krause: "[CF-metadata] point observation data in CF 1.4"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./3778.html" title="Message sent in reply to this message">CJ Beegle-Krause: "[CF-metadata] point observation data in CF 1.4"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -116,7 +242,7 @@ variables. Thanks!
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:51 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./3775.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3777.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

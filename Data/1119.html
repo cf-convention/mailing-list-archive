@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] cf names for aerosols&amp;chemistryL model - observations from Schultz, Martin on 2007-11-12 (mailing-list-archive)</title>
-<meta name="Author" content="Schultz, Martin (m.schultz)" />
-<meta name="Subject" content="[CF-metadata] cf names for aerosols&amp;chemistryL model - observations" />
-<meta name="Date" content="2007-11-12" />
+<title>[CF-metadata] moving horizontal coordinate system from John Caron on 2006-10-10 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] moving horizontal coordinate system" />
+<meta name="Date" content="2006-10-10" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1118.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1120.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] cf names for aerosols&amp;chemistryL model - observations</h1>
-<!-- received="Mon Nov 12 14:03:36 2007" -->
-<!-- isoreceived="20071112140336" -->
-<!-- sent="Mon, 12 Nov 2007 22:03:36 +0100" -->
-<!-- isosent="20071112210336" -->
-<!-- name="Schultz, Martin" -->
-<!-- email="m.schultz" -->
-<!-- subject="[CF-metadata] cf names for aerosols&amp;chemistryL model - observations" -->
-<!-- id="2E9C45494F78A3498A77616E7C2DBB4C013DF719_at_icg217.icg-ii-w2k.kfa-juelich.de" -->
+<a style="text-decoration:none" href="./1118.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1120.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] moving horizontal coordinate system</h1>
+<!-- received="Mon Oct  9 18:19:36 2006" -->
+<!-- isoreceived="20061009171936" -->
+<!-- sent="Mon, 09 Oct 2006 18:19:36 -0600" -->
+<!-- isosent="20061010001936" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] moving horizontal coordinate system" -->
+<!-- id="452AE718.50905_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="mailman.210.1194864244.29913.cf-metadata_at_cgd.ucar.edu" -->
+<!-- inreplyto="20061009144602.GA10599_at_ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,8 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1120.html" accesskey="d" title="Rich Signell: &quot;[CF-metadata] Fwd: Two-variable integer Time in CF? (V. Balaji)&quot;">Next message</a> ]
-[ <a href="./1118.html" title="Pamment, JA: &quot;[CF-metadata] FW: Re. chemicals and aerosols&quot;">Previous message</a> ]
+[ <a href="./1120.html" accesskey="d" title="Egil St&#0248;ren: &quot;[CF-metadata] species as species in chemical and aerosol names&quot;">Next message</a> ]
+[ <a href="./1118.html" title="Christiane Textor: &quot;[CF-metadata] aerosol water&quot;">Previous message</a> ]
+[ <a href="./1117.html" title="Brian Eaton: &quot;[CF-metadata] moving horizontal coordinate system&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -69,74 +70,110 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Schultz, Martin &lt;<a href="mailto:m.schultz?Subject=Re%3A%20%5BCF-metadata%5D%20cf%20names%20for%20aerosols%26chemistryL%20model%20-%20observations">m.schultz</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20moving%20horizontal%20coordinate%20system">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 12 Nov 2007 22:03:36 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 09 Oct 2006 18:19:36 -0600</span><br />
 </address>
 <br />
-Dear Christiane,
+Hi Jonathan, Brian:
 <br />
-<br /><br />&nbsp;&nbsp;&nbsp;it doesn't come as a surprise to me that observational people in the atmospheric chemistry world tend to ignore things like netcdf and CF. While this also has to do with old habits as you mention, it may be even more a consequence of the operating system which is installed on most data gathering computers, namely Windows. It is much(?) more difficult to work with netcdf files on a Windows system, because the many very useful command line tools (ncdump, ncgen, NCOs, cdos, ...) typically don't exist. 
+<br />A time-dependent lat,lon coordinate is a good idea, though probably a lot of clients wont understand it (my wont right at the moment). I'll think about how to represent &quot;time varying grid_mapping information&quot;. I suppose if we allowed a WKT representation of the projection, we could have that be time dependent, eg char projectionWKT(runtime, strlen).
 <br />
-<br />&nbsp;&nbsp;&nbsp;Another (more &quot;scientific&quot;) reason is that observational data is rarely as regular as model output. You have missing values, irregular sampling, quality flags, etc. Of course, all of these can be modeled in a data model and format such as netcdf provides it, but this always requires some extra structural thinking, which in the end implies more work. (and if you can then not work with your own data on your computer (see above) ...)
+<br />Thanks for the advice
 <br />
-<br />&nbsp;&nbsp;&nbsp;Nevertheless, I can see the value in trying to convince observers to at least approximate some of the metadata concepts defined with CF and to have them contribute to these definitions. But why should they not adopt something like &quot;molefraction_..._in_air&quot;? This is a quantity they ususally measure, isn't it?
+<br />Brian Eaton wrote:
 <br />
-<br />...
-<br />
-<br />&nbsp;&nbsp;&nbsp;What I see as more important than getting a zoo of scientific experimentalists to agree on something is that the &quot;operational&quot; standards such as WMO GRIB and BUFR adopt the concepts and terms behind CF. This will over time radiate into the scientific community as well, so one could buy one and get two here ;-) Has there been any effort/progress in linking with the established meteorological community?
-<br />
-<br />Best regards,
-<br />
-<br />Martin
-<br />
-<br />&lt; Dr. Martin G. Schultz, ICG-II, Forschungszentrum J?lich &gt;
-<br />
-&lt; D-52425 J?lich, Germany                                 &gt;
-<br />
-&lt; ph: +49 (0)2461 61 2831, fax: +49 (0)2461 61 8131       &gt;
-<br />
-&lt; email: m.schultz at fz-juelich.de                          &gt;
-<br />
-&lt; web: <a href="http://www.fz-juelich.de/icg/icg-2/m_schultz">http://www.fz-juelich.de/icg/icg-2/m_schultz</a>      &gt;
-<br />
-<br /><br />-------------------------------------------------------------------------
-<br />
-----------------
-<br />
------------------------------------------------------------
-<br />
-------------------------------
-<br />
-Forschungszentrum J?lich GmbH
-<br />
-52425 J?lich
-<br />
-<br /><br />Sitz der Gesellschaft: J?lich
-<br />
-Eingetragen im Handelsregister des Amtsgerich
-<br />
-ts D?ren Nr. HR B 3498
-<br />
-Vorsitzende des Aufsichtsrats: MinDirig'in B?rbel Bru
-<br />
-mme-Bothe
-<br />
-Gesch?ftsf?hrung: Prof. Dr. Achim Bachem (Vorsitzender), Dr. Ulric
-<br />
-h Krafft (stellv. 
-<br />
-Vorsitzender)
-<br />
--------------------------------------------
-<br />
-----------------------------------------------
-<br />
------------------------------
-<br />
-------------------------------------------------------------
-<br />
-<span id="received"><dfn>Received on</dfn> Mon Nov 12 2007 - 14:03:36 GMT</span>
+<em class="quotelev1">&gt; Hi John,
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; I agree with Jonathan, and would like to stress that a conforming CF file
+</em><br />
+<em class="quotelev1">&gt; must have the 2D auxiliary lat/lon coordinates; the grid_mapping
+</em><br />
+<em class="quotelev1">&gt; information is optional.  Jonathan's suggestion of adding a time coordinate
+</em><br />
+<em class="quotelev1">&gt; to the lat/lon coordinates is the natural way to concatenate these time
+</em><br />
+<em class="quotelev1">&gt; slices.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; There is no provision in CF-1.0 for time varying grid_mapping information.
+</em><br />
+<em class="quotelev1">&gt; That's a good use case to keep in mind moving to CF-2.  Thanks for bringing
+</em><br />
+<em class="quotelev1">&gt; it up.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Brian
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; On Mon, Oct 09, 2006 at 07:28:22AM +0100, Jonathan Gregory wrote:
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt;Dear John
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;The projection is changing its parameters 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;from one run to the next
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;The data variables should have 2D auxiliary lat and lon coordinates, pointed to
+</em><br />
+<em class="quotelev2">&gt;&gt;by the coordinates attribute. Can you use these for plotting, slicing, etc.? If
+</em><br />
+<em class="quotelev2">&gt;&gt;you want to put the data into one variable with a time dimension, for example,
+</em><br />
+<em class="quotelev2">&gt;&gt;you could give the auxiliary lat and lon coordinates that dimension as well
+</em><br />
+<em class="quotelev2">&gt;&gt;e.g. lon(time,y,x).
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;However if you want to do this and still retain the grid_mapping information,
+</em><br />
+<em class="quotelev2">&gt;&gt;we would need a way to represent a variable grid-mapping, by e.g. adding a time
+</em><br />
+<em class="quotelev2">&gt;&gt;dimension to its attributes, or making them point to 1D variables.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;Cheers
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;Jonathan
+</em><br />
+<em class="quotelev2">&gt;&gt;_______________________________________________
+</em><br />
+<em class="quotelev2">&gt;&gt;CF-metadata mailing list
+</em><br />
+<em class="quotelev2">&gt;&gt;CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt;&gt;<a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<span id="received"><dfn>Received on</dfn> Mon Oct 09 2006 - 18:19:36 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -144,8 +181,9 @@ Vorsitzender)
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1119">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1120.html" title="Next message in the list">Rich Signell: "[CF-metadata] Fwd: Two-variable integer Time in CF? (V. Balaji)"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1118.html" title="Previous message in the list">Pamment, JA: "[CF-metadata] FW: Re. chemicals and aerosols"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1120.html" title="Next message in the list">Egil St&#0248;ren: "[CF-metadata] species as species in chemical and aerosol names"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1118.html" title="Previous message in the list">Christiane Textor: "[CF-metadata] aerosol water"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./1117.html" title="Message to which this message replies">Brian Eaton: "[CF-metadata] moving horizontal coordinate system"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -157,7 +195,7 @@ Vorsitzender)
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:01 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1118.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1120.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

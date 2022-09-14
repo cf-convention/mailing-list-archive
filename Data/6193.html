@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Request for new CF standard names from Dr. Maximilian Reuter on 2014-03-20 (mailing-list-archive)</title>
-<meta name="Author" content="Dr. Maximilian Reuter (reuterm)" />
-<meta name="Subject" content="[CF-metadata] Request for new CF standard names" />
-<meta name="Date" content="2014-03-20" />
+<title>[CF-metadata] scalar coordinates from Jonathan Gregory on 2013-05-21 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] scalar coordinates" />
+<meta name="Date" content="2013-05-21" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./6192.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6194.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Request for new CF standard names</h1>
-<!-- received="Thu Mar 20 06:50:01 2014" -->
-<!-- isoreceived="20140320065001" -->
-<!-- sent="Thu, 20 Mar 2014 13:50:01 +0100" -->
-<!-- isosent="20140320125001" -->
-<!-- name="Dr. Maximilian Reuter" -->
-<!-- email="reuterm" -->
-<!-- subject="[CF-metadata] Request for new CF standard names" -->
-<!-- id="532AE3F9.9030604_at_loz.de" -->
+<a style="text-decoration:none" href="./6192.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6194.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] scalar coordinates</h1>
+<!-- received="Tue May 21 11:37:21 2013" -->
+<!-- isoreceived="20130521103721" -->
+<!-- sent="Tue, 21 May 2013 18:37:21 +0100" -->
+<!-- isosent="20130521173721" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] scalar coordinates" -->
+<!-- id="20130521173721.GA17739_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./6194.html" accesskey="d" title="Randy Horne: &quot;[CF-metadata] should ancillary variables make use of coordinates attribute ?&quot;">Next message</a> ]
-[ <a href="./6192.html" title="Brigitte Koffi: &quot;[CF-metadata] HTAP2 new proposals&quot;">Previous message</a> ]
+[ <a href="./6194.html" accesskey="d" title="Charles Paxson: &quot;[CF-metadata] GOES-R generated binary mask products under proposal&quot;">Next message</a> ]
+[ <a href="./6192.html" title="Jeffrey F. Painter: &quot;[CF-metadata] not receiving all messages&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,68 +68,134 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Dr. Maximilian Reuter &lt;<a href="mailto:reuterm?Subject=Re%3A%20%5BCF-metadata%5D%20Request%20for%20new%20CF%20standard%20names">reuterm</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20scalar%20coordinates">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 20 Mar 2014 13:50:01 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 21 May 2013 18:37:21 +0100</span><br />
 </address>
 <br />
-Dear CF-metadata subscribers,
+Dear Mark
 <br />
-<br />In the frame of ESA's GHG CCI project, we would like to store our 
+<br />As when we have discussed this before, I am certain that when we introduced
 <br />
-products in CF-conform NCDF files using only standard names for our main 
+scalar coordinate variables, we intended them to mean the same thing as
 <br />
-results. Is it possible to add:
+size-one coordinate variables. Though I do not remember the actual discussions
 <br />
-<br />standard name: column-average dry-air mole fraction of atmospheric 
+I am sure that's what we had in mind, and it is quite likely that it was me
 <br />
-carbon dioxide
+who drafted the words currently in the document with that intention.
 <br />
-alternatively: column-average mole fraction of carbon dioxide in dry air
+<br />I agree that subsequently the introduction of string-valued scalar coordinate
 <br />
-canonical units: 1
+variables muddied the picture. Again it was probably me who drafted the words
 <br />
-<br />standard name: column-average dry-air mole fraction of atmospheric methane
+and I'm sorry those words are a bit careless and not clearer. However, I am
 <br />
-alternatively: column-average mole fraction of methane in dry air
+sure, again, this was intended as a convenience feature, not intended to imply
 <br />
-canonical units: 1
+any new sort of information. For example, if you want to label a geographical
 <br />
-<br />Best regards
+region with a string-valued coordinate of region, having value atlantic_ocean
 <br />
-Max Reuter
+for example, this must be an auxiliary coordinate variable, because it is
 <br />
-____________________________________________________________________
+string-valued. The idea is that
 <br />
-Dr. Maximilian Reuter
+<br />&nbsp;&nbsp;basin=1;
 <br />
-<br />Institute of Environmental Physics (IUP)
+&nbsp;&nbsp;maxlength=30;
 <br />
-University of Bremen, FB1
+&nbsp;&nbsp;float sf(basin,depth,latitude);
 <br />
-Otto-Hahn-Allee 1
+&nbsp;&nbsp;&nbsp;&nbsp;sf:standard_name=&quot;ocean_meridional_overturning_streamfunction&quot;;
 <br />
-D-28334 Bremen
+&nbsp;&nbsp;&nbsp;&nbsp;sf:units=&quot;1e6 m3 s-1&quot;;
 <br />
-Germany
+&nbsp;&nbsp;&nbsp;&nbsp;sf:coordinates=&quot;basinname&quot;;
 <br />
-<br />Phone: +49 (421) 218 62085
+&nbsp;&nbsp;char basinname(basin,maxlength);
 <br />
-FAX: +49 (421) 218 62070
+&nbsp;&nbsp;&nbsp;&nbsp;basinname:standard_name=&quot;region&quot;;
 <br />
-E-Mail: maximilian.reuter at iup.physik.uni-bremen.de
+<br />can be more conveniently encoded as
 <br />
-<a href="http://www.iup.uni-bremen.de/~mreuter">http://www.iup.uni-bremen.de/~mreuter</a>
+<br />&nbsp;&nbsp;maxlength=30;
 <br />
-____________________________________________________________________
+&nbsp;&nbsp;float sf(depth,latitude);
 <br />
--------------- next part --------------
+&nbsp;&nbsp;&nbsp;&nbsp;sf:standard_name=&quot;ocean_meridional_overturning_streamfunction&quot;;
 <br />
-An HTML attachment was scrubbed...
+&nbsp;&nbsp;&nbsp;&nbsp;sf:units=&quot;1e6 m3 s-1&quot;;
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140320/a2fdb9d3/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140320/a2fdb9d3/attachment.html</a>&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;sf:coordinates=&quot;basinname&quot;;
 <br />
-<span id="received"><dfn>Received on</dfn> Thu Mar 20 2014 - 06:50:01 GMT</span>
+&nbsp;&nbsp;char basinname(maxlength);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;basinname:standard_name=&quot;region&quot;;
+<br />
+<br />which fairly obviously means the same thing, I would say, so it is reasonable
+<br />
+to regard basinname as an auxiliary coordinate variable of a size-one dimension
+<br />
+which has been omitted for convenience. I didn't write this down in my last
+<br />
+posting, for the sake of simplicity.
+<br />
+<br />You argue that because the words are unclear people have made use of the
+<br />
+flexibility to introduce scalar coordinates without deciding whether they are
+<br />
+functionally equivalent to (Unidata) coordinate variables or auxiliary
+<br />
+coordinate variables. As I argued in my last posting, I think there is an
+<br />
+advantage if the data-writer indicates the association between these size-one
+<br />
+coordinates, if there is one, by using a size-one dimension. However, the
+<br />
+data-writer may choose not to do so, and that's fine. In that case, the
+<br />
+data-writer has decided to omit some potentially useful information.
+<br />
+<br />My interpretation, if there are n scalar coordinates, is that they imply n
+<br />
+independent dimensions. However, it seems to me that it is no big deal, when
+<br />
+you read the file, to decide you don't like that interpretation, and instead
+<br />
+group them in some way of your choice into m (Unidata) coordinate variables
+<br />
+and p auxiliary coordinate variables, with m+p=n. This will not affect the
+<br />
+data, so it is easy to do.
+<br />
+<br />The difference between our points of view is this, as far as I understand:
+<br />
+<br />* I think there are (Unidata) coordinate variables, and auxiliary coordinate
+<br />
+variables, and scalar coordinate variables are a way to encode these without
+<br />
+defining a netCDF dimension of size one.
+<br />
+<br />* You think that scalar coordinate variables are in a third class of their own.
+<br />
+<br />We agree that it makes no difference to the data. It's just a matter of
+<br />
+interpretation. I favour my interpretation because it has one fewer abstract
+<br />
+concept (so it is simpler), and because I think it is the most obvious
+<br />
+interpretation of what the standard means by saying scalar coordinates are
+<br />
+functionally equivalent to size-one coordinates (as well as being certain that
+<br />
+is what the standard was *intended* to mean, when the words were written).
+<br />
+<br />Best wishes
+<br />
+<br />Jonathan
+<br />
+<span id="received"><dfn>Received on</dfn> Tue May 21 2013 - 11:37:21 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -137,8 +203,8 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start6193">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./6194.html" title="Next message in the list">Randy Horne: "[CF-metadata] should ancillary variables make use of coordinates attribute ?"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./6192.html" title="Previous message in the list">Brigitte Koffi: "[CF-metadata] HTAP2 new proposals"</a></li>
+<li><dfn>Next message</dfn>: <a href="./6194.html" title="Next message in the list">Charles Paxson: "[CF-metadata] GOES-R generated binary mask products under proposal"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./6192.html" title="Previous message in the list">Jeffrey F. Painter: "[CF-metadata] not receiving all messages"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -150,7 +216,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:40 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./6192.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6194.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

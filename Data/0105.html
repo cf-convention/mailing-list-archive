@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] standard_name.xml from John Caron on 2006-04-05 (mailing-list-archive)</title>
-<meta name="Author" content="John Caron (caron)" />
-<meta name="Subject" content="[CF-metadata] standard_name.xml" />
-<meta name="Date" content="2006-04-05" />
+<title>[CF-metadata] Proposal for spherical harmonics from jonathan.gregory at metoffice.com on 2003-03-17 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="jonathan.gregory at metoffice.com (jonathan.gregory)" />
+<meta name="Subject" content="[CF-metadata] Proposal for spherical harmonics" />
+<meta name="Date" content="2003-03-17" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0104.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0106.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard_name.xml</h1>
-<!-- received="Wed Apr  5 13:51:15 2006" -->
-<!-- isoreceived="20060405125115" -->
-<!-- sent="Wed, 05 Apr 2006 13:51:15 -0600" -->
-<!-- isosent="20060405195115" -->
-<!-- name="John Caron" -->
-<!-- email="caron" -->
-<!-- subject="[CF-metadata] standard_name.xml" -->
-<!-- id="44341FB3.9040502_at_unidata.ucar.edu" -->
+<a style="text-decoration:none" href="./0104.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0106.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Proposal for spherical harmonics</h1>
+<!-- received="Mon Mar 17 15:43:11 2003" -->
+<!-- isoreceived="20030317154311" -->
+<!-- sent="Mon, 17 Mar 2003 22:43:11 +0000" -->
+<!-- isosent="20030317224311" -->
+<!-- name="jonathan.gregory at metoffice.com" -->
+<!-- email="jonathan.gregory" -->
+<!-- subject="[CF-metadata] Proposal for spherical harmonics" -->
+<!-- id="20030317224311.A1010_at_linux" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20030317195800.A3237_at_linux.á&#64;á&#64;" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0106.html" accesskey="d" title="Bryan Lawrence: &quot;[CF-metadata] standard_name.xml&quot;">Next message</a> ]
-[ <a href="./0104.html" title="Jonathan Gregory: &quot;[CF-metadata] area_fraction&quot;">Previous message</a> ]
+[ <a href="./0106.html" accesskey="d" title="jonathan.gregory at metoffice.com: &quot;[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute&quot;">Next message</a> ]
+[ <a href="./0104.html" title="jonathan.gregory at metoffice.com: &quot;[CF-metadata] Proposal for spherical harmonics&quot;">Previous message</a> ]
+[ <a href="./0104.html" title="jonathan.gregory at metoffice.com: &quot;[CF-metadata] Proposal for spherical harmonics&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0106.html" accesskey="t" title="Bryan Lawrence: &quot;[CF-metadata] standard_name.xml&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
+[ <a href="./0106.html" accesskey="t" title="jonathan.gregory at metoffice.com: &quot;[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,20 +71,140 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20standard_name.xml">caron</a>&gt;
+<dfn>From</dfn>: jonathan.gregory at metoffice.com &lt;<a href="mailto:jonathan.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Proposal%20for%20spherical%20harmonics">jonathan.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 05 Apr 2006 13:51:15 -0600</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 17 Mar 2003 22:43:11 +0000</span><br />
 </address>
 <br />
-Is the standard name table in XML at:
+Apologies for a mistake in this posting. The variables containing zonal and
 <br />
-<br />&nbsp;&nbsp;<a href="http://www.cgd.ucar.edu/cms/eaton/cf-metadata/standard_name.xml">http://www.cgd.ucar.edu/cms/eaton/cf-metadata/standard_name.xml</a>
+meridional wavenumbers should have been coordinate variables i.e. variable
 <br />
-<br />being kept resonably up-to-date? 
+name = dimension name. Here is the whole thing again with that correction.
 <br />
-<br />I'm thinking about using it to map to, eg DIF vocabulary. Has anyone else done any mappings like that?
+<br />On Mon, Mar 17, 2003 at 07:58:00PM +0000, jonathan.gregory at metoffice.com wrote:
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Apr 05 2006 - 13:51:15 BST</span>
+<br />Dear Luis
+<br />
+<br />Thank you for making your spherical harmonics proposal. It is useful to have
+<br />
+the requirements stated. I am wondering whether we could generalise it in a
+<br />
+couple of respects.
+<br />
+<br />(1) Your proposal specifies a particular ordering for the complex coefficients
+<br />
+Fmn. I am afraid I am not familiar with the use of spectral data, so I don't
+<br />
+know whether this ordering is universally used, or if there are alternatives.
+<br />
+Could you (or others) comment on this?
+<br />
+<br />If there is more than one possibility in use, we could avoid adopting a
+<br />
+particular one by instead regarding the data as two-dimensional, and then
+<br />
+closing up the unused space resulting from the truncation by following the
+<br />
+convention for compression by gathering in CF section 8.2. Thus
+<br />
+<br />&nbsp;&nbsp;dimensions:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;m=3;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;n=3;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;complex=2;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lpoly=9;
+<br />
+&nbsp;&nbsp;variables:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;int lpoly(lpoly);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lpoly:compress=&quot;m n&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;float fmn(lpoly,complex);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fmn:standard_name=&quot;legendre_polynomial_coefficient&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;float m(m);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m:standard_name=&quot;legendre_polynomial_zonal_wavenumber&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;float n(n);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n:standard_name=&quot;legendre_polynomial_meridional_wavenumber&quot;;
+<br />
+&nbsp;&nbsp;data:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;m=0, 1, 2;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;n=0, 1, 2;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lpoly=0, 1, 2, 4, 5, 8;
+<br />
+<br />The values of lpoly are indices into (m,n) (n varying fastest). Hence, the
+<br />
+lpoly array indicates that the lpoly index of fmn has the polynomial
+<br />
+coefficients with wavenumbers (0,0), (0,1), (0,2), (1,1), (1,2), (2,2). I
+<br />
+hope that is correct for the triangular truncation! (Your summation says that
+<br />
+m runs from -M to +M, but there is a later statement that coefficients are
+<br />
+stored only for m&gt;=0.)
+<br />
+<br />The point of doing this is that the coefficients could be put in any order,
+<br />
+and it can be worked out quite easily what wavenumbers they have without
+<br />
+adopting a convention. It implies an ordering for components of complex numbers
+<br />
+e.g. 0=real 1=imaginary.
+<br />
+<br />(2) We could avoid your assumption that there is only kind of spectral data
+<br />
+in the file by using a grid mapping variable, of the kind just introduced, to
+<br />
+describe the truncation, instead of global attributes. To do that, we would
+<br />
+add an attribute e.g.
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;fmn:grid_mapping=&quot;triangular&quot;;
+<br />
+<br />and a variable
+<br />
+<br />&nbsp;&nbsp;char triangular;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;triangular:grid_mapping_name=&quot;spherical_harmonic&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;triangular:truncation_type=&quot;triangular&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;triangular:maximum_wavenumber=3;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;triangular:latitude=?; // number of latitudes
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;triangular:longitude=?; // number of longitudes
+<br />
+<br />If different attributes are allowed for the different truncations, perhaps
+<br />
+they can be given specific names (as here), rather than the general J, K?
+<br />
+Are the applications of the latitude and longitude dimensions unambiguous?
+<br />
+<br />Of course, spectral transformation is not a grid mapping in the sense so far
+<br />
+used. I am hijacking the mechanism, because the need seems similar.
+<br />
+<br />What do you think?
+<br />
+<br />Best wishes
+<br />
+<br />Jonathan
+<br />
+<span id="received"><dfn>Received on</dfn> Mon Mar 17 2003 - 15:43:11 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -91,12 +212,11 @@ Is the standard name table in XML at:
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start105">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0106.html" title="Next message in the list">Bryan Lawrence: "[CF-metadata] standard_name.xml"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0104.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] area_fraction"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0106.html" title="Next message in the list">jonathan.gregory at metoffice.com: "[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0104.html" title="Previous message in the list">jonathan.gregory at metoffice.com: "[CF-metadata] Proposal for spherical harmonics"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0104.html" title="Message to which this message replies">jonathan.gregory at metoffice.com: "[CF-metadata] Proposal for spherical harmonics"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0106.html" title="Next message in this discussion thread">Bryan Lawrence: "[CF-metadata] standard_name.xml"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0106.html" title="Message sent in reply to this message">Bryan Lawrence: "[CF-metadata] standard_name.xml"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./0106.html" title="Next message in this discussion thread">jonathan.gregory at metoffice.com: "[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -107,7 +227,7 @@ Is the standard name table in XML at:
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:44 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0104.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0106.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

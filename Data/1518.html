@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]  fixed sensors, depth, datum from Jonathan Gregory on 2008-09-11 (mailing-list-archive)</title>
+<title>[CF-metadata]  CF and a representation of probalistic forecasts from Jonathan Gregory on 2007-02-12 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata]  fixed sensors, depth, datum" />
-<meta name="Date" content="2008-09-11" />
+<meta name="Subject" content="[CF-metadata]  CF and a representation of probalistic forecasts" />
+<meta name="Date" content="2007-02-12" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1517.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1519.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  fixed sensors, depth, datum</h1>
-<!-- received="Thu Sep 11 01:39:07 2008" -->
-<!-- isoreceived="20080911003907" -->
-<!-- sent="Thu, 11 Sep 2008 08:39:07 +0100" -->
-<!-- isosent="20080911073907" -->
+<a style="text-decoration:none" href="./1517.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1519.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  CF and a representation of probalistic forecasts</h1>
+<!-- received="Mon Feb 12 14:28:47 2007" -->
+<!-- isoreceived="20070212142847" -->
+<!-- sent="Mon, 12 Feb 2007 21:28:47 +0000" -->
+<!-- isosent="20070212212847" -->
 <!-- name="Jonathan Gregory" -->
 <!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata]  fixed sensors, depth, datum" -->
-<!-- id="20080911073907.GA12968_at_met.reading.ac.uk" -->
+<!-- subject="[CF-metadata]  CF and a representation of probalistic forecasts" -->
+<!-- id="20070212212847.GA1440_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1519.html" accesskey="d" title="Dale Robinson: &quot;[CF-metadata] fixed sensors, depth, datum&quot;">Next message</a> ]
-[ <a href="./1517.html" title="Jon Blower: &quot;[CF-metadata] fixed sensors, depth, datum&quot;">Previous message</a> ]
+[ <a href="./1519.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  Question about Coordinate System&quot;">Next message</a> ]
+[ <a href="./1517.html" title="Philip Bentley: &quot;[CF-metadata] Question about Coordinate System&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./1520.html" accesskey="t" title="Steve Hankin: &quot;[CF-metadata] CF and a representation of probalistic forecasts&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,32 +70,64 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20fixed%20sensors%2C%20depth%2C%20datum">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20CF%20and%20a%20representation%20of%20probalistic%20forecasts">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 11 Sep 2008 08:39:07 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 12 Feb 2007 21:28:47 +0000</span><br />
 </address>
 <br />
-Dear Jon
+Dear all
 <br />
-<br />Good - I'm glad we agree about WGS84.
+<br />Bryan asked &quot;How is that different from differing methods of cell methods with
 <br />
-<br />At the moment there isn't a way in CF to identify the geoid. It would be too
+the same standard names?&quot; That's a good question: I suppose I'd say that we
 <br />
-complicated to describe it as part of the metadata, I think, but it could be
+would use the same cell_methods entry to indicate a mean, for instance,
 <br />
-named. A possible way to do this would be as an attribute in the grid_mapping
+regardless of how it had been weighted. At the moment we can only record that
 <br />
-variable, I suppose. If there is no grid_mapping variable because the grid is
+by a non-standardised comment in cell_methods such as &quot;(area-weighted)&quot;. But
 <br />
-lat-lon and the ellipsoid doesn't need to specified, a grid_mapping variable
+quantities which could be used for weights in this situation might be in data
 <br />
-could still be included with grid_mapping_name=&quot;latitude_longitude&quot;.
+variables and could be distinguished by standard names, for instance cell_area
 <br />
-<br />Best wishes
+or land_area_fraction. I think the realization weights are more analogous to
+<br />
+those quantities than they are to different cell methods.
+<br />
+<br />I agree with Steve that the realization weights are a bit like masks. I think
+<br />
+CF would distinguish between mask quantities by standard names too, though at
+<br />
+present the only one we have in the table is land_binary_mask.
+<br />
+<br />Jamie remarked, &quot;I think the weights are the same kind of quantity even if they
+<br />
+are calculated different ways - just as air_temperature is considered the
+<br />
+same quantity even if calculated from a GFDL model or a ECMWF model.&quot; That
+<br />
+might be the case, I suppose; two sets of weights might simply be alternative
+<br />
+values for the same quantity. If they came from different models that could be
+<br />
+indicated in other ways (as in the ensembles discussion). I'm not sure of what
+<br />
+examples to use - perhaps you could suggest some - but maybe you might have
+<br />
+weights that were based on the realism of historical temperature simulation
+<br />
+for instance, or on a measure of quality of present-day mean climatology. The
+<br />
+quantities being used for assessment could have standard names, and they would
+<br />
+be different names. Hence so should weights based on them, I suggest.
+<br />
+<br />Cheers
 <br />
 <br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Thu Sep 11 2008 - 01:39:07 BST</span>
+<span id="received"><dfn>Received on</dfn> Mon Feb 12 2007 - 14:28:47 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -101,9 +135,12 @@ could still be included with grid_mapping_name=&quot;latitude_longitude&quot;.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1518">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1519.html" title="Next message in the list">Dale Robinson: "[CF-metadata] fixed sensors, depth, datum"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1517.html" title="Previous message in the list">Jon Blower: "[CF-metadata] fixed sensors, depth, datum"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1519.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  Question about Coordinate System"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1517.html" title="Previous message in the list">Philip Bentley: "[CF-metadata] Question about Coordinate System"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./1520.html" title="Next message in this discussion thread">Steve Hankin: "[CF-metadata] CF and a representation of probalistic forecasts"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./1520.html" title="Message sent in reply to this message">Steve Hankin: "[CF-metadata] CF and a representation of probalistic forecasts"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -114,7 +151,7 @@ could still be included with grid_mapping_name=&quot;latitude_longitude&quot;.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:08 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1517.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1519.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

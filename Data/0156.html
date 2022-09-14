@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] new vertical coordinate from Jonathan Gregory on 2006-06-25 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] new vertical coordinate" />
-<meta name="Date" content="2006-06-25" />
+<title>[CF-metadata] bounds from John Caron on 2003-05-23 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] bounds" />
+<meta name="Date" content="2003-05-23" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0155.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0157.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new vertical coordinate</h1>
-<!-- received="Sun Jun 25 10:13:49 2006" -->
-<!-- isoreceived="20060625091349" -->
-<!-- sent="Sun, 25 Jun 2006 17:13:49 +0100" -->
-<!-- isosent="20060625161349" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] new vertical coordinate" -->
-<!-- id="20060625161349.GA28156_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0155.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0157.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] bounds</h1>
+<!-- received="Fri May 23 09:21:48 2003" -->
+<!-- isoreceived="20030523082148" -->
+<!-- sent="Fri, 23 May 2003 09:21:48 -0600" -->
+<!-- isosent="20030523152148" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] bounds" -->
+<!-- id="3ECE3C8C.8090105_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="200305230705.00000.b.n.lawrence_at_rl.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,11 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0157.html" accesskey="d" title="V. Balaji: &quot;[CF-metadata] new vertical coordinate&quot;">Next message</a> ]
-[ <a href="./0155.html" title="Brian Eaton: &quot;[CF-metadata] new vertical coordinate&quot;">Previous message</a> ]
+[ <a href="./0157.html" accesskey="d" title="Bob Drach: &quot;[CF-metadata] bounds&quot;">Next message</a> ]
+[ <a href="./0155.html" title="Bryan Lawrence: &quot;[CF-metadata] bounds&quot;">Previous message</a> ]
+[ <a href="./0155.html" title="Bryan Lawrence: &quot;[CF-metadata] bounds&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0157.html" accesskey="t" title="V. Balaji: &quot;[CF-metadata] new vertical coordinate&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,42 +70,152 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20new%20vertical%20coordinate">j.m.gregory</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20bounds">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Sun, 25 Jun 2006 17:13:49 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 23 May 2003 09:21:48 -0600</span><br />
 </address>
 <br />
-Dear Beate
+Bryan Lawrence wrote:
 <br />
-<br /><em class="quotelev2">&gt; &gt; Dear cf-metadata,
+<br /><em class="quotelev1">&gt;Hi Folks
 </em><br />
-<em class="quotelev2">&gt; &gt; I proposed to include following (not dimensionless) vertical coordinate to 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt; &gt; cf-conventions:
+<em class="quotelev1">&gt;Speaking as a person who has done budget studies in the past, I think exact 
 </em><br />
-<em class="quotelev2">&gt; &gt; 
+<em class="quotelev1">&gt;comparisons are the way to go ... not only in the variables, but in their 
 </em><br />
-<em class="quotelev2">&gt; &gt; 
+<em class="quotelev1">&gt;coordinates ...
 </em><br />
-<em class="quotelev2">&gt; &gt; Atmosphere Gal-Chen height coordinate (after Gal-Chen and Somerville, 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt; &gt; 1975)
+<em class="quotelev1">&gt;  
 </em><br />
-<em class="quotelev2">&gt; &gt; standard_name = &quot;atmosphere_gal-chen_height_coordinate&quot; 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt; &gt; Definition: 
+<em class="quotelev2">&gt;&gt;What would be a &quot;contrived&quot; example where 1E-5 would not work ?  We are
 </em><br />
-<em class="quotelev2">&gt; &gt; z(n,k,j,i) = zs(j,i) + gal-chen(k)*(1-ztop/zs(j,i))
+<em class="quotelev2">&gt;&gt;not trying to preserve numerical results in the face of complex
 </em><br />
-<br />Maybe it should be zs/ztop? In that case I think this would be a special
+<em class="quotelev2">&gt;&gt;algorthims, just trying to answer the question if the bounds are
+</em><br />
+<em class="quotelev2">&gt;&gt;continuous.
+</em><br />
+<em class="quotelev2">&gt;&gt;    
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;Ok, if my cells are in the mesosphere of an atmospheric model, particularly 
+</em><br />
+<em class="quotelev1">&gt;one that includes the troposphere, then the cells are going to be pretty 
+</em><br />
+<em class="quotelev1">&gt;deep, possibly a couple of orders of magnitude in difference in pressure 
+</em><br />
+<em class="quotelev1">&gt;coordinates .... if I then couple on a thermospheric model, and I'm stupid 
+</em><br />
+<em class="quotelev1">&gt;enough to carry on using  pressure as the vertical coordinate, then my cells 
+</em><br />
+<em class="quotelev1">&gt;will become many orders of magnitude apart ... I can imagine failing the 
+</em><br />
+<em class="quotelev1">&gt;above equality test in that situation ... even when the cells are contiguous 
+</em><br />
+<em class="quotelev1">&gt;... other coordinate systems at that altitude may have even more problems.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+well, russ has convinced me that the tolerence testing algorithm can be 
 <br />
-case of the hybrid height coordinate, which already defined as
+non-trivial, and i actually cant come up with a non-contrived use case 
 <br />
-<br />z=a(k)+b(k)*zs
+as to how the two numbers could be generated by different processes. So 
 <br />
-<br />Jonathan
+i will withdraw my objection to exact testing.
 <br />
-<span id="received"><dfn>Received on</dfn> Sun Jun 25 2006 - 10:13:49 BST</span>
+<br />having said that, my instincts as a numerical programmer are never to do 
+<br />
+exact testing on floating point, and in my heart of hearts i think the 
+<br />
+right thing to do is to use a good-as-possible  tolerence test. Even 
+<br />
+when that might fail on some extreme case,  the way to fix that is to 
+<br />
+use a CF convention which just explicitly says &quot;non-contiguous 
+<br />
+boundary&quot;, so that the tolerence test is bypassed.
+<br />
+<br /><em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;As a personal aside:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;Someone has tried to create a CF netcdf file and bungled it, by not 
+</em><br />
+<em class="quotelev2">&gt;&gt;getting the coordinate bounds correct. So I am going to use NcML to fix 
+</em><br />
+<em class="quotelev2">&gt;&gt;the problem, by adding some of the values in &quot;by hand&quot;.
+</em><br />
+<em class="quotelev2">&gt;&gt;    
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;I know you are using ncml to generate catalogues, and so I can see the 
+</em><br />
+<em class="quotelev1">&gt;incentive for *fixing* the ncml associated with files , however, if folk are 
+</em><br />
+<em class="quotelev1">&gt;using the ncml to instantiate code for doing things with the data based on 
+</em><br />
+<em class="quotelev1">&gt;the ncml, I think it would be dangerous to rely on &quot;by-hand-fixes&quot; in
+</em><br />
+<em class="quotelev1">&gt;the markup that are not representative of the actual data files ...
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;.... having said that, I know about real users and what they do ...
+</em><br />
+<em class="quotelev1">&gt;  
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+what we are seeing a lot of in THREDDS are files that are meant to be 
+<br />
+COARDS compliant, but made some mistake. Or they have no coordinate 
+<br />
+variables or Conventions at all, but those can be found and added easily 
+<br />
+enough. The &quot;NcML Dataset&quot; is a way to fix those mistakes or add the 
+<br />
+missing info. Its true that someone trying to fix the problem might also 
+<br />
+make some mistake, but if the whole thing is transparent, someone should 
+<br />
+be able to find the problem and collaboratively fix it. at least thats 
+<br />
+the hope.
+<br />
+<br />I would expect NcML Dataset to be used mostly by data providers 
+<br />
+themselves in their data servers and catalogs,  who are making their 
+<br />
+archives available and want to fix their past sins. We are experimenting 
+<br />
+with retrofitting datasets into COARDS and CF Conventions, for example.
+<br />
+<br />I hope to have some decent web pages up soon that will explain the 
+<br />
+basics, in case anyone wants more info. Note that this part of NcML is 
+<br />
+still alpha, although we hope to call it beta soon.
+<br />
+<span id="received"><dfn>Received on</dfn> Fri May 23 2003 - 09:21:48 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -113,12 +223,10 @@ case of the hybrid height coordinate, which already defined as
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start156">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0157.html" title="Next message in the list">V. Balaji: "[CF-metadata] new vertical coordinate"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0155.html" title="Previous message in the list">Brian Eaton: "[CF-metadata] new vertical coordinate"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0157.html" title="Next message in the list">Bob Drach: "[CF-metadata] bounds"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0155.html" title="Previous message in the list">Bryan Lawrence: "[CF-metadata] bounds"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0155.html" title="Message to which this message replies">Bryan Lawrence: "[CF-metadata] bounds"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0157.html" title="Next message in this discussion thread">V. Balaji: "[CF-metadata] new vertical coordinate"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0157.html" title="Message sent in reply to this message">V. Balaji: "[CF-metadata] new vertical coordinate"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -129,7 +237,7 @@ case of the hybrid height coordinate, which already defined as
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:45 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0155.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0157.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

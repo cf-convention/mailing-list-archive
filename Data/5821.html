@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] request #1 for names: mole concentrations and mass fractions, similar to current names from alison.pamment at stfc.ac.uk on 2013-11-04 (mailing-list-archive)</title>
-<meta name="Author" content="alison.pamment at stfc.ac.uk (alison.pamment)" />
-<meta name="Subject" content="[CF-metadata] request #1 for names: mole concentrations and mass fractions, similar to current names" />
-<meta name="Date" content="2013-11-04" />
+<title>[CF-metadata] directional data in a projected coordinate system from Charles Seaton on 2013-02-07 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Charles Seaton (cseaton)" />
+<meta name="Subject" content="[CF-metadata] directional data in a projected coordinate system" />
+<meta name="Date" content="2013-02-07" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5820.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5822.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] request #1 for names: mole concentrations and mass fractions, similar to current names</h1>
-<!-- received="Mon Nov  4 02:42:46 2013" -->
-<!-- isoreceived="20131104024246" -->
-<!-- sent="Mon, 4 Nov 2013 09:42:46 +0000" -->
-<!-- isosent="20131104094246" -->
-<!-- name="alison.pamment at stfc.ac.uk" -->
-<!-- email="alison.pamment" -->
-<!-- subject="[CF-metadata] request #1 for names: mole concentrations and mass fractions, similar to current names" -->
-<!-- id="014539AC4976BE4490A360410A8C20176666AA38_at_EXCHMBX02.fed.cclrc.ac.uk" -->
+<a style="text-decoration:none" href="./5820.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5822.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] directional data in a projected coordinate system</h1>
+<!-- received="Wed Feb  6 19:55:12 2013" -->
+<!-- isoreceived="20130206195512" -->
+<!-- sent="Wed, 06 Feb 2013 18:55:12 -0800" -->
+<!-- isosent="20130207025512" -->
+<!-- name="Charles Seaton" -->
+<!-- email="cseaton" -->
+<!-- subject="[CF-metadata] directional data in a projected coordinate system" -->
+<!-- id="51131790.8090502_at_stccmop.org" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5822.html" accesskey="d" title="Hedley, Mark: &quot;[CF-metadata] Cell methods when there are no coordinates&quot;">Next message</a> ]
-[ <a href="./5820.html" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] Standard names for sea level change&quot;">Previous message</a> ]
+[ <a href="./5822.html" accesskey="d" title="Hattersley, Richard: &quot;[CF-metadata] directional data in a projected coordinate system&quot;">Next message</a> ]
+[ <a href="./5820.html" title="Nan Galbraith: &quot;[CF-metadata] Usage of the &#0039;Conventions&#0039; attribute (Phil	Bentley)&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./5822.html" accesskey="t" title="Hattersley, Richard: &quot;[CF-metadata] directional data in a projected coordinate system&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,135 +70,66 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: alison.pamment at stfc.ac.uk &lt;<a href="mailto:alison.pamment?Subject=Re%3A%20%5BCF-metadata%5D%20request%20%231%20for%20names%3A%20mole%20concentrations%20and%20mass%20fractions%2C%20similar%20to%20current%20names">alison.pamment</a>&gt;
+<dfn>From</dfn>: Charles Seaton &lt;<a href="mailto:cseaton?Subject=Re%3A%20%5BCF-metadata%5D%20directional%20data%20in%20a%20projected%20coordinate%20system">cseaton</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 4 Nov 2013 09:42:46 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 06 Feb 2013 18:55:12 -0800</span><br />
 </address>
 <br />
-Dear John and Roy,
+Hello all,
 <br />
-<br />Thank you to John for these proposals and to both of you for the discussion so far. Clearly these are complex measurements and they raise a number of important issues for standard names. To make progress on this set of proposals we need to understand the definitions of the proposed quantities and to try to make them as consistent as possible with existing names and definitions. Below I have tried to summarize the outstanding issues relating to each name.
+<br />We are in the process of switching standard model output at CMOP over to 
 <br />
-<br />1) mole_concentration_of_particulate_matter_expressed_as_biogenic_silicon_per_unit_mass_in_sea_water (mol kg -1)
+CF compliant netcdf. As we do so, we are looking at whether we can 
 <br />
-' Concentration in sea water of silicon dioxide particles produced by living organisms, presented as moles per unit mass. Mole fraction is used in the construction mole_fraction_of_X_in_Y, where X is a material constituent of Y.'
+retain our data in projected coordinates or whether we need to switch to 
 <br />
-<br />The term mole_concentration is defined in standard names to mean 'number_of_moles_per_unit_volume'. A quantity with units of mol kg-1 should simply be moles_of_X_per_unit_mass_Y where X is the chemical species and Y is the medium.
+using global lat-lon coordinates. We have run into an ambiguity in the 
 <br />
-<br />I think that 'expressed_as_biogenic_silicon' is mixing together the description of the chemical species and its source .  A better wording would be particulate_biogenic_matter_expressed_as_silicon which I think is more consistent with the existing mole_concentration_of_particulate_matter_expressed_as_silicon_in_sea_water name. So the proposed name would be: moles_of_particulate_biogenic_matter_expressed_as_silicon_per_unit_mass_in_sea_water.
+handling of directional data in a projected coordinate system in CF.
 <br />
-<br />Looking further into existing silicon names I see that we already have mole_concentration_of_organic_detritus_expressed_as_silicon_in_sea_water with units of mol m-3. I think that 'organic_detritus' may describe the same concept as 'particulate_biogenic_matter'. Do others agree? We have five existing organic_detritus names. Personally I would vote to change them all to use particulate_biogenic_matter as it is more systematic and fits better with other existing chemistry/biogeochemistry names.
+<br />If I have model output velocities generated in a projected coordinate 
 <br />
-<br />We currently have nine names which include 'silicon' as a chemical species and three which include 'silicate'. No existing names include the term 'silica'. Silicate is not defined, but following the definitions of sulfate, nitrate, nitrite, etc., I would assume this to mean an ion of silicon in combination with another chemical species such as oxygen. According to Wikipedia, 'silicate' means any anion containing silicon. 'Silicon' itself is also not defined in standard names, although we do have the definition 'dissolved inorganic silicon/silicate means silicate ions in solution' which so clearly we are not talking about elemental silicon. Roy has suggested that ' hydrated silica (opal)'  may be what is meant by particulate_matter_expressed_as_biogenic_silicon but I wonder if that is being a bit too specific about the species? Also, it does sound a lot narrower than 'organic detritus'.  I really don't have the expertise to decide whether we should standardize on using one of silicon/silica/silicate or to kno<br />
-w exactly what is meant in each case. I'd welcome further comments that can shed any light on this! 
+system, should velocity data that is relative to the projected 
 <br />
-<br />2) mole_concentration_of_particulate_matter_expressed_as_lithogenic_silicon_per_unit_mass_in_sea_water (mol kg -1)
+coordinate system?
 <br />
-' Concentration in sea water of silicon dioxide particles produced from terrestrial rocks and soil, presented as moles per unit mass. The concept moles_of_X_per_unit_mass_in_Y is also called &quot;molality&quot; of X in Y, where X is a material constituent of Y.'
+<br />Take the canonical lambert conformal conic example (example 5.7 at 
 <br />
-<br />As with the previous name, I think this name should be reworded as moles_of_particulate_lithogenic_matter_expressed_as_silicon_per_unit_mass_in_sea_water.
+<a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.0/ch05s06.html">http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.0/ch05s06.html</a>). If 
 <br />
-<br />'Lithogenic' is a term not used before in standard names, but I think it is fine to define it as 'produced from terrestrial rocks and soil'.
+I add a variable:
 <br />
-<br />Regarding silicon|silica|silicate, please see my comments in (1).
+<br />float VelN(time, y, x);
 <br />
-<br />3) moles_of_nitrogen_per_unit_mass_in_sea_water (mol kg-1)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VelN:standard_name =&quot;northward_sea_water_velocity&quot;
 <br />
-'Concentration of nitrogen in sea water, presented as number of moles per unit mass. The concept moles_of_X_per_unit_mass_in_Y is also called &quot;molality&quot; of X in Y, where X is a material constituent of Y.'
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VelN:coordinates=&quot;lat lon&quot;;
 <br />
-<br />Roy wrote:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VelN:grid_mapping = &quot;Lambert_Conformal&quot;;
 <br />
-<em class="quotelev1">&gt; I find 'moles_of_nitrogen_per_unit_mass_in_sea_water' ambiguous. Do you mean dissolved, particulate or particulate+dissolved and organic, 
-</em><br />
-<em class="quotelev1">&gt; inorganic or total (organic+inorganic). I'm guessing you're aiming at dissolved NO3+NO2+NH4, in which case 'dissolved_total_inorganic_nitrogen' 
-</em><br />
-<em class="quotelev1">&gt; might suit.
-</em><br />
-<br />John wrote:
+<br />would it then be understood (by CF compliant software) that this is the 
 <br />
-<em class="quotelev1">&gt; This is a BATS measurement, reference <a href="http://bats.bios.edu/bats_measurements.html">http://bats.bios.edu/bats_measurements.html</a>, and <a href="http://bats.bios.edu/methods/chapter20.pdf">http://bats.bios.edu/methods/chapter20.pdf</a>.  &quot;Total
-</em><br />
-<em class="quotelev1">&gt; nigrogen mass flux is defined as the amount of sinking particular organic nitrogen passing through a depth level.&quot; Later: &quot;Particular flux is then
-</em><br />
-<em class="quotelev1">&gt; calculated by multiple the %N by the mass flux.&quot; (BATS also presents Nitrate+Nitrite and Particulate Organic Nitrogen separately.)
-</em><br />
-<br />Thank you for providing the references. The first reference  lists only measurements involving organic nitrogen. It has separate entries for dissolved organic nitrogen measured by 'UV oxidation' and particulate organic nitrogen measured using a 'high temperature combustion CHN analyzer'.  Perhaps we need to introduce two names, one for moles_of_dissolved_organic_nitrogen and another for moles_of_particulate_organic_nitrogen.
+y-component of velocity within the context of the projection, which will 
 <br />
-<br />Roy wrote:
+differ from the true Northward component of velocity at most points 
 <br />
-<em class="quotelev1">&gt; I'm now getting the feeling that 'moles_of_nitrogen_per_unit_mass_in_sea_water' is an attempt to describe the organic nitrogen concentration in a
-</em><br />
-<em class="quotelev1">&gt; suspended particulate material sample: i.e. the values multiplied with mass flux to give PON flux.  Am I right? If I am then you should be looking at 
-</em><br />
-<em class="quotelev1">&gt; something like 'moles_of_nitrogen_per_unit_mass_of_suspended_particulate_matter'. Note that per unit mass of SPM is VERY different to per unit 
-</em><br />
-<em class="quotelev1">&gt; mass of sea water and 'per_unit_mass_in_sea_water' is a statement of the latter.'
-</em><br />
-<br />Clearly we need to be sure whether we are talking about per_unit_mass_in_sea_water or per_unit_mass_of_suspended_particulate_matter. Would it be possible to contact anyone from the team making the measurements to find out the correct interpretation?
+within the projection? Or does using the name &quot;northward_X&quot; mean that 
 <br />
-<br />4) mole_concentration_of_dissolved_phosphorus_per_unit_mass_in_sea_water (mol kg-1)
+the velocity should be the true Northward component of velocity?
 <br />
-' Concentration of dissolved phosphorus in sea water, presented as number of moles per unit mass. The concept moles_of_X_per_unit_mass_in_Y is also called &quot;molality&quot; of X in Y, where X is a material constituent of Y.'
+<br />thanks,
 <br />
-<br />I think this name should be moles_of_dissolved_phosphorus_per_unit_mass_in_sea_water; otherwise it looks fine.
+<br />Charles Seaton
 <br />
-<br />Is this one also a BATS measurement? If so, then I think we are OK to say just 'phosphorus' as the list of parameters doesn't seem to distinguish between organic and inorganic molecules.
+<br />Research Associate
 <br />
-<br />5)  mass_fraction_of_chlorophyll_a_in_sea_water (1)
+Center for Coastal Margin Observation and Prediction (CMOP)
 <br />
-' Proportion of the chlorophyll a pigment in sea water. Mass fraction is used in the construction mass_fraction_of_X_in_Y, where X is a material constituent of Y. It means the ratio of the mass of X to the mass of Y (including X). A chemical species denoted by X may be described by a single term such as 'nitrogen' or a phrase such as 'nox_expressed_as_nitrogen'. Chlorophyll is the green pigment found in most plants, algae and cyanobacteria; it's presence is essential for photosynthesis to take place. There are five different forms of chlorophyll that occur naturally; all contain a chlorin ring which gives the green pigment and a side chain whose structure varies. Chlorophyll-a is the most commonly occurring form of natural chlorophyll.'
+Oregon Health and Science University
 <br />
-<br />The name looks fine.
+cseaton at stccmop.org
 <br />
-<br />Roy has suggested amending the definition by replacing 'Chlorphyll is ...' with 'Chlorophylls are...' and 'There are five different forms of chlorophyll...' with 'There are several different forms of chlorophyll...' to take account of the fact that there are six or more chlorophyll species.
-<br />
-<br />&nbsp;I am happy with those changes and will amend the definitions of the eight existing chlorophyll names to match.
-<br />
-<br />This name is accepted for inclusion in the standard name table.
-<br />
-<br />6) mass_fraction_of_particulate_organic_carbon_in_sea_water (1)
-<br />
-'Proportion of carbon particles from organic sources in sea water. Mass fraction is used in the construction mass_fraction_of_X_in_Y, where X is a material constituent of Y. It means the ratio of the mass of X to the mass of Y (including X). A chemical species denoted by X may be described by a single term such as 'nitrogen' or a phrase such as 'nox_expressed_as_nitrogen'. Organic carbon describes a family of chemical species and is the term used in standard names for all species belonging to the family that are represented within a given model. The list of individual species that are included in a quantity having a group chemical standard name can vary between models. Where possible, the data variable should be accompanied by a complete description of the species represented, for example, by using a comment attribute. Particulate organic carbon is in the form of particles too big to pass through a filter.'
-<br />
-<br />John wrote:
-<br />
-<em class="quotelev1">&gt; Is this better as &quot;mass_fraction_of_particulate_organic_matter_expressed_as_carbon_in_sea_water&quot;? I don't understand the purpose of the
-</em><br />
-<em class="quotelev1">&gt; indirection &quot;particulate_organic_matter_expressed_as_X&quot;, as opposed to just &quot;particulate_organic_X&quot;, but it appears to be a pattern.
-</em><br />
-<br />The term 'particulate_organic_matter' was originally introduced to describe atmospheric aerosol and is used in 44 existing names in both  the atmosphere and ocean domains.  I think we chose to use it in the ocean to try and standardise terminology as far as possible with the atmosphere.  The particles in question are not necessarily all of the same composition. Extending the term using 'expressed_as_X' means that we are focussing on the 'X' contained in said particles, without worrying too much about what other chemical species may be present.
-<br />
-<br />We have two existing names, sinking_mole_flux_of_particulate_organic_nitrogen_in_sea_water and sinking_mole_flux_of_particulate_organic_phosporus_in_sea_water which are the only place we use 'particulate_organic_X'. I think these should be brought in line with the rest and changed to sinking_mole_flux_of_particulate_organic_matter_expressed_as_nitrogen_in_sea_water and sinking_mole_flux_of_particulate_organic_matter_expressed_as_phosporus_in_sea_water. Any objections?
-<br />
-<br />Roy wrote:
-<br />
-<em class="quotelev1">&gt; I'm not totally comfortable with the organic carbon definition - it doesn't really tell me anything. How about 'Organic carbon is the carbon remaining 
-</em><br />
-<em class="quotelev1">&gt; in a sample after carbonates and bicarbonates have been removed by acidification'.
-</em><br />
-<br />I'm always happy to try and improve the standard names definitions. There is only one existing name that  refers directly to organic_carbon: mole_concentration_of_dissolved_organic_carbon_in_sea_water. I will add that sentence to the definition.
-<br />
-<br />Best wishes,
-<br />
-Alison
-<br />
-<br />------
-<br />
-Alison Pamment                          Tel: +44 1235 778065
-<br />
-NCAS/British Atmospheric Data Centre    Email: alison.pamment at stfc.ac.uk
-<br />
-STFC Rutherford Appleton Laboratory     
-<br />
-R25, 2.22
-<br />
-Harwell Oxford, Didcot, OX11 0QX, U.K.
-<br />
-<pre>
--- 
-Scanned by iCritical.
-</pre>
-<span id="received"><dfn>Received on</dfn> Mon Nov 04 2013 - 02:42:46 GMT</span>
+<span id="received"><dfn>Received on</dfn> Wed Feb 06 2013 - 19:55:12 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -204,9 +137,12 @@ Scanned by iCritical.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5821">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5822.html" title="Next message in the list">Hedley, Mark: "[CF-metadata] Cell methods when there are no coordinates"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5820.html" title="Previous message in the list">alison.pamment at stfc.ac.uk: "[CF-metadata] Standard names for sea level change"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5822.html" title="Next message in the list">Hattersley, Richard: "[CF-metadata] directional data in a projected coordinate system"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5820.html" title="Previous message in the list">Nan Galbraith: "[CF-metadata] Usage of the &#0039;Conventions&#0039; attribute (Phil	Bentley)"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./5822.html" title="Next message in this discussion thread">Hattersley, Richard: "[CF-metadata] directional data in a projected coordinate system"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./5822.html" title="Message sent in reply to this message">Hattersley, Richard: "[CF-metadata] directional data in a projected coordinate system"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -217,7 +153,7 @@ Scanned by iCritical.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:31 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5820.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5822.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

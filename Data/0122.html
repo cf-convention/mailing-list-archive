@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] new standard names from Beate.Geyer at gkss.de on 2006-04-11 (mailing-list-archive)</title>
-<meta name="Author" content="Beate.Geyer at gkss.de (Beate.Geyer)" />
-<meta name="Subject" content="[CF-metadata] new standard names" />
-<meta name="Date" content="2006-04-11" />
+<title>[CF-metadata] CF-1.0-beta5: curvilinear bounds &quot;contiguous&quot;attribute from John Caron on 2003-03-21 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] CF-1.0-beta5: curvilinear bounds &quot;contiguous&quot;attribute" />
+<meta name="Date" content="2003-03-21" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0121.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0123.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new standard names</h1>
-<!-- received="Tue Apr 11 07:25:57 2006" -->
-<!-- isoreceived="20060411062557" -->
-<!-- sent="Tue, 11 Apr 2006 15:25:57 +0200" -->
-<!-- isosent="20060411132557" -->
-<!-- name="Beate.Geyer at gkss.de" -->
-<!-- email="Beate.Geyer" -->
-<!-- subject="[CF-metadata] new standard names" -->
-<!-- id="OFCC326F3F.373F763E-ONC125714D.0029344A-C125714D.0049CA90_at_dvsun2.gkss.de" -->
+<a style="text-decoration:none" href="./0121.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0123.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF-1.0-beta5: curvilinear bounds &quot;contiguous&quot;attribute</h1>
+<!-- received="Fri Mar 21 13:15:23 2003" -->
+<!-- isoreceived="20030321131523" -->
+<!-- sent="Fri, 21 Mar 2003 13:15:23 -0700" -->
+<!-- isosent="20030321201523" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] CF-1.0-beta5: curvilinear bounds &quot;contiguous&quot;attribute" -->
+<!-- id="3E7B72DB.4000704_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="3E7B6E5D.8050401_at_unidata.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,11 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0123.html" accesskey="d" title="Pamment, JA: &quot;[CF-metadata] Standard names manager&quot;">Next message</a> ]
-[ <a href="./0121.html" title="Jonathan Gregory: &quot;[CF-metadata] sea_area&quot;">Previous message</a> ]
+[ <a href="./0123.html" accesskey="d" title="Stephens, A: &quot;[CF-metadata] Radar data and the &#0039;dB&#0039; and &#0039;dBZ&#0039; units&quot;">Next message</a> ]
+[ <a href="./0121.html" title="John Caron: &quot;[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute&quot;">Previous message</a> ]
+[ <a href="./0121.html" title="John Caron: &quot;[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0166.html" accesskey="t" title="Pamment, JA: &quot;[CF-metadata] RE: new standard names&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,68 +70,36 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Beate.Geyer at gkss.de &lt;<a href="mailto:Beate.Geyer?Subject=Re%3A%20%5BCF-metadata%5D%20new%20standard%20names">Beate.Geyer</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20CF-1.0-beta5%3A%20curvilinear%20bounds%20%22contiguous%22attribute">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 11 Apr 2006 15:25:57 +0200</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 21 Mar 2003 13:15:23 -0700</span><br />
 </address>
 <br />
-Dear Jonathan,
+Just to expand on the idea of transformations:
 <br />
-<br />for the next transfer of GCM-data to netCDF I propose additional standard 
+<br />My working definition of  a &quot;grid&quot; is &quot;an array such that values next to 
 <br />
-names.
+each other in index space are next to each other in coordinate space &quot;. 
 <br />
-To separate them from my previous proposals I continue the numbering from 
+&nbsp;(I think I also need the requirement that the number of dimensions 
 <br />
-my last email.
+equals the number of coordinate axes) An invertible, continuous 
 <br />
-17. 
+transformation will preserve this &quot;next to each other&quot; property.  Im 
 <br />
-friction_velocity, m s-1
+sure someone who remembers more toplogy than i do could say this more 
 <br />
-18.
+precisely.
 <br />
-greenness_index, Normalized Difference Vegetation Index (NDVI), 1
+<br />In the NcML Coordinate System spec we are interested in Coordinate 
 <br />
-19.
+Transforms that have this property. If anyone envisions using CF for 
 <br />
-spectral models in some cases calculate negative humidities, to give them 
+other kinds of coordinate systems, i would be interested in knowing 
 <br />
-meteorological sense they are set to 0
+about it.
 <br />
-to make this reconstructable these difference values are stored:
-<br />
-filling_of_negative_specific_humidities, kg m-2
-<br />
-<br />Thanks for your help,
-<br />
-Beate
-<br />
-====================================================
-<br />
-&nbsp;Dr. Beate Geyer 
-<br />
-&nbsp;GKSS Research Centre 
-<br />
-&nbsp;Institute for Coastal Research 
-<br />
-&nbsp;Max-Planck-Str. 
-<br />
-&nbsp;D-21502 Geesthacht, Germany 
-<br />
-<br />E-Mail:   Beate.Geyer at gkss.de
-<br />
-www: <a href="http://icts.gkss.de">http://icts.gkss.de</a>
-<br />
-====================================================
-<br />
--------------- next part --------------
-<br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20060411/7b32af5c/attachment-0002.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20060411/7b32af5c/attachment-0002.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Tue Apr 11 2006 - 07:25:57 BST</span>
+<span id="received"><dfn>Received on</dfn> Fri Mar 21 2003 - 13:15:23 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -139,12 +107,10 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start122">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0123.html" title="Next message in the list">Pamment, JA: "[CF-metadata] Standard names manager"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0121.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] sea_area"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0123.html" title="Next message in the list">Stephens, A: "[CF-metadata] Radar data and the &#0039;dB&#0039; and &#0039;dBZ&#0039; units"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0121.html" title="Previous message in the list">John Caron: "[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0121.html" title="Message to which this message replies">John Caron: "[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0166.html" title="Next message in this discussion thread">Pamment, JA: "[CF-metadata] RE: new standard names"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0166.html" title="Message sent in reply to this message">Pamment, JA: "[CF-metadata] RE: new standard names"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -155,7 +121,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:44 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0121.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0123.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

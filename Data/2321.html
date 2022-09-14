@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Cell bounds associated with coordinate variable rather than data variable from Thomas Lavergne on 2009-11-12 (mailing-list-archive)</title>
-<meta name="Author" content="Thomas Lavergne (thomasl)" />
-<meta name="Subject" content="[CF-metadata] Cell bounds associated with coordinate variable rather than data variable" />
-<meta name="Date" content="2009-11-12" />
+<title>[CF-metadata] AGU Fall Meeting H65: Integrated Modeling in Hydrology: Advances in Model Interoperability, Architectures, and Cyberinfrastructure from Bert Jagers on 2008-08-29 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Bert Jagers (bert.jagers)" />
+<meta name="Subject" content="[CF-metadata] AGU Fall Meeting H65: Integrated Modeling in Hydrology: Advances in Model Interoperability, Architectures, and Cyberinfrastructure" />
+<meta name="Date" content="2008-08-29" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2320.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2322.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Cell bounds associated with coordinate variable rather than data variable</h1>
-<!-- received="Thu Nov 12 16:06:14 2009" -->
-<!-- isoreceived="20091112160614" -->
-<!-- sent="Thu, 12 Nov 2009 23:06:14 +0000 (UTC)" -->
-<!-- isosent="20091112230614" -->
-<!-- name="Thomas Lavergne" -->
-<!-- email="thomasl" -->
-<!-- subject="[CF-metadata] Cell bounds associated with coordinate variable rather than data variable" -->
-<!-- id="912564502.2537921258067174493.JavaMail.root_at_imap1a" -->
+<a style="text-decoration:none" href="./2320.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2322.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] AGU Fall Meeting H65: Integrated Modeling in Hydrology: Advances in Model Interoperability, Architectures, and Cyberinfrastructure</h1>
+<!-- received="Fri Aug 29 02:17:12 2008" -->
+<!-- isoreceived="20080829011712" -->
+<!-- sent="Fri, 29 Aug 2008 10:17:12 +0200" -->
+<!-- isosent="20080829081712" -->
+<!-- name="Bert Jagers" -->
+<!-- email="bert.jagers" -->
+<!-- subject="[CF-metadata] AGU Fall Meeting H65: Integrated Modeling in Hydrology: Advances in Model Interoperability, Architectures, and Cyberinfrastructure" -->
+<!-- id="001a01c909af$a3dd5cd0$bae40991_at_wl06936" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="2002091101.2537901258067168475.JavaMail.root_at_imap1a" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2322.html" accesskey="d" title="John Caron: &quot;[CF-metadata] Cell bounds associated with coordinate variable rather than data variable&quot;">Next message</a> ]
-[ <a href="./2320.html" title="Steve Hankin: &quot;[CF-metadata] Cell bounds associated with coordinate variable rather than data variable&quot;">Previous message</a> ]
+[ <a href="./2322.html" accesskey="d" title="Dale Robinson: &quot;[CF-metadata] fixed sensors, depth, datum&quot;">Next message</a> ]
+[ <a href="./2320.html" title="Jonathan Gregory: &quot;[CF-metadata]  Same parameter, different meaning (pressure)&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -69,408 +68,108 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Thomas Lavergne &lt;<a href="mailto:thomasl?Subject=Re%3A%20%5BCF-metadata%5D%20Cell%20bounds%20associated%20with%20coordinate%20variable%20rather%20than%20data%20variable">thomasl</a>&gt;
+<dfn>From</dfn>: Bert Jagers &lt;<a href="mailto:bert.jagers?Subject=Re%3A%20%5BCF-metadata%5D%20AGU%20Fall%20Meeting%20H65%3A%20Integrated%20Modeling%20in%20Hydrology%3A%20Advances%20in%20Model%20Interoperability%2C%20Architectures%2C%20and%20Cyberinfrastructure">bert.jagers</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 12 Nov 2009 23:06:14 +0000 (UTC)</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 29 Aug 2008 10:17:12 +0200</span><br />
 </address>
 <br />
-So far, we seem to agree that: 
+*Abstract deadline: September 10, 2008.*
 <br />
-1) mid-point should be used if there if not strong arguments for doing so,
+<br />This is an announcement for a session at the upcoming AGU Fall Meeting, 
 <br />
-2) mid-point is actually the most representative value for _evenly_ averaged quantities,
+15-19 December, San Francisco.
 <br />
-3) time accumulated/integrated quantities are maybe the exception.
+<br />Session H65: Integrated Modeling in Hydrology: Advances in Model 
 <br />
-<br />What about integrated quantities along other axis, then? Aerosol Optical Depth (z), Mean Sea Level Pressure (z), broadband reflectance (wavelength), spectral directional-hemispherical albedo (view angles)... at which axis value would they be expected?
+Interoperability, Architectures, and Cyberinfrastructure
 <br />
-<br />Let's not forget that, in the end, we are only trying to &quot;patch&quot; over the requirement for a valid axis value (COARDS/Unidata) and that &quot;practical&quot; reasons (like mentionned by Seth for the time associated to NWP fields) might be just as valid as &quot;theoretical&quot; choices.
+<br />Intro:
 <br />
-<br />Thomas 
+Questions from policy makers, managers and research progress lead to 
 <br />
-<br />----- &quot;Steve Hankin&quot; &lt;Steven.C.Hankin at noaa.gov&gt; wrote:
+increasingly complex integrated environmental modelling questions. This 
 <br />
-<br /><em class="quotelev1">&gt; John Caron wrote:
-</em><br />
-<em class="quotelev2">&gt; &gt; 1. The CDM library uses the bounds if they are present. If only the
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev2">&gt; &gt; coordinate values are present, the CDM generates bounds. These grids
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev2">&gt; &gt; bounds are used by ncWMS and other visualization software to draw 
-</em><br />
-<em class="quotelev2">&gt; &gt; color filled images.   The IDV (I think) uses a contouring algorithm
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev2">&gt; &gt; with just the coordinate values.
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; 2. Spatial coordinates probably want to use midpoint values.
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; 3. I think theres a good argument that time coordinates want to use
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev2">&gt; &gt; the end-point. Seth makes the argument for numerical models. In this
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev2">&gt; &gt; case, all the output variables should have the same time coordinate.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev2">&gt; &gt; Im trying to think of a case where thats not true (point
-</em><br />
-<em class="quotelev1">&gt; observations, 
-</em><br />
-<em class="quotelev2">&gt; &gt; radar data etc), and im not thinking of any.
-</em><br />
-<em class="quotelev1">&gt; Hi John,
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I'm not understanding the logic that suggests using midpoints for 
-</em><br />
-<em class="quotelev1">&gt; spatial coordinates, but endpoints for times.  Whenever an
-</em><br />
-<em class="quotelev1">&gt; applications 
-</em><br />
-<em class="quotelev1">&gt; sees a particular reason to place the grid point at something other
-</em><br />
-<em class="quotelev1">&gt; than 
-</em><br />
-<em class="quotelev1">&gt; the midpoint (on whatever axis) of course it should do so.  That may 
-</em><br />
-<em class="quotelev1">&gt; lead to placing the grid point at the start, middle or end of the 
-</em><br />
-<em class="quotelev1">&gt; interval.  But the question that is before us is to say what the
-</em><br />
-<em class="quotelev1">&gt; default 
-</em><br />
-<em class="quotelev1">&gt; should be for the case where the boundaries of cell values is clearly
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; understood, but it is unclear what coordinate value best to use for
-</em><br />
-<em class="quotelev1">&gt; the 
-</em><br />
-<em class="quotelev1">&gt; grid point.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; All other things being equal using a consistent strategy for space and
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; time is the simpler, &quot;KISS&quot;, approach.  Both instantaneous and 
-</em><br />
-<em class="quotelev1">&gt; time-interval-averaged values are most naturally encoded using
-</em><br />
-<em class="quotelev1">&gt; midpoint 
-</em><br />
-<em class="quotelev1">&gt; representation (disagreeing with both Seth's conclusion and your 
-</em><br />
-<em class="quotelev1">&gt; speculation.  Are we using terms differently?).  The compelling case
-</em><br />
-<em class="quotelev1">&gt; for 
-</em><br />
-<em class="quotelev1">&gt; a time endpoint may be continuous integrals (e.g. accumulated 
-</em><br />
-<em class="quotelev1">&gt; precipitation).  If one has a mixture of model variables to output and
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; the interpretations of their time coordinates needs to be different, 
-</em><br />
-<em class="quotelev1">&gt; then placing two different time axes into the file is the only way to
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; eliminate the confusion.  Arbitrarily shifting the grid point
-</em><br />
-<em class="quotelev1">&gt; locations 
-</em><br />
-<em class="quotelev1">&gt; by 1/2 time cell will not eliminate confusion, will it?  It seems like
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; it would merely hide the confusion and increase the chances of 
-</em><br />
-<em class="quotelev1">&gt; misinterpretation.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; (To be frank, although I have seen many CF datasets using both
-</em><br />
-<em class="quotelev1">&gt; midpoint 
-</em><br />
-<em class="quotelev1">&gt; and start-point times, I have never encountered one previously that
-</em><br />
-<em class="quotelev1">&gt; uses 
-</em><br />
-<em class="quotelev1">&gt; the end point of the time interval.  It seems possible that as a 
-</em><br />
-<em class="quotelev1">&gt; practical matter this choice may introduce confusion rather than
-</em><br />
-<em class="quotelev1">&gt; reduce it.)
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt;     - Steve
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; =====================
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Seth's argument about confusion remains the same if one
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; 4. Perhaps &quot;interval of accumulation&quot; is different enough that one 
-</em><br />
-<em class="quotelev2">&gt; &gt; should just encode it in a separate attribute or auxiliary
-</em><br />
-<em class="quotelev1">&gt; coordinate 
-</em><br />
-<em class="quotelev2">&gt; &gt; on the data variable. Numerical models can have different variables
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev2">&gt; &gt; with different intervals, possibly overlapping. This is perhaps not
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev2">&gt; &gt; really the same as the bounds on the coordinate, they just share the
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev2">&gt; &gt; same codomain (time). An advantage of this approach is that you dont
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev2">&gt; &gt; have to create new coordinate variables for each data variable,
-</em><br />
-<em class="quotelev1">&gt; which 
-</em><br />
-<em class="quotelev2">&gt; &gt; seems like more trouble than its worth.
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; Seth McGinnis wrote:
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; In the case of 'raw' output from numerical models, it probably
-</em><br />
-<em class="quotelev1">&gt; makes 
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; sense to
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; use the end-point of the time interval rather than the mid-point. 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; That's the
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; moment for which the model stores the data, whether they're 
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; instantaneous
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; values (intensive variables) or time-averages over the previous
-</em><br />
-<em class="quotelev1">&gt; timestep
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; (extensive variables).
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt;
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; If you used the mid-point of the interval for extensive variables,
-</em><br />
-<em class="quotelev1">&gt; they
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; wouldn't have the same time coordinates as the intensive variables,
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; which would
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; be very confusing.  Using the end-point keeps everything aligned.
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt;
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; --Seth
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt;
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt;
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; On Thu, 12 Nov 2009 14:41:26 +0000 (UTC)
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt;  Thomas Lavergne &lt;thomasl at met.no&gt; wrote:
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt;  
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; Dear Jonathan,
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; ----- &quot;Jonathan Gregory&quot; &lt;j.m.gregory at reading.ac.uk&gt; wrote:
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt;    
-</em><br />
-<em class="quotelev1">&gt; &gt;&gt;&gt;&gt; Dear Thomas
-</em><br />
-<em class="quotelev1">&gt; &gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev1">&gt; &gt;&gt;&gt;&gt; I'm not saying the coordinate *must* be the mid-point. If there's
-</em><br />
-<em class="quotelev1">&gt; a
-</em><br />
-<em class="quotelev1">&gt; &gt;&gt;&gt;&gt; good reason
-</em><br />
-<em class="quotelev1">&gt; &gt;&gt;&gt;&gt; for it being something else, then you could choose it to be so. I
-</em><br />
-<em class="quotelev1">&gt; was
-</em><br />
-<em class="quotelev1">&gt; &gt;&gt;&gt;&gt; suggesting that we could recommend it should be the mid-point if
-</em><br />
-<em class="quotelev1">&gt; there
-</em><br />
-<em class="quotelev1">&gt; &gt;&gt;&gt;&gt; is
-</em><br />
-<em class="quotelev1">&gt; &gt;&gt;&gt;&gt; no strong basis for making another choice. We could also say that
-</em><br />
-<em class="quotelev1">&gt; it
-</em><br />
-<em class="quotelev1">&gt; &gt;&gt;&gt;&gt; must not
-</em><br />
-<em class="quotelev1">&gt; &gt;&gt;&gt;&gt; be outside the bounds.
-</em><br />
-<em class="quotelev1">&gt; &gt;&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; I agree with your recommendation.
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; But I was also trying to gain support on &quot;which axis value should
-</em><br />
-<em class="quotelev1">&gt; I 
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; choose for
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; my variable&quot; and your answer does not help :-).
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; I have rather little basis for making the choice of the end time
-</em><br />
-<em class="quotelev1">&gt; for
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; representing an accumulated quantity but, at least, CF does not 
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; forbid it. I
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; guess I have to seek agreement inside my scientific community and
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; that it is
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; not CF's role to decide upon that.
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; Are there people interested in taking the discussion further? We 
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; seek the
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; answer to the question: &quot;In which cases would another choice
-</em><br />
-<em class="quotelev1">&gt; (other 
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; than
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; mid-point) be relevant?&quot;.
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; Thomas
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt;    
-</em><br />
-<em class="quotelev1">&gt; &gt;&gt;&gt;&gt; You are right, it cannot be missing data. That would break some
-</em><br />
-<em class="quotelev1">&gt; &gt;&gt;&gt;&gt; applications,
-</em><br />
-<em class="quotelev1">&gt; &gt;&gt;&gt;&gt; anyway.
-</em><br />
-<em class="quotelev1">&gt; &gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev1">&gt; &gt;&gt;&gt;&gt; Cheers
-</em><br />
-<em class="quotelev1">&gt; &gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev1">&gt; &gt;&gt;&gt;&gt; Jonathan
-</em><br />
-<em class="quotelev1">&gt; &gt;&gt;&gt;&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; &gt;&gt;&gt;&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; &gt;&gt;&gt;&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; &gt;&gt;&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt; &gt;&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; _______________________________________________
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt;     
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt;
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; _______________________________________________
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt;   
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; _______________________________________________
-</em><br />
-<em class="quotelev2">&gt; &gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev2">&gt; &gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev2">&gt; &gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<span id="received"><dfn>Received on</dfn> Thu Nov 12 2009 - 16:06:14 GMT</span>
+field covers a wide range of physical processes of the critical zone ranging 
+<br />
+and associated schematisations from local meteorology, catchment modelling 
+<br />
+(surface and subsurface) from source to sea with various scales and details 
+<br />
+(0D, 1D, 2D, 3D modelling) covering hydrodynamics, sediment transport and 
+<br />
+morphology, water quality and ecology as well as anthropogenic influences. 
+<br />
+Even the integrated modelling of a modest subset of this range of processes 
+<br />
+requires a lot of resources and the coupling of various models, model 
+<br />
+components and data sources. We intend to bring together various communities 
+<br />
+working in this wide research field working on technologies that enable 
+<br />
+interoperability and integrated modelling.
+<br />
+<br />Session summary:
+<br />
+This session addresses recent advances in integrating hydrologic models 
+<br />
+across scales, disciplines, and media. Many approaches have been proposed 
+<br />
+for creating hydrologic modeling frameworks and for coupling domain-specific 
+<br />
+or discipline-specific hydrology models. We encourage presentations from 
+<br />
+such efforts that address the challenge, approach, and conclusions gained 
+<br />
+from integrating hydrologic models. Furthermore, our aim is to encourage 
+<br />
+dialog for moving hydrologic modeling from ad hoc coupling approaches to a 
+<br />
+generalized integrated modeling approach. In this generalized approach, the 
+<br />
+modeling system is designed to be able to include process representations 
+<br />
+from across disciplines, scales, and media, and these processes can be 
+<br />
+easily added or removed to test scientific hypotheses and better understand 
+<br />
+hydrologic function. Thus, we also encourage submissions addressing 
+<br />
+scientific and technical challenges in creating such next generation 
+<br />
+integrated modeling systems. These include but are not limited to semantic 
+<br />
+mediation between earth science disciplines, component-based modeling 
+<br />
+architectures, model coupling paradigms, and scaling between spatially and 
+<br />
+temporally mismatched models.
+<br />
+<br />Conveners:
+<br />
+Jon Goodall (University of South Carolina), Bert Jagers (Deltares | Delft 
+<br />
+Hydraulics), Scott Peckham (University of Colorado), Michael Piasecki 
+<br />
+(Drexel University), Jay Famiglietti (University of California 
+<br />
+<br /><pre>
+-- 
+Delft Hydraulics, GeoDelft, the Subsurface and Groundwater unit of TNO and
+parts of Rijkswaterstaat have joined forces in a new independent institute for
+delta technology, Deltares. Deltares combines knowledge and experience in the
+field of water, soil and the subsurface. We provide innovative solutions to make
+living in deltas, coastal areas and river basins safe, clean and sustainable.
+DISCLAIMER: This message is intended exclusively for the addressee(s) and may
+contain confidential and privileged information. If you are not the intended
+recipient please notify the sender immediately and destroy this message.
+Unauthorized use, disclosure or copying of this message is strictly prohibited.
+The foundation 'Stichting Deltares', which has its seat at Delft,
+The Netherlands, Commercial Registration Number 41146461, is not liable in any
+way whatsoever for consequences and/or damages resulting from the improper,
+incomplete and untimely dispatch, receipt and/or content of this e-mail.
+</pre>
+<span id="received"><dfn>Received on</dfn> Fri Aug 29 2008 - 02:17:12 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -478,8 +177,8 @@ So far, we seem to agree that:
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2321">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2322.html" title="Next message in the list">John Caron: "[CF-metadata] Cell bounds associated with coordinate variable rather than data variable"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2320.html" title="Previous message in the list">Steve Hankin: "[CF-metadata] Cell bounds associated with coordinate variable rather than data variable"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2322.html" title="Next message in the list">Dale Robinson: "[CF-metadata] fixed sensors, depth, datum"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2320.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]  Same parameter, different meaning (pressure)"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -491,7 +190,7 @@ So far, we seem to agree that:
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:24 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2320.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2322.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

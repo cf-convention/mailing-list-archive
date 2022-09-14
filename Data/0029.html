@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] request for new netCDF standart names from Jonathan Gregory on 2006-02-09 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] request for new netCDF standart names" />
-<meta name="Date" content="2006-02-09" />
+<title>Fwd: [CF-metadata] Standard name table from Jonathan Gregory on 2002-08-07 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (jonathan.gregory)" />
+<meta name="Subject" content="Fwd: [CF-metadata] Standard name table" />
+<meta name="Date" content="2002-08-07" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0028.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0030.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] request for new netCDF standart names</h1>
-<!-- received="Thu Feb  9 14:45:41 2006" -->
-<!-- isoreceived="20060209144541" -->
-<!-- sent="Thu, 9 Feb 2006 21:45:41 +0000" -->
-<!-- isosent="20060209214541" -->
+<a style="text-decoration:none" href="./0028.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0030.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>Fwd: [CF-metadata] Standard name table</h1>
+<!-- received="Wed Aug  7 09:41:34 2002" -->
+<!-- isoreceived="20020807084134" -->
+<!-- sent="Wed, 07 Aug 2002 16:41:34 +0100" -->
+<!-- isosent="20020807154134" -->
 <!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] request for new netCDF standart names" -->
-<!-- id="20060209214541.GA6191_at_met.reading.ac.uk" -->
+<!-- email="jonathan.gregory" -->
+<!-- subject="Fwd: [CF-metadata] Standard name table" -->
+<!-- id="20020807164134.A3316_at_hc1600.meto.gov.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0030.html" accesskey="d" title="Beate.Geyer at gkss.de: &quot;[CF-metadata] cellmethods=&#0034;lat: lon: mean over land&#0034;&quot;">Next message</a> ]
-[ <a href="./0028.html" title="Bryan Lawrence: &quot;[CF-metadata] request for new netCDF standart names&quot;">Previous message</a> ]
+[ <a href="./0030.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Conformance to the CF convention&quot;">Next message</a> ]
+[ <a href="./0028.html" title="Stephens, A: &quot;[CF-metadata] Standard name table&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,126 +68,48 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20request%20for%20new%20netCDF%20standart%20names">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:jonathan.gregory?Subject=Re%3A%20Fwd%3A%20%5BCF-metadata%5D%20Standard%20name%20table">jonathan.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 9 Feb 2006 21:45:41 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 07 Aug 2002 16:41:34 +0100</span><br />
 </address>
 <br />
-Dear Elke
+Dear Ag
 <br />
-<br /><em class="quotelev1">&gt; 1. forest_area_fraction
+<br /><em class="quotelev1">&gt; I have been looking through the CF convention Standard Name table at
 </em><br />
-Obviously we could define a lot of names like this, for different types of
-<br />
-vegetation, etc. I think therefore we should consider something more generic.
-<br />
-I propose that we introduce a standard name of area_fraction, and require that
-<br />
-a variable with this standard name should have a coordinate which specifies
-<br />
-somehow what quantity is being given an area fraction. For your case you would
-<br />
-use a string-valued coordinate variable of land_cover (recently defined). Your
-<br />
-data variable of forest area fraction would therefore be described thus:
-<br />
-<br />variables:
-<br />
-&nbsp;&nbsp;float area_fraction(land_cover,lat,lon);
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;area_fraction:standard_name=&quot;area_fraction&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;area_fraction:units=&quot;1&quot;; // optional
-<br />
-&nbsp;&nbsp;char land_cover(surface_cover,stringmaxlength);
-<br />
-data:
-<br />
-&nbsp;&nbsp;land_cover=&quot;forest&quot;; 
-<br />
-<br />A scalar coordinate variable could alternatively be used:
-<br />
-<br />variables:
-<br />
-&nbsp;&nbsp;float area_fraction(lat,lon);
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;area_fraction:standard_name=&quot;area_fraction&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;area_fraction:units=&quot;1&quot;; // optional
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;area_fraction:coordinates=&quot;land_cover&quot;;
-<br />
-&nbsp;&nbsp;char land_cover(stringmaxlength);
-<br />
-<br />If you have fractional land coverage of grid boxes and wish to specify whether
-<br />
-the forest fraction is expressed per unit area of land or per unit area of the
-<br />
-whole grid box, this can be done with cell_methods=&quot;lat: lon: mean over land&quot;
-<br />
-or &quot;lat: lon: mean&quot; (this is a convention we agreed earlier in this list but
-<br />
-have not added to the standard yet).
-<br />
-<br />What do you think?
-<br />
-<br />I agree with Bryan that strings such as the possible values of area_fraction
-<br />
-should be tabulated and standardised eventually, as we have done for other
-<br />
-lists such as region names.
-<br />
-<br /><em class="quotelev1">&gt; 2. skin_reservoir_content
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/cms/eaton/netcdf/standard_name_20010915.html">http://www.cgd.ucar.edu/cms/eaton/netcdf/standard_name_20010915.html</a> . I
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; assume that CF users around the world will be expected to add to the list of
 </em><br />
-<em class="quotelev1">&gt; A part of this quantity is the canopy water amount but additionally this
+<em class="quotelev1">&gt; standard names but I cannot find any documentation of this.
 </em><br />
-<em class="quotelev1">&gt; quantity contains the wetting of the bare soil. MKS unit=m
-</em><br />
-<br />By &quot;wetting of the bare soil&quot; do you mean liquid water standing on the surface
+<br />That is the intention when it is up and running. But at the moment the
 <br />
-(not soil moisture content)?
+standard name table is a draft to illustrate the principle and to invite
 <br />
-<br /><em class="quotelev1">&gt; 3. frozen_soil_fraction
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; This quantity describes the part of the soil which is frozen, MKS unit=1
-</em><br />
-<br />We already have mass_fraction_of_frozen_water_in_soil_moisture. Is that what
+comments on whether it's a good idea and on the details of how it has been
 <br />
-you mean? If not, could you describe more precisely what fraction you mean?
+done. We have had some comments that have not been implemented yet, mostly
 <br />
-<br /><em class="quotelev1">&gt; 4. surface_snow_amount_change
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; This quantity describes the change of the snow amount at the surface, 
-</em><br />
-<em class="quotelev1">&gt; MKS unit=kg/m**2
-</em><br />
-<br />I don't think we should define such a name. We'd have to do that for every
+aimed at using some more common terms in some places (for instance, as is
 <br />
-variable, potentially! But I can understand that you want to distinguish a
+usual in our subjects, &quot;flux&quot; instead of the standard physics &quot;flux density&quot;
 <br />
-change from an unchanged quantity. Perhaps it would be more informative to
+for something m-2), some shortenings, and some quantities to be added. The
 <br />
-express the change as a rate of change in kg m-2 s-1. In that case you could
+draft did not aim to be comprehensive anyway, although I believe it does
 <br />
-also use the time bounds to show the time interval over which the change
+cover all the standard GRIB and AMIP quantities.
 <br />
-occurred; that information could be useful.
+<br />I hope we can do a new version soon. In the meantime, your comments and
 <br />
-<br />If we need to provide special names for changes, I think we'll have to
-<br />
-introduce a new mechanism for it. Comments welcome from everyone.
+additions are welcome.
 <br />
 <br />Best wishes
 <br />
 <br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Thu Feb 09 2006 - 14:45:41 GMT</span>
+<span id="received"><dfn>Received on</dfn> Wed Aug 07 2002 - 09:41:34 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -195,8 +117,8 @@ introduce a new mechanism for it. Comments welcome from everyone.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start29">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0030.html" title="Next message in the list">Beate.Geyer at gkss.de: "[CF-metadata] cellmethods=&#0034;lat: lon: mean over land&#0034;"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0028.html" title="Previous message in the list">Bryan Lawrence: "[CF-metadata] request for new netCDF standart names"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0030.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Conformance to the CF convention"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0028.html" title="Previous message in the list">Stephens, A: "[CF-metadata] Standard name table"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -208,7 +130,7 @@ introduce a new mechanism for it. Comments welcome from everyone.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:43 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0028.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0030.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

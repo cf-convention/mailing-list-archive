@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Multiple file datasets (was: Swath observational data) from V. Balaji on 2009-11-20 (mailing-list-archive)</title>
-<meta name="Author" content="V. Balaji (V.Balaji)" />
-<meta name="Subject" content="[CF-metadata] Multiple file datasets (was: Swath observational data)" />
-<meta name="Date" content="2009-11-20" />
+<title>[CF-metadata] CF #24 (common_concept proposal) from Pamment, JA on 2008-09-24 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Pamment, JA (J.A.Pamment)" />
+<meta name="Subject" content="[CF-metadata] CF #24 (common_concept proposal)" />
+<meta name="Date" content="2008-09-24" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2362.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2364.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Multiple file datasets (was: Swath observational data)</h1>
-<!-- received="Fri Nov 20 06:51:15 2009" -->
-<!-- isoreceived="20091120065115" -->
-<!-- sent="Fri, 20 Nov 2009 08:51:15 -0500 (EST)" -->
-<!-- isosent="20091120135115" -->
-<!-- name="V. Balaji" -->
-<!-- email="V.Balaji" -->
-<!-- subject="[CF-metadata] Multiple file datasets (was: Swath observational data)" -->
-<!-- id="alpine.DEB.1.00.0911200841110.13237_at_joliba" -->
+<a style="text-decoration:none" href="./2362.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2364.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF #24 (common_concept proposal)</h1>
+<!-- received="Wed Sep 24 07:06:09 2008" -->
+<!-- isoreceived="20080924060609" -->
+<!-- sent="Wed, 24 Sep 2008 14:06:09 +0100" -->
+<!-- isosent="20080924130609" -->
+<!-- name="Pamment, JA" -->
+<!-- email="J.A.Pamment" -->
+<!-- subject="[CF-metadata] CF #24 (common_concept proposal)" -->
+<!-- id="EB1E7CB92F5B35459E0B926D2A614DB60DCED4_at_EXCHANGE19.fed.cclrc.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4B068BB1.6070309_at_unidata.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2364.html" accesskey="d" title="John Caron: &quot;[CF-metadata] Multiple file datasets&quot;">Next message</a> ]
-[ <a href="./2362.html" title="Stephen Emsley: &quot;[CF-metadata] Multiple file datasets (was: Swath observational data)&quot;">Previous message</a> ]
-[ <a href="./2359.html" title="John Caron: &quot;[CF-metadata] Multiple file datasets (was: Swath observational data)&quot;">In reply to</a> ]
+[ <a href="./2364.html" accesskey="d" title="Philip J. Cameronsmith1: &quot;[CF-metadata] CF standard names for chemical constituents and aerosols (resulting from a GRIB2 proposal)&quot;">Next message</a> ]
+[ <a href="./2362.html" title="Philip J. Cameronsmith1: &quot;[CF-metadata] CF standard names for chemical constituents and aerosols (resulting from a GRIB2 p&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./2370.html" accesskey="t" title="Steve Hankin: &quot;[CF-metadata] Multiple file datasets&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,314 +68,498 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: V. Balaji &lt;<a href="mailto:V.Balaji?Subject=Re%3A%20%5BCF-metadata%5D%20Multiple%20file%20datasets%20(was%3A%20Swath%20observational%20data)">V.Balaji</a>&gt;
+<dfn>From</dfn>: Pamment, JA &lt;<a href="mailto:J.A.Pamment?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20%2324%20(common_concept%20proposal)">J.A.Pamment</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 20 Nov 2009 08:51:15 -0500 (EST)</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 24 Sep 2008 14:06:09 +0100</span><br />
 </address>
 <br />
-The gridspec indeed had a proposal about this. Clearly it was a bit
+Dear All
 <br />
-off-topic, but some mechanism of referring to other files was needed. It
+<br />I volunteered to act as the moderator for trac ticket 24, the proposal
 <br />
-consists of an attribute called a link_spec, which has attributes of a
+for the common_concept.  This ticket has attracted a lot of interest and
 <br />
-baseURL, a relative pathname, and a checksum for verifying whether the
+I added my summary of the current status of the discussion to the trac
 <br />
-external file being referenced is indeed the one you're looking for.
+system on 13th August.  Unfortunately, due to an intermittent problem
 <br />
-There wasn't a special var at link syntax, but I don't see why it couldn't
+with email, my changes were not sent to the cf-conventions mailing list
 <br />
-have had one.
+and as a result many people are probably unaware that the summary has
 <br />
-<br />CMIP5 is proposing a simplified variant on the link_spec. A file
+been added.   For convenience, I have included the text of the summary
 <br />
-can have a global attribute &quot;associated_files&quot; which are also
+below.  If you wish to make any further comments in the discussion,
 <br />
-formed out of a baseURL and relative pathnames. The only permitted
+please do not reply to this posting but add them to the trac ticket in
 <br />
-associated_files are gridspec, and cell areas and volumes that may
+the usual way.
 <br />
-be used in cell_methods.
+<br />Best wishes,
 <br />
-<br />Other approaches have been proposed in this forum, most notably on Trac
+Alison
 <br />
-#24 and #27, the common_concept thread and Benno's namespace thread.
+<br />==&gt; Please note new email address: alison.pamment at stfc.ac.uk &lt;==
 <br />
-<br />SAFE has been explained already in this thread.
+<br />--- Reproduced from trac ticket #24 ---
 <br />
-<br />I agree with John, it would be good to consider this problem in
+<br />As moderator of this ticket I would first like to thank everyone for the
 <br />
-isolation, without the baggage of gridspecs or common concepts or
+many excellent and thoughtful contributions to the discussion.  Clearly
 <br />
-namespaces.
+this proposal has excited a lot of interest.  Thanks in particular to to
 <br />
-<br />John Caron writes:
+Bryan, John Graybeal and Steve for summarizing at intervals and
 <br />
-<br /><em class="quotelev1">&gt; This topic deserves its own heading, so here it is.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Perhaps we should gather current practices and ideas. I think Balaji's 
-</em><br />
-<em class="quotelev1">&gt; gridspec has a proposal about this. Can anyone summarize what SAFE does?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Im imagining how this is actually used, eg:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; float data(y,x);
-</em><br />
-<em class="quotelev1">&gt; data:coordinates = &quot;lat at file1 lon at file2&quot;;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; ????
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; John Graybeal wrote:
-</em><br />
-<em class="quotelev2">&gt;&gt; I like Bryan's recommendation for a UUID or similar.
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; Now I'm going to be annoying and suggest the UUID *could* be a URI, or 
-</em><br />
-<em class="quotelev2">&gt;&gt; these days, an IRI (International ..).
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; And I think the way of 'locating' the file should be neither in packaging 
-</em><br />
-<em class="quotelev2">&gt;&gt; nor in local resolution; it should be in global namespace resolution.  This 
-</em><br />
-<em class="quotelev2">&gt;&gt; is the way of the future, and is already more 'permanent' than either 
-</em><br />
-<em class="quotelev2">&gt;&gt; packaging or local resolution, IMHO.
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; There is one form of URI in particular that is already resolvable: a URL. 
-</em><br />
-<em class="quotelev2">&gt;&gt; OK, that's an old song, but I'm gonna stick to it for a while longer.  That 
-</em><br />
-<em class="quotelev2">&gt;&gt; form meets all the other requirements: it can be registered in a resolver, 
-</em><br />
-<em class="quotelev2">&gt;&gt; it can be guaranteed unique (to the same authority level as a UUID, 
-</em><br />
-<em class="quotelev2">&gt;&gt; anyway), and it is a unique string that can be used to validate the link). 
-</em><br />
-<em class="quotelev2">&gt;&gt; And it has the obvious benefit of being resolvable right now, for as long 
-</em><br />
-<em class="quotelev2">&gt;&gt; as the domain is held and properly maintained (Good URLs don't die).
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; Since the last paragraph risks starting another unique identifier war, I 
-</em><br />
-<em class="quotelev2">&gt;&gt; promise not to re-engage unless someone asks me to. Meanwhile, I like
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; John
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; On Nov 19, 2009, at 22:23, Bryan Lawrence wrote:
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; On Thursday 19 November 2009 19:40:08 Jonathan Gregory wrote:
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;&gt;     ...  In  some cases, referencing attributes such as
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;&gt;      &quot;coordinates&quot; and &quot;ancillary_variables&quot; would, ideally, point to a
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;&gt;      variable in a different dataset.
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; This is a general problem to which CF doesn't have a solution because it 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; was
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; conceived as a convention for single netCDF files. However we need a 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; solution
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; as often several files should be treated as a single dataset.
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; If the files don't overlap i.e. their contents are complementary, I think 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; it
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; should be satisfactory to allow variables in one file to be pointed to by 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; name
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; from another file, with no other mechanism being required within the 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; file. I
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; don't like the idea of naming one file within another file, as that would 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; be
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; very fragile. Instead, I think the file aggregation should be implied by
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; simply defining the group of files which are to be treated as one file 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; e.g.
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; by putting them in one directory.
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; It's the old ones that are the best ones :-) :-)  this issue keeps on 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; coming back ... :-) :-) and we keep trying to ignore it ...
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; I think we agree that an actual physical filename including path is 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; useless. We need both  a relative link which relies on the preservation of 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; a group of files in a particular arrangement ...  AND an internal 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; identifier so more robust linking mechanisms can be used when (if) the 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; data ends up in a managed environment.
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; I think it's crucial in this situation to ensure that each file has a 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; unique identifier within it (created, for example, with uuid), because all 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; solutions which rely on packaging are fragile (SAFE is probably better 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; than most), but the bottom line is that users move files around ... and we 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; need some way of ensuring that we/they can validate the links that are in 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; place are the ones that were originally intended.
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; So relative links would also include the identifier of the intended target 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; as well as the relative path in operating system agnostic terms.
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; That identifier can be used in two ways: to validate the link (my software 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; can always check that the variable that I just opened following a link 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; from another one is the one that was expected by checking the container 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; identifier), and b) to produce an identifier resolver service for the 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; situation where the packaging has had to be broken (which might occur for 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; performance reasons or ...)
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; CF could recommend something like this ...
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Bryan
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; -- 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Bryan Lawrence
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Director of Environmental Archival and Associated Research
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; (NCAS/British Atmospheric Data Centre and NCEO/NERC NEODC)
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; STFC, Rutherford Appleton Laboratory
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Phone +44 1235 445012; Fax ... 5848;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Web: home.badc.rl.ac.uk/lawrence
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; _______________________________________________
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; --------------
-</em><br />
-<em class="quotelev2">&gt;&gt; I have my new work email address: jgraybeal at ucsd.edu
-</em><br />
-<em class="quotelev2">&gt;&gt; --------------
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; John Graybeal   &lt;mailto:jgraybeal at ucsd.edu&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; phone: 858-534-2162
-</em><br />
-<em class="quotelev2">&gt;&gt; Development Manager
-</em><br />
-<em class="quotelev2">&gt;&gt; Ocean Observatories Initiative Cyberinfrastructure Project: 
-</em><br />
-<em class="quotelev2">&gt;&gt; <a href="http://ci.oceanobservatories.org">http://ci.oceanobservatories.org</a>
-</em><br />
-<em class="quotelev2">&gt;&gt; Marine Metadata Interoperability Project: <a href="http://marinemetadata.org">http://marinemetadata.org</a>
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; _______________________________________________
-</em><br />
-<em class="quotelev2">&gt;&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev2">&gt;&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev2">&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<br /><pre>
--- 
-V. Balaji                               Office:  +1-609-452-6516
-Head, Modeling Systems Group, GFDL      Home:    +1-212-253-6662
-Princeton University                    Email: v.balaji at noaa.gov
+providing suggestions on how to proceed with the discussion.
+<br />
+<br />I would like first to express my own opinion before moving on to my
+<br />
+summary of the ticket.  From my point of view, an important strength of
+<br />
+this proposal is that it could help to speed up the agreement of
+<br />
+standard names.  I'm not really convinced that it will reduce the number
+<br />
+of standard name proposals because a common_concept will still require a
+<br />
+standard_name to point to when describing a physical quantity.  However,
+<br />
+if a scientific community is able to make use of its own familiar terms
+<br />
+via the common_concept I think that will tend to reduce the tension
+<br />
+between the community's wish/requirement to have their particular terms
+<br />
+accepted as standard and the need for standard_names to be constructed
+<br />
+according to CF's accepted rules and guidelines.  That is my reason for
+<br />
+supporting this proposal.
+<br />
+<br />I will turn now to the role of moderator and try to give as unbiased a
+<br />
+summary as possible of the discussion so far.  I have tried to
+<br />
+concentrate on the main areas of agreement and disagreement while
+<br />
+attempting not to restate too much of the detailed technical arguments.
+<br />
+<br />1. There is agreement that common_concepts may be used to:-
+<br />
+a) draw together a combination of CF attributes, to include standard
+<br />
+name and other attributes such as cell_methods, valid values and/or
+<br />
+valid ranges of coordinate variables and names of grid mappings.  (This
+<br />
+list is indicative and not necessarily exhaustive);
+<br />
+b) provide synonyms for the standard name attribute alone.
+<br />
+<br />2. All but one contributor seem to be agreed that a CF &quot;concept
+<br />
+registry&quot; should be established within which user communities can
+<br />
+register their own common_concepts.  Steve Hankin has raised the concern
+<br />
+that registering URIs could lead to namespace collisions.
+<br />
+<br />3. There is agreement on the following potential benefit:-
+<br />
+The introduction of common_concepts will allow mappings to be created
+<br />
+between CF and an unlimited number of other vocabularies, whether they
+<br />
+be local to a single institution or widely adopted in other metadata
+<br />
+standards.
+<br />
+This will address the following use cases:-
+<br />
+a) the requirement for data centres to serve files that contain a user's
+<br />
+own familiar vocabulary;
+<br />
+b) the requirement for short names as an alternative to standard_names +
+<br />
+additional metadata;
+<br />
+(N.B. this should not be taken to imply that all are agreed on _how_ the
+<br />
+mapping should be achieved in practice - see later)
+<br />
+<br />4. Other potential benefits and topics that have emerged during the
+<br />
+discussion:-
+<br />
+a) The possibility of registering a concept even while some of its
+<br />
+constituent parts are under discussion but have not been fully agreed
+<br />
+within CF, for example, while the standard name is still under
+<br />
+discussion.  This would require some form of registration system that
+<br />
+would cater for newer versions of common_concepts.  This would require a
+<br />
+proposal to be put forward under another trac ticket.
+<br />
+b) Common_concept may provide a mechanism for CF metadata to reference
+<br />
+terms from other vocabularies/metadata standards.  In particular, this
+<br />
+would require the development of a syntax or &quot;parsing scheme&quot; for
+<br />
+referencing metadata outside the CF standard.  Benno has opened ticket
+<br />
+#27 for the discussion of this topic.  The form of the URIs used for
+<br />
+external referencing could also be adopted for referencing
+<br />
+common_concept bundles of CF attributes.
+<br />
+c) Bryan has raised the question of how the local names that map onto
+<br />
+the common_concept URIs should be encoded.  This is an important
+<br />
+subtopic for the discussion of the current ticket and should be opened
+<br />
+under another trac ticket.
+<br />
+d) John Caron, in discussing the content of the common_concept attribute
+<br />
+raised the question of mapping not just identities, but other types of
+<br />
+relationships between common concepts and local names.  I think this
+<br />
+point is very much akin to Steve Hankin's identification of the need to
+<br />
+&quot;add semantic richness&quot; to standard names, for example, describe the
+<br />
+relationship between sea_surface_temperature and
+<br />
+sea_surface_skin_temperature.
+<br />
+<br /><br />It should be noted that none of these was part of the original proposal
+<br />
+and in order to keep this discussion to manageable proportions these
+<br />
+topics should be pursued under separate trac tickets or mailing list
+<br />
+discussion threads as appropriate.
+<br />
+<br />5. This ticket should continue to be used for the discussion of the
+<br />
+original proposal which concentrates on defining common_concepts based
+<br />
+on metadata attributes that already form part of the CF conventions.
+<br />
+Even this narrower view gives rise to a number of questions that need to
+<br />
+be addressed before a second draft of the proposal can be prepared.
+<br />
+<br />a) What language should be used to describe the definition?
+<br />
+It is clear that, if a common_concept is to be defined, there must
+<br />
+necessarily be a way of describing that concept.  The original proposal
+<br />
+attempts to use CDL as a language for describing the constraints on a
+<br />
+common concept, i.e., what values its constituent attributes may be
+<br />
+permitted to take.  It has been demonstrated during the discussion of
+<br />
+this ticket that CDL does not currently lend itself to this use.  Some
+<br />
+of the examples in the original proposal are ambiguous in their
+<br />
+interpretation.  Ticket 29 has been opened for the discussion of the
+<br />
+technical aspects of using CDL to describe the common_concept.  Other
+<br />
+possible methods of describing a common_concept have been raised during
+<br />
+the discussion of this ticket.  These include OWL/XML, RDF and OCL.  The
+<br />
+resolution of this issue is clearly essential if a second draft of the
+<br />
+common_concept proposal is to be developed and I would encourage all
+<br />
+interested parties to contribute to the discussion under ticket 29.
+<br />
+<br />b) What will be the procedure for registering a common concept
+<br />
+definition?
+<br />
+There is some question as to whether the registration of a
+<br />
+common_concept should be an entirely automated process or whether it
+<br />
+would/should require some manual intervention.  I would note that,
+<br />
+although the actual procedure for registering a common_concept may not
+<br />
+need to be included in the CF conventions (in the same way that the
+<br />
+procedure for proposing a new standard name is not spelt out within the
+<br />
+document itself), we nevertheless need to agree the procedure and put
+<br />
+any necessary software/services in place before the common_concept can
+<br />
+be put to practical use.  I think that a second draft of the proposal
+<br />
+would need to contain some further clarification of the registration
+<br />
+process.
+<br />
+<br />c) What CF metadata attributes are allowed to be included in the
+<br />
+common_concept definition?
+<br />
+This hasn't really come out in the discussion, but I think that for the
+<br />
+purpose of clearly defining the common_concept within the CF conventions
+<br />
+it may be necessary to list those attributes that can be used as part of
+<br />
+a combination.  Does it make sense to allow the use of any attribute or
+<br />
+are there some that should be excluded from use in common_concepts?
+<br />
+<br />6) There needs to be a means of attaching the information represented by
+<br />
+a common_concept to a CF variable.  The original proposal is that this
+<br />
+will be achieved by introducing a single additional attribute, called
+<br />
+common_concept, whose value will take the form
+<br />
+namespace:scoped_name;URI.  The value that this attribute should take,
+<br />
+and indeed whether a single attribute can suffice, has proved to be the
+<br />
+point of greatest debate within this discussion.
+<br />
+<br />To recap, the intended purpose of each of the proposed components of the
+<br />
+common_concept attribute is as follows:
+<br />
+scoped_name - this is the name that is used within a scientific
+<br />
+community to refer to a data variable such as 2 metre temperature;  
+<br />
+namespace - in essence, identifies the community or institution that
+<br />
+registered the scoped name;
+<br />
+URI - a machine readable identifier for the registered definition of the
+<br />
+common_concept.  All namespace:scoped_name identifiers that reference
+<br />
+the same common_concept would be associated with the same unique and
+<br />
+unchanging URI.
+<br />
+<br />The proposed design incorporates two distinct elements:
+<br />
+i) The local name that is familiar to the scientist using the data
+<br />
+ii) The means of mapping that local name to the registered
+<br />
+common_concept and, by implication, to other synonymous local names.
+<br />
+<br />a) The use of URIs.
+<br />
+We are agreed that any URIs should be opaque, i.e., contain no semantic
+<br />
+information additional to the CF attributes of the common_concept to
+<br />
+which the URI points.  There is no clear preference for the use of URNs
+<br />
+or URLs - John Graybeal has suggested that both might be included.
+<br />
+Ticket #27 includes much discussion of the form that URIs should take
+<br />
+and the outcome of that ticket should be used to inform the second draft
+<br />
+of the common_concept proposal.
+<br />
+<br />b) The local name vs the URI.
+<br />
+The original proposal was to include both these elements in the
+<br />
+common_concept attribute.  However, a number of contributors have
+<br />
+questioned this point:
+<br />
+John Caron suggested including the local name only - he was concerned
+<br />
+that a fixed URI would unduly limit possible mappings between
+<br />
+vocabularies (see below);
+<br />
+Steve Hankin also suggests using the local name only and does not
+<br />
+support the registration of URIs within CF;
+<br />
+Jonathan has suggested including the common_concept URI only - he has
+<br />
+argued that external software should translate the URI to a local name;
+<br />
+On behalf of the proposers Frank and Bryan have continued to argue that
+<br />
+both elements should be included so that the URI can point to the bundle
+<br />
+of attributes forming the concept while the inclusion of local names is
+<br />
+convenient for scientists accessing data from within a particular
+<br />
+institution.
+<br />
+<br />Frank has further suggested that the two elements could be split between
+<br />
+two new attributes - common_concept_urn and common_concept_local.
+<br />
+<br />The decision as to whether to include one or both elements of the name
+<br />
+depends very much on how the mapping process between URI and local name
+<br />
+(and by implication between one local name and another) is to be
+<br />
+achieved (see point (c) below).
+<br />
+<br />c) Should the mapping process take place within CF supported processes
+<br />
+or by an external mechanism?
+<br />
+According to the original proposal the mapping would be achieved by
+<br />
+registering both a common_concept metadata bundle and a
+<br />
+namespace:scoped_name with CF.  This, coupled with the proposed
+<br />
+automated registration procedure, would require CF to be responsible for
+<br />
+maintaining a machinable list of both these elements. The case for CF
+<br />
+providing this service from a central server has been further argued by
+<br />
+Frank and Bryan.
+<br />
+<br />John Graybeal, while supporting the establishment of a CF common_concept
+<br />
+registry, asked whether it would be appropriate for the mapping
+<br />
+mechanism from common_concept to local name to be entrenched within the
+<br />
+CF process.  He pointed out that the method of mapping from a CF
+<br />
+registered scoped name to another is a solution that is very local to
+<br />
+the CF community and asked whether the mapping from one vocabulary to
+<br />
+another should be done in cooperation with other organisations.
+<br />
+<br />John Caron asks whether mapping via an immutable URI is the best
+<br />
+approach because it allows only for the identity mapping between
+<br />
+common_concept/standard_name and another vocabulary.  The current
+<br />
+proposal does not address the construction of more complex relationships
+<br />
+such as finding broader or narrower terms than a particular scoped name.
+<br />
+However, the important point for this discussion is that John also
+<br />
+proposes splitting the job of naming the common_concept from that of
+<br />
+mapping and that the attribute should not attempt to encapsulate the
+<br />
+mapping mechanism.
+<br />
+<br />Jonathan suggests that the mapping between the URI and the local name
+<br />
+should be performed by servers within each institution.  He prefers the
+<br />
+suggestion of giving the URI and the local name in separate attributes,
+<br />
+but does not support registering the local names in the CF standard.
+<br />
+<br />As mentioned in my point 2, Steve Hankin has expressed the view that CF
+<br />
+should not act as a registry even for the URIs because of the potential
+<br />
+for namespace collision.  Individual institutions/ data centres would
+<br />
+then be responsible for mapping their own names to the CF attributes.
+<br />
+<br />7. Conclusion
+<br />
+The most important point to draw out is that we have a unanimous
+<br />
+consensus that the common_concept, as a means of bundling together a
+<br />
+number of attributes or as a synonym for standard names, will be a
+<br />
+useful addition to the CF conventions.  We must therefore work to
+<br />
+resolve the outstanding issues that have been raised during the
+<br />
+discussion.
+<br />
+&nbsp;
+<br />
+Progress now rests on reaching a decision on whether CF should act as a
+<br />
+registry for the common_concept attribute bundles (and presumably
+<br />
+associate them with a URI), local scoped names, or both.  I would say
+<br />
+that we are very close to achieving consensus that CF should register
+<br />
+the common_concept bundles but we are rather further away from consensus
+<br />
+on whether to register the local names.  Making a decision on this point
+<br />
+will also clarify what the content of the common_concept attribute
+<br />
+should be.
+<br />
+<br />In any case, I think it will not be possible to finalise all the details
+<br />
+of a second draft proposal until the outcomes of ticket 29 (CDL as a
+<br />
+constraint language) and 27 (on namespace tags) are decided.  However, I
+<br />
+hope that this summary will provide a starting point for developing a
+<br />
+second draft.  The second draft should make clear:
+<br />
+a) its scope (i.e., bundling together attributes that already form part
+<br />
+an agreed of the CF conventions);
+<br />
+b) a common_concept can consist of a standard_name only;
+<br />
+c) the registration process for the common concept.
+<br />
+<br />Best wishes
+<br />
+<br />Alison
+<br />
+<pre>
+---
+------
+J Alison Pamment                        Tel: +44 1235 778065
+NCAS/British Atmospheric Data Centre    Fax: +44 1235 446314
+Rutherford Appleton Laboratory          Email: alison.pamment at stfc.ac.uk
+Chilton, Didcot, OX11 0QX, U.K.
 </pre>
-<span id="received"><dfn>Received on</dfn> Fri Nov 20 2009 - 06:51:15 GMT</span>
+<span id="received"><dfn>Received on</dfn> Wed Sep 24 2008 - 07:06:09 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -387,13 +567,9 @@ Princeton University                    Email: v.balaji at noaa.gov
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2363">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2364.html" title="Next message in the list">John Caron: "[CF-metadata] Multiple file datasets"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2362.html" title="Previous message in the list">Stephen Emsley: "[CF-metadata] Multiple file datasets (was: Swath observational data)"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./2359.html" title="Message to which this message replies">John Caron: "[CF-metadata] Multiple file datasets (was: Swath observational data)"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2364.html" title="Next message in the list">Philip J. Cameronsmith1: "[CF-metadata] CF standard names for chemical constituents and aerosols (resulting from a GRIB2 proposal)"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2362.html" title="Previous message in the list">Philip J. Cameronsmith1: "[CF-metadata] CF standard names for chemical constituents and aerosols (resulting from a GRIB2 p"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./2370.html" title="Next message in this discussion thread">Steve Hankin: "[CF-metadata] Multiple file datasets"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./2370.html" title="Message sent in reply to this message">Steve Hankin: "[CF-metadata] Multiple file datasets"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -404,7 +580,7 @@ Princeton University                    Email: v.balaji at noaa.gov
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:24 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2362.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2364.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

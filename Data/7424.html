@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] New cell_methods: mabs/mibs/mebs? from Charlie Zender on 2016-02-17 (mailing-list-archive)</title>
-<meta name="Author" content="Charlie Zender (zender)" />
-<meta name="Subject" content="[CF-metadata] New cell_methods: mabs/mibs/mebs?" />
-<meta name="Date" content="2016-02-17" />
+<title>[CF-metadata]  FW:   realization | x of n from Jonathan Gregory on 2014-10-30 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata]  FW:   realization | x of n" />
+<meta name="Date" content="2014-10-30" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./7423.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7425.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] New cell_methods: mabs/mibs/mebs?</h1>
-<!-- received="Wed Feb 17 13:50:04 2016" -->
-<!-- isoreceived="20160217135004" -->
-<!-- sent="Wed, 17 Feb 2016 12:50:04 -0800" -->
-<!-- isosent="20160217205004" -->
-<!-- name="Charlie Zender" -->
-<!-- email="zender" -->
-<!-- subject="[CF-metadata] New cell_methods: mabs/mibs/mebs?" -->
-<!-- id="56C4DCFC.6030509_at_uci.edu" -->
+<a style="text-decoration:none" href="./7423.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7425.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  FW:   realization | x of n</h1>
+<!-- received="Thu Oct 30 10:40:48 2014" -->
+<!-- isoreceived="20141030104048" -->
+<!-- sent="Thu, 30 Oct 2014 16:40:48 +0000" -->
+<!-- isosent="20141030164048" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata]  FW:   realization | x of n" -->
+<!-- id="20141030164048.GB6314_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./7425.html" accesskey="d" title="Andreas Groh: &quot;[CF-metadata] ice mass change standard name&quot;">Next message</a> ]
-[ <a href="./7423.html" title="Karl Taylor: &quot;[CF-metadata] How to build CF-compliant seasonal climatology when data begins within a season&quot;">Previous message</a> ]
+[ <a href="./7425.html" accesskey="d" title="Hedley, Mark: &quot;[CF-metadata] FW:   realization | x of n&quot;">Next message</a> ]
+[ <a href="./7423.html" title="Jonathan Gregory: &quot;[CF-metadata]  string valued coordinates&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,27 +68,56 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Charlie Zender &lt;<a href="mailto:zender?Subject=Re%3A%20%5BCF-metadata%5D%20New%20cell_methods%3A%20mabs%2Fmibs%2Fmebs%3F">zender</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20FW%3A%20%20%20realization%20%7C%20x%20of%20n">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 17 Feb 2016 12:50:04 -0800</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 30 Oct 2014 16:40:48 +0000</span><br />
 </address>
 <br />
-Hi All,
+Dear Mark
 <br />
-I created a trac ticket for futher discussion and implementation:
+<br /><em class="quotelev1">&gt; Please may people raise any further concerns about a new standard name:
+</em><br />
+<em class="quotelev1">&gt;   number_of_realizations
+</em><br />
+<em class="quotelev1">&gt; with a canonical unit of
+</em><br />
+<em class="quotelev1">&gt;   ''
+</em><br />
+<em class="quotelev1">&gt; and a description of
+</em><br />
+<em class="quotelev1">&gt;   The number of member realizations within a given ensemble.
+</em><br />
+<br />My concern is probably the same one as before. Sorry about that. Does this
 <br />
-<a href="http://cf-trac.llnl.gov/trac/ticket/148#ticket">http://cf-trac.llnl.gov/trac/ticket/148#ticket</a>
+mean the number of members the ensemble has got? If it does, why does it differ
 <br />
-Best,
+from the ensemble dimension? If the ensemble dimension has been collapsed to
 <br />
-cz
+size 1, we could record this in cell_methods. Maybe you are dealing with an
 <br />
-<pre>
--- 
-Charlie Zender, Earth System Sci. &amp; Computer Sci.
-University of California, Irvine 949-891-2429 )'(
-</pre>
-<span id="received"><dfn>Received on</dfn> Wed Feb 17 2016 - 13:50:04 GMT</span>
+intermediate case, having a subset of the ensemble members, and you want to
+<br />
+record how many there originally were in total. Is this a common use case?
+<br />
+It seems rather surprising to me. But I'm not sure that's what you mean.
+<br />
+<br /><em class="quotelev1">&gt; This name enables a single member from an ensemble to explicitly be labelled, e.g.
+</em><br />
+<em class="quotelev1">&gt;   seven_of_nine
+</em><br />
+<em class="quotelev1">&gt; which is often required in operational forecasting.
+</em><br />
+<br />But this seems different. It's not the number of members there are, but the
+<br />
+ordinal number (7) of this particular member. Why can't that be recorded in a
+<br />
+variable with the existing standard_name of realization?
+<br />
+<br />Cheers
+<br />
+<br />Jonathan
+<br />
+<span id="received"><dfn>Received on</dfn> Thu Oct 30 2014 - 10:40:48 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -96,8 +125,8 @@ University of California, Irvine 949-891-2429 )'(
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start7424">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./7425.html" title="Next message in the list">Andreas Groh: "[CF-metadata] ice mass change standard name"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./7423.html" title="Previous message in the list">Karl Taylor: "[CF-metadata] How to build CF-compliant seasonal climatology when data begins within a season"</a></li>
+<li><dfn>Next message</dfn>: <a href="./7425.html" title="Next message in the list">Hedley, Mark: "[CF-metadata] FW:   realization | x of n"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./7423.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]  string valued coordinates"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -109,7 +138,7 @@ University of California, Irvine 949-891-2429 )'(
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:01 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./7423.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7425.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

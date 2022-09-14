@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] adding domain information to Cell methods when there are no coordinates from Hedley, Mark on 2013-11-12 (mailing-list-archive)</title>
-<meta name="Author" content="Hedley, Mark (mark.hedley)" />
-<meta name="Subject" content="[CF-metadata] adding domain information to Cell methods when there are no coordinates" />
-<meta name="Date" content="2013-11-12" />
+<title>[CF-metadata] New standard name: datetime_iso8601 from John Caron on 2013-02-23 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] New standard name: datetime_iso8601" />
+<meta name="Date" content="2013-02-23" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5845.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5847.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] adding domain information to Cell methods when there are no coordinates</h1>
-<!-- received="Tue Nov 12 06:50:26 2013" -->
-<!-- isoreceived="20131112065026" -->
-<!-- sent="Tue, 12 Nov 2013 13:50:26 +0000" -->
-<!-- isosent="20131112135026" -->
-<!-- name="Hedley, Mark" -->
-<!-- email="mark.hedley" -->
-<!-- subject="[CF-metadata] adding domain information to Cell methods when there are no coordinates" -->
-<!-- id="7819C496F4E10E47BCEFBE74551AAC9608F077_at_EXXCMPD1DAG3.cmpd1.metoffice.gov.uk" -->
+<a style="text-decoration:none" href="./5845.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5847.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] New standard name: datetime_iso8601</h1>
+<!-- received="Sat Feb 23 14:41:51 2013" -->
+<!-- isoreceived="20130223144151" -->
+<!-- sent="Sat, 23 Feb 2013 14:41:51 -0700" -->
+<!-- isosent="20130223214151" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] New standard name: datetime_iso8601" -->
+<!-- id="5129379F.4080409_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="CALGmxELi=YPrTybDOZW-1eOSpYJAyqsQW4MO-7OwJG3RvoniyQ_at_mail.gmail.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,9 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5847.html" accesskey="d" title="Lauret Olivier: &quot;[CF-metadata] Standard name table update&quot;">Next message</a> ]
-[ <a href="./5845.html" title="Alexander Barth: &quot;[CF-metadata] cell_methods for monthly climatologies&quot;">Previous message</a> ]
+[ <a href="./5847.html" accesskey="d" title="Chris Barker - NOAA Federal: &quot;[CF-metadata] New standard name: datetime_iso8601&quot;">Next message</a> ]
+[ <a href="./5845.html" title="John Caron: &quot;[CF-metadata] New standard name: datetime_iso8601&quot;">Previous message</a> ]
+[ <a href="./5759.html" title="Chris Barker - NOAA Federal: &quot;[CF-metadata] New standard name: datetime_iso8601&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./5847.html" accesskey="t" title="Chris Barker - NOAA Federal: &quot;[CF-metadata] New standard name: datetime_iso8601&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,106 +72,148 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Hedley, Mark &lt;<a href="mailto:mark.hedley?Subject=Re%3A%20%5BCF-metadata%5D%20adding%20domain%20information%20to%20Cell%20methods%20when%20there%20are%20no%20coordinates">mark.hedley</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20New%20standard%20name%3A%20datetime_iso8601">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 12 Nov 2013 13:50:26 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Sat, 23 Feb 2013 14:41:51 -0700</span><br />
 </address>
 <br />
-Hello Jonathan
+Hi Chris, and all:
 <br />
-<br />I think the second need is the more important.  This is the information I really want to capture.
+<br />On 1/11/2013 2:37 PM, Chris Barker - NOAA Federal wrote:
 <br />
-<br /><em class="quotelev1">&gt; You suggest listing all the coord or aux coord vars in the cell_methods comment. Would it not be sufficient, and more economical, to give the name of the uncollapsed dimension(s)?
+<em class="quotelev1">&gt; On Fri, Jan 11, 2013 at 9:00 AM, Aleksandar Jelenak - NOAA Affiliate
 </em><br />
-<br />My wariness in this regard is linked to the scope of the variable.  I need a variable to be in scope with respect to the data variable to maintain the referencing, particularly if the file is chopped up or reformed.  The 'coords' from the input data are no longer in scope for the result data variable unless I add them explicitly; the mechanism available to do this is an ancillary variables.
-<br />
-<br />Once I have a set of ancillary variables, it is easy for me to see that I can use these as part of a domain definition inside a cell method.
-<br />
-<br />If I use the dimension as a short cut for this then I make this scoping less clear, and more difficult to test for.  I prefer to be explicit that I am referencing variables which are in scope, even if that means I get a longer domain definition.  The short hand of using the dimension name seems to me to be bringing issues of variable scope and variable management onto shakier ground, so I am not sure it is worth the benefit of simplified domain definition.
-<br />
-<br />I have raised a ticket for this addition to the conventions, we can continue the discussion there:
-<br />
-<a href="https://cf-pcmdi.llnl.gov/trac/ticket/108">https://cf-pcmdi.llnl.gov/trac/ticket/108</a>
-<br />
-<br />Having reread section 7.3.4 I am beginning to understand what you mean in your first point.  However the text appears clear, the aim of using a standard_name as a cell_method name is to identify the dimension:
-<br />
-<br />&nbsp;&nbsp;'''the &quot;name&quot; that appears in a &quot;name: method&quot; pair may be an appropriate standard_name (which identifies the dimension)'''
-<br />
-<br />There is no standard_name which identifies the dimension in my example; I see that a coordinate could be added, but the contents of this would be arbitrary in my case.
-<br />
-<br /><em class="quotelev1">&gt; In the absence of these vars, the dimension name in the cell methods isn't informative.
+<em class="quotelev1">&gt; &lt;aleksandar.jelenak at noaa.gov&gt; wrote:
 </em><br />
-I'm not sure I agree with this statement, i think it is a bit informative, and better than nothing.  It provides basic cell_method definition which the domain can augment.
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Here's the modified proposal for the datetime_iso8601 standard name:
+</em><br />
+<em class="quotelev1">&gt; ...
+</em><br />
+<em class="quotelev2">&gt;&gt; String representing date-time information according to the ISO
+</em><br />
+<em class="quotelev2">&gt;&gt; 8601:2004(E) standard.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I think we should NOT adopt a string option for datetime variables.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; To quote Jonathan Gregory:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; &quot;&quot;&quot;
+</em><br />
+<em class="quotelev1">&gt; In CF we have always applied the
+</em><br />
+<em class="quotelev1">&gt; principle that we only add to CF when there is a need to do so, i.e. there is
+</em><br />
+<em class="quotelev1">&gt; a use-case for something which cannot already be represented in CF
+</em><br />
+<em class="quotelev1">&gt; &quot;&quot;&quot;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; We already have a way to encode datetimes in CF-netcdf.
+</em><br />
+<br />Yes, but &lt;time since date&gt; is not as good as &lt;date&gt; as an encoding. The 
 <br />
-<br />I agree that no change is required to the conventions to enable linking, but I am not convinced that the use of the standard_name syntax from 7.3.4 really helps here.
+&lt;time since date&gt; is a result of cramming calendar handling into a units 
 <br />
-<br />many thanks for your comments and thoughts
+package.
 <br />
-mark
+<br />I would advocate both should be allowed.
 <br />
-<br />________________________________________
+<br /><em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I believe this proposal resulted from the discussion about adding a
+</em><br />
+<em class="quotelev1">&gt; more flexible approach to datetimes in the CF Data Model. I think
+</em><br />
+<em class="quotelev1">&gt; that's a good idea, but separate from what encoding is used in
+</em><br />
+<em class="quotelev1">&gt; CF-netcdf. ( see my recent note for more detail about the difference
+</em><br />
+<em class="quotelev1">&gt; between and encoding and a data model ).
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; 1) Having multiple ways to encode the same data in file format adds
+</em><br />
+<em class="quotelev1">&gt; complication to all client code -- client code would need a way to
+</em><br />
+<em class="quotelev1">&gt; process both ISO strings and &quot;time_unit since datetime&quot;
+</em><br />
+<br />client code already has to parse the &quot;date&quot; in &quot;time since date&quot;. So 
 <br />
-From: Jonathan Gregory [j.m.gregory at reading.ac.uk]
+theres no extra code involved.
 <br />
-Sent: 09 November 2013 21:07
+<br /><br /><em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; 2) Any client code that can process ISO strings is likely to need to
+</em><br />
+<em class="quotelev1">&gt; convert them to a client-specific datetime representation anyway, in
+</em><br />
+<em class="quotelev1">&gt; order to plot, calculate with, etc  them.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; 3) Any client library that can process ISO strings is very likely to
+</em><br />
+<em class="quotelev1">&gt; be able to also work with &quot;time_unit since datetime&quot; encoded data
+</em><br />
+<em class="quotelev1">&gt; anyway -- and it had better, as that encoding is part of the standard
+</em><br />
+<em class="quotelev1">&gt; anyway.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; As a result, we would be complicating client code, and getting no new
+</em><br />
+<em class="quotelev1">&gt; functionality.
+</em><br />
+<br />We get new functionality in that &quot;date&quot; is clearer than &quot;time since 
 <br />
-To: Hedley, Mark
+date&quot;, and more likely to be correctly understood by non CF specific 
 <br />
-Cc: CF metadata
+software and users of our data in 100 years when theres no more CF 
 <br />
-Subject: [CF-metadata] Cell methods when there are no coordinates
+discussion group to help people out.
 <br />
-<br />Dear Mark
+<br />when you have non-standard calendars, the difficulty is compounded many 
 <br />
-<br />Thanks for the clarifications in your last email. If I have understood this
+times over. How many seconds since 1970 is April 3, 2045 at 1:13 am in 
 <br />
-correctly now, there are two needs, which might be distinct.
+the no-leap calendar? Are you sure? What if you could just put into your 
 <br />
-<br />(1) Indicate that a collapsed (size-one) axis is an ensemble axis, although
+file &quot;2045-04-03T01:13:00&quot; ?? Even rocket scientists can do that ;^)
 <br />
-it doesn't have a coord var or any aux coord vars. I can see that it might
+<br /><em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; The one advantage I can see at the moment is that simple, non-CF-aware
+</em><br />
+<em class="quotelev1">&gt; clients, like ncdump, could easily present a nice human-readable
+</em><br />
+<em class="quotelev1">&gt; format. But I don't think that is worth the additional complication.
+</em><br />
+<br />Ideally file encodings should be as independent as possible from 
 <br />
-well not have these vars because there might not be anything useful you could
+libraries and applications. We have historically had an unfortunate 
 <br />
-put in them. In the absence of these vars, the dimension name in the cell
+dependence on the udunits reference library for date parsing. We are 
 <br />
-methods isn't informative. We could perhaps solve this by introducing a new
+slowly unwinding that dependence. I think in this case widening the 
 <br />
-standard name such as ensemble_member_id (a string) or ensemble_member_number
+allowed encoding for datetimes is well worth the complication.
 <br />
-(a number) or perhaps both. These could anyway be useful. These standard names
+<br />Regards,
 <br />
-could appear in your cell_methods, following section 7.3.4, instead of the name
+<br />John
 <br />
-of the size-one dimension, indicating that the statistic applied to all the
-<br />
-available members of an ensemble, without needing any coord information. I
-<br />
-don't think this change would require an alteration to the convention.
-<br />
-<br />(2) Point to the coordinate information which applied to the axis before the
-<br />
-collapse. This could be useful for any sort of collapsed axis, and in fact I
-<br />
-think we have discussed it before at some point in the last 15 years! I agree
-<br />
-with your suggestion that it would be logical to record this in cell_methods
-<br />
-as a standardised comment. An alternative would be to add an attribute to the
-<br />
-collapsed coord var, but you don't have those (as you say), and also the
-<br />
-collapse may apply to a combination of axes. You suggest listing all the coord
-<br />
-or aux coord vars in the cell_methods comment. Would it not be sufficient, and
-<br />
-more economical, to give the name of the uncollapsed dimension(s)?
-<br />
-<br />Best wishes
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Tue Nov 12 2013 - 06:50:26 GMT</span>
+<span id="received"><dfn>Received on</dfn> Sat Feb 23 2013 - 14:41:51 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -175,9 +221,14 @@ more economical, to give the name of the uncollapsed dimension(s)?
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5846">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5847.html" title="Next message in the list">Lauret Olivier: "[CF-metadata] Standard name table update"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5845.html" title="Previous message in the list">Alexander Barth: "[CF-metadata] cell_methods for monthly climatologies"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5847.html" title="Next message in the list">Chris Barker - NOAA Federal: "[CF-metadata] New standard name: datetime_iso8601"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5845.html" title="Previous message in the list">John Caron: "[CF-metadata] New standard name: datetime_iso8601"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./5759.html" title="Message to which this message replies">Chris Barker - NOAA Federal: "[CF-metadata] New standard name: datetime_iso8601"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./5847.html" title="Next message in this discussion thread">Chris Barker - NOAA Federal: "[CF-metadata] New standard name: datetime_iso8601"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./5847.html" title="Message sent in reply to this message">Chris Barker - NOAA Federal: "[CF-metadata] New standard name: datetime_iso8601"</a></li>
+<li><dfn>Reply</dfn>: <a href="./5848.html" title="Message sent in reply to this message">Steve Hankin: "[CF-metadata] New standard name: datetime_iso8601"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -188,7 +239,7 @@ more economical, to give the name of the uncollapsed dimension(s)?
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:32 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5845.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5847.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

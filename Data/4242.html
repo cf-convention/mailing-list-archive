@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Example 5.10. British National Grid has wrong parameter names from Etienne Tourigny on 2012-03-15 (mailing-list-archive)</title>
-<meta name="Author" content="Etienne Tourigny (etourigny.dev)" />
-<meta name="Subject" content="[CF-metadata] Example 5.10. British National Grid has wrong parameter names" />
-<meta name="Date" content="2012-03-15" />
+<title>[CF-metadata] udunits time units question from Cecelia DeLuca on 2011-04-18 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Cecelia DeLuca (Cecelia.DeLuca)" />
+<meta name="Subject" content="[CF-metadata] udunits time units question" />
+<meta name="Date" content="2011-04-18" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4241.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4243.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Example 5.10. British National Grid has wrong parameter names</h1>
-<!-- received="Wed Mar 14 20:31:09 2012" -->
-<!-- isoreceived="20120314203109" -->
-<!-- sent="Wed, 14 Mar 2012 23:31:09 -0300" -->
-<!-- isosent="20120315023109" -->
-<!-- name="Etienne Tourigny" -->
-<!-- email="etourigny.dev" -->
-<!-- subject="[CF-metadata] Example 5.10. British National Grid has wrong parameter names" -->
-<!-- id="CA+TxYvPs7PVa2wBxtOwXq=CRyUOARW64Yio0JGZeRKDikGTfPA_at_mail.gmail.com" -->
+<a style="text-decoration:none" href="./4241.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4243.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] udunits time units question</h1>
+<!-- received="Mon Apr 18 15:22:58 2011" -->
+<!-- isoreceived="20110418142258" -->
+<!-- sent="Mon, 18 Apr 2011 21:22:58 -0000" -->
+<!-- isosent="20110418212258" -->
+<!-- name="Cecelia DeLuca" -->
+<!-- email="Cecelia.DeLuca" -->
+<!-- subject="[CF-metadata] udunits time units question" -->
+<!-- id="4DACABB3.5040604_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4F613051.4080200_at_unidata.ucar.edu" -->
+<!-- inreplyto="20110401155003.GB19539_at_ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,10 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4243.html" accesskey="d" title="Hedley, Mark: &quot;[CF-metadata] Example 5.10. British National Grid has wrong parameter names&quot;">Next message</a> ]
-[ <a href="./4241.html" title="John Caron: &quot;[CF-metadata] Example 5.10. British National Grid has wrong parameter names&quot;">Previous message</a> ]
-[ <a href="./4241.html" title="John Caron: &quot;[CF-metadata] Example 5.10. British National Grid has wrong parameter names&quot;">In reply to</a> ]
+[ <a href="./4243.html" accesskey="d" title="John Caron: &quot;[CF-metadata] udunits time units question&quot;">Next message</a> ]
+[ <a href="./4241.html" title="John Caron: &quot;[CF-metadata] physical vs dimensional units&quot;">Previous message</a> ]
+[ <a href="./4207.html" title="Brian Eaton: &quot;[CF-metadata] udunits time units question&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./4243.html" accesskey="t" title="John Caron: &quot;[CF-metadata] udunits time units question&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,114 +72,216 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Etienne Tourigny &lt;<a href="mailto:etourigny.dev?Subject=Re%3A%20%5BCF-metadata%5D%20Example%205.10.%20British%20National%20Grid%20has%20wrong%20parameter%20names">etourigny.dev</a>&gt;
+<dfn>From</dfn>: Cecelia DeLuca &lt;<a href="mailto:Cecelia.DeLuca?Subject=Re%3A%20%5BCF-metadata%5D%20udunits%20time%20units%20question">Cecelia.DeLuca</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 14 Mar 2012 23:31:09 -0300</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 18 Apr 2011 21:22:58 -0000</span><br />
 </address>
 <br />
-John,
+&nbsp;&nbsp;Hi John, Chris, all:
 <br />
-<br />according to [1] and [2]  the names can be used inter-changeably
+<br />Here's a more direct link to the ESMF utility for timekeeping than Brian 
 <br />
-<br />- longitude of the origin (central meridian)
+provided:
 <br />
-- the scale factor at the origin (on the central meridian),
+<br /><a href="http://www.earthsystemmodeling.org/esmf_releases/public/last/ESMF_refdoc/node5.html#SECTION05040000000000000000">http://www.earthsystemmodeling.org/esmf_releases/public/last/ESMF_refdoc/node5.html#SECTION05040000000000000000</a>
 <br />
-<br />specifically:
+<br />There are a number of calendars supported (Proleptic Gregorian, 
 <br />
-&quot;Scale factor at natural origin&quot; (EPSG and GeoTiff)
+no-leap,  Julian and
 <br />
-&quot;Longitude of natural origin&quot; (EPSG, GeoTiff) vs. &quot;central_meridian&quot; (OGC WKT)
+Julian day calendars, 360 day, custom calendars for planets, etc.).  
 <br />
-<br />So I think the CF names should not change and example should be
+Proleptic Gregorian
 <br />
-updated to reflect the projection parameters.
+is used already by some climate groups;  I would think its use would 
 <br />
-I have used the correct parameters in the same example in ticket #80 -
+increase as modelers
 <br />
-&quot;Add missing CF parameters to translate Coordinate Reference System
+try to answer questions that combine climate model output with other 
 <br />
-properties to/from OGC Well-Known Text format&quot;.
+kinds of information,
 <br />
-<br />[1] <a href="http://www.remotesensing.org/geotiff/proj_list/transverse_mercator.html">http://www.remotesensing.org/geotiff/proj_list/transverse_mercator.html</a>
+and perform comparisons of model output with observations.
 <br />
-[2] <a href="https://cf-pcmdi.llnl.gov/trac/wiki/Cf2CrsWkt">https://cf-pcmdi.llnl.gov/trac/wiki/Cf2CrsWkt</a>
+<br />The length of days can change with the calendar, so they're not a basic 
 <br />
-<br />Regards,
+time unit.
 <br />
-Etienne
+<br />ESMF has time instant and time interval classes.  Their operators 
 <br />
-<br />On Wed, Mar 14, 2012 at 8:57 PM, John Caron &lt;caron at unidata.ucar.edu&gt; wrote:
+(+,-,&lt;,&gt;, ==, etc.) are
 <br />
-<em class="quotelev1">&gt; Example 5.10. British National Grid
+overloaded so you can write, for example:
+<br />
+time = init_time + timeinterval
+<br />
+or
+<br />
+timeinterval = init_timeinterval * 3
+<br />
+<br />Increments can be in many different time units, including  months.  If 
+<br />
+you add three months
+<br />
+to a date like April 1 you will get July 1.  ESMF computes to the
+<br />
+same day that many months later.  There is a special end-of-the-month 
+<br />
+case so that
+<br />
+if you add three month to March 31 you will get June 30.
+<br />
+I think John was originally wondering if there was a lib that does this 
+<br />
+sort of thing.
+<br />
+<br />Other methods it offers include getting things like middle of the month and
+<br />
+day of the week.  There are clock and alarm classes to manage model 
+<br />
+time, with clocks
+<br />
+that can run forward or backward in time.  Development priorities were 
+<br />
+set by modelers
+<br />
+so most of what's there was needed by somebody.
+<br />
+<br />It's portable and pretty widely used in the modeling community.  If you 
+<br />
+think there's
+<br />
+something that could be done to make it more accessible or useful to the 
+<br />
+data community,
+<br />
+please write.
+<br />
+<br />Note, one calendar that ESMF does not support is the mixed 
+<br />
+Gregorian/Julian calendar that
+<br />
+is the CF default.  For modelers having to use the mixed 
+<br />
+Gregorian/Julian calendar just
+<br />
+doesn't make sense.
+<br />
+<br />-- Cecelia
+<br />
+<br />On 4/1/2011 9:50 AM, Brian Eaton wrote:
+<br />
+<em class="quotelev1">&gt; Hi John,
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; ?int crs ;
+<em class="quotelev1">&gt; You might have a look at the ESMF time handling utilies for some ideas
 </em><br />
-<em class="quotelev1">&gt; ? ?crs:grid_mapping_name = &quot;transverse_mercator&quot;;
+<em class="quotelev1">&gt; about what a library that supports modelling (i.e., non-standard calendars)
 </em><br />
-<em class="quotelev1">&gt; ? ?crs:semi_major_axis = 6377563.396 ;
+<em class="quotelev1">&gt; contains.
 </em><br />
-<em class="quotelev1">&gt; ? ?crs:semi_minor_axis = 6356256.910 ;
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; ? ?crs:inverse_flattening = 299.3249646 ;
+<em class="quotelev1">&gt; <a href="http://www.earthsystemmodeling.org/esmf_releases/public/last/ESMF_refdoc/">http://www.earthsystemmodeling.org/esmf_releases/public/last/ESMF_refdoc/</a>
 </em><br />
-<em class="quotelev1">&gt; ? ?crs:latitude_of_projection_origin = 49.0 ;
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; ? ?crs:longitude_of_projection_origin = -2.0 ;
-</em><br />
-<em class="quotelev1">&gt; ? ?crs:false_easting = 400000.0 ;
-</em><br />
-<em class="quotelev1">&gt; ? ?crs:false_northing = -100000.0 ;
-</em><br />
-<em class="quotelev1">&gt; ? ?crs:scale_factor_at_projection_origin = 0.9996012717 ;
+<em class="quotelev1">&gt; Brian
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; but Appendix F has:
+<em class="quotelev1">&gt; On Fri, Apr 01, 2011 at 05:04:42AM -0600, John Caron wrote:
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev2">&gt;&gt; Hi Martin and all:
 </em><br />
-<em class="quotelev1">&gt; Transverse Mercator
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev1">&gt; grid_mapping_name = transverse_mercator
+<em class="quotelev2">&gt;&gt; Im wondering what essential methods a calendar library needs to have
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev2">&gt;&gt; to support, eg 360 day calendars? The only one that comes to mind is
 </em><br />
-<em class="quotelev1">&gt; Map parameters:
+<em class="quotelev2">&gt;&gt; to calculate the difference between two dates in, say, seconds? What
 </em><br />
-<em class="quotelev1">&gt; ?scale_factor_at_central_meridian
+<em class="quotelev2">&gt;&gt; else?
 </em><br />
-<em class="quotelev1">&gt; ?longitude_of_central_meridian
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev1">&gt; ?latitude_of_projection_origin
+<em class="quotelev2">&gt;&gt; John
 </em><br />
-<em class="quotelev1">&gt; ?false_easting
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev1">&gt; ?false_northing
+<em class="quotelev2">&gt;&gt; On 4/1/2011 12:55 AM, Schultz, Martin wrote:
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev3">&gt;&gt;&gt; Hi Chris et al.,
 </em><br />
-<em class="quotelev1">&gt; I think we can presume that
+<em class="quotelev3">&gt;&gt;&gt;
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev3">&gt;&gt;&gt;       indeed it seems like some clarification is necessary about the use of different calendars in modelling. Your suggestion to &quot;map&quot; the 360 day calendar onto the Gregorian calendar in output files won't work: there would be no need for a 360 day calendar if it would. The idea behind fixed-length-year calendars is precisely the opposite: preserve seasonality without having to deal with leap years etc. Of course you need to adjust the solar cycle accordingly, that means your model will have a solar year that is precisely 360 days long (and not 365.25 as in reality). If you were to map these dates onto the gregorian calendar, you would have to interpolate the time axis so that days 1 to 360 fit into the range 1 to 365 or 366, respectively. Yes - a converter 360-days (or 365-days) to gregorian (and reverse) could be written, but you would redce the number of your friends if you insist that this is the only valid way to represent time of the model output ;-)
 </em><br />
-<em class="quotelev1">&gt; ?scale_factor_at_central_meridian == scale_factor_at_projection_origin
+<em class="quotelev3">&gt;&gt;&gt;
 </em><br />
-<em class="quotelev1">&gt; ?longitude_of_central_meridian == longitude_of_projection_origin
+<em class="quotelev3">&gt;&gt;&gt;      You are right that a date such as 1960-01-31 is invalid in a 360-day calendar, and indeed a smart tool should flag this as an error.
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev3">&gt;&gt;&gt;
 </em><br />
-<em class="quotelev1">&gt; central_meridian is probably clearer; so maybe just update the example ??
+<em class="quotelev3">&gt;&gt;&gt; Hope this helps,
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev3">&gt;&gt;&gt;
 </em><br />
-<em class="quotelev1">&gt; or we can add this amendment to ticket #75= &quot;fix documentation and
+<em class="quotelev3">&gt;&gt;&gt; Martin
 </em><br />
-<em class="quotelev1">&gt; definitions of 3 grid mapping definitions&quot;
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; ------------------------------------------------------------------------------------------------
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; ------------------------------------------------------------------------------------------------
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Forschungszentrum Juelich GmbH
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 52425 Juelich
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Sitz der Gesellschaft: Juelich
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Eingetragen im Handelsregister des Amtsgerichts Dueren Nr. HR B 3498
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Vorsitzender des Aufsichtsrats: MinDirig Dr. Karl Eugen Huthmacher
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Geschaeftsfuehrung: Prof. Dr. Achim Bachem (Vorsitzender),
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Dr. Ulrich Krafft (stellv. Vorsitzender), Prof. Dr.-Ing. Harald Bolt,
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Prof. Dr. Sebastian M. Schmidt
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; ------------------------------------------------------------------------------------------------
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; ------------------------------------------------------------------------------------------------
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Besuchen Sie uns auf unserem neuen Webauftritt unterwww.fz-juelich.de
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; _______________________________________________
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev2">&gt;&gt; _______________________________________________
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
 <em class="quotelev1">&gt; _______________________________________________
 </em><br />
@@ -187,7 +291,16 @@ Etienne
 </em><br />
 <em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
-<span id="received"><dfn>Received on</dfn> Wed Mar 14 2012 - 20:31:09 GMT</span>
+<br /><br /><pre>
+-- 
+===================================================================
+Cecelia DeLuca
+NESII/CIRES/NOAA Earth System Research Laboratory
+325 Broadway, Boulder 80305-337
+Email: cecelia.deluca at noaa.gov
+Phone: 303-497-3604
+</pre>
+<span id="received"><dfn>Received on</dfn> Mon Apr 18 2011 - 15:22:58 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -195,10 +308,13 @@ Etienne
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4242">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4243.html" title="Next message in the list">Hedley, Mark: "[CF-metadata] Example 5.10. British National Grid has wrong parameter names"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4241.html" title="Previous message in the list">John Caron: "[CF-metadata] Example 5.10. British National Grid has wrong parameter names"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./4241.html" title="Message to which this message replies">John Caron: "[CF-metadata] Example 5.10. British National Grid has wrong parameter names"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4243.html" title="Next message in the list">John Caron: "[CF-metadata] udunits time units question"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4241.html" title="Previous message in the list">John Caron: "[CF-metadata] physical vs dimensional units"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./4207.html" title="Message to which this message replies">Brian Eaton: "[CF-metadata] udunits time units question"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./4243.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] udunits time units question"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./4243.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] udunits time units question"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -209,7 +325,7 @@ Etienne
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:59 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4241.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4243.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

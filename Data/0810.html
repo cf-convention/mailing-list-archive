@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] new standard names proposal for CEOP-II model ouput from Jonathan Gregory on 2007-04-24 (mailing-list-archive)</title>
+<title>[CF-metadata] newbie questions about degree_days from Jonathan Gregory on 2005-12-05 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] new standard names proposal for CEOP-II model ouput" />
-<meta name="Date" content="2007-04-24" />
+<meta name="Subject" content="[CF-metadata] newbie questions about degree_days" />
+<meta name="Date" content="2005-12-05" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0809.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0811.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new standard names proposal for CEOP-II model ouput</h1>
-<!-- received="Tue Apr 24 11:20:57 2007" -->
-<!-- isoreceived="20070424102057" -->
-<!-- sent="Tue, 24 Apr 2007 18:20:57 +0100" -->
-<!-- isosent="20070424172057" -->
+<a style="text-decoration:none" href="./0809.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0811.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] newbie questions about degree_days</h1>
+<!-- received="Mon Dec  5 07:40:09 2005" -->
+<!-- isoreceived="20051205074009" -->
+<!-- sent="Mon, 5 Dec 2005 14:40:09 +0000" -->
+<!-- isosent="20051205144009" -->
 <!-- name="Jonathan Gregory" -->
 <!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] new standard names proposal for CEOP-II model ouput" -->
-<!-- id="20070424172057.GC121_at_met.reading.ac.uk" -->
+<!-- subject="[CF-metadata] newbie questions about degree_days" -->
+<!-- id="20051205144009.GA10952_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0811.html" accesskey="d" title="Pamment, JA: &quot;[CF-metadata] statistic indices&quot;">Next message</a> ]
-[ <a href="./0809.html" title="Jonathan Gregory: &quot;[CF-metadata]  Hoeck/Stockhause standard names&quot;">Previous message</a> ]
+[ <a href="./0811.html" accesskey="d" title="Alexander C Ruane: &quot;[CF-metadata] New standard names proposal for ECPC CEOP data&quot;">Next message</a> ]
+[ <a href="./0809.html" title="Bryan Lawrence: &quot;[CF-metadata] newbie questions about degree_days&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0848.html" accesskey="t" title="Nan Galbraith: &quot;[CF-metadata] accessory parameters&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,40 +70,52 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20new%20standard%20names%20proposal%20for%20CEOP-II%20model%20ouput">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20newbie%20questions%20about%20degree_days">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 24 Apr 2007 18:20:57 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 5 Dec 2005 14:40:09 +0000</span><br />
 </address>
 <br />
-Dear Takuya and Alison
+Dear Keith
 <br />
-<br /><em class="quotelev2">&gt; &gt; volume_fraction_of_condensed_water_in_soil_pore, Soil wetness, 1
-</em><br />
-<em class="quotelev1">&gt; defined as
-</em><br />
-<em class="quotelev2">&gt; &gt; the volume ratio of soil condensed water (liquid and ice) to porosity
-</em><br />
-<em class="quotelev1">&gt; of 
-</em><br />
-<em class="quotelev2">&gt; &gt; the soil.
-</em><br />
-<br />We currently have a standard name of volume_fraction_of_water_in_soil. I
+<br />I agree with what Bryan says about putting some of the metadata in other
 <br />
-suppose the water must be &quot;in&quot; the pores, so I wonder whether we could have
+places apart from the standard name. I would suggest that we introduce
 <br />
-volume_fraction_of_condensed_water_in_soil for your purpose? But is this
+standard names of integral_of_temperature_excess_wrt_time and
 <br />
-really different from volume_fraction_of_water_in_soil? The difference
+integral_of_temperature_deficit_wrt_time. This is the idea of degree-day, but
 <br />
-between condensed_water and water is water vapour. Do you specifically mean
+we shouldn't imply that the quantity should necessarily be measured in a
 <br />
-to exclude water vapour in the soil?
+particular unit. It could be in degC day or degF day or K s, for instance,
+<br />
+and more generic names therefore would seem suitable to me. The two names are
+<br />
+for positive and negative degree-days, respectively.
+<br />
+<br />To define the threshold I would propose that you use a single-valued coordinate
+<br />
+variable. As usual this can be done in CF with either a size-one dimension or
+<br />
+a scalar coordinate variable. We need a standard name for this too. It could
+<br />
+be called temperature_threshold, for instance.
+<br />
+<br />The time period over which the integral is done should be specified with the
+<br />
+bounds of the time coordinate variable. The cell_methods doesn't need to be
+<br />
+supplied as the default interpretation (that it applies to the entire time
+<br />
+interval, since it's an extensive quantity) is correct. It could be shown
+<br />
+explicitly with a cell_methods of &quot;sum&quot;.
 <br />
 <br />Best wishes
 <br />
 <br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Tue Apr 24 2007 - 11:20:57 BST</span>
+<span id="received"><dfn>Received on</dfn> Mon Dec 05 2005 - 07:40:09 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -109,9 +123,12 @@ to exclude water vapour in the soil?
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start810">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0811.html" title="Next message in the list">Pamment, JA: "[CF-metadata] statistic indices"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0809.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]  Hoeck/Stockhause standard names"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0811.html" title="Next message in the list">Alexander C Ruane: "[CF-metadata] New standard names proposal for ECPC CEOP data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0809.html" title="Previous message in the list">Bryan Lawrence: "[CF-metadata] newbie questions about degree_days"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0848.html" title="Next message in this discussion thread">Nan Galbraith: "[CF-metadata] accessory parameters"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0848.html" title="Message sent in reply to this message">Nan Galbraith: "[CF-metadata] accessory parameters"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -122,7 +139,7 @@ to exclude water vapour in the soil?
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:56 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0809.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0811.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF and a representation of probalistic forecasts from Karl Taylor on 2007-02-07 (mailing-list-archive)</title>
-<meta name="Author" content="Karl Taylor (taylor13)" />
-<meta name="Subject" content="[CF-metadata] CF and a representation of probalistic forecasts" />
-<meta name="Date" content="2007-02-07" />
+<title>[CF-metadata] CF convention for time variable dimension from Russ Rew on 2005-06-22 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Russ Rew (russ)" />
+<meta name="Subject" content="[CF-metadata] CF convention for time variable dimension" />
+<meta name="Date" content="2005-06-22" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0689.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0691.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF and a representation of probalistic forecasts</h1>
-<!-- received="Wed Feb  7 10:16:21 2007" -->
-<!-- isoreceived="20070207101621" -->
-<!-- sent="Wed, 07 Feb 2007 09:16:21 -0800" -->
-<!-- isosent="20070207171621" -->
-<!-- name="Karl Taylor" -->
-<!-- email="taylor13" -->
-<!-- subject="[CF-metadata] CF and a representation of probalistic forecasts" -->
-<!-- id="45CA0965.7030706_at_llnl.gov" -->
+<a style="text-decoration:none" href="./0689.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0691.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF convention for time variable dimension</h1>
+<!-- received="Wed Jun 22 13:17:05 2005" -->
+<!-- isoreceived="20050622121705" -->
+<!-- sent="Wed, 22 Jun 2005 13:17:05 -0600" -->
+<!-- isosent="20050622191705" -->
+<!-- name="Russ Rew" -->
+<!-- email="russ" -->
+<!-- subject="[CF-metadata] CF convention for time variable dimension" -->
+<!-- id="200506221917.j5MJHAZu006583_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="1170845322.1512.55.camel_at_eld408.desktop.frd.metoffice.com" -->
+<!-- inreplyto="chelle_at_remss.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +54,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0691.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] standard names committee&quot;">Next message</a> ]
-[ <a href="./0689.html" title="Kettleborough, Jamie: &quot;[CF-metadata] CF and a representation of probalistic forecasts&quot;">Previous message</a> ]
-[ <a href="./0689.html" title="Kettleborough, Jamie: &quot;[CF-metadata] CF and a representation of probalistic forecasts&quot;">In reply to</a> ]
+[ <a href="./0691.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] stations and trajectories&quot;">Next message</a> ]
+[ <a href="./0689.html" title="Sylvie POULIQUEN: &quot;[CF-metadata] stations and trajectories  (the OTS standard)&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,52 +69,190 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Karl Taylor &lt;<a href="mailto:taylor13?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20and%20a%20representation%20of%20probalistic%20forecasts">taylor13</a>&gt;
+<dfn>From</dfn>: Russ Rew &lt;<a href="mailto:russ?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20convention%20for%20time%20variable%20dimension">russ</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 07 Feb 2007 09:16:21 -0800</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 22 Jun 2005 13:17:05 -0600</span><br />
 </address>
 <br />
-Hi Jamie, Jonathan, and all,
+Hi Chelle,
 <br />
-<br />Concerning realization weights and pdf's, Jamie wrote:
-<br />
-<br /><em class="quotelev1">&gt; This is clearly a special handling of a fifth dimension: how do we
+<br /><em class="quotelev1">&gt; In the CF conventions document:
 </em><br />
-<em class="quotelev1">&gt; expect applications that are CF1.0 compliant to support the addition of
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; the standard names 'realization' and 'realization_weight'?  Should they
+<em class="quotelev1">&gt; Time axis:   
 </em><br />
-<em class="quotelev1">&gt; treat them as special standard names (as latitude, longitude and
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; vertical coordinate types are in spatially referencing the data)? In
+<em class="quotelev1">&gt; double time(time) ;
 </em><br />
-<em class="quotelev1">&gt; this case this dimension is special in that it allows you to calculate
+<em class="quotelev1">&gt;   time:long_name = &quot;time&quot; ;
 </em><br />
-<em class="quotelev1">&gt; statistics across the realizations.  (In that sense 'realization_weight'
+<em class="quotelev1">&gt;   time:units = &quot;days since 1990-1-1 0:0:0&quot; ;
 </em><br />
-<em class="quotelev1">&gt; is a little bit like a cell measure - though I'm not sure we'd want to
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; go this way 'realization' doesn't really have a scale/units).
+<em class="quotelev1">&gt; When I try to read a netCDF file that has been written with the
 </em><br />
-<br />I find the idea of using the cell_measure attribute to point to the 
+<em class="quotelev1">&gt; recommended convention, it won't always work.
+</em><br />
+<em class="quotelev1">&gt; Matlab yes.  NCBROWSE yes.  Fortran NO.
+</em><br />
+<em class="quotelev1">&gt; In Fortran, you cannot have an dimension indice and a variable with
+</em><br />
+<em class="quotelev1">&gt; the same name.  I can easily program around this but not in an
+</em><br />
+<em class="quotelev1">&gt; automated way for an unknown file format...
+</em><br />
+<em class="quotelev1">&gt; The program cdf2fortran which is linked to on the UNIDATA website will
+</em><br />
+<em class="quotelev1">&gt; take any netcdf file and create a fortran program to read it.  This
+</em><br />
+<em class="quotelev1">&gt; does not work with CF compliant data because of the way you have
+</em><br />
+<em class="quotelev1">&gt; defined time(time).  For that matter, lat(lat) also would break it...
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Is this a known problem?
+</em><br />
+<em class="quotelev1">&gt; I can just change the time indice to ntime so time(ntime) and then it
+</em><br />
+<em class="quotelev1">&gt; will work with C, fortran, ... you name it.
+</em><br />
+<em class="quotelev1">&gt; But then I won't be CF compliant....
+</em><br />
+<br />Using the same name for dimensions and their associated coordinate
 <br />
-'realization_weight' quite natural and attractive.  There is little 
+variables is actually not just part of the CF conventions, it is a
 <br />
-difference in my mind between &quot;area-weighted&quot; means and 
+basic netCDF convention that is discussed in section &quot;2.3.1 Coordinate
 <br />
-&quot;realization-weighted&quot; or &quot;sample-weighted&quot; means.  Perhaps the only 
+Variables&quot; in the NetCDF User's Guide:
 <br />
-drawback is if you wanted to define several different sets of 
+<br />&nbsp;&nbsp;<a href="http://www.unidata.ucar.edu/packages/netcdf/docs/netcdf/Variables.html">http://www.unidata.ucar.edu/packages/netcdf/docs/netcdf/Variables.html</a>
 <br />
-&quot;realization&quot; or &quot;sample&quot; weights for a single variable.  I suspect this 
+<br />This convention was intended to be a feature rather than a problem.
 <br />
-problem would be rare, but I stand ready to be corrected on this point.
+The rationale for using the same name to associate a dimension with
 <br />
-<br />Best regards,
+its coordinate variable was to provide a simple and
 <br />
-Karl
+language-independent way to make this association, so even if
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Feb 07 2007 - 10:16:21 GMT</span>
+dimension and variable names use a non-English language, it would
+<br />
+still be easy to understand which variables are coordinate variables.
+<br />
+<br />The program &quot;cdf2fortran&quot; is part of the &quot;CIDS Tools&quot; package
+<br />
+developed by others, and was intended to be a useful tool for
+<br />
+generating &quot;boiler-plate&quot; netCDF Fortran code that may be tedious to
+<br />
+write.  Thanks for letting us know that it generates invalid Fortran
+<br />
+for the common case of coordinate variables with the same name as
+<br />
+dimensions, but it would be good to also report this to the tool's
+<br />
+author.  I think a small change to that program would fix this
+<br />
+problem, for example it could be changed to follow the way &quot;ncgen -f&quot;
+<br />
+generates Fortran names for Fortran variables associated with netCDF
+<br />
+variables and dimensions.
+<br />
+<br />For the following CDL:
+<br />
+<br />&nbsp;&nbsp;netcdf coordvars {
+<br />
+&nbsp;&nbsp;dimensions:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lat = 2;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lon = 3;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;time = 4;
+<br />
+&nbsp;&nbsp;variables:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;double time(time);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;float lat(lat);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;float lon(lon);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;float temp(time, lat, lon);
+<br />
+&nbsp;&nbsp;}
+<br />
+<br />invoking &quot;ncgen -f&quot; generates valid Fortran that includes the
+<br />
+following declarations for dimensions and coordinate variables:
+<br />
+<br />* dimension lengths
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integer  lat_len
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integer  lon_len
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integer  time_len
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parameter (lat_len = 2)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parameter (lon_len = 3)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parameter (time_len = 4)
+<br />
+* rank (number of dimensions) for each variable
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integer  time_rank
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integer  lat_rank
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integer  lon_rank
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integer  temp_rank
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parameter (time_rank = 1)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parameter (lat_rank = 1)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parameter (lon_rank = 1)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parameter (temp_rank = 3)
+<br />
+* variable shapes
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integer  time_dims(time_rank)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integer  lat_dims(lat_rank)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integer  lon_dims(lon_rank)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integer  temp_dims(temp_rank)
+<br />
+* data variables
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double precision  time(time_len)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;real  lat(lat_len)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;real  lon(lon_len)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;real  temp(lon_len, lat_len, time_len)
+<br />
+<br />--Russ
+<br />
+<br />_____________________________________________________________________
+<br />
+<br />Russ Rew                                         UCAR Unidata Program
+<br />
+russ at unidata.ucar.edu                     <a href="http://www.unidata.ucar.edu">http://www.unidata.ucar.edu</a>
+<br />
+<span id="received"><dfn>Received on</dfn> Wed Jun 22 2005 - 13:17:05 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -123,9 +260,8 @@ Karl
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start690">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0691.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] standard names committee"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0689.html" title="Previous message in the list">Kettleborough, Jamie: "[CF-metadata] CF and a representation of probalistic forecasts"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0689.html" title="Message to which this message replies">Kettleborough, Jamie: "[CF-metadata] CF and a representation of probalistic forecasts"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0691.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] stations and trajectories"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0689.html" title="Previous message in the list">Sylvie POULIQUEN: "[CF-metadata] stations and trajectories  (the OTS standard)"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -137,7 +273,7 @@ Karl
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:54 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0689.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0691.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

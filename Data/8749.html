@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] bounds variable &amp; closed-open intervals from Jim Biard on 2018-03-26 (mailing-list-archive)</title>
-<meta name="Author" content="Jim Biard (jbiard)" />
-<meta name="Subject" content="[CF-metadata] bounds variable &amp; closed-open intervals" />
-<meta name="Date" content="2018-03-26" />
+<title>[CF-metadata] New standard_names for ocean biogeochemistry from Lowry, Roy K. on 2016-12-06 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Lowry, Roy K. (rkl)" />
+<meta name="Subject" content="[CF-metadata] New standard_names for ocean biogeochemistry" />
+<meta name="Date" content="2016-12-06" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./8748.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8750.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] bounds variable &amp; closed-open intervals</h1>
-<!-- received="Mon Mar 26 08:26:36 2018" -->
-<!-- isoreceived="20180326072636" -->
-<!-- sent="Mon, 26 Mar 2018 10:26:36 -0400" -->
-<!-- isosent="20180326142636" -->
-<!-- name="Jim Biard" -->
-<!-- email="jbiard" -->
-<!-- subject="[CF-metadata] bounds variable &amp; closed-open intervals" -->
-<!-- id="CAJ12db+ASyt_s1iaM6cLs4+x6GR00oaSTUWdK7Z=tDZgQGEt_w_at_mail.gmail.com" -->
+<a style="text-decoration:none" href="./8748.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8750.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] New standard_names for ocean biogeochemistry</h1>
+<!-- received="Tue Dec  6 03:17:29 2016" -->
+<!-- isoreceived="20161206031729" -->
+<!-- sent="Tue, 6 Dec 2016 10:17:29 +0000" -->
+<!-- isosent="20161206101729" -->
+<!-- name="Lowry, Roy K." -->
+<!-- email="rkl" -->
+<!-- subject="[CF-metadata] New standard_names for ocean biogeochemistry" -->
+<!-- id="DB6PR0601MB26142BDC8F9E458D3A2D74D599820_at_DB6PR0601MB2614.eurprd06.prod.outlook.com" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="CAPqsCaG3B04eVqYmvfTAE2X0-3okRV+Nb2cMNt_9F2_v5uAQGg_at_mail.gmail.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,11 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./8750.html" accesskey="d" title="V. Balaji: &quot;[CF-metadata] CF conventions and netCDF4 groups&quot;">Next message</a> ]
-[ <a href="./8748.html" title="Maarten Sneep: &quot;[CF-metadata] CF conventions and netCDF4 groups&quot;">Previous message</a> ]
+[ <a href="./8750.html" accesskey="d" title="Matthias Lankhorst: &quot;[CF-metadata] New standard_names for ocean biogeochemistry // Re: CF-metadata Digest, Vol 164, Issue 7&quot;">Next message</a> ]
+[ <a href="./8748.html" title="John Dunne - NOAA Federal: &quot;[CF-metadata] New standard_names for ocean biogeochemistry&quot;">Previous message</a> ]
+[ <a href="./8748.html" title="John Dunne - NOAA Federal: &quot;[CF-metadata] New standard_names for ocean biogeochemistry&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./8752.html" accesskey="t" title="Karl Taylor: &quot;[CF-metadata] bounds variable &#0038; closed-open intervals&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,112 +70,92 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jim Biard &lt;<a href="mailto:jbiard?Subject=Re%3A%20%5BCF-metadata%5D%20bounds%20variable%20%26%20closed-open%20intervals">jbiard</a>&gt;
+<dfn>From</dfn>: Lowry, Roy K. &lt;<a href="mailto:rkl?Subject=Re%3A%20%5BCF-metadata%5D%20New%20standard_names%20for%20ocean%20biogeochemistry">rkl</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 26 Mar 2018 10:26:36 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 6 Dec 2016 10:17:29 +0000</span><br />
 </address>
 <br />
-Erik,
+Dear All,
 <br />
-<br />Bounds are always inclusive lower / exclusive upper. That's [low, high) in
+<br />Some additional information on 'chorophyll-a fluorescence' in observational oceanography. As John says, strictly speaking fluorescence is the amount of radiation within a given waveband resulting from excitation. It could also be expressed as a dimensionless parameter that is the ratio of the radiation generated over the amount of excitation energy (sometimes called fluorescence yield).
 <br />
-common notation. If the cells abut one another, the upper bound for one
+<br />Over the years, I have come across many types of in-situ fluorometers used to estimate chlorophyll-a in seawater. Many of these deliver a parameter called 'chlorophyll-a fluorescence'. Over the years I have encountered this manifesting itself as raw voltages or ADC counts but these days these raw measurements have some sort of internal algorithm applied to produce a measurement that is linearly related to the chlorophyll-a concentration in units such as ug/l.  I think this is what Elodie wishes to describe semantically in CF.  If so, one solution would be to use existing chlorophyll-a concentration Standard Names with a qualification that it is an uncalibrated measurement in the long name. Any other suggestions?
 <br />
-should be identical to the lower bound for then next.
+<br />As for alkalinity, whilst John's viewpoint holds from a modelling perspective there is a strong voice in the observational marine science community for alkalinity measurements having units of Equivalents per kilogram (dimensionality mol/kg) which cannot be interconverted with sufficient precision to mol/m3 using factors based on in-situ density (other factors come into play such as temperature of measurement etc.). Consequently, I support Elodie's request.
 <br />
-<br />Grace and peace,
+<br />The current standard name with dimensionality mol/m3 is sea_water_alkalinity_expressed_as_mole_equivalent, so the new name would be better as sea_water_alkalinity_per_unit_mass_expressed_as_mole_equivalent rather than just sea_water_alkalinity_per_unit mass.
 <br />
-<br />Jim
+<br />Cheers, Roy
 <br />
-<br />[image: CICS-NC] &lt;<a href="http://www.cicsnc.org/">http://www.cicsnc.org/</a>&gt;Visit us on
+<br />From: CF-metadata [mailto:cf-metadata-bounces at cgd.ucar.edu] On Behalf Of John Dunne - NOAA Federal
 <br />
-Facebook &lt;<a href="http://www.facebook.com/cicsnc">http://www.facebook.com/cicsnc</a>&gt; *Jim Biard*
+Sent: 05 December 2016 20:45
 <br />
-*Research Scholar*
+To: Elodie Fernandez &lt;elodie.fernandez at mercator-ocean.fr&gt;
 <br />
-Cooperative Institute for Climate and Satellites NC  &lt;<a href="http://cicsnc.org/">http://cicsnc.org/</a>&gt;
+Cc: cf-metadata at cgd.ucar.edu; Fernando Manzano Mu?oz &lt;fmanzano at puertos.es&gt;
 <br />
-North Carolina State University  &lt;<a href="http://ncsu.edu/">http://ncsu.edu/</a>&gt;
+Subject: Re: [CF-metadata] New standard_names for ocean biogeochemistry
 <br />
-NOAA National Centers for Environmental Information  &lt;<a href="http://ncdc.noaa.gov/">http://ncdc.noaa.gov/</a>&gt;
+<br />A couple of questions...
 <br />
-*formerly NOAA?s National Climatic Data Center*
+<br />1) Regarding the request to add Chlorophyll_a fluorescence, the proposed unit is kg/m3, but shouldn't fluorescence have radiation units (i.e. Watts/m2)?  I was not aware that any of the proposed CMIP models treated fluorescence explicitly, but if that were the case, it would seem like converting to chlorophyll_a volumetric mass units would seem to me redundant with the existing chlorophyll_a metric.
 <br />
-151 Patton Ave, Asheville, NC 28801
+2) Regarding the request to add a variable for alkalinity in mass units to augment the current one volumetric units, this would seem redundant for models using the Boussinesq Assumption and thus a single reference density.  For non-Boussinesq models, one should be able to approximate this with sea_water_potential_density (rhopoto), but I acknowledge that this would make the global integral not exact... Are non-Boussinesq models being planned?  If so, adding alkalinity as a mass-based variable would also then beg the question as to which tracers should be posted in both units (e.g. DIC) - how much is the request expected to be expanded?
 <br />
-e: jbiard at cicsnc.org
+<br />Cheers, John
 <br />
-o: +1 828 271 4900 &lt;(828)%20271-4900&gt;
+<br />On Mon, Dec 5, 2016 at 3:38 AM, Elodie Fernandez &lt;elodie.fernandez at mercator-ocean.fr&lt;mailto:elodie.fernandez at mercator-ocean.fr&gt;&gt; wrote:
 <br />
-<br />*Connect with us on Facebook for climate
+<br />Dear all,
 <br />
-&lt;<a href="http://www.facebook.com/NOAANCEIclimate">http://www.facebook.com/NOAANCEIclimate</a>&gt; and ocean and geophysics
+<br />We would like to suggest the addition of two new standard_names for ocean biogeochemistry:
 <br />
-&lt;<a href="http://www.facebook.com/NOAANCEIoceangeo">http://www.facebook.com/NOAANCEIoceangeo</a>&gt; information, and follow us on
+<br />- mass_concentration_of_chlorophyll_a_fluorescence_in_sea_water
 <br />
-Twitter at _at_NOAANCEIclimate
+unit: kg m-3
 <br />
-&lt;<a href="http://www.twitter.com/NOAANCEIclimate">http://www.twitter.com/NOAANCEIclimate</a>&gt;and _at_NOAANCEIocngeo
+definition:
 <br />
-&lt;<a href="http://www.twitter.com/NOAANCEIocngeo">http://www.twitter.com/NOAANCEIocngeo</a>&gt;.*
+Mass concentration means mass per unit volume and is used in the construction mass_concentration_of_X_in_Y, where X is a material constituent of Y. A chemical species denoted by X may be described by a single term such as 'nitrogen' or a phrase such as 'nox_expressed_as_nitrogen'. Chloropyll fluorescence is a proxy for Chlorophyll concentration measuring re-emitted light from light absorption. Chlorophylls are the green pigments found in most plants, algae and cyanobacteria; their presence is essential for photosynthesis to take place. There are several different forms of chlorophyll that occur naturally. All contain a chlorin ring (chemical formula C20H16N4) which gives the green pigment and a side chain whose structure varies. The naturally occurring forms of chlorophyll contain between 35 and 55 carbon atoms.Chlorophyll fluorescence is mainly emitted from the Chlorophyll a pigment.
 <br />
-<br /><br />On Mon, Mar 26, 2018 at 4:29 AM, Erik Quaeghebeur &lt;
+<br />I believe there are no standard_names yet for fluorescence. The definition was built from the mass_concentration_of_chlorophyll_a_in_sea_water definition.
 <br />
-E.R.G.Quaeghebeur at tudelft.nl&gt; wrote:
+<br />- sea_water_alkalinity_per_unit_mass
 <br />
-<br /><em class="quotelev1">&gt; Dear list,
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Is there a standard way to indicate which bounds are included in a bounds
-</em><br />
-<em class="quotelev1">&gt; variable?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Context: I have 10-min. statistics, e.g., the mean of 600 per-second
-</em><br />
-<em class="quotelev1">&gt; samples from 23:10:00 to 23:19:59. Currently, in my bounds variable for
-</em><br />
-<em class="quotelev1">&gt; time, I have, essentially, [23:10:00, 23:20:00]. I list my time in seconds
-</em><br />
-<em class="quotelev1">&gt; since 1970-01-01. Should I use [23:10:00, 23:19:59] instead?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Best,
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Erik
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; --
-</em><br />
-<em class="quotelev1">&gt; <a href="https://ac.erikquaeghebeur.name">https://ac.erikquaeghebeur.name</a>
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
+unit: mol kg-1
+<br />
+definition:
+<br />
+sea_water_alkalinity_per_unit_mass is the total alkalinity (including carbonate, nitrogen, silicate, and borate components).
+<br />
+<br />A standard name already exists for alkalinity expressed as mol/m3, sea_water_alkalinity_expressed_as_mole_equivalent, but none exist for mol/kg.
+<br />
+<br />Best regards,
+<br />
+Elodie
+<br />
+<br />_______________________________________________
+<br />
+CF-metadata mailing list
+<br />
+CF-metadata at cgd.ucar.edu&lt;mailto:CF-metadata at cgd.ucar.edu&gt;
+<br />
+<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+<br />
+<br />________________________________
+<br />
+This message (and any attachments) is for the recipient only. NERC is subject to the Freedom of Information Act 2000 and the contents of this email and any reply you make may be disclosed by NERC unless it is exempt from release under the Act. Any material supplied to NERC may be stored in an electronic records management system.
+<br />
+________________________________
+<br />
 -------------- next part --------------
 <br />
 An HTML attachment was scrubbed...
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20180326/fe63041c/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20180326/fe63041c/attachment.html</a>&gt;
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20161206/ef06b674/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20161206/ef06b674/attachment-0001.html</a>&gt;
 <br />
-<span id="received"><dfn>Received on</dfn> Mon Mar 26 2018 - 08:26:36 BST</span>
+<span id="received"><dfn>Received on</dfn> Tue Dec 06 2016 - 03:17:29 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -183,13 +163,10 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start8749">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./8750.html" title="Next message in the list">V. Balaji: "[CF-metadata] CF conventions and netCDF4 groups"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./8748.html" title="Previous message in the list">Maarten Sneep: "[CF-metadata] CF conventions and netCDF4 groups"</a></li>
+<li><dfn>Next message</dfn>: <a href="./8750.html" title="Next message in the list">Matthias Lankhorst: "[CF-metadata] New standard_names for ocean biogeochemistry // Re: CF-metadata Digest, Vol 164, Issue 7"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./8748.html" title="Previous message in the list">John Dunne - NOAA Federal: "[CF-metadata] New standard_names for ocean biogeochemistry"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./8748.html" title="Message to which this message replies">John Dunne - NOAA Federal: "[CF-metadata] New standard_names for ocean biogeochemistry"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./8752.html" title="Next message in this discussion thread">Karl Taylor: "[CF-metadata] bounds variable &#0038; closed-open intervals"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./8752.html" title="Message sent in reply to this message">Karl Taylor: "[CF-metadata] bounds variable &#0038; closed-open intervals"</a></li>
-<li><dfn>Reply</dfn>: <a href="./8755.html" title="Message sent in reply to this message">Erik Quaeghebeur: "[CF-metadata] bounds variable &#0038; closed-open intervals"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -200,7 +177,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:20 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./8748.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8750.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Update on ncdismember (+CFchecker) for hierarchical files from Charlie Zender on 2014-01-13 (mailing-list-archive)</title>
-<meta name="Author" content="Charlie Zender (zender)" />
-<meta name="Subject" content="[CF-metadata] Update on ncdismember (+CFchecker) for hierarchical files" />
-<meta name="Date" content="2014-01-13" />
+<title>[CF-metadata] Question from NODC about interplay of standard name modifiers, cell_methods, etc. from Steve Hankin on 2013-03-22 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Steve Hankin (steven.c.hankin)" />
+<meta name="Subject" content="[CF-metadata] Question from NODC about interplay of standard name modifiers, cell_methods, etc." />
+<meta name="Date" content="2013-03-22" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5974.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5976.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Update on ncdismember (+CFchecker) for hierarchical files</h1>
-<!-- received="Mon Jan 13 09:48:54 2014" -->
-<!-- isoreceived="20140113094854" -->
-<!-- sent="Mon, 13 Jan 2014 08:48:54 -0800" -->
-<!-- isosent="20140113164854" -->
-<!-- name="Charlie Zender" -->
-<!-- email="zender" -->
-<!-- subject="[CF-metadata] Update on ncdismember (+CFchecker) for hierarchical files" -->
-<!-- id="52D418F6.7070904_at_uci.edu" -->
+<a style="text-decoration:none" href="./5974.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5976.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Question from NODC about interplay of standard name modifiers, cell_methods, etc.</h1>
+<!-- received="Fri Mar 22 12:22:38 2013" -->
+<!-- isoreceived="20130322122238" -->
+<!-- sent="Fri, 22 Mar 2013 11:22:38 -0700" -->
+<!-- isosent="20130322182238" -->
+<!-- name="Steve Hankin" -->
+<!-- email="steven.c.hankin" -->
+<!-- subject="[CF-metadata] Question from NODC about interplay of standard name modifiers, cell_methods, etc." -->
+<!-- id="514CA16E.8050703_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4C353E6E4A08AE4792B350DAA392B5215B0C07D4_at_EXCHMBX01.fed.cclrc.ac.uk" -->
+<!-- inreplyto="F84F2095-DFCA-4513-B044-A9593DDEB316_at_noaa.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5976.html" accesskey="d" title="John Graybeal: &quot;[CF-metadata] CF upgrade to netCDF variable names&quot;">Next message</a> ]
-[ <a href="./5974.html" title="stephen.pascoe at stfc.ac.uk: &quot;[CF-metadata] Update on ncdismember (+CFchecker) for hierarchical	files&quot;">Previous message</a> ]
-[ <a href="./5974.html" title="stephen.pascoe at stfc.ac.uk: &quot;[CF-metadata] Update on ncdismember (+CFchecker) for hierarchical	files&quot;">In reply to</a> ]
+[ <a href="./5976.html" accesskey="d" title="Chris Barker - NOAA Federal: &quot;[CF-metadata] Question from NODC about interplay of standard name modifiers, cell_methods, etc.&quot;">Next message</a> ]
+[ <a href="./5974.html" title="Jonathan Gregory: &quot;[CF-metadata] Question from NODC about interplay of standard name modifiers, cell_methods, etc.&quot;">Previous message</a> ]
+[ <a href="./5973.html" title="Kenneth S. Casey - NOAA Federal: &quot;[CF-metadata] Question from NODC about interplay of standard name modifiers, cell_methods, etc.&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./5983.html" accesskey="t" title="stephen.pascoe at stfc.ac.uk: &quot;[CF-metadata] Update on ncdismember (+CFchecker) for hierarchical files&quot;">Next in thread</a> ]
+[ <a href="./5977.html" accesskey="t" title="Kenneth S. Casey - NOAA Federal: &quot;[CF-metadata] Question from NODC about interplay of standard name modifiers, cell_methods, etc.&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,130 +72,210 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Charlie Zender &lt;<a href="mailto:zender?Subject=Re%3A%20%5BCF-metadata%5D%20Update%20on%20ncdismember%20(%2BCFchecker)%20for%20hierarchical%20files">zender</a>&gt;
+<dfn>From</dfn>: Steve Hankin &lt;<a href="mailto:steven.c.hankin?Subject=Re%3A%20%5BCF-metadata%5D%20Question%20from%20NODC%20about%20interplay%20of%20standard%20name%20modifiers%2C%20cell_methods%2C%20etc.">steven.c.hankin</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 13 Jan 2014 08:48:54 -0800</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 22 Mar 2013 11:22:38 -0700</span><br />
 </address>
 <br />
-Hello Stephen,
+Hi Ken,
 <br />
-<br />ncdismember uses the cfchecker code developed by Michael Decker and
+<br />As hoped,  Jonathan, has already responded.   I'm off on a tangent here ...
 <br />
-Martin Schultz and distributed at <a href="https://bitbucket.org/mde_/cfchecker">https://bitbucket.org/mde_/cfchecker</a>
+<br />I want here to comment on a *wee* (and admittedly debatable) side 
 <br />
-ncdismember makes no changes to that code. Is that the same as yours?
+metadata issue -- the proper use of the &quot;long_name&quot; attribute.  The 
 <br />
-<br />The ncdismember script is at <a href="http://nco.sf.net/nco.html#ncdismember">http://nco.sf.net/nco.html#ncdismember</a>
+long_name is typically used as the source of a title string for plots 
 <br />
-The part involving CFChecker is very straightforward.
+and listings.  My view is that a long name such as &quot;Objectively Analyzed 
 <br />
-We would welcome any changes that improve the user experience.
+Mean&quot;, which names a statistic, but does not name the underlying 
 <br />
-<br />Are there multiple codes named &quot;CFChecker&quot;?
+parameter, creates a bit of a documentation risk.   No doubt the global 
 <br />
-We'd be happy to accept a patch that allows ncdismember to use more
+'title' attribute is expected to fill in the missing context -- stating 
 <br />
-than one &quot;CFChecker&quot;, or to exploit other options of the checker.
+in this example that this is a Sea Surface Temperature data set.  That 
 <br />
-AFAICT we currently use all the options except the one that allows
+is probably sufficient for most basic plotting situations.  But when one 
 <br />
-explicit specifications of which tests to perform.
+wants to offer automated products, like computed differences between 
 <br />
-<br />Charlie
+fields (as LAS does), it can become impractical to carry along the title 
 <br />
-<br />Le 13/01/2014 01:42, stephen.pascoe at stfc.ac.uk a ?crit :
+string of each dataset used in a calculation.   The number of 
 <br />
-<em class="quotelev1">&gt; Hi Charlie,
+annotations needed just grows and grows.  As Jonathan's answer has 
+<br />
+implied, annotations about cell_methods are also required.
+<br />
+<br />I guess I am lobbying a viewpoint that the long_name attached to each 
+<br />
+variable should represent a best effort to have each variable 
+<br />
+self-document who she is.   Thus &quot;Objectively Analyzed Mean SST&quot;  would 
+<br />
+be preferable to &quot;Objectively Analyzed Mean&quot;.  Does this seem reasonable?
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Steve
+<br />
+<br />=======================
+<br />
+<br />On 3/22/2013 10:29 AM, Kenneth S. Casey - NOAA Federal wrote:
+<br />
+<em class="quotelev1">&gt; Hi Everyone,
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; I'm interested in how you are using the CFChecker code.  Are you using the code form the CF SVN [1] or the packaging I maintain based on the same codebase [2], or is this independent code?  Have you applied any patches to the version you use in ncdismember? It would be good to keep any improvements to the code in the main line.
+<em class="quotelev1">&gt; At US NODC we are trying to sort out how to best document a gridded 
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; dataset that contains a number of variables.  For example, we have a 
+</em><br />
+<em class="quotelev1">&gt; sea water temperature gridded dataset, and it contains 6 variables:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; objectively analyzed mean
+</em><br />
+<em class="quotelev1">&gt; statistical mean
+</em><br />
+<em class="quotelev1">&gt; number of observations
+</em><br />
+<em class="quotelev1">&gt; standard deviation
+</em><br />
+<em class="quotelev1">&gt; standard error of the mean
+</em><br />
+<em class="quotelev1">&gt; 'grid points'
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; We are currently documenting, for example,  the objective analyzed 
+</em><br />
+<em class="quotelev1">&gt; mean temperature variable in this netCDF file like this:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;   float t_an(time, depth, lat, lon) ;
+</em><br />
+<em class="quotelev1">&gt;                t_an:standard_name = &quot;sea_water_temperature&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                t_an:long_name = &quot;Objectively Analyzed Mean&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                t_an:comment = &quot;Objectively analyzed climatologies are 
+</em><br />
+<em class="quotelev1">&gt; the objectively interpolated mean fields for an oceanographic variable 
+</em><br />
+<em class="quotelev1">&gt; at standard depth levels for the World Ocean.&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                t_an:cell_methods = &quot;area:mean depth:mean time:mean&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                t_an:grid_mapping = &quot;crs&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                t_an:units = &quot;degrees_celsius&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                t_an:FillValue = 9.96921e+36f ;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; That makes reasonable sense to an application client because the 
+</em><br />
+<em class="quotelev1">&gt; variable contains a temperature value, so the standard_name makes 
+</em><br />
+<em class="quotelev1">&gt; sense.  Also, cell methods here represent how the data in the cells 
+</em><br />
+<em class="quotelev1">&gt; are compiled.  They do not directly describe the &quot;thing&quot; in those 
+</em><br />
+<em class="quotelev1">&gt; cells but what kinds of procedures where used (in this case, the grid 
+</em><br />
+<em class="quotelev1">&gt; cell, with time, lat, lon, and depth dimensions, is a computed by 
+</em><br />
+<em class="quotelev1">&gt; calculating mean).    We think this is the correct way to 
+</em><br />
+<em class="quotelev1">&gt; represent this particular variable.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; But what we should do for the statistical variables is less clear.  We 
+</em><br />
+<em class="quotelev1">&gt; can use standard name modifiers to provide reasonable standard names, 
+</em><br />
+<em class="quotelev1">&gt; but only four are defined currently:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; <a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.6/apc.html">http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.6/apc.html</a>
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; detection_minimum, number_of_observations, standard_error, and status_flag
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; How would we handle the variables like standard deviation?  Right now, 
+</em><br />
+<em class="quotelev1">&gt; we could not provide a standard name with a modifier, so we'd have to 
+</em><br />
+<em class="quotelev1">&gt; rely on long_name and comment attributes which is not very 
+</em><br />
+<em class="quotelev1">&gt; satisfactory.   We wouldn't want to use
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;                t_standard_deviation:standard_name = 
+</em><br />
+<em class="quotelev1">&gt; &quot;sea_water_temperature&quot; ;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; because the values in the variable are not sea water temperature, they 
+</em><br />
+<em class="quotelev1">&gt; are the standard deviation of sea water temperature.  Is the solution 
+</em><br />
+<em class="quotelev1">&gt; to propose some new standard name modifiers, or are we missing 
+</em><br />
+<em class="quotelev1">&gt; something?  This issue seems like it should be a fairly common problem.
+</em><br />
+<em class="quotelev1">&gt;
 </em><br />
 <em class="quotelev1">&gt; Thanks,
 </em><br />
-<em class="quotelev1">&gt; Stephen.
+<em class="quotelev1">&gt; Ken
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; [1]: <a href="https://cf-pcmdi.llnl.gov/trac/browser/cf-checker">https://cf-pcmdi.llnl.gov/trac/browser/cf-checker</a> 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; [2]: <a href="https://pypi.python.org/pypi/cfchecker">https://pypi.python.org/pypi/cfchecker</a>
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; Kenneth S. Casey, Ph.D.
 </em><br />
-<em class="quotelev1">&gt; ---
+<em class="quotelev1">&gt; Technical Director
 </em><br />
-<em class="quotelev1">&gt; Stephen Pascoe  +44 (0)1235 445980
+<em class="quotelev1">&gt; NOAA National Oceanographic Data Center
 </em><br />
-<em class="quotelev1">&gt; Centre of Environmental Data Archival
+<em class="quotelev1">&gt; 1315 East-West Highway
 </em><br />
-<em class="quotelev1">&gt; STFC Rutherford Appleton Laboratory, Harwell Oxford, Didcot OX11 0QX, UK
+<em class="quotelev1">&gt; Silver Spring MD 20910
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; 301-713-3272 x133
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; <a href="http://www.nodc.noaa.gov">http://www.nodc.noaa.gov</a> &lt;<a href="http://www.nodc.noaa.gov/">http://www.nodc.noaa.gov/</a>&gt;
 </em><br />
-<em class="quotelev1">&gt; -----Original Message-----
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; From: CF-metadata [mailto:cf-metadata-bounces at cgd.ucar.edu] On Behalf Of Charlie Zender
+<em class="quotelev1">&gt; &lt;<a href="https://www.facebook.com/noaa.nodc">https://www.facebook.com/noaa.nodc</a>&gt;
 </em><br />
-<em class="quotelev1">&gt; Sent: 09 January 2014 22:53
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; To: CF Metadata Mail List
+<em class="quotelev1">&gt; &lt;<a href="http://www.facebook.com/feeds/page.php?id=178512945559611&amp;format=rss20">http://www.facebook.com/feeds/page.php?id=178512945559611&amp;format=rss20</a>&gt;
 </em><br />
-<em class="quotelev1">&gt; Subject: [CF-metadata] Update on ncdismember (+CFchecker) for hierarchical files
+<em class="quotelev1">&gt; &lt;<a href="http://www.facebook.com/feeds/page.php?id=178512945559611&amp;format=rss20">http://www.facebook.com/feeds/page.php?id=178512945559611&amp;format=rss20</a>&gt;
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Hello CFers,
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; A few months ago I introduced ncdismember, a script that uses the netCDF Operators (NCO) to dismember hierarchical netCDF-compliant files into netCDF3-compliant (flat-) files, then calls CFChecker on those. It is a simple (one-line) procedure that checks CF-compliance of all groups in hierarchical netCDF4/HDF5 files.
-</em><br />
-<em class="quotelev1">&gt; The recent releases of NCO 4.4.0 and netCDF 4.3.1-rc7 bring significant new features to ncdismember...
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 1. Works on all groups in netCDF4/HDF5 files. Not only leaf groups.
-</em><br />
-<em class="quotelev1">&gt; 2. Works on HDF4 files. No prior conversion to netCDF necessary.
-</em><br />
-<em class="quotelev1">&gt; 3. Automatically translates input to netCDF3-supported types (e.g.,
-</em><br />
-<em class="quotelev1">&gt;    nc_string-&gt;nc_char, nc_ubyte-&gt;nc_short).
-</em><br />
-<em class="quotelev1">&gt; 4. Is faster: Uses CFChecker batch mode and avoids temporary output.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Example input (*.nc, *.hdf, *.h5, *.he5) and output (*.txt):
-</em><br />
-<em class="quotelev1">&gt; <a href="http://dust.ess.uci.edu/diwg">http://dust.ess.uci.edu/diwg</a>
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; For more information see
-</em><br />
-<em class="quotelev1">&gt; <a href="http://nco.sf.net/nco.html#dismember">http://nco.sf.net/nco.html#dismember</a>
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Feedback welcome on relevant NCO SourceForge forum <a href="https://sourceforge.net/p/nco/discussion">https://sourceforge.net/p/nco/discussion</a>
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Enjoy,
-</em><br />
-<em class="quotelev1">&gt; Charlie
-</em><br />
-<em class="quotelev1">&gt; --
-</em><br />
-<em class="quotelev1">&gt; Charlie Zender, Earth System Sci. &amp; Computer Sci.
-</em><br />
-<em class="quotelev1">&gt; University of California, Irvine 949-891-2429 )'( _______________________________________________
+<em class="quotelev1">&gt; _______________________________________________
 </em><br />
 <em class="quotelev1">&gt; CF-metadata mailing list
 </em><br />
@@ -203,14 +283,13 @@ explicit specifications of which tests to perform.
 </em><br />
 <em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<br /><pre>
--- 
-Charlie Zender, Earth System Sci. &amp; Computer Sci.
-University of California, Irvine 949-891-2429 )'(
-</pre>
-<span id="received"><dfn>Received on</dfn> Mon Jan 13 2014 - 09:48:54 GMT</span>
+<br />-------------- next part --------------
+<br />
+An HTML attachment was scrubbed...
+<br />
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130322/b190ac0e/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130322/b190ac0e/attachment.html</a>&gt;
+<br />
+<span id="received"><dfn>Received on</dfn> Fri Mar 22 2013 - 12:22:38 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -218,13 +297,13 @@ University of California, Irvine 949-891-2429 )'(
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5975">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5976.html" title="Next message in the list">John Graybeal: "[CF-metadata] CF upgrade to netCDF variable names"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5974.html" title="Previous message in the list">stephen.pascoe at stfc.ac.uk: "[CF-metadata] Update on ncdismember (+CFchecker) for hierarchical	files"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./5974.html" title="Message to which this message replies">stephen.pascoe at stfc.ac.uk: "[CF-metadata] Update on ncdismember (+CFchecker) for hierarchical	files"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5976.html" title="Next message in the list">Chris Barker - NOAA Federal: "[CF-metadata] Question from NODC about interplay of standard name modifiers, cell_methods, etc."</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5974.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Question from NODC about interplay of standard name modifiers, cell_methods, etc."</a></li>
+<li><dfn>In reply to</dfn>: <a href="./5973.html" title="Message to which this message replies">Kenneth S. Casey - NOAA Federal: "[CF-metadata] Question from NODC about interplay of standard name modifiers, cell_methods, etc."</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./5983.html" title="Next message in this discussion thread">stephen.pascoe at stfc.ac.uk: "[CF-metadata] Update on ncdismember (+CFchecker) for hierarchical files"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./5977.html" title="Next message in this discussion thread">Kenneth S. Casey - NOAA Federal: "[CF-metadata] Question from NODC about interplay of standard name modifiers, cell_methods, etc."</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./5983.html" title="Message sent in reply to this message">stephen.pascoe at stfc.ac.uk: "[CF-metadata] Update on ncdismember (+CFchecker) for hierarchical files"</a></li>
+<dfn>Reply</dfn>: <a href="./5977.html" title="Message sent in reply to this message">Kenneth S. Casey - NOAA Federal: "[CF-metadata] Question from NODC about interplay of standard name modifiers, cell_methods, etc."</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -235,7 +314,7 @@ University of California, Irvine 949-891-2429 )'(
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:34 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5974.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5976.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

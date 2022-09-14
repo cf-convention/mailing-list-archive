@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Teaching materials on NetCDF/CF from Jon Blower on 2010-08-10 (mailing-list-archive)</title>
-<meta name="Author" content="Jon Blower (j.d.blower)" />
-<meta name="Subject" content="[CF-metadata] Teaching materials on NetCDF/CF" />
-<meta name="Date" content="2010-08-10" />
+<title>[CF-metadata] standard names for variables in 'raw engineering' units from John Graybeal on 2009-03-05 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Graybeal (graybeal)" />
+<meta name="Subject" content="[CF-metadata] standard names for variables in 'raw engineering' units" />
+<meta name="Date" content="2009-03-05" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2771.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2773.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Teaching materials on NetCDF/CF</h1>
-<!-- received="Tue Aug 10 05:05:46 2010" -->
-<!-- isoreceived="20100810040546" -->
-<!-- sent="Tue, 10 Aug 2010 12:05:46 +0100" -->
-<!-- isosent="20100810110546" -->
-<!-- name="Jon Blower" -->
-<!-- email="j.d.blower" -->
-<!-- subject="[CF-metadata] Teaching materials on NetCDF/CF" -->
-<!-- id="7CD7F00F17085C4EBB045A35177C85FD01077382_at_VIME-VS1.rdg-home.ad.rdg.ac.uk" -->
+<a style="text-decoration:none" href="./2771.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2773.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard names for variables in 'raw engineering' units</h1>
+<!-- received="Thu Mar  5 16:44:15 2009" -->
+<!-- isoreceived="20090305164415" -->
+<!-- sent="Thu, 5 Mar 2009 15:44:15 -0800" -->
+<!-- isosent="20090305234415" -->
+<!-- name="John Graybeal" -->
+<!-- email="graybeal" -->
+<!-- subject="[CF-metadata] standard names for variables in 'raw engineering' units" -->
+<!-- id="E55BCC3B-EC6F-4230-A0C7-C233BCB13200_at_mbari.org" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2773.html" accesskey="d" title="Andrew Clegg: &quot;[CF-metadata] Proposal for new standard name for &#0039;normalised fluorescence line height&#0039;&quot;">Next message</a> ]
-[ <a href="./2771.html" title="Steve Emmerson: &quot;[CF-metadata] units for sea water salinity&quot;">Previous message</a> ]
+[ <a href="./2773.html" accesskey="d" title="Derrick.Snowden at noaa.gov: &quot;[CF-metadata] standard names for variables in &#0039;raw engineering&#0039;	units&quot;">Next message</a> ]
+[ <a href="./2771.html" title="olivier lauret: &quot;[CF-metadata] Standard Names: sea level from tide gauge stations&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./2773.html" accesskey="t" title="Derrick.Snowden at noaa.gov: &quot;[CF-metadata] standard names for variables in &#0039;raw engineering&#0039;	units&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,59 +70,58 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jon Blower &lt;<a href="mailto:j.d.blower?Subject=Re%3A%20%5BCF-metadata%5D%20Teaching%20materials%20on%20NetCDF%2FCF">j.d.blower</a>&gt;
+<dfn>From</dfn>: John Graybeal &lt;<a href="mailto:graybeal?Subject=Re%3A%20%5BCF-metadata%5D%20standard%20names%20for%20variables%20in%20'raw%20engineering'%20units">graybeal</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 10 Aug 2010 12:05:46 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 5 Mar 2009 15:44:15 -0800</span><br />
 </address>
 <br />
-Dear all,
+Here's a question about observational variables.  Many of our sensors  
 <br />
-<br />In January next year I shall be teaching an MSc module on environmental
+measure variables that are in the standard names list, but the data is  
 <br />
-data management and visualization.  The point of this is to teach the
+not yet converted to science units, for example temperature or oxygen  
 <br />
-students how they should be storing and managing their data for maximum
+concentration.
 <br />
-interoperability and reuse.  The use of CF and NetCDF will of course be
+<br />These measurements are typically represented by a unit like  
 <br />
-very important in the course.
+'volts' (or even 'counts') -- definitely not directly convertible to  
 <br />
-<br />I was wondering if anyone has any previous similar experience with
+the canonical units!   Is there a standard technique that would let me  
 <br />
-teaching this material, and whether they might be prepared to share
+convert any existing standard name to a 'raw units' standard name?
 <br />
-experience on what worked well/badly?  Perhaps there are some
+<br />If not, to start the conversation perhaps I can suggest one of the  
 <br />
-freely-available teaching materials that we could reuse?  I certainly
+following to indicate such metrics?
 <br />
-intend to publish as many of the teaching materials as I can freely
+&nbsp;&nbsp;suffix: _in_engineering_units
 <br />
-online for reuse elsewhere.
+&nbsp;&nbsp;suffix: _in_raw_units
 <br />
-<br />The class size would be small (&lt;10 I imagine) in the first year at
+&nbsp;&nbsp;prefix: raw_measure_of_
 <br />
-least, and I intend to deliver most of the material through hands-on
+<br />This capabilitiy will be important for finding data that potentially  
 <br />
-practical classes.  
+can be converted to the desired values, but has not yet been  
 <br />
-<br />Thanks in advance,
+converted.  (Some of our collected parameters are not the primary  
 <br />
-Jon
+purpose of the experiment, and they remain in raw units unless someone  
 <br />
-<br /><pre>
---
-Dr Jon Blower
-Technical Director, Reading e-Science Centre
-Environmental Systems Science Centre
-University of Reading
-Harry Pitt Building, 3 Earley Gate
-Reading RG6 6AL. UK
-Tel: +44 (0)118 378 5213
-Fax: +44 (0)118 378 6413
-j.d.blower at reading.ac.uk
-<a href="http://www.nerc-essc.ac.uk/People/Staff/Blower_J.htm">http://www.nerc-essc.ac.uk/People/Staff/Blower_J.htm</a>
-</pre>
-<span id="received"><dfn>Received on</dfn> Tue Aug 10 2010 - 05:05:46 BST</span>
+needs them converted.)
+<br />
+<br />John
+<br />
+<br />--------------
+<br />
+John Graybeal   &lt;mailto:graybeal at mbari.org&gt;  -- 831-775-1956
+<br />
+Monterey Bay Aquarium Research Institute
+<br />
+Marine Metadata Interoperability Project: <a href="http://marinemetadata.org">http://marinemetadata.org</a>
+<br />
+<span id="received"><dfn>Received on</dfn> Thu Mar 05 2009 - 16:44:15 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -128,9 +129,12 @@ j.d.blower at reading.ac.uk
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2772">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2773.html" title="Next message in the list">Andrew Clegg: "[CF-metadata] Proposal for new standard name for &#0039;normalised fluorescence line height&#0039;"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2771.html" title="Previous message in the list">Steve Emmerson: "[CF-metadata] units for sea water salinity"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2773.html" title="Next message in the list">Derrick.Snowden at noaa.gov: "[CF-metadata] standard names for variables in &#0039;raw engineering&#0039;	units"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2771.html" title="Previous message in the list">olivier lauret: "[CF-metadata] Standard Names: sea level from tide gauge stations"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./2773.html" title="Next message in this discussion thread">Derrick.Snowden at noaa.gov: "[CF-metadata] standard names for variables in &#0039;raw engineering&#0039;	units"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./2773.html" title="Message sent in reply to this message">Derrick.Snowden at noaa.gov: "[CF-metadata] standard names for variables in &#0039;raw engineering&#0039;	units"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -141,7 +145,7 @@ j.d.blower at reading.ac.uk
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:31 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2771.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2773.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

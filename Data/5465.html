@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] atmosphere stability indices from Seth McGinnis on 2013-06-04 (mailing-list-archive)</title>
-<meta name="Author" content="Seth McGinnis (mcginnis)" />
-<meta name="Subject" content="[CF-metadata] atmosphere stability indices" />
-<meta name="Date" content="2013-06-04" />
+<title>[CF-metadata] Dimensionality of Label Variables from Jim Biard on 2012-08-23 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jim Biard (jim.biard)" />
+<meta name="Subject" content="[CF-metadata] Dimensionality of Label Variables" />
+<meta name="Date" content="2012-08-23" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5464.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5466.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] atmosphere stability indices</h1>
-<!-- received="Tue Jun  4 15:48:16 2013" -->
-<!-- isoreceived="20130604144816" -->
-<!-- sent="Tue, 04 Jun 2013 15:48:16 -0600" -->
-<!-- isosent="20130604214816" -->
-<!-- name="Seth McGinnis" -->
-<!-- email="mcginnis" -->
-<!-- subject="[CF-metadata] atmosphere stability indices" -->
-<!-- id="web-46293436_at_mail.ucar.edu" -->
+<a style="text-decoration:none" href="./5464.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5466.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Dimensionality of Label Variables</h1>
+<!-- received="Thu Aug 23 07:39:36 2012" -->
+<!-- isoreceived="20120823063936" -->
+<!-- sent="Thu, 23 Aug 2012 09:39:36 -0400" -->
+<!-- isosent="20120823133936" -->
+<!-- name="Jim Biard" -->
+<!-- email="jim.biard" -->
+<!-- subject="[CF-metadata] Dimensionality of Label Variables" -->
+<!-- id="2C857B9F-B797-453B-B7F9-1A98D547C78E_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20130604092850.GA28566_at_met.reading.ac.uk" -->
+<!-- inreplyto="5035D5AC.7020009_at_fz-juelich.de" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5466.html" accesskey="d" title="John Caron: &quot;[CF-metadata] CF-1.6 DSG clarification: time series &#0038; lat/lon coordinates&quot;">Next message</a> ]
-[ <a href="./5464.html" title="John Graybeal: &quot;[CF-metadata] atmosphere stability indices&quot;">Previous message</a> ]
-[ <a href="./5456.html" title="Jonathan Gregory: &quot;[CF-metadata] atmosphere stability indices&quot;">In reply to</a> ]
+[ <a href="./5466.html" accesskey="d" title="Chris Barker: &quot;[CF-metadata] &#0034;local&#0034; time?&quot;">Next message</a> ]
+[ <a href="./5464.html" title="Michael Decker: &quot;[CF-metadata] Dimensionality of Label Variables&quot;">Previous message</a> ]
+[ <a href="./5464.html" title="Michael Decker: &quot;[CF-metadata] Dimensionality of Label Variables&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./5468.html" accesskey="t" title="Cameron-smith, Philip: &quot;[CF-metadata] atmosphere stability indices&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -71,134 +70,152 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Seth McGinnis &lt;<a href="mailto:mcginnis?Subject=Re%3A%20%5BCF-metadata%5D%20atmosphere%20stability%20indices">mcginnis</a>&gt;
+<dfn>From</dfn>: Jim Biard &lt;<a href="mailto:jim.biard?Subject=Re%3A%20%5BCF-metadata%5D%20Dimensionality%20of%20Label%20Variables">jim.biard</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 04 Jun 2013 15:48:16 -0600</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 23 Aug 2012 09:39:36 -0400</span><br />
 </address>
 <br />
-Hi Jonathan (G),
+Hi.
 <br />
-<br />I had thought we needed the finish level for CAPE and CIN, but after
+<br />It appears that the requirements and recommendations section 6.1 is confusing label coordinate variables and label variables that are designated as auxiliary coordinates.  There's actually some other things in the discussion of coordinate variables that appear to be confusing or in error.  As an example, there is a recommendation in section 5 that speaks of multi-dimensional coordinate variables.  I didn't think there was any such thing.  There are multi-dimensional variables that are declared as auxiliary coordinates to another variable, but the restrictions associated with true coordinate variables don't attach to them.  (The statement itself - that there shouldn't be a match between the name of the variable and any of the names of its dimensions, is true; but I think that's true for all non-coordinate variables.)
 <br />
-consulting with a colleague, I realize we actually don't need it.
+<br />Grace and peace,
 <br />
-<br />For the CAPE &amp; CIN calculations, you integrate until the parcel hits 
+<br />Jim
 <br />
-equilibrium.  I am assured that it will suffice just to mention that in the
+<br />Jim Biard
 <br />
-definition of the standard_name, and that there's no need to record 
+Research Scholar
 <br />
-the actual location of equilibrium level as an ancillary coordinate.
+Cooperative Institute for Climate and Satellites
 <br />
-(It's pretty much always the tropopause, and it's almost never
+Remote Sensing and Applications Division
 <br />
-interesting.)
+National Climatic Data Center
 <br />
-<br />So I say let's abandon the air_pressure_of_lifted_parcel_at_finish
+151 Patton Ave, Asheville, NC 28801-5001
 <br />
-standard name entirely, and just add a standard_name for the 
+<br />jim.biard at noaa.gov
 <br />
-pressure at the start of lifting.
+828-271-4900
 <br />
-<br />I'm equally happy with _at_start, _at_origin, or _at_source for that.
+<br />On Aug 23, 2012, at 3:03 AM, Michael Decker wrote:
 <br />
-If we're worried about being as clear as possible, should we consider
+<br /><em class="quotelev1">&gt; Hi everyone,
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; I just had a look at the definition of label variables in the CF-1.6
+</em><br />
+<em class="quotelev1">&gt; Document.
+</em><br />
+<em class="quotelev1">&gt; In paragraph 6.1 it says: &quot;The inner dimension (last dimension in CDL
+</em><br />
+<em class="quotelev1">&gt; terms) is the maximum length of each string, and the other dimensions
+</em><br />
+<em class="quotelev1">&gt; are axis dimensions.&quot;
+</em><br />
+<em class="quotelev1">&gt; This leads me to believe that a label variable could have any number of
+</em><br />
+<em class="quotelev1">&gt; dimensions (starting at 1 for the string length). However, I have never
+</em><br />
+<em class="quotelev1">&gt; seen an example that uses label variables with more than two dimensions.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; The paragraph from the conventions document is summarized in the
+</em><br />
+<em class="quotelev1">&gt; requirements and recommendations list as follows:
+</em><br />
+<em class="quotelev1">&gt; &quot;6.1 Labels
+</em><br />
+<em class="quotelev1">&gt; Requirements:
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt;    A variable of character type that is named by a coordinates
+</em><br />
+<em class="quotelev1">&gt; attribute is a label variable. This variable **must have one or two**
+</em><br />
+<em class="quotelev1">&gt; dimensions. The trailing (CDL order) or sole dimension is for the
+</em><br />
+<em class="quotelev1">&gt; maximum string length. If there are two dimensions, leading dimension
+</em><br />
+<em class="quotelev1">&gt; (CDL order) must match one of those of the data variable.&quot;
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; So this clearly states that the dimensionality of a label variable
+</em><br />
+<em class="quotelev1">&gt; should be either 1 or 2. Which one is right? Does anyone have an example
+</em><br />
+<em class="quotelev1">&gt; for a label variable with more than two dimensions?
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Regards,
+</em><br />
+<em class="quotelev1">&gt; Michael
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; -- 
+</em><br />
+<em class="quotelev1">&gt; Michael Decker
+</em><br />
+<em class="quotelev1">&gt; Forschungszentrum J?lich
+</em><br />
+<em class="quotelev1">&gt; Institut f?r Energie- und Klimaforschung - Troposph?re (IEK-8)
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; E-Mail: m.decker at fz-juelich.de
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; ------------------------------------------------------------------------------------------------
+</em><br />
+<em class="quotelev1">&gt; ------------------------------------------------------------------------------------------------
+</em><br />
+<em class="quotelev1">&gt; Forschungszentrum Juelich GmbH
+</em><br />
+<em class="quotelev1">&gt; 52425 Juelich
+</em><br />
+<em class="quotelev1">&gt; Sitz der Gesellschaft: Juelich
+</em><br />
+<em class="quotelev1">&gt; Eingetragen im Handelsregister des Amtsgerichts Dueren Nr. HR B 3498
+</em><br />
+<em class="quotelev1">&gt; Vorsitzender des Aufsichtsrats: MinDir Dr. Karl Eugen Huthmacher
+</em><br />
+<em class="quotelev1">&gt; Geschaeftsfuehrung: Prof. Dr. Achim Bachem (Vorsitzender),
+</em><br />
+<em class="quotelev1">&gt; Karsten Beneke (stellv. Vorsitzender), Prof. Dr.-Ing. Harald Bolt,
+</em><br />
+<em class="quotelev1">&gt; Prof. Dr. Sebastian M. Schmidt
+</em><br />
+<em class="quotelev1">&gt; ------------------------------------------------------------------------------------------------
+</em><br />
+<em class="quotelev1">&gt; ------------------------------------------------------------------------------------------------
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<br />-------------- next part --------------
 <br />
-air_pressure_of_lifted_parcel_at_start_of_lifting?  It's clunky, but
+An HTML attachment was scrubbed...
 <br />
-unlikely to be misinterpreted...
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120823/16d0c167/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120823/16d0c167/attachment.html</a>&gt;
 <br />
-<br />I'll update my proposed names in a separate messages.
-<br />
-<br />Cheers,
-<br />
-<br />--Seth
-<br />
-<br /><br />On Tue, 4 Jun 2013 10:28:50 +0100
-<br />
-&nbsp;Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt; wrote:
-<br />
-<em class="quotelev1">&gt;Dear all
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;I chose a new subject because these threads about lifted_index, total_totals_
-</em><br />
-<em class="quotelev1">&gt;index and Seth's new standard names for CIN etc. are closely related.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;I agree with the suggestion from Philip to include _from_the_surface on names
-</em><br />
-<em class="quotelev1">&gt;referring to surface parcels (it was previously clarified that really means
-</em><br />
-<em class="quotelev1">&gt;from the surface, not &quot;surface air&quot; i.e. screen height), and omit it when the
-</em><br />
-<em class="quotelev1">&gt;parcel comes from a different level that is identified by a numeric
-</em><br />
-<em class="quotelev1">&gt;coordinate.
-</em><br />
-<em class="quotelev1">&gt;That is consistent with the general pattern that special physical surfaces
-</em><br />
-<em class="quotelev1">&gt;(such as the surface i.e. bottom of atmos) appear by name in standard_names
-</em><br />
-<em class="quotelev1">&gt;when relevant, whereas levels specified by coordinates do not.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;Excuse my making a late suggestion on another matter. I think &quot;start&quot; and
-</em><br />
-<em class="quotelev1">&gt;&quot;finish&quot; are OK but they make it sound like a real trajectory, whereas these
-</em><br />
-<em class="quotelev1">&gt;are just calculations from the state of the atmos. I would therefore like to
-</em><br />
-<em class="quotelev1">&gt;suggest &quot;source&quot; (for &quot;start&quot;), which has the same sense of &quot;where the parcel
-</em><br />
-<em class="quotelev1">&gt;came from&quot; that &quot;origin&quot; has, but doesn't have the potential confusion. E.g.
-</em><br />
-<em class="quotelev1">&gt;air_pressure_of_lifted_parcel_at_source. What do you think?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;As for &quot;finish&quot;, which names require this? I wonder about using &quot;ambient&quot; for
-</em><br />
-<em class="quotelev1">&gt;&quot;finish&quot;, in cases where the idea is to compare the parcel with the
-</em><br />
-<em class="quotelev1">&gt;environment
-</em><br />
-<em class="quotelev1">&gt;at the end of its notional journey. Again, what do you think?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;Going back to Seth's proposal, I wonder if
-</em><br />
-<em class="quotelev1">&gt;atmosphere_specific_convective_inhibition
-</em><br />
-<em class="quotelev1">&gt;atmosphere_specific_convective_available_potential_energy
-</em><br />
-<em class="quotelev1">&gt;are really best regarded as a trajectory. They are integral quantities. In
-</em><br />
-<em class="quotelev1">&gt;those two cases, I suggest it would be fairly natural to give them bounds in
-</em><br />
-<em class="quotelev1">&gt;a vertical coordinate to indicate the limits of integration.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;Best wishes
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;Jonathan
-</em><br />
-<em class="quotelev1">&gt;_______________________________________________
-</em><br />
-<em class="quotelev1">&gt;CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt;CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt;<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<span id="received"><dfn>Received on</dfn> Tue Jun 04 2013 - 15:48:16 BST</span>
+<span id="received"><dfn>Received on</dfn> Thu Aug 23 2012 - 07:39:36 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -206,11 +223,10 @@ unlikely to be misinterpreted...
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5465">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5466.html" title="Next message in the list">John Caron: "[CF-metadata] CF-1.6 DSG clarification: time series &#0038; lat/lon coordinates"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5464.html" title="Previous message in the list">John Graybeal: "[CF-metadata] atmosphere stability indices"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./5456.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] atmosphere stability indices"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5466.html" title="Next message in the list">Chris Barker: "[CF-metadata] &#0034;local&#0034; time?"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5464.html" title="Previous message in the list">Michael Decker: "[CF-metadata] Dimensionality of Label Variables"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./5464.html" title="Message to which this message replies">Michael Decker: "[CF-metadata] Dimensionality of Label Variables"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./5468.html" title="Next message in this discussion thread">Cameron-smith, Philip: "[CF-metadata] atmosphere stability indices"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -221,7 +237,7 @@ unlikely to be misinterpreted...
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:23 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5464.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5466.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

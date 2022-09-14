@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Towards recognizing and exploiting hierarchical groups from Charlie Zender on 2013-09-16 (mailing-list-archive)</title>
-<meta name="Author" content="Charlie Zender (zender)" />
-<meta name="Subject" content="[CF-metadata] Towards recognizing and exploiting hierarchical groups" />
-<meta name="Date" content="2013-09-16" />
+<title>[CF-metadata] CF calendars (was: problem with times in PSD dataset) from Cathy Smith on 2012-12-10 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Cathy Smith (cathy.smith)" />
+<meta name="Subject" content="[CF-metadata] CF calendars (was: problem with times in PSD dataset)" />
+<meta name="Date" content="2012-12-10" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5680.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5682.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Towards recognizing and exploiting hierarchical groups</h1>
-<!-- received="Sun Sep 15 19:53:29 2013" -->
-<!-- isoreceived="20130915185329" -->
-<!-- sent="Sun, 15 Sep 2013 18:53:29 -0700" -->
-<!-- isosent="20130916015329" -->
-<!-- name="Charlie Zender" -->
-<!-- email="zender" -->
-<!-- subject="[CF-metadata] Towards recognizing and exploiting hierarchical groups" -->
-<!-- id="52366499.2090602_at_uci.edu" -->
+<a style="text-decoration:none" href="./5680.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5682.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF calendars (was: problem with times in PSD dataset)</h1>
+<!-- received="Mon Dec 10 08:27:20 2012" -->
+<!-- isoreceived="20121210082720" -->
+<!-- sent="Mon, 10 Dec 2012 08:27:20 -0700" -->
+<!-- isosent="20121210152720" -->
+<!-- name="Cathy Smith" -->
+<!-- email="cathy.smith" -->
+<!-- subject="[CF-metadata] CF calendars (was: problem with times in PSD dataset)" -->
+<!-- id="50C5FF58.1020607_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20121209154549.GA12214_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5682.html" accesskey="d" title="Steve Hankin: &quot;[CF-metadata] Towards recognizing and exploiting hierarchical groups&quot;">Next message</a> ]
-[ <a href="./5680.html" title="David Hassell: &quot;[CF-metadata] CF trac ticket summary update&quot;">Previous message</a> ]
+[ <a href="./5682.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] CF calendars (was: problem with times in PSD dataset)&quot;">Next message</a> ]
+[ <a href="./5680.html" title="Jon Blower: &quot;[CF-metadata] CF calendars (was: problem with times in PSD dataset)&quot;">Previous message</a> ]
+[ <a href="./5679.html" title="Jonathan Gregory: &quot;[CF-metadata] CF calendars (was: problem with times in PSD dataset)&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./5682.html" accesskey="t" title="Steve Hankin: &quot;[CF-metadata] Towards recognizing and exploiting hierarchical groups&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
+[ <a href="./5683.html" accesskey="t" title="Cecelia DeLuca: &quot;[CF-metadata] CF calendars (was: problem with times in PSD dataset)&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,235 +71,187 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Charlie Zender &lt;<a href="mailto:zender?Subject=Re%3A%20%5BCF-metadata%5D%20Towards%20recognizing%20and%20exploiting%20hierarchical%20groups">zender</a>&gt;
+<dfn>From</dfn>: Cathy Smith &lt;<a href="mailto:cathy.smith?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20calendars%20(was%3A%20problem%20with%20times%20in%20PSD%20dataset)">cathy.smith</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Sun, 15 Sep 2013 18:53:29 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 10 Dec 2012 08:27:20 -0700</span><br />
 </address>
 <br />
-NASA has recently convened an Earth Science Data System Working Group to
+Jonathon
 <br />
-explore existing conventions for data and products stored in HDF and to
+<br />We have the issue that we store many long terms means (subdaily,daily,
 <br />
-make recommendations for future developments. The CF Conventions are an
+monthly...). These long terms means have no &quot;years&quot; per se though the
 <br />
-important element in this work, as many scientists and users are
+rest of the date is an actual 'date'. We have been storing them as year
 <br />
-interested in data products that comply with CF. Many members of the
+1 generally speaking (usually base 1-1-1) as we want to avoid using  a
 <br />
-working group are familiar with CF and have been involved in attempts to
+date within the date range of the dataset as we feel it confuses people.
 <br />
-apply the CF Conventions to a variety of Earth Science data products.
-<br />
-<br />We have identified a persistent barrier to NASA's greater adoption of
-<br />
-CF: the lack of protocols for exploiting software-defined group
-<br />
-hierarchies for data structures. HDF datasets traditionally collected
-<br />
-and stewarded by NASA often utilize hierarchical (the &quot;H&quot; in HDF)
-<br />
-groups. A chief advantage of netCDF4 over netCDF3 is that it supports a
-<br />
-group API compatible with HDF. Here we outline an approach to
-<br />
-incorporating groups into CF as a step towards recognizing and,
-<br />
-eventually, exploiting groups.
-<br />
-<br />Some aspects of CF (especially the netCDF Conventions like _FillValue,
-<br />
-valid_min) can apply unambiguously to HDF files that use groups, but
-<br />
-other aspects of CF conventions have room for ambiguity when applied to
-<br />
-such HDF files. Clarifying that ambiguity is one role of conventions, so
-<br />
-we would like to start a discussion with the aim of obtaining feedback,
-<br />
-gathering consensus, and eventually, possibly, embedding
-<br />
-&quot;group-awareness&quot; into CF. Unidata's white paper on Conventions for
-<br />
-netCDF4
-<br />
-(<a href="http://www.unidata.ucar.edu/software/netcdf/papers/nc4_conventions.html">http://www.unidata.ucar.edu/software/netcdf/papers/nc4_conventions.html</a>) began
-<br />
-the discussion of potential &quot;group-aware&quot; CF capabilities. Some previous
-<br />
-discussion of &quot;group-aware&quot; CF metadata is contained or referenced in
-<br />
-CF-Metadata Trac tickets 79 (Handling and formatting of vector
-<br />
-quantities in CF) and 90 (Collection of CF enhancements for
-<br />
-interoperable applications) yet the &quot;big discussion&quot; on how/whether CF
-<br />
-should exploit the hierarchical group capabilities of netCDF4 is
-<br />
-unfinished. Below we propose a standard scheme for interpreting metadata
-<br />
-scope in hierarchical (group) files, and suggest one or two new Group
-<br />
-Attributes which we could turn into concrete proposals if interest warrants.
-<br />
-<br />Perhaps the most obvious place to start a discussion on making CF
-<br />
-&quot;group-aware&quot; is the notion of attribute scope: How ought metadata in
-<br />
-one group apply, if at all, to other groups? CF metadata attributes may
-<br />
-be applied at the group level (netCDF4 allows this) yet what should that
-<br />
-mean? Whereas the current CF Convention speaks only of Global Attributes
-<br />
-and Variable Attributes, a &quot;group-aware&quot; CF must explicitly define the
-<br />
-properties of a third category of attributes, Group Attributes. Global
-<br />
-Attributes are a special case of Group Attributes and should share their
-<br />
-properties.
-<br />
-<br />The key technical definition we propose is that Group Attributes shall
-<br />
-apply to the group where they are defined and to its descendents, but
-<br />
-not to that group's ancestors or siblings. Group Attributes apply to all
-<br />
-a group's descendents recursively with an exception: Any group may
-<br />
-redefine an attribute defined in an ancestor group, and that
-<br />
-child-group's definition applies to all its descendents. Thus in cases
-<br />
-where multiple ancestor groups define the same attribute, attribute
-<br />
-values are inherited from the nearest ancestor. Note that these are the
-<br />
-same scoping properties as netCDF4 dimensions.
-<br />
-<br />Our understanding is that this proposal is consistent and
-<br />
-backwards-compatible with CF. However, it would extend the current usage
-<br />
-of CF to files with arbitrary hierarchies of groups. Moreover, it might
-<br />
-be helpful to specifically disallow (or mark as having undefined
-<br />
-consequences) the use of Group Attributes to store metadata that should
-<br />
-always be attached directly to variables. Group Attributes such as
-<br />
-_FillValue, scale_factor, valid_min, might sometimes seem tempting yet
-<br />
-might create more problems than they would solve. Some attributes (e.g.,
-<br />
-Convention) may be useful only as Global Attributes, and not as Group
-<br />
-Attributes for other groups.
-<br />
-<br />What would a &quot;group-aware&quot; CF Convention mean in practice? It is
-<br />
-important to preserve CF backwards compatibility. The metadata
-<br />
-annotation of flat files (e.g., all netCDF3 files) need not be affected
-<br />
-by any &quot;group-aware&quot; CF Convention extensions.
-<br />
-<br />Files with group hierarchies would continue to have Global Attributes
-<br />
-(i.e., Group Attributes at the root group level). Global Attributes are
-<br />
-almost always useful because they apply to the entire file except where
-<br />
-superceded by an attribute of the same name at a lower level. Where
-<br />
-group-oriented attribute conventions would help, we believe, is in
-<br />
-extending the power of CF unambiguously to nested groups.
-<br />
-<br />Imagine a group file in which each top level group holds model results
-<br />
-from a distinct CMIP5 simulation (CCSM, ECMWF, GISS, etc.). Or where
-<br />
-each top level group holds a different satellite-retrieved value of the
-<br />
-same field (ERBE OLR, CERES OLR, etc.), or a different channel from the
-<br />
-same multi-spectral radiometer. It may be helpful to know the relation
-<br />
-of groups to other groups, so that users and tools can learn which are
-<br />
-(or aren't) intercomparable or aggregable. Properties of ensembles
-<br />
-stored as groups that would be helpful to know, in an automated way, by
-<br />
-analysis tools (such as NCO) include: Which groups contain the other
-<br />
-ensemble realizations? Which groups hold other channels of a
-<br />
-multi-spectral instrument? Knowing this information would help users and
-<br />
-analysis tools infer how best to create ensemble statistics, and could
-<br />
-significantly reduce the overall number of files confronting users.
-<br />
-<br />Finally, groups allow containerization of information which can be
-<br />
-useful in avoiding repetition. Some would like to define metadata-only
-<br />
-groups that could then be logically attached to apply to some or all
-<br />
-other groups in a file. Is it desirable for CF to define a standard way
-<br />
-to indicate this?
-<br />
-<br />As the previous examples illustrate, there are at least two levels to a
-<br />
-discussion about &quot;group-aware&quot; CF. The first is scope, i.e., how
-<br />
-attribute meanings are inherited in hierarchies. The second is the more
-<br />
-pragmatic issue of what new CF attributes would allow us to exploit
-<br />
-group hierarchies in a systematic way. We proposed an answer to the
-<br />
-scope issue to kickstart the discussion. We illustrated how a new
-<br />
-attribute (call it &quot;ensemble&quot; for now) might be useful. At this stage we
-<br />
-wish to learn whether CF users/developers are interested in pursuing
-<br />
-&quot;group-aware&quot; CF extensions at all before we develop more
-<br />
-details/wording for specific conventions. Perhaps there are others
-<br />
-working on similar issues, or perhaps the CF maintainers prefer to
-<br />
-receive specific wording of proposals rather than more diffuse
-<br />
-&quot;invitations to discuss&quot; like this. If you have an opinion, then please
-<br />
-let us know.
-<br />
-<br />Until the CF (or some other) Convention tackles the issues of scoping
-<br />
-and Group Attributes, such annotations will be ad hoc. Our goal is to
-<br />
-increase interoperability, and we are eager to hear responses from the
-<br />
-CF community on the direction of &quot;group-aware&quot; extensions to CF.
-<br />
-<br />On behalf of the NASA ESDS HDF5 WG,
-<br />
-Charlie Zender, Ted Habermann, and Peter Leonard
-<br />
-<pre>
+So, in your proposal below, we couldn't use year 1 as the date because
+<br />
+we couldn't use 1-1-1., We also couldn't use 1800-1-1- and year 1
+<br />
+(negative dates). So, we would have to use some other year that didn't
+<br />
+look like a real year but was &gt;1800. We could use something like 9999
+<br />
+would work but would lead to large values of the time variable and would
+<br />
+be hard to read. We could switch the base date for the LTM's (instead of
+<br />
+1800-1-1 use 9999-1-1) but I'm not sure that is a good idea to switch
+<br />
+base dates within a dataset. For us, the best thing for LTM's is to use
+<br />
+1-1-1 and year 1 as that is fairly easy to read and won't tend to
+<br />
+confuse people. CF doesn't have a standard and looking at the doc page,
+<br />
+the examples all show values that use a year from the range (something
+<br />
+that really does confuse some users in our experience).  We could also
+<br />
+switch the default calendar and maybe that is sufficient but in my
+<br />
+experience only people who care about calendars would notice any
+<br />
+calendar attribute (e.g. not scientific users) so potentially that could
+<br />
+prove an issue. If we did switch, I could see that possibly being a
+<br />
+problem with applications  as well, unless coded well.
+<br />
+<br />I'm really not sure the best solution to this problem but I do think any
+<br />
+calender solution needs to take into account how to store climatological
+<br />
+dates.
+<br />
+<br />Cathy
+<br />
+<br /><br />On 12/9/12 8:45 AM, Jonathan Gregory wrote:
+<br />
+<em class="quotelev1">&gt; Dear Cecilia
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Thanks for your posting. Are we in agreement? I think that we are.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; However, the current default is also problematic - reasons I see are:
+</em><br />
+<em class="quotelev2">&gt;&gt; 1) it does send a message to modelers who find the default unusable,
+</em><br />
+<em class="quotelev2">&gt;&gt; 2) because different calendar defaults are used on the modeling and
+</em><br />
+<em class="quotelev2">&gt;&gt; data side, current tools are limited to particular calendars,
+</em><br />
+<em class="quotelev2">&gt;&gt; affecting users,
+</em><br />
+<em class="quotelev2">&gt;&gt; and 3) the mixed Julian-Gregorian calendar is an ugly beast to peg as the
+</em><br />
+<em class="quotelev2">&gt;&gt; standard forevermore.
+</em><br />
+<em class="quotelev1">&gt; I agree with these drawbacks. If CF only dealt with the real world, obviously
+</em><br />
+<em class="quotelev1">&gt; the real-world calendar (mixed Julian-Gregorian) would be the default and only
+</em><br />
+<em class="quotelev1">&gt; calendar it had to deal with. However, at its outset CF was for models, many of
+</em><br />
+<em class="quotelev1">&gt; which do not use this calendar, which was nonetheless chosen as the default
+</em><br />
+<em class="quotelev1">&gt; because of udunits. I agree with you and others that providing such an
+</em><br />
+<em class="quotelev1">&gt; inconvenient default is unsatisfactory in retrospect. But here we are!
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; it is a good idea to add another, strict Gregorian (error before 1582).
+</em><br />
+<em class="quotelev1">&gt; Thanks for seeing it like that. Yes, perhaps we should define what I suggested
+</em><br />
+<em class="quotelev1">&gt; as a new calendar: strict_gregorian, which is not allowed to have a ref date
+</em><br />
+<em class="quotelev1">&gt; before 1582, or to use negative time coordinates, or to describe dates before
+</em><br />
+<em class="quotelev1">&gt; 1582 (which would be impossible given the first two conditions). (Note, I am
+</em><br />
+<em class="quotelev1">&gt; not personally the eponymous strict Gregory.)
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; In that case, we could change the default in the next release from gregorian
+</em><br />
+<em class="quotelev1">&gt; or standard to strict_gregorian. For software which is careful about versions,
+</em><br />
+<em class="quotelev1">&gt; this would mean that dates in the default calendar before 1582 would give an
+</em><br />
+<em class="quotelev1">&gt; error. This would be a safe failure, rather than a wrong answer.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Some data sets would be CF compliant only under particular versions of CF.
+</em><br />
+<em class="quotelev2">&gt;&gt; Is this the first time that a change to CF would have such an impact?
+</em><br />
+<em class="quotelev1">&gt; In the sense of old data becoming invalid in a *later* version, yes I think
+</em><br />
+<em class="quotelev1">&gt; it is. Of course new features always allow datasets which are invalid in an
+</em><br />
+<em class="quotelev1">&gt; *earlier* version.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; In the failing cases, I think we agree that tools might offer the facility
+</em><br />
+<em class="quotelev2">&gt;&gt; to provide the calendar if none was found.
+</em><br />
+<em class="quotelev2">&gt;&gt; However, I imagine most tools would continue to assume the current default.
+</em><br />
+<em class="quotelev1">&gt; Yes, I expect so. They would still be unsafe, if datasets have been wrongly
+</em><br />
+<em class="quotelev1">&gt; coded with the default, but it would be no worse than now.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; This does not seem so bad to me.  The removal of the default solution should
+</em><br />
+<em class="quotelev2">&gt;&gt; not produce the nastier kinds of errors that you would get if you
+</em><br />
+<em class="quotelev2">&gt;&gt; changed the default.
+</em><br />
+<em class="quotelev1">&gt; That's what I think, except that formally the above suggestion is a change to
+</em><br />
+<em class="quotelev1">&gt; to the default - one which installs a fail-safe mechanism.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Best wishes
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Jonathan
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<br /><pre>
 -- 
-Charlie Zender, Earth System Sci. &amp; Computer Sci.
-University of California, Irvine 949-891-2429 )'(
+----------------------------------------------
+NOAA/ESRL PSD and CIRES CDC
+303-497-6263
+<a href="http://www.esrl.noaa.gov/psd/people/cathy.smith/">http://www.esrl.noaa.gov/psd/people/cathy.smith/</a>
+Emails about data/webpages may get quicker responses from emailing 
+esrl.psd.data at noaa.gov
 </pre>
-<span id="received"><dfn>Received on</dfn> Sun Sep 15 2013 - 19:53:29 BST</span>
+<span id="received"><dfn>Received on</dfn> Mon Dec 10 2012 - 08:27:20 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -306,12 +259,11 @@ University of California, Irvine 949-891-2429 )'(
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5681">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5682.html" title="Next message in the list">Steve Hankin: "[CF-metadata] Towards recognizing and exploiting hierarchical groups"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5680.html" title="Previous message in the list">David Hassell: "[CF-metadata] CF trac ticket summary update"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5682.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] CF calendars (was: problem with times in PSD dataset)"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5680.html" title="Previous message in the list">Jon Blower: "[CF-metadata] CF calendars (was: problem with times in PSD dataset)"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./5679.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] CF calendars (was: problem with times in PSD dataset)"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./5682.html" title="Next message in this discussion thread">Steve Hankin: "[CF-metadata] Towards recognizing and exploiting hierarchical groups"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./5682.html" title="Message sent in reply to this message">Steve Hankin: "[CF-metadata] Towards recognizing and exploiting hierarchical groups"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./5683.html" title="Next message in this discussion thread">Cecelia DeLuca: "[CF-metadata] CF calendars (was: problem with times in PSD dataset)"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -322,7 +274,7 @@ University of California, Irvine 949-891-2429 )'(
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:29 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5680.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5682.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

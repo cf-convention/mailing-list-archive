@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF standard names for Ocean Dynamics from Brown, Jennifer on 2009-07-20 (mailing-list-archive)</title>
-<meta name="Author" content="Brown, Jennifer (jebro)" />
-<meta name="Subject" content="[CF-metadata] CF standard names for Ocean Dynamics" />
-<meta name="Date" content="2009-07-20" />
+<title>[CF-metadata] Adding new standard names for satellite altimetry from olivier lauret on 2008-04-11 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="olivier lauret (olauret)" />
+<meta name="Subject" content="[CF-metadata] Adding new standard names for satellite altimetry" />
+<meta name="Date" content="2008-04-11" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2133.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2135.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF standard names for Ocean Dynamics</h1>
-<!-- received="Mon Jul 20 04:29:35 2009" -->
-<!-- isoreceived="20090720032935" -->
-<!-- sent="Mon, 20 Jul 2009 11:29:35 +0100" -->
-<!-- isosent="20090720102935" -->
-<!-- name="Brown, Jennifer" -->
-<!-- email="jebro" -->
-<!-- subject="[CF-metadata] CF standard names for Ocean Dynamics" -->
-<!-- id="9C29AFE27E3FBA4DB1742CC8E8F74ECD01357541E7_at_nerckwmb1.ad.nerc.ac.uk" -->
+<a style="text-decoration:none" href="./2133.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2135.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Adding new standard names for satellite altimetry</h1>
+<!-- received="Fri Apr 11 06:38:54 2008" -->
+<!-- isoreceived="20080411053854" -->
+<!-- sent="Fri, 11 Apr 2008 14:38:54 +0200" -->
+<!-- isosent="20080411123854" -->
+<!-- name="olivier lauret" -->
+<!-- email="olauret" -->
+<!-- subject="[CF-metadata] Adding new standard names for satellite altimetry" -->
+<!-- id="1240F43731C2EB4F8CC9BF70D233B511066728_at_SRV-XCHANGE-2K3.pc.cls.fr" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20080410171139.GA9140_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2135.html" accesskey="d" title="John Caron: &quot;[CF-metadata] Scale and offset in coordinate variables&quot;">Next message</a> ]
-[ <a href="./2133.html" title="Steve Hankin: &quot;[CF-metadata] defining two lat-lon grids in same file&quot;">Previous message</a> ]
+[ <a href="./2135.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  Adding new standard names for satellite altimetry&quot;">Next message</a> ]
+[ <a href="./2133.html" title="John Graybeal: &quot;[CF-metadata] what standard names are for&quot;">Previous message</a> ]
+[ <a href="./2128.html" title="Jonathan Gregory: &quot;[CF-metadata] Adding new standard names for satellite altimetry&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./2136.html" accesskey="t" title="Nan Galbraith: &quot;[CF-metadata] CF standard names for Ocean Dynamics&quot;">Next in thread</a> ]
+[ <a href="./2135.html" accesskey="t" title="Jonathan Gregory: &quot;[CF-metadata]  Adding new standard names for satellite altimetry&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,88 +72,58 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Brown, Jennifer &lt;<a href="mailto:jebro?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20standard%20names%20for%20Ocean%20Dynamics">jebro</a>&gt;
+<dfn>From</dfn>: olivier lauret &lt;<a href="mailto:olauret?Subject=Re%3A%20%5BCF-metadata%5D%20Adding%20new%20standard%20names%20for%20satellite%20altimetry">olauret</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 20 Jul 2009 11:29:35 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 11 Apr 2008 14:38:54 +0200</span><br />
 </address>
 <br />
-Hi,
+Dear Jonathan and Michael,
 <br />
-<br />&nbsp;I am trying to convert model data to CF-netCDF using the standard names, but I need some extra ones. The model is a coupled tide-surge-wave model, which includes barotropic and baroclnic currents, but gives the total overall current field (tides, surge driven, salinity driven currents etc....)
+<br /><em class="quotelev1">&gt; backward(s)_scattering_coefficient
+</em><br />
+<em class="quotelev1">&gt; (I think it is better not to name it with no reference to the kind of surface, because backscattering coefficient can be used in satellite altimetry to study ice sheets, for example. Moreover some flags are used to discriminate if measurement is on ocean or land.)
+</em><br />
+<br />OK. Could we put just &quot;surface_&quot; then (not &quot;sea_surface_&quot;)? Scattering is also
 <br />
-<br />Would it be possible to make standard names for:
+possible within the atmosphere, and it is useful to distinguish.
 <br />
-<br />1)sea_floor_depth_below_mean_tidal_level   units: m
+<br /><br /><em class="quotelev2">&gt;&gt;I agree with you. In that case a possibility is surface_backwards_scattering_coefficient, or following Michael's suggestion a more precise surface_backwards_scattering_coefficient_of_radar_wave (no need to use &quot;in&quot; here )
+</em><br />
+<br /><br /><br /><em class="quotelev1">&gt; The only point where I have doubts is about the pair:
+</em><br />
+<em class="quotelev1">&gt; mean_sea_surface_height_above_reference_ellipsoid (m)
+</em><br />
+<em class="quotelev1">&gt; mean_sea_surface_height_above_geoid (m)
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Well, I already thought about using cell_methods, but I am not sure it is a good idea: the dataset is based in grid points, and actually the data themselves are not obtained by averaging sea_surface_height data (in facts it is a more complex computing). That's why I think maybe we should introduce standard names for these parameters too..Shouldn't we?
+</em><br />
+<br />I am not clear yet what you mean. Is it a mean/average? If it is not a mean,
 <br />
-Our model bathymetry has been generated for mean tidal level, which is not exactly the same as mean sea level.
+it doesn't seem logical to say &quot;mean&quot;, whether in the standard name or the
 <br />
-<br />2)sea_surface_wave_peak_period units: s
+cell_methods. &quot;mean&quot; is still all right, however, if it includes weights of
 <br />
-A period is an interval of time, or the time-period of an oscillation. The peak wave period is the period of the most energetic waves in the total wave spectrum at a specific point.
+some kind. cell_methods does not specify precisely how the mean is calculated.
 <br />
-<br />3)total_eastward_sea_water_velocity  units:m s^-1
+Could you explain a bit more about what the calculation is, to clarify this
 <br />
-A velocity is a vector quantity. &quot;Eastward&quot; indicates a vector component which is positive when directed eastward (negative westward).
+point? How would you define it in more words?
 <br />
-<br />4)total_northward_sea_water_velocity  units:m s^-1
+<br /><em class="quotelev2">&gt;&gt;Yes, sorry my answer was ambiguous: actually the dataset includes mean sea surface and mean dynamic topography ( to give you an idea here are two examples of such mean sea surfaces <a href="http://www.aviso.oceanobs.com/en/data/products/auxiliary-products/mdt/description-rio05/index.html">http://www.aviso.oceanobs.com/en/data/products/auxiliary-products/mdt/description-rio05/index.html</a> and <a href="http://www.aviso.oceanobs.com/en/data/products/auxiliary-products/mss/description-cls01/index.html">http://www.aviso.oceanobs.com/en/data/products/auxiliary-products/mss/description-cls01/index.html</a> ). In the file data represent the point values of the geophysical field, positions are defined at grid points and not grid cells. I am not sure if this is really correct to use cell_methods=mean in such case?
+</em><br />
+<br />Kind regards
 <br />
-A velocity is a vector quantity. &quot;Northward&quot; indicates a vector component which is positive when directed northward (negative southward).
+<br />Olivier
 <br />
-<br />5)total_depth_averaged_eastward_sea_water_velocity  units:m s^-1
+<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cliquez sur l'url suivante 
 <br />
-A velocity is a vector quantity. &quot;Eastward&quot; indicates a vector component which is positive when directed eastward (negative westward). &quot;Depth-averaged&quot; means the velocity vectors at every depth level are averaged.
+<a href="https://www.mailcontrol.com/sr/wXyq1o9N1r3GqMpurIatdr9HgN!mgPke2kRggE9HXdx1ktWUg9iYOQtq8p04wAWsTrA+hkJ6ECfoG!3GEXscBiVZTUnlURXm+8CXQT4M!AEZBwIKSw3!6fsoOUMPj81gaHR3TiPA6E!6jciBX5KkLw4NcqZ8pAZgwMskf9D2Pwm7+UVU5UMrYmQsZLBo1WBOtQGD6impooRyM11SeYo7ImMR8EnaTthk">https://www.mailcontrol.com/sr/wXyq1o9N1r3GqMpurIatdr9HgN!mgPke2kRggE9HXdx1ktWUg9iYOQtq8p04wAWsTrA+hkJ6ECfoG!3GEXscBiVZTUnlURXm+8CXQT4M!AEZBwIKSw3!6fsoOUMPj81gaHR3TiPA6E!6jciBX5KkLw4NcqZ8pAZgwMskf9D2Pwm7+UVU5UMrYmQsZLBo1WBOtQGD6impooRyM11SeYo7ImMR8EnaTthk</a>  
 <br />
-<br />6)total_depth_averaged_northward_sea_water_velocity  units:m s^-1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;si ce message est ind?sirable (pourriel).
 <br />
-A velocity is a vector quantity. &quot;Northward&quot; indicates a vector component which is positive when directed northward (negative southward). &quot;Depth-averaged&quot; means the velocity vectors at every depth level are averaged.
-<br />
-<br />7)total_daily_mean_eastward_sea_water_velocity  units:m s^-1
-<br />
-A velocity is a vector quantity. &quot;Eastward&quot; indicates a vector component which is positive when directed eastward (negative westward). &quot;Daily mean&quot; means the velocity vectors at every level are averaged through time over 1 day.
-<br />
-<br />8)total_daily_mean_northward_sea_water_velocity  units:m s^-1
-<br />
-A velocity is a vector quantity. &quot;Northward&quot; indicates a vector component which is positive when directed northward (negative southward). &quot;Daily mean&quot; means the velocity vectors at every level are averaged through time over 1 day.
-<br />
-<br />9)sea_surface_height_above_mean_tidal_level  units:m 
-<br />
-&quot;Sea surface height&quot; is a time-varying quantity, positive is vertically above the mean tidal level (negative below). The mean tidal level is the mean level of the sea surface due to the tide.
-<br />
-<br />10)vertical_grid_level units: 1
-<br />
-The level of the vertical grid above the sea bed. Level 1 = the bed, increasing positively up to the surface. 
-<br />
-<br />Regards,
-<br />
-Jenny
-<br />
-<br />-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
-<br />
-Dr Jenny Brown
-<br />
-Proudman Oceanographic Laboratory
-<br />
-Joseph Proudman building, 
-<br />
-6 Brownlow Street, Liverpool L3 5DA, UK
-<br />
-<br />Tel: +44 (0) 151 795 4800 (switchboard)
-<br />
-+44 (0) 151 795 4971 (direct)
-<br />
-Fax: +44 (0) 151 795 4801
-<br />
-email jebro at pol.ac.uk
-<br />
-<br /><br /><br /><pre>
--- 
-This message (and any attachments) is for the recipient only. NERC
-is subject to the Freedom of Information Act 2000 and the contents
-of this email and any reply you make may be disclosed by NERC unless
-it is exempt from release under the Act. Any material supplied to
-NERC may be stored in an electronic records management system.
-</pre>
-<span id="received"><dfn>Received on</dfn> Mon Jul 20 2009 - 04:29:35 BST</span>
+<span id="received"><dfn>Received on</dfn> Fri Apr 11 2008 - 06:38:54 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -159,12 +131,13 @@ NERC may be stored in an electronic records management system.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2134">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2135.html" title="Next message in the list">John Caron: "[CF-metadata] Scale and offset in coordinate variables"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2133.html" title="Previous message in the list">Steve Hankin: "[CF-metadata] defining two lat-lon grids in same file"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2135.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  Adding new standard names for satellite altimetry"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2133.html" title="Previous message in the list">John Graybeal: "[CF-metadata] what standard names are for"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./2128.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] Adding new standard names for satellite altimetry"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./2136.html" title="Next message in this discussion thread">Nan Galbraith: "[CF-metadata] CF standard names for Ocean Dynamics"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./2135.html" title="Next message in this discussion thread">Jonathan Gregory: "[CF-metadata]  Adding new standard names for satellite altimetry"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./2136.html" title="Message sent in reply to this message">Nan Galbraith: "[CF-metadata] CF standard names for Ocean Dynamics"</a></li>
+<dfn>Reply</dfn>: <a href="./2135.html" title="Message sent in reply to this message">Jonathan Gregory: "[CF-metadata]  Adding new standard names for satellite altimetry"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -175,7 +148,7 @@ NERC may be stored in an electronic records management system.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:20 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2133.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2135.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] cf2 progress from Jonathan Gregory on 2006-01-11 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] cf2 progress" />
-<meta name="Date" content="2006-01-11" />
+<title>[CF-metadata] Re: CF NetCDF Conventions from Jonathan Gregory on 2002-04-11 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (jonathan.gregory)" />
+<meta name="Subject" content="[CF-metadata] Re: CF NetCDF Conventions" />
+<meta name="Date" content="2002-04-11" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0002.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0004.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] cf2 progress</h1>
-<!-- received="Wed Jan 11 00:16:28 2006" -->
-<!-- isoreceived="20060111001628" -->
-<!-- sent="Wed, 11 Jan 2006 07:16:28 +0000" -->
-<!-- isosent="20060111071628" -->
+<a style="text-decoration:none" href="./0002.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0004.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Re: CF NetCDF Conventions</h1>
+<!-- received="Thu Apr 11 02:42:24 2002" -->
+<!-- isoreceived="20020411014224" -->
+<!-- sent="Thu, 11 Apr 2002 09:42:24 +0100" -->
+<!-- isosent="20020411084224" -->
 <!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] cf2 progress" -->
-<!-- id="20060111071628.GA24777_at_met.reading.ac.uk" -->
+<!-- email="jonathan.gregory" -->
+<!-- subject="[CF-metadata] Re: CF NetCDF Conventions" -->
+<!-- id="20020411094224.A6372_at_hc1600.meto.gov.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="43C3F2C5.1080107_at_noaa.gov" -->
+<!-- inreplyto="&quot;from eaton&quot;_at_ncar.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0004.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] standard names to be added&quot;">Next message</a> ]
-[ <a href="./0002.html" title="Steve Hankin: &quot;[CF-metadata] cf2 progress&quot;">Previous message</a> ]
-[ <a href="./0002.html" title="Steve Hankin: &quot;[CF-metadata] cf2 progress&quot;">In reply to</a> ]
+[ <a href="./0004.html" accesskey="d" title="Brian Eaton: &quot;[CF-metadata] Re: CF NetCDF Conventions&quot;">Next message</a> ]
+[ <a href="./0002.html" title="Brian Eaton: &quot;[CF-metadata] Re: CF Standard Names&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0008.html" accesskey="t" title="Bryan Lawrence: &quot;[CF-metadata] cf2 progress&quot;">Next in thread</a> ]
+[ <a href="./0004.html" accesskey="t" title="Brian Eaton: &quot;[CF-metadata] Re: CF NetCDF Conventions&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -71,26 +71,116 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20cf2%20progress">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:jonathan.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Re%3A%20CF%20NetCDF%20Conventions">jonathan.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 11 Jan 2006 07:16:28 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 11 Apr 2002 09:42:24 +0100</span><br />
 </address>
 <br />
-Dear Bryan
+Dear Alan and Brian
 <br />
-<br /><em class="quotelev1">&gt; Anyway -- nice job moving this forward.  Jonathan will enjoy his well 
+<br />Thank you for your emails. Sorry I have been so long in replying. I am
+<br />
+grateful for Alan's comments and I agree with Brian's answers except for (a).
+<br />
+<br /><em class="quotelev1">&gt; a) All the examples apply the &quot;coordinates&quot; attribute to data variables.
 </em><br />
-<em class="quotelev1">&gt; deserved relief, I'm sure.
+<em class="quotelev1">&gt; This is obviously required for two-dimensional cases (latitude, longitude),
 </em><br />
-<br />Indeed - and the users will enjoy faster response once Alison finds her feet!
+<em class="quotelev1">&gt; but a one dimensional alternative coordinate could presumably be applied
+</em><br />
+<em class="quotelev1">&gt; to the coordinate variable and inherited by any data variable that used
+</em><br />
+<em class="quotelev1">&gt; this axis.  Is this allowed?  If so, there should be examples and a
+</em><br />
+<em class="quotelev1">&gt; discussion of this approach.
+</em><br />
+<br /><em class="quotelev2">&gt; &gt; a) I like this suggestion.  I think it's more robust to have 1-D alternate
+</em><br />
+<em class="quotelev2">&gt; &gt; coordinates attached to the appropriate coordinate variable rather than to
+</em><br />
+<em class="quotelev2">&gt; &gt; the data variable.  Consider the example in section 6.2.  If an application
+</em><br />
+<em class="quotelev2">&gt; &gt; takes a horizontal slice of the xwind variable and produces an new
+</em><br />
+<em class="quotelev2">&gt; &gt; variable, say xwind1(sig1,lat), then the coordinates attribute of xwind is
+</em><br />
+<em class="quotelev2">&gt; &gt; no longer appropriate for xwind1.  But applications generally just copy
+</em><br />
+<em class="quotelev2">&gt; &gt; the attributes of the input variable to the output variable, which in this
+</em><br />
+<em class="quotelev2">&gt; &gt; case is not the right thing to do.  This problem is avoided by attaching
+</em><br />
+<em class="quotelev2">&gt; &gt; the coordinates attribute to the sigma variable rather than to xwind.
+</em><br />
+<em class="quotelev2">&gt; &gt; Ideally of course the applications will be smart enough to slice the
+</em><br />
+<em class="quotelev2">&gt; &gt; alternate coordinates as well.  But in the meantime...
+</em><br />
+<br />I appreciate the point of this suggestion, but on balance I am not in favour
 <br />
-I'm glad she can start to work on it soon - thanks.
+of it, for two reasons:
 <br />
-<br />Cheers
+<br />* It makes the standard and hence the data-reading software more complicated,
+<br />
+because of the need to look both on the data variable and on the coordinate
+<br />
+variable for coordinates attributes.
+<br />
+<br />* It could lead to inappropriate attribution of coordinates, or alternatively
+<br />
+more effort to avoid such misattribution. For instance, if you have two
+<br />
+quantities on the same trajectory, say temperature(time) and humidity(time),
+<br />
+they can share the auxiliary coordinates lat(time) lon(time) height(time),
+<br />
+which can therefore be named by a coordinates attribute of the time(time)
+<br />
+coordinate variable. That's fine - it is the point of the proposal. But now
+<br />
+suppose you have a separate trajectory with the same sample times. Because it
+<br />
+has different lat lon and height, it cannot share the time coordinate var,
+<br />
+even though the dimension and all the values are identical. Upon adding the
+<br />
+second trajectory to the file, you would therefore have to detect this, and
+<br />
+duplicate the time axis. You'd have to do the same thing if you wanted to
+<br />
+include any quantity measured at the same times but not along the trajectory.
+<br />
+For example, you might have in the same file a gridded field of surface pressure
+<br />
+pstar(time,xlat,xlon). Again, it can't use the same time dimension, because of
+<br />
+the implicit and inappropriate association with lat, lon and height that would
+<br />
+arise.
+<br />
+<br />It seems to me that the duplication, or the need to work out when this new
+<br />
+facility can be used, is potentially more of a nuisance to data-writing
+<br />
+software than the need to avoid indiscriminately copying the coordinates
+<br />
+attribute. Also, inappropriate copying such as the kind which Brian mentioned
+<br />
+can be quite easily detected by the data-reading software, because the
+<br />
+auxiliary coordinate variable has a dimension which is not a dimension of the
+<br />
+data variable, and is therefore illegal.
+<br />
+<br /><em class="quotelev1">&gt; d) I have no objection to adding the &quot;all_leap&quot; calendar.
+</em><br />
+Would it be a significant pitfall that all_leap has a _ and noleap doesn't?
+<br />
+<br />Best wishes
 <br />
 <br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Jan 11 2006 - 00:16:28 GMT</span>
+<span id="received"><dfn>Received on</dfn> Thu Apr 11 2002 - 02:42:24 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -98,11 +188,12 @@ I'm glad she can start to work on it soon - thanks.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start3">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0004.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] standard names to be added"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0002.html" title="Previous message in the list">Steve Hankin: "[CF-metadata] cf2 progress"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0002.html" title="Message to which this message replies">Steve Hankin: "[CF-metadata] cf2 progress"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0004.html" title="Next message in the list">Brian Eaton: "[CF-metadata] Re: CF NetCDF Conventions"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0002.html" title="Previous message in the list">Brian Eaton: "[CF-metadata] Re: CF Standard Names"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0008.html" title="Next message in this discussion thread">Bryan Lawrence: "[CF-metadata] cf2 progress"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./0004.html" title="Next message in this discussion thread">Brian Eaton: "[CF-metadata] Re: CF NetCDF Conventions"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0004.html" title="Message sent in reply to this message">Brian Eaton: "[CF-metadata] Re: CF NetCDF Conventions"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -113,7 +204,7 @@ I'm glad she can start to work on it soon - thanks.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:42 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0002.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0004.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

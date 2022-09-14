@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Ocean content tendencies due to sedimentation -- sign ambiguity in CMIP usage from Martin Juckes - UKRI STFC on 2018-09-05 (mailing-list-archive)</title>
-<meta name="Author" content="Martin Juckes - UKRI STFC (martin.juckes)" />
-<meta name="Subject" content="[CF-metadata] Ocean content tendencies due to sedimentation -- sign ambiguity in CMIP usage" />
-<meta name="Date" content="2018-09-05" />
+<title>[CF-metadata] grid cells with a varying number of cell bounds from Jonathan Gregory on 2017-09-06 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] grid cells with a varying number of cell bounds" />
+<meta name="Date" content="2017-09-06" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./9298.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./9300.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Ocean content tendencies due to sedimentation -- sign ambiguity in CMIP usage</h1>
-<!-- received="Wed Sep  5 03:05:33 2018" -->
-<!-- isoreceived="20180905020533" -->
-<!-- sent="Wed, 5 Sep 2018 09:05:33 +0000" -->
-<!-- isosent="20180905090533" -->
-<!-- name="Martin Juckes - UKRI STFC" -->
-<!-- email="martin.juckes" -->
-<!-- subject="[CF&ndash;metadata] Ocean content tendencies due to sedimentation &ndash;&ndash; sign ambiguity in CMIP usage" -->
-<!-- id="49231041b5b3407891ee96c516045c8c_at_stfc.ac.uk" -->
+<a style="text-decoration:none" href="./9298.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./9300.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] grid cells with a varying number of cell bounds</h1>
+<!-- received="Wed Sep  6 11:39:27 2017" -->
+<!-- isoreceived="20170906103927" -->
+<!-- sent="Wed, 6 Sep 2017 18:39:27 +0100" -->
+<!-- isosent="20170906173927" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] grid cells with a varying number of cell bounds" -->
+<!-- id="20170906173927.GA8669_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,10 +53,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./9300.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Ocean content tendencies due to sedimentation -- sign ambiguity in CMIP usage&quot;">Next message</a> ]
-[ <a href="./9298.html" title="Lowry, Roy K.: &quot;[CF-metadata] Platform Heave&quot;">Previous message</a> ]
+[ <a href="./9300.html" accesskey="d" title="Painter, Jeff: &quot;[CF-metadata] CF Conventions 1.7 is released&quot;">Next message</a> ]
+[ <a href="./9298.html" title="Karl Taylor: &quot;[CF-metadata] grid cells with a varying number of cell bounds&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./9302.html" accesskey="t" title="John Dunne - NOAA Federal: &quot;[CF-metadata] Ocean content tendencies due to sedimentation -- sign ambiguity in CMIP usage&quot;">Next in thread</a> ]
+[ <a href="./9302.html" accesskey="t" title="Karl Taylor: &quot;[CF-metadata] grid cells with a varying number of cell bounds&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,40 +70,78 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Martin Juckes - UKRI STFC &lt;<a href="mailto:martin.juckes?Subject=Re%3A%20%5BCF-metadata%5D%20Ocean%20content%20tendencies%20due%20to%20sedimentation%20--%20sign%20ambiguity%20in%20CMIP%20usage">martin.juckes</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20grid%20cells%20with%20a%20varying%20number%20of%20cell%20bounds">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 5 Sep 2018 09:05:33 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 6 Sep 2017 18:39:27 +0100</span><br />
 </address>
 <br />
-Hello All,
+Dear Karl
 <br />
-<br /><br />there is a problem with the way 4 CMIP6 variables use standard names defined for tendencies due to sedimentation. Sedimentation in CF means sedimentation in water, so sedimentation of a substance always leads to a negative tendency of the amount of that substance suspended in the ocean. In CMIP6, following CMIP5 usage, standard names for tendencies of amounts of substances in the ocean have been used for variables with long names which imply that they are negative tendencies, i.e. loss rates. E.g.
+<br /><em class="quotelev1">&gt; I certainly always envisaged the possibility of cells of different
+</em><br />
+<em class="quotelev1">&gt; shapes, and we imply that this might be the case in the description
+</em><br />
+<em class="quotelev1">&gt; of cell bounds with the explicit mention of &quot;maximum&quot;:
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; /&quot;A boundary variable will have one more dimension than its
+</em><br />
+<em class="quotelev1">&gt; associated coordinate or auxiliary coordinate variable./ The
+</em><br />
+<em class="quotelev1">&gt; additional dimension should be the most rapidly varying one, and its
+</em><br />
+<em class="quotelev1">&gt; size is the maximum number of cell vertices.&quot;
+</em><br />
+<br />That's true. Nonetheless we didn't provide for it later on in the document!
 <br />
-<br />- frfe &quot;Iron Loss to Sediments&quot;  tendency_of_ocean_mole_content_of_iron_due_to_sedimentation.
+<br />Well, now we have a choice. Dave Blodgett's proposal has been debated and
 <br />
-<br /><br />We recently dealt with a similar issue for atmospheric deposition rates: <a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2018/020204.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2018/020204.html</a> and the solution (<a href="http://cfeditor.ceda.ac.uk/proposal/3225">http://cfeditor.ceda.ac.uk/proposal/3225</a> ) was to introduce new standard names of the form &quot;minus_tendency_...&quot;.
+revised over many months, and I support it in its current form. That is a
 <br />
-<br /><br />For the four ocean variables (frfe, frn, fric, froc) I propose 4 new standard names:
+more general solution, which allows not only mixtures of different sorts of
 <br />
-<br />&nbsp;minus_tendency_of_ocean_mole_content_of_inorganic_carbon_due_to_sedimentation
+polygons, but also sets of discontiguous polygons (for each cell), polygons
 <br />
-&nbsp;minus_tendency_of_ocean_mole_content_of_organic_carbon_due_to_sedimentation
+with holes in them, and lines. It does not require missing data to be stored
 <br />
-minus_tendency_of_ocean_mole_content_of_iron_due_to_sedimentation (as in CMIP5)
+in the bounds, because it has a count of how many vertices belong to each cell.
 <br />
-minus_tendency_of_ocean_mole_content_of_elemental_nitrogen_due_to_denitrification_and_sedimentation
+Permitting missing data in polygon bounds in sect 7.1 would be a different
 <br />
-<br /><br />These all correspond to minus one times the quantity defined by existing standard names.
+way of describing a mixture of different sorts of polygons. Providing more
 <br />
-<br /><br />More details about the 4 CMIP variables are given on the Data Request github site: <a href="https://github.com/cmip6dr/CMIP6_DataRequest_VariableDefinitions/issues/344">https://github.com/cmip6dr/CMIP6_DataRequest_VariableDefinitions/issues/344</a>
+than one method to do this would introduce unnecessary complexity. How do you
 <br />
-<br /><br />regards,
+and others think we should choose?
 <br />
-<br />Martin
+<br /><em class="quotelev1">&gt; Concerning missing values being permitted for &quot;unused elements in
+</em><br />
+<em class="quotelev1">&gt; discrete sampling geometries&quot;, I agree when a variable is not
+</em><br />
+<em class="quotelev1">&gt; formally a function of time (as in examples H.3, H.16, and H.18,
+</em><br />
+<em class="quotelev1">&gt; H.20, and H.21), then time may have missing_values, but not when the
+</em><br />
+<em class="quotelev1">&gt; variable is formally a function of time as in H.4 and H.5, where
+</em><br />
+<em class="quotelev1">&gt; time is actually a coordinate variable.   I think in fact that the
+</em><br />
+<em class="quotelev1">&gt; NUG forbids missing values in coordinate variables.
+</em><br />
+<br />OK, sorry, I had overlooked that in this case there is a single timeseries,
 <br />
-<br />&lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2018/020204.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2018/020204.html</a>&gt;
+so it's not one of the storage methods which could containing missing data
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Sep 05 2018 - 03:05:33 BST</span>
+in coordinates. I agree, this is not allowed in (Unidata) coordinate vars,
+<br />
+and the document should be corrected in H.4 and H.5.
+<br />
+<br />Best wishes
+<br />
+<br />Jonathan
+<br />
+<span id="received"><dfn>Received on</dfn> Wed Sep 06 2017 - 11:39:27 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -111,12 +149,12 @@ minus_tendency_of_ocean_mole_content_of_elemental_nitrogen_due_to_denitrificatio
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start9299">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./9300.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Ocean content tendencies due to sedimentation -- sign ambiguity in CMIP usage"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./9298.html" title="Previous message in the list">Lowry, Roy K.: "[CF-metadata] Platform Heave"</a></li>
+<li><dfn>Next message</dfn>: <a href="./9300.html" title="Next message in the list">Painter, Jeff: "[CF-metadata] CF Conventions 1.7 is released"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./9298.html" title="Previous message in the list">Karl Taylor: "[CF-metadata] grid cells with a varying number of cell bounds"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./9302.html" title="Next message in this discussion thread">John Dunne - NOAA Federal: "[CF-metadata] Ocean content tendencies due to sedimentation -- sign ambiguity in CMIP usage"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./9302.html" title="Next message in this discussion thread">Karl Taylor: "[CF-metadata] grid cells with a varying number of cell bounds"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./9302.html" title="Message sent in reply to this message">John Dunne - NOAA Federal: "[CF-metadata] Ocean content tendencies due to sedimentation -- sign ambiguity in CMIP usage"</a></li>
+<dfn>Reply</dfn>: <a href="./9302.html" title="Message sent in reply to this message">Karl Taylor: "[CF-metadata] grid cells with a varying number of cell bounds"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -127,7 +165,7 @@ minus_tendency_of_ocean_mole_content_of_elemental_nitrogen_due_to_denitrificatio
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:29 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./9298.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./9300.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

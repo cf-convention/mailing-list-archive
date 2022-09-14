@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF standard names for chemical constituents and aerosols from Jonathan Gregory on 2008-10-22 (mailing-list-archive)</title>
+<title>[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF from Jonathan Gregory on 2007-04-27 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] CF standard names for chemical constituents and aerosols" />
-<meta name="Date" content="2008-10-22" />
+<meta name="Subject" content="[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF" />
+<meta name="Date" content="2007-04-27" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1626.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1628.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF standard names for chemical constituents and aerosols</h1>
-<!-- received="Wed Oct 22 01:12:51 2008" -->
-<!-- isoreceived="20081022001251" -->
-<!-- sent="Wed, 22 Oct 2008 08:12:51 +0100" -->
-<!-- isosent="20081022071251" -->
+<a style="text-decoration:none" href="./1626.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1628.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF</h1>
+<!-- received="Fri Apr 27 10:56:59 2007" -->
+<!-- isoreceived="20070427095659" -->
+<!-- sent="Fri, 27 Apr 2007 17:56:59 +0100" -->
+<!-- isosent="20070427165659" -->
 <!-- name="Jonathan Gregory" -->
 <!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] CF standard names for chemical constituents and aerosols" -->
-<!-- id="20081022071251.GA17687_at_met.reading.ac.uk" -->
+<!-- subject="[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF" -->
+<!-- id="20070427165659.GA8992_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1628.html" accesskey="d" title="Heinke Hoeck: &quot;[CF-metadata] standard names for chemistry - MCM&quot;">Next message</a> ]
-[ <a href="./1626.html" title="Heinke Hoeck: &quot;[CF-metadata] CF-metadata Digest, Vol 67, Issue 6&quot;">Previous message</a> ]
+[ <a href="./1628.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] new standard names proposal for CEOP-II model ouput&quot;">Next message</a> ]
+[ <a href="./1626.html" title="Jon Blower: &quot;[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./1629.html" accesskey="t" title="Bryan Lawrence: &quot;[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,32 +70,64 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20standard%20names%20for%20chemical%20constituents%20and%20aerosols">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20vector%20quantities%20(e.g.%20velocities)%20in%20CF-NetCDF">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 22 Oct 2008 08:12:51 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 27 Apr 2007 17:56:59 +0100</span><br />
 </address>
 <br />
-Dear Philip and Martin
+Dear Jon
 <br />
-<br />If I understand you correctly, you might both support the introduction of
+<br />I think this was the kind of instance that was suggested before. To deal with
 <br />
-generalised standard names containing chemical species (something like the
+it, I tend to think that it would be better to have extra information *outside*
 <br />
-syntax Heinke or I suggested e.g. mass_concentration_of_[VAR]_in_air) so that
+the netCDF file. This may be an unpopular view, but my reason is that the file
 <br />
-the species name could be given in a coordinate with the general form in the
+is already adequately self-describing. The relationship between vector
 <br />
-standard name attribute, but you would like to retain the option to have
+components is a &quot;scientific&quot; relation, which is of the same kind (so it
 <br />
-separate data variables with the species named explicitly in the standard
+seems to me) as the relationship between (for instance) TOA net longwave
 <br />
-name attribute (as now).
+and net shortwave radiation, or between rainfall flux and rainfall amount.
 <br />
-<br />Cheers
+For particular purposes, programs need to know &quot;scientific&quot; relations of this
+<br />
+kind, but we can't possibly encode all such relationships in the netCDF file.
+<br />
+That is not metadata, but instructions on what you can do with the data.
+<br />
+<br />My proposal therefore would be that we maintain another table in a machineable
+<br />
+form listing the components of vectors (for your case). We can compile this
+<br />
+table now from the standard name table, and add to it as we add to the standard
+<br />
+name table. Possibly some ingenious system of flags in the standard name table
+<br />
+itself might avoid the need for a separate table.
+<br />
+<br />Some relationships can be deduced, given the systematic construction
+<br />
+of standard names. If you open your file, read in a list of all the standard
+<br />
+names which occur in it, and do something like this to the list:
+<br />
+s/northward/NE/
+<br />
+s/eastward/NE/
+<br />
+then identical results will occur in pairs for vectors expressed as northward
+<br />
+and eastward components. But other cases can't be dealt with like this, so
+<br />
+a table is needed in general.
+<br />
+<br />Best wishes
 <br />
 <br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Oct 22 2008 - 01:12:51 BST</span>
+<span id="received"><dfn>Received on</dfn> Fri Apr 27 2007 - 10:56:59 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -101,9 +135,12 @@ name attribute (as now).
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1627">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1628.html" title="Next message in the list">Heinke Hoeck: "[CF-metadata] standard names for chemistry - MCM"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1626.html" title="Previous message in the list">Heinke Hoeck: "[CF-metadata] CF-metadata Digest, Vol 67, Issue 6"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1628.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] new standard names proposal for CEOP-II model ouput"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1626.html" title="Previous message in the list">Jon Blower: "[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./1629.html" title="Next message in this discussion thread">Bryan Lawrence: "[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./1629.html" title="Message sent in reply to this message">Bryan Lawrence: "[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -114,7 +151,7 @@ name attribute (as now).
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:11 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1626.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1628.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

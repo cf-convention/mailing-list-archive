@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] interpreting time and vertical axis from Yilmaz Arslanoglu on 2010-11-16 (mailing-list-archive)</title>
-<meta name="Author" content="Yilmaz Arslanoglu (yilmaz.arslanoglu)" />
-<meta name="Subject" content="[CF-metadata] interpreting time and vertical axis" />
-<meta name="Date" content="2010-11-16" />
+<title>[CF-metadata]  dimensionless vertical coordinates from Jonathan Gregory on 2009-08-10 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata]  dimensionless vertical coordinates" />
+<meta name="Date" content="2009-08-10" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2972.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2974.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] interpreting time and vertical axis</h1>
-<!-- received="Tue Nov 16 08:37:54 2010" -->
-<!-- isoreceived="20101116083754" -->
-<!-- sent="Tue, 16 Nov 2010 16:37:54 +0100" -->
-<!-- isosent="20101116153754" -->
-<!-- name="Yilmaz Arslanoglu" -->
-<!-- email="yilmaz.arslanoglu" -->
-<!-- subject="[CF-metadata] interpreting time and vertical axis" -->
-<!-- id="AANLkTintLWTjvhqSGsft1+V63d1Z0UWvTFdr4bD42op3_at_mail.gmail.com" -->
+<a style="text-decoration:none" href="./2972.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2974.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  dimensionless vertical coordinates</h1>
+<!-- received="Mon Aug 10 13:11:24 2009" -->
+<!-- isoreceived="20090810121124" -->
+<!-- sent="Mon, 10 Aug 2009 20:11:24 +0100" -->
+<!-- isosent="20090810191124" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata]  dimensionless vertical coordinates" -->
+<!-- id="20090810191124.GC10058_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="AANLkTim3x2L_FjKnE1kPF-7iNVA2pp_-D6AP3HJWR4Te_at_mail.gmail.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2974.html" accesskey="d" title="stephen.pascoe at stfc.ac.uk: &quot;[CF-metadata] FW: [Go-essp-tech] NetCDF-CF compliance checker available for download&quot;">Next message</a> ]
-[ <a href="./2972.html" title="Nan Galbraith: &quot;[CF-metadata] interpreting time and vertical axis&quot;">Previous message</a> ]
-[ <a href="./2968.html" title="Yilmaz Arslanoglu: &quot;[CF-metadata] interpreting time and vertical axis&quot;">In reply to</a> ]
+[ <a href="./2974.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] CF standard names for Ocean Dynamics&quot;">Next message</a> ]
+[ <a href="./2972.html" title="Jonathan Gregory: &quot;[CF-metadata]  Standard name for peak wave period&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,50 +68,124 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Yilmaz Arslanoglu &lt;<a href="mailto:yilmaz.arslanoglu?Subject=Re%3A%20%5BCF-metadata%5D%20interpreting%20time%20and%20vertical%20axis">yilmaz.arslanoglu</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20dimensionless%20vertical%20coordinates">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 16 Nov 2010 16:37:54 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 10 Aug 2009 20:11:24 +0100</span><br />
 </address>
 <br />
-Dear Nan;
+Dear Yilmaz
 <br />
-<br />Thank you very much for your time and explanations.
+<br /><em class="quotelev1">&gt; 1)  &quot;s(k) is the dimensionless coordinate at vertical gridpoint (k)&quot;
+</em><br />
+<em class="quotelev1">&gt;      Does this variable refer to itself, i.e. whose &quot;formula_terms&quot; attribute
+</em><br />
+<em class="quotelev1">&gt;      is being parsed? If this is the case, why do we still include this element
+</em><br />
+<em class="quotelev1">&gt;      in the &quot;formula_terms&quot; attribute?
+</em><br />
+<br />Yes, it does refer to itself. The idea is that the formula identifies all the
 <br />
-Yes, you're right, I'm just reading data, not generating. And
+variables which are needed to compute the dimensional vertical coordinate. It
 <br />
-unfortunately I cannot
+happens that s is one of the terms in the formula, not all kinds of vertical
 <br />
-see any related meta information about how to interpret the time and
+coordinate include themselves as one of the terms.
 <br />
-vertical dimensions in the datasets. Only in one of them there are
+<br /><em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 2) do variables which correspond to &quot;depth&quot; and &quot;eta&quot; need to have the same
+</em><br />
+<em class="quotelev1">&gt;     units? That is, can one of them be in meters and the other in centimeters?
+</em><br />
+<em class="quotelev1">&gt;     If they can be different, then doesn't the variable which
+</em><br />
+<em class="quotelev1">&gt; corresponds to &quot;depth_c&quot;
+</em><br />
+<em class="quotelev1">&gt;     also need to have a unit? Do we need to expect a unit for it?
+</em><br />
+<br />The standard does not make this clear, but I agree, they all need units, and
 <br />
-&quot;averaging_window&quot; and &quot;averaging_offset&quot; attributes defined for U and
+generic software should do appropriate units conversion.
 <br />
-V (current components), but I couldn't be sure if they are addressing
+<br /><em class="quotelev1">&gt; Because since it is
+</em><br />
+<em class="quotelev1">&gt;    a scalar variable, it is not required to have one according to CF
+</em><br />
+<em class="quotelev1">&gt; conventions(?).
+</em><br />
+<br />I think that's a confusion of the two meanings of &quot;dimensionless&quot;. One sense
 <br />
-my problem. Then what I understand is that, I should contact each of
+of &quot;dimensionless&quot; means a pure number, without units. Quantities like that,
 <br />
-the dataset generators and ask about the details, which I did
+such as sea-ice area fraction, do not need units. That's a different meaning
 <br />
-actually, but I cannot get a response either because the question is
+of &quot;dimensionless&quot; meaning zero-dimensional i.e. scalar. Scalar quantities
 <br />
-too trivial for them so that they don't bother answering, or otherwise
+with physical dimensions do need units.
 <br />
-there is already a commonly accepted and unwritten rule about how to
+<br /><em class="quotelev1">&gt; 3) We know that a dimensional coordinate variable is either
+</em><br />
+<em class="quotelev1">&gt; monotonically increasing
+</em><br />
+<em class="quotelev1">&gt;     or decreasing. Will it be the case for dimensionless ones after
+</em><br />
+<em class="quotelev1">&gt; the formula is applied?
+</em><br />
+<em class="quotelev1">&gt;     That is, do these formulas and associated variable contents
+</em><br />
+<em class="quotelev1">&gt; guarantee that, when the
+</em><br />
+P
 <br />
-interpret the data in terms of these issues :)) That is why I sent my
+<em class="quotelev1">&gt;     formula is applied, we will obtain a vector of pressure or height
+</em><br />
+<em class="quotelev1">&gt; values, which are monotonically
+</em><br />
+<em class="quotelev1">&gt;     increasing or decreasing? (I would expect so since they are levels
+</em><br />
+<em class="quotelev1">&gt; of depth or pressure)
+</em><br />
+<br />I don't think that is guaranteed, though I agree it would be physically
 <br />
-question to this forum in the hope of getting an answer, because there
+sensible to arrange it. But it's not a requirement of CF.
 <br />
-also exist datasets with a 24 hour timestep and it becomes especially
+<br /><em class="quotelev1">&gt; 4) &quot;level&quot;, &quot;layer&quot;, and &quot;sigma_level&quot; are deprecated according to CF
+</em><br />
+<em class="quotelev1">&gt; conventions, however, still
+</em><br />
+<em class="quotelev1">&gt;     allowed. So how would it be possible for a generic application to
+</em><br />
+<em class="quotelev1">&gt; interpret them?
+</em><br />
+<br />They should all be interpreted as dimensionless, equivalent to 1.
 <br />
-important in such cases.
+<br /><em class="quotelev1">&gt; 5) And finally, under section &quot;2.4 Dimensions&quot; it says that
+</em><br />
+<em class="quotelev1">&gt; &quot;dimensions other than those of space
+</em><br />
+<em class="quotelev1">&gt; and time may be included&quot;. If this is the case, is it still possible
+</em><br />
+<em class="quotelev1">&gt; for a generic application to work
+</em><br />
+<em class="quotelev1">&gt; without being able to interpret those additional dimensions? That is,
+</em><br />
+<em class="quotelev1">&gt; how a could a generic application
+</em><br />
+<em class="quotelev1">&gt; decide on which index value to pass for that dimension without recognizing it?
+</em><br />
+<br />I don't really understand that question. The dimensions correspond to the array
 <br />
-<br />Again thank you very much for your kind comments and help.
+subscripts. You can subscript an array without knowing the physical meaning of
 <br />
-<br />Yilmaz
+the dimensions, can't you. Non-spatiotemporal dimensions should be identified
 <br />
-<span id="received"><dfn>Received on</dfn> Tue Nov 16 2010 - 08:37:54 GMT</span>
+by standard name, although that is not a requirement of CF.
+<br />
+<br />Cheers
+<br />
+<br />Jonathan
+<br />
+<span id="received"><dfn>Received on</dfn> Mon Aug 10 2009 - 13:11:24 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -121,9 +193,8 @@ important in such cases.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2973">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2974.html" title="Next message in the list">stephen.pascoe at stfc.ac.uk: "[CF-metadata] FW: [Go-essp-tech] NetCDF-CF compliance checker available for download"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2972.html" title="Previous message in the list">Nan Galbraith: "[CF-metadata] interpreting time and vertical axis"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./2968.html" title="Message to which this message replies">Yilmaz Arslanoglu: "[CF-metadata] interpreting time and vertical axis"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2974.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] CF standard names for Ocean Dynamics"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2972.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]  Standard name for peak wave period"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -135,7 +206,7 @@ important in such cases.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:35 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2972.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2974.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

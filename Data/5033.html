@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]  sea_water_turbidity? from Jonathan Gregory on 2013-02-21 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata]  sea_water_turbidity?" />
-<meta name="Date" content="2013-02-21" />
+<title>[CF-metadata] FW: GOES-R  metadata prototype from Jim Biard on 2012-03-09 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jim Biard (jim.biard)" />
+<meta name="Subject" content="[CF-metadata] FW: GOES-R  metadata prototype" />
+<meta name="Date" content="2012-03-09" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5032.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5034.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  sea_water_turbidity?</h1>
-<!-- received="Thu Feb 21 15:05:38 2013" -->
-<!-- isoreceived="20130221150538" -->
-<!-- sent="Fri, 22 Feb 2013 09:05:38 +1100" -->
-<!-- isosent="20130221220538" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata]  sea_water_turbidity?" -->
-<!-- id="20130221220538.GB2983_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./5032.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5034.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] FW: GOES-R  metadata prototype</h1>
+<!-- received="Fri Mar  9 08:42:40 2012" -->
+<!-- isoreceived="20120309084240" -->
+<!-- sent="Fri, 09 Mar 2012 10:42:40 -0500" -->
+<!-- isosent="20120309154240" -->
+<!-- name="Jim Biard" -->
+<!-- email="jim.biard" -->
+<!-- subject="[CF-metadata] FW: GOES-R  metadata prototype" -->
+<!-- id="4F5A24F0.9010705_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="64AC2C0D9169EA4D935BA702756D51496C0D48A0_at_MLBMXUS20.cs.myharris.net" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5034.html" accesskey="d" title="John Caron: &quot;[CF-metadata] New standard name: datetime_iso8601&quot;">Next message</a> ]
-[ <a href="./5032.html" title="John Maurer: &quot;[CF-metadata] sea_water_turbidity?&quot;">Previous message</a> ]
+[ <a href="./5034.html" accesskey="d" title="Cameron-smith, Philip: &quot;[CF-metadata] new standard names for surface aerosol optical	properties&quot;">Next message</a> ]
+[ <a href="./5032.html" title="Markus Fiebig: &quot;[CF-metadata] warming up old stuff - part 1: aerosol mie scattering&quot;">Previous message</a> ]
+[ <a href="./5028.html" title="Carlomusto, Michael: &quot;[CF-metadata] FW: GOES-R  metadata prototype&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,54 +70,140 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20sea_water_turbidity%3F">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jim Biard &lt;<a href="mailto:jim.biard?Subject=Re%3A%20%5BCF-metadata%5D%20FW%3A%20GOES-R%20%20metadata%20prototype">jim.biard</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 22 Feb 2013 09:05:38 +1100</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 09 Mar 2012 10:42:40 -0500</span><br />
 </address>
 <br />
-Dear John
+Mike,
 <br />
-<br />Thanks for the suggestion. Please could you provide a definition for this
+<br />Here's my critique.  You may not have options about some of this (I 
 <br />
-quantity?
+don't know what constraints the GOES-R program has placed on you), but I 
 <br />
-<br />Cheers
+thought I would just tell you what I think.
 <br />
-<br />Jonathan
+<br />The first thing that I noticed about this layout (schema, whatever term 
 <br />
-<br />----- Forwarded message from John Maurer &lt;jmaurer at hawaii.edu&gt; -----
+you prefer) is that you don't have the actual lon-lat coordinates 
 <br />
-<br /><em class="quotelev1">&gt; Date: Wed, 20 Feb 2013 14:52:11 -1000
+represented.  I understand the desire to avoid doubling up on coordinate 
+<br />
+variables, but is this OK?
+<br />
+<br />I found the &quot;number_of_time_values&quot; dimension name to be quite 
+<br />
+confusing.  Perhaps &quot;number_of_time_bounds&quot; would be better.
+<br />
+<br />I also found the use of variables as containers for groups of attributes 
+<br />
+to be troubling.  I know this is done for the coordinate system 
+<br />
+projection, but using them for generalized containers like this doesn't 
+<br />
+conform to any standard.  It looks to me like the information in the 
+<br />
+geospatial_lat_lon variable attributes could be represented using 
+<br />
+variables with bounds, and that the information in the 
+<br />
+ash_cloud_height_summary_statistics and 
+<br />
+ash_mass_loading_summary_statistics variables could be represented as 
+<br />
+variables with associated ancillary variables.  It seems to me that if 
+<br />
+you did that, it would make the data more usable.
+<br />
+<br />The product_summary_statistics variable is different, but I find myself 
+<br />
+wondering if it wouldn't be better to have two array variables - 
+<br />
+product_summary_statistics_names (type = string) and 
+<br />
+product_summary_statistics_values (type = int).
+<br />
+<br />Grace and peace,
+<br />
+<br />Jim
+<br />
+<br /><br />On 3/7/2012 5:30 PM, Carlomusto, Michael wrote:
+<br />
+<em class="quotelev1">&gt; _____________________________________________
 </em><br />
-<em class="quotelev1">&gt; From: John Maurer &lt;jmaurer at hawaii.edu&gt;
+<em class="quotelev1">&gt; *From:* Carlomusto, Michael
 </em><br />
-<em class="quotelev1">&gt; To: cf-metadata at cgd.ucar.edu
+<em class="quotelev1">&gt; *Sent:* Wednesday, March 07, 2012 5:20 PM
 </em><br />
-<em class="quotelev1">&gt; Subject: [CF-metadata] sea_water_turbidity?
+<em class="quotelev1">&gt; *To:* 'CF-metadata at cgd.ucar.edu'
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; *Subject:* GOES-R metadata prototype
 </em><br />
-<em class="quotelev1">&gt; Dear CF-Metadata,
+<em class="quotelev1">&gt; The attached NcML file has been vetted by a small group of people from 
 </em><br />
-<em class="quotelev1">&gt; I would propose the addition of &quot;sea_water_turbidity&quot; to the CF Standard
+<em class="quotelev1">&gt; the CF metadata list, especially with regard to the representation of 
 </em><br />
-<em class="quotelev1">&gt; Names. This has units of NTU (Nephelometric Turbidity Units), which would
+<em class="quotelev1">&gt; the proposed GOES projection.
 </em><br />
-<em class="quotelev1">&gt; be represented in UDUNITS as &quot;1e-3&quot; (similar to how sea_water_salinity is
+<em class="quotelev1">&gt; I would like to submit it for comments to the larger group.
 </em><br />
-<em class="quotelev1">&gt; in PSS (or PSU) and commonly represented as 1e-3).
+<em class="quotelev1">&gt; I encourage a critical evaluation.
 </em><br />
-<em class="quotelev1">&gt; Thanks,
+<em class="quotelev1">&gt; Thanks.
 </em><br />
-<em class="quotelev1">&gt; John Maurer
+<em class="quotelev1">&gt; Mike Carlomusto
 </em><br />
-<em class="quotelev1">&gt; Data System Administrator
+<em class="quotelev1">&gt; */&quot;This information is only intended for the use of the individual or 
 </em><br />
-<em class="quotelev1">&gt; Pacific Islands Ocean Observing System (PacIOOS)
+<em class="quotelev1">&gt; entity named in this email. If you are not the intended recipient, you 
 </em><br />
-<em class="quotelev1">&gt; University of Hawaii at Manoa
+<em class="quotelev1">&gt; are hereby notified that any disclosure, copying, distribution, or use 
 </em><br />
-<span id="received"><dfn>Received on</dfn> Thu Feb 21 2013 - 15:05:38 GMT</span>
+<em class="quotelev1">&gt; of the contents of this information is strictly prohibited. If you 
+</em><br />
+<em class="quotelev1">&gt; have received this email in error, please notify me and delete it 
+</em><br />
+<em class="quotelev1">&gt; immediately.&quot;/*
+</em><br />
+<em class="quotelev1">&gt; Michael Carlomusto
+</em><br />
+<em class="quotelev1">&gt; mcarlomu at harris.com
+</em><br />
+<em class="quotelev1">&gt; Harris Corp.
+</em><br />
+<em class="quotelev1">&gt; Government Communications Systems Division (GCSD)
+</em><br />
+<em class="quotelev1">&gt; Melbourne, FL
+</em><br />
+<em class="quotelev1">&gt; (321) 309-7905
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<br /><pre>
+-- 
+Jim Biard
+Government Contractor, STG Inc.
+Remote Sensing and Applications Division (RSAD)
+National Climatic Data Center
+151 Patton Ave.
+Asheville, NC 28801-5001
+jim.biard at noaa.gov
+828-271-4900
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120309/3d1bd69d/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120309/3d1bd69d/attachment-0001.html</a>&gt;
+</pre>
+<span id="received"><dfn>Received on</dfn> Fri Mar 09 2012 - 08:42:40 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -123,8 +211,9 @@ quantity?
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5033">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5034.html" title="Next message in the list">John Caron: "[CF-metadata] New standard name: datetime_iso8601"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5032.html" title="Previous message in the list">John Maurer: "[CF-metadata] sea_water_turbidity?"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5034.html" title="Next message in the list">Cameron-smith, Philip: "[CF-metadata] new standard names for surface aerosol optical	properties"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5032.html" title="Previous message in the list">Markus Fiebig: "[CF-metadata] warming up old stuff - part 1: aerosol mie scattering"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./5028.html" title="Message to which this message replies">Carlomusto, Michael: "[CF-metadata] FW: GOES-R  metadata prototype"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -136,7 +225,7 @@ quantity?
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:14 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5032.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5034.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

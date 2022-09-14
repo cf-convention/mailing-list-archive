@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] cf names for aerosols&amp;chemistryL model - observations from Christiane Textor on 2007-11-11 (mailing-list-archive)</title>
-<meta name="Author" content="Christiane Textor (christiane.textor)" />
-<meta name="Subject" content="[CF-metadata] cf names for aerosols&amp;chemistryL model - observations" />
-<meta name="Date" content="2007-11-11" />
+<title>[CF-metadata] moving horizontal coordinate system from John Caron on 2006-10-09 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] moving horizontal coordinate system" />
+<meta name="Date" content="2006-10-09" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1110.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1112.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] cf names for aerosols&amp;chemistryL model - observations</h1>
-<!-- received="Sun Nov 11 09:17:56 2007" -->
-<!-- isoreceived="20071111091756" -->
-<!-- sent="Sun, 11 Nov 2007 17:17:56 +0100" -->
-<!-- isosent="20071111161756" -->
-<!-- name="Christiane Textor" -->
-<!-- email="christiane.textor" -->
-<!-- subject="[CF-metadata] cf names for aerosols&amp;chemistryL model - observations" -->
-<!-- id="47372B34.6010300_at_lsce.ipsl.fr" -->
+<a style="text-decoration:none" href="./1110.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1112.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] moving horizontal coordinate system</h1>
+<!-- received="Sun Oct  8 20:37:39 2006" -->
+<!-- isoreceived="20061008193739" -->
+<!-- sent="Sun, 08 Oct 2006 20:37:39 -0600" -->
+<!-- isosent="20061009023739" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] moving horizontal coordinate system" -->
+<!-- id="4529B5F3.5020706_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1112.html" accesskey="d" title="Roy Lowry: &quot;[CF-metadata] cf names for aerosols&#0038;chemistryL model -	observations&quot;">Next message</a> ]
-[ <a href="./1110.html" title="Christiane Textor: &quot;[CF-metadata] Re. chemicals and aerosols&quot;">Previous message</a> ]
+[ <a href="./1112.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] moving horizontal coordinate system&quot;">Next message</a> ]
+[ <a href="./1110.html" title="Jonathan Gregory: &quot;[CF-metadata] CF Action Groups&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./1114.html" accesskey="t" title="John Graybeal: &quot;[CF-metadata] cf names for aerosols&#0038;chemistryL model - observations&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,67 +68,40 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Christiane Textor &lt;<a href="mailto:christiane.textor?Subject=Re%3A%20%5BCF-metadata%5D%20cf%20names%20for%20aerosols%26chemistryL%20model%20-%20observations">christiane.textor</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20moving%20horizontal%20coordinate%20system">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Sun, 11 Nov 2007 17:17:56 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Sun, 08 Oct 2006 20:37:39 -0600</span><br />
 </address>
 <br />
-Dear Colleagues,
+Ive run into an interesting use case, we have a series of model runs that are tracking some moving weather. The projection is changing its parameters from one run to the next, eg:
 <br />
-<br />As I am working in a project were a data base on atmospheric composition
+<br />model run n:
 <br />
-data is created (www.geomon.eu), I have been talking a lot to colleagues
+<br />&nbsp;&nbsp;&nbsp;char Lambert_Conformal;
 <br />
-from the observational communities. First of all, they rarely use the
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:grid_mapping_name = &quot;lambert_conformal_conic&quot;;
 <br />
-netCDF format. Secondly, I have realized that the names we are defining
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:standard_parallel = 30.079; 
 <br />
-for chemicals and aerosols are rather biased towards the modeling world. 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:longitude_of_central_meridian = -86.117; 
 <br />
-&nbsp;&nbsp;Therefore, the observationalists are not so much in favour of the CF
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:latitude_of_projection_origin = 30.079; 
 <br />
-convention. In the common efforts of harmonizing data and metadata
+<br />model run n+1:
 <br />
-formats of observational data, people rather turn to ASCII NASA AMES for
+<br />&nbsp;&nbsp;&nbsp;char Lambert_Conformal;
 <br />
-time series and to HDF for the remaining (4 dimensional data sets, time
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:grid_mapping_name = &quot;lambert_conformal_conic&quot;;
 <br />
-+ 4 space dim), at least in Europe.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:standard_parallel = 29.474; 
 <br />
-<br />At the same time, the modelers for aerosol and chemistry seem currently 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:longitude_of_central_meridian = -85.158; 
 <br />
-to converge towards netCDF/CF convention.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:latitude_of_projection_origin = 29.474; 
 <br />
-<br />This is no problem of having different formats, as long as clear and
+<br /><br />I was going to try to create an aggregated dataset out of these runs, and allow users to slice it in various ways. But I dont think we have a way of encoding this, since the info is in the attributes, not in tha data variable values. Anyone have any thoughts (other than reprojecting, which i dont plan to do)?
 <br />
-consistent definitions exist. I would therefore like to encourage that
-<br />
-we try and link the variable names for aerosol and chemistry to these
-<br />
-formats in order to allow for easy conversion among formats.
-<br />
-<br />I would be glad if you could comment on this issue.
-<br />
-<br />Best regards,
-<br />
-Christiane
-<br />
-<br /><br /><br /><pre>
--- 
-======================================================================
-Christiane Textor
-Laboratoire des Sciences du Climat et de l'Environnement
-Unite Mixte de Recherche CEA-CNRS-UVSQ
-LSCE, CEA Saclay
-L'Orme des Merisiers, Bat. 701 Piece 3b
-mailto: christiane.textor at lsce.ipsl.fr
-Tel ++33 1 69 08 34 07 Fax ++33 1 69 08 34 07
-F-91191 Gif-sur-Yvette Cedex
-FRANCE
-GEOMON scientific project manager <a href="http://www.geomon.eu">http://www.geomon.eu</a>
-======================================================================
-</pre>
-<span id="received"><dfn>Received on</dfn> Sun Nov 11 2007 - 09:17:56 GMT</span>
+<span id="received"><dfn>Received on</dfn> Sun Oct 08 2006 - 20:37:39 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -138,12 +109,9 @@ GEOMON scientific project manager <a href="http://www.geomon.eu">http://www.geom
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1111">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1112.html" title="Next message in the list">Roy Lowry: "[CF-metadata] cf names for aerosols&#0038;chemistryL model -	observations"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1110.html" title="Previous message in the list">Christiane Textor: "[CF-metadata] Re. chemicals and aerosols"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1112.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] moving horizontal coordinate system"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1110.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] CF Action Groups"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./1114.html" title="Next message in this discussion thread">John Graybeal: "[CF-metadata] cf names for aerosols&#0038;chemistryL model - observations"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./1114.html" title="Message sent in reply to this message">John Graybeal: "[CF-metadata] cf names for aerosols&#0038;chemistryL model - observations"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -154,7 +122,7 @@ GEOMON scientific project manager <a href="http://www.geomon.eu">http://www.geom
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:01 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1110.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1112.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

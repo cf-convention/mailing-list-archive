@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF-1.6 Conformance Requirements/Recommendations from Randy Horne on 2012-03-28 (mailing-list-archive)</title>
-<meta name="Author" content="Randy Horne (rhorne)" />
-<meta name="Subject" content="[CF-metadata] CF-1.6 Conformance Requirements/Recommendations" />
-<meta name="Date" content="2012-03-28" />
+<title>[CF-metadata] depth/pressure vertical coordinate from Paul.Durack at csiro.au on 2011-07-06 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Paul.Durack at csiro.au (Paul.Durack)" />
+<meta name="Subject" content="[CF-metadata] depth/pressure vertical coordinate" />
+<meta name="Date" content="2011-07-06" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4287.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4289.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF-1.6 Conformance Requirements/Recommendations</h1>
-<!-- received="Wed Mar 28 06:38:41 2012" -->
-<!-- isoreceived="20120328053841" -->
-<!-- sent="Wed, 28 Mar 2012 08:38:41 -0400" -->
-<!-- isosent="20120328123841" -->
-<!-- name="Randy Horne" -->
-<!-- email="rhorne" -->
-<!-- subject="[CF-metadata] CF-1.6 Conformance Requirements/Recommendations" -->
-<!-- id="201203280838.AA30605434_at_excaliburlabs.com" -->
+<a style="text-decoration:none" href="./4287.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4289.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] depth/pressure vertical coordinate</h1>
+<!-- received="Tue Jul  5 18:34:48 2011" -->
+<!-- isoreceived="20110705173448" -->
+<!-- sent="Wed, 6 Jul 2011 10:34:48 +1000" -->
+<!-- isosent="20110706003448" -->
+<!-- name="Paul.Durack at csiro.au" -->
+<!-- email="Paul.Durack" -->
+<!-- subject="[CF-metadata] depth/pressure vertical coordinate" -->
+<!-- id="8E0FF574EB6E954DA03FE21368DEC6CB0141E54C79_at_exvic-mbx03.nexus.csiro.au" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,10 +53,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4289.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] CF-1.6 Conformance Requirements/Recommendations&quot;">Next message</a> ]
-[ <a href="./4287.html" title="Jonathan Gregory: &quot;[CF-metadata] CF-1.6 Conformance Requirements/Recommendations&quot;">Previous message</a> ]
+[ <a href="./4289.html" accesskey="d" title="Paul.Durack at csiro.au: &quot;[CF-metadata] new TEOS-10 standard names&quot;">Next message</a> ]
+[ <a href="./4287.html" title="Randy Horne: &quot;[CF-metadata] the need to store lat/lon coordinates in a CF metadata compliant netCDF file&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./4289.html" accesskey="t" title="Jonathan Gregory: &quot;[CF-metadata] CF-1.6 Conformance Requirements/Recommendations&quot;">Next in thread</a> ]
+[ <a href="./4293.html" accesskey="t" title="Rosalyn Hatcher: &quot;[CF-metadata] depth/pressure vertical coordinate&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,144 +70,64 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Randy Horne &lt;<a href="mailto:rhorne?Subject=Re%3A%20%5BCF-metadata%5D%20CF-1.6%20Conformance%20Requirements%2FRecommendations">rhorne</a>&gt;
+<dfn>From</dfn>: Paul.Durack at csiro.au &lt;<a href="mailto:Paul.Durack?Subject=Re%3A%20%5BCF-metadata%5D%20depth%2Fpressure%20vertical%20coordinate">Paul.Durack</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 28 Mar 2012 08:38:41 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 6 Jul 2011 10:34:48 +1000</span><br />
 </address>
 <br />
-Jonathan:
+Hi there Folks..
 <br />
-<br />not to belabour , but in the interest of clarity,  For GOES-R level 1 and 2 hemispheric products ...
+<br />Just wondering about the use of the vertical coordinate depth, and in particular &quot;pressure&quot; with the units &quot;decibar&quot;..
 <br />
-<br />there are non-existent points, at which the data vars have missing values and the aux coord vars have (syntactically) valid values.
+<br />Seems to me that the conformance checker (v2.0.2) available at <a href="http://puma.nerc.ac.uk/cgi-bin/cf-checker.pl">http://puma.nerc.ac.uk/cgi-bin/cf-checker.pl</a> doesn't much like &quot;pressure&quot; complaining that the units &quot;decibar&quot; is not consistent with those in the standard_name (v1.5/v17 table:
 <br />
-<br />note that placing (syntactically) valid values in the aux coord vars even though the data is missing is the simplest software design.  I think we can accommodate a different approach if a change to the current CF conventions warranted it.
+<br />&lt;file&gt;
 <br />
-<br />very respectfully,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double depth(depth) ;
 <br />
-<br />randy
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;depth:units = &quot;decibar&quot; ;
 <br />
-<br /><br /><br /><br />Randy C. Horne (rhorne at excaliburlabs.com)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;depth:units_long = &quot;decibar (pressure)&quot; ;
 <br />
-Principal Engineer, Excalibur Laboratories Inc.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;depth:long_name = &quot;depth&quot; ;
 <br />
-voice &amp; fax: (321) 952-5100
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;depth:standard_name = &quot;depth&quot; ;
 <br />
-url: <a href="http://www.excaliburlabs.com">http://www.excaliburlabs.com</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;depth:axis = &quot;Z&quot; ;
 <br />
-<br />PGP Public Keys available at:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;depth:positive = &quot;down&quot; ;
 <br />
-A HREF=&quot;<a href="http://pgpkeys.mit.edu:11371">http://pgpkeys.mit.edu:11371</a>&quot;&gt;MIT's Key Server&lt;/A&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;depth:bounds = &quot;depth_bnds&quot; ;
 <br />
-<br />---------- Original Message ----------------------------------
+<br />&lt;checker output&gt;
 <br />
-From: Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt;
+Checking against CF version 1.5...
 <br />
-Date:  Wed, 28 Mar 2012 13:26:42 +0100
+...
 <br />
-<br /><em class="quotelev1">&gt;Dear all
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;Brian has a good point that sect 5.3 allows that there might be missing data
-</em><br />
-<em class="quotelev1">&gt;in aux coord variables. Appendix A - which is equally ancient in the story of
-</em><br />
-<em class="quotelev1">&gt;CF :-) - is not consistent with this, because it didn't allow _FillValue or
-</em><br />
-<em class="quotelev1">&gt;missing_value atts for coordinates until sect 9 was introduced in version 1.6.
-</em><br />
-<em class="quotelev1">&gt;But never mind the history, the point is to clarify what we need now.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;In Randy's, Rich's and Bert's examples, if I understand correctly, there are
-</em><br />
-<em class="quotelev1">&gt;non-existent points, at which both data and aux coord vars are missing values.
-</em><br />
-<em class="quotelev1">&gt;That is also what sect 9 requires. I don't see any problem with this.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;Nan's example is different, because it has missing values in aux coord vars
-</em><br />
-<em class="quotelev1">&gt;at points where there is non-missing data. If we all agree that this is OK
-</em><br />
-<em class="quotelev1">&gt;too, then fine. Speaking for myself, I could agree to it, but I'm less happy,
-</em><br />
-<em class="quotelev1">&gt;because clearly the aux coord var is not doing its job of locating the data.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;I think you said, Nan, that you might fill them in at some later stage. At
-</em><br />
-<em class="quotelev1">&gt;that stage, they should certainly be aux coord vars. Before they are filled
-</em><br />
-<em class="quotelev1">&gt;in, of course I am not saying they should be excluded from the file, but I
-</em><br />
-<em class="quotelev1">&gt;am asking if they should be regarded as data, rather than coordinates. A
-</em><br />
-<em class="quotelev1">&gt;pressure value which was destined to be an aux coord var, but is actually a
-</em><br />
-<em class="quotelev1">&gt;data variable measured by a sensor and has missing values in it, could be
-</em><br />
-<em class="quotelev1">&gt;named by the ancillary_variables attribute. It is really per-point metadata,
-</em><br />
-<em class="quotelev1">&gt;which is what ancillary_variables are
-</em><br />
-<em class="quotelev1">&gt;(<a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.5/cf-conventions.html#ancillary-data">http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.5/cf-conventions.html#ancillary-data</a>)
-</em><br />
-<em class="quotelev1">&gt;but you could argue it should not be regarded as an aux coord var if it can't
-</em><br />
-<em class="quotelev1">&gt;provide information for every point where there is data.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;I'm just asking. I don't have a very strong opinion about this, but I'd like
-</em><br />
-<em class="quotelev1">&gt;to know if others have the same concern that I do.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;My existing ticket (85) connected with this subject is a defect ticket. It
-</em><br />
-<em class="quotelev1">&gt;is only able to correct mistakes. It can't make a substantive change to the
-</em><br />
-<em class="quotelev1">&gt;convention, just clarify it. If we can decide easily how to clarify it, that
-</em><br />
-<em class="quotelev1">&gt;is fine. I'll amend the ticket if we have a clear decision. Otherwise, we
-</em><br />
-<em class="quotelev1">&gt;should use a different ticket.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;Best wishes
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;Jonathan
-</em><br />
-<em class="quotelev1">&gt;_______________________________________________
-</em><br />
-<em class="quotelev1">&gt;CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt;CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt;<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-&nbsp;
+Using CF Checker Version 2.0.2
 <br />
-<br />&nbsp;
+Using Standard Name Table Version 17 (2011-03-24T11:54:30Z)
 <br />
-..............End of Message ...............................--&gt;
+Using Area Type Table Version 1 (5 December 2008)
 <br />
-<br /><br />&nbsp;
+...
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+------------------
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Mar 28 2012 - 06:38:41 BST</span>
+Checking variable: depth
+<br />
+------------------
+<br />
+ERROR (3.1): Units are not consistent with those given in the standard_name table.
+<br />
+<br /><br /><br />I'd appreciate some feedback if I have things around the wrong way here..
+<br />
+<br />Cheers,
+<br />
+<br />P
+<br />
+<span id="received"><dfn>Received on</dfn> Tue Jul 05 2011 - 18:34:48 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -215,12 +135,12 @@ Date:  Wed, 28 Mar 2012 13:26:42 +0100
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4288">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4289.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4287.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4289.html" title="Next message in the list">Paul.Durack at csiro.au: "[CF-metadata] new TEOS-10 standard names"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4287.html" title="Previous message in the list">Randy Horne: "[CF-metadata] the need to store lat/lon coordinates in a CF metadata compliant netCDF file"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./4289.html" title="Next message in this discussion thread">Jonathan Gregory: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./4293.html" title="Next message in this discussion thread">Rosalyn Hatcher: "[CF-metadata] depth/pressure vertical coordinate"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./4289.html" title="Message sent in reply to this message">Jonathan Gregory: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
+<dfn>Reply</dfn>: <a href="./4293.html" title="Message sent in reply to this message">Rosalyn Hatcher: "[CF-metadata] depth/pressure vertical coordinate"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -231,7 +151,7 @@ Date:  Wed, 28 Mar 2012 13:26:42 +0100
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:59 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4287.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4289.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] new standard names added from Jonathan Gregory on 2006-04-04 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] new standard names added" />
-<meta name="Date" content="2006-04-04" />
+<title>[CF-metadata] CF-1.0-beta5: curvilinear bounds &quot;contiguous&quot;attribute from jonathan.gregory at metoffice.com on 2003-03-17 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="jonathan.gregory at metoffice.com (jonathan.gregory)" />
+<meta name="Subject" content="[CF-metadata] CF-1.0-beta5: curvilinear bounds &quot;contiguous&quot;attribute" />
+<meta name="Date" content="2003-03-17" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0101.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0103.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new standard names added</h1>
-<!-- received="Tue Apr  4 09:48:11 2006" -->
-<!-- isoreceived="20060404084811" -->
-<!-- sent="Tue, 4 Apr 2006 16:48:11 +0100" -->
-<!-- isosent="20060404154811" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] new standard names added" -->
-<!-- id="20060404154811.GA645_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0101.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0103.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF-1.0-beta5: curvilinear bounds &quot;contiguous&quot;attribute</h1>
+<!-- received="Mon Mar 17 10:49:50 2003" -->
+<!-- isoreceived="20030317104950" -->
+<!-- sent="Mon, 17 Mar 2003 17:49:50 +0000" -->
+<!-- isosent="20030317174950" -->
+<!-- name="jonathan.gregory at metoffice.com" -->
+<!-- email="jonathan.gregory" -->
+<!-- subject="[CF-metadata] CF-1.0-beta5: curvilinear bounds &quot;contiguous&quot;attribute" -->
+<!-- id="20030317174950.A1227_at_linux.á_at_á@" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0103.html" accesskey="d" title="Karl Taylor: &quot;[CF-metadata] area_fraction&quot;">Next message</a> ]
-[ <a href="./0101.html" title="Jonathan Gregory: &quot;[CF-metadata] area_fraction&quot;">Previous message</a> ]
+[ <a href="./0103.html" accesskey="d" title="jonathan.gregory at metoffice.com: &quot;[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute&quot;">Next message</a> ]
+[ <a href="./0101.html" title="Brian Eaton: &quot;[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0103.html" accesskey="t" title="jonathan.gregory at metoffice.com: &quot;[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,156 +70,232 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20new%20standard%20names%20added">j.m.gregory</a>&gt;
+<dfn>From</dfn>: jonathan.gregory at metoffice.com &lt;<a href="mailto:jonathan.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20CF-1.0-beta5%3A%20curvilinear%20bounds%20%22contiguous%22attribute">jonathan.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 4 Apr 2006 16:48:11 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 17 Mar 2003 17:49:50 +0000</span><br />
 </address>
 <br />
-Dear All
+Dear Steve and John
 <br />
-<br />The following standard names have been added, following proposals from
+<br />Apart from the point concerning the record dimension, which is specific to
 <br />
-Ben Foster, Elke Keup, Beate Geyer, Alex Ruane and Balaji.
+netCDF, we have also made the argument that it is simpler to support only one
+<br />
+convention. The (n+1) convention, although it is the usual case, cannot deal
+<br />
+with non-contiguous or overlapping cells, both of which occur in practice (as
+<br />
+mentioned by Steve and Bob), so we have to support the (n,2) convention. This
+<br />
+convention is not difficult to write or use, just redundant in the contiguous
+<br />
+case, but that isn't a very serious issue, as Bob said.
+<br />
+<br />Steve remarked:
+<br />
+<br /><em class="quotelev1">&gt; Note that N*M*nvertices is ambiguous with both respect to orientation
+</em><br />
+<em class="quotelev1">&gt; (clockwise or no) and to starting &quot;corner&quot;.  The n*2m*2 encoding has no
+</em><br />
+<em class="quotelev1">&gt; ambiguities -- analogous to N*2.
+</em><br />
+<br />I don't think this is quite true, actually, because it cannot be guaranteed
+<br />
+that the data has been written so that the bounds are ordered in the same
+<br />
+sense as the coordinates. In one dimension, for instance, say
+<br />
+<br />x=1, 2, 3, 4;
+<br />
+bounds_x=1.5, 0.5,  2.5, 1.5,  3.5, 2.5,  4.5, 3.5;
+<br />
+<br />Even if we legislated against this, I don't think it could be depended upon not
+<br />
+to happen. To be robust, an application should assume nothing about the
+<br />
+ordering of the bounds, except that it is the same for all cells. But it's not
+<br />
+too hard to deal with in practice - just &quot;fussy&quot;, in Steve's word. In 2D, I
+<br />
+suppose you can compare two sets of vertices with unknown starting point and
+<br />
+ordering by doing something like sorting them in order of both coordinates
+<br />
+and then comparing the corresponding original indices.
+<br />
+<br />I think it is more sensible to put the burden of interpreting things on
+<br />
+the user of the data than the writer of it. That approach makes the convention
+<br />
+generally lightweight, more attractive and more likely to be adhered to. A
+<br />
+complicated standard can be broken more easily by accident. A standard which
+<br />
+is likely to be often broken is not useful to the user of the data.
+<br />
+<br />Bob said:
+<br />
+<br /><em class="quotelev1">&gt; I think the standard should prescribe one direction only, preferably
+</em><br />
+<em class="quotelev1">&gt; counterclockwise
+</em><br />
+<br />Of course, that would also make life easier for the user of the data, but I
+<br />
+fear that it is open to mistakes. The data-writer might have a different
+<br />
+interpretation of what counter-clockwise means (like left- and right-handed
+<br />
+rules for vectors), or simply get confused, and it's the kind of thing that
+<br />
+is terribly easy to get wrong (so I find, anyway).  Again, I would argue that
+<br />
+it is safer not to depend on it.
+<br />
+<br />We may choose to put the burden on the data-writer instead of on the user in
+<br />
+cases where the logic is potentially time-consuming to work out, which is the
+<br />
+main issue Steve raised wrt contiguousness. If I understand correctly, the
+<br />
+information to be recorded is, for each cell, which cells are adjacent.
+<br />
+Perhaps you also need to know which is their common edge. This kind of
+<br />
+information doesn't depend on any particular kind of grid. It can be supplied
+<br />
+even for unstructured grids dimensioned (cell). I agree with Bob that it
+<br />
+should be optional, as it *can* be worked out from the other information.
+<br />
+However, we might recommend including it for non-trivial grids (to be defined).
+<br />
+But as with all redundant information, should we worry about the possibility of
+<br />
+inconsistency?
+<br />
+<br />I would propose that if we want to record such information, it should be put
+<br />
+in data variables with specified standard names. For example:
+<br />
+<br />&nbsp;&nbsp;dimensions:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;cell=7008;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;maxneighbour=4;
+<br />
+&nbsp;&nbsp;variables:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;float temperature(cell);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temperature:units=&quot;K&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temperature:standard_name=&quot;air_temperature&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;int neighbour(cell,maxneighbour);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;neighbour:standard_name=&quot;adjacent_cell_index&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;neighbour:_FillValue=-1;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;int commonedge(cell,maxneighbour);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;commonedge:standard_name=&quot;common_boundary_segment_index&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;commonedge:_FillValue=-1;
+<br />
+&nbsp;&nbsp;data:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;neighbour=1, 96, -1, -1,   0, 2, 97, -1,  1, ...;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;commonedge=1, 2, -1, -1,   3, 1, 2, -1,  3, ...;
+<br />
+<br />This would mean that cell 0 adjoins cells 1 and 96. Cell 1 adjoins cells 0, 2
+<br />
+and 97. The common edge between cells 0 and 1 is the one from vertex 1 to 2
+<br />
+of cell 0, and from vertex 3 to 0 of cell 1. (That is, I have assumed that an
+<br />
+edge is numbered by the vertex of lower index.)
+<br />
+<br />If we had had two dimensions (lat,lon) with lat=73 and lon=96 instead of a
+<br />
+single (cell) dimension, the information would be exactly the same. We have
+<br />
+already adopted a convention for numbering cells from 0, in section 8.2 on
+<br />
+compression by gathering.
+<br />
+<br />Information of this kind is almost within the description of section 7.2 on
+<br />
+cell measures:
+<br />
+<br /><em class="quotelev1">&gt; For some calculations, information is needed about the size, shape or
+</em><br />
+<em class="quotelev1">&gt; location of the cells that cannot be deduced from the coordinates and bounds
+</em><br />
+<em class="quotelev1">&gt; without special knowledge that a generic application cannot be expected to
+</em><br />
+<em class="quotelev1">&gt; have.
+</em><br />
+<br />This isn't true because connectivity information *can* be deduced, but it is
+<br />
+complicated. Nonetheless, we could consider pointing to the neighbours and
+<br />
+common edges variables through the cell_measures attribute.
+<br />
+<br />Ths scheme has to allow a maxneighbour dimension as big as necessary, and hence
+<br />
+wastes space. But the convention of 8.2 could also be used to compress these
+<br />
+variables, eliminating the wasted space:
+<br />
+<br />&nbsp;&nbsp;dimensions:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;cell=7008;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;maxneighbour=4;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;adjacencies=27694;
+<br />
+&nbsp;&nbsp;variables:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;int adjacencies(adjacencies);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;adjacencies:compress=&quot;cell maxneighbour&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;int neighbour(adjacencies);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;neighbour:standard_name=&quot;adjacent_cell_index&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;neighbour:_FillValue=-1;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;int commonedge(adjacencies);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;commonedge:standard_name=&quot;common_boundary_segment_index&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;commonedge:_FillValue=-1;
+<br />
+&nbsp;&nbsp;data:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;adjacencies=0, 1, 4, 5, 6, 8, ...
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;neighbour=1, 96, 0, 2, 97, 1, ...;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;commonedge=1, 2, 3, 1, 2, 3, ...;
+<br />
+<br />This means that neighbour(adjacencies) should be scattered into a 2D variable
+<br />
+(cell,maxneighbour), with the values of adjacencies(adjacencies) specifying
+<br />
+which cells of the 2D variables are populated, the rest being missing data.
+<br />
+<br />Would such a scheme be suitable?
 <br />
 <br />Cheers
 <br />
 <br />Jonathan
 <br />
-<br /><br />K:air_temperature_at_cloud_top
-<br />
-J m-2:atmosphere_dry_energy_content
-<br />
-J m-2:atmosphere_dry_static_energy_content
-<br />
-kg m-2:atmosphere_mass_per_unit_area
-<br />
-m:convective_cloud_base_height
-<br />
-m:convective_cloud_top_height
-<br />
-W m-2:downward_dry_static_energy_flux_due_to_diffusion
-<br />
-W m-2:downward_heat_flux_at_ground_level_in_snow
-<br />
-W m-2:downward_heat_flux_at_ground_level_in_soil
-<br />
-kg m-2 s-1:downward_water_vapor_flux_in_air_due_to_diffusion
-<br />
-J m-2:dry_energy_content_of_atmosphere_layer
-<br />
-J m-2:dry_static_energy_content_of_atmosphere_layer
-<br />
-kg m-1 s-1:eastward_atmosphere_water_vapor_transport_across_unit_distance
-<br />
-kg m-2 s-1:eastward_mass_flux_of_air
-<br />
-kg m-2 s-1:eastward_water_vapor_flux
-<br />
-kg m-1 s-1:eastward_water_vapor_transport_across_unit_distance_in_atmosphere_layer
-<br />
-J m-2:enthalpy_content_of_atmosphere_layer
-<br />
-J m-2:kinetic_energy_content_of_atmosphere_layer
-<br />
-kg m-2:liquid_water_content_of_soil_layer
-<br />
-1:mass_fraction_of_cloud_condensed_water_in_air
-<br />
-kg m-1 s-1:northward_atmosphere_water_vapor_transport_across_unit_distance
-<br />
-kg m-2 s-1:northward_mass_flux_of_air
-<br />
-kg m-2 s-1:northward_water_vapor_flux
-<br />
-kg m-1 s-1:northward_water_vapor_transport_across_unit_distance_in_atmosphere_layer
-<br />
-J m-2:potential_energy_content_of_atmosphere_layer
-<br />
-m s-1:soil_hydraulic_conductivity_at_saturation
-<br />
-m2 s-2:specific_dry_energy_of_air
-<br />
-m2 s-2:specific_kinetic_energy_of_air
-<br />
-mol s-2 s-1:surface_carbon_dioxide_mole_flux
-<br />
-string:surface_cover
-<br />
-mol m-2 s-1:surface_downwelling_photosynthetic_photon_flux_in_air
-<br />
-W m-2:surface_net_upward_radiative_flux
-<br />
-m:surface_roughness_length_for_heat_in_air
-<br />
-m:surface_roughness_length_for_momentum_in_air
-<br />
-W m-2 :surface_snow_melt_and_sublimation_heat_flux
-<br />
-kg m-2:surface_snow_sublimation_amount
-<br />
-W m-2:surface_snow_sublimation_heat_flux
-<br />
-mol m-2 s-1:surface_upwelling_photosynthetic_photon_flux_in_air
-<br />
-K s-1:tendency_of_air_temperature_due_to_turbulence
-<br />
-kg m-2 s-1:tendency_of_atmosphere_mass_per_unit_area
-<br />
-kg m-2 s-1:tendency_of_atmosphere_mass_per_unit_area_due_to_advection
-<br />
-kg m-2 s-1:tendency_of_atmosphere_water_vapor_content_due_to_advection
-<br />
-kg m-2 s-1:tendency_of_atmosphere_water_vapor_content_due_to_deep_convection
-<br />
-kg m-2 s-1:tendency_of_atmosphere_water_vapor_content_due_to_shallow_convection
-<br />
-W m-2:tendency_of_dry_energy_content_of_atmosphere_layer
-<br />
-W m-2:tendency_of_dry_static_energy_content_of_atmosphere_layer
-<br />
-&nbsp;s-1:tendency_of_mass_fraction_of_cloud_condensed_water_in_air_due_to_advection
-<br />
-kg m-2 s-1:tendency_of_water_vapor_content_of_atmosphere_layer
-<br />
-kg m-2 s-1:tendency_of_water_vapor_content_of_atmosphere_layer_due_to_convection
-<br />
-kg m-2 s-1:tendency_of_water_vapor_content_of_atmosphere_layer_due_to_deep_convection
-<br />
-kg m-2 s-1:tendency_of_water_vapor_content_of_atmosphere_layer_due_to_shallow_convection
-<br />
-W m-2:upward_dry_static_energy_flux_due_to_diffusion
-<br />
-W m-2:upward_heat_flux_at_ground_level_in_snow
-<br />
-W m-2:upward_heat_flux_at_ground_level_in_soil
-<br />
-kg m-2 s-1:upward_mass_flux_of_air
-<br />
-kg m-2 s-1:upward_water_vapor_flux_in_air_due_to_diffusion
-<br />
-1:volume_fraction_of_water_in_soil
-<br />
-kg m-2:water_evaporation_amount_from_canopy
-<br />
-kg m-2 s-1:tendency_of_atmosphere_water_content_due_to_advection
-<br />
-1:atmosphere_sleve_coordinate
-<br />
-1:area_fraction
-<br />
-kg m-2:canopy_and_surface_water_amount
-<br />
-kg m-2:surface_water_amount
-<br />
-kg m-2 s-1:tendency_of_surface_snow_amount
-<br />
-1:atmosphere_ln_pressure_coordinate
-<br />
-m3:ocean_volume
-<br />
-1:ocean_volume_fraction
-<br />
-<span id="received"><dfn>Received on</dfn> Tue Apr 04 2006 - 09:48:11 BST</span>
+<span id="received"><dfn>Received on</dfn> Mon Mar 17 2003 - 10:49:50 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -225,9 +303,13 @@ m3:ocean_volume
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start102">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0103.html" title="Next message in the list">Karl Taylor: "[CF-metadata] area_fraction"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0101.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] area_fraction"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0103.html" title="Next message in the list">jonathan.gregory at metoffice.com: "[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0101.html" title="Previous message in the list">Brian Eaton: "[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0103.html" title="Next message in this discussion thread">jonathan.gregory at metoffice.com: "[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0103.html" title="Message sent in reply to this message">jonathan.gregory at metoffice.com: "[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute"</a></li>
+<li><dfn>Reply</dfn>: <a href="./0106.html" title="Message sent in reply to this message">jonathan.gregory at metoffice.com: "[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -238,7 +320,7 @@ m3:ocean_volume
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:44 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0101.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0103.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

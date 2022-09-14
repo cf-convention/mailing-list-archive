@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]   Same parameter, different meaning (pressure) from Jonathan Gregory on 2008-08-28 (mailing-list-archive)</title>
+<title>[CF-metadata]  Question about Coordinate System from Jonathan Gregory on 2007-02-08 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata]   Same parameter, different meaning (pressure)" />
-<meta name="Date" content="2008-08-28" />
+<meta name="Subject" content="[CF-metadata]  Question about Coordinate System" />
+<meta name="Date" content="2007-02-08" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1503.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1505.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]   Same parameter, different meaning (pressure)</h1>
-<!-- received="Thu Aug 28 06:34:57 2008" -->
-<!-- isoreceived="20080828053457" -->
-<!-- sent="Thu, 28 Aug 2008 13:34:57 +0100" -->
-<!-- isosent="20080828123457" -->
+<a style="text-decoration:none" href="./1503.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1505.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  Question about Coordinate System</h1>
+<!-- received="Thu Feb  8 07:24:03 2007" -->
+<!-- isoreceived="20070208072403" -->
+<!-- sent="Thu, 8 Feb 2007 14:24:03 +0000" -->
+<!-- isosent="20070208142403" -->
 <!-- name="Jonathan Gregory" -->
 <!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata]   Same parameter, different meaning (pressure)" -->
-<!-- id="20080828123457.GA3952_at_met.reading.ac.uk" -->
+<!-- subject="[CF-metadata]  Question about Coordinate System" -->
+<!-- id="20070208142403.GA2020_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1505.html" accesskey="d" title="Jon Blower: &quot;[CF-metadata] Standardized region names&quot;">Next message</a> ]
-[ <a href="./1503.html" title="John Graybeal: &quot;[CF-metadata] Same parameter, different meaning (pressure)&quot;">Previous message</a> ]
+[ <a href="./1505.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] CF and a representation of probalistic forecasts&quot;">Next message</a> ]
+[ <a href="./1503.html" title="Roy Lowry: &quot;[CF-metadata] standard names committee&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./1517.html" accesskey="t" title="Philip Bentley: &quot;[CF-metadata] Question about Coordinate System&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,34 +70,70 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20%20Same%20parameter%2C%20different%20meaning%20(pressure)">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20Question%20about%20Coordinate%20System">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 28 Aug 2008 13:34:57 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 8 Feb 2007 14:24:03 +0000</span><br />
 </address>
 <br />
-Dear John
+Dear Shawn and Phil
 <br />
-<br /><em class="quotelev1">&gt; To be consistent we should either *always* make it possible to differentiate  
-</em><br />
-<em class="quotelev1">&gt; mountings (and similar things affecting the interpretation of data) in  
-</em><br />
-<em class="quotelev1">&gt; the standard name, or we should recognize that mounting  
-</em><br />
-<em class="quotelev1">&gt; characteristics are explicitly not described by the standard name. I  
-</em><br />
-<em class="quotelev1">&gt; prefer the latter.
-</em><br />
-<br />I prefer the latter as well. The standard name defines the quantity being
+<br />This issue has indeed come up before more than once, but not been resolved.
 <br />
-measured, so I tend to think other metadata should be used to differentiate
+It would help me/us to understand it if you could describe the required
 <br />
-how it is measured.
+information in more detail and what it is used for. Is a &quot;datum&quot; such as WGS84
+<br />
+a definition of a geometrical surface (ellipsoid) that is used to approximate
+<br />
+the geoid (a surface of constant geopotential)? If so, then it is relevant
+<br />
+both for making more precise what we mean by quantities which are measured with
+<br />
+respect to the geoid, such as sea surface height, and as input to conversions
+<br />
+between lat-lon and map projection coordinates (the latter being why you
+<br />
+raised it). When it has been discussed before, the point has been made that
+<br />
+this information doesn't exist for most models e.g. global climate models,
+<br />
+which treat the Earth as a sphere, so it would be optional (like many other
+<br />
+features of CF).
+<br />
+<br /><em class="quotelev1">&gt;    For example, should the value of this proposed new attribute be the
+</em><br />
+<em class="quotelev1">&gt;    numeric identifier assigned by the dictionary maintainer (e.g. 6326
+</em><br />
+<em class="quotelev1">&gt;    for WGS 84), the well-known text identifier (e.g. &quot;World Geodetic
+</em><br />
+<em class="quotelev1">&gt;    System 1984&quot;), or either or both of these?
+</em><br />
+<br />The self-describing principle of CF would indicate that we would use a text
+<br />
+identifier. It could have a numeric component.
+<br />
+<br />It would be good to make use of a dictionary maintained by someone else, like
+<br />
+EPSG, but this depends on their dictionary having exactly the right sort of
+<br />
+contents for us and available in an appropriate format. We have not managed to
+<br />
+do that in other similar cases. Instead we have adapted other sources of
+<br />
+information and imported them into CF. This introduces issues of maintenance,
+<br />
+but on the other hand it makes CF more robust.
+<br />
+<br />Possibly this discussion is related to the one raised by Bert Jagers in the
+<br />
+autumn (see <a href="http://cf-pcmdi.llnl.gov/trac/wiki/MultipleProjections">http://cf-pcmdi.llnl.gov/trac/wiki/MultipleProjections</a>).
 <br />
 <br />Best wishes
 <br />
 <br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Thu Aug 28 2008 - 06:34:57 BST</span>
+<span id="received"><dfn>Received on</dfn> Thu Feb 08 2007 - 07:24:03 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -103,9 +141,12 @@ how it is measured.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1504">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1505.html" title="Next message in the list">Jon Blower: "[CF-metadata] Standardized region names"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1503.html" title="Previous message in the list">John Graybeal: "[CF-metadata] Same parameter, different meaning (pressure)"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1505.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] CF and a representation of probalistic forecasts"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1503.html" title="Previous message in the list">Roy Lowry: "[CF-metadata] standard names committee"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./1517.html" title="Next message in this discussion thread">Philip Bentley: "[CF-metadata] Question about Coordinate System"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./1517.html" title="Message sent in reply to this message">Philip Bentley: "[CF-metadata] Question about Coordinate System"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -116,7 +157,7 @@ how it is measured.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:08 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1503.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1505.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

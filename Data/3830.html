@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Question on WKT representation of CRS from Bentley, Philip on 2011-10-06 (mailing-list-archive)</title>
-<meta name="Author" content="Bentley, Philip (philip.bentley)" />
-<meta name="Subject" content="[CF-metadata] Question on WKT representation of CRS" />
-<meta name="Date" content="2011-10-06" />
+<title>[CF-metadata] CF Conventions 1.5 from Jeffrey F. Painter on 2010-11-30 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jeffrey F. Painter (painter1)" />
+<meta name="Subject" content="[CF-metadata] CF Conventions 1.5" />
+<meta name="Date" content="2010-11-30" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./3829.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3831.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Question on WKT representation of CRS</h1>
-<!-- received="Thu Oct  6 08:42:04 2011" -->
-<!-- isoreceived="20111006074204" -->
-<!-- sent="Thu, 6 Oct 2011 15:42:04 +0100" -->
-<!-- isosent="20111006144204" -->
-<!-- name="Bentley, Philip" -->
-<!-- email="philip.bentley" -->
-<!-- subject="[CF-metadata] Question on WKT representation of CRS" -->
-<!-- id="E51EDFEBF10BE44BB4BDAF5FC2F024B903636997_at_EXXMAIL02.desktop.frd.metoffice.com" -->
+<a style="text-decoration:none" href="./3829.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3831.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF Conventions 1.5</h1>
+<!-- received="Tue Nov 30 11:28:54 2010" -->
+<!-- isoreceived="20101130112854" -->
+<!-- sent="Tue, 30 Nov 2010 10:28:54 -0800" -->
+<!-- isosent="20101130182854" -->
+<!-- name="Jeffrey F. Painter" -->
+<!-- email="painter1" -->
+<!-- subject="[CF-metadata] CF Conventions 1.5" -->
+<!-- id="4CF54266.3020504_at_llnl.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4E8DB7FE.2010206_at_noaa.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./3831.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Question on WKT representation of CRS&quot;">Next message</a> ]
-[ <a href="./3829.html" title="Jim Biard: &quot;[CF-metadata] Question on WKT representation of CRS&quot;">Previous message</a> ]
-[ <a href="./3829.html" title="Jim Biard: &quot;[CF-metadata] Question on WKT representation of CRS&quot;">In reply to</a> ]
+[ <a href="./3831.html" accesskey="d" title="Lauret Olivier: &quot;[CF-metadata] Standard name request for ocean colour and iceberg concentration&quot;">Next message</a> ]
+[ <a href="./3829.html" title="Maarten Plieger: &quot;[CF-metadata] MSG Cloud physical properties codification&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./3832.html" accesskey="t" title="Heiko Klein: &quot;[CF-metadata] Question on WKT representation of CRS&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -71,142 +68,42 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Bentley, Philip &lt;<a href="mailto:philip.bentley?Subject=Re%3A%20%5BCF-metadata%5D%20Question%20on%20WKT%20representation%20of%20CRS">philip.bentley</a>&gt;
+<dfn>From</dfn>: Jeffrey F. Painter &lt;<a href="mailto:painter1?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20Conventions%201.5">painter1</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 6 Oct 2011 15:42:04 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 30 Nov 2010 10:28:54 -0800</span><br />
 </address>
 <br />
-Jim et al, 
+I updated the CF Conventions document to version 1.5.   You may see it at <a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.5">http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.5</a>, and the corresponding conformance document at 
 <br />
-<br />Your reasoning here accords closely with the spirit of the proposal
+<a href="http://cf-pcmdi.llnl.gov/conformance/requirements-and-recommendations/1.5/">http://cf-pcmdi.llnl.gov/conformance/requirements-and-recommendations/1.5/</a>.
 <br />
-myself and my colleagues have been working on recently to incorporate
+<br />Please let me know if you notice any errors or omissions on my part.
 <br />
-simple CRS WKT type capabilities into the CF conventions.
+<br />The changes implement the following tickets in the Trac system,
 <br />
-<br />We believe that the proposal addresses several of the issues raised in
+<a href="https://cf-pcmdi.llnl.gov/trac">https://cf-pcmdi.llnl.gov/trac</a> .  They are all rather minor issues.
 <br />
-recent postings to this mailing list. However, it can never be a 100%
+<br />33  cell_methods for statistical indices (that is, example 7.11)
 <br />
-answer to everyone's requirements and personal preferences. It won't
+49  Clarification of flag_meanings attribute (i.e., characters are 
 <br />
-solve all needs across all CRS problem domains, but we think it will
+specified)
 <br />
-move us a step in the right direction.
+58  Remove deprecation of &quot;missing_value&quot; attribute
 <br />
-<br />We are hoping to be in a position to post the proposal as a new CF trac
+57  Fix for broken URLs in CF Conventions document
 <br />
-ticket at the beginning of next week. Hopefully the folks who have
+56  typo in CF conventions doc
 <br />
-recently posted their ideas and observations to this mailing list will
+51  syntax consistency for dimensionless vertical coordinate definitions
 <br />
-engage in the discussions against that ticket, thus improving the
+47  error in example 7.4
 <br />
-proposal (and there's certainly no suggestion here that the current
+<br />I plan to close these tickets later this week.
 <br />
-email discussions should stop - plenty of good ideas being bounced
+<br />- Jeff Painter
 <br />
-around!).
-<br />
-<br />Regards
-<br />
-Phil
-<br />
-<br /><em class="quotelev1">&gt; -----Original Message-----
-</em><br />
-<em class="quotelev1">&gt; From: cf-metadata-bounces at cgd.ucar.edu 
-</em><br />
-<em class="quotelev1">&gt; [mailto:cf-metadata-bounces at cgd.ucar.edu] On Behalf Of Jim Biard
-</em><br />
-<em class="quotelev1">&gt; Sent: 06 October 2011 15:15
-</em><br />
-<em class="quotelev1">&gt; To: cf-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; Subject: Re: [CF-metadata] Question on WKT representation of CRS
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Hi.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I worked in a previous career phase with photogrammetry and GIS.  
-</em><br />
-<em class="quotelev1">&gt; Precise knowledge of the coordinate system is often critical 
-</em><br />
-<em class="quotelev1">&gt; in these domains.  I appreciate the concern about the 
-</em><br />
-<em class="quotelev1">&gt; &quot;opacity&quot; of the WKT or
-</em><br />
-<em class="quotelev1">&gt; proj4 text blocks, but I don't think it is wise to develop 
-</em><br />
-<em class="quotelev1">&gt; what will amount to yet another standard for representing 
-</em><br />
-<em class="quotelev1">&gt; coordinate systems.  The reason WKT blocks can get so long 
-</em><br />
-<em class="quotelev1">&gt; and involved is because different coordinate systems use 
-</em><br />
-<em class="quotelev1">&gt; different algorithms, and some of these vary widely from one another.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I suggest that we leave all of that to others that are expert 
-</em><br />
-<em class="quotelev1">&gt; in that field.  If you look at the EPSG code entries at 
-</em><br />
-<em class="quotelev1">&gt; spatialreference.org, you will see that nearly all of them 
-</em><br />
-<em class="quotelev1">&gt; have a name.  Why not adopt the approach of providing the 
-</em><br />
-<em class="quotelev1">&gt; name in an attribute, and the WKT text in another?  Give them 
-</em><br />
-<em class="quotelev1">&gt; names like coordinate_system_name and coordinate_system_wkt.  
-</em><br />
-<em class="quotelev1">&gt; If you are working in three dimensions and require accurate 
-</em><br />
-<em class="quotelev1">&gt; geo-positioning, you will need to specify the vertical datum 
-</em><br />
-<em class="quotelev1">&gt; as well.  We could use attributes named vertical_datum_name 
-</em><br />
-<em class="quotelev1">&gt; and vertical_datum_wkt when these are needed.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; The goal here is to clearly define the coordinate systems in 
-</em><br />
-<em class="quotelev1">&gt; use, so that users can perform whatever operations they need 
-</em><br />
-<em class="quotelev1">&gt; to perform with the geographical coordinates contained in 
-</em><br />
-<em class="quotelev1">&gt; CF-compliant netCDF files.  The current CF scheme (and any 
-</em><br />
-<em class="quotelev1">&gt; that continues in the current direction) seems to me to make 
-</em><br />
-<em class="quotelev1">&gt; it more difficult for a user to accomplish her work, since 
-</em><br />
-<em class="quotelev1">&gt; the coordinate system parameters must be read out of the file 
-</em><br />
-<em class="quotelev1">&gt; and converted into a standard form that coordinate system 
-</em><br />
-<em class="quotelev1">&gt; software packages can actually use.  Adopting an 
-</em><br />
-<em class="quotelev1">&gt; international standard for coordinate system representation 
-</em><br />
-<em class="quotelev1">&gt; will make life easier for users, even if it means that an 
-</em><br />
-<em class="quotelev1">&gt; opaque text block is included in our netCDF files.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Grace and peace,
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Jim Biard
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<span id="received"><dfn>Received on</dfn> Thu Oct 06 2011 - 08:42:04 BST</span>
+<span id="received"><dfn>Received on</dfn> Tue Nov 30 2010 - 11:28:54 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -214,11 +111,9 @@ Phil
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start3830">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./3831.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Question on WKT representation of CRS"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./3829.html" title="Previous message in the list">Jim Biard: "[CF-metadata] Question on WKT representation of CRS"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./3829.html" title="Message to which this message replies">Jim Biard: "[CF-metadata] Question on WKT representation of CRS"</a></li>
+<li><dfn>Next message</dfn>: <a href="./3831.html" title="Next message in the list">Lauret Olivier: "[CF-metadata] Standard name request for ocean colour and iceberg concentration"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./3829.html" title="Previous message in the list">Maarten Plieger: "[CF-metadata] MSG Cloud physical properties codification"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./3832.html" title="Next message in this discussion thread">Heiko Klein: "[CF-metadata] Question on WKT representation of CRS"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -229,7 +124,7 @@ Phil
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:52 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./3829.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3831.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

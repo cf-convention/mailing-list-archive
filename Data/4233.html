@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Request: research papers which cite use of CF standard names from Robert Muetzelfeldt on 2012-03-13 (mailing-list-archive)</title>
-<meta name="Author" content="Robert Muetzelfeldt (r.muetzelfeldt)" />
-<meta name="Subject" content="[CF-metadata] Request: research papers which cite use of CF standard names" />
-<meta name="Date" content="2012-03-13" />
+<title>[CF-metadata] CF compliance: auxiliary coordinate variables, compressed data, coordinates attribute from Rosalyn Hatcher on 2011-05-04 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Rosalyn Hatcher (r.s.hatcher)" />
+<meta name="Subject" content="[CF-metadata] CF compliance: auxiliary coordinate variables, compressed data, coordinates attribute" />
+<meta name="Date" content="2011-05-04" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4232.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4234.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Request: research papers which cite use of CF standard names</h1>
-<!-- received="Tue Mar 13 03:08:10 2012" -->
-<!-- isoreceived="20120313030810" -->
-<!-- sent="Tue, 13 Mar 2012 09:08:10 +0000" -->
-<!-- isosent="20120313090810" -->
-<!-- name="Robert Muetzelfeldt" -->
-<!-- email="r.muetzelfeldt" -->
-<!-- subject="[CF-metadata] Request: research papers which cite use of CF standard names" -->
-<!-- id="4F5F0E7A.7080406_at_ed.ac.uk" -->
+<a style="text-decoration:none" href="./4232.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4234.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF compliance: auxiliary coordinate variables, compressed data, coordinates attribute</h1>
+<!-- received="Wed May  4 06:43:36 2011" -->
+<!-- isoreceived="20110504054336" -->
+<!-- sent="Wed, 04 May 2011 13:43:36 +0100" -->
+<!-- isosent="20110504124336" -->
+<!-- name="Rosalyn Hatcher" -->
+<!-- email="r.s.hatcher" -->
+<!-- subject="[CF-metadata] CF compliance: auxiliary coordinate variables, compressed data, coordinates attribute" -->
+<!-- id="4DC149F8.6050702_at_reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="2FD1E68A207EE4458010E702EB96BE2EACD635_at_NECHBET.Hamburg.BAW.DE" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,11 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4234.html" accesskey="d" title="Mike Grant: &quot;[CF-metadata] netcdf4 and CF-1.6&quot;">Next message</a> ]
-[ <a href="./4232.html" title="Cauquil Pascal: &quot;[CF-metadata] netcdf4 and CF-1.6&quot;">Previous message</a> ]
+[ <a href="./4234.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] [Standard name request] property changes over time&quot;">Next message</a> ]
+[ <a href="./4232.html" title="Paul.Durack at csiro.au: &quot;[CF-metadata] [Standard name request] property changes over time&quot;">Previous message</a> ]
+[ <a href="./4258.html" title="Lang, G&#0252;nther: &quot;[CF-metadata] CF compliance: auxiliary coordinate variables, compressed data, coordinates attribute&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./4236.html" accesskey="t" title="John Graybeal: &quot;[CF-metadata] Request: research papers which cite use of CF standard names&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,92 +70,179 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Robert Muetzelfeldt &lt;<a href="mailto:r.muetzelfeldt?Subject=Re%3A%20%5BCF-metadata%5D%20Request%3A%20research%20papers%20which%20cite%20use%20of%20CF%20standard%20names">r.muetzelfeldt</a>&gt;
+<dfn>From</dfn>: Rosalyn Hatcher &lt;<a href="mailto:r.s.hatcher?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20compliance%3A%20auxiliary%20coordinate%20variables%2C%20compressed%20data%2C%20coordinates%20attribute">r.s.hatcher</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 13 Mar 2012 09:08:10 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 04 May 2011 13:43:36 +0100</span><br />
 </address>
 <br />
-Hello,
+Dear Guenther,
 <br />
-<br />I am involved in an initiative to make a database of ecological 
+<br />Looking in the CF Convention it's not stated that using auxiliary 
 <br />
-models.   Many of these models form clusters - for example, plant growth 
+coordinate variables with compression by gathering is not valid.
 <br />
-or food-web modelling.  Within a cluster, the naming of the variables 
+<br />In your Example 2 the CF checker has not recognised, in the checking of 
 <br />
-associated with each model is ad hoc - similar-but-slightly-different 
+the auxilliary coordinate variables, that datapoint is a compressed field.
 <br />
-names are used for the same quantity by different authors - because 
+I think you're probably the first person to try doing this.  So assuming 
 <br />
-there are no standard-naming conventions equivalent to CF Standard 
+everyone is happy that this is valid in the CF Convention,
 <br />
-Names.    Using standard names would greatly help in searching for 
+I will modify the CF Checker to look for compressed dimensions when 
 <br />
-models which used the same inputs, modelled the same processes or 
+checking the dimensions of an auxiliary coord variable.
 <br />
-produced the same outputs, and would make it much easier to link models 
+<br />Regards,
 <br />
-as modules in some integrated model.
+Ros.
 <br />
-<br />In order to encourage the development of standard naming schemes in 
+<br />On 28/04/11 15:49, &quot;Lang, G?nther&quot; wrote:
 <br />
-these clusters, I thought it would be useful to find published examples 
-<br />
-of climate research which actually drew on CF Standard Names in order to 
-<br />
-bring together, or make comparisons between, different data sets - 
-<br />
-something I presumed was the main use-case for the establishment of CF 
-<br />
-Standard Names in the first place.   I have looked through the material 
-<br />
-on the CF Metadata site, including 
-<br />
-<a href="http://cf-pcmdi.llnl.gov/documents/other/cf_overview_article.pdf">http://cf-pcmdi.llnl.gov/documents/other/cf_overview_article.pdf</a>, and 
-<br />
-can find no explicit pointers to such published research.
-<br />
-<br />I also did the following searches on Google:
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cf-metadata &quot;standard names&quot; filetype:pdf
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;cf standard names&quot; filetype:pdf
-<br />
-hoping that this would throw up papers which reported on such 
-<br />
-research.   Unfortunately, as far as I could see, none of the first 200 
-<br />
-results for either search described research which had leveraged CF 
-<br />
-Standard Names - they were all about CF Standard Names itself.   I found 
-<br />
-this very surprising.    Maybe lots of published data analysis has been 
-<br />
-undertaken using CF Standard Names and it's simply that the authors did 
-<br />
-not feel the need to mention it, but that seems a bit unlikely.
-<br />
-<br />Could members of this list provide a reference to maybe 3-4 relevant 
-<br />
-research papers (ideally freely available online)?    Apart from helping 
-<br />
-me in my mission, I think this would also strengthen the case for CF 
-<br />
-Standard Names itself, if potential adopters and funders could see 
-<br />
-evidence of its use.
-<br />
-<br />Many thanks,
-<br />
-Robert Muetzelfeldt
-<br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Dear CF metadata discussion group.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Salinity data given at several arbitrarily spaced locations in 
+</em><br />
+<em class="quotelev1">&gt; different depth layers shall
+</em><br />
+<em class="quotelev1">&gt; be stored in a NetCDF file using a compressed dimension (datapoint) to 
+</em><br />
+<em class="quotelev1">&gt; remove permanently
+</em><br />
+<em class="quotelev1">&gt; missing data from the data record.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; In order to get used to this style of data storage I have prepared two 
+</em><br />
+<em class="quotelev1">&gt; example CDL sets.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; With NCGEN the respective NetCDF data files were generated from the 
+</em><br />
+<em class="quotelev1">&gt; CDL files and
+</em><br />
+<em class="quotelev1">&gt; verified using checker program 
+</em><br />
+<em class="quotelev1">&gt; <a href="http://puma.nerc.ac.uk/cgi-bin/cf-checker.pl">http://puma.nerc.ac.uk/cgi-bin/cf-checker.pl</a> .
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Example 1 - compression by gathering using true coordinate variables:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;     * see attached files test_compress_true_coord_var.cdl | .nc .
+</em><br />
+<em class="quotelev1">&gt;     * checker says: ok, CF compliant .
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Example 2 - compression by gathering using auxiliary coordinate 
+</em><br />
+<em class="quotelev1">&gt; variables for the horizontal:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;     * see attached files test_compress_aux_coord_var.cdl | .nc .
+</em><br />
+<em class="quotelev1">&gt;     * checker says: not ok, due to
+</em><br />
+<em class="quotelev1">&gt;     * ERROR (5): Dimensions of node_lon must be a subset of dimensions
+</em><br />
+<em class="quotelev1">&gt;       of salinity_3d
+</em><br />
+<em class="quotelev1">&gt;     * ERROR (5): Dimensions of node_lat must be a subset of dimensions
+</em><br />
+<em class="quotelev1">&gt;       of salinity_3d
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; From my understanding the dimensions of the auxiliary coordinate 
+</em><br />
+<em class="quotelev1">&gt; variables NODE_LON
+</em><br />
+<em class="quotelev1">&gt; and NODE_LAT are a true subset of the (uncompressed) dimensions of 
+</em><br />
+<em class="quotelev1">&gt; salinity_3d, similar
+</em><br />
+<em class="quotelev1">&gt; to the above example 1.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Due to the fact that the only difference lies in the use of auxiliary 
+</em><br />
+<em class="quotelev1">&gt; coordinates
+</em><br />
+<em class="quotelev1">&gt; for the horizontal domain, my question is whether within example 2 
+</em><br />
+<em class="quotelev1">&gt; there is a
+</em><br />
+<em class="quotelev1">&gt; true error concerning the CF compliant description of this data set or 
+</em><br />
+<em class="quotelev1">&gt; whether
+</em><br />
+<em class="quotelev1">&gt; it is not possible at all to store data like example 2 in a CF 
+</em><br />
+<em class="quotelev1">&gt; compliant compressed
+</em><br />
+<em class="quotelev1">&gt; NetCDF file.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Any helpful remarks welcome.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Yours sincerely,
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; G?nther Lang
+</em><br />
+<em class="quotelev1">&gt; Bundesanstalt f?r Wasserbau
+</em><br />
+<em class="quotelev1">&gt; Abteilung Wasserbau im K?stenbereich
+</em><br />
+<em class="quotelev1">&gt; Referat ?stuarsysteme II (K3)
+</em><br />
+<em class="quotelev1">&gt; Wedeler Landstra?e 157
+</em><br />
+<em class="quotelev1">&gt; 22559 Hamburg, Germany
+</em><br />
+<em class="quotelev1">&gt; phone +49 40 81908 360
+</em><br />
+<em class="quotelev1">&gt; mail  guenther.lang at baw.de
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
 <br /><pre>
 -- 
------
-The University of Edinburgh is a charitable body, registered in
-Scotland, with registration number SC005336.
+Rosalyn Hatcher
+NCAS Computational Modelling Services
+Dept. of Meteorology, University of Reading,
+Earley Gate, Reading. RG6 6BB
+Email: r.s.hatcher at reading.ac.uk     Tel: +44 (0) 118 378 6016
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20110504/e6c2f3c7/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20110504/e6c2f3c7/attachment.html</a>&gt;
 </pre>
-<span id="received"><dfn>Received on</dfn> Tue Mar 13 2012 - 03:08:10 GMT</span>
+<span id="received"><dfn>Received on</dfn> Wed May 04 2011 - 06:43:36 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -163,12 +250,10 @@ Scotland, with registration number SC005336.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4233">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4234.html" title="Next message in the list">Mike Grant: "[CF-metadata] netcdf4 and CF-1.6"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4232.html" title="Previous message in the list">Cauquil Pascal: "[CF-metadata] netcdf4 and CF-1.6"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4234.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] [Standard name request] property changes over time"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4232.html" title="Previous message in the list">Paul.Durack at csiro.au: "[CF-metadata] [Standard name request] property changes over time"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./4258.html" title="Message to which this message replies">Lang, G&#0252;nther: "[CF-metadata] CF compliance: auxiliary coordinate variables, compressed data, coordinates attribute"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./4236.html" title="Next message in this discussion thread">John Graybeal: "[CF-metadata] Request: research papers which cite use of CF standard names"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./4236.html" title="Message sent in reply to this message">John Graybeal: "[CF-metadata] Request: research papers which cite use of CF standard names"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -179,7 +264,7 @@ Scotland, with registration number SC005336.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:59 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4232.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4234.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

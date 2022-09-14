@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF2 and standard names from Bert Jagers on 2006-02-07 (mailing-list-archive)</title>
-<meta name="Author" content="Bert Jagers (Bert.Jagers)" />
-<meta name="Subject" content="[CF-metadata] CF2 and standard names" />
-<meta name="Date" content="2006-02-07" />
+<title>[CF-metadata] ungridded data from Jonathan Gregory on 2002-06-19 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (jonathan.gregory)" />
+<meta name="Subject" content="[CF-metadata] ungridded data" />
+<meta name="Date" content="2002-06-19" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0020.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0022.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF2 and standard names</h1>
-<!-- received="Tue Feb  7 12:17:25 2006" -->
-<!-- isoreceived="20060207121725" -->
-<!-- sent="Tue, 7 Feb 2006 20:17:25 +0100" -->
-<!-- isosent="20060207191725" -->
-<!-- name="Bert Jagers" -->
-<!-- email="Bert.Jagers" -->
-<!-- subject="[CF-metadata] CF2 and standard names" -->
-<!-- id="010201c62c1b$214c8580$ebe20991_at_wl06377" -->
+<a style="text-decoration:none" href="./0020.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0022.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] ungridded data</h1>
+<!-- received="Wed Jun 19 02:16:35 2002" -->
+<!-- isoreceived="20020619011635" -->
+<!-- sent="Wed, 19 Jun 2002 09:16:35 +0100" -->
+<!-- isosent="20020619081635" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="jonathan.gregory" -->
+<!-- subject="[CF-metadata] ungridded data" -->
+<!-- id="20020619091635.A3911_at_hc1600.meto.gov.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20060207094726.GB14634_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,10 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0022.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] CF2 and standard names&quot;">Next message</a> ]
-[ <a href="./0020.html" title="John Caron: &quot;[CF-metadata] Announce: Common Data Model Coordinate System validation&quot;">Previous message</a> ]
-[ <a href="./0018.html" title="Jonathan Gregory: &quot;[CF-metadata] proposals for new standard names (ECMWF-GCM)&quot;">In reply to</a> ]
+[ <a href="./0022.html" accesskey="d" title="Bob Drach: &quot;[CF-metadata] ungridded data&quot;">Next message</a> ]
+[ <a href="./0020.html" title="Robert Drach: &quot;[CF-metadata] CF question&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0022.html" accesskey="t" title="Bob Drach: &quot;[CF-metadata] ungridded data&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,130 +70,76 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Bert Jagers &lt;<a href="mailto:Bert.Jagers?Subject=Re%3A%20%5BCF-metadata%5D%20CF2%20and%20standard%20names">Bert.Jagers</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:jonathan.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20ungridded%20data">jonathan.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 7 Feb 2006 20:17:25 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 19 Jun 2002 09:16:35 +0100</span><br />
 </address>
 <br />
-Dear CF-metadata list members,
+Dear Bob
 <br />
-<br />Recently I have been looking into the usage of netCDF for storing model
+<br /><em class="quotelev1">&gt; I don't think of station data and trajectories as having boundary
+</em><br />
+<em class="quotelev1">&gt; information, instead being defined at specific lat/lon/time points with no
+</em><br />
+<em class="quotelev1">&gt; associated cells.
+</em><br />
+<br />Observational station and trajectory data would probably be at points and have
 <br />
-output. Although we have agreed that netCDF4 will be the most appropriate
+no boundaries, but corresponding model-generated data would be from particular
 <br />
-file format around for output of civil engineering/environmental models,
+3D gridboxes, which do have boundaries. In fact when our model (i.e. the UM)
 <br />
-there still remain a lot of issues to resolve for storing output data of an
+generates timeseries corresponding to stations, it does attach boundary
 <br />
-integrated 1D,2D,3D modelling system using staggered (possibly multiple
+information to it. Hence I think these kinds of data can have boundary info.
 <br />
-interconnected, structured or unstructured) grids/meshes. So, I'm very
+<br />As you say, data on a regular grid which could have boundary info does not
 <br />
-interested in the developments regarding CF2 conventions that seem to
+necessarily have it (although it may be recommended) - it depends on whether
 <br />
-address most of these issues. For the time being we focus on netCDF3.6 and
+the data writer has stored it. Using the presence of boundary info therefore
 <br />
-CF1.0 conventions as far as they allow us to standardise.
+seems to be an unsatisfactory criterion on both grounds for distinguishing
 <br />
-<br />However, when it comes to the use of standard names, I'm still not certain
+between what you called &quot;gridded&quot; and what you consider ungridded.
 <br />
-what to do. Although I do understand that some kind of standardisation can
+<br /><em class="quotelev1">&gt; I guess part of the exercise is to reach an agreed upon terminology!
+</em><br />
+Indeed. As Brian's reply shows, an alternative definition of &quot;gridded&quot; includes
 <br />
-be helpful for users to understand model output from various sources and as
+anything which is discretised. In that case, gridded doesn't imply independent
 <br />
-such it may be a valuable source of information when setting up a coupling
+sets of x and y coordinates, with the valid points being at any choice of x
 <br />
-between model components of different origin, I feel a bit uneasy about
+and y from the sets.
 <br />
-introducing the standard name &quot;sea_surface_height_above_sea_level&quot; in the
+<br />Rather than introducing more metadata at a &quot;higher level&quot;, which would be
 <br />
-output of modelling systems that have so far been using &quot;water level&quot; or
+redundant in principle, I think it would be better to deduce what you need
 <br />
-similarly simple looking phrasings. So far, I have come up with two reasons
+from the metadata we already have. It's not quite clear to me what the
 <br />
-against it.
+distinction is between a GriddedVariable and other variables, but if we're
 <br />
-<br />The first (I admit, subjective) reason is that as a river engineer I don't
+talking about lon-lat-vertical, it sounds as though a GriddedVariable is
 <br />
-think of the water level in a river at some distance from the coast as the
+one which has dimensions of lat, lon and vertical. Station data will not have
 <br />
-&quot;sea_surface_height_above_sea_level&quot;; let alone when it comes to the water
+lat and lon dimensions; it will have some &quot;site&quot; dimension instead, with
 <br />
-level in rural channels, flood levels in urban areas, and water levels in
+lat and lon as auxiliary coordinate variables. A trajectory in 3D will not
 <br />
-sewer systems. I have seen a recent discussion on the use of the name &quot;lake&quot;
+have lat lon or vertical dimensions, but probably all three will be
 <br />
-as an alternative for &quot;sea&quot; for some particular applications, but the output
+auxiliary coordinates with a time dimension. It would be quite easy to make
 <br />
-of one continuous integrated model from river via estuary to sea should have
+tests like this. Is that the right distinction?
 <br />
-one unique name as it is one data set; we cannot differentiate between
+<br />Cheers
 <br />
-river_surface_height and sea_surface_height. Neither should it be model run
+<br />Jonathan
 <br />
-dependent (no different name for model output depending on modelled area or
-<br />
-user). I expect that this subjective reason may also work the other way: you
-<br />
-may not want to introduce such &quot;pollution&quot; in the usage of the existing
-<br />
-names (but I am not sure about that).
-<br />
-<br />The second reason is that the reference level is not everywhere the same: a
-<br />
-river in Tibet may be modelled using a completely different reference level
-<br />
-than a lowland river like the Rhine or the Mississippi. This issues is still
-<br />
-relevant for coastal areas as different countries tend to use different
-<br />
-reference levels as mean sea level, there is still a few centimetres
-<br />
-difference between the Dutch NAP and the German NN. Similar differences
-<br />
-occur in the horizontal direction when it comes to coordinate systems and
-<br />
-conversions.
-<br />
-<br />One may thus suggest to introduce a quantity like
-<br />
-&quot;water_surface_height_above_reference_level&quot; and require some specification
-<br />
-of the reference level. However, the question can be extended to other
-<br />
-related quantities like sea_water_x_velocity and other similar quantities.
-<br />
-So, in the end my questions are:
-<br />
-<br />(1) what are the main reasons for using standard names
-<br />
-(2) does it make sense to use such naming conventions for an integrated
-<br />
-1D,2D,3D modelling system that is used from urban areas to coastal seas and
-<br />
-beyond (coupled to hydrological, groundwater and/or meteorological models).
-<br />
-(3) or, wouldn't it be better to define a name space and some mapping as has
-<br />
-been suggested in relation to CF2 standards
-<br />
-<br />I would be very interested in your ideas in this matter either via a reply
-<br />
-to this list or via a direct reply to me if you prefer.
-<br />
-<br />Best regards,
-<br />
-<br />Bert Jagers
-<br />
-technical coordinator Delft3D &amp; SOBEK software development
-<br />
-WL | Delft Hydraulics
-<br />
-The Netherlands
-<br />
-<a href="http://www.wldelft.nl">http://www.wldelft.nl</a>
-<br />
-<span id="received"><dfn>Received on</dfn> Tue Feb 07 2006 - 12:17:25 GMT</span>
+<span id="received"><dfn>Received on</dfn> Wed Jun 19 2002 - 02:16:35 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -201,10 +147,12 @@ The Netherlands
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start21">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0022.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] CF2 and standard names"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0020.html" title="Previous message in the list">John Caron: "[CF-metadata] Announce: Common Data Model Coordinate System validation"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0018.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] proposals for new standard names (ECMWF-GCM)"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0022.html" title="Next message in the list">Bob Drach: "[CF-metadata] ungridded data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0020.html" title="Previous message in the list">Robert Drach: "[CF-metadata] CF question"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0022.html" title="Next message in this discussion thread">Bob Drach: "[CF-metadata] ungridded data"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0022.html" title="Message sent in reply to this message">Bob Drach: "[CF-metadata] ungridded data"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -215,7 +163,7 @@ The Netherlands
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:43 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0020.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0022.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

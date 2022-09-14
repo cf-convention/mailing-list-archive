@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]  representing model times in climate models from Ansley Manke on 2007-03-30 (mailing-list-archive)</title>
-<meta name="Author" content="Ansley Manke (Ansley.B.Manke)" />
-<meta name="Subject" content="[CF-metadata]  representing model times in climate models" />
-<meta name="Date" content="2007-03-30" />
+<title>[CF-metadata] hybrid height from John Caron on 2005-11-14 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] hybrid height" />
+<meta name="Date" content="2005-11-14" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0786.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0788.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  representing model times in climate models</h1>
-<!-- received="Fri Mar 30 12:41:32 2007" -->
-<!-- isoreceived="20070330114132" -->
-<!-- sent="Fri, 30 Mar 2007 11:41:32 -0700" -->
-<!-- isosent="20070330184132" -->
-<!-- name="Ansley Manke" -->
-<!-- email="Ansley.B.Manke" -->
-<!-- subject="[CF-metadata]  representing model times in climate models" -->
-<!-- id="460D59DC.9020401_at_noaa.gov" -->
+<a style="text-decoration:none" href="./0786.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0788.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] hybrid height</h1>
+<!-- received="Mon Nov 14 09:04:46 2005" -->
+<!-- isoreceived="20051114090446" -->
+<!-- sent="Mon, 14 Nov 2005 09:04:46 -0700" -->
+<!-- isosent="20051114160446" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] hybrid height" -->
+<!-- id="4378B59E.5020805_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20051113205024.GA20185_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0788.html" accesskey="d" title="Steve Hankin: &quot;[CF-metadata] attributes for min/max data values for	visualization&quot;">Next message</a> ]
-[ <a href="./0786.html" title="Jonathan Gregory: &quot;[CF-metadata] representing model times in climate models&quot;">Previous message</a> ]
+[ <a href="./0788.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] new standard_names&quot;">Next message</a> ]
+[ <a href="./0786.html" title="Beate.Geyer at gkss.de: &quot;[CF-metadata] new standard names&quot;">Previous message</a> ]
+[ <a href="./0784.html" title="Jonathan Gregory: &quot;[CF-metadata] hybrid height&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,66 +70,88 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Ansley Manke &lt;<a href="mailto:Ansley.B.Manke?Subject=Re%3A%20%5BCF-metadata%5D%20%20representing%20model%20times%20in%20climate%20models">Ansley.B.Manke</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20hybrid%20height">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 30 Mar 2007 11:41:32 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 14 Nov 2005 09:04:46 -0700</span><br />
 </address>
 <br />
-Hello,
+I havent seen any example files that use that.
 <br />
-If I might chime in with what we've done in Ferret to deal with 
+It would be great to not only make it right, but have an example file that uses it, that we could test software against.
 <br />
-different calendars, applying what's in the CF standards for calendar 
+<br />Jonathan Gregory wrote:
 <br />
-types at  <a href="http://www.cgd.ucar.edu/cms/eaton/cf-metadata/CF-1.0.html#cal">http://www.cgd.ucar.edu/cms/eaton/cf-metadata/CF-1.0.html#cal</a>. 
-<br />
-That list includes the various &quot;year&quot; definitions that are in Udunits, 
-<br />
-plus a 360-day calendar.
-<br />
-*
-<br />
-*As Jonathon says, &quot;year&quot; isn't a fixed quantity. Neither is &quot;month&quot; for 
-<br />
-the same reasons. But the application can use that fact as a basis for 
-<br />
-comparing data on different calendars, and for computing the date 
-<br />
-corresponding to a time step on any defined calendar. Using the length 
-<br />
-in seconds (or days) of the year for the particular calendar we can 
-<br />
-convert a time step to the correct date. The definition of the time axis 
-<br />
-axis, having for instance, calendar attribute time:calendar = &quot;julian&quot;  
-<br />
-and units attribute time:units=&quot;days since 1990-1-1 0:0:0&quot; gives us 
-<br />
-everything needed to convert the time step 1000 to the correct date in 
-<br />
-September 1992.
-<br />
-<br />If model data computed on a 360-day calendar is compared with 
-<br />
-observational data on the Gregorian calendar we have a way to make the 
-<br />
-appropriate conversion of data on one calendar to the other.  Even if 
-<br />
-the time unit is &quot;days&quot; or &quot;seconds&quot; we need the information about the 
-<br />
-length of the year to convert to formatted dates or to compare data that 
-<br />
-has different time axes.
-<br />
-<br />Ansley Manke
-<br />
--------------- next part --------------
-<br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20070330/958b8f8d/attachment-0002.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20070330/958b8f8d/attachment-0002.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Fri Mar 30 2007 - 12:41:32 BST</span>
+<em class="quotelev1">&gt; Dear All
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; I believe that the current definition of the atmosphere hybrid height
+</em><br />
+<em class="quotelev1">&gt; coordinate in CF Appendix D is incorrect. To match what is used in the HadGEM1
+</em><br />
+<em class="quotelev1">&gt; model, the definition should be as below. Is anyone using the definition
+</em><br />
+<em class="quotelev1">&gt; which currently appears in the standard? If not I propose we should replace it.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Cheers
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Jonathan
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; standard_name = &quot;atmosphere_hybrid_height_coordinate&quot;
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Definition:
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; z(n,k,j,i) = a(k) + b(k)*orog(n,j,i)
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; where z(n,k,j,i) is the height above the geoid (approximately mean sea level)
+</em><br />
+<em class="quotelev1">&gt; at gridpoint (k,j,i) and time (n), orog(n,j,i) is the height of the surface
+</em><br />
+<em class="quotelev1">&gt; above the geoid at (j,i) and time (n), and a(k) and b(k) are the coordinates
+</em><br />
+<em class="quotelev1">&gt; which define hybrid height level k. a(k) has the dimensions of height and b(k)
+</em><br />
+<em class="quotelev1">&gt; is dimensionless.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; The format for the formula_terms attribute is
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; formula_terms = &quot;tau: var1 eta: var2 ztop: var3 zsurface: var4&quot; formula_terms =
+</em><br />
+<em class="quotelev1">&gt; &quot;a: var1 b: var2 orog: var3&quot;
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; There is no dimensionless hybrid height coordinate. The hybrid height is best
+</em><br />
+<em class="quotelev1">&gt; approximated as a(k) if a level-dependent constant is needed.
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<span id="received"><dfn>Received on</dfn> Mon Nov 14 2005 - 09:04:46 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -135,8 +159,9 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start787">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0788.html" title="Next message in the list">Steve Hankin: "[CF-metadata] attributes for min/max data values for	visualization"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0786.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] representing model times in climate models"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0788.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] new standard_names"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0786.html" title="Previous message in the list">Beate.Geyer at gkss.de: "[CF-metadata] new standard names"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0784.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] hybrid height"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -148,7 +173,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:55 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0786.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0788.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

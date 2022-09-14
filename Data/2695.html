@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] bounds/precision for time axis from Jon Blower on 2010-06-03 (mailing-list-archive)</title>
-<meta name="Author" content="Jon Blower (j.d.blower)" />
-<meta name="Subject" content="[CF-metadata] bounds/precision for time axis" />
-<meta name="Date" content="2010-06-03" />
+<title>[CF-metadata] new named fields for ocean from Stephen Griffies on 2009-01-13 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Stephen Griffies (Stephen.Griffies)" />
+<meta name="Subject" content="[CF-metadata] new named fields for ocean" />
+<meta name="Date" content="2009-01-13" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2694.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2696.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] bounds/precision for time axis</h1>
-<!-- received="Thu Jun  3 15:39:20 2010" -->
-<!-- isoreceived="20100603143920" -->
-<!-- sent="Thu, 3 Jun 2010 22:39:20 +0100" -->
-<!-- isosent="20100603213920" -->
-<!-- name="Jon Blower" -->
-<!-- email="j.d.blower" -->
-<!-- subject="[CF-metadata] bounds/precision for time axis" -->
-<!-- id="7CD7F00F17085C4EBB045A35177C85FDE962AD_at_VIME-VS1.rdg-home.ad.rdg.ac.uk" -->
+<a style="text-decoration:none" href="./2694.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2696.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new named fields for ocean</h1>
+<!-- received="Tue Jan 13 07:42:06 2009" -->
+<!-- isoreceived="20090113074206" -->
+<!-- sent="Tue, 13 Jan 2009 09:42:06 -0500" -->
+<!-- isosent="20090113144206" -->
+<!-- name="Stephen Griffies" -->
+<!-- email="Stephen.Griffies" -->
+<!-- subject="[CF-metadata] new named fields for ocean" -->
+<!-- id="496CA83E.8080106_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4C080F2F.6070906_at_whoi.edu" -->
+<!-- inreplyto="496BB68C.2040401_at_noaa.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2696.html" accesskey="d" title="John Graybeal: &quot;[CF-metadata] bounds/precision for time axis&quot;">Next message</a> ]
-[ <a href="./2694.html" title="Nan Galbraith: &quot;[CF-metadata] bounds/precision for time axis&quot;">Previous message</a> ]
-[ <a href="./2694.html" title="Nan Galbraith: &quot;[CF-metadata] bounds/precision for time axis&quot;">In reply to</a> ]
+[ <a href="./2696.html" accesskey="d" title="Schultz, Martin: &quot;[CF-metadata] new standard names for atmospheric dynamics&quot;">Next message</a> ]
+[ <a href="./2694.html" title="Stephen Griffies: &quot;[CF-metadata] new named fields for ocean&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./2697.html" accesskey="t" title="Jonathan Gregory: &quot;[CF-metadata]  bounds/precision for time axis&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,215 +69,130 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jon Blower &lt;<a href="mailto:j.d.blower?Subject=Re%3A%20%5BCF-metadata%5D%20bounds%2Fprecision%20for%20time%20axis">j.d.blower</a>&gt;
+<dfn>From</dfn>: Stephen Griffies &lt;<a href="mailto:Stephen.Griffies?Subject=Re%3A%20%5BCF-metadata%5D%20new%20named%20fields%20for%20ocean">Stephen.Griffies</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 3 Jun 2010 22:39:20 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 13 Jan 2009 09:42:06 -0500</span><br />
 </address>
 <br />
-Hi Nan,
+Hi,
 <br />
-<br />Yes, I think &quot;resolution&quot; is an appropriate term, thanks very much for
+<br />This email discusses the issue of why there are extra heat fluxes in 
 <br />
-pointing this out.  I think of resolution (loosely) as being the
+ocean models with an open water budget, relative to ocean models that 
 <br />
-accuracy to which something is knowable, and it's a property of a
+artificially close their water budget (i.e., ocean models employing a 
 <br />
-measurement technique, not an actual measurement (is this right?).  It
+virtual tracer flux).  I originally thought it best to have this 
 <br />
-seems to fit my requirement.
+discussion off-line, but some contacted me asking to continue online...
 <br />
-<br />I wonder if we can combine a new &quot;resolution&quot; attribute with Steve
+<br />Stephen
 <br />
-Hankin's &quot;point_spacing&quot; attribute to solve the issue?  I'm going to
+<br /><br />Stephen Griffies wrote:
 <br />
-take the liberty of modifying Steve's idea to not just indicate that an
-<br />
-axis is evenly-spaced, but also to provide the spacing.
-<br />
-<br />E.g. for a typical OSTIA dataset, both &quot;resolution&quot; and &quot;point_spacing&quot;
-<br />
-might be &quot;1 day&quot;.  This effectively gives a gapless time axis: we have
-<br />
-information for all time instants from the start to the end of the time
-<br />
-axis.
-<br />
-<br />In contrast, an NWP forecast might have &quot;resolution&quot; of &quot;1 ms&quot; (or
-<br />
-whatever... I don't know) but a &quot;point_spacing&quot; of 6 hours.  The time
-<br />
-axis is therefore &quot;gappy&quot;: we essentially have no information between
-<br />
-the snapshots and would have to interpolate to find a field at 03:00Z.
-<br />
-<br />Does this sound reasonable?  My worry is the subtle distinction between
-<br />
-&quot;resolution&quot; and &quot;bounds/cell_methods&quot;, which I would have to think
-<br />
-through properly at some more sociable hour.
-<br />
-<br />Cheers,
-<br />
-Jon
-<br />
-<br />-----Original Message-----
-<br />
-From: Nan Galbraith [mailto:ngalbraith at whoi.edu] 
-<br />
-Sent: 03 June 2010 21:23
-<br />
-To: Jon Blower; cf-metadata at cgd.ucar.edu
-<br />
-Subject: Re: [CF-metadata] bounds/precision for time axis
-<br />
-<br />Hi Jon -
-<br />
-<br />I think the term 'resolution' might be more correct in this case than
-<br />
-'precision' - These are the definitions we use, although I can't quite
-<br />
-find the source:
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;* Resolution is the fineness to which an instrument can be read.
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;* Precision is the fineness to which an instrument can be read 
-<br />
-repeatably and reliably.
-<br />
-<br />I'm also using the attribute 'C_format' - don't recall exactly which 
-<br />
-convention
-<br />
-uses that, but it's a good way to indicate 'vagueness'  - but I'm not 
-<br />
-sure how
-<br />
-or if it could be used to indicate that the dates are only good to whole
-<br />
-<br />days.
-<br />
-<br />Cheers - Nan
-<br />
-<em class="quotelev1">&gt; Hi Mike,
+<em class="quotelev1">&gt; Karl and Jonathan,
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; This is useful, thanks.  However, I'm not sure that this concept of
+<em class="quotelev1">&gt; 1/ Regarding pressures: Jonathan, I am fine keeping the original names. 
 </em><br />
-<em class="quotelev1">&gt; &quot;uncertainty&quot; is exactly the same as my notion of &quot;nominal precision&quot;
+<em class="quotelev1">&gt; I will report back to the list with this point.
 </em><br />
-<em class="quotelev1">&gt; (maybe I've chosen a bad name).  For example, I know for sure that an
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; OSTIA daily analysis field is considered representative of a certain
+<em class="quotelev1">&gt; 2/ Regarding the temperature fluxes:  Jonathan, I am again happy 
 </em><br />
-<em class="quotelev1">&gt; day, but the specification of exactly how the field is representative
+<em class="quotelev1">&gt; returning to the names that we originally came up with.  More generally, 
 </em><br />
-is
-<br />
-<em class="quotelev1">&gt; complex.  This, to me, is not quite the same as saying that the field
+<em class="quotelev1">&gt; here are some comments...
 </em><br />
-<em class="quotelev1">&gt; represents 12 noon on that day, plus or minus 12 hours.  It's more
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; &quot;imprecision&quot; than &quot;uncertainty&quot;.
+<em class="quotelev1">&gt; The issue of heat fluxes associated with the transfer of mass or volume 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; across the ocean boundary is a relatively new issue for CMIP.  Indeed, 
 </em><br />
-<em class="quotelev1">&gt; Would you agree with this distinction?
+<em class="quotelev1">&gt; from my understanding, GFDL was perhaps amongst only one or two other 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; coupled models in AR4 that considered material transport across the 
 </em><br />
-<em class="quotelev1">&gt; Cheers, Jon
+<em class="quotelev1">&gt; ocean surface associated with E-P+R.  Delworth etal (2006) discussed the 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; point in its heat budget discussion. The remaining coupled models have a 
 </em><br />
-<em class="quotelev1">&gt; -----Original Message-----
+<em class="quotelev1">&gt; closed water budget for the ocean (i.e., use virtual tracer fluxes).  We 
 </em><br />
-<em class="quotelev1">&gt; From: McCann, Mike [mailto:mccann at mbari.org] 
+<em class="quotelev1">&gt; are not interested in retaining virtual tracer fluxes, and so had to 
 </em><br />
-<em class="quotelev1">&gt; Sent: 03 June 2010 19:47
+<em class="quotelev1">&gt; consider the implications of opening up the ocean to mass transport with 
 </em><br />
-<em class="quotelev1">&gt; To: Jon Blower; Steve Hankin
+<em class="quotelev1">&gt; the atmosphere and land. Doing so adds this extra heat transfer term. We 
 </em><br />
-<em class="quotelev1">&gt; Cc: cf-metadata at cgd.ucar.edu
+<em class="quotelev1">&gt; wish to have a means for CMIP5 to record this term.  It is clearly 
 </em><br />
-<em class="quotelev1">&gt; Subject: Re: [CF-metadata] bounds/precision for time axis
+<em class="quotelev1">&gt; written in the WGOMD report that virtual flux models will record zero 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; for this heat.
 </em><br />
-<em class="quotelev1">&gt; Hi Jon, 
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; To reiterate what we have already said: the transport of material 
 </em><br />
-<em class="quotelev1">&gt; The OceanSITES data management team has recognized a desire to include
+<em class="quotelev1">&gt; substance (water) across the seawater boundary has an associated 
 </em><br />
-<em class="quotelev1">&gt; an
+<em class="quotelev1">&gt; transfer of tracer mass.  Correspondingly, there is a transfer of 
 </em><br />
-<em class="quotelev1">&gt; attribute named &quot;uncertainty&quot; for all of our in situ measurements that
+<em class="quotelev1">&gt; tracer, including heat, since the water carries a nonzero temperature 
 </em><br />
-<em class="quotelev1">&gt; are
+<em class="quotelev1">&gt; and nonzero tracer concentration.  For many cases, the water is fresh, 
 </em><br />
-<em class="quotelev1">&gt; in our netCDF files (that also follow the CF convention).
+<em class="quotelev1">&gt; so it only carries a heat.  But some river models are being considered 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; that carry tracer concentration.  If we remove water (e.g., through 
 </em><br />
-<em class="quotelev1">&gt; We chose the attribute &quot;uncertainty&quot; after much discussion around
+<em class="quotelev1">&gt; evaporation), then we remove heat.  The heat transfer associated with 
 </em><br />
-terms
-<br />
-<em class="quotelev1">&gt; such
+<em class="quotelev1">&gt; phase changes is in ADDITION to the heat associated with mass transport.
 </em><br />
-<em class="quotelev1">&gt; as &quot;precision&quot; and &quot;accuracy&quot; because we felt that &quot;uncertainty&quot;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; encompasses
+<em class="quotelev1">&gt; Most modelers consider rain falling into the ocean to enter at the SST, 
 </em><br />
-<em class="quotelev1">&gt; several aspects of metrology and is more usable and simple to
+<em class="quotelev1">&gt; as well as the water evaporating to be at the SST.  But how one 
 </em><br />
-understand
-<br />
-<em class="quotelev1">&gt; for
+<em class="quotelev1">&gt; specifies the tracer concentration or temperature of the water 
 </em><br />
-<em class="quotelev1">&gt; the consumers of the data.
+<em class="quotelev1">&gt; transferred across the boundary is not relevant to the discussion.  All 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; I wish to have is the total amount of heat transferred to/from the ocean 
 </em><br />
-<em class="quotelev1">&gt; This attribute can also be extended to the coordinate variables, e.g.
+<em class="quotelev1">&gt; with the water mass, referenced to 0C.
 </em><br />
-If
-<br />
-<em class="quotelev1">&gt; the
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; precision of my clock and upstream sampling techniques was 5 seconds
+<em class="quotelev1">&gt; As Karl noted, atmospheric models generally do not carry a temperature 
 </em><br />
-I'd
-<br />
-<em class="quotelev1">&gt; assign 5 to the .uncertainty attribute on my time coordinate.
+<em class="quotelev1">&gt; for the moisture.  But this present limitation of the atmospheric models 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; should not force us to shut down the ocean's water cycle.  That decision 
 </em><br />
-<em class="quotelev1">&gt; Would this approach work for your data?
+<em class="quotelev1">&gt; would lead us back to virtual tracer fluxes, which are not desirable 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; from an oceanographic perspective. Atmospheric modelers inform me that 
 </em><br />
-<em class="quotelev1">&gt; -Mike
+<em class="quotelev1">&gt; the non-conservation associated with not carrying temperature of their 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; moisture is small, so I should quit bothering them with this issue...
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;   
+<em class="quotelev1">&gt; Steve
 </em><br />
-<br /><br /><pre>
--- 
-*******************************************************
-* Nan Galbraith                        (508) 289-2444 *
-* Upper Ocean Processes Group            Mail Stop 29 *
-* Woods Hole Oceanographic Institution                *
-* Woods Hole, MA 02543                                *
-*******************************************************
-</pre>
-<span id="received"><dfn>Received on</dfn> Thu Jun 03 2010 - 15:39:20 BST</span>
+<em class="quotelev1">&gt; 
+</em><br />
+<span id="received"><dfn>Received on</dfn> Tue Jan 13 2009 - 07:42:06 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -288,13 +200,9 @@ I'd
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2695">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2696.html" title="Next message in the list">John Graybeal: "[CF-metadata] bounds/precision for time axis"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2694.html" title="Previous message in the list">Nan Galbraith: "[CF-metadata] bounds/precision for time axis"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./2694.html" title="Message to which this message replies">Nan Galbraith: "[CF-metadata] bounds/precision for time axis"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2696.html" title="Next message in the list">Schultz, Martin: "[CF-metadata] new standard names for atmospheric dynamics"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2694.html" title="Previous message in the list">Stephen Griffies: "[CF-metadata] new named fields for ocean"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./2697.html" title="Next message in this discussion thread">Jonathan Gregory: "[CF-metadata]  bounds/precision for time axis"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./2697.html" title="Message sent in reply to this message">Jonathan Gregory: "[CF-metadata]  bounds/precision for time axis"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -305,7 +213,7 @@ I'd
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:29 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2694.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2696.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

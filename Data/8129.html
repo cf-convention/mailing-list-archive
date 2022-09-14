@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] geoid, sea surface, height, and standard names from Jim Biard on 2017-03-17 (mailing-list-archive)</title>
-<meta name="Author" content="Jim Biard (jbiard)" />
-<meta name="Subject" content="[CF-metadata] geoid, sea surface, height, and standard names" />
-<meta name="Date" content="2017-03-17" />
+<title>[CF-metadata]  cell measures for non-horizontal planes from Jonathan Gregory on 2015-10-08 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata]  cell measures for non-horizontal planes" />
+<meta name="Date" content="2015-10-08" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./8128.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8130.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] geoid, sea surface, height, and standard names</h1>
-<!-- received="Fri Mar 17 14:17:45 2017" -->
-<!-- isoreceived="20170317141745" -->
-<!-- sent="Fri, 17 Mar 2017 16:17:45 -0400" -->
-<!-- isosent="20170317201745" -->
-<!-- name="Jim Biard" -->
-<!-- email="jbiard" -->
-<!-- subject="[CF-metadata] geoid, sea surface, height, and standard names" -->
-<!-- id="d935f668-a45b-01f0-f11b-8771bc96bbc5_at_cicsnc.org" -->
+<a style="text-decoration:none" href="./8128.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8130.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  cell measures for non-horizontal planes</h1>
+<!-- received="Thu Oct  8 09:10:17 2015" -->
+<!-- isoreceived="20151008081017" -->
+<!-- sent="Thu, 8 Oct 2015 16:10:17 +0100" -->
+<!-- isosent="20151008151017" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata]  cell measures for non-horizontal planes" -->
+<!-- id="20151008151017.GD4636_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="eaa2ee06-0ef7-1fc0-370d-74470c6de380_at_llnl.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./8130.html" accesskey="d" title="Elodie Fernandez: &quot;[CF-metadata] Wave periods sub-proposal&quot;">Next message</a> ]
-[ <a href="./8128.html" title="Karl Taylor: &quot;[CF-metadata] geoid, sea surface, height, and standard names&quot;">Previous message</a> ]
-[ <a href="./8128.html" title="Karl Taylor: &quot;[CF-metadata] geoid, sea surface, height, and standard names&quot;">In reply to</a> ]
+[ <a href="./8130.html" accesskey="d" title="Matthias Lankhorst: &quot;[CF-metadata] looking to finalize standard name acoustic_signal_roundtrip_travel_time_in_sea_water&quot;">Next message</a> ]
+[ <a href="./8128.html" title="David Hassell: &quot;[CF-metadata] cell measures for non-horizontal planes&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,148 +68,136 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jim Biard &lt;<a href="mailto:jbiard?Subject=Re%3A%20%5BCF-metadata%5D%20geoid%2C%20sea%20surface%2C%20height%2C%20and%20standard%20names">jbiard</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20cell%20measures%20for%20non-horizontal%20planes">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 17 Mar 2017 16:17:45 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 8 Oct 2015 16:10:17 +0100</span><br />
 </address>
 <br />
-There's a lot of ugly all through this. Is there a geodesist 
+Dear David
 <br />
-(geodesyst?) in the house?
+<br />Thanks for noticing the incorrect standard_name in Example 7.3. It looks like
 <br />
-<br /><br />On 3/17/17 3:17 PM, Karl Taylor wrote:
+a defect to me too.
 <br />
-<em class="quotelev1">&gt; Hi all,
+<br />When Sect 7.2 was written, as far as I remember we had only horizontal area
+<br />
+in mind. As you say, the convention doesn't exclude areas which are functions
+<br />
+of non-horizontal axes, but that probably wasn't intended. So I think the
+<br />
+answer is that the situation is ambiguous, and it should be clarified by
+<br />
+explicitly allowing or disallowing non-horizontal areas as an &quot;area&quot; cell
+<br />
+measure. If they are not allowed, but you have use-case where they are
+<br />
+needed, a differently named measure should be proposed. I think that these
+<br />
+would be substantive changes to the convention either way, not defects.
+<br />
+<br />The same applies to the standard_name. Either cell_area could have its
+<br />
+definition generalised, or a new standard_name could be added.
+<br />
+<br />Best wishes
+<br />
+<br />Jonathan
+<br />
+<br />----- Forwarded message from David Hassell &lt;d.c.hassell at reading.ac.uk&gt; -----
+<br />
+<br /><em class="quotelev1">&gt; Date: Wed, 7 Oct 2015 16:37:48 +0100
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; From: David Hassell &lt;d.c.hassell at reading.ac.uk&gt;
 </em><br />
-<em class="quotelev1">&gt; I've been looking at the standard names used to describe the vertical 
+<em class="quotelev1">&gt; To: cf-metadata at cgd.ucar.edu
 </em><br />
-<em class="quotelev1">&gt; location of the sea surface and have some questions.
+<em class="quotelev1">&gt; Subject: [CF-metadata] cell measures for non-horizontal planes
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; User-Agent: Mutt/1.5.21 (2010-09-15)
 </em><br />
-<em class="quotelev1">&gt; sea_surface_height_above_geoid
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; Hello,
 </em><br />
-<em class="quotelev1">&gt; The geoid is a surface of constant geopotential with which mean sea 
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; level would coincide if the ocean were at rest. (The volume enclosed 
+<em class="quotelev1">&gt; I was wondering if anyone can help clear something up for me: Can an
 </em><br />
-<em class="quotelev1">&gt; between the geoid and the sea floor equals the mean volume of water in 
+<em class="quotelev1">&gt; &quot;area&quot; cell measure variable span non-horizontal axes? For example,
 </em><br />
-<em class="quotelev1">&gt; the ocean.) In an ocean GCM the geoid is the surface of zero depth, or 
+<em class="quotelev1">&gt; could you have an area cell measure for X-Z cells? And if so, what
 </em><br />
-<em class="quotelev1">&gt; the rigid lid if the model uses that approximation. &quot;Sea surface 
+<em class="quotelev1">&gt; could its standard name be? E.g.
 </em><br />
-<em class="quotelev1">&gt; height&quot; is a time-varying quantity. By definition of the geoid, the 
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; global average of the time-mean sea surface height (i.e. mean sea 
+<em class="quotelev1">&gt;   float cell_area(longitude, height):
 </em><br />
-<em class="quotelev1">&gt; level) above the geoid must be zero.
+<em class="quotelev1">&gt;       cell_area:measure = &quot;area&quot;;
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt;       cell_area:units = &quot;m2&quot;;
 </em><br />
-<em class="quotelev1">&gt; I'm not sure it's true that &quot;In an ocean GCM the geoid is the surface 
+<em class="quotelev1">&gt;       cell_area:standard_name = ?????????????
 </em><br />
-<em class="quotelev1">&gt; of zero depth&quot;.  Many ocean models have an ocean surface that rises 
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; above the geoid in some areas and falls below in other areas.  
+<em class="quotelev1">&gt; I know that the standard_name attribute is optional, thus the two part
 </em><br />
-<em class="quotelev1">&gt; Moreover, under conditions of sea level change, the global mean model 
+<em class="quotelev1">&gt; question.
 </em><br />
-<em class="quotelev1">&gt; surface of zero depth will vary and not necessarily coincide to some 
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; fixed geoid.  Would it be better to omit the sentence about ocean models?
+<em class="quotelev1">&gt; There is a standard name &quot;cell_area&quot; (= the horizontal area of a
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; gridcell), but not one for areas of arbitrarily orientated planes.
 </em><br />
-<em class="quotelev1">&gt; depth_below_geoid
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; The conventions (section 7.2) do not explicitly disallow
 </em><br />
-<em class="quotelev1">&gt;       As above, we should consider omitting the sentence about ocean 
+<em class="quotelev1">&gt; non-horizontal planes (that's three negatives in half a sentence!),
 </em><br />
-<em class="quotelev1">&gt; models.
+<em class="quotelev1">&gt; but if they're allowed then the assumption is, I think, that the plane
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; of the area is implied by the variable's dimensions and there is no
 </em><br />
-<em class="quotelev1">&gt; sea_surface_height_above_sea_level
+<em class="quotelev1">&gt; applicable standard name. This is tricky if the cell measure variable
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; does have X and Y dimensions, as in example 7.3. This example uses the
 </em><br />
-<em class="quotelev1">&gt; sea_level means mean sea level, which is close to the geoid in sea 
+<em class="quotelev1">&gt; standard name &quot;area&quot; for its cell measure variable, but this name is
 </em><br />
-<em class="quotelev1">&gt; areas. &quot;Sea surface height&quot; is a time-varying quantity. The standard 
+<em class="quotelev1">&gt; not in the table - I presume that &quot;cell_area&quot; is meant. I'll raise a
 </em><br />
-<em class="quotelev1">&gt; name for the height of the sea surface above the geoid is 
+<em class="quotelev1">&gt; defect ticket for this if required.
 </em><br />
-<em class="quotelev1">&gt; sea_surface_height_above_geoid.
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; Many thanks and all the best,
 </em><br />
-<em class="quotelev1">&gt; Is there a convention for what interval of time applies to the 
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; &quot;mean&quot;?  I presume the interval is longer than the tidal period and 
+<em class="quotelev1">&gt; David
 </em><br />
-<em class="quotelev1">&gt; seasonal changes (due to seasonal circulation changes and temperature 
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; changes), but shorter than climate change time-scales.
+<em class="quotelev1">&gt; --
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; David Hassell
 </em><br />
-<em class="quotelev1">&gt; Finally, what would be the appropriate standard name for a variable 
+<em class="quotelev1">&gt; National Centre for Atmospheric Science (NCAS)
 </em><br />
-<em class="quotelev1">&gt; measuring global mean sea level (say relative to ca. 1850) or global 
+<em class="quotelev1">&gt; Department of Meteorology, University of Reading,
 </em><br />
-<em class="quotelev1">&gt; mean sea level change?  I don't think any of the above would do.
+<em class="quotelev1">&gt; Earley Gate, PO Box 243,
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; Reading RG6 6BB, U.K.
 </em><br />
-<em class="quotelev1">&gt; Also, I noticed that in the standard names table,
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; Tel   : +44 118 3785613
 </em><br />
-<em class="quotelev1">&gt; 1.  geopotential_height includes an explanatory note: &quot; Geopotential 
-</em><br />
-<em class="quotelev1">&gt; is the sum of the specific gravitational potential energy relative to 
-</em><br />
-<em class="quotelev1">&gt; the geoid and the specific centripetal potential energy. Geopotential 
-</em><br />
-<em class="quotelev1">&gt; height is the geopotential divided by the standard acceleration due to 
-</em><br />
-<em class="quotelev1">&gt; gravity. It is numerically similar to the altitude (or geometric 
-</em><br />
-<em class="quotelev1">&gt; height) and not to the quantity with standard name height, which is 
-</em><br />
-<em class="quotelev1">&gt; relative to the surface.&quot;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; 2. altitude includes an explanatory note:  &quot; Altitude is the 
-</em><br />
-<em class="quotelev1">&gt; (geometric) height above the geoid, which is the reference 
-</em><br />
-<em class="quotelev1">&gt; geopotential surface. The geoid is similar to mean sea level.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; For geopotential_height, &quot;numerically similar to&quot; could be better 
-</em><br />
-<em class="quotelev1">&gt; stated, I think, as &quot;approximately the same as&quot;.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; best regards,
-</em><br />
-<em class="quotelev1">&gt; Karl
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; E-mail: d.c.hassell at reading.ac.uk
 </em><br />
 <em class="quotelev1">&gt; _______________________________________________
 </em><br />
@@ -221,35 +207,9 @@ There's a lot of ugly all through this. Is there a geodesist
 </em><br />
 <em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
-<br /><pre>
--- 
-CICS-NC &lt;<a href="http://www.cicsnc.org/">http://www.cicsnc.org/</a>&gt; Visit us on
-Facebook &lt;<a href="http://www.facebook.com/cicsnc">http://www.facebook.com/cicsnc</a>&gt; 	*Jim Biard*
-*Research Scholar*
-Cooperative Institute for Climate and Satellites NC &lt;<a href="http://cicsnc.org/">http://cicsnc.org/</a>&gt;
-North Carolina State University &lt;<a href="http://ncsu.edu/">http://ncsu.edu/</a>&gt;
-NOAA National Centers for Environmental Information &lt;<a href="http://ncdc.noaa.gov/">http://ncdc.noaa.gov/</a>&gt;
-/formerly NOAA?s National Climatic Data Center/
-151 Patton Ave, Asheville, NC 28801
-e: jbiard at cicsnc.org &lt;mailto:jbiard at cicsnc.org&gt;
-o: +1 828 271 4900
-/Connect with us on Facebook for climate 
-&lt;<a href="https://www.facebook.com/NOAANCEIclimate">https://www.facebook.com/NOAANCEIclimate</a>&gt; and ocean and geophysics 
-&lt;<a href="https://www.facebook.com/NOAANCEIoceangeo">https://www.facebook.com/NOAANCEIoceangeo</a>&gt; information, and follow us 
-on Twitter at _at_NOAANCEIclimate &lt;<a href="https://twitter.com/NOAANCEIclimate">https://twitter.com/NOAANCEIclimate</a>&gt; and 
-_at_NOAANCEIocngeo &lt;<a href="https://twitter.com/NOAANCEIocngeo">https://twitter.com/NOAANCEIocngeo</a>&gt;. /
--------------- next part --------------
-An HTML attachment was scrubbed...
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20170317/4777c8ed/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20170317/4777c8ed/attachment.html</a>&gt;
--------------- next part --------------
-A non-text attachment was scrubbed...
-Name: CicsLogoTiny.png
-Type: image/png
-Size: 15784 bytes
-Desc: not available
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20170317/4777c8ed/attachment.png">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20170317/4777c8ed/attachment.png</a>&gt;
-</pre>
-<span id="received"><dfn>Received on</dfn> Fri Mar 17 2017 - 14:17:45 GMT</span>
+<br />----- End forwarded message -----
+<br />
+<span id="received"><dfn>Received on</dfn> Thu Oct 08 2015 - 09:10:17 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -257,9 +217,8 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start8129">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./8130.html" title="Next message in the list">Elodie Fernandez: "[CF-metadata] Wave periods sub-proposal"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./8128.html" title="Previous message in the list">Karl Taylor: "[CF-metadata] geoid, sea surface, height, and standard names"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./8128.html" title="Message to which this message replies">Karl Taylor: "[CF-metadata] geoid, sea surface, height, and standard names"</a></li>
+<li><dfn>Next message</dfn>: <a href="./8130.html" title="Next message in the list">Matthias Lankhorst: "[CF-metadata] looking to finalize standard name acoustic_signal_roundtrip_travel_time_in_sea_water"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./8128.html" title="Previous message in the list">David Hassell: "[CF-metadata] cell measures for non-horizontal planes"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -271,7 +230,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:11 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./8128.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8130.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

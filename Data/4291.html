@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF-1.6 Conformance Requirements/Recommendations from Jonathan Gregory on 2012-03-28 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] CF-1.6 Conformance Requirements/Recommendations" />
-<meta name="Date" content="2012-03-28" />
+<title>[CF-metadata] new TEOS-10 standard names from Paul.Durack at csiro.au on 2011-07-07 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Paul.Durack at csiro.au (Paul.Durack)" />
+<meta name="Subject" content="[CF-metadata] new TEOS-10 standard names" />
+<meta name="Date" content="2011-07-07" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4290.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4292.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF-1.6 Conformance Requirements/Recommendations</h1>
-<!-- received="Wed Mar 28 08:51:31 2012" -->
-<!-- isoreceived="20120328075131" -->
-<!-- sent="Wed, 28 Mar 2012 15:51:31 +0100" -->
-<!-- isosent="20120328145131" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] CF-1.6 Conformance Requirements/Recommendations" -->
-<!-- id="20120328145131.GC7379_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./4290.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4292.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new TEOS-10 standard names</h1>
+<!-- received="Wed Jul  6 19:45:53 2011" -->
+<!-- isoreceived="20110706184553" -->
+<!-- sent="Thu, 7 Jul 2011 11:45:53 +1000" -->
+<!-- isosent="20110707014553" -->
+<!-- name="Paul.Durack at csiro.au" -->
+<!-- email="Paul.Durack" -->
+<!-- subject="[CF-metadata] new TEOS-10 standard names" -->
+<!-- id="8E0FF574EB6E954DA03FE21368DEC6CB014362DC8B_at_exvic-mbx03.nexus.csiro.au" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="4E149E06.4040209_at_whoi.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,9 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4292.html" accesskey="d" title="John Caron: &quot;[CF-metadata] CF-1.6 Conformance Requirements/Recommendations&quot;">Next message</a> ]
-[ <a href="./4290.html" title="Jim Biard: &quot;[CF-metadata] CF-1.6 Conformance Requirements/Recommendations&quot;">Previous message</a> ]
+[ <a href="./4292.html" accesskey="d" title="Steve Hankin: &quot;[CF-metadata] the need to store lat/lon coordinates in a CF	metadata compliant netCDF file&quot;">Next message</a> ]
+[ <a href="./4290.html" title="Nan Galbraith: &quot;[CF-metadata] new TEOS-10 standard names&quot;">Previous message</a> ]
+[ <a href="./4290.html" title="Nan Galbraith: &quot;[CF-metadata] new TEOS-10 standard names&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./4313.html" accesskey="t" title="Nan Galbraith: &quot;[CF-metadata] new TEOS-10 standard names&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,72 +72,233 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20CF-1.6%20Conformance%20Requirements%2FRecommendations">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Paul.Durack at csiro.au &lt;<a href="mailto:Paul.Durack?Subject=Re%3A%20%5BCF-metadata%5D%20new%20TEOS-10%20standard%20names">Paul.Durack</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 28 Mar 2012 15:51:31 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 7 Jul 2011 11:45:53 +1000</span><br />
 </address>
 <br />
-Dear Jim
+Fair point Nan..
 <br />
-<br /><em class="quotelev1">&gt; The only thing that designates a variable as an auxiliary coordinate
+<br />We should then do this..
+<br />
+<br />Convert the current &quot;sea_water_salinity&quot; (to be discontinued in its use) to be an alias of the new standard name &quot;sea_water_practical_salinity&quot;.
+<br />
+<br />An updated definition for &quot;sea_water_absolute_salinity&quot; following your suggestion is included below, plus a new definition for &quot;sea_water_practical_salinity&quot;.
+<br />
+<br />I would recommend each of the new standard names also has an additional copy created, with the prefix &quot;change_over_time_in_*&quot;
+<br />
+<br />***
+<br />
+sea_water_conservative_temperature
+<br />
+Definition: Conservative Temperature is potential enthalpy divided by a fixed value of the specific heat of seawater, namely cp_0 = 3991.86795711963 J kg-1 K-1.  Conservative temperature is designed to be as close as possible to potential temperature, but is two orders of magnitude more conservative in the ocean.  Because of this, Conservative Temperature can be regarded as being proportional to the heat content of seawater per unit mass.  
+<br />
+Canonical units: K
+<br />
+Reference: www.teos-10.org
+<br />
+<br />sea_water_absolute_salinity
+<br />
+Definition: Absolute Salinity, S_A, is the mass fraction of dissolved material in seawater.  In fact TEOS-10 estimates Absolute Salinity as the salinity variable that, when used with the TEOS-10 expression for density, yields the correct density of a seawater sample even when the sample is not of Standard Composition.  In practice Absolute Salinity is often calculated from Practical Salinity and a value of Absolute Salinity Anomaly which is found using computer software via a global look-up table.  
+<br />
+Canonical units: g kg-1
+<br />
+Reference: www.teos-10.org
+<br />
+<br />sea_water_practical_salinity
+<br />
+Definition: Practical Salinity, S_P, is defined on the Practical Salinity Scale of 1978 (PSS-78) and is calculated from the electrical conductivity of seawater (as well as temperature and pressure).  
+<br />
+Canonical units: 1e-3, parts per thousand. Officially S_P is unitless, but often authors use psu, as in S_P = 35 psu.  
+<br />
+Reference: www.teos-10.org
+<br />
+<br />sea_water_preformed_salinity
+<br />
+Definition: Preformed Salinity is a salinity variable that is designed to be as conservative as possible, by removing the estimated biogeochemical influences on the seawater composition from other forms of salinity.  
+<br />
+Canonical units: g kg-1
+<br />
+Reference: www.teos-10.org
+<br />
+<br />sea_water_potential_enthalpy
+<br />
+Definition: Potential enthalpy is the enthalpy of a seawater parcel after an adiabatic and isohaline change in pressure from its in situ pressure to the sea pressure p = 0 dbar.  
+<br />
+Canonical units: J kg-1
+<br />
+Reference: www.teos-10.org
+<br />
+***
+<br />
+<br />So for clarity, the new proposed names are:
+<br />
+<br />sea_water_conservative_temperature
+<br />
+sea_water_absolute_salinity
+<br />
+sea_water_practical_salinity
+<br />
+sea_water_preformed_salinity
+<br />
+sea_water_potential_enthalpy
+<br />
+change_over_time_in_sea_water_conservative_temperature
+<br />
+change_over_time_in_sea_water_absolute_salinity
+<br />
+change_over_time_in_sea_water_practical_salinity
+<br />
+change_over_time_in_sea_water_preformed_salinity
+<br />
+change_over_time_in_sea_water_potential_enthalpy
+<br />
+<br />Cheers,
+<br />
+<br />P
+<br />
+<br />-----Original Message-----
+<br />
+From: cf-metadata-bounces at cgd.ucar.edu [mailto:cf-metadata-bounces at cgd.ucar.edu] On Behalf Of Nan Galbraith
+<br />
+Sent: Thursday, July 07, 2011 3:40 AM
+<br />
+To: cf-metadata at cgd.ucar.edu
+<br />
+Subject: Re: [CF-metadata] new TEOS-10 standard names
+<br />
+<br />I agree that we probably need these names now. I'd like to
+<br />
+suggest, though, that the definition of absolute salinity should
+<br />
+start with the phrase 'mass fraction of salt in seawater', or
+<br />
+maybe 'concentration of salt in seawater'.
+<br />
+<br />And while we're at it, we should probably consider revising the
+<br />
+definition of sea_water_salinity; currently all we have is: &quot;The unit
+<br />
+of salinity is PSU, which is dimensionless. The units attribute
+<br />
+should be given as 1e-3 or 0.001 i.e. parts per thousand if
+<br />
+salinity is in PSU.&quot;
+<br />
+<br />The units designation implies that we're using practical
+<br />
+salinity, but  the definition should probably be more explicit.
+<br />
+We could add something like &quot;Salinity ratio on the Practical Salinity
+<br />
+Scale.&quot;
+<br />
+<br />Cheers - Nan
+<br />
+<br /><br />On 7/6/11 3:35 AM, Paul.Durack at csiro.au wrote:
+<br />
+<em class="quotelev1">&gt; I'd like to propose a series of new standard names, these names are associated with the recent release of the Thermodynamic Equation Of Seawater 2010 (TEOS-10 - www.teos-10.org).
 </em><br />
-<em class="quotelev1">&gt; variable is the presence of the variable name in a coordinates attribute on
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; another variable.
+<em class="quotelev1">&gt; Additional to these names, I would also like to propose the &quot;change_over_time_in_*&quot; prefixes are also created.
 </em><br />
-<br />Formally, that is right. By definition, a CF aux coord var is one which is
-<br />
-named by a coordinates attribute. The *purpose* of aux coord vars, like
-<br />
-1D coord vars, is to provide independent variables of which the data is a
-<br />
-dependent variable. Usually, these independent variables are spatial location.
-<br />
-There is no other formal distinction among variables in the file which
-<br />
-have the same dimensions as our data variable. For instance temperature(y,x),
-<br />
-latitude(y,x) and precipitation(y,x) all look formally similar. However, we
-<br />
-don't list precipitation as an aux coord var in the coordinates attribute of
-<br />
-the temperature data variable because it does not locate the temperature data.
-<br />
-<br />Therefore if we decide to impose restrictions on aux coord vars, it relates to
-<br />
-whether they serve their purpose of locating the data (or providing other
-<br />
-non-spatiotemporal variables of which the data is a function).
-<br />
-<br /><em class="quotelev1">&gt; Can someone provide a real-world example of why allowing auxiliary
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; coordinate variables to deviate from the true coordinate variable
+<em class="quotelev1">&gt; The proposed new standard names, along with definition, units and reference details are below.
 </em><br />
-<em class="quotelev1">&gt; restrictions poses a problem great enough that it should be forbidden?
+<em class="quotelev1">&gt;
 </em><br />
-<br />If a variable is listed as an aux coord var, it is very likely than a generic
-<br />
-application will use it to locate the data on a plot, or to calculate some
-<br />
-other derived quantity from it, for instance differentiating or integrating it.
-<br />
-This is what you generally expect to do with coordinates. If there is missing
-<br />
-data in it, it won't serve the purpose. That will be a problem. The question
-<br />
-is whether it's great enough a problem for us not to permit it. How many
-<br />
-applications would be broken by this problem?
-<br />
-<br />It is not a problem if the data is also missing where the aux coord var is
-<br />
-missing, however.
-<br />
-<br />Best wishes
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Wed Mar 28 2012 - 08:51:31 BST</span>
+<em class="quotelev1">&gt; ***
+</em><br />
+<em class="quotelev1">&gt; sea_water_conservative_temperature
+</em><br />
+<em class="quotelev1">&gt; Definition: Conservative Temperature is potential enthalpy divided by a fixed value of the specific heat of seawater, namely cp_0 = 3991.86795711963 J kg-1 K-1.  Conservative temperature is designed to be as close as possible to potential temperature, but is two orders of magnitude more conservative in the ocean.  Because of this, Conservative Temperature can be regarded as being proportional to the heat content of seawater per unit mass.
+</em><br />
+<em class="quotelev1">&gt; Canonical units: K
+</em><br />
+<em class="quotelev1">&gt; Reference: www.teos-10.org
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; change_over_time_in_sea_water_conservative_temperature
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; sea_water_absolute_salinity
+</em><br />
+<em class="quotelev1">&gt; Definition: Absolute Salinity is the salinity variable that when used with the TEOS-10 expression for density yields the correct density of a seawater sample even when the sample is not of Standard Composition.  In practice Absolute Salinity is often calculated from Practical Salinity and a value of Absolute Salinity Anomaly which is found using computer software via a global look-up table.
+</em><br />
+<em class="quotelev1">&gt; Canonical units: g kg-1
+</em><br />
+<em class="quotelev1">&gt; Reference: www.teos-10.org
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; change_over_time_in_sea_water_absolute_salinity
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; sea_water_preformed_salinity
+</em><br />
+<em class="quotelev1">&gt; Definition: Preformed Salinity is a salinity variable that is designed to be as conservative as possible, by removing the estimated biogeochemical influences on the seawater composition from other forms of salinity.
+</em><br />
+<em class="quotelev1">&gt; Canonical units: g kg-1
+</em><br />
+<em class="quotelev1">&gt; Reference: www.teos-10.org
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; change_over_time_in_sea_water_preformed_salinity
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; sea_water_potential_enthalpy
+</em><br />
+<em class="quotelev1">&gt; Definition: Potential enthalpy is the enthalpy of a seawater parcel after an adiabatic and isohaline change in pressure from its in situ pressure to the sea pressure p = 0 dbar.
+</em><br />
+<em class="quotelev1">&gt; Canonical units: J kg-1
+</em><br />
+<em class="quotelev1">&gt; Reference: www.teos-10.org
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; change_over_time_in_sea_water_potential_enthalpy
+</em><br />
+<em class="quotelev1">&gt; ***
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Cheers,
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; P
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<br /><br /><pre>
+-- 
+*******************************************************
+* Nan Galbraith                        (508) 289-2444 *
+* Upper Ocean Processes Group            Mail Stop 29 *
+* Woods Hole Oceanographic Institution                *
+* Woods Hole, MA 02543                                *
+*******************************************************
+_______________________________________________
+CF-metadata mailing list
+CF-metadata at cgd.ucar.edu
+<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</pre>
+<span id="received"><dfn>Received on</dfn> Wed Jul 06 2011 - 19:45:53 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -141,9 +306,13 @@ missing, however.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4291">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4292.html" title="Next message in the list">John Caron: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4290.html" title="Previous message in the list">Jim Biard: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4292.html" title="Next message in the list">Steve Hankin: "[CF-metadata] the need to store lat/lon coordinates in a CF	metadata compliant netCDF file"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4290.html" title="Previous message in the list">Nan Galbraith: "[CF-metadata] new TEOS-10 standard names"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./4290.html" title="Message to which this message replies">Nan Galbraith: "[CF-metadata] new TEOS-10 standard names"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./4313.html" title="Next message in this discussion thread">Nan Galbraith: "[CF-metadata] new TEOS-10 standard names"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./4313.html" title="Message sent in reply to this message">Nan Galbraith: "[CF-metadata] new TEOS-10 standard names"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -154,7 +323,7 @@ missing, however.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:59 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4290.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4292.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF convention for vector quantities from Bert Jagers on 2006-03-20 (mailing-list-archive)</title>
-<meta name="Author" content="Bert Jagers (Bert.Jagers)" />
-<meta name="Subject" content="[CF-metadata] CF convention for vector quantities" />
-<meta name="Date" content="2006-03-20" />
+<title>[CF-metadata] Re: projections in CF from Brian Eaton on 2003-02-18 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Brian Eaton (eaton)" />
+<meta name="Subject" content="[CF-metadata] Re: projections in CF" />
+<meta name="Date" content="2003-02-18" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0071.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0073.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF convention for vector quantities</h1>
-<!-- received="Mon Mar 20 01:24:44 2006" -->
-<!-- isoreceived="20060320012444" -->
-<!-- sent="Mon, 20 Mar 2006 09:24:44 +0100" -->
-<!-- isosent="20060320082444" -->
-<!-- name="Bert Jagers" -->
-<!-- email="Bert.Jagers" -->
-<!-- subject="[CF-metadata] CF convention for vector quantities" -->
-<!-- id="003101c64bf7$becc4060$ebe20991_at_wl06377" -->
+<a style="text-decoration:none" href="./0071.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0073.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Re: projections in CF</h1>
+<!-- received="Tue Feb 18 12:09:47 2003" -->
+<!-- isoreceived="20030218120947" -->
+<!-- sent="Tue, 18 Feb 2003 12:09:47 -0700" -->
+<!-- isosent="20030218190947" -->
+<!-- name="Brian Eaton" -->
+<!-- email="eaton" -->
+<!-- subject="[CF-metadata] Re: projections in CF" -->
+<!-- id="20030218190947.GC993_at_ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20060319194014.GA393_at_met.reading.ac.uk" -->
+<!-- inreplyto="20030216213859.A4576_at_mreydhon.lan" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0073.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] change_in&quot;">Next message</a> ]
-[ <a href="./0071.html" title="Bryan Lawrence: &quot;[CF-metadata] change_in&quot;">Previous message</a> ]
-[ <a href="./0067.html" title="Jonathan Gregory: &quot;[CF-metadata] CF convention for vector quantities&quot;">In reply to</a> ]
+[ <a href="./0073.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Re: projections in CF&quot;">Next message</a> ]
+[ <a href="./0071.html" title="Jonathan Gregory: &quot;[CF-metadata] Re: projections in CF&quot;">Previous message</a> ]
+[ <a href="./0069.html" title="Jonathan Gregory: &quot;[CF-metadata] Re: projections in CF&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,278 +70,318 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Bert Jagers &lt;<a href="mailto:Bert.Jagers?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20convention%20for%20vector%20quantities">Bert.Jagers</a>&gt;
+<dfn>From</dfn>: Brian Eaton &lt;<a href="mailto:eaton?Subject=Re%3A%20%5BCF-metadata%5D%20Re%3A%20projections%20in%20CF">eaton</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 20 Mar 2006 09:24:44 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 18 Feb 2003 12:09:47 -0700</span><br />
 </address>
 <br />
-Dear Jonathan,
+Hi Jonathan,
 <br />
-<br />Thank you for your reply.
+<br />In your first example you use a variable named &quot;mymapping&quot; to contain the
 <br />
-<br /><em class="quotelev2">&gt; &gt; &quot;eastward_sea_water_velocity&quot; and &quot;northward_sea_water_velocity&quot;
+mapping definition and claim that the method is less convenient to read
+<br />
+because you need to remember a name which has no meaning and find the
+<br />
+variable that it refers to someplace else in the ncdump output.  I'm afraid
+<br />
+I have myself to blame since you were just following the example in which I
+<br />
+also used a meaningless name.  But the point was that the variable name can
+<br />
+be anything, in fact if there's only one projection in the file there would
+<br />
+be no reason not to give the variable the name
+<br />
+&quot;rotated_latitude_longitude&quot;.
+<br />
+<br />Same point applies to your second example.  &quot;hadleymapping&quot; and
+<br />
+&quot;ncarmapping&quot; don't help identify the projection.  Those variables could
+<br />
+just as easily be named &quot;rotated_latitude_longitude&quot; and
+<br />
+&quot;lamert_conformal_conic&quot; respectively.
+<br />
+<br />Given that informative names are used for the variables that contain the
+<br />
+map definition I still think it's easier to look at a single name which
+<br />
+describes a specific projection (i.e., a group of attributes which define
+<br />
+specific map parameters) and use it to recognize when multiple variables
+<br />
+share a mapping.  You're right of course; there are matters of personal
+<br />
+preference involved in this.  So then what criteria do we use to choose the
+<br />
+formulation for CF?  It seems to me that the general software engineering
+<br />
+principle of never unnecessarily duplicating data applies here.
+<br />
+<br />Your main objection (I think) to factoring out the projection is that it
+<br />
+causes difficulty when rearranging variables into different files.  We've
+<br />
+established that this is no different than what must be done for the
+<br />
+associated coordinate variables, so a utility that can deal correctly with
+<br />
+the coorinates will posses the necessary functionality to identify
+<br />
+identical grid mappings.
+<br />
+<br />I disagree with your assertion that factoring the coordinates is a problem
+<br />
+and that we only do it that way for space considerations.  Factoring out
+<br />
+duplicated data is just good software engineering practice.  Can you
+<br />
+imagine looking at an ncdump output and trying to verify that all 100
+<br />
+variables share the same coorinate if they each maintained their
+<br />
+coordinates in attribute values?
+<br />
+<br />Brian
+<br />
+<br />On Sun, Feb 16, 2003 at 09:38:59PM +0000, Jonathan Gregory wrote:
+<br />
+<em class="quotelev1">&gt; Dear Brian
 </em><br />
-<em class="quotelev1">&gt; etc.
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; Thanks for your posting. It could be that this discussion depends on personal
 </em><br />
-<em class="quotelev1">&gt; Unlike you, I think the association between pairs of quantities like this
+<em class="quotelev1">&gt; preferences. You wrote
 </em><br />
-is
-<br />
-<em class="quotelev1">&gt; something which should reside in your application that processes the data,
+<em class="quotelev1">&gt; 
 </em><br />
-and
-<br />
-<em class="quotelev1">&gt; not in the data itself. This is for various reasons including
+<em class="quotelev2">&gt; &gt; I'm not in favor of individual attributes unless the projection can be
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev2">&gt; &gt; factored out.
 </em><br />
-<em class="quotelev1">&gt; (1) The components are generally regarded as different variables in models
+<em class="quotelev1">&gt; 
 </em><br />
-and
-<br />
-<em class="quotelev1">&gt; observational datasets. They are not always present in the same file. We
+<em class="quotelev1">&gt; so I'll address that first. Sorry I was sloppy in referring to the proposed
 </em><br />
-can't
-<br />
-<em class="quotelev1">&gt; therefore introduce a general sea_water_velocity with the components as a
+<em class="quotelev1">&gt; method for defining projections as an attribute, when it is actually a
 </em><br />
-<em class="quotelev1">&gt; dimension. This might sometimes work, but much data already exists which
+<em class="quotelev1">&gt; variable with attributes.
 </em><br />
-is not
-<br />
-<em class="quotelev1">&gt; written in this way, and data would continue to be written with components
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; separated anyway. Hence your software could not depend on the association
+<em class="quotelev1">&gt; The current CF proposal has the advantage of showing the name of the mapping
 </em><br />
-being
-<br />
-<em class="quotelev1">&gt; done for you in the file. You'd always need the ability to make the
+<em class="quotelev1">&gt; (rotated_latitude_longitude in this example). It has
 </em><br />
-<em class="quotelev1">&gt; association yourself. If you have that ability, you can always use it.
+<em class="quotelev1">&gt; 
 </em><br />
-<br />I agree that there will be a large base of legacy files without the
-<br />
-attributes to indicate that component together form a vector quantity.
-<br />
-However, that does not mean that we shouldn't introduce some preferred
-<br />
-approach. Of course, always combining components together manually is an
-<br />
-option, but not user friendly if you need to draw vector plots on a regular
-<br />
-basis. I don't want to be asked everytime what components I want to combine
-<br />
-into a vector plot. So, you'll probably say: use a scripting or programming
-<br />
-language to do the standardised plotting. That is definitely an option
-<br />
-during the development phase of software, or for automatic reporting on the
-<br />
-results of operational models. However, for interactive inspection of data
-<br />
-from different sources that is a less favourable approach. In such cases,
-<br />
-little more than the automatic recognition of the quantities could be
-<br />
-programmed. And that is just what I want to do. You could say: use
-<br />
-conventions of your own. I don't like that, because then I would still be
-<br />
-faced with all kinds of application specific conventions if the program is
-<br />
-to be used for similar yet different simulation software that all advertise
-<br />
-as writing out netCDF files according to CF conventions.
-<br />
-<br /><em class="quotelev1">&gt; (2) The variables are systematically named already. You can derive an
+<em class="quotelev1">&gt;   float T(lev,rlat,rlon);
 </em><br />
-northward
-<br />
-<em class="quotelev1">&gt; from a eastward name easily, for instance, with s/eastward/northward/. One
+<em class="quotelev1">&gt;     T:units=&quot;K&quot;;
 </em><br />
-<em class="quotelev1">&gt; solution might be for your program to expect the user to specify the
+<em class="quotelev1">&gt;     T:grid_mapping=&quot;rotated_latitude_longitude &quot;,
 </em><br />
-vector
-<br />
-<em class="quotelev1">&gt; quantity by the name of either of its components rather than generically.
+<em class="quotelev1">&gt;       grid_north_pole_latitude: 32.5 grid_north_pole_longitude: 170.&quot;;
 </em><br />
-<br />My program works the other way around. You select a quantity and then you
-<br />
-press plot, instead of saying I want to plot a vector and this is my first
-<br />
-component and optionally a second component. Of course the user is also able
-<br />
-to compose a vector quantity of any two arbitrary scalar quantities. I just
-<br />
-don't like to force the user into using the latter approach for all vector
-<br />
-quantities from netCDF files in general.
-<br />
-<br /><em class="quotelev1">&gt; (3) Although the association between horizontal components of vectors is a
+<em class="quotelev1">&gt;   float precipitation(lev,rlat,rlon);
 </em><br />
-<em class="quotelev1">&gt; common association that has to be made, it's by no means the only one, so
+<em class="quotelev1">&gt;     T:units=&quot;kg m-2 s-1&quot;;
 </em><br />
-I'd
-<br />
-<em class="quotelev1">&gt; argue it's not appropriate to make it a special case. Why should we not
+<em class="quotelev1">&gt;     T:grid_mapping=&quot;rotated_latitude_longitude &quot;,
 </em><br />
-also
-<br />
-<em class="quotelev1">&gt; want to include the vertical component of a vector too?
+<em class="quotelev1">&gt;       grid_north_pole_latitude: 32.5 grid_north_pole_longitude: 170.&quot;;
 </em><br />
-<br />Yes, vertical component should also be possible, of course. However, the
-<br />
-vertical name is not a trivial permutation of the horizontal names as
-<br />
-indicated by:
-<br />
-<br />eastward_wind
-<br />
-northward_wind
-<br />
-upward_air_velocity
-<br />
-<br /><em class="quotelev1">&gt; Should we require stresses always to be supplied as 6- or 9-component
+<em class="quotelev1">&gt; 
 </em><br />
-tensors?
-<br />
-<em class="quotelev1">&gt; Should we require that large_scale and convective precipitation be stored
+<em class="quotelev1">&gt; whereas in the new proposal (modified because grid-mappings are not necessarily
 </em><br />
-together?
-<br />
-<br />Sorry, I don't think that I said anything about requiring files to define
-<br />
-vector quantities. Just thought that having some standardised way for
-<br />
-specifying that variables have a special relationship (in some sense similar
-<br />
-to the definition of vertical coordinate systems) would be useful. So, yes
-<br />
-that would also apply for tensors and maybe other quantities. However, it
-<br />
-should be optional, but in such a case relationships would not be
-<br />
-automatically be detected.
-<br />
-<br /><em class="quotelev2">&gt; &gt; two other issues are related to this question:
+<em class="quotelev1">&gt; projections) we would have
 </em><br />
-<em class="quotelev2">&gt; &gt;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev2">&gt; &gt; A) Distinction between components in east and north direction and
+<em class="quotelev1">&gt;   char mymapping(p_len);
 </em><br />
-components
-<br />
-<em class="quotelev2">&gt; &gt; in the two grid directions: in which direction are the two components
+<em class="quotelev1">&gt;     mymapping:grid_mapping_type=&quot;rotated_latitude_longitude&quot;;
 </em><br />
-<em class="quotelev2">&gt; &gt; defined? It seems that &quot;sea_water_x_velocity&quot; and &quot;sea_water_y_velocity&quot;
+<em class="quotelev1">&gt;     mymapping:grid_north_pole_latitude=32.5;
 </em><br />
-are
-<br />
-<em class="quotelev2">&gt; &gt; used for components in the grid direction although in local coordinate
+<em class="quotelev1">&gt;     mymapping:grid_north_pole_longitude=170.0;
 </em><br />
-<em class="quotelev2">&gt; &gt; systems x and y are generally associated with the two main coordinate
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev2">&gt; &gt; directions whereas the grid may be curvilinear. Most likely
+<em class="quotelev1">&gt; ... other stuff ...
 </em><br />
-<em class="quotelev2">&gt; &gt; &quot;direction_of_sea_water_velocity&quot; and &quot;sea_water_speed&quot; should form
+<em class="quotelev1">&gt; 
 </em><br />
-together
-<br />
-<em class="quotelev2">&gt; &gt; a vector quantity. Central question: which types of vector components
+<em class="quotelev1">&gt;   float T(lev,rlat,rlon);
 </em><br />
-are
-<br />
-<em class="quotelev2">&gt; &gt; needed?
+<em class="quotelev1">&gt;     T:units=&quot;K&quot;;
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt;     T:grid_mapping=&quot;mymapping&quot;;
 </em><br />
-<em class="quotelev1">&gt; You're right, a vector might be represented as (eastward,northward), (x,y)
+<em class="quotelev1">&gt;   float precipitation(lev,rlat,rlon);
 </em><br />
-or
-<br />
-<em class="quotelev1">&gt; (direction,speed). All of these are acceptable and might be in a file
+<em class="quotelev1">&gt;     T:units=&quot;kg m-2 s-1&quot;;
 </em><br />
-together.
-<br />
-<em class="quotelev1">&gt; I don't think that presents a difficulty - do you?
+<em class="quotelev1">&gt;     T:grid_mapping=&quot;mymapping&quot;;
 </em><br />
-<br />No, I don't have any problem with these definitions; they all have their
-<br />
-advantages. However, why is it
-<br />
-<br />eastward_sea_water_velocity
-<br />
-northward_sea_water_velocity
-<br />
-(component naming at the start of the names)
-<br />
-<br />sea_water_x_velocity
-<br />
-sea_water_y_velocity
-<br />
-(component naming at the end of the names)
-<br />
-<br />sea_water_speed
-<br />
-direction_of_sea_water_velocity
-<br />
-(component naming mixed at start and end of the names)
-<br />
-<br />They all combine with &quot;upward_sea_water_velocity&quot; as the vertical velocity
-<br />
-component. By the way, are these eularian or lagrangian velocities to be
-<br />
-precise? I.e. is the Stokes drift of waves included?
-<br />
-<br /><em class="quotelev2">&gt; &gt; B) Staggering of data. The ROMS and Delft3D applications that we are
+<em class="quotelev1">&gt; 
 </em><br />
-looking
-<br />
-<em class="quotelev2">&gt; &gt; at work both with staggered numerical schemes. So, in fact the two
+<em class="quotelev1">&gt; I find the latter less convenient to read, actually. Whereas in the former
 </em><br />
-velocity
-<br />
-<em class="quotelev2">&gt; &gt; components are provided at two different location sets. Before we can
+<em class="quotelev1">&gt; case, when I am looking at the data variable I have the mapping right in front
 </em><br />
-deal
-<br />
-<em class="quotelev2">&gt; &gt; with these vector quantities correctly we need some standardization on
+<em class="quotelev1">&gt; of me, in the latter I have to remember its name while looking somewhere else
 </em><br />
-<em class="quotelev2">&gt; &gt; staggered data. I know there have been some preliminary discussions on
+<em class="quotelev1">&gt; in the CDL file to find out what it is. The name itself may not tell me any-
 </em><br />
-this
-<br />
-<em class="quotelev2">&gt; &gt; matter in the context of CF2, but what is a realistic time schedule for
+<em class="quotelev1">&gt; thing about the projection, especially if it has been generated automatically.
 </em><br />
-<em class="quotelev2">&gt; &gt; these discussions to continue and settle?
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; If the mappings of two variables are not the same, because they come from
 </em><br />
-<em class="quotelev1">&gt; There are two timescales: (1) a few months for deciding the future
+<em class="quotelev1">&gt; different models, for instance, again I think this factoring-out makes the
 </em><br />
-governance
-<br />
-<em class="quotelev1">&gt; arrangements of CF. (2) finding time to do the thinking and make a
+<em class="quotelev1">&gt; CDL file less easy for a human to read. In the current CF proposal we have
 </em><br />
-complete
-<br />
-<em class="quotelev1">&gt; proposal. That depends on people volunteering to do it.
+<em class="quotelev1">&gt; 
 </em><br />
-<br />I am  very interested in these developments if they set new standards within
-<br />
-a reasonable period and the more so if they have a relation with the ESMF
-<br />
-framework concepts and the XMDF format of USACE that have set standards for
-<br />
-staggered and unstructured grids. ...
-<br />
-<br />Best regards,
-<br />
-<br />Bert
-<br />
-<span id="received"><dfn>Received on</dfn> Mon Mar 20 2006 - 01:24:44 GMT</span>
+<em class="quotelev1">&gt;   float Thadley(lev,rlat,rlon);
+</em><br />
+<em class="quotelev1">&gt;     Thadley:units=&quot;K&quot;;
+</em><br />
+<em class="quotelev1">&gt;     Thadley:institution=&quot;Hadley Centre&quot;;
+</em><br />
+<em class="quotelev1">&gt;     Thadley:grid_mapping=&quot;rotated_latitude_longitude &quot;,
+</em><br />
+<em class="quotelev1">&gt;       grid_north_pole_latitude: 32.5 grid_north_pole_longitude: 170.&quot;;
+</em><br />
+<em class="quotelev1">&gt;   float Tncar(lev,rlat,rlon);
+</em><br />
+<em class="quotelev1">&gt;     Tncar:units=&quot;K&quot;;
+</em><br />
+<em class="quotelev1">&gt;     Tncar:institution=&quot;NCAR&quot;;
+</em><br />
+<em class="quotelev1">&gt;     Tncar:grid_mapping=&quot;lambert_conformal_conic &quot;,
+</em><br />
+<em class="quotelev1">&gt;       &quot;standard_parallel: 25.0 longitude_of_central_meridian: -95.0 &quot;,
+</em><br />
+<em class="quotelev1">&gt;       &quot;latitude_of_projection_origin: 25.0&quot;;
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; and in the new proposal we have
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt;   char hadleymapping(p_len);
+</em><br />
+<em class="quotelev1">&gt;     hadleymapping:grid_mapping_type=&quot;rotated_latitude_longitude&quot;;
+</em><br />
+<em class="quotelev1">&gt;     hadleymapping:grid_north_pole_latitude=32.5;
+</em><br />
+<em class="quotelev1">&gt;     hadleymapping:grid_north_pole_longitude=170.0;
+</em><br />
+<em class="quotelev1">&gt;   char ncarmapping(p_len);
+</em><br />
+<em class="quotelev1">&gt;     ncarmapping:grid_mapping_type=&quot;lambert_conformal_conic&quot;;
+</em><br />
+<em class="quotelev1">&gt;     ncarmapping:standard_parallel=25.0;
+</em><br />
+<em class="quotelev1">&gt;     ncarmapping:longitude_of_central_meridian=-95.0;
+</em><br />
+<em class="quotelev1">&gt;     ncarmapping:latitude_of_projection_origin=25.0;
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; ... other stuff ...
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt;   float Thadley(lev,rlat,rlon);
+</em><br />
+<em class="quotelev1">&gt;     Thadley:units=&quot;K&quot;;
+</em><br />
+<em class="quotelev1">&gt;     Thadley:institution=&quot;Hadley Centre&quot;;
+</em><br />
+<em class="quotelev1">&gt;     Thadley:grid_mapping=&quot;hadleymapping&quot;;
+</em><br />
+<em class="quotelev1">&gt;   float Tncar(lev,rlat,rlon);
+</em><br />
+<em class="quotelev1">&gt;     Tncar:units=&quot;K&quot;;
+</em><br />
+<em class="quotelev1">&gt;     Tncar:institution=&quot;NCAR&quot;;
+</em><br />
+<em class="quotelev1">&gt;     Tncar:grid_mapping=&quot;ncarmapping&quot;;
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Looking at the data variables of the new proposal, I have no information about
+</em><br />
+<em class="quotelev1">&gt; what the mappings are except that they are probably different - even that is
+</em><br />
+<em class="quotelev1">&gt; not certain because the definitions might be identical. In the present
+</em><br />
+<em class="quotelev1">&gt; proposal, it is obvious that they really are different, and also I can see the
+</em><br />
+<em class="quotelev1">&gt; definitions of the mappings in the same place in the file.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; You're right, the factoring-out is the same as with coordinate variables.
+</em><br />
+<em class="quotelev1">&gt; Coordinate variables also have the consequent difficulty that you have to do
+</em><br />
+<em class="quotelev1">&gt; some complicated programming to avoid writing duplicate coordinate variables to
+</em><br />
+<em class="quotelev1">&gt; a file. I would say that is a *problem* with coordinate variables, rather than
+</em><br />
+<em class="quotelev1">&gt; a feature of them that we want to use for grid mappings as well! In the case of
+</em><br />
+<em class="quotelev1">&gt; coordinate variables, we do it that way because their space requirements are
+</em><br />
+<em class="quotelev1">&gt; not trivial, but for grid mappings that is not an issue, as we have agreed.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Regarding the other point, you write
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; I would argue that reading inidividual attributes directly into variables of
+</em><br />
+<em class="quotelev2">&gt; &gt; the right type is easier than parsing a string and converting string values
+</em><br />
+<em class="quotelev2">&gt; &gt; to the proper type.  But ease of use is very subjective.  It depends on what
+</em><br />
+<em class="quotelev2">&gt; &gt; tools are at your fingertips.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Point taken. To address this, I propose we provide a parser for the
+</em><br />
+<em class="quotelev1">&gt; grid_mapping attribute, which decomposes it into key-value pairs, checks the
+</em><br />
+<em class="quotelev1">&gt; keywords are valid (from its knowledge of the allowed mappings), checks the
+</em><br />
+<em class="quotelev1">&gt; syntax for valid numbers and casts them into the right type. This should not
+</em><br />
+<em class="quotelev1">&gt; be very hard. We have to do most of this for other kinds of CF attribute as
+</em><br />
+<em class="quotelev1">&gt; well, so such a utility would have several uses.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Cheers
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Jonathan
+</em><br />
+<span id="received"><dfn>Received on</dfn> Tue Feb 18 2003 - 12:09:47 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -349,9 +389,9 @@ staggered and unstructured grids. ...
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start72">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0073.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] change_in"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0071.html" title="Previous message in the list">Bryan Lawrence: "[CF-metadata] change_in"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0067.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] CF convention for vector quantities"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0073.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Re: projections in CF"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0071.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Re: projections in CF"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0069.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] Re: projections in CF"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -363,7 +403,7 @@ staggered and unstructured grids. ...
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:43 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0071.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0073.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

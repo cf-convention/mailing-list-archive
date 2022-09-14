@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Fwd: grid_mapping from cristina.tronconi at artov.isac.cnr.it on 2010-06-10 (mailing-list-archive)</title>
-<meta name="Author" content="cristina.tronconi at artov.isac.cnr.it (cristina.tronconi)" />
-<meta name="Subject" content="[CF-metadata] Fwd: grid_mapping" />
-<meta name="Date" content="2010-06-10" />
+<title>[CF-metadata] Question about cf conventions-dimensionless coordinates from Jonathan Gregory on 2009-01-17 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] Question about cf conventions-dimensionless coordinates" />
+<meta name="Date" content="2009-01-17" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2700.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2702.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Fwd: grid_mapping</h1>
-<!-- received="Thu Jun 10 08:33:53 2010" -->
-<!-- isoreceived="20100610073353" -->
-<!-- sent="Thu, 10 Jun 2010 16:33:53 +0200" -->
-<!-- isosent="20100610143353" -->
-<!-- name="cristina.tronconi at artov.isac.cnr.it" -->
-<!-- email="cristina.tronconi" -->
-<!-- subject="[CF-metadata] Fwd: grid_mapping" -->
-<!-- id="20100610163353.r3axt2fs748ss0ww_at_webmail.sic.rm.cnr.it" -->
+<a style="text-decoration:none" href="./2700.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2702.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Question about cf conventions-dimensionless coordinates</h1>
+<!-- received="Sat Jan 17 09:10:29 2009" -->
+<!-- isoreceived="20090117091029" -->
+<!-- sent="Sat, 17 Jan 2009 16:10:29 +0000" -->
+<!-- isosent="20090117161029" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] Question about cf conventions-dimensionless coordinates" -->
+<!-- id="20090117161029.GB15641_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2702.html" accesskey="d" title="cristina.tronconi at artov.isac.cnr.it: &quot;[CF-metadata] grid_mapping&quot;">Next message</a> ]
-[ <a href="./2700.html" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] proposed changes to various standard names: aliases&quot;">Previous message</a> ]
+[ <a href="./2702.html" accesskey="d" title="Rosalyn Hatcher: &quot;[CF-metadata] CF Checker 1.4&quot;">Next message</a> ]
+[ <a href="./2700.html" title="Hand, Brian: &quot;[CF-metadata] Question about cf conventions-dimensionless coordinates&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,86 +68,38 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: cristina.tronconi at artov.isac.cnr.it &lt;<a href="mailto:cristina.tronconi?Subject=Re%3A%20%5BCF-metadata%5D%20Fwd%3A%20grid_mapping">cristina.tronconi</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Question%20about%20cf%20conventions-dimensionless%20coordinates">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 10 Jun 2010 16:33:53 +0200</span><br />
+<span id="date"><dfn>Date</dfn>: Sat, 17 Jan 2009 16:10:29 +0000</span><br />
 </address>
 <br />
-Hello,
+Dear Brian
 <br />
-I have a netcdf file (chlorophyll gridded satellite daily map) in  
+<br />You are quite right. This is an omission; we do need a formula for the
 <br />
-which I have my variable chl(tim,lat,lon), then the vector of regular  
+working out the altitude coord from the land-ice sigma coord. Is it correct
 <br />
-lat and a vector for
+that sigma is 0 at the bed and 1 and the surface? If so I reckon the formula is
 <br />
-regular lon.
+&nbsp;&nbsp;surface_altitude(n,k,j,i) = bedrock_altitude(n,j,i)
 <br />
-<br />My grid mapping is Equidistant Cylindrical. SO in the nc I set as
+&nbsp;&nbsp;+ land_ice_thickness(n,j,i)*land_ice_sigma_coordinate(k)
 <br />
-GLOBAL ATTRIBUTE
+where i,j are horizontal gridpoint indices, k level, n time. I'd propose
 <br />
-----------------------------------
+formula terms of bedrock_altitude, land_ice_thickness and
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;attname=Conventions
+land_ice_sigma_coordinate. These are all standard names. In most of the
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value=CF-1.4
+formulae we have used abbreviations to identify the terms, but why not
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;attname=grid_mapping
+spell them out?
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value=Cylindrical
+<br />Best wishes
 <br />
-------------------------------------
+<br />Jonathan
 <br />
-A collegue of mine told me that for CF 1.4 the grid_mapping is no more
-<br />
-a global attribute but it is a variable attribute named as
-<br />
-&quot;grid_mapping_name&quot;.
-<br />
-<br />BUT I run the CF checker for 1.4 on my file and everything is ok!!!!
-<br />
-<br />first question:
-<br />
-Is it still correct /with cf 1.4) to set a global attribute as &quot;grid_mapping&quot;?
-<br />
-or must I put the same information as variable attribute? in this case, how?
-<br />
-<br />second question:
-<br />
-are &quot;Equidistant Cylindrical&quot; and &quot;Cylindrical&quot; still valid values for
-<br />
-grid_mapping (or grid_mapping name)?
-<br />
-<br />thanks in advanced
-<br />
-Cristina
-<br />
-<br /><br />-------------------------------------------------------------------
-<br />
-Cristina Tronconi
-<br />
-Istituto di Scienze dell'Atmosfera e del Clima - sezione di Roma
-<br />
-Consiglio Nazionale delle Ricerche
-<br />
-Via Fosso del Cavaliere 100
-<br />
-00133 Roma, Italy
-<br />
-Tel:      +39  06  49934342
-<br />
-cell:     '39 349 1242954
-<br />
-Fax:      +39  06  20660291
-<br />
-e-mail:   cristina.tronconi at artov.isac.cnr.it
-<br />
-<br />-------------- next part --------------
-<br />
-[Allegato tolto: Tipo originale dell'allegato: &quot;text/plain&quot;, nome: &quot;senza_nome&quot;]
-<br />
-<span id="received"><dfn>Received on</dfn> Thu Jun 10 2010 - 08:33:53 BST</span>
+<span id="received"><dfn>Received on</dfn> Sat Jan 17 2009 - 09:10:29 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -155,8 +107,8 @@ e-mail:   cristina.tronconi at artov.isac.cnr.it
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2701">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2702.html" title="Next message in the list">cristina.tronconi at artov.isac.cnr.it: "[CF-metadata] grid_mapping"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2700.html" title="Previous message in the list">alison.pamment at stfc.ac.uk: "[CF-metadata] proposed changes to various standard names: aliases"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2702.html" title="Next message in the list">Rosalyn Hatcher: "[CF-metadata] CF Checker 1.4"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2700.html" title="Previous message in the list">Hand, Brian: "[CF-metadata] Question about cf conventions-dimensionless coordinates"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -168,7 +120,7 @@ e-mail:   cristina.tronconi at artov.isac.cnr.it
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:29 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2700.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2702.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] moving horizontal coordinate system from John Caron on 2006-10-09 (mailing-list-archive)</title>
+<title>[CF-metadata] missing_value vs. _FillValue from John Caron on 2003-11-05 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="John Caron (caron)" />
-<meta name="Subject" content="[CF-metadata] moving horizontal coordinate system" />
-<meta name="Date" content="2006-10-09" />
+<meta name="Subject" content="[CF-metadata] missing_value vs. _FillValue" />
+<meta name="Date" content="2003-11-05" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0299.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0301.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] moving horizontal coordinate system</h1>
-<!-- received="Sun Oct  8 20:37:39 2006" -->
-<!-- isoreceived="20061008193739" -->
-<!-- sent="Sun, 08 Oct 2006 20:37:39 -0600" -->
-<!-- isosent="20061009023739" -->
+<a style="text-decoration:none" href="./0299.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0301.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] missing_value vs. _FillValue</h1>
+<!-- received="Wed Nov  5 12:37:37 2003" -->
+<!-- isoreceived="20031105123737" -->
+<!-- sent="Wed, 05 Nov 2003 12:37:37 -0700" -->
+<!-- isosent="20031105193737" -->
 <!-- name="John Caron" -->
 <!-- email="caron" -->
-<!-- subject="[CF-metadata] moving horizontal coordinate system" -->
-<!-- id="4529B5F3.5020706_at_unidata.ucar.edu" -->
+<!-- subject="[CF-metadata] missing_value vs. _FillValue" -->
+<!-- id="3FA95181.40704_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="3FA922B9.707_at_llnl.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,9 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0301.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] moving horizontal coordinate system&quot;">Next message</a> ]
-[ <a href="./0299.html" title="Jonathan Gregory: &quot;[CF-metadata] CF Action Groups&quot;">Previous message</a> ]
+[ <a href="./0301.html" accesskey="d" title="Brian Eaton: &quot;[CF-metadata] missing_value vs. _FillValue&quot;">Next message</a> ]
+[ <a href="./0299.html" title="Karl Taylor: &quot;[CF-metadata] restrictions on title and history attributes&quot;">Previous message</a> ]
+[ <a href="./0298.html" title="Karl Taylor: &quot;[CF-metadata] missing_value vs. _FillValue&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0301.html" accesskey="t" title="Brian Eaton: &quot;[CF-metadata] missing_value vs. _FillValue&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,40 +72,100 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20moving%20horizontal%20coordinate%20system">caron</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20missing_value%20vs.%20_FillValue">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Sun, 08 Oct 2006 20:37:39 -0600</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 05 Nov 2003 12:37:37 -0700</span><br />
 </address>
 <br />
-Ive run into an interesting use case, we have a series of model runs that are tracking some moving weather. The projection is changing its parameters from one run to the next, eg:
+Karl Taylor wrote:
 <br />
-<br />model run n:
+<br /><em class="quotelev1">&gt; Hi all,
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I read in our convention that the missing_value is deprecated and 
+</em><br />
+<em class="quotelev1">&gt; should no longer be used (use _FillValue instead).  What motivated the 
+</em><br />
+<em class="quotelev1">&gt; deprecation?  It seems to me there is a fundamental difference between 
+</em><br />
+<em class="quotelev1">&gt; the two.  My understanding is that the _FillValue is usually used by 
+</em><br />
+<em class="quotelev1">&gt; netCDF to prefill the disk space, so if the user fails to completely 
+</em><br />
+<em class="quotelev1">&gt; write all the arrays, but later tries to read in all elements, those 
+</em><br />
+<em class="quotelev1">&gt; elements unwritten will contain a predictable number (i.e., the 
+</em><br />
+<em class="quotelev1">&gt; _FillValue).  It seems to me that incompletely writing data is in some 
+</em><br />
+<em class="quotelev1">&gt; sense a mistake, and this mistake can be easily identified by testing 
+</em><br />
+<em class="quotelev1">&gt; whether the _FillValue is found anywhere in the file.  In the common 
+</em><br />
+<em class="quotelev1">&gt; climate modeling case, on the other hand, some data are &quot;missing&quot; not 
+</em><br />
+<em class="quotelev1">&gt; because we have made a mistake, but because some quantities are only 
+</em><br />
+<em class="quotelev1">&gt; calculated in certain regions (e.g., sea surface temperature is 
+</em><br />
+<em class="quotelev1">&gt; calculated only in ocean regions and is &quot;missing&quot; elsewhere).
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I think it is useful to distinguish between the different reasons for 
+</em><br />
+<em class="quotelev1">&gt; missing data.  Because _FillValue is treated specially by netCDF, I 
+</em><br />
+<em class="quotelev1">&gt; think we should prefer the use of missing_value to identify data that 
+</em><br />
+<em class="quotelev1">&gt; have been written properly, but are missing by design.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Tell me what danger there is in using a &quot;deprecated&quot; attribute in the 
+</em><br />
+<em class="quotelev1">&gt; writing of CF-compliant dataset.  \
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; thanks,
+</em><br />
+<em class="quotelev1">&gt; Karl
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; P.S.  There is some urgency in addressing this issue since Jean-Yves 
+</em><br />
+<em class="quotelev1">&gt; Peterschmitt and I are writing a code that makes it easy to write 
+</em><br />
+<em class="quotelev1">&gt; CF-compliant output contributed to various model intercomparison 
+</em><br />
+<em class="quotelev1">&gt; projects and for IPCC contributions.  Thanks for your thoughts.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<br />I just talked to Russ about this and we both agree with you, that 
 <br />
-<br />&nbsp;&nbsp;&nbsp;char Lambert_Conformal;
+missing_value is useful for the reasons you state. (Note that valid_min, 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:grid_mapping_name = &quot;lambert_conformal_conic&quot;;
+valid_max, and valid_range are other standard attributes that can be 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:standard_parallel = 30.079; 
+used for this).
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:longitude_of_central_meridian = -86.117; 
+<br />We think that the NUG deprecation is out-of-data and should be, uh, 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:latitude_of_projection_origin = 30.079; 
+deprecated ;^}
 <br />
-<br />model run n+1:
-<br />
-<br />&nbsp;&nbsp;&nbsp;char Lambert_Conformal;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:grid_mapping_name = &quot;lambert_conformal_conic&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:standard_parallel = 29.474; 
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:longitude_of_central_meridian = -85.158; 
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:latitude_of_projection_origin = 29.474; 
-<br />
-<br /><br />I was going to try to create an aggregated dataset out of these runs, and allow users to slice it in various ways. But I dont think we have a way of encoding this, since the info is in the attributes, not in tha data variable values. Anyone have any thoughts (other than reprojecting, which i dont plan to do)?
-<br />
-<span id="received"><dfn>Received on</dfn> Sun Oct 08 2006 - 20:37:39 BST</span>
+<span id="received"><dfn>Received on</dfn> Wed Nov 05 2003 - 12:37:37 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -109,9 +173,13 @@ Ive run into an interesting use case, we have a series of model runs that are tr
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start300">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0301.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] moving horizontal coordinate system"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0299.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] CF Action Groups"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0301.html" title="Next message in the list">Brian Eaton: "[CF-metadata] missing_value vs. _FillValue"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0299.html" title="Previous message in the list">Karl Taylor: "[CF-metadata] restrictions on title and history attributes"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0298.html" title="Message to which this message replies">Karl Taylor: "[CF-metadata] missing_value vs. _FillValue"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0301.html" title="Next message in this discussion thread">Brian Eaton: "[CF-metadata] missing_value vs. _FillValue"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0301.html" title="Message sent in reply to this message">Brian Eaton: "[CF-metadata] missing_value vs. _FillValue"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -122,7 +190,7 @@ Ive run into an interesting use case, we have a series of model runs that are tr
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:47 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0299.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0301.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

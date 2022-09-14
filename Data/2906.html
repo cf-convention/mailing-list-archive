@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] New standard names for satellite obs data -- zenith &amp; azimuth angles from Evan Manning on 2010-10-21 (mailing-list-archive)</title>
-<meta name="Author" content="Evan Manning (Evan.M.Manning)" />
-<meta name="Subject" content="[CF-metadata] New standard names for satellite obs data -- zenith &amp; azimuth angles" />
-<meta name="Date" content="2010-10-21" />
+<title>[CF-metadata] salinity units from Helen Snaith on 2009-06-17 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Helen Snaith (h.snaith)" />
+<meta name="Subject" content="[CF-metadata] salinity units" />
+<meta name="Date" content="2009-06-17" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2905.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2907.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] New standard names for satellite obs data -- zenith &amp; azimuth angles</h1>
-<!-- received="Wed Oct 20 17:59:13 2010" -->
-<!-- isoreceived="20101020165913" -->
-<!-- sent="Wed, 20 Oct 2010 16:59:13 -0700" -->
-<!-- isosent="20101020235913" -->
-<!-- name="Evan Manning" -->
-<!-- email="Evan.M.Manning" -->
-<!-- subject="[CF&ndash;metadata] New standard names for satellite obs data &ndash;&ndash; zenith &amp; azimuth angles" -->
-<!-- id="AANLkTikzCg2RP8UCfdW=o2BYxy=QSto63PYCTOTYzw-0_at_mail.gmail.com" -->
+<a style="text-decoration:none" href="./2905.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2907.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] salinity units</h1>
+<!-- received="Wed Jun 17 03:30:15 2009" -->
+<!-- isoreceived="20090617023015" -->
+<!-- sent="Wed, 17 Jun 2009 10:30:15 +0100" -->
+<!-- isosent="20090617093015" -->
+<!-- name="Helen Snaith" -->
+<!-- email="h.snaith" -->
+<!-- subject="[CF-metadata] salinity units" -->
+<!-- id="5360F827-97D3-4632-88B0-BCE7D4D8BCC8_at_noc.soton.ac.uk" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="40829B0E077C1145A6DE44D39B3830A904286056D8_at_nerckwmb1.ad.nerc.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2907.html" accesskey="d" title="andrew walsh: &quot;[CF-metadata] Seeking new CF standard names (9) for sea surface wave parameters&quot;">Next message</a> ]
-[ <a href="./2905.html" title="Steve Hankin: &quot;[CF-metadata] New standard names for satellite obs data (time as ISO strings)&quot;">Previous message</a> ]
+[ <a href="./2907.html" accesskey="d" title="Russ Rew: &quot;[CF-metadata] Salinity units&quot;">Next message</a> ]
+[ <a href="./2905.html" title="Lowry, Roy K: &quot;[CF-metadata] salinity units&quot;">Previous message</a> ]
+[ <a href="./2905.html" title="Lowry, Roy K: &quot;[CF-metadata] salinity units&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,48 +70,103 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Evan Manning &lt;<a href="mailto:Evan.M.Manning?Subject=Re%3A%20%5BCF-metadata%5D%20New%20standard%20names%20for%20satellite%20obs%20data%20--%20zenith%20%26%20azimuth%20angles">Evan.M.Manning</a>&gt;
+<dfn>From</dfn>: Helen Snaith &lt;<a href="mailto:h.snaith?Subject=Re%3A%20%5BCF-metadata%5D%20salinity%20units">h.snaith</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 20 Oct 2010 16:59:13 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 17 Jun 2009 10:30:15 +0100</span><br />
 </address>
 <br />
-Bodas-Salcedo, Alejandro&quot; &lt;alejandro.bodas at metoffice.gov.uk&gt; wrote:
+to throw in an oceanographers viewpoint...
 <br />
-<em class="quotelev1">&gt; To:?&quot;Lowry, Roy K&quot; &lt;rkl at bodc.ac.uk&gt;, &quot;Aleksandar Jelenak&quot; &lt;Aleksandar.Jelenak at noaa.gov&gt;, &lt;cf-metadata at cgd.ucar.edu&gt;
-</em><br />
-<br /><em class="quotelev1">&gt; Do we need to include any reference to instrument, platform or
-</em><br />
-<em class="quotelev1">&gt; satellite? It seems to me that the complexity arises because the
-</em><br />
-<em class="quotelev1">&gt; reference lines from which the angle is defined are different in
-</em><br />
-<em class="quotelev1">&gt; different applications. Wouldn't it be better to use zenith_angle and
-</em><br />
-<em class="quotelev1">&gt; scan_angle with respect to fixed reference lines and include an
-</em><br />
-<em class="quotelev1">&gt; attribute that accounts for any offset with respect to that?
-</em><br />
-<em class="quotelev1">&gt; For instance, scan_angle would be referenced against the nadir of the
-</em><br />
-<em class="quotelev1">&gt; object. If the instrument is tilted with respect to that line and you
-</em><br />
-<em class="quotelev1">&gt; want to represent the angle with respect to the reference instrument
-</em><br />
-<em class="quotelev1">&gt; line of sight, then the offset will be /=0.
-</em><br />
-<br />Typically we talk about solar zenith and azimuth angles and satellite/platform
+<br />measured salinity has no units - it is determined from conductivity  
 <br />
-angles.  These are angles from the observed location to the sun or to
+and has no relationship to ppt, ppm psu or any other unit.
 <br />
-the platform.  So we can't use simple &quot;zenith_angle&quot; etc.
+10-3 seems very dangerous (and equally wrong)
 <br />
-<br />view_angle and scan_angle could be used without the qualifier.  That's
+<br />the only 'units' used recently (officially) are to state 'pss78' to  
 <br />
-a good suggestion.
+define that salinity has been determined from the practical salinity  
 <br />
-<br />&nbsp;&nbsp;-- Evan
+scale, 1978.
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Oct 20 2010 - 17:59:13 BST</span>
+<br />In the UNESCO report (UNESCO (1985) The international system of units  
+<br />
+(SI) in oceanography, UNESCO Technical Papers No. 45, IAPSO Pub. Sci.  
+<br />
+No. 32, Paris, France.) you can see (pages 43 / 44) that the 10-3  
+<br />
+units was from an older definition of salinity and definitely should  
+<br />
+NOT be used when using pss78.
+<br />
+<br />Having said that, I understand that there is a lot of work going on at  
+<br />
+the moment to redefine salinity, and that this is likely to 'relink'  
+<br />
+conductivity measurements and salt concentrations, so we are likely to  
+<br />
+get a salinity units again soon (but this is an oceanographic soon -  
+<br />
+faster than an geological one, but not by much)
+<br />
+<br />Helen
+<br />
+<br />On 17 Jun 2009, at 09:19, Lowry, Roy K wrote:
+<br />
+<br /><em class="quotelev1">&gt; Dear All,
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Might be worth looking at <a href="http://www.oceanographers.net/forums/showthread.php?t=902">http://www.oceanographers.net/forums/showthread.php?t=902</a>
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Cheers, Roy.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; -- 
+</em><br />
+<em class="quotelev1">&gt; This message (and any attachments) is for the recipient only. NERC
+</em><br />
+<em class="quotelev1">&gt; is subject to the Freedom of Information Act 2000 and the contents
+</em><br />
+<em class="quotelev1">&gt; of this email and any reply you make may be disclosed by NERC unless
+</em><br />
+<em class="quotelev1">&gt; it is exempt from release under the Act. Any material supplied to
+</em><br />
+<em class="quotelev1">&gt; NERC may be stored in an electronic records management system.
+</em><br />
+<em class="quotelev1">&gt; -- 
+</em><br />
+<em class="quotelev1">&gt; This message has been scanned for viruses and
+</em><br />
+<em class="quotelev1">&gt; dangerous content by MailScanner, and is
+</em><br />
+<em class="quotelev1">&gt; believed to be clean. &lt;ATT00001.txt&gt;
+</em><br />
+<br /><br /><br />Helen
+<br />
+<pre>
+---
+Dr. Helen Snaith
+Head of Scientific Data Management
+     254/23 National Oceanography Centre, Southampton
+     European Way, Southampton, SO14 3ZH, UK
+     Tel: +44 (0)23 8059 6410    Fax: +44 (0)23 8059 6400
+     e-mail: h.snaith at noc.soton.ac.uk
+This e-mail (and any attachments) is confidential and intended solely  
+for the use of the individual or entity to whom it is addressed. Both  
+NERC and the University of Southampton (who operate NOCS as a  
+collaboration) are subject to the Freedom of Information Act 2000. The  
+information contained in this e-mail and any reply&amp;nbsp; you make may  
+be disclosed unless it is legally exempt from disclosure. Any material  
+supplied to NOCS may be stored in the electronic records management  
+system of either the University or NERC as appropriate.
+</pre>
+<span id="received"><dfn>Received on</dfn> Wed Jun 17 2009 - 03:30:15 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -117,8 +174,9 @@ a good suggestion.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2906">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2907.html" title="Next message in the list">andrew walsh: "[CF-metadata] Seeking new CF standard names (9) for sea surface wave parameters"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2905.html" title="Previous message in the list">Steve Hankin: "[CF-metadata] New standard names for satellite obs data (time as ISO strings)"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2907.html" title="Next message in the list">Russ Rew: "[CF-metadata] Salinity units"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2905.html" title="Previous message in the list">Lowry, Roy K: "[CF-metadata] salinity units"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./2905.html" title="Message to which this message replies">Lowry, Roy K: "[CF-metadata] salinity units"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -130,7 +188,7 @@ a good suggestion.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:34 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2905.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2907.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF and multi-forecast system ensemble data from Jonathan Gregory on 2006-10-18 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] CF and multi-forecast system ensemble data" />
-<meta name="Date" content="2006-10-18" />
+<title>[CF-metadata] omega from Bryan Lawrence on 2004-02-11 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Bryan Lawrence (b.n.lawrence)" />
+<meta name="Subject" content="[CF-metadata] omega" />
+<meta name="Date" content="2004-02-11" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0356.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0358.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF and multi-forecast system ensemble data</h1>
-<!-- received="Wed Oct 18 09:12:02 2006" -->
-<!-- isoreceived="20061018081202" -->
-<!-- sent="Wed, 18 Oct 2006 16:12:02 +0100" -->
-<!-- isosent="20061018151202" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] CF and multi-forecast system ensemble data" -->
-<!-- id="20061018151202.GG1591_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0356.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0358.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] omega</h1>
+<!-- received="Wed Feb 11 05:23:30 2004" -->
+<!-- isoreceived="20040211052330" -->
+<!-- sent="Wed, 11 Feb 2004 12:23:30 +0000" -->
+<!-- isosent="20040211122330" -->
+<!-- name="Bryan Lawrence" -->
+<!-- email="b.n.lawrence" -->
+<!-- subject="[CF-metadata] omega" -->
+<!-- id="200402111223.30270.b.n.lawrence_at_rl.ac.uk" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20040211112627.GA19314_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0358.html" accesskey="d" title="Francisco Doblas-Reyes: &quot;[CF-metadata] CF and multi-forecast system ensemble data&quot;">Next message</a> ]
-[ <a href="./0356.html" title="Francisco Doblas-Reyes: &quot;[CF-metadata] CF and multi-forecast system ensemble data&quot;">Previous message</a> ]
+[ <a href="./0358.html" accesskey="d" title="Tom Gross: &quot;[CF-metadata] Re: Array Subscript Convention&quot;">Next message</a> ]
+[ <a href="./0356.html" title="Jonathan Gregory: &quot;[CF-metadata] omega&quot;">Previous message</a> ]
+[ <a href="./0356.html" title="Jonathan Gregory: &quot;[CF-metadata] omega&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,90 +70,150 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20and%20multi-forecast%20system%20ensemble%20data">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Bryan Lawrence &lt;<a href="mailto:b.n.lawrence?Subject=Re%3A%20%5BCF-metadata%5D%20omega">b.n.lawrence</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 18 Oct 2006 16:12:02 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 11 Feb 2004 12:23:30 +0000</span><br />
 </address>
 <br />
-Dear Paco
+Hi Jonathan
 <br />
-<br />Thank you for this detailed description.
+<br />... the beauty of physics ... and for once I have time to discuss ...
 <br />
-<br />I think realization is identical in purpose with ensemble_member_number, isn't
+<br /><em class="quotelev1">&gt; The fact that the model is Eulerian doesn't mean you can't calculate
+</em><br />
+<em class="quotelev1">&gt; Lagrangian derivatives.
+</em><br />
+<br />Agreed, but they are only defined at grid points, that's Eulerian to me ... 
 <br />
-it. From this description it seems like you also want to describe the model or
+<br /><em class="quotelev1">&gt; Omega is Dp/Dt, not partial dp/dt. I think you'd
+</em><br />
+<em class="quotelev1">&gt; expect Dp/Dt calculated in an Eulerian model to be comparable with Dp/Dt
+</em><br />
+<em class="quotelev1">&gt; following the parcels in a Lagrangian model.
+</em><br />
+<br />The reality is that all velocities are bigD/Dt, and that's why we have so much 
 <br />
-its version, don't you? This will be some string, presumably. If it is the
+fun changing coordinate systems. The interesting thing about Lagrangian 
 <br />
-*combination* of model identity and ensemble member which characterises the
+thinking is that Eulerian models explicitly address the Lagrangian terms in 
 <br />
-data, perhaps this is another case for an &quot;index&quot; axis with these two parts of
+their equations ... but they're still Eulerian in formulation.
 <br />
-the description as two auxiliary coordinate variables of that axis.
+<br />Compare with isentropic coordinates, where we can make statements about 
 <br />
-<br />Maybe people who have thought about discovery metadata (not me) might have
+Lagrangian behaviour on isentropic surfaces, we claim that the coordinates 
 <br />
-views on this.
+are partly Lagrangian, but when we calculate them in a model using
 <br />
-<br />Best wishes
+differencing schemes that require us to evaluate the derivatives by using 
 <br />
-<br />Jonathan
+Eulerian coordinates, they're Eulerian quantities.
 <br />
-<br /><em class="quotelev1">&gt; For instance, imagine a multi-model forecast (for the medium-range, 
+<br /><em class="quotelev1">&gt; It's the same physical
 </em><br />
-<em class="quotelev1">&gt; monthly, seasonal or interannual time scales) built up from forecasts 
+<em class="quotelev1">&gt; quantity, though differently computed, so should have the same standard
 </em><br />
-<em class="quotelev1">&gt; issued by several GCMs or by a number of versions of a single GCM. Each 
+<em class="quotelev1">&gt; name, I'd say. We shouldn't confuse the quantity itself with the method
 </em><br />
-<em class="quotelev1">&gt; GCM or model version is supposed to have the possibility of issuing an 
+<em class="quotelev1">&gt; used to obtain it.
 </em><br />
-<em class="quotelev1">&gt; ensemble of forecasts by perturbing the initial conditions. The members 
+<br />Fair comment, but see above.
+<br />
+<br /><em class="quotelev2">&gt; &gt; velocity is simply rate of change of
 </em><br />
-<em class="quotelev1">&gt; of such an multi-forecast system ensemble forecast can not all be dealt 
+<em class="quotelev2">&gt; &gt; displacement with time. In these coordinates, displacement is measured in
 </em><br />
-<em class="quotelev1">&gt; with in a similar way. For a given GCM or single-model version, the 
+<em class="quotelev2">&gt; &gt; pressure, and so the words &quot;vertical velocity in pressure coordinates&quot;
 </em><br />
-<em class="quotelev1">&gt; ensemble members might have similar statistical properties (e.g., in an 
+<em class="quotelev2">&gt; &gt; would seem to cover it.  The relationship of the coordinate system to the
 </em><br />
-<em class="quotelev1">&gt; initial-condition perturbation ensemble setting), but those ensemble 
+<em class="quotelev2">&gt; &gt; horizontal is irrelevant isn't it?
 </em><br />
-<em class="quotelev1">&gt; members will likely have different statistical properties when compared 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; to those from another GCM or single-model version, which are also part 
+<em class="quotelev1">&gt; I agree that &quot;vertical velocity in pressure coordinates&quot; is a helpful way
 </em><br />
-<em class="quotelev1">&gt; of the same multi-forecast system ensemble forecast. In my opinion, it 
+<em class="quotelev1">&gt; to introduce what the quantity is used for in a discussion of atmospheric
 </em><br />
-<em class="quotelev1">&gt; is impossible to identify to which forecast system each member belongs 
+<em class="quotelev1">&gt; dynamics, but I'm less happy with it as a choice of a standard name because
 </em><br />
-<em class="quotelev1">&gt; to when only using the realization variable.
+<em class="quotelev1">&gt; (a) Pa s-1 is not the normal use of the word &quot;velocity&quot;. Of course we may
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; have other &quot;kinds&quot; of velocity such as &quot;angular_velocity&quot;, but the phrase
 </em><br />
-<em class="quotelev1">&gt; The example above is only one among a set of multi-forecast system 
+<em class="quotelev1">&gt; &quot;vertical velocity&quot; means m s-1 to me.
 </em><br />
-<em class="quotelev1">&gt; predictions currently generated operationally (eg, the EUROSIP 
+<br />Velocity has a clear and unambiguous definition, it's
+<br />
+the rate of change of displacement with time. Displacement has inherent
+<br />
+coordinates. For some people velocity is mph ...  and we get around this by 
+<br />
+defining units ... so with this thing (whatever we call it), we have the 
+<br />
+units to help us, putting the extra information in the standard name is 
+<br />
+redundant.
+<br />
+<br /><em class="quotelev1">&gt; (b) It's not vertical, so this is an inaccurate name.
 </em><br />
-<em class="quotelev1">&gt; multi-model seasonal forecasts) or under development (TIGGE medium-range 
+<br />Hmmm ... if we take any elementary textbook, Holton, 3rd edition for example,
+<br />
+page 21 ... section 1.6.2 ... pressure as a vertical coordinate.
+<br />
+<br />I don't think we should argue with textbooks unless they are fundamentally 
+<br />
+wrong, and I think as physicists we all know what we mean by vertical 
+<br />
+coordinates.
+<br />
+<br />(see also Dtheta/Dt expressed as and called an &quot;isentropic 'vertical 
+<br />
+velocity'&quot; where the inner quotes are David's, in AHL, Middle Atmosphere
+<br />
+Dynamics, p138).
+<br />
+<br />Anyway, this argument could apply to u and v too .. they're not &quot;true&quot; 
+<br />
+&quot;horizontal&quot; velocities in many coordinate systems ...
+<br />
+<br /><em class="quotelev1">&gt; (c) It doesn't say what its sign convention is.
 </em><br />
-<em class="quotelev1">&gt; forecasts or the ENSEMBLES seasonal-to-decadal predictions). The 
+<br />It does. Dp/Dt has a sign convention ... and it's unambiguous.  
+<br />
+<br /><em class="quotelev1">&gt; (d) It could be understood as meaning w(x,y,p) i.e. that &quot;in pressure
 </em><br />
-<em class="quotelev1">&gt; closeness to the operational activity prevents some of these communities 
+<em class="quotelev1">&gt; coordinates&quot; distinguished w(x,y,p) from w(x,y,z). That would not be
 </em><br />
-<em class="quotelev1">&gt; from using NetCDF because of the lack of adequate standards (and use 
+<em class="quotelev1">&gt; something we would include in a standard name, but I think it's a possible
 </em><br />
-<em class="quotelev1">&gt; GRIB1 or GRIB2 instead). We believe that the variables 
+<em class="quotelev1">&gt; misinterpretation we should avoid.
 </em><br />
-<em class="quotelev1">&gt; experiment_identifier (along with its auxiliary variables) and 
+<br />I think this is a very fair point. However, there are plenty of aliases which 
+<br />
+show what is meant (not least, omega). 
+<br />
+<br /><em class="quotelev1">&gt; What if we just call it omega instead. :-) (joke - I think)
 </em><br />
-<em class="quotelev1">&gt; ensemble_member_number can handle this problem.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Best regards,
-</em><br />
-<em class="quotelev1">&gt; Paco
-</em><br />
-<span id="received"><dfn>Received on</dfn> Wed Oct 18 2006 - 09:12:02 BST</span>
+<br />:-) :-)
+<br />
+<br />I really think we are trying to put too much information in one box (the 
+<br />
+standard name).  I think standard bloat is a real issue to be careful of.
+<br />
+Don't we have a description field for the extended explanation?
+<br />
+<br />Cheers,
+<br />
+Bryan
+<br />
+<br /><pre>
+-- 
+Bryan Lawrence, Head NCAS/British Atmospheric Data Centre
+web: www.badc.nerc.ac.uk  phone: +44 1235 445012
+CLRC: Rutherford Appleton Laboratory, Chilton, Didcot, OX110QX, UK
+</pre>
+<span id="received"><dfn>Received on</dfn> Wed Feb 11 2004 - 05:23:30 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -159,8 +221,9 @@ views on this.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start357">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0358.html" title="Next message in the list">Francisco Doblas-Reyes: "[CF-metadata] CF and multi-forecast system ensemble data"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0356.html" title="Previous message in the list">Francisco Doblas-Reyes: "[CF-metadata] CF and multi-forecast system ensemble data"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0358.html" title="Next message in the list">Tom Gross: "[CF-metadata] Re: Array Subscript Convention"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0356.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] omega"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0356.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] omega"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -172,7 +235,7 @@ views on this.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:48 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0356.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0358.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

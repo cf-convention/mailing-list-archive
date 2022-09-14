@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF provisional standards from Bryan Lawrence on 2006-11-17 (mailing-list-archive)</title>
-<meta name="Author" content="Bryan Lawrence (b.n.lawrence)" />
-<meta name="Subject" content="[CF-metadata] CF provisional standards" />
-<meta name="Date" content="2006-11-17" />
+<title>[CF-metadata] The CF Standard Names from Jing Zhou Contractor on 2004-09-26 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jing Zhou Contractor (Jing.Zhou.Contractor)" />
+<meta name="Subject" content="[CF-metadata] The CF Standard Names" />
+<meta name="Date" content="2004-09-26" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0448.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0450.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF provisional standards</h1>
-<!-- received="Fri Nov 17 05:59:08 2006" -->
-<!-- isoreceived="20061117055908" -->
-<!-- sent="Fri, 17 Nov 2006 12:59:08 +0000" -->
-<!-- isosent="20061117125908" -->
-<!-- name="Bryan Lawrence" -->
-<!-- email="b.n.lawrence" -->
-<!-- subject="[CF-metadata] CF provisional standards" -->
-<!-- id="1163768348.7838.83.camel_at_localhost.localdomain" -->
+<a style="text-decoration:none" href="./0448.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0450.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] The CF Standard Names</h1>
+<!-- received="Sun Sep 26 13:33:06 2004" -->
+<!-- isoreceived="20040926123306" -->
+<!-- sent="Sun, 26 Sep 2004 14:33:06 -0500" -->
+<!-- isosent="20040926193306" -->
+<!-- name="Jing Zhou Contractor" -->
+<!-- email="Jing.Zhou.Contractor" -->
+<!-- subject="[CF-metadata] The CF Standard Names" -->
+<!-- id="4bb946df.46df4bb9_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20061115103251.GA17161_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,10 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0450.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] CF provisional standards&quot;">Next message</a> ]
-[ <a href="./0448.html" title="Richard Ullman: &quot;Fwd: [CF-metadata] packed flags&quot;">Previous message</a> ]
-[ <a href="./0441.html" title="Jonathan Gregory: &quot;[CF-metadata] CF provisional standards&quot;">In reply to</a> ]
+[ <a href="./0450.html" accesskey="d" title="Stephens, A: &quot;[CF-metadata] conditions of use (of data)&quot;">Next message</a> ]
+[ <a href="./0448.html" title="Latham, SE: &quot;[CF-metadata] conditions of use (of data)&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0451.html" accesskey="t" title="John Caron: &quot;[CF-metadata] The CF Standard Names&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,98 +70,66 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Bryan Lawrence &lt;<a href="mailto:b.n.lawrence?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20provisional%20standards">b.n.lawrence</a>&gt;
+<dfn>From</dfn>: Jing Zhou Contractor &lt;<a href="mailto:Jing.Zhou.Contractor?Subject=Re%3A%20%5BCF-metadata%5D%20The%20CF%20Standard%20Names">Jing.Zhou.Contractor</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 17 Nov 2006 12:59:08 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Sun, 26 Sep 2004 14:33:06 -0500</span><br />
 </address>
 <br />
-Hi Jonathan
+Hi,
 <br />
-<br />I strongly disagree with what you have written here:
+<br />I am new to the list and working on a project to provide
 <br />
-<br /><em class="quotelev1">&gt; I think we should add new stuff to the standard, just as
-</em><br />
-<em class="quotelev1">&gt; we always have. 
-</em><br />
-<br />I think we should make a clean break between standard name additions and
+historical and real-time NetCDF datasets for all moored buoys 
 <br />
-any other sort of modifications. This is why we decided on two
+through the NDBC dods server. When we are finalizing
 <br />
-committees. We now have versioned standard names lists, updating
+the variable names, I see the following statements from
 <br />
-approximately monthly.
+the CF Conventions:
 <br />
-<br />Any other modifications should be provisional and go through the
+<br />&quot;A standard name is associated with a variable via the attribute 
 <br />
-procedure outlined in the white paper, which has been agreed! That's not
+standard_name which takes a string value comprised of a standard name 
 <br />
-to say we can't have a provisional copy of the convention/standard,
+optionally followed by one or more blanks and a standard name modifier.&quot;
 <br />
-which represents best practise until the next &quot;official&quot; version.
+<br />Internally we have discussions to use the standard names as
 <br />
-<br />Folk can write data files which conform to that &quot;provisional&quot; standard,
+the variable names, are there any issues if we go that way?
 <br />
-and presumably if they're writing it they'll have tools which can
+(like too long for display?)
 <br />
-manipulate it, but in no way should anyone consider that anyone else can
+<br />Our pre-production datasets can be accessed at
 <br />
-read/manipulate/understand it until there are implementationS.
+<a href="http://webtest.ndbc.noaa.gov">http://webtest.ndbc.noaa.gov</a>
 <br />
-<br /><em class="quotelev1">&gt; &quot;provisional&quot; status. If the CF process takes a year to decide something,
-</em><br />
-<em class="quotelev1">&gt; it is no use to turn round and say to someone, &quot;Sorry, that was provisional,
-</em><br />
-<em class="quotelev1">&gt; your data is now deemed to be all wrong.&quot; 
-</em><br />
-<br />In that situation all we are saying is that - nope, yours is the only
+<br />We also have measurements from tide gauges with 
 <br />
-code that can understand that data! If you want others to read it,
+its description at
 <br />
-without writing new code, you may need to rewrite it! That's fair! It
+<a href="http://co-ops.nos.noaa.gov/mapfinder/mllw.html">http://co-ops.nos.noaa.gov/mapfinder/mllw.html</a>
 <br />
-doesn't make their data any less valid.
+<br />Are there any ideas for its standard name?
 <br />
-<br /><em class="quotelev1">&gt; Also, I would say that experience shows we haven't made large blunders, in
-</em><br />
-<em class="quotelev1">&gt; the sense of agreeing something that was actually unworkable.
-</em><br />
-<br />Actually, given I'm not aware of *one* codebase that supports *all* of
+<br />Thanks,
 <br />
-CF, all experience tells us is that CF is &quot;too complex&quot; or &quot;not worth
+<br />Jing
 <br />
-implementing yet in its entirety&quot;. The lack of a complete implementation
+-------------- next part --------------
 <br />
-argues against your point!
+A non-text attachment was scrubbed...
 <br />
-<br />In most standards initiatives, one requires at least two implementations
+Name: &quot;Jing.Zhou.Contractor.vcf
 <br />
-that can interoperate ... and I think CF should require that too. (I
+Type: text/x-vcard
 <br />
-think I'm actually arguing for finding a CF version 0.9 which is
+Size: 251 bytes
 <br />
-somewhere between COARDS and CF 1.0, but which at least some folk have
+Desc: Card for &lt;Jing.Zhou.Contractor at noaa.gov&gt;
 <br />
-completely implemented).
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20040926/9bf0931e/attachment.vcf">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20040926/9bf0931e/attachment.vcf</a>&gt;
 <br />
-<br />In a completely different discussion, we found it useful to have a table
-<br />
-for specifications which had four columns like this:
-<br />
-<br />specification name / commonly implemented version/ current official
-<br />
-version/ provisional version/
-<br />
-<br />and we need that for CF! That's the reality of interoperability!
-<br />
-<br />(Again, nothing in the above is arguing against rapid turn around of
-<br />
-standard names).
-<br />
-<br />Cheers
-<br />
-Bryan
-<br />
-<span id="received"><dfn>Received on</dfn> Fri Nov 17 2006 - 05:59:08 GMT</span>
+<span id="received"><dfn>Received on</dfn> Sun Sep 26 2004 - 13:33:06 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -169,10 +137,13 @@ Bryan
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start449">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0450.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] CF provisional standards"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0448.html" title="Previous message in the list">Richard Ullman: "Fwd: [CF-metadata] packed flags"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0441.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] CF provisional standards"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0450.html" title="Next message in the list">Stephens, A: "[CF-metadata] conditions of use (of data)"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0448.html" title="Previous message in the list">Latham, SE: "[CF-metadata] conditions of use (of data)"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0451.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] The CF Standard Names"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0451.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] The CF Standard Names"</a></li>
+<li><dfn>Reply</dfn>: <a href="./0486.html" title="Message sent in reply to this message">Jonathan Gregory: "[CF-metadata] tides"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -183,7 +154,7 @@ Bryan
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:50 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0448.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0450.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

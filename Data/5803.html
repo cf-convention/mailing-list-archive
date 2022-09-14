@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] standard names for surface aerosol optical properties from Jonathan Gregory on 2013-10-13 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] standard names for surface aerosol optical properties" />
-<meta name="Date" content="2013-10-13" />
+<title>[CF-metadata] Usage of the 'Conventions' attribute (Nan	Galbraith) from Lowry, Roy K. on 2013-01-28 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Lowry, Roy K. (rkl)" />
+<meta name="Subject" content="[CF-metadata] Usage of the 'Conventions' attribute (Nan	Galbraith)" />
+<meta name="Date" content="2013-01-28" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5802.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5804.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard names for surface aerosol optical properties</h1>
-<!-- received="Sun Oct 13 02:46:27 2013" -->
-<!-- isoreceived="20131013014627" -->
-<!-- sent="Sun, 13 Oct 2013 09:46:27 +0100" -->
-<!-- isosent="20131013084627" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] standard names for surface aerosol optical properties" -->
-<!-- id="20131013084627.GA18351_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./5802.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5804.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Usage of the 'Conventions' attribute (Nan	Galbraith)</h1>
+<!-- received="Mon Jan 28 01:11:09 2013" -->
+<!-- isoreceived="20130128011109" -->
+<!-- sent="Mon, 28 Jan 2013 08:11:09 +0000" -->
+<!-- isosent="20130128081109" -->
+<!-- name="Lowry, Roy K." -->
+<!-- email="rkl" -->
+<!-- subject="[CF-metadata] Usage of the 'Conventions' attribute (Nan	Galbraith)" -->
+<!-- id="40829B0E077C1145A6DE44D39B3830A92285A7B725_at_nerckwmb1.ad.nerc.ac.uk" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="4A980E5ADF859E4E9007AA5514CF9C8E19A5783D_at_MBX2010-K01.ad.fz-juelich.de" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5804.html" accesskey="d" title="Thomas Trull: &quot;[CF-metadata] standard names for sediment trap data&quot;">Next message</a> ]
-[ <a href="./5802.html" title="Lowry, Roy K.: &quot;[CF-metadata] standard names for sediment trap data&quot;">Previous message</a> ]
+[ <a href="./5804.html" accesskey="d" title="Bentley, Philip: &quot;[CF-metadata] Usage of the &#0039;Conventions&#0039; attribute&quot;">Next message</a> ]
+[ <a href="./5802.html" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] correction of an emissions-related standard_name&quot;">Previous message</a> ]
+[ <a href="./5801.html" title="Schultz, Martin: &quot;[CF-metadata] Usage of the &#0039;Conventions&#0039; attribute (Nan Galbraith)&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./5806.html" accesskey="t" title="Markus Fiebig: &quot;[CF-metadata] standard names for surface aerosol optical properties&quot;">Next in thread</a> ]
+[ <a href="./5804.html" accesskey="t" title="Bentley, Philip: &quot;[CF-metadata] Usage of the &#0039;Conventions&#0039; attribute&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,54 +72,116 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20standard%20names%20for%20surface%20aerosol%20optical%20properties">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Lowry, Roy K. &lt;<a href="mailto:rkl?Subject=Re%3A%20%5BCF-metadata%5D%20Usage%20of%20the%20'Conventions'%20attribute%20(Nan%09Galbraith)">rkl</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Sun, 13 Oct 2013 09:46:27 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 28 Jan 2013 08:11:09 +0000</span><br />
 </address>
 <br />
-Dear Markus
+Dear Jonathan and Martin,
 <br />
-<br />Thanks for your work on this. They generally look consistent and clear to me.
+<br />What I was trying to do here was legitimise an already established practice in at least two communities in the observational oceanographic domain with thousands of files in existence with the non-standard usage of the Conventions attribute. I also carried the practice over into the specification of the SeaDataNet NetCDF generation tool. I can see absolutely no benefit in pushing through a new attribute for this purpose and so will circumvent the compliance issue for SeaDataNet by moving the variable attribute into our namespace (i.e. calling it SDN_Conventions). This leaves Derrick's glider community in the lurch, but I suggest they either follow us or follow whatever solution the European GROOM glider community adopts.
 <br />
-I have comments on a few aspects.
+<br />Martin's comments on namespace highlight a concern I identified whilst doing the research for the SeaDataNet specification.  Several communities have added large numbers of both global and variable attributes with no indication of namespace.  Not only does this make it difficult to tease out what is CF and what is a community extension, but it creates an accident in waiting.  What happens if CF creates a new attribute with a name already in community usage?  In my view it's too late to introduce a CF namespace and prefer the idea that for a CF-compliant file CF should be the default namespace, with communities taking responsibility for their extensions.  This is what I've done for SeaDataNet.
 <br />
-<br />surface_particle_number_concentration_at_stp_in_aerosol (and other similar
+<br />Cheers, Roy.
 <br />
-names). Could this be said more clearly as
+<br />________________________________________
 <br />
-surface_number_concentration_of_aerosol_in_air_at_stp?
+From: CF-metadata [cf-metadata-bounces at cgd.ucar.edu] On Behalf Of Schultz, Martin [m.schultz at fz-juelich.de]
 <br />
-That would be consistent with existing names e.g.
+Sent: 24 January 2013 18:54
 <br />
-number_concentration_of_coarse_mode_ambient_aerosol_in_air
+To: cf-metadata at cgd.ucar.edu
 <br />
-<br />You draw attention to the inclusion of &quot;surface&quot; in the above, but I'm not
+Subject: Re: [CF-metadata] Usage of the 'Conventions' attribute (Nan    Galbraith)
 <br />
-clear why it's there. Is the measurement actually exactly at the ground? If
+<br />Dear all,
 <br />
-not, surface should be omitted, and the height indicated by a numerical
+<br />&nbsp;&nbsp;&nbsp;&nbsp;I fully agree with Jonathan's view that it would not be a good idea to call this new thing &quot;Convention&quot;. On the other hand, I don't really like the term &quot;flag_convention_name&quot; either, because it doesn't tell me anything. If I understand correctly, then your desire is different from defining a pointer to controlled vocabulary. Should it be a similar idea, then I suggest we should try to follow the ideas and namings of ISO19115 (without being able to tell you right away what the appropriate term would be). If it's cf specific and indeed refers to the version of a cf document (or annex or whatever), shouldn't the attribute then have a name that starts with &quot;cf_&quot;? E.g. cf_attribute_convention ?
 <br />
-coordinate, or some other phrase e.g. in_atmosphere_boundary_layer (that one
+<br />Cheers,
 <br />
-already appears in the stdname table). Clouds do not usually occur at the
+<br />Martin
 <br />
-surface, so &quot;surface&quot; is surprising for CCN.
+<br /><br />Message: 4
 <br />
-<br />electrical_mobility_particle_diameter. I think the &quot;electrical&quot; here refers
+Date: Thu, 24 Jan 2013 12:23:33 +1100
 <br />
-to the means of measurement. Usually the CF standard name describes the
+From: Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt;
 <br />
-geophysical quantity itself. Would it be OK to say aerosol_particle_diameter?
+To: cf-metadata at cgd.ucar.edu
 <br />
-<br />sizing_relative_humidity. Could &quot;sizing&quot; be omitted? The definition of your
+Subject: [CF-metadata]  Usage of the 'Conventions' attribute
 <br />
-standard names can specify what the role of the RH is.
+Message-ID: &lt;20130124012333.GC22156 at met.reading.ac.uk&gt;
 <br />
-<br />Cheers
+Content-Type: text/plain; charset=us-ascii
+<br />
+<br />Dear Roy
+<br />
+<br />I understand the need but I tend to think this would not be an appropriate
+<br />
+use of the Conventions attribute, which is a general netCDF attribute, not
+<br />
+specific to CF, and refers to files. I do appreciate the logical similarity
+<br />
+but I would have thought it better to define something more specific in CF
+<br />
+for this purpose.
+<br />
+<br />If this is a need which several users have and is required for exchange of
+<br />
+data, then it is reasonable to propose to add something to CF. Since it's
+<br />
+an extra piece of information referring to flags, maybe an attribute such as
+<br />
+flag_convention_name would work? We could make it a requirement that this
+<br />
+attribute was allowed only if the variable had flag_meanings as well, to
+<br />
+prevent its being used as a substitute for spelling out what the flags mean
+<br />
+(as is necessary for the file to be self-describing).
+<br />
+<br />Best wishes
 <br />
 <br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Sun Oct 13 2013 - 02:46:27 BST</span>
+<br /><br /><br />------------------------------------------------------------------------------------------------
+<br />
+------------------------------------------------------------------------------------------------
+<br />
+Forschungszentrum Juelich GmbH
+<br />
+52425 Juelich
+<br />
+Sitz der Gesellschaft: Juelich
+<br />
+Eingetragen im Handelsregister des Amtsgerichts Dueren Nr. HR B 3498
+<br />
+Vorsitzender des Aufsichtsrats: MinDir Dr. Karl Eugen Huthmacher
+<br />
+Geschaeftsfuehrung: Prof. Dr. Achim Bachem (Vorsitzender),
+<br />
+Karsten Beneke (stellv. Vorsitzender), Prof. Dr.-Ing. Harald Bolt,
+<br />
+Prof. Dr. Sebastian M. Schmidt
+<br />
+------------------------------------------------------------------------------------------------
+<br />
+------------------------------------------------------------------------------------------------
+<br />
+_______________________________________________
+<br />
+CF-metadata mailing list
+<br />
+CF-metadata at cgd.ucar.edu
+<br />
+<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+<br />
+<br />This message (and any attachments) is for the recipient only. NERC is subject to the Freedom of Information Act 2000 and the contents of this email and any reply you make may be disclosed by NERC unless it is exempt from release under the Act. Any material supplied to NERC may be stored in an electronic records management system.
+<br />
+<span id="received"><dfn>Received on</dfn> Mon Jan 28 2013 - 01:11:09 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -125,12 +189,13 @@ standard names can specify what the role of the RH is.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5803">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5804.html" title="Next message in the list">Thomas Trull: "[CF-metadata] standard names for sediment trap data"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5802.html" title="Previous message in the list">Lowry, Roy K.: "[CF-metadata] standard names for sediment trap data"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5804.html" title="Next message in the list">Bentley, Philip: "[CF-metadata] Usage of the &#0039;Conventions&#0039; attribute"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5802.html" title="Previous message in the list">alison.pamment at stfc.ac.uk: "[CF-metadata] correction of an emissions-related standard_name"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./5801.html" title="Message to which this message replies">Schultz, Martin: "[CF-metadata] Usage of the &#0039;Conventions&#0039; attribute (Nan Galbraith)"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./5806.html" title="Next message in this discussion thread">Markus Fiebig: "[CF-metadata] standard names for surface aerosol optical properties"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./5804.html" title="Next message in this discussion thread">Bentley, Philip: "[CF-metadata] Usage of the &#0039;Conventions&#0039; attribute"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./5806.html" title="Message sent in reply to this message">Markus Fiebig: "[CF-metadata] standard names for surface aerosol optical properties"</a></li>
+<dfn>Reply</dfn>: <a href="./5804.html" title="Message sent in reply to this message">Bentley, Philip: "[CF-metadata] Usage of the &#0039;Conventions&#0039; attribute"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -141,7 +206,7 @@ standard names can specify what the role of the RH is.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:31 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5802.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5804.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

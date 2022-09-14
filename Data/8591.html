@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] grid cells with a varying number of cell bounds from Karl Taylor on 2017-12-20 (mailing-list-archive)</title>
-<meta name="Author" content="Karl Taylor (taylor13)" />
-<meta name="Subject" content="[CF-metadata] grid cells with a varying number of cell bounds" />
-<meta name="Date" content="2017-12-20" />
+<title>[CF-metadata] Feedback requested on proposed CF Simple Geometries from Jonathan Gregory on 2016-09-22 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] Feedback requested on proposed CF Simple Geometries" />
+<meta name="Date" content="2016-09-22" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./8590.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8592.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] grid cells with a varying number of cell bounds</h1>
-<!-- received="Wed Dec 20 15:21:53 2017" -->
-<!-- isoreceived="20171220152153" -->
-<!-- sent="Wed, 20 Dec 2017 14:21:53 -0800" -->
-<!-- isosent="20171220222153" -->
-<!-- name="Karl Taylor" -->
-<!-- email="taylor13" -->
-<!-- subject="[CF-metadata] grid cells with a varying number of cell bounds" -->
-<!-- id="8ce69dcb-bf2e-0a9a-a953-15c64d1a0191_at_llnl.gov" -->
+<a style="text-decoration:none" href="./8590.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8592.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Feedback requested on proposed CF Simple Geometries</h1>
+<!-- received="Thu Sep 22 04:40:07 2016" -->
+<!-- isoreceived="20160922034007" -->
+<!-- sent="Thu, 22 Sep 2016 11:40:07 +0100" -->
+<!-- isosent="20160922104007" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] Feedback requested on proposed CF Simple Geometries" -->
+<!-- id="20160922104007.GB3531_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="MWHPR06MB3214BAF9DBCBF9E6117CAEEFD4690_at_MWHPR06MB3214.namprd06.prod.outlook.com" -->
+<!-- inreplyto="20160922103941.GA3531_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./8592.html" accesskey="d" title="Charlie Zender: &quot;[CF-metadata] grid cells with a varying number of cell bounds&quot;">Next message</a> ]
-[ <a href="./8590.html" title="Jim Biard: &quot;[CF-metadata] Questions about correct standard_name&quot;">Previous message</a> ]
-[ <a href="./8503.html" title="Whiteaker, Timothy L: &quot;[CF-metadata] grid cells with a varying number of cell bounds&quot;">In reply to</a> ]
+[ <a href="./8592.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Temporal nitpicks. Was: CF-metadata Digest, Vol 161, Issue 3&quot;">Next message</a> ]
+[ <a href="./8590.html" title="Lowry, Roy K.: &quot;[CF-metadata] Temporal nitpicks. Was: CF-metadata Digest, Vol 161, Issue 3&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./8594.html" accesskey="t" title="Daniel Neumann: &quot;[CF-metadata] grid cells with a varying number of cell bounds&quot;">Next in thread</a> ]
+[ <a href="./8593.html" accesskey="t" title="Arctur, David K: &quot;[CF-metadata] Feedback requested on proposed CF Simple	Geometries&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,612 +71,320 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Karl Taylor &lt;<a href="mailto:taylor13?Subject=Re%3A%20%5BCF-metadata%5D%20grid%20cells%20with%20a%20varying%20number%20of%20cell%20bounds">taylor13</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Feedback%20requested%20on%20proposed%20CF%20Simple%20Geometries">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 20 Dec 2017 14:21:53 -0800</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 22 Sep 2016 11:40:07 +0100</span><br />
 </address>
 <br />
-Hi all,
+Dear Ben
 <br />
-<br />It now becomes urgent to resolve this discussion.
+<br />Thank you for your thoughtful and interesting proposal. I have quite a lot of
 <br />
-<br />My sense is that no one violently opposes the use of missing_value to 
+questions and comments about it.
 <br />
-fill unused vertices for grid cells with fewer than the maximum number 
+<br />* You explain that the need is to specify spatial coordinates with a simple
 <br />
-of vertices.? For CMIP6 some models may need to define grids with a few 
+geometry for a timeSeries variable. For example, this could be for the
 <br />
-cells having one less vertex than the majority.? I am (much too late in 
+discharge as a function of time across some line in a river (your example), or
 <br />
-the process) writing down the data requirements for CMIP6 model output, 
+I suppose it could be an average temperature as a function of time for the
 <br />
-and unless someone objects, I will specify that the missing_value can be 
+Atlantic Ocean, where you wanted to supply the polygon which drew the outline
 <br />
-used in this way.
+of the basin. Have I got the idea? Timeseries like this can be stored in CF,
 <br />
-<br />My only qualm is that technically, some might regard such files as non 
+but their geographical extent is usually described only in words e.g. a region
 <br />
-compliant with CF, but in practice I don't think the non-compliance will 
+name of atlantic_ocean, and this is fine for applications like CMIP where you
 <br />
-have much (if any) impact.
+want to compare data from different data sources in which the Atlantic Ocean
 <br />
-<br />Speak now, or forever hold your peace. (The wedding is imminent).
+may have different exact shapes (different AOGCMs, in particular). An array of
 <br />
-<br />best regards,
+region names is also possible, so I don't think we need a new convention to
 <br />
-Karl
+contain your dwarf planet example.
 <br />
-<br />On 9/12/17 8:08 AM, Whiteaker, Timothy L wrote:
+<br />* Sect 9.1 on discrete sampling geometries says it cannot yet be used for cases
 <br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Wearing my simple geometry hat: While simple geometries could handle 
-</em><br />
-<em class="quotelev1">&gt; this case, that proposal was intended to support discrete geospatial 
-</em><br />
-<em class="quotelev1">&gt; features such as river segments or watershed areas, including 
-</em><br />
-<em class="quotelev1">&gt; multi-part polygons such as Hawaii and polygons with holes such as a 
-</em><br />
-<em class="quotelev1">&gt; lake polygon with an island in the middle.? It may be overkill for the 
-</em><br />
-<em class="quotelev1">&gt; OP's use case.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; My humble opinion as a general netCDF user: Allowing missing values 
-</em><br />
-<em class="quotelev1">&gt; seems simple and efficient for the OP's use case.? My only worry would 
-</em><br />
-<em class="quotelev1">&gt; be that this solution introduces a competing method of encoding 
-</em><br />
-<em class="quotelev1">&gt; discrete polygons like what the simple geometries proposal targets; 
-</em><br />
-<em class="quotelev1">&gt; this would be alleviated with proper guidance on when to use these 
-</em><br />
-<em class="quotelev1">&gt; various solutions in the CF documentation.? I also admit my ignorance 
-</em><br />
-<em class="quotelev1">&gt; regarding prevalence of other grid cell configurations in datasets out 
-</em><br />
-<em class="quotelev1">&gt; in the wild which the missing value solution wouldn't cleanly support, 
-</em><br />
-<em class="quotelev1">&gt; or the impact of the missing value solution on netCDF software libraries.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Regards,
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Tim Whiteaker
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Research Scientist
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; The University of Texas at Austin
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; *From:*CF-metadata [mailto:cf-metadata-bounces at cgd.ucar.edu] *On 
-</em><br />
-<em class="quotelev1">&gt; Behalf Of *David Hassell
-</em><br />
-<em class="quotelev1">&gt; *Sent:* Monday, September 11, 2017 4:22 AM
-</em><br />
-<em class="quotelev1">&gt; *To:* Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt;
-</em><br />
-<em class="quotelev1">&gt; *Cc:* CF Metadata &lt;cf-metadata at cgd.ucar.edu&gt;
-</em><br />
-<em class="quotelev1">&gt; *Subject:* Re: [CF-metadata] grid cells with a varying number of cell 
-</em><br />
-<em class="quotelev1">&gt; bounds
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Hello,
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Coorecting an error in my last post:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; On 8 September 2017 at 17:51, David Hassell &lt;david.hassell at ncas.ac.uk 
-</em><br />
-<em class="quotelev1">&gt; &lt;mailto:david.hassell at ncas.ac.uk&gt;&gt; wrote:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;     Hello Karl, Jonathan, Jim,
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;     I also support Karl's suggested changes, with the possible
-</em><br />
-<em class="quotelev1">&gt;     exception of insisting that the valid bounds values always precede
-</em><br />
-<em class="quotelev1">&gt;     the any missing data. Whilst that is surely the easiest case for
-</em><br />
-<em class="quotelev1">&gt;     software to deal with, and is an attractive restriction to me, it
-</em><br />
-<em class="quotelev1">&gt;     that may not be how people want to do it, or have already done it
-</em><br />
-<em class="quotelev1">&gt;     in the past.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;     ??
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;     I'm don't think that allowing this would not cause any more
-</em><br />
-<em class="quotelev1">&gt;     confusion than is already (will be!) there with the inclusion of
-</em><br />
-<em class="quotelev1">&gt;     simple geometries. As Jonathan points out, it would be &quot;not
-</em><br />
-<em class="quotelev1">&gt;     recommended&quot; to use simple geometries when standard bounds
-</em><br />
-<em class="quotelev1">&gt;     suffice. That advice easily includes standard bounds being allowed
-</em><br />
-<em class="quotelev1">&gt;     missing values, I think.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; ?I had one too many negatives in last paragraph. It should have read:?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; ??I'm *DO* think that allowing this would not cause any more confusion 
-</em><br />
-<em class="quotelev1">&gt; than is already (will be!) there with the inclusion of simple 
-</em><br />
-<em class="quotelev1">&gt; geometries. As Jonathan points out, it would be &quot;not recommended&quot; to 
-</em><br />
-<em class="quotelev1">&gt; use simple geometries when standard bounds suffice. That advice easily 
-</em><br />
-<em class="quotelev1">&gt; includes standard bounds being allowed missing values, I think.?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; ?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Sorry for the confusion,
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; David?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;     All the best,
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;     David
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;     On 8 September 2017 at 16:24, Jonathan Gregory
-</em><br />
-<em class="quotelev1">&gt;     &lt;j.m.gregory at reading.ac.uk &lt;mailto:j.m.gregory at reading.ac.uk&gt;&gt; wrote:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;         Dear Karl
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;         I agree, other views are needed; it would be especially useful
-</em><br />
-<em class="quotelev1">&gt;         to hear from
-</em><br />
-<em class="quotelev1">&gt;         Dave Blodgett and other proposers of the simple geometries.
-</em><br />
-<em class="quotelev1">&gt;         Although I agree
-</em><br />
-<em class="quotelev1">&gt;         that what you describe is not necessarily inefficient (and in
-</em><br />
-<em class="quotelev1">&gt;         the case you
-</em><br />
-<em class="quotelev1">&gt;         mention it would be more efficient than the simple
-</em><br />
-<em class="quotelev1">&gt;         geometries), and it's not
-</em><br />
-<em class="quotelev1">&gt;         a large change to the existing convention, I do think it *is*
-</em><br />
-<em class="quotelev1">&gt;         a change, since
-</em><br />
-<em class="quotelev1">&gt;         we don't normally permit missing data in boundary variables.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;         I don't have a strong preference between the methods. What
-</em><br />
-<em class="quotelev1">&gt;         discomforts me is
-</em><br />
-<em class="quotelev1">&gt;         introducing two methods for doing the same thing. If we did
-</em><br />
-<em class="quotelev1">&gt;         that, we should
-</em><br />
-<em class="quotelev1">&gt;         give some clear guidance to data-writers about which to choose.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;         Of course, there is no suggestion that the simple geometries
-</em><br />
-<em class="quotelev1">&gt;         approach should
-</em><br />
-<em class="quotelev1">&gt;         replace the existing one for cells with polygons that all have
-</em><br />
-<em class="quotelev1">&gt;         the same number
-</em><br />
-<em class="quotelev1">&gt;         of vertices. Consistent with the last paragraph, I suggest
-</em><br />
-<em class="quotelev1">&gt;         that we should
-</em><br />
-<em class="quotelev1">&gt;         recommend the use of the existing convention for that case,
-</em><br />
-<em class="quotelev1">&gt;         rather than the
-</em><br />
-<em class="quotelev1">&gt;         simple geometries convention.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;         Best wishes
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;         Jonathan
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;         ----- Forwarded message from Karl Taylor &lt;taylor13 at llnl.gov
-</em><br />
-<em class="quotelev1">&gt;         &lt;mailto:taylor13 at llnl.gov&gt;&gt; -----
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev2">&gt;         &gt; Date: Fri, 8 Sep 2017 07:12:06 -0700
-</em><br />
-<em class="quotelev2">&gt;         &gt; From: Karl Taylor &lt;taylor13 at llnl.gov &lt;mailto:taylor13 at llnl.gov&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;         &gt; To: cf-metadata at cgd.ucar.edu &lt;mailto:cf-metadata at cgd.ucar.edu&gt;
-</em><br />
-<em class="quotelev2">&gt;         &gt; Subject: Re: [CF-metadata] grid cells with a varying number
-</em><br />
-<em class="quotelev1">&gt;         of cell bounds
-</em><br />
-<em class="quotelev2">&gt;         &gt; User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11;
-</em><br />
-<em class="quotelev1">&gt;         rv:52.0)
-</em><br />
-<em class="quotelev2">&gt;         &gt;? ? ? ?Gecko/20100101 Thunderbird/52.2.1
-</em><br />
-<em class="quotelev2">&gt;         &gt;
-</em><br />
-<em class="quotelev2">&gt;         &gt; Dear Jonathan and all,
-</em><br />
-<em class="quotelev2">&gt;         &gt;
-</em><br />
-<em class="quotelev2">&gt;         &gt; Regarding the options for representing polygon cells with
-</em><br />
-<em class="quotelev1">&gt;         varying
-</em><br />
-<em class="quotelev2">&gt;         &gt; number of sides (see below), I agree that the &quot;simple
-</em><br />
-<em class="quotelev1">&gt;         geometries&quot;
-</em><br />
-<em class="quotelev2">&gt;         &gt; proposal can indeed handle this case. ( It of course could also
-</em><br />
-<em class="quotelev2">&gt;         &gt; handle the case when all grid cells have the same number of
-</em><br />
-<em class="quotelev1">&gt;         sides.)
-</em><br />
-<em class="quotelev2">&gt;         &gt;
-</em><br />
-<em class="quotelev2">&gt;         &gt; I think, however, it might be a mistake to rule out the
-</em><br />
-<em class="quotelev1">&gt;         alternative
-</em><br />
-<em class="quotelev2">&gt;         &gt; method of storing data on these grids using the old method
-</em><br />
-<em class="quotelev1">&gt;         with cell
-</em><br />
-<em class="quotelev2">&gt;         &gt; bounds described by their vertices (without the need for
-</em><br />
-<em class="quotelev2">&gt;         &gt; &quot;containers&quot;).? Certainly, I would want to retain the current
-</em><br />
-<em class="quotelev2">&gt;         &gt; treatment? when dealing with cells having the? *same* number of
-</em><br />
-<em class="quotelev2">&gt;         &gt; sides.? I also favor an option to use our current method
-</em><br />
-<em class="quotelev1">&gt;         (which is
-</em><br />
-<em class="quotelev2">&gt;         &gt; however incompletely described, as I've pointed out) to
-</em><br />
-<em class="quotelev1">&gt;         handle grids
-</em><br />
-<em class="quotelev2">&gt;         &gt; with cells of different shapes.? All we would need to make the
-</em><br />
-<em class="quotelev2">&gt;         &gt; current method well-described is to specify that the bounds
-</em><br />
-<em class="quotelev1">&gt;         could
-</em><br />
-<em class="quotelev2">&gt;         &gt; include &quot;missing_values&quot; when the number of grid cell
-</em><br />
-<em class="quotelev1">&gt;         vertices were
-</em><br />
-<em class="quotelev2">&gt;         &gt; fewer than the maximum specified in the dimension statement
-</em><br />
-<em class="quotelev1">&gt;         (and the
-</em><br />
-<em class="quotelev2">&gt;         &gt; missing_values would be the last ones in the bounds dimension).
-</em><br />
-<em class="quotelev2">&gt;         &gt;
-</em><br />
-<em class="quotelev2">&gt;         &gt; I would point out that for at least one icosahedral grid (see
-</em><br />
-<em class="quotelev2">&gt;         &gt; Heikes, R., and D. A. Randall, 1995a: Numerical integration
-</em><br />
-<em class="quotelev1">&gt;         of the
-</em><br />
-<em class="quotelev2">&gt;         &gt; shallow-water equations on a twisted icosahedral grid. Part
-</em><br />
-<em class="quotelev1">&gt;         I: Basic
-</em><br />
-<em class="quotelev2">&gt;         &gt; design and results of tests. /Mon. Wea. Rev.,/*123,*
-</em><br />
-<em class="quotelev1">&gt;         1862?1880), all
-</em><br />
-<em class="quotelev2">&gt;         &gt; the grid cells except 12 are hexagons.? The 12 exceptions
-</em><br />
-<em class="quotelev1">&gt;         come from
-</em><br />
-<em class="quotelev2">&gt;         &gt; the &quot;corners&quot; of a cube and are pentagons. This means that
-</em><br />
-<em class="quotelev1">&gt;         the cell
-</em><br />
-<em class="quotelev2">&gt;         &gt; bounds would contain only 12 missing_values, so not a
-</em><br />
-<em class="quotelev1">&gt;         significant
-</em><br />
-<em class="quotelev2">&gt;         &gt; problem with wasting storage.
-</em><br />
-<em class="quotelev2">&gt;         &gt;
-</em><br />
-<em class="quotelev2">&gt;         &gt; If we decide to eliminate the &quot;old&quot; option for handling
-</em><br />
-<em class="quotelev1">&gt;         these grid
-</em><br />
-<em class="quotelev2">&gt;         &gt; cells, we should:
-</em><br />
-<em class="quotelev2">&gt;         &gt;
-</em><br />
-<em class="quotelev2">&gt;         &gt; 1) first poll the modeling groups to see if anyone knows of any
-</em><br />
-<em class="quotelev2">&gt;         &gt; attempts to use the current CF conventions to store data on such
-</em><br />
-<em class="quotelev2">&gt;         &gt; grids.? If not, then changing the standard won't have any real
-</em><br />
-<em class="quotelev2">&gt;         &gt; consequences on legacy datasets.
-</em><br />
-<em class="quotelev2">&gt;         &gt;
-</em><br />
-<em class="quotelev2">&gt;         &gt; 2)? Provide an example in the proposed section 7.5
-</em><br />
-<em class="quotelev1">&gt;         illustrating how
-</em><br />
-<em class="quotelev2">&gt;         &gt; an icosahedral grid like the one referenced above would be
-</em><br />
-<em class="quotelev1">&gt;         stored. I
-</em><br />
-<em class="quotelev2">&gt;         &gt; must say I think few would be able to quickly read section
-</em><br />
-<em class="quotelev1">&gt;         7.5 and
-</em><br />
-<em class="quotelev2">&gt;         &gt; be able to successfully store CF-compliant data on such
-</em><br />
-<em class="quotelev1">&gt;         grids;? the
-</em><br />
-<em class="quotelev2">&gt;         &gt; current method, on the other hand, is easy to understand.
-</em><br />
-<em class="quotelev2">&gt;         &gt;
-</em><br />
-<em class="quotelev2">&gt;         &gt; I have no problem allowing the new method to be used, but
-</em><br />
-<em class="quotelev1">&gt;         wonder if
-</em><br />
-<em class="quotelev2">&gt;         &gt; most users wouldn't find it easier in the case under
-</em><br />
-<em class="quotelev1">&gt;         consideration
-</em><br />
-<em class="quotelev2">&gt;         &gt; here, to interpret datasets stored with the older method??
-</em><br />
-<em class="quotelev1">&gt;         Hope to
-</em><br />
-<em class="quotelev2">&gt;         &gt; hear other views on this.
-</em><br />
-<em class="quotelev2">&gt;         &gt;
-</em><br />
-<em class="quotelev2">&gt;         &gt; best regards,
-</em><br />
-<em class="quotelev2">&gt;         &gt; Karl
-</em><br />
-<em class="quotelev2">&gt;         &gt;
-</em><br />
-<em class="quotelev2">&gt;         &gt;
-</em><br />
-<em class="quotelev4">&gt;         &gt; &gt;&gt;I certainly always envisaged the possibility of cells of
-</em><br />
-<em class="quotelev1">&gt;         different
-</em><br />
-<em class="quotelev4">&gt;         &gt; &gt;&gt;shapes, and we imply that this might be the case in the
-</em><br />
-<em class="quotelev1">&gt;         description
-</em><br />
-<em class="quotelev4">&gt;         &gt; &gt;&gt;of cell bounds with the explicit mention of &quot;maximum&quot;:
-</em><br />
-<em class="quotelev4">&gt;         &gt; &gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;         &gt; &gt;&gt;/&quot;A boundary variable will have one more dimension than its
-</em><br />
-<em class="quotelev4">&gt;         &gt; &gt;&gt;associated coordinate or auxiliary coordinate variable./ The
-</em><br />
-<em class="quotelev4">&gt;         &gt; &gt;&gt;additional dimension should be the most rapidly varying
-</em><br />
-<em class="quotelev1">&gt;         one, and its
-</em><br />
-<em class="quotelev4">&gt;         &gt; &gt;&gt;size is the maximum number of cell vertices.&quot;
-</em><br />
-<em class="quotelev3">&gt;         &gt; &gt;That's true. Nonetheless we didn't provide for it later on
-</em><br />
-<em class="quotelev1">&gt;         in the document!
-</em><br />
-<em class="quotelev3">&gt;         &gt; &gt;
-</em><br />
-<em class="quotelev3">&gt;         &gt; &gt;Well, now we have a choice. Dave Blodgett's proposal has
-</em><br />
-<em class="quotelev1">&gt;         been debated and
-</em><br />
-<em class="quotelev3">&gt;         &gt; &gt;revised over many months, and I support it in its current
-</em><br />
-<em class="quotelev1">&gt;         form. That is a
-</em><br />
-<em class="quotelev3">&gt;         &gt; &gt;more general solution, which allows not only mixtures of
-</em><br />
-<em class="quotelev1">&gt;         different sorts of
-</em><br />
-<em class="quotelev3">&gt;         &gt; &gt;polygons, but also sets of discontiguous polygons (for each
-</em><br />
-<em class="quotelev1">&gt;         cell), polygons
-</em><br />
-<em class="quotelev3">&gt;         &gt; &gt;with holes in them, and lines. It does not require missing
-</em><br />
-<em class="quotelev1">&gt;         data to be stored
-</em><br />
-<em class="quotelev3">&gt;         &gt; &gt;in the bounds, because it has a count of how many vertices
-</em><br />
-<em class="quotelev1">&gt;         belong to each cell.
-</em><br />
-<em class="quotelev3">&gt;         &gt; &gt;Permitting missing data in polygon bounds in sect 7.1 would
-</em><br />
-<em class="quotelev1">&gt;         be a different
-</em><br />
-<em class="quotelev3">&gt;         &gt; &gt;way of describing a mixture of different sorts of polygons.
-</em><br />
-<em class="quotelev1">&gt;         Providing more
-</em><br />
-<em class="quotelev3">&gt;         &gt; &gt;than one method to do this would introduce unnecessary
-</em><br />
-<em class="quotelev1">&gt;         complexity. How do you
-</em><br />
-<em class="quotelev3">&gt;         &gt; &gt;and others think we should choose?
-</em><br />
-<em class="quotelev3">&gt;         &gt; &gt;
-</em><br />
-<em class="quotelev3">&gt;         &gt; &gt;
-</em><br />
-<em class="quotelev2">&gt;         &gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev2">&gt;         &gt; _______________________________________________
-</em><br />
-<em class="quotelev2">&gt;         &gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev2">&gt;         &gt; CF-metadata at cgd.ucar.edu &lt;mailto:CF-metadata at cgd.ucar.edu&gt;
-</em><br />
-<em class="quotelev2">&gt;         &gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;         ----- End forwarded message -----
-</em><br />
-<em class="quotelev1">&gt;         _______________________________________________
-</em><br />
-<em class="quotelev1">&gt;         CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt;         CF-metadata at cgd.ucar.edu &lt;mailto:CF-metadata at cgd.ucar.edu&gt;
-</em><br />
-<em class="quotelev1">&gt;         <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;     -- 
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;     David Hassell
-</em><br />
-<em class="quotelev1">&gt;     National Centre for Atmospheric Science
-</em><br />
-<em class="quotelev1">&gt;     Department of Meteorology, University of Reading,
-</em><br />
-<em class="quotelev1">&gt;     Earley Gate, PO Box 243, Reading RG6 6BB
-</em><br />
-<em class="quotelev1">&gt;     Tel: +44 118 378 5613 &lt;tel:+44%20118%20378%205613&gt;
-</em><br />
-<em class="quotelev1">&gt;     <a href="http://www.met.reading.ac.uk/">http://www.met.reading.ac.uk/</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; -- 
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; David Hassell
-</em><br />
-<em class="quotelev1">&gt; National Centre for Atmospheric Science
-</em><br />
-<em class="quotelev1">&gt; Department of Meteorology, University of Reading,
-</em><br />
-<em class="quotelev1">&gt; Earley Gate, PO Box 243, Reading RG6 6BB
-</em><br />
-<em class="quotelev1">&gt; Tel: +44 118 378 5613
-</em><br />
-<em class="quotelev1">&gt; <a href="http://www.met.reading.ac.uk/">http://www.met.reading.ac.uk/</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<br />-------------- next part --------------
+&quot;where geo-positioning cannot be described as a discrete point location.
 <br />
-An HTML attachment was scrubbed...
+Problematic examples include time series that refer to a geographical region
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20171220/45fce233/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20171220/45fce233/attachment.html</a>&gt;
+(e.g. the northern hemisphere) ...&quot;. Actually I think that's not quite right.
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Dec 20 2017 - 15:21:53 GMT</span>
+The existing convention *can* describe regions which are contiguous, and
+<br />
+rectangular or polygonal, using its usual bounds convention (Sect 7.1). I think
+<br />
+we should consider changing this text, because it seems unnecessarily
+<br />
+restrictive. For example, a timeSeries for the average temperature in the
+<br />
+Northern Hemisphere can be stored like this:
+<br />
+<br />&nbsp;&nbsp;dimensions:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;region=1;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;nv=2;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;time=UNLIMITED;
+<br />
+&nbsp;&nbsp;variables:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;float temperature(region,time);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temperature:standard_name=&quot;surface_temperature&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temperature:units=&quot;K&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temperature:coordinates=&quot;lat lon&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temperature:cell_methods=&quot;time: mean area: mean&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;float lat(region);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat:standard_name=&quot;latitude&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat:units=&quot;degrees_north&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat:bounds=&quot;lat_bounds&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;float lat_bounds(region,nv);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;float lon(region);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon:standard_name=&quot;longitude&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon:units=&quot;degrees_east&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon:bounds=&quot;lon_bounds&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;float lon_bounds(region,nv);
+<br />
+&nbsp;&nbsp;data:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lat_bounds=0,90;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lon_bounds=0,360;
+<br />
+<br />which means the region is 0-90N and 0-360E. If the regions were irregular
+<br />
+polygons in latitude and longitude, nv would be the number of vertices and the
+<br />
+lat and lon bounds would trace the outline of the polygon e.g. nv=3, lat=0,90,0
+<br />
+and lon=0,0,90 describes the eighth of the sphere which is bounded by the
+<br />
+meridians at 0E and 90E and the Equator. I think, therefore, we do not need an
+<br />
+additional convention for points or polygonal regions. However, we would need
+<br />
+new conventions for a timeseries where each value applies to a set of
+<br />
+discontiguous regions or regions with holes in them, a set of points, a line or
+<br />
+a set of lines. I guess that these are included in the geometry types you list
+<br />
+(LineString, Multipoint, MultiLineString, and MultiPolygon). Do you have
+<br />
+definite use-cases for all of these?  (I ask this because we don't add new
+<br />
+functionality to CF until there is a definite and common need for it in
+<br />
+practice.)
+<br />
+<br />* I suspect that geometries of this kind can be described by the ugrid
+<br />
+convention <a href="http://ugrid-conventions.github.io/ugrid-conventions">http://ugrid-conventions.github.io/ugrid-conventions</a>, which is
+<br />
+compliant with CF. Their purpose is to describe a set of connected points,
+<br />
+edges or faces at which values are given, whereas in your case you'd give a
+<br />
+single value for the whole set, but the description of the geometry itself
+<br />
+might be similar. Have you had a look at whether ugrid could meet your needs?
+<br />
+If it almost does so, perhaps a better thing to do would be to propose
+<br />
+additions to ugrid. We would like to avoid having more than one way to describe
+<br />
+such geometries.
+<br />
+<br />If you decide to make use of ugrid instead, the rest of my comments may
+<br />
+not be relevant!
+<br />
+<br />* So far CF does not say anything about the use of netCDF-4 features (i.e. not
+<br />
+the classic model). We have often discussed allowing them but the general
+<br />
+argument is also made that there has to be a compelling case for providing a
+<br />
+new way to do something which can already be done. (Steve Hankin often made
+<br />
+this argument, but since he's mostly retired I'll make it now in his name :-)
+<br />
+If there are two ways to do something, software has to support both of them. We
+<br />
+already have ways to encode ragged arrays, so is there a compelling case for
+<br />
+needing the netCDF-4 vlen array as well? We already have a way to encode
+<br />
+strings too, as character arrays. I think this is probably a discussion we
+<br />
+should have again in a different thread, so I'll just talk about your classic
+<br />
+encoding. The same points apply to both encodings.
+<br />
+<br />* Your approach uses a coordinate_index variable to identify indices of
+<br />
+geometry coordinates e.g.
+<br />
+<br />&nbsp;&nbsp;dimensions:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;indices = 30;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;node = 25 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;geom = 1 ;
+<br />
+&nbsp;&nbsp;variables:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;int coordinate_index(indices) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coordinate_index:coordinates = &quot;x y&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;double x(node) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;double y(node) ;
+<br />
+&nbsp;&nbsp;data:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;coordinate_index = 0, 1, 2, 3, 4, -2, 5, 6, 7, 8, -2, 9, 10, 11, 12, -2,
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13, 14, 15, 16, -1, 17, 18, 19, 20, -1, 21, 22, 23, 24 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;x = 0, 20, 20, 0, 0, 1, 10, 19, 1, 5, 7, 9, 5, 11, 13, 15, 11, 5, 9, 7, 5,
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11, 15, 13, 11 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;y = 0, 0, 20, 20, 0, 1, 5, 1, 1, 15, 19, 15, 15, 15, 19, 15, 15, 25, 25,
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;29, 25, 25, 25, 29, 25 ;
+<br />
+<br />where the -1 and -2 indices indicates where exterior and interior polygons
+<br />
+begin, and the first polygon has an implied -1 at the start. Is that right?
+<br />
+Given this example, I wonder why you need the index array, because none of the
+<br />
+coordinates indices (values &gt;=0) is repeated, so no space is saved in the x
+<br />
+and y arrays. I guess this would be the usual case. If polygons did touch or
+<br />
+lines crossed, a few points would be in common, but not so many that seems to
+<br />
+need the complication of the index array. A simpler way to do it would be
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;int outside_inside(node); // -1 for exterior, -2 for interior
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;double x(node) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;double y(node) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;outside_inside=-1,-1,-1,-1,-1, -2,-2,-2,-2, -2,-2,-2,-2,-2,
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1,-1,-1,-1,-1, -1,-1,-1,-1,-1;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;x = 0, 20, 20, 0, 0, 1, 10, 19, 1, 5, 7, 9, 5, 11, 13, 15, 11, 5, 9, 7, 5,
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11, 15, 13, 11 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;y = 0, 0, 20, 20, 0, 1, 5, 1, 1, 15, 19, 15, 15, 15, 19, 15, 15, 25, 25,
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;29, 25, 25, 25, 29, 25 ;
+<br />
+<br />which needs only one dimension, or you could use the CF ragged array
+<br />
+convention (Sect 9.3.3):
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;segment=5;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;node=25;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;int count(segment);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count:sample_dimension=&quot;node&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;int outside_inside(segment); // -1 for exterior, -2 for interior
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;double x(node) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;double y(node) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;outside_inside=-1,-2,-2,-1,-1;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;count=5,5,5,5,5;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;x = 0, 20, 20, 0, 0, 1, 10, 19, 1, 5, 7, 9, 5, 11, 13, 15, 11, 5, 9, 7, 5,
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11, 15, 13, 11 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;y = 0, 0, 20, 20, 0, 1, 5, 1, 1, 15, 19, 15, 15, 15, 19, 15, 15, 25, 25,
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;29, 25, 25, 25, 29, 25 ;
+<br />
+<br />* You provide the attributes multipart_break_value and hole_break_value to
+<br />
+specify the values (-1 and -2 above) for the outside vs inside distinction.  Do
+<br />
+you need the generality of being able to choose these values? It would seem
+<br />
+simpler to use a character array and specify in the convention which letters
+<br />
+should be used e.g.
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;char outside_inside(segment)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;outside_inside=&quot;OOIIO&quot;;
+<br />
+<br />That makes it more readable, perhaps.
+<br />
+<br />* Similarly, you propose attributes for clockwise/anticlockwise node order and
+<br />
+for the polygon closure convention.  Do these need to be freely choosable? You
+<br />
+could specify clockwise, like the existing CF bounds convention, and that the
+<br />
+polygons are closed. In the latter case, you could omit the last vertex of each
+<br />
+polygon since it must be the same as the first, and that would save a bit of
+<br />
+space. If you specify these choices, the attributes aren't needed.
+<br />
+<br />* If this convention is going to be used for discrete sampling geometries,
+<br />
+an additional dimension is needed, because in a single data variable you
+<br />
+might have data for several of these geometries. That is, you need an array
+<br />
+of ragged arrays. Again, I wonder whether this suggests trying to use ugrid.
+<br />
+It might be you could name each one as a mesh, and specify the geometry of
+<br />
+for the set of timeSeries as an array of mesh names. That would be a very
+<br />
+easy change to the existing Sect 9.
+<br />
+<br />Best wishes
+<br />
+<br />Jonathan
+<br />
+<span id="received"><dfn>Received on</dfn> Thu Sep 22 2016 - 04:40:07 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -685,14 +392,13 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start8591">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./8592.html" title="Next message in the list">Charlie Zender: "[CF-metadata] grid cells with a varying number of cell bounds"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./8590.html" title="Previous message in the list">Jim Biard: "[CF-metadata] Questions about correct standard_name"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./8503.html" title="Message to which this message replies">Whiteaker, Timothy L: "[CF-metadata] grid cells with a varying number of cell bounds"</a></li>
+<li><dfn>Next message</dfn>: <a href="./8592.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Temporal nitpicks. Was: CF-metadata Digest, Vol 161, Issue 3"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./8590.html" title="Previous message in the list">Lowry, Roy K.: "[CF-metadata] Temporal nitpicks. Was: CF-metadata Digest, Vol 161, Issue 3"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./8594.html" title="Next message in this discussion thread">Daniel Neumann: "[CF-metadata] grid cells with a varying number of cell bounds"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./8593.html" title="Next message in this discussion thread">Arctur, David K: "[CF-metadata] Feedback requested on proposed CF Simple	Geometries"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./8594.html" title="Message sent in reply to this message">Daniel Neumann: "[CF-metadata] grid cells with a varying number of cell bounds"</a></li>
-<li><dfn>Reply</dfn>: <a href="./8604.html" title="Message sent in reply to this message">Chris Barker: "[CF-metadata] grid cells with a varying number of cell bounds"</a></li>
+<dfn>Reply</dfn>: <a href="./8593.html" title="Message sent in reply to this message">Arctur, David K: "[CF-metadata] Feedback requested on proposed CF Simple	Geometries"</a></li>
+<li><dfn>Reply</dfn>: <a href="./8595.html" title="Message sent in reply to this message">Chris Barker: "[CF-metadata] Feedback requested on proposed CF Simple Geometries"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -703,7 +409,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:17 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./8590.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8592.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

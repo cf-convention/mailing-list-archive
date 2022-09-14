@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]  Usage of integral_of_Y_wrt_X from Jonathan Gregory on 2008-08-05 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata]  Usage of integral_of_Y_wrt_X" />
-<meta name="Date" content="2008-08-05" />
+<title>[CF-metadata] Indicating data lineage or provenance from Godin, Michael on 2007-01-05 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Godin, Michael (Godin)" />
+<meta name="Subject" content="[CF-metadata] Indicating data lineage or provenance" />
+<meta name="Date" content="2007-01-05" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1458.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1460.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  Usage of integral_of_Y_wrt_X</h1>
-<!-- received="Tue Aug  5 06:17:23 2008" -->
-<!-- isoreceived="20080805051723" -->
-<!-- sent="Tue, 5 Aug 2008 13:17:23 +0100" -->
-<!-- isosent="20080805121723" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata]  Usage of integral_of_Y_wrt_X" -->
-<!-- id="20080805121723.GB21842_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./1458.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1460.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Indicating data lineage or provenance</h1>
+<!-- received="Thu Jan  4 17:31:58 2007" -->
+<!-- isoreceived="20070104173158" -->
+<!-- sent="Thu, 4 Jan 2007 16:31:58 -0800" -->
+<!-- isosent="20070105003158" -->
+<!-- name="Godin, Michael" -->
+<!-- email="Godin" -->
+<!-- subject="[CF-metadata] Indicating data lineage or provenance" -->
+<!-- id="DA82364018466D4D842186D5356746B1D7CA42_at_ice.shore.mbari.org" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1460.html" accesskey="d" title="Jon Blower: &quot;[CF-metadata] vertical coordinates&quot;">Next message</a> ]
-[ <a href="./1458.html" title="Jonathan Gregory: &quot;[CF-metadata]  Accumulation since timestep 0, cell-method&quot;">Previous message</a> ]
+[ <a href="./1460.html" accesskey="d" title="John Graybeal: &quot;[CF-metadata] Indicating data lineage or provenance&quot;">Next message</a> ]
+[ <a href="./1458.html" title="Christiane Textor: &quot;[CF-metadata] aerosol and chemistry names - continuation&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./1460.html" accesskey="t" title="John Graybeal: &quot;[CF-metadata] Indicating data lineage or provenance&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,28 +70,56 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20Usage%20of%20integral_of_Y_wrt_X">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Godin, Michael &lt;<a href="mailto:Godin?Subject=Re%3A%20%5BCF-metadata%5D%20Indicating%20data%20lineage%20or%20provenance">Godin</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 5 Aug 2008 13:17:23 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 4 Jan 2007 16:31:58 -0800</span><br />
 </address>
 <br />
-Dear Heiko
+I am heartened by all the work this group has put into standardizing the metadata for representing multiple models as an ensemble.  However, a particularly thorny issue has been for the most part ignored (I think it has been called a &quot;nightmare&quot;), so I'd like to see if some of the list participants would be willing to work together to form a proposal for indicating the provenance of derived data (for example, initial conditions, larger nested grids, and assimilated data that go into models).
 <br />
-<br />The pattern integral_of_Y_wrt_X is in the guidelines for construction of
+&nbsp;
 <br />
-stdnames. You have to request each name that you need, but they'll all follow
+So here are the (draft) requirements that I believe need to be addressed:
 <br />
-this pattern so they should be accepted without problems. You can send the
+- derived data users need to be provided the information they need to understand the differences between data (covering the same temporal/spatial region) from different models and different realizations of the same model.
 <br />
-proposals for new standard names to this email list (you could do it on trac
+- skeptics (public, governmental, other modelers, observationalists) should be able to request specific observational data that went into a model realization (granted, the request may be for data that would not otherwise be made publicly available).
 <br />
-if you like, but so far we have not used trac for standard names).
+- the specification of source data should not only indicate the source data files (or URLs) and variables, but also the temporal/spatial/realization bounds on the supplied data. 
 <br />
-<br />Best wishes
+&nbsp;
 <br />
-<br />Jonathan
+I don't know if such a set of requirements can be addressed in a netCDF file, or if it would require a link to an external XML (or other format) file.  I am also unsure if any other community has solved the above set of requirements - both the OGC's Layer definition within their Web Map Context Document standard, and the FGDC's Lineage definition within their Content Standard for Digital Geospatial Metadata allow one to specify a lot of metadata about lineage and provenance, but neither really meets the requirements above.  
 <br />
-<span id="received"><dfn>Received on</dfn> Tue Aug 05 2008 - 06:17:23 BST</span>
+&nbsp;
+<br />
+My initial thought for doing this within a netCDF file would be to specify a global multi-line string attribute called something like &quot;lineage&quot; or &quot;provenance&quot; and populate it with a series of DAP2.0-like URIs (of course, this would not be global in the case of ensembles -- it would have to be a 3D set of strings!).  The DAP2.0 URIs would not have to be publicly accessible, and the syntax would have to allow combinations of hyperslab operators and queries -- which I do not believe any DAP server actually allows -- but would allow one to specify precise data ranges.  
+<br />
+&nbsp;
+<br />
+Thanks for your consideration,
+<br />
+Mike
+<br />
+<br />_____________________________________________
+<br />
+<br />Michael A. Godin
+<br />
+<br />Software Engineer
+<br />
+<br />Monterey Bay Aquarium Research Institute
+<br />
+<br />Phone: 831-775-2063  <a href="http://www.mbari.org">http://www.mbari.org</a> &lt;<a href="http://www.mbari.org/">http://www.mbari.org/</a>&gt; 
+<br />
+<br />&nbsp;
+<br />
+-------------- next part --------------
+<br />
+An HTML attachment was scrubbed...
+<br />
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20070104/f671ef20/attachment-0002.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20070104/f671ef20/attachment-0002.html</a>&gt;
+<br />
+<span id="received"><dfn>Received on</dfn> Thu Jan 04 2007 - 17:31:58 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -97,9 +127,13 @@ if you like, but so far we have not used trac for standard names).
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1459">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1460.html" title="Next message in the list">Jon Blower: "[CF-metadata] vertical coordinates"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1458.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]  Accumulation since timestep 0, cell-method"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1460.html" title="Next message in the list">John Graybeal: "[CF-metadata] Indicating data lineage or provenance"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1458.html" title="Previous message in the list">Christiane Textor: "[CF-metadata] aerosol and chemistry names - continuation"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./1460.html" title="Next message in this discussion thread">John Graybeal: "[CF-metadata] Indicating data lineage or provenance"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./1460.html" title="Message sent in reply to this message">John Graybeal: "[CF-metadata] Indicating data lineage or provenance"</a></li>
+<li><dfn>Reply</dfn>: <a href="./1461.html" title="Message sent in reply to this message">Bryan Lawrence: "[CF-metadata] Indicating data lineage or provenance"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -110,7 +144,7 @@ if you like, but so far we have not used trac for standard names).
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:07 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1458.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1460.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

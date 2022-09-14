@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] new standard names 1.-33. from Jonathan Gregory on 2006-09-21 (mailing-list-archive)</title>
+<title>[CF-metadata] Example of forecast data from Jonathan Gregory on 2003-07-23 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] new standard names 1.-33." />
-<meta name="Date" content="2006-09-21" />
+<meta name="Subject" content="[CF-metadata] Example of forecast data" />
+<meta name="Date" content="2003-07-23" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0215.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0217.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new standard names 1.-33.</h1>
-<!-- received="Thu Sep 21 14:23:21 2006" -->
-<!-- isoreceived="20060921132321" -->
-<!-- sent="Thu, 21 Sep 2006 21:23:21 +0100" -->
-<!-- isosent="20060921202321" -->
+<a style="text-decoration:none" href="./0215.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0217.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Example of forecast data</h1>
+<!-- received="Wed Jul 23 10:28:29 2003" -->
+<!-- isoreceived="20030723092829" -->
+<!-- sent="Wed, 23 Jul 2003 17:28:29 +0100" -->
+<!-- isosent="20030723162829" -->
 <!-- name="Jonathan Gregory" -->
 <!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] new standard names 1.-33." -->
-<!-- id="20060921202321.GA5486_at_met.reading.ac.uk" -->
+<!-- subject="[CF-metadata] Example of forecast data" -->
+<!-- id="20030723162829.GA4499_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="49F73BEED865D3119F8700902773C9F902D1917B_at_exchange09.rl.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0217.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Parameter Ontology Project&quot;">Next message</a> ]
-[ <a href="./0215.html" title="Jonathan Gregory: &quot;[CF-metadata] standard names for aerosols and chemistry&quot;">Previous message</a> ]
+[ <a href="./0217.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Vertical Coordinate Systems&quot;">Next message</a> ]
+[ <a href="./0215.html" title="Stephens, A: &quot;[CF-metadata] Example of forecast data&quot;">Previous message</a> ]
+[ <a href="./0215.html" title="Stephens, A: &quot;[CF-metadata] Example of forecast data&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,38 +70,58 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20new%20standard%20names%201.-33.">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Example%20of%20forecast%20data">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 21 Sep 2006 21:23:21 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 23 Jul 2003 17:28:29 +0100</span><br />
 </address>
 <br />
-Dear Beate
+Dear Ag
 <br />
-<br /><em class="quotelev1">&gt; 30. in the table we already have
+<br /><em class="quotelev1">&gt; I hadn't thought about the introduction of an index dimension to describe
 </em><br />
-<em class="quotelev1">&gt;   product_of_eastward_wind_and_specific_humidity
+<em class="quotelev1">&gt; the length of 'time' and 'validity time'.
 </em><br />
-<em class="quotelev1">&gt;   product_of_eastward_wind_and_air_temperature
-</em><br />
-<em class="quotelev1">&gt;   product_of_northward_wind_and_specific_humdity
-</em><br />
-<em class="quotelev1">&gt;   product_of_northward_wind_and_air_temperature
-</em><br />
-<em class="quotelev1">&gt; there I'm in the need of the vertical integrals:
-</em><br />
-<em class="quotelev1">&gt; what about 
-</em><br />
-<em class="quotelev1">&gt; atmosphere_product_of_... ?
-</em><br />
-<br />Vertical integration changes the units and therefore the quantity. What are
+<br />I thought this was our intention for the case where you had various
 <br />
-the units of the quantities you wish to name?
+combinations of analysis and forecast time e.g. 0, 6 and 12 h forecasts
 <br />
-<br />Cheers
+from an analysis at 0Z, 0 and 6 h from 6Z and 0 h from 12Z. That makes
+<br />
+six altogether. Since you don't have every combination of analysis and
+<br />
+forecast time, you can't have two orthogonal time axes. What I meant was
+<br />
+<br />&nbsp;dimensions:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time_index = 6 ;
+<br />
+&nbsp;
+<br />
+&nbsp;variables:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double time(time_index);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:units=&quot;hours since 2003-7-23&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double forecast_reference_time(time_index);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:units=&quot;hours since 2003-7-23&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float myvar(time_index, lat, lon);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;myvar:coordinates=&quot;time forecast_reference_time&quot;;
+<br />
+<br />&nbsp;data:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;forecast_reference_time=0, 0, 0, 6, 6, 12;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time=0, 6, 12, 6, 12, 12; 
+<br />
+<br />Best wishes
 <br />
 <br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Thu Sep 21 2006 - 14:23:21 BST</span>
+<span id="received"><dfn>Received on</dfn> Wed Jul 23 2003 - 10:28:29 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -107,8 +129,9 @@ the units of the quantities you wish to name?
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start216">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0217.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Parameter Ontology Project"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0215.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] standard names for aerosols and chemistry"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0217.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Vertical Coordinate Systems"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0215.html" title="Previous message in the list">Stephens, A: "[CF-metadata] Example of forecast data"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0215.html" title="Message to which this message replies">Stephens, A: "[CF-metadata] Example of forecast data"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -120,7 +143,7 @@ the units of the quantities you wish to name?
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:46 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0215.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0217.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

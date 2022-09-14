@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] mistake in xml list for standard names from Christiane Textor on 2006-06-30 (mailing-list-archive)</title>
-<meta name="Author" content="Christiane Textor (christiane.textor)" />
-<meta name="Subject" content="[CF-metadata] mistake in xml list for standard names" />
-<meta name="Date" content="2006-06-30" />
+<title>[CF-metadata] bounds from Jonathan Gregory on 2003-05-27 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (jonathan.gregory)" />
+<meta name="Subject" content="[CF-metadata] bounds" />
+<meta name="Date" content="2003-05-27" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0157.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0159.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] mistake in xml list for standard names</h1>
-<!-- received="Fri Jun 30 01:55:32 2006" -->
-<!-- isoreceived="20060630005532" -->
-<!-- sent="Fri, 30 Jun 2006 09:55:32 +0200" -->
-<!-- isosent="20060630075532" -->
-<!-- name="Christiane Textor" -->
-<!-- email="christiane.textor" -->
-<!-- subject="[CF-metadata] mistake in xml list for standard names" -->
-<!-- id="44A4D8F4.2020004_at_aero.jussieu.fr" -->
+<a style="text-decoration:none" href="./0157.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0159.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] bounds</h1>
+<!-- received="Tue May 27 02:38:34 2003" -->
+<!-- isoreceived="20030527013834" -->
+<!-- sent="Tue, 27 May 2003 09:38:34 +0100" -->
+<!-- isosent="20030527083834" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="jonathan.gregory" -->
+<!-- subject="[CF-metadata] bounds" -->
+<!-- id="20030527083834.GA8907_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="3ECEAA2E.20856AA5_at_llnl.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,9 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0159.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] new vertical coordinate&quot;">Next message</a> ]
-[ <a href="./0157.html" title="V. Balaji: &quot;[CF-metadata] new vertical coordinate&quot;">Previous message</a> ]
+[ <a href="./0159.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] bounds&quot;">Next message</a> ]
+[ <a href="./0157.html" title="Bob Drach: &quot;[CF-metadata] bounds&quot;">Previous message</a> ]
+[ <a href="./0157.html" title="Bob Drach: &quot;[CF-metadata] bounds&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0160.html" accesskey="t" title="Brian Eaton: &quot;[CF-metadata] bounds&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,45 +72,136 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Christiane Textor &lt;<a href="mailto:christiane.textor?Subject=Re%3A%20%5BCF-metadata%5D%20mistake%20in%20xml%20list%20for%20standard%20names">christiane.textor</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:jonathan.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20bounds">jonathan.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 30 Jun 2006 09:55:32 +0200</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 27 May 2003 09:38:34 +0100</span><br />
 </address>
 <br />
-Dear &quot;CF-people&quot;,
+Dear Bob and Brian
 <br />
-<br />There is a small error on 
+<br /><em class="quotelev1">&gt; I don't have any objection to the (x,y,2,2) representation. I could be wrong, but
+</em><br />
+<em class="quotelev1">&gt; there also seems to be a reasonable consensus that (x,y,2,2) is acceptable. Anyway
+</em><br />
+<em class="quotelev1">&gt; I think the main goal is to wrap up these final issues before summer arrives.
+</em><br />
+<br />I agree with the main goal! I hope we can decide in the next few days.
 <br />
-<a href="http://www.cgd.ucar.edu/cms/eaton/cf-metadata/standard_name.xml">http://www.cgd.ucar.edu/cms/eaton/cf-metadata/standard_name.xml</a>
+<br />Brian has argued that (y+1,x+1) is better for 2D contiguous rectilinear cells
 <br />
-<br />surface_carbon_dioxide_mole_flux	mol s-2 s-1			
+because it indicates they are contiguous - the same argument as for 1D but
 <br />
-<br />The surface called &quot;surface&quot; means the lower boundary of the atmosphere. 
+without the problem 1D has with the record dimension. I agree this is true but
 <br />
-In accordance with common usage in geophysical disciplines, &quot;flux&quot; 
+as with 1D I am not convinced that it is a good idea to support two schemes,
 <br />
-implies per unit area, called &quot;flux density&quot; in physics.
+since you would still need (y,x,2,2) or (y,x,4) for the non-contiguous case.
 <br />
-<br />The unit should probably be mol m-2 s-1.
+<br />I wondered if we could make it mandatory to supply 1D bounds for the 2D
 <br />
-<br />Best regards,
+rectilinear case. If you have 1D bounds, you can check them instead of the 2D
 <br />
-Christiane
+bounds. As we have discussed before, a continuous mapping such as a projection
 <br />
-<br /><br /><pre>
--- 
-Christiane Textor
-GMES France Atmosph?re - GEMS France
-Service d'A?ronomie INSU CNRS, Tour 46, RDC # 2
-Universit? Pierre et Marie Curie, Boite 102
-4 place Jussieu
-75252 Paris C?dex 05
-France
-Tel: ++33 1.44.27.21.82
-Fax: ++33 1.44.27.21.81
-Email: christiane.textor at aero.jussieu.fr
-</pre>
-<span id="received"><dfn>Received on</dfn> Fri Jun 30 2006 - 01:55:32 BST</span>
+will preserve contiguousness. However, this would be too large a requirement
+<br />
+because the 1D coordinate variables might not exist.
+<br />
+<br />Here's (yet) another idea. I am in effect *defining* 2D rectilinear to mean
+<br />
+that there exist continuous 1D x and y coordinates, even if they aren't
+<br />
+recorded in the file.  That excludes the situation where the cells had two
+<br />
+index dimensions but were not arranged as a 2D rectilinear array in any
+<br />
+continuous 2D coordinate plane. I would call that non-rectilinear.
+<br />
+<br />If we adopt (y,x,2,2) for the 2D rectilinear case,
+<br />
+<br />* It has the advantage of being distinguishable from the 2D non-rectilinear
+<br />
+case, which is dimensioned ([...,]x,2). The rectilinear case has two trailing
+<br />
+size-2 dimensions which aren't dimensions of the coordinate variable it
+<br />
+belongs to, and the non-rectilinear case has one trailing dimension of size&gt;2
+<br />
+which isn't a dimension of the coordinate variable.
+<br />
+<br />* If you know it is rectilinear, you *don't* have to check the entire bounds
+<br />
+variable for contiguousness. By the same argument as above, you have only to
+<br />
+check one row and one column. For instance, the slabs (0,*,0,*) and (*,0,*,0)
+<br />
+have shapes (x,2) and (y,2) respectively, like 1D bounds variables. It would
+<br />
+be sufficient to check these alone for contiguousness. True? If so, it is not
+<br />
+much more complicated than 1D. We can make the same requirement of exact
+<br />
+equality i.e. if the cells are contiguous in x, bound(j,i,q,1) must be
+<br />
+exactly equal to bound(j,i+1,q,0) for all j and q (j=0,...,y-1, q=0,1);
+<br />
+if they are contiguous in y, bound(j,i,1,p) must be exactly equal to
+<br />
+bound(j+1,i,0,p) for all i and p.
+<br />
+<br />If this is OK and sufficiently convenient, the modified proposals are as below.
+<br />
+<br />Best wishes
+<br />
+<br />Jonathan
+<br />
+<br /><br />(1) For a 1D coordinate variable with bounds (x,2), define an ordering for the
+<br />
+2nd index, namely that the bounds should be ordered in the same sense as the
+<br />
+coordinates, so that the 0-bound of cell i is on the side that faces cell i-1
+<br />
+and the 1-bound on the side facing cell i+1. [At present, there is no ordering
+<br />
+defined for 1D bounds.]
+<br />
+<br />(2) If 1D cells i and i+1 are contiguous, bound (i,1) should exactly equal
+<br />
+bound (i+1,0). The data-writer should ensure that this is so. [At present, the
+<br />
+standard does not state how contiguousness should be tested.]
+<br />
+<br />(3) In the 2D rectilinear case, the bounds should be dimensioned (y,x,2,2),
+<br />
+where the first trailing index corresponds to the y dimension and the second
+<br />
+to the x. The elements (j,i,0,0), (j,i,0,1), (j,i,1,1), (j,i,1,0) in that order
+<br />
+traverse the vertices of cell (j,i) anticlockwise in the lat-lon plane as
+<br />
+viewed from above. [This dimensioning of the 2D vertices is new.]
+<br />
+<br />(4) In the 2D rectilinear case, if cells (j,i) and (j,i+1) are contiguous in
+<br />
+x, bound(j,i,q,1) should exactly equal bound(j,i+1,q,0) for q=0 and q=1. If
+<br />
+cells (j,i) and (j+1,i) are contiguous in y, bound(j,i,1,p) should exactly
+<br />
+equal bound(j+1,i,0,p) for p=0 and p=1. Since a continuous grid mapping in 2D
+<br />
+will not affect contiguousness, it is sufficient to check any single value of j
+<br />
+and q for contiguousness in x, i and p for contiguousness in y.
+<br />
+<br />(5) In the non-rectilinear case, the bounds should be dimensioned
+<br />
+(...,n,p). The vertices must be traversed anticlockwise in the lat-lon plane
+<br />
+as viewed from above. The starting vertex is not specified by the standard.
+<br />
+[At present, the standard does not state any ordering.]
+<br />
+<span id="received"><dfn>Received on</dfn> Tue May 27 2003 - 02:38:34 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -114,9 +209,13 @@ Email: christiane.textor at aero.jussieu.fr
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start158">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0159.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] new vertical coordinate"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0157.html" title="Previous message in the list">V. Balaji: "[CF-metadata] new vertical coordinate"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0159.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] bounds"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0157.html" title="Previous message in the list">Bob Drach: "[CF-metadata] bounds"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0157.html" title="Message to which this message replies">Bob Drach: "[CF-metadata] bounds"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0160.html" title="Next message in this discussion thread">Brian Eaton: "[CF-metadata] bounds"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0160.html" title="Message sent in reply to this message">Brian Eaton: "[CF-metadata] bounds"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -127,7 +226,7 @@ Email: christiane.textor at aero.jussieu.fr
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:45 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0157.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0159.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

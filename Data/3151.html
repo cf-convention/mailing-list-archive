@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] ESRI implementation of ellipsoidal-earth from Lauret Olivier on 2011-02-02 (mailing-list-archive)</title>
-<meta name="Author" content="Lauret Olivier (olauret)" />
-<meta name="Subject" content="[CF-metadata] ESRI implementation of ellipsoidal-earth" />
-<meta name="Date" content="2011-02-02" />
+<title>[CF-metadata] CF point observation Conventions ready for review from John Caron on 2009-11-18 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] CF point observation Conventions ready for review" />
+<meta name="Date" content="2009-11-18" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./3150.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3152.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] ESRI implementation of ellipsoidal-earth</h1>
-<!-- received="Wed Feb  2 02:40:29 2011" -->
-<!-- isoreceived="20110202024029" -->
-<!-- sent="Wed, 2 Feb 2011 10:40:29 +0100" -->
-<!-- isosent="20110202094029" -->
-<!-- name="Lauret Olivier" -->
-<!-- email="olauret" -->
-<!-- subject="[CF-metadata] ESRI implementation of ellipsoidal-earth" -->
-<!-- id="1240F43731C2EB4F8CC9BF70D233B511023FC5A9_at_SRV-XCHANGE-2K3.pc.cls.fr" -->
+<a style="text-decoration:none" href="./3150.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3152.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF point observation Conventions ready for review</h1>
+<!-- received="Wed Nov 18 08:42:49 2009" -->
+<!-- isoreceived="20091118084249" -->
+<!-- sent="Wed, 18 Nov 2009 08:42:49 -0700" -->
+<!-- isosent="20091118154249" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] CF point observation Conventions ready for review" -->
+<!-- id="4B0415F9.7050400_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4D48619B.8090103_at_unidata.ucar.edu" -->
+<!-- inreplyto="4AFDE30F.7040608_at_unc.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./3152.html" accesskey="d" title="plieger: &quot;[CF-metadata] MSG CPP standard name for time_offset_of_observation / pixel_delta_time&quot;">Next message</a> ]
-[ <a href="./3150.html" title="Malm  Jakob: &quot;[CF-metadata] ECMWF GRIB code - CF Standard Name Mapping incorrect?&quot;">Previous message</a> ]
-[ <a href="./3149.html" title="John Caron: &quot;[CF-metadata] ESRI implementation of ellipsoidal-earth&quot;">In reply to</a> ]
+[ <a href="./3152.html" accesskey="d" title="Thomas Lavergne: &quot;[CF-metadata] Standard name(s) needed for satellite-based icedrift products&quot;">Next message</a> ]
+[ <a href="./3150.html" title="Jonathan Gregory: &quot;[CF-metadata] Cell bounds associated with coordinate ... (in situ data)&quot;">Previous message</a> ]
+[ <a href="./3138.html" title="Sara Haines: &quot;[CF-metadata] CF point observation Conventions ready for review&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./3157.html" accesskey="t" title="Rich Signell: &quot;[CF-metadata] ESRI implementation of ellipsoidal-earth&quot;">Next in thread</a> ]
+[ <a href="./3139.html" accesskey="t" title="Lowry, Roy K: &quot;[CF-metadata] CF point observation Conventions ready for review&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -71,54 +71,296 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Lauret Olivier &lt;<a href="mailto:olauret?Subject=Re%3A%20%5BCF-metadata%5D%20ESRI%20implementation%20of%20ellipsoidal-earth">olauret</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20point%20observation%20Conventions%20ready%20for%20review">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 2 Feb 2011 10:40:29 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 18 Nov 2009 08:42:49 -0700</span><br />
 </address>
 <br />
-Hi John, hi all,
+Hi Sara:
 <br />
-<br />I know that for Topex/Poseidon and Jason-1/2 satellite data a specific reference ellipsoid is used. If ESRI pick a sample of Jason data, as far as I remember this reference ellipsoid is declared in the netCDF files. They can retrieve these data on this FTP directory: <a href="ftp://avisoftp.cnes.fr/AVISO/pub/jason-2/ssha_gdr_t/">ftp://avisoftp.cnes.fr/AVISO/pub/jason-2/ssha_gdr_t/</a>
+<br />Thanks for adding your example to the mix. This appears to be a timeseries at a single x,y location with all the measurements on single, but different levels (?)
 <br />
-<br />Hope this helps.
+<br />Because these are single level, I would be inclined to use a variation of the station representation. One possibility is to put each z coordinate in its own coordinate using a &quot;scalar dimension&quot; (dimension with length 1) :
 <br />
-<br />Olivier.
+<br /><br />dimension
 <br />
-<br />-----Message d'origine-----
+&nbsp;z_inst1 = 1;
 <br />
-De?: cf-metadata-bounces at cgd.ucar.edu [mailto:cf-metadata-bounces at cgd.ucar.edu] De la part de John Caron
+&nbsp;z_inst2 = 1;
 <br />
-Envoy??: mardi 1 f?vrier 2011 20:40
+&nbsp;z_inst3 = 1;
 <br />
-??: cf-metadata at cgd.ucar.edu; Java NetCDF
+<br />float lon;
 <br />
-Objet?: [CF-metadata] ESRI implementation of ellipsoidal-earth
+float lat;
 <br />
-<br />Apparently ESRI is willing to add support for CF 1.5 grid_mapping attributes for ellipsoidal-earth/geodetic-datum definitions in the Grid Mappings and Projections specification.
+<br />float z_inst1(z_inst1);
 <br />
-<br />They are looking for sample data, especially using ellipsoidal parameters (semi_major_axis/semi_minor_axis/inverse_flattening). Does anyone have any?
+float z_inst2(z_inst2);
 <br />
-<br />Also, they are wondering what to use for the default ellipsoid when these are not specified. It seems to me the obvious candidates are 1) spherical earth with a standard radius, or 2) WGS84 ellipsoid.
+float z_inst3(z_inst3);
 <br />
-<br />Opinions?
+<br />long time(time);
 <br />
-<br />John
+<br />float wspd(time,z_inst1);
 <br />
-<br />_______________________________________________
+float wdir(time,z_inst1);
 <br />
-CF-metadata mailing list
+float atemp(time,z_inst2);
 <br />
-CF-metadata at cgd.ucar.edu
+float SST(time,z_inst3);
 <br />
-<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+<br /><br />Sara Haines wrote:
 <br />
-<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cliquez sur l'url suivante 
-<br />
-<a href="https://www.mailcontrol.com/sr/KZUbPkVwZdnTndxI!oX7Uj+Zd8hgYGYDE28IoNzA0RNrtxALuxH9aMeqx2fF7!62hFoFv2Oxt!xGp10b+rkp2Q">https://www.mailcontrol.com/sr/KZUbPkVwZdnTndxI!oX7Uj+Zd8hgYGYDE28IoNzA0RNrtxALuxH9aMeqx2fF7!62hFoFv2Oxt!xGp10b+rkp2Q</a>==  
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;si ce message est ind?sirable (pourriel).
-<br />
-<span id="received"><dfn>Received on</dfn> Wed Feb 02 2011 - 02:40:29 GMT</span>
+<em class="quotelev1">&gt; Dear Nan and John:
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; I've been monitoring this conversation for just a short period.  So I 
+</em><br />
+<em class="quotelev1">&gt; apologize ahead for chiming in so late in the game.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; It is very important for observational data model to represent the 
+</em><br />
+<em class="quotelev1">&gt; actual system that is deployed.  The point that Nan and others have 
+</em><br />
+<em class="quotelev1">&gt; raised is a need for a container to represent multiple measurement 
+</em><br />
+<em class="quotelev1">&gt; heights for several sensors at a station (e.g.  met above the ocean 
+</em><br />
+<em class="quotelev1">&gt; surface, near-surface and near-bottom ocean temperature and salinity).
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; You all seem in agreement on this and that it is not a simple side-bar 
+</em><br />
+<em class="quotelev1">&gt; case. Similar to what Nan described was kludged in the SEACOOS CDL v2.0 
+</em><br />
+<em class="quotelev1">&gt; netcdf format because no case like moorings and buoys with multiple 
+</em><br />
+<em class="quotelev1">&gt; point measurements was covered in CF-conventions back in 2004.  We 
+</em><br />
+<em class="quotelev1">&gt; defined the requirement that the point-measurement sensors be associated 
+</em><br />
+<em class="quotelev1">&gt; with the same location or site.  SEACOOS CDL v2.0 was adopted by SECOORA 
+</em><br />
+<em class="quotelev1">&gt; but most definitely needs revisiting.  It looks like this:
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; netcdf  fixed-point {
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; // This is a fixed-point station with dependent variables
+</em><br />
+<em class="quotelev1">&gt; // measured by sensors at different heights.
+</em><br />
+<em class="quotelev1">&gt; //
+</em><br />
+<em class="quotelev1">&gt; // All sensors are sampling at the same time.
+</em><br />
+<em class="quotelev1">&gt; //    (1) x and y and sensor-specific z are repeated for each time.
+</em><br />
+<em class="quotelev1">&gt; //    (2) Assign z dimension equal to number of z measurement levels
+</em><br />
+<em class="quotelev1">&gt; //    (3) Assign values for z levels in the data section
+</em><br />
+<em class="quotelev1">&gt; //    (4) Use variable attribute called &quot;z&quot; under dependent variable to
+</em><br />
+<em class="quotelev1">&gt; //             associate specific z of point measurement
+</em><br />
+<em class="quotelev1">&gt; //    (5) Use z variable to describe all the required attributes
+</em><br />
+<em class="quotelev1">&gt; //             without having to repeat under each dependent variable
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; dimensions:
+</em><br />
+<em class="quotelev1">&gt; time = 4;
+</em><br />
+<em class="quotelev1">&gt; lon = 1;
+</em><br />
+<em class="quotelev1">&gt; lat = 1;
+</em><br />
+<em class="quotelev1">&gt; z = 3;
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; variables:
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; // INDEPENDENT VARIABLES
+</em><br />
+<em class="quotelev1">&gt; long time(time);
+</em><br />
+<em class="quotelev1">&gt;     time: standard_name = &quot;time&quot;;
+</em><br />
+<em class="quotelev1">&gt;     time: units = &quot;sec since 1970-1-1 00:00:00&quot;;
+</em><br />
+<em class="quotelev1">&gt;     time: axis = &quot;T&quot;;
+</em><br />
+<em class="quotelev1">&gt; float lon(lon);
+</em><br />
+<em class="quotelev1">&gt;     lon: standard_name = &quot;longitude&quot;;
+</em><br />
+<em class="quotelev1">&gt;     lon: units = &quot;degrees_east&quot; ;
+</em><br />
+<em class="quotelev1">&gt;     lon: reference = &quot;geographical coordinates&quot; ;
+</em><br />
+<em class="quotelev1">&gt;     lon: axis = &quot;X&quot;;
+</em><br />
+<em class="quotelev1">&gt; float lat(lat);
+</em><br />
+<em class="quotelev1">&gt;     lat: standard_name = &quot;latitude&quot;;
+</em><br />
+<em class="quotelev1">&gt;     lat: units = &quot;degrees_east&quot;;
+</em><br />
+<em class="quotelev1">&gt;     lat: reference = &quot;geographical coordinates&quot;;
+</em><br />
+<em class="quotelev1">&gt;     lat: axis = &quot;Y&quot;;
+</em><br />
+<em class="quotelev1">&gt; float z(z);
+</em><br />
+<em class="quotelev1">&gt;     z: standard_name = &quot;height&quot;;
+</em><br />
+<em class="quotelev1">&gt;     z: units = &quot;m&quot;;
+</em><br />
+<em class="quotelev1">&gt;     z: reference = &quot;mean sea level (MSL)&quot;;
+</em><br />
+<em class="quotelev1">&gt;     z: positive = &quot;up&quot;;
+</em><br />
+<em class="quotelev1">&gt;     z: axis = &quot;Z&quot;;
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; // DEPENDENT VARIABLES
+</em><br />
+<em class="quotelev1">&gt; float wspd(time);
+</em><br />
+<em class="quotelev1">&gt;     wspd: long_name = &quot;Wind Speed&quot;;
+</em><br />
+<em class="quotelev1">&gt;     wspd: standard_name = &quot;wind_speed&quot;;
+</em><br />
+<em class="quotelev1">&gt;     wspd: units = &quot;m s-1&quot;;
+</em><br />
+<em class="quotelev1">&gt;     wspd: z = 45;
+</em><br />
+<em class="quotelev1">&gt; float wdir(time);
+</em><br />
+<em class="quotelev1">&gt;     wdir: long_name= &quot;Wind Direction (from)&quot;;
+</em><br />
+<em class="quotelev1">&gt;     wdir: standard_name = &quot;wind_from_direction&quot;;
+</em><br />
+<em class="quotelev1">&gt;     wdir: units = &quot;degrees&quot;;
+</em><br />
+<em class="quotelev1">&gt;     wdir: reference = &quot;clockwise from true north&quot;;
+</em><br />
+<em class="quotelev1">&gt;     wdir: valid_range = 0.,360.;
+</em><br />
+<em class="quotelev1">&gt;     wdir: z = 45;
+</em><br />
+<em class="quotelev1">&gt; float atemp(time);
+</em><br />
+<em class="quotelev1">&gt;     atemp: long_name = &quot;Air temperature&quot;;
+</em><br />
+<em class="quotelev1">&gt;     atemp: standard_name = &quot;air_temperature&quot;;
+</em><br />
+<em class="quotelev1">&gt;     atemp: units = &quot;degrees Celsius&quot;;
+</em><br />
+<em class="quotelev1">&gt;     atemp: z = 24;
+</em><br />
+<em class="quotelev1">&gt; float SST(time);
+</em><br />
+<em class="quotelev1">&gt;     SST: long_name = &quot;Sea Surface Temperature&quot;;
+</em><br />
+<em class="quotelev1">&gt;     SST: standard_name = &quot;sea_surface_temperature&quot;;
+</em><br />
+<em class="quotelev1">&gt;     SST: units = &quot;degrees Celsius&quot;;
+</em><br />
+<em class="quotelev1">&gt;     SST: z = -5;
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; // global attributes:
+</em><br />
+<em class="quotelev1">&gt; // (use all for adopted SEACOOS CDL v2.0)
+</em><br />
+<em class="quotelev1">&gt; :format_category = &quot;fixed-point&quot;;
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; data:
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; time = 1062804600,1062808200,1062810000,1062811800;
+</em><br />
+<em class="quotelev1">&gt; lon = -82.543;
+</em><br />
+<em class="quotelev1">&gt; lat = 18.462702;
+</em><br />
+<em class="quotelev1">&gt; z = 45, 24, -5;
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; wspd =   9.80, 12.63, 16.52, 18.97;
+</em><br />
+<em class="quotelev1">&gt; wdir =  88.8,103.6,112.7,105.0;
+</em><br />
+<em class="quotelev1">&gt; atemp =  27.00, 27.23, 27.05, 26.97;
+</em><br />
+<em class="quotelev1">&gt; SST =  28.11, 28.17, 28.17, 28.35;
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; }
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; I understand your points about making lat and lon scalars.  So ignore 
+</em><br />
+<em class="quotelev1">&gt; that for just now.  (Remember: This was developed 5 years ago!)
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; The variable attribute above (&quot;SST: z = -5&quot;) should probably be an index 
+</em><br />
+<em class="quotelev1">&gt; to the z variable to be less confusing.  But I think you get the idea.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; There is something workable for conventions of Point Observation Data 
+</em><br />
+<em class="quotelev1">&gt; without being cobbling something together.  I like many of the ideas in 
+</em><br />
+<em class="quotelev1">&gt; this proposed convention, for example, multiple deployments at the same 
+</em><br />
+<em class="quotelev1">&gt; site.  It addresses most short-comings in previous CF-conventions for 
+</em><br />
+<em class="quotelev1">&gt; non-gridded data and what is kludged in the Southeast Region.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; I would most enjoy discussing this further.  It will help me understand 
+</em><br />
+<em class="quotelev1">&gt; what is being proposed.  Right now, I'm mostly chiming in to underscore 
+</em><br />
+<em class="quotelev1">&gt; Nan's need and the need to address it in this round of the review.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Thanks,
+</em><br />
+<em class="quotelev1">&gt; Sara
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<span id="received"><dfn>Received on</dfn> Wed Nov 18 2009 - 08:42:49 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -126,11 +368,11 @@ CF-metadata at cgd.ucar.edu
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start3151">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./3152.html" title="Next message in the list">plieger: "[CF-metadata] MSG CPP standard name for time_offset_of_observation / pixel_delta_time"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./3150.html" title="Previous message in the list">Malm  Jakob: "[CF-metadata] ECMWF GRIB code - CF Standard Name Mapping incorrect?"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./3149.html" title="Message to which this message replies">John Caron: "[CF-metadata] ESRI implementation of ellipsoidal-earth"</a></li>
+<li><dfn>Next message</dfn>: <a href="./3152.html" title="Next message in the list">Thomas Lavergne: "[CF-metadata] Standard name(s) needed for satellite-based icedrift products"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./3150.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Cell bounds associated with coordinate ... (in situ data)"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./3138.html" title="Message to which this message replies">Sara Haines: "[CF-metadata] CF point observation Conventions ready for review"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./3157.html" title="Next message in this discussion thread">Rich Signell: "[CF-metadata] ESRI implementation of ellipsoidal-earth"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./3139.html" title="Next message in this discussion thread">Lowry, Roy K: "[CF-metadata] CF point observation Conventions ready for review"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -141,7 +383,7 @@ CF-metadata at cgd.ucar.edu
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:39 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./3150.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3152.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

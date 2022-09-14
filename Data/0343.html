@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Recommendation for use of standard_name attribute from Stephens, A on 2006-10-17 (mailing-list-archive)</title>
-<meta name="Author" content="Stephens, A (A.Stephens)" />
-<meta name="Subject" content="[CF-metadata] Recommendation for use of standard_name attribute" />
-<meta name="Date" content="2006-10-17" />
+<title>[CF-metadata] WRF staggered grids and vertical coordinates from John Caron on 2004-01-27 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] WRF staggered grids and vertical coordinates" />
+<meta name="Date" content="2004-01-27" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0342.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0344.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Recommendation for use of standard_name attribute</h1>
-<!-- received="Tue Oct 17 04:32:18 2006" -->
-<!-- isoreceived="20061017033218" -->
-<!-- sent="Tue, 17 Oct 2006 11:32:18 +0100" -->
-<!-- isosent="20061017103218" -->
-<!-- name="Stephens, A" -->
-<!-- email="A.Stephens" -->
-<!-- subject="[CF-metadata] Recommendation for use of standard_name attribute" -->
-<!-- id="EB861CD59F6DAA4BBC25EAE9987C5BC903976A52_at_EXCHANGE29.fed.cclrc.ac.uk" -->
+<a style="text-decoration:none" href="./0342.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0344.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] WRF staggered grids and vertical coordinates</h1>
+<!-- received="Tue Jan 27 16:47:18 2004" -->
+<!-- isoreceived="20040127164718" -->
+<!-- sent="Tue, 27 Jan 2004 16:47:18 -0700" -->
+<!-- isosent="20040127234718" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] WRF staggered grids and vertical coordinates" -->
+<!-- id="4016F886.1000702_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4534AAFB.9050109_at_reading.ac.uk" -->
+<!-- inreplyto="20040127222731.GA23779_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,10 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0344.html" accesskey="d" title="Francisco Doblas-Reyes: &quot;[CF-metadata] OLR, soil moisture content and D20&quot;">Next message</a> ]
-[ <a href="./0342.html" title="Jonathan Gregory: &quot;[CF-metadata] Recommendation for use of standard_name attribute&quot;">Previous message</a> ]
-[ <a href="./0341.html" title="Rosalyn Hatcher: &quot;[CF-metadata] Recommendation for use of standard_name attribute&quot;">In reply to</a> ]
+[ <a href="./0344.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] WRF staggered grids and vertical coordinates&quot;">Next message</a> ]
+[ <a href="./0342.html" title="Karl Taylor: &quot;[CF-metadata] WRF staggered grids and vertical coordinates&quot;">Previous message</a> ]
+[ <a href="./0341.html" title="Jonathan Gregory: &quot;[CF-metadata] WRF staggered grids and vertical coordinates&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0345.html" accesskey="t" title="Brian Eaton: &quot;[CF-metadata] WRF staggered grids and vertical coordinates&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,111 +72,100 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Stephens, A &lt;<a href="mailto:A.Stephens?Subject=Re%3A%20%5BCF-metadata%5D%20Recommendation%20for%20use%20of%20standard_name%20attribute">A.Stephens</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20WRF%20staggered%20grids%20and%20vertical%20coordinates">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 17 Oct 2006 11:32:18 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 27 Jan 2004 16:47:18 -0700</span><br />
 </address>
 <br />
-Hi Ros,
+Jonathan Gregory wrote:
 <br />
-<br />I think that CF has to leave it open to users to encode long_name instead of standard_name where the standard_name has not yet been agreed.
+<br /><em class="quotelev1">&gt;Dear John
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;If I have understood this correctly, a CF-compliant file would have to include
+</em><br />
+<em class="quotelev1">&gt;the variables latForU and lonForU, because it is mandatory to supply 2D lat and
+</em><br />
+<em class="quotelev1">&gt;lon variables if lat and lon are not axes. These variables should be listed in
+</em><br />
+<em class="quotelev1">&gt;the coordinates attribute of U, so the data of U can be located in latitude
+</em><br />
+<em class="quotelev1">&gt;and longitude. Isn't it OK to do it in this straightforward way?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;There would then be no relation shown in the file between the two grids. My
+</em><br />
+<em class="quotelev1">&gt;point is that this relation (the staggering) can be deduced by inspecting the
+</em><br />
+<em class="quotelev1">&gt;coordinates. Given that this is the case, I don't see the need to introduce any
+</em><br />
+<em class="quotelev1">&gt;new convention to indicate it explicitly, because this would be redundant.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;Best wishes
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;Jonathan
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+Yes, if you are willing to explicitly include latForU and lonForU, you 
 <br />
-<br />In code, I often do hierarchical tests where I look for the &quot;best name&quot; in order of:
+wouldnt need the staggering.
 <br />
-<br />1. standard_name
+<br />To be explicit, for WRF, you will need 4 extra 3D variables (in 
 <br />
-2. long_name
+principle you might need as many 8 3D variables).
 <br />
-3. name
+<br />&nbsp;&nbsp;float lat2(t, y, x_stag);
 <br />
-4. title
+&nbsp;&nbsp;float lon2(t, y, x_stag);
 <br />
-5. short_name
+<br />&nbsp;&nbsp;float lat3(t, y_stag, x);
 <br />
-6. id
+&nbsp;&nbsp;float lon3(t, y_stag, x);
 <br />
-<br />In order to be backward-compatible CF probably needs to cope with old data that hasn't used either 1 or 2. 
+<br />and 6 new 4D vertical coordinates (possibly only 3 if they dont need to 
 <br />
-<br />Ideally it would be good if it was compulsory to include either 1 or 2 (or both of them) and that in all cases units should be provided.
+keep P and PB seperate)  (in principle you might need as many as 16  4D 
 <br />
-<br />Cheers,
+variables).
 <br />
-<br />Ag
+<br />&nbsp;&nbsp;float P2(t, z, y, x_stag);
 <br />
-<br /><br />-----Original Message-----
+&nbsp;&nbsp;float PB2(t, z, y, x_stag);
 <br />
-From: cf-metadata-bounces at cgd.ucar.edu on behalf of Rosalyn Hatcher
+<br />&nbsp;&nbsp;float P3(t, z, y_stag, x);
 <br />
-Sent: Tue 17/10/2006 11:05 AM
+&nbsp;&nbsp;float PB3(t, z, y_stag, x);
 <br />
-To: cf-metadata at cgd.ucar.edu
+<br />&nbsp;&nbsp;float P4(t, z_stag, y, x);
 <br />
-Subject: [CF-metadata] Recommendation for use of standard_name attribute
+&nbsp;&nbsp;float PB4(t, z_stag, y, x);
 <br />
-&nbsp;
+<br />It seems to me like a lot of overhead. But the real problem I think is 
 <br />
-Dear All,
+that it obscures the relationship of the coordinate systems, making it 
 <br />
-<br />It has been brought to my attention (Thanks Beate) that the CF Checker 
+more difficult to combine the staggered U,V,W fields into a vector wind. 
 <br />
-only detects that
+Its quite a simple and common relationship, deducing it is non trivial 
 <br />
-the standard_name attribute has been omitted if there is also no 
+and likely wont be done automatically.
 <br />
-long_name specified. (CF 3)
+<br />Im willing to tell the WRF people they need to do that, but if they dont 
 <br />
-The omission of a standard_name means a consistency check on the units 
+want to i guess they will have to create their own Convention.
 <br />
-can't be made
-<br />
-and so can mask potential units errors.
-<br />
-<br />If there were a positive recommendation to use standard_names where 
-<br />
-appropriate then the
-<br />
-checker could raise a warning that they have been omitted. The user will 
-<br />
-then be aware
-<br />
-that there may be additional errors.  I see a lot of effort being put 
-<br />
-into expanding/maintaining the
-<br />
-standard_name table, I think the convention should encourage people to 
-<br />
-use them.
-<br />
-<br />Hence I'd like to propose an additional recommendation to CF section 3.3 
-<br />
-something along
-<br />
-the lines of:
-<br />
-<br />* All variables should use the standard_name attribute to describe their 
-<br />
-content. Exceptions
-<br />
-are boundary, climatology and grid_mapping variables.
-<br />
-<br />Regards,
-<br />
-Ros
-<br />
-<br /><pre>
--- 
-------------------------------------------------------------------------
-Rosalyn Hatcher
-NCAS-Climate
-Dept. of Meteorology, University of Reading, 
-Earley Gate, Reading. RG6 6BB
-Email: r.s.hatcher at reading.ac.uk     Tel: +44 (0) 118 378 7841
-_______________________________________________
-CF-metadata mailing list
-CF-metadata at cgd.ucar.edu
-<a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</pre>
-<span id="received"><dfn>Received on</dfn> Tue Oct 17 2006 - 04:32:18 BST</span>
+<span id="received"><dfn>Received on</dfn> Tue Jan 27 2004 - 16:47:18 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -182,10 +173,13 @@ CF-metadata at cgd.ucar.edu
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start343">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0344.html" title="Next message in the list">Francisco Doblas-Reyes: "[CF-metadata] OLR, soil moisture content and D20"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0342.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Recommendation for use of standard_name attribute"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0341.html" title="Message to which this message replies">Rosalyn Hatcher: "[CF-metadata] Recommendation for use of standard_name attribute"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0344.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] WRF staggered grids and vertical coordinates"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0342.html" title="Previous message in the list">Karl Taylor: "[CF-metadata] WRF staggered grids and vertical coordinates"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0341.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] WRF staggered grids and vertical coordinates"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0345.html" title="Next message in this discussion thread">Brian Eaton: "[CF-metadata] WRF staggered grids and vertical coordinates"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0345.html" title="Message sent in reply to this message">Brian Eaton: "[CF-metadata] WRF staggered grids and vertical coordinates"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -196,7 +190,7 @@ CF-metadata at cgd.ucar.edu
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:48 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0342.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0344.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

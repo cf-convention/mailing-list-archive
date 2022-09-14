@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Standard name request for ocean colour and iceberg	concentration from Lauret Olivier on 2010-12-03 (mailing-list-archive)</title>
-<meta name="Author" content="Lauret Olivier (olauret)" />
-<meta name="Subject" content="[CF-metadata] Standard name request for ocean colour and iceberg	concentration" />
-<meta name="Date" content="2010-12-03" />
+<title>[CF-metadata] standard way to store lookuptables from andrea antonello on 2009-09-29 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="andrea antonello (andrea.antonello)" />
+<meta name="Subject" content="[CF-metadata] standard way to store lookuptables" />
+<meta name="Date" content="2009-09-29" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./3026.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3028.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Standard name request for ocean colour and iceberg	concentration</h1>
-<!-- received="Fri Dec  3 03:22:13 2010" -->
-<!-- isoreceived="20101203032213" -->
-<!-- sent="Fri, 3 Dec 2010 11:22:13 +0100" -->
-<!-- isosent="20101203102213" -->
-<!-- name="Lauret Olivier" -->
-<!-- email="olauret" -->
-<!-- subject="[CF-metadata] Standard name request for ocean colour and iceberg	concentration" -->
-<!-- id="1240F43731C2EB4F8CC9BF70D233B5110225752E_at_SRV-XCHANGE-2K3.pc.cls.fr" -->
+<a style="text-decoration:none" href="./3026.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3028.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard way to store lookuptables</h1>
+<!-- received="Tue Sep 29 03:17:01 2009" -->
+<!-- isoreceived="20090929021701" -->
+<!-- sent="Tue, 29 Sep 2009 11:17:01 +0200" -->
+<!-- isosent="20090929091701" -->
+<!-- name="andrea antonello" -->
+<!-- email="andrea.antonello" -->
+<!-- subject="[CF-metadata] standard way to store lookuptables" -->
+<!-- id="116eb44a0909290217l18694c3aw4b372727c83ae3d9_at_mail.gmail.com" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="40829B0E077C1145A6DE44D39B3830A91FE093427A_at_nerckwmb1.ad.nerc.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./3028.html" accesskey="d" title="Lowry, Roy K.: &quot;[CF-metadata] Standard name request for ocean colour and iceberg	concentration&quot;">Next message</a> ]
-[ <a href="./3026.html" title="Lowry, Roy K.: &quot;[CF-metadata] Standard name request for ocean colour and iceberg	concentration&quot;">Previous message</a> ]
-[ <a href="./3026.html" title="Lowry, Roy K.: &quot;[CF-metadata] Standard name request for ocean colour and iceberg	concentration&quot;">In reply to</a> ]
+[ <a href="./3028.html" accesskey="d" title="Bryan Lawrence: &quot;[CF-metadata] Standard names for Glaciology and ice-sheet modeling: land_ice, sea_ice, floating_ice, ice shelves...&quot;">Next message</a> ]
+[ <a href="./3026.html" title="Jonathan Gregory: &quot;[CF-metadata] Standard names for Glaciology and ice-sheet modeling: land_ice, sea_ice, floating_ice, ice shelves...&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./3028.html" accesskey="t" title="Lowry, Roy K.: &quot;[CF-metadata] Standard name request for ocean colour and iceberg	concentration&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,128 +68,46 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Lauret Olivier &lt;<a href="mailto:olauret?Subject=Re%3A%20%5BCF-metadata%5D%20Standard%20name%20request%20for%20ocean%20colour%20and%20iceberg%09concentration">olauret</a>&gt;
+<dfn>From</dfn>: andrea antonello &lt;<a href="mailto:andrea.antonello?Subject=Re%3A%20%5BCF-metadata%5D%20standard%20way%20to%20store%20lookuptables">andrea.antonello</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 3 Dec 2010 11:22:13 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 29 Sep 2009 11:17:01 +0200</span><br />
 </address>
 <br />
 Hi all,
 <br />
-<br />&nbsp;
+I have a real big doubt about how to store the following inside a
 <br />
-<br />Thanks, that's fine.
+netcdf in a standard way.
 <br />
-<br />That is to say that
+<br />Let's assume I have a raster map of soiltypes, which is a grid in lat, long.
 <br />
-<br />?         number_content_of_icebergs (m-2) becomes number_of_icebergs_per_unit_area 
+I then have several parameters, that depend on the soiltype, so that
 <br />
-<br />Is that right?
+they are spatially distributed along the lines of the soiltype map.
 <br />
-<br />&nbsp;
+<br />I could create a raster map for every of these depending parameters,
 <br />
-<br />About the other suggestions, we try to make things so that each entry is a combination of existing CF concepts, except the idea of 'non algal particles' that is now introduced.
+but I really would not like to, because of different reason, one of
 <br />
-<br />?         mass_concentration_of_inorganic_particles_in_sea_water (kg m-3)
+which might be space.
 <br />
-<br />?         volume_absorption_coefficient_of_radiative_flux_in_sea_water_due_to_dissolved_organic_matter_and_non_algal_particles (m-1)
+<br />Instead I would highly prefer to keep a kind of lookuptable that
 <br />
-<br />?         volume_absorption_coefficient_of_radiative_flux_in_sea_water_due_to_phytoplankton (m-1)
+bounds me the value of any depending variable to the soiltype
 <br />
-<br />?         volume_backwards_scattering_coefficient_of_radiative_flux_in_sea_water_due_to_particles (m-1)
+category.
 <br />
-<br />&nbsp;
+<br />I have no idea how that would be stored in a proper way into the
 <br />
-<br />Comments are welcome,
+netcdf-cf structure.
 <br />
-<br />&nbsp;
+<br />Has anyone faced this before and has some documentation to point me to?
 <br />
-<br />Cheers,
+<br />Thanks,
 <br />
-<br />Olivier.
+Andrea
 <br />
-<br />&nbsp;
-<br />
-<br />&nbsp;
-<br />
-<br />&nbsp;
-<br />
-<br />&nbsp;
-<br />
-<br />&nbsp;
-<br />
-<br />&nbsp;
-<br />
-<br />&nbsp;
-<br />
-<br />-----Message d'origine-----
-<br />
-De : Lowry, Roy K. [mailto:rkl at bodc.ac.uk] 
-<br />
-Envoy? : jeudi 2 d?cembre 2010 17:53
-<br />
-? : Jonathan Gregory
-<br />
-Cc : Lauret Olivier; Laurence Crosnier; cf-metadata at cgd.ucar.edu; Cristina Tronconi; Bruce Hackett; o.godoy at met.no; Thomas LOUBRIEU; Lia Santoleri; Philippe Garnesson
-<br />
-Objet : RE: [CF-metadata] Standard name request for ocean colour and iceberg concentration
-<br />
-<br />&nbsp;
-<br />
-<br />My preference is also for natural English, so am happy with Jonathan's suggestion.  I was just pointing out, rather than supporting, the consistency issue.
-<br />
-<br />&nbsp;
-<br />
-<br />Cheers, Roy.
-<br />
-<br />&nbsp;
-<br />
-<br />-----Original Message-----
-<br />
-<br />From: Jonathan Gregory [mailto:jonathan at met.reading.ac.uk] On Behalf Of Jonathan Gregory
-<br />
-<br />Sent: 02 December 2010 15:37
-<br />
-<br />To: Lowry, Roy K.
-<br />
-<br />Cc: Lauret Olivier; Laurence Crosnier; cf-metadata at cgd.ucar.edu; Cristina Tronconi; Bruce Hackett; o.godoy at met.no; Thomas LOUBRIEU; Lia Santoleri; Philippe Garnesson
-<br />
-<br />Subject: Re: [CF-metadata] Standard name request for ocean colour and iceberg concentration
-<br />
-<br />&nbsp;
-<br />
-<br /><em class="quotelev1">&gt; I had the same gut reaction as you and almost came up with the same response until I read the definition &quot;Content indicates a quantity per unit area&quot; on 369 Standard Names.  So, perhaps Olivier is being consistent and tha handful of 'per_unit_area&quot; Standard Names are not.
-</em><br />
-<br />&nbsp;
-<br />
-<br />I think Olivier is being consistent, but we have synonymous phrases, and in
-<br />
-<br />this case I feel that such freedom is useful! We can't make standard names
-<br />
-<br />completely systematic, because they also have to be reasonably natural English,
-<br />
-<br />I would say. Jonathan
-<br />
-<br /><pre>
--- 
- 
-This message (and any attachments) is for the recipient only NERC
- 
-is subject to the Freedom of Information Act 2000 and the contents
- 
-of this email and any reply you make may be disclosed by NERC unless
- 
-it is exempt from release under the Act. Any material supplied to
- 
-NERC may be stored in an electronic records management system.
- 
-                           Cliquez sur l'url suivante 
-<a href="https://www.mailcontrol.com/sr/MKv+gOOmXGbTndxI!oX7Uue5l2axqqYZUZhEldDcvwCf31V7Uzv75MWuSjXXmfGj8hzVgSrfxsPC8dmstCo9uQ">https://www.mailcontrol.com/sr/MKv+gOOmXGbTndxI!oX7Uue5l2axqqYZUZhEldDcvwCf31V7Uzv75MWuSjXXmfGj8hzVgSrfxsPC8dmstCo9uQ</a>==  
-                    si ce message est ind?sirable (pourriel).
--------------- next part --------------
-An HTML attachment was scrubbed...
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20101203/4a4f97c4/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20101203/4a4f97c4/attachment.html</a>&gt;
-</pre>
-<span id="received"><dfn>Received on</dfn> Fri Dec 03 2010 - 03:22:13 GMT</span>
+<span id="received"><dfn>Received on</dfn> Tue Sep 29 2009 - 03:17:01 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -201,13 +115,9 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start3027">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./3028.html" title="Next message in the list">Lowry, Roy K.: "[CF-metadata] Standard name request for ocean colour and iceberg	concentration"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./3026.html" title="Previous message in the list">Lowry, Roy K.: "[CF-metadata] Standard name request for ocean colour and iceberg	concentration"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./3026.html" title="Message to which this message replies">Lowry, Roy K.: "[CF-metadata] Standard name request for ocean colour and iceberg	concentration"</a></li>
+<li><dfn>Next message</dfn>: <a href="./3028.html" title="Next message in the list">Bryan Lawrence: "[CF-metadata] Standard names for Glaciology and ice-sheet modeling: land_ice, sea_ice, floating_ice, ice shelves..."</a></li>
+<li><dfn>Previous message</dfn>: <a href="./3026.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Standard names for Glaciology and ice-sheet modeling: land_ice, sea_ice, floating_ice, ice shelves..."</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./3028.html" title="Next message in this discussion thread">Lowry, Roy K.: "[CF-metadata] Standard name request for ocean colour and iceberg	concentration"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./3028.html" title="Message sent in reply to this message">Lowry, Roy K.: "[CF-metadata] Standard name request for ocean colour and iceberg	concentration"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -218,7 +128,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:37 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./3026.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3028.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

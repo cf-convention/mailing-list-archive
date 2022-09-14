@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] fixed sensors, depth, datum from Dale Robinson on 2008-09-12 (mailing-list-archive)</title>
-<meta name="Author" content="Dale Robinson (dhr.sfsu)" />
-<meta name="Subject" content="[CF-metadata] fixed sensors, depth, datum" />
-<meta name="Date" content="2008-09-12" />
+<title>[CF-metadata] Question about Coordinate System from Karl Taylor on 2007-02-20 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Karl Taylor (taylor13)" />
+<meta name="Subject" content="[CF-metadata] Question about Coordinate System" />
+<meta name="Date" content="2007-02-20" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1528.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1530.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] fixed sensors, depth, datum</h1>
-<!-- received="Fri Sep 12 11:42:51 2008" -->
-<!-- isoreceived="20080912104251" -->
-<!-- sent="Fri, 12 Sep 2008 10:42:51 -0700" -->
-<!-- isosent="20080912174251" -->
-<!-- name="Dale Robinson" -->
-<!-- email="dhr.sfsu" -->
-<!-- subject="[CF-metadata] fixed sensors, depth, datum" -->
-<!-- id="48CAAA1B.3010300_at_gmail.com" -->
+<a style="text-decoration:none" href="./1528.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1530.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Question about Coordinate System</h1>
+<!-- received="Tue Feb 20 10:20:08 2007" -->
+<!-- isoreceived="20070220102008" -->
+<!-- sent="Tue, 20 Feb 2007 09:20:08 -0800" -->
+<!-- isosent="20070220172008" -->
+<!-- name="Karl Taylor" -->
+<!-- email="taylor13" -->
+<!-- subject="[CF-metadata] Question about Coordinate System" -->
+<!-- id="45DB2DC8.9060509_at_llnl.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20080912074458.GA24757_at_met.reading.ac.uk" -->
+<!-- inreplyto="20070212214522.GA3527_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1530.html" accesskey="d" title="Ethan Davis: &quot;[CF-metadata] fixed sensors, depth, datum&quot;">Next message</a> ]
-[ <a href="./1528.html" title="Jonathan Gregory: &quot;[CF-metadata]  fixed sensors, depth, datum&quot;">Previous message</a> ]
-[ <a href="./1528.html" title="Jonathan Gregory: &quot;[CF-metadata]  fixed sensors, depth, datum&quot;">In reply to</a> ]
+[ <a href="./1530.html" accesskey="d" title="CJ Beegle-Krause: &quot;[CF-metadata] Question about Coordinate System&quot;">Next message</a> ]
+[ <a href="./1528.html" title="Godin, Michael: &quot;[CF-metadata] Proposed standard names for biological model outputs&quot;">Previous message</a> ]
+[ <a href="./1519.html" title="Jonathan Gregory: &quot;[CF-metadata]  Question about Coordinate System&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./1530.html" accesskey="t" title="Ethan Davis: &quot;[CF-metadata] fixed sensors, depth, datum&quot;">Next in thread</a> ]
+[ <a href="./1530.html" accesskey="t" title="CJ Beegle-Krause: &quot;[CF-metadata] Question about Coordinate System&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,382 +72,150 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Dale Robinson &lt;<a href="mailto:dhr.sfsu?Subject=Re%3A%20%5BCF-metadata%5D%20fixed%20sensors%2C%20depth%2C%20datum">dhr.sfsu</a>&gt;
+<dfn>From</dfn>: Karl Taylor &lt;<a href="mailto:taylor13?Subject=Re%3A%20%5BCF-metadata%5D%20Question%20about%20Coordinate%20System">taylor13</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 12 Sep 2008 10:42:51 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 20 Feb 2007 09:20:08 -0800</span><br />
 </address>
 <br />
-Thank you Johnathan et al. for your great comments and suggestions.
+Dear Phil et al.,
 <br />
-<br />I like Johnathan?s suggestions very much. They seem straightforward, 
+<br />I too know very little about this, but as far as I know:
 <br />
-especially for people who are not experts in vertical datums or in the 
+<br />1) observational datasets used to evaluate model simulations also don't 
 <br />
-logic of the CF convention.
+supply this information.
 <br />
-<br />I will address Johnathan?s points one at a time below. I certainly am 
+<br />2) As Jonathan, says models are idealized.  They also sometimes rely on 
 <br />
-not knowledgeable in the correct usages of CF stn. names and attributes 
+an idealized calendar (e.g., assuming each year comprises twelve 30-day 
 <br />
-and I don?t want to sidetrack the discussion by suggesting inappropriate 
+months).  We have allowed for this in the CF convention.  Perhaps, we 
 <br />
-usages. Therefore, I will restrict my comments to my role as a user of 
+should also allow for this in specifying the &quot;datum&quot; by simply 
 <br />
-the CF convention and a data provider.
+indicating an idealized earth shape?
 <br />
-<br /><br />1) Johnathan: ?I think that height above geoid (altitude) and height 
+<br />3) As we move to higher and higher resolution, the issue will certainly 
 <br />
-above reference ellipsoid are different geophysical quantities and do 
+become of more concern, so it's good we think about this now.
 <br />
-need different standard names?
+<br />I second Jonathan's plea for some experts to weigh in.
 <br />
-<br />Yes, I agree. Looking at the std. names table I see the following 
+<br />cheers,
 <br />
-?height? terms:
+Karl
 <br />
-<br />a. geopotential_height
+<br /><br />Jonathan Gregory wrote:
 <br />
-Geopotential is the sum of the specific gravitational potential energy 
-<br />
-relative to the geoid and the specific centripetal potential energy. 
-<br />
-Geopotential height is the geopotential divided by the standard 
-<br />
-acceleration due to gravity. It is numerically similar to the altitude 
-<br />
-(or geometric height) and not to the quantity with standard name height, 
-<br />
-which is relative to the surface.
-<br />
-<br />b. height
-<br />
-Height is the vertical distance above the surface.
-<br />
-<br />c. altitude
-<br />
-Altitude is the (geometric) height above the geoid, which is the 
-<br />
-reference geopotential surface. The geoid is similar to mean sea level.
-<br />
-<br />Unless I am missing something, what seems to be missing here is a term 
-<br />
-for Geodetic or Ellipsoidal height.
-<br />
-<br />*d. ellipsoidal_height *
-<br />
-Height of a point above the reference ellipsoid
-<br />
-<br />Speaking as a user of CF, the lack of this term seems to be a gap in the 
-<br />
-standard names that should be filled. The inclusion of this term was 
-<br />
-deemed important when describing sea surface height; both 
-<br />
-sea_surface_height_above_geoid and 
-<br />
-sea_surface_height_above_reference_ellipsoid standard names are included 
-<br />
-in CF. Therefore, I suggest including a term like 
-<br />
-height_above_reference_ellipsoid or ellipsoidal_height.
-<br />
-<br />2) Johnathan: ?If you have a *data* variable with the standard name of 
-<br />
-altitude, for instance, you might want to identify the geoid? What if we 
-<br />
-allowed the grid_mapping_name to be optional if the grid mapping was 
-<br />
-included only in order to describe the geoid or reference ellipsoid??
-<br />
-<br />Yes. I don?t know about the method (grid_mapping_name), but it does seem 
-<br />
-that if you define something as ?height above the geoid? or ?height 
-<br />
-above the reference ellipsoid?, a user would want to know which geoid or 
-<br />
-reference ellipsoid.
-<br />
-<br />3) ?The fact the Dale wants to distinguish the various tidal datums 
-<br />
-shows that they define distinct quantities.?
-<br />
-<br />When I think about it, yes they seem to be distinct quantities. The 
-<br />
-range of mean lower low water and mean higher high water varies from 
-<br />
-location to location. A user of the data may not know what the offsets 
-<br />
-among datums are in a particular area. Heights referenced to these 
-<br />
-datums (especially MLLW) are very important to local users of the data. 
-<br />
-As a user of the CF convention and netCDF, I want to make sure that the 
-<br />
-people using my data can convert the height values we give them into 
-<br />
-values most useful to them. So inclusion of an offset variable, 
-<br />
-especially one so intuitively named (altitude_of_mean_low_water) would 
-<br />
-help me and many of the users of my data immensely.
-<br />
-<br /><br />In summary, a set of std. names and attributes that allows the following 
-<br />
-would help me as a user of CF and the users of my data:
-<br />
-- height relative to the ellipsoid
-<br />
-- name of the ellipsoid
-<br />
-- height relative to the geoid
-<br />
-- name of the geoid
-<br />
-- altitude of (offset to) other common datums (e.g. MLLW)
-<br />
-<br /><br />I don?t know how to correctly format the following within the CF 
-<br />
-convention, but I?ll take a chance below based on Johnathan?s 
-<br />
-suggestions. No doubt it is incorrectly formulated, but I think you will 
-<br />
-see what I am getting at.
-<br />
-<br />float ellips_height;
-<br />
-ellips_height:standard_name=&quot;ellipsoidal_height? // i.e. 
-<br />
-height_above_reference_ellipsoid
-<br />
-ellips_height:grid_mapping=&quot;ellipsoid&quot;;
-<br />
-<br />float altitude; // data variable
-<br />
-altitude:standard_name=&quot;altitude&quot;;
-<br />
-altitude:grid_mapping=&quot;geoid&quot;;
-<br />
-<br />float alt_mllw; // offset variable
-<br />
-alt_mllw:standard_name=&quot;altitude_of_mean_lower_low_water &quot;;
-<br />
-<br />char geoid; // grid mapping variable
-<br />
-geoid:geoid_name=&quot;geoid03&quot;;
-<br />
-<br />char ellipsoid; // grid mapping variable
-<br />
-ellipsoid: ellipsoid_name=&quot;WGS84&quot;;
-<br />
-<br /><br />Thanks.
-<br />
-<br />-Dale
-<br />
-<br /><br /><br />Dear Dale et al.
-<br />
-<br />You're quite right, altitude is height above geoid. Hence the names for the
-<br />
-tidal datums should be altitude_of_DATUM, which is neater. We should spell
-<br />
-them out, I think e.g. altitude_of_mean_low_water, as we generally avoid
-<br />
-abbreviations in standard names for the sake of intelligibility by 
-<br />
-people who
-<br />
-aren't experts in the relevant area.
-<br />
-<br />The way you propose to use attribute ancillary_variables isn't quite what it
-<br />
-was intended for, I think. Do you envisage there could be several data
-<br />
-variables in the file giving alternative values for a particular offset? If
-<br />
-so, I can appreciate there may be a need for a link. But if there is 
-<br />
-only one,
-<br />
-is a link required? You could find the variable you want by examining the
-<br />
-standard names.
-<br />
-<br />While I think that it's better not to have different standard names for
-<br />
-altitude wrt different geoids as I would consider them to be varying
-<br />
-definitions of the same geophysical quantity, I think that height above 
-<br />
-geoid
-<br />
-(altitude) and height above reference ellipsoid are different geophysical
-<br />
-quantities and do need different standard names. Hence I would not be in
-<br />
-favour of a generic &quot;height above vertical datum&quot;. I don't think that is
-<br />
-sufficiently well-defined to have a standard name. I also think that &quot;height
-<br />
-above reference ellipsoid&quot; is a different quantity from &quot;height above 
-<br />
-mean low
-<br />
-water&quot; etc. The fact the Dale wants to distinguish the various tidal datums
-<br />
-shows that they define distinct quantities.
-<br />
-<br />Ethan argues for putting the definition of vertical coordinate system with
-<br />
-vertical coordinate variables, not in the grid mapping, which is so far for
-<br />
-horizontal coordinate systems. I would note that
-<br />
-<br />* we have already defined the ellipsoid in the grid mapping. To define it
-<br />
-separately somewhere else, even if only by name, could be confusing or
-<br />
-inconsistent.
-<br />
-<br />* it's not needed only for vertical coordinate variables. If you have a 
-<br />
-*data*
-<br />
-variable with the standard name of altitude, for instance, you might want to
-<br />
-identify the geoid.
-<br />
-<br />However I do feel that it's a bit cumbersome to introduce a grid_mapping
-<br />
-variable with a &quot;dummy&quot; horizontal coordinate system just to name the geoid.
-<br />
-What if we allowed the grid_mapping_name to be optional if the grid mapping
-<br />
-was included only in order to describe the geoid or reference ellipsoid?
-<br />
-<br />float altitude; // data variable
-<br />
-altitude:standard_name=&quot;altitude&quot;;
-<br />
-altitude:grid_mapping=&quot;geoid&quot;;
-<br />
-char geoid; // grid mapping variable
-<br />
-geoid:geoid_name=&quot;WGS84&quot;;
-<br />
-<br />Cheers
-<br />
-<br />Jonathan
-<br />
-_______________________________________________
-<br />
-CF-metadata mailing list
-<br />
-CF-metadata at cgd.ucar.edu
-<br />
-<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-<br />
-<br /><br /><br /><br />Jonathan Gregory wrote:
-<br />
-<em class="quotelev1">&gt; Dear Dale et al.
+<em class="quotelev1">&gt; Dear Phil
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; You're quite right, altitude is height above geoid. Hence the names for the
+<em class="quotelev2">&gt;&gt; non-geodesist interpretation of a geodetic datum is that it defines the
 </em><br />
-<em class="quotelev1">&gt; tidal datums should be altitude_of_DATUM, which is neater. We should spell
+<em class="quotelev2">&gt;&gt; mapping of a Coordinate System (such as latitude-longitude) onto a
 </em><br />
-<em class="quotelev1">&gt; them out, I think e.g. altitude_of_mean_low_water, as we generally avoid
+<em class="quotelev2">&gt;&gt; particular figure of the earth within a given reference frame, thus
 </em><br />
-<em class="quotelev1">&gt; abbreviations in standard names for the sake of intelligibility by people who
+<em class="quotelev2">&gt;&gt; providing a Coordinate Reference System.
 </em><br />
-<em class="quotelev1">&gt; aren't experts in the relevant area.
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; That sounds similar to my interpretation (that it defines an ellipsoid).
 </em><br />
-<em class="quotelev1">&gt; The way you propose to use attribute ancillary_variables isn't quite what it
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; was intended for, I think. Do you envisage there could be several data
+<em class="quotelev2">&gt;&gt; Although a spherical earth approximation may be appropriate for many
 </em><br />
-<em class="quotelev1">&gt; variables in the file giving alternative values for a particular offset? If
+<em class="quotelev2">&gt;&gt; climate applications, I guess there may be plenty of situations where
 </em><br />
-<em class="quotelev1">&gt; so, I can appreciate there may be a need for a link. But if there is only one,
+<em class="quotelev2">&gt;&gt; meteorological datasets are actually referenced to a non-spherical
 </em><br />
-<em class="quotelev1">&gt; is a link required? You could find the variable you want by examining the
+<em class="quotelev2">&gt;&gt; earth, e.g. met observations referenced against the popular WGS  1984
 </em><br />
-<em class="quotelev1">&gt; standard names.
+<em class="quotelev2">&gt;&gt; datum/ellipsoid. In such cases I would have thought that the geodetic
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev2">&gt;&gt; datum information ought indeed to be captured.
 </em><br />
-<em class="quotelev1">&gt; While I think that it's better not to have different standard names for
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; altitude wrt different geoids as I would consider them to be varying
+<em class="quotelev1">&gt; Yes, if the dataset had one, but I'm sure that most lat-lon meteorological
 </em><br />
-<em class="quotelev1">&gt; definitions of the same geophysical quantity, I think that height above geoid
+<em class="quotelev1">&gt; datasets (the ones I've come across, anyway) do not specify their datum.
 </em><br />
-<em class="quotelev1">&gt; (altitude) and height above reference ellipsoid are different geophysical
+<em class="quotelev1">&gt; They may have been gridded from obs, or they may provide obs on whatever
 </em><br />
-<em class="quotelev1">&gt; quantities and do need different standard names. Hence I would not be in
+<em class="quotelev1">&gt; lat-lon system the country concerned uses. That implies a kind of mixture, I
 </em><br />
-<em class="quotelev1">&gt; favour of a generic &quot;height above vertical datum&quot;. I don't think that is
+<em class="quotelev1">&gt; suppose, which is OK because the differences don't matter for the purposes for
 </em><br />
-<em class="quotelev1">&gt; sufficiently well-defined to have a standard name. I also think that &quot;height
+<em class="quotelev1">&gt; which the dataset is intended. But I really don't know about this. I'm sure
 </em><br />
-<em class="quotelev1">&gt; above reference ellipsoid&quot; is a different quantity from &quot;height above mean low
+<em class="quotelev1">&gt; someone on the conventions committee must be an expert! For climate model
 </em><br />
-<em class="quotelev1">&gt; water&quot; etc. The fact the Dale wants to distinguish the various tidal datums
+<em class="quotelev1">&gt; output the datum is genuinely undefined since the world is idealised.
 </em><br />
-<em class="quotelev1">&gt; shows that they define distinct quantities.
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev2">&gt;&gt; As regards the content and structure of a potential 'geodetic_datum'
 </em><br />
-<em class="quotelev1">&gt; Ethan argues for putting the definition of vertical coordinate system with
+<em class="quotelev2">&gt;&gt; grid mapping attribute, would a solution be to adopt the well-known text
 </em><br />
-<em class="quotelev1">&gt; vertical coordinate variables, not in the grid mapping, which is so far for
+<em class="quotelev2">&gt;&gt; format devised by the Petrotechnical Open Standards Consortium (POSC)
 </em><br />
-<em class="quotelev1">&gt; horizontal coordinate systems. I would note that
+<em class="quotelev2">&gt;&gt; and since adopted by the Open Geospatial Consortium (OGC). In Backus-
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev2">&gt;&gt; Naur Form this looks thus:
 </em><br />
-<em class="quotelev1">&gt; * we have already defined the ellipsoid in the grid mapping. To define it
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev1">&gt; separately somewhere else, even if only by name, could be confusing or
+<em class="quotelev2">&gt;&gt; &lt;datum&gt; ::=
 </em><br />
-<em class="quotelev1">&gt; inconsistent.
+<em class="quotelev2">&gt;&gt;     DATUM [ &quot;&lt;name&gt;&quot;, &lt;spheroid&gt;
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev2">&gt;&gt;     {, &lt;shift-x&gt;, &lt;shift-y&gt;, &lt;shift-z&gt;, &lt;rot-x&gt;, &lt;rot-y&gt;, &lt;scale-
 </em><br />
-<em class="quotelev1">&gt; * it's not needed only for vertical coordinate variables. If you have a *data*
+<em class="quotelev2">&gt;&gt; adjust&gt; }
 </em><br />
-<em class="quotelev1">&gt; variable with the standard name of altitude, for instance, you might want to
+<em class="quotelev2">&gt;&gt;     ]
 </em><br />
-<em class="quotelev1">&gt; identify the geoid.
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev2">&gt;&gt; &lt;spheroid&gt; ::=
 </em><br />
-<em class="quotelev1">&gt; However I do feel that it's a bit cumbersome to introduce a grid_mapping
+<em class="quotelev2">&gt;&gt;     SPHEROID [&quot;&lt;name&gt;&quot;, &lt;semi-major-axis&gt;, &lt;inverse-flattening&gt;]
 </em><br />
-<em class="quotelev1">&gt; variable with a &quot;dummy&quot; horizontal coordinate system just to name the geoid.
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev1">&gt; What if we allowed the grid_mapping_name to be optional if the grid mapping
+<em class="quotelev2">&gt;&gt; And so the WGS 1984 datum example might then look something like:
 </em><br />
-<em class="quotelev1">&gt; was included only in order to describe the geoid or reference ellipsoid?
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev2">&gt;&gt; DATUM [ &quot;World Geodetic System 1984&quot; SPHEROID [&quot;WGS 1984&quot;, 6378137.00
 </em><br />
-<em class="quotelev1">&gt; float altitude; // data variable
+<em class="quotelev2">&gt;&gt; 298.257223563 ] ]
 </em><br />
-<em class="quotelev1">&gt;   altitude:standard_name=&quot;altitude&quot;;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;   altitude:grid_mapping=&quot;geoid&quot;;
+<em class="quotelev1">&gt; This looks promising. To make it more self-describing and easier to use I
 </em><br />
-<em class="quotelev1">&gt; char geoid; // grid mapping variable
+<em class="quotelev1">&gt; suggest we might put those elements of the definition in separate attributes.
 </em><br />
-<em class="quotelev1">&gt;   geoid:geoid_name=&quot;WGS84&quot;;
+<em class="quotelev1">&gt; Is it really that simple though? I would have expected more numbers: perhaps
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; that's what the &lt;shift&gt;s and &lt;rot&gt;s are.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; My ignorance of this is all too obvious. To proceed we need expertise and
+</em><br />
+<em class="quotelev1">&gt; use-cases.
+</em><br />
+<em class="quotelev1">&gt; 
 </em><br />
 <em class="quotelev1">&gt; Cheers
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; 
 </em><br />
 <em class="quotelev1">&gt; Jonathan
 </em><br />
@@ -457,22 +225,11 @@ CF-metadata at cgd.ucar.edu
 </em><br />
 <em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
 </em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;   
-</em><br />
-<br /><pre>
--- 
-Dale Robinson, Ocean Observing Programs Coordinator
-Romberg Tiburon Center
-3152 Paradise Drive
-Tiburon, CA 94920
-email dhr.sfsu at gmail.com
-<a href="http://sfbeams.sfsu.edu">http://sfbeams.sfsu.edu</a>
-</pre>
-<span id="received"><dfn>Received on</dfn> Fri Sep 12 2008 - 11:42:51 BST</span>
+<span id="received"><dfn>Received on</dfn> Tue Feb 20 2007 - 10:20:08 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -480,13 +237,13 @@ email dhr.sfsu at gmail.com
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1529">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1530.html" title="Next message in the list">Ethan Davis: "[CF-metadata] fixed sensors, depth, datum"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1528.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]  fixed sensors, depth, datum"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./1528.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata]  fixed sensors, depth, datum"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1530.html" title="Next message in the list">CJ Beegle-Krause: "[CF-metadata] Question about Coordinate System"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1528.html" title="Previous message in the list">Godin, Michael: "[CF-metadata] Proposed standard names for biological model outputs"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./1519.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata]  Question about Coordinate System"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./1530.html" title="Next message in this discussion thread">Ethan Davis: "[CF-metadata] fixed sensors, depth, datum"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./1530.html" title="Next message in this discussion thread">CJ Beegle-Krause: "[CF-metadata] Question about Coordinate System"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./1530.html" title="Message sent in reply to this message">Ethan Davis: "[CF-metadata] fixed sensors, depth, datum"</a></li>
+<dfn>Reply</dfn>: <a href="./1530.html" title="Message sent in reply to this message">CJ Beegle-Krause: "[CF-metadata] Question about Coordinate System"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -497,7 +254,7 @@ email dhr.sfsu at gmail.com
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:08 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1528.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1530.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

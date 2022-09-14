@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]  Save The Date! 2018 netCDF-CF Workshop, 19-20 June 2018, Reading, UK from Jonathan Gregory on 2018-03-22 (mailing-list-archive)</title>
+<title>[CF-metadata] New standard names for NEMO ocean model output from Jonathan Gregory on 2016-11-24 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata]  Save The Date! 2018 netCDF-CF Workshop, 19-20 June 2018, Reading, UK" />
-<meta name="Date" content="2018-03-22" />
+<meta name="Subject" content="[CF-metadata] New standard names for NEMO ocean model output" />
+<meta name="Date" content="2016-11-24" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./8735.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8737.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  Save The Date! 2018 netCDF-CF Workshop, 19-20 June 2018, Reading, UK</h1>
-<!-- received="Thu Mar 22 07:43:00 2018" -->
-<!-- isoreceived="20180322074300" -->
-<!-- sent="Thu, 22 Mar 2018 13:43:00 +0000" -->
-<!-- isosent="20180322134300" -->
+<a style="text-decoration:none" href="./8735.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8737.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] New standard names for NEMO ocean model output</h1>
+<!-- received="Thu Nov 24 10:09:18 2016" -->
+<!-- isoreceived="20161124100918" -->
+<!-- sent="Thu, 24 Nov 2016 17:09:18 +0000" -->
+<!-- isosent="20161124170918" -->
 <!-- name="Jonathan Gregory" -->
 <!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata]  Save The Date! 2018 netCDF-CF Workshop, 19-20 June 2018, Reading, UK" -->
-<!-- id="20180322134300.GA21215_at_met.reading.ac.uk" -->
+<!-- subject="[CF-metadata] New standard names for NEMO ocean model output" -->
+<!-- id="20161124170918.GA10289_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./8737.html" accesskey="d" title="Ajay Krishnan - NOAA Affiliate: &quot;[CF-metadata] Climatological bounds for oxygen and other ocean nutrients&quot;">Next message</a> ]
-[ <a href="./8735.html" title="Antonio S. Cofi&#0241;o: &quot;[CF-metadata] How to describe nr. of samples &#0038; absolute/relative uncertainty&quot;">Previous message</a> ]
+[ <a href="./8737.html" accesskey="d" title="David Lawrence: &quot;[CF-metadata] New LUMIP variables&quot;">Next message</a> ]
+[ <a href="./8735.html" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] New area_types for LUMIP subgrid land-use tile reporting&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./8751.html" accesskey="t" title="Kevin Marsh: &quot;[CF-metadata] New standard names for NEMO ocean model output&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,60 +70,72 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20Save%20The%20Date!%202018%20netCDF-CF%20Workshop%2C%2019-20%20June%202018%2C%20Reading%2C%20UK">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20New%20standard%20names%20for%20NEMO%20ocean%20model%20output">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 22 Mar 2018 13:43:00 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 24 Nov 2016 17:09:18 +0000</span><br />
 </address>
 <br />
-We in Reading are looking forward to welcoming the CF community.
+Dear Kevin and Alison
+<br />
+<br /><em class="quotelev1">&gt; 1. bottom_pressure_equivalent_height (m) 
+</em><br />
+<em class="quotelev1">&gt; 'Difference between the sea level height and the ocean steric height.' 
+</em><br />
+<br />Is that really what it means? The ocean steric height is already a difference
+<br />
+from sea level by definition (see below). It sounds as though this ought to
+<br />
+mean the ocean bottom pressure converted into a thickness of water of some
+<br />
+standard density.
+<br />
+<br /><em class="quotelev1">&gt; 2. ocean_turbocline_depth (m) 
+</em><br />
+<em class="quotelev1">&gt; 'The turbocline depth is similar to the mixed layer depth but is estimated in models as the depth at which the vertical eddy diffusivity coefficient (resulting from the vertical physics alone) fall below a given value defined locally.
+</em><br />
+<br />For consistent with the mixed layer names, this should perhaps be thickness,
+<br />
+rather than depth e.g. ocean_mixed_layer_thickness.
+<br />
+<br /><em class="quotelev1">&gt; 3. ocean_steric_height (m)
+</em><br />
+<em class="quotelev1">&gt; 'The steric measures the height by which a column of water with standard temperature T=0?C and salinity S=35.0 expands if its temperature and salinity are changed to the observed values.'
+</em><br />
+<br />I have found that definition in papers too. It's actually a thickness, as
+<br />
+Alison notes, but we could maybe call it ocean_steric_height_above_sea_level,
+<br />
+which would be consistent with some other std names.
+<br />
+<br /><em class="quotelev1">&gt; 6. temperature_profile_anomaly_correction (K s-1)
+</em><br />
+<em class="quotelev1">&gt; 'Correction term estimated as the deviation the local sea water potential temperature from an ocean model wrt to an observation-based climatology (eg World Ocean Database) multiplied by an user-specified relaxation coefficient. The relaxation coefficient depends on the timescale on which the correction is applied.'
+</em><br />
+<br />I think there are number of problems with this name. (a) It should be
+<br />
+sea_water_potential_temperature, not just temperature, (b) profile is
+<br />
+not really part of the definition of the quantity - it depends on depth,
+<br />
+but standard names do not usually indicate which coordinates are relevant,
+<br />
+(c) it's not obvious what an &quot;anomaly correction&quot; means. It might equally
+<br />
+well mean something in K, for instance, because all other &quot;corrections&quot; are
+<br />
+in fact quantities with the same units as the thing being corrected. I would
+<br />
+suggest calling this
+<br />
+&nbsp;&nbsp;ratio_of_sea_water_potential_temperature_anomaly_to_relaxation_timescale
+<br />
+&nbsp;&nbsp;
+<br />
+Best wishes
 <br />
 <br />Jonathan
 <br />
-<br />----- Forwarded message from Ethan Davis &lt;edavis at ucar.edu&gt; -----
-<br />
-<br /><em class="quotelev1">&gt; Date: Wed, 21 Mar 2018 22:07:43 -0600
-</em><br />
-<em class="quotelev1">&gt; From: Ethan Davis &lt;edavis at ucar.edu&gt;
-</em><br />
-<em class="quotelev1">&gt; To: CF metadata &lt;cf-metadata at cgd.ucar.edu&gt;
-</em><br />
-<em class="quotelev1">&gt; Subject: [CF-metadata] Save The Date! 2018 netCDF-CF Workshop, 19-20 June
-</em><br />
-<em class="quotelev1">&gt; 	2018, Reading, UK
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Hi all,
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Please save the date for the 2018 netCDF-CF Workshop, it will be on 19-20
-</em><br />
-<em class="quotelev1">&gt; June 2018 at the University of Reading in the UK.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; More information will be coming soon.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Thanks,
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; The Workshop Organizing Committee
-</em><br />
-<br /><em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<br /><br />----- End forwarded message -----
-<br />
-<span id="received"><dfn>Received on</dfn> Thu Mar 22 2018 - 07:43:00 GMT</span>
+<span id="received"><dfn>Received on</dfn> Thu Nov 24 2016 - 10:09:18 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -129,9 +143,12 @@ We in Reading are looking forward to welcoming the CF community.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start8736">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./8737.html" title="Next message in the list">Ajay Krishnan - NOAA Affiliate: "[CF-metadata] Climatological bounds for oxygen and other ocean nutrients"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./8735.html" title="Previous message in the list">Antonio S. Cofi&#0241;o: "[CF-metadata] How to describe nr. of samples &#0038; absolute/relative uncertainty"</a></li>
+<li><dfn>Next message</dfn>: <a href="./8737.html" title="Next message in the list">David Lawrence: "[CF-metadata] New LUMIP variables"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./8735.html" title="Previous message in the list">alison.pamment at stfc.ac.uk: "[CF-metadata] New area_types for LUMIP subgrid land-use tile reporting"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./8751.html" title="Next message in this discussion thread">Kevin Marsh: "[CF-metadata] New standard names for NEMO ocean model output"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./8751.html" title="Message sent in reply to this message">Kevin Marsh: "[CF-metadata] New standard names for NEMO ocean model output"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -142,7 +159,7 @@ We in Reading are looking forward to welcoming the CF community.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:20 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./8735.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8737.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

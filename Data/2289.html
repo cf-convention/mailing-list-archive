@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]   Sea water transparency and reflectance. from Jonathan Gregory on 2009-10-28 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata]   Sea water transparency and reflectance." />
-<meta name="Date" content="2009-10-28" />
+<title>[CF-metadata] vertical coordinates from Ethan Davis on 2008-08-08 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Ethan Davis (edavis)" />
+<meta name="Subject" content="[CF-metadata] vertical coordinates" />
+<meta name="Date" content="2008-08-08" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2288.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2290.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]   Sea water transparency and reflectance.</h1>
-<!-- received="Wed Oct 28 09:53:05 2009" -->
-<!-- isoreceived="20091028095305" -->
-<!-- sent="Wed, 28 Oct 2009 15:53:05 +0000" -->
-<!-- isosent="20091028155305" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata]   Sea water transparency and reflectance." -->
-<!-- id="20091028155305.GA9670_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./2288.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2290.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] vertical coordinates</h1>
+<!-- received="Fri Aug  8 14:24:40 2008" -->
+<!-- isoreceived="20080808132440" -->
+<!-- sent="Fri, 08 Aug 2008 14:24:40 -0600" -->
+<!-- isosent="20080808202440" -->
+<!-- name="Ethan Davis" -->
+<!-- email="edavis" -->
+<!-- subject="[CF-metadata] vertical coordinates" -->
+<!-- id="489CAB88.3040102_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="1240F43731C2EB4F8CC9BF70D233B511013C091F_at_SRV-XCHANGE-2K3.pc.cls.fr" -->
+<!-- inreplyto="2bb6ee950808080011o712766c1t9ce97be4a536258c_at_mail.gmail.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2290.html" accesskey="d" title="Benno Blumenthal: &quot;[CF-metadata] Cell bounds associated with coordinate variable rather than data variable&quot;">Next message</a> ]
-[ <a href="./2288.html" title="martin.juckes at stfc.ac.uk: &quot;[CF-metadata] Dealing with large numbers of flag values in netcdf cf -- what are &#0034;words&#0034;&quot;">Previous message</a> ]
-[ <a href="./2266.html" title="olivier lauret: &quot;[CF-metadata] Sea water transparency and reflectance.&quot;">In reply to</a> ]
+[ <a href="./2290.html" accesskey="d" title="Ian Culverwell: &quot;[CF-metadata] Proposed CF standard names for the NEMO ocean	model&quot;">Next message</a> ]
+[ <a href="./2288.html" title="Jonathan Gregory: &quot;[CF-metadata] Proposed CF standard names for the NEMO ocean model&quot;">Previous message</a> ]
+[ <a href="./2286.html" title="Jon Blower: &quot;[CF-metadata] vertical coordinates&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./2297.html" accesskey="t" title="olivier lauret: &quot;[CF-metadata] Sea water transparency and reflectance.&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,38 +70,249 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20%20Sea%20water%20transparency%20and%20reflectance.">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Ethan Davis &lt;<a href="mailto:edavis?Subject=Re%3A%20%5BCF-metadata%5D%20vertical%20coordinates">edavis</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 28 Oct 2009 15:53:05 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 08 Aug 2008 14:24:40 -0600</span><br />
 </address>
 <br />
-Dear Olivier
+Hi Jon,
 <br />
-<br />I think Frederic's suggestion implies the name should be
+<br />Thanks for the link. Definitely clear as mud.
 <br />
-<br />ratio_of_upwelling_spectral_radiance_emerging_from_sea_water_to_downwelling_spectral_radiative_flux_in_air (sr^-1)
+<br />I'm still not seeing any text in ISO 19111 that spells out that you 
 <br />
-<br />Both numerator and denominator are spectral (units with m-1 for per wavelength
+can't combine a geographic CRS and an ellipsoid based vertical CRS. Just 
 <br />
-interval) but that cancels out, so the ratio does not have m-1, as you say. But
+that quote that ellipsoidal heights can't be captured in a vertical CRS 
 <br />
-it does now include the word &quot;spectral&quot; (twice!) as you originally suggested.
+because vertical CRS are based on the direction of gravity and 
 <br />
-Equally it could be argued that spectral should be omitted from the ratio.
+ellipsoids are not. Which seems OK except when I see that some vertical 
 <br />
-Which what you would prefer?
+datums are based on ellipsoids. Don't those two things contradict each 
 <br />
-<br /><em class="quotelev1">&gt; Concerning the geometry of observation, we could introduce &quot;angle_of_incidence&quot; as suggested by Jonathan, plus probably something like &quot;azimuth_angle&quot;?
+other?
+<br />
+<br />That you have to use a full 3D CRS when doing certain coordinate 
+<br />
+transformations also makes sense to me. But isn't that the case for most 
+<br />
+3D CRS since the vertical may not (is not in most cases) orthogonal to 
+<br />
+the horizontal?
+<br />
+<br />Is the restriction on 3D geographic CRS, that they can not be compound 
+<br />
+CRS, simply to make sure the vertical and horizontal use the same base 
+<br />
+ellipsoid? Which would seem to mean that they are the only 3D CRS that 
+<br />
+are defined with orthogonal horizontal and vertical.
+<br />
+<br />OK. Enough mud scraping and stirring for now.
+<br />
+<br />Thanks,
+<br />
+<br />Ethan
+<br />
+<br /><br />Jon Blower wrote:
+<br />
+<em class="quotelev1">&gt; Hi Ethan,
 </em><br />
-<br />What about angle_of_emergence? I assume both angle of incidence and angle of
-<br />
-emergence would be defined wrt the normal to the surface.
-<br />
-<br />Cheers
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Wed Oct 28 2009 - 09:53:05 GMT</span>
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I'm afraid I've never actually read ISO 19111 (I don't read many
+</em><br />
+<em class="quotelev1">&gt; standards, I let other people tell me about them then I pretend I know
+</em><br />
+<em class="quotelev1">&gt; what I'm talking about ;-)) so I can't point you to the information.
+</em><br />
+<em class="quotelev1">&gt; I can however suggest that you look at a recent conversation I had on
+</em><br />
+<em class="quotelev1">&gt; this subject with the (very helpful) GeoTools guys on the GeoTools
+</em><br />
+<em class="quotelev1">&gt; mailing list where this was discussed in more detail.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; (ISO 19111 distinguishes between &quot;compound CRSs&quot;, which are 2D
+</em><br />
+<em class="quotelev1">&gt; horizontal + 1D vertical CRSs, and &quot;true&quot; 3D CRSs, which are combined.
+</em><br />
+<em class="quotelev1">&gt;  If your horizontal CRS is geographic and your vertical CRS is &quot;height
+</em><br />
+<em class="quotelev1">&gt; above ellipsoid&quot; then ISO19111 doesn't allow you to separate them,
+</em><br />
+<em class="quotelev1">&gt; although GeoTools actually relaxes this for practical purposes.  I
+</em><br />
+<em class="quotelev1">&gt; can't say I understand this fully yet.)
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; The conversation is here
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.nabble.com/Vertical-and-3D-coordinate-reference-systems-td18859312.html">http://www.nabble.com/Vertical-and-3D-coordinate-reference-systems-td18859312.html</a>,
+</em><br />
+<em class="quotelev1">&gt; but I think the main issue is that you can't separate the horizontal
+</em><br />
+<em class="quotelev1">&gt; and vertical components if you're doing a coordinate transform that
+</em><br />
+<em class="quotelev1">&gt; involves a datum shift (e.g. WGS84 lat-lon to British National Grid).
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Clear as mud?
+</em><br />
+<em class="quotelev1">&gt; Jon
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; On Thu, Aug 7, 2008 at 9:58 PM, Ethan Davis &lt;edavis at unidata.ucar.edu&gt; wrote:
+</em><br />
+<em class="quotelev1">&gt;   
+</em><br />
+<em class="quotelev2">&gt;&gt; Hi Jon,
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Jon Blower wrote:
+</em><br />
+<em class="quotelev2">&gt;&gt;     
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Hi Philip,
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;       
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; This situation is especially pertinent to the complex realm of coordinate
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; reference systems, where it is difficult to focus on one particular facet
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; -
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; vertical coordinate systems, say - without also having to consider other
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; facets - horizontal coordinate systems, geodetic datums, ellipsoids,
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; projections, and so on. It's an all-or-nothing kind of problem domain.
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;         
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; This is a very good point - in fact ISO 19111 says that you can't
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; separate horizontal and vertical CRSs in some cases.  I'm wary of
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; making such proposals myself because I frankly don't understand all
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; the issues properly (we need some geodesists or GIS experts or
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; something).  So it's a tricky one.
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;       
+</em><br />
+<em class="quotelev2">&gt;&gt; Can you point out where in ISO 19111 it discusses the relation between
+</em><br />
+<em class="quotelev2">&gt;&gt; horizontal and vertical CRSs?
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; I see the various subtypes of CRS: geodetic, vertical, engineering, and
+</em><br />
+<em class="quotelev2">&gt;&gt; image (which all are based on some kind of datum); as well as some more
+</em><br />
+<em class="quotelev2">&gt;&gt; complex CRS: derived, projected, and compound (which are all based on one or
+</em><br />
+<em class="quotelev2">&gt;&gt; more of the simpler types). To make a 3D CRS you combine a horizontal CRS
+</em><br />
+<em class="quotelev2">&gt;&gt; and a vertical CRS with a compound CRS. My impression has always been that
+</em><br />
+<em class="quotelev2">&gt;&gt; vertical CRSs are very separate from horizontal CRSs.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; I did find in Annex B 1.2.1 a discussion of the relation between vertical
+</em><br />
+<em class="quotelev2">&gt;&gt; datum and ellipsoidal height:
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;   &quot;Vertical CRSs make use of the direction of gravity to define the
+</em><br />
+<em class="quotelev2">&gt;&gt;   concept of height or depth. By implication therefore, ellipsoidal
+</em><br />
+<em class="quotelev2">&gt;&gt;   heights (h) cannot be captured in a vertical CRS: ellipsoidal
+</em><br />
+<em class="quotelev2">&gt;&gt;   heights cannot exist independently, but only as an inseparable part
+</em><br />
+<em class="quotelev2">&gt;&gt;   of the 3D coordinate tuple defined in a geodetic 3D CRS.&quot;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; I'm not sure I understand since I thought a vertical datum could be based on
+</em><br />
+<em class="quotelev2">&gt;&gt; an ellipsoidal earth. (Though I only see two based on an ellipsoid out of
+</em><br />
+<em class="quotelev2">&gt;&gt; over 100 vertical datums defined by EPSG. Maybe they aren't that useful.)
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; I'm with you, I really don't have a good grasp of all the issues.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Is there a geodesist in the house?!
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Ethan
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; --
+</em><br />
+<em class="quotelev2">&gt;&gt; Ethan R. Davis                                Telephone: (303) 497-8155
+</em><br />
+<em class="quotelev2">&gt;&gt; Software Engineer                             Fax:       (303) 497-8690
+</em><br />
+<em class="quotelev2">&gt;&gt; UCAR Unidata Program Center                   E-mail:    edavis at ucar.edu
+</em><br />
+<em class="quotelev2">&gt;&gt; P.O. Box 3000
+</em><br />
+<em class="quotelev2">&gt;&gt; Boulder, CO  80307-3000                       <a href="http://www.unidata.ucar.edu/">http://www.unidata.ucar.edu/</a>
+</em><br />
+<em class="quotelev2">&gt;&gt; ---------------------------------------------------------------------------
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;     
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;   
+</em><br />
+<br /><pre>
+-- 
+Ethan R. Davis                                Telephone: (303) 497-8155
+Software Engineer                             Fax:       (303) 497-8690
+UCAR Unidata Program Center                   E-mail:    edavis at ucar.edu
+P.O. Box 3000
+Boulder, CO  80307-3000                       <a href="http://www.unidata.ucar.edu/">http://www.unidata.ucar.edu/</a>
+---------------------------------------------------------------------------
+</pre>
+<span id="received"><dfn>Received on</dfn> Fri Aug 08 2008 - 14:24:40 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -111,13 +320,10 @@ emergence would be defined wrt the normal to the surface.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2289">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2290.html" title="Next message in the list">Benno Blumenthal: "[CF-metadata] Cell bounds associated with coordinate variable rather than data variable"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2288.html" title="Previous message in the list">martin.juckes at stfc.ac.uk: "[CF-metadata] Dealing with large numbers of flag values in netcdf cf -- what are &#0034;words&#0034;"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./2266.html" title="Message to which this message replies">olivier lauret: "[CF-metadata] Sea water transparency and reflectance."</a></li>
+<li><dfn>Next message</dfn>: <a href="./2290.html" title="Next message in the list">Ian Culverwell: "[CF-metadata] Proposed CF standard names for the NEMO ocean	model"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2288.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Proposed CF standard names for the NEMO ocean model"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./2286.html" title="Message to which this message replies">Jon Blower: "[CF-metadata] vertical coordinates"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./2297.html" title="Next message in this discussion thread">olivier lauret: "[CF-metadata] Sea water transparency and reflectance."</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./2297.html" title="Message sent in reply to this message">olivier lauret: "[CF-metadata] Sea water transparency and reflectance."</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -128,7 +334,7 @@ emergence would be defined wrt the normal to the surface.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:23 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2288.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2290.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

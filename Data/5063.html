@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Rotated Pole projection possibly wrong from Tom Kunicki on 2013-03-10 (mailing-list-archive)</title>
-<meta name="Author" content="Tom Kunicki (tkunicki)" />
-<meta name="Subject" content="[CF-metadata] Rotated Pole projection possibly wrong" />
-<meta name="Date" content="2013-03-10" />
+<title>[CF-metadata] cf2cf - a new tool from David Hassell on 2012-03-19 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="David Hassell (d.c.hassell)" />
+<meta name="Subject" content="[CF-metadata] cf2cf - a new tool" />
+<meta name="Date" content="2012-03-19" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5062.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5064.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Rotated Pole projection possibly wrong</h1>
-<!-- received="Sat Mar  9 18:53:16 2013" -->
-<!-- isoreceived="20130309185316" -->
-<!-- sent="Sat, 9 Mar 2013 19:53:16 -0600" -->
-<!-- isosent="20130310015316" -->
-<!-- name="Tom Kunicki" -->
-<!-- email="tkunicki" -->
-<!-- subject="[CF-metadata] Rotated Pole projection possibly wrong" -->
-<!-- id="D93DE3AE-E834-4F03-A6A4-F28843528AFD_at_usgs.gov" -->
+<a style="text-decoration:none" href="./5062.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5064.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] cf2cf - a new tool</h1>
+<!-- received="Mon Mar 19 11:28:55 2012" -->
+<!-- isoreceived="20120319112855" -->
+<!-- sent="Mon, 19 Mar 2012 17:28:55 +0000" -->
+<!-- isosent="20120319172855" -->
+<!-- name="David Hassell" -->
+<!-- email="d.c.hassell" -->
+<!-- subject="[CF-metadata] cf2cf - a new tool" -->
+<!-- id="20120319172855.GA13330_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="web-44959106_at_mail.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5064.html" accesskey="d" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] Proposal for standard names: tropospheric trace gas column amounts&quot;">Next message</a> ]
-[ <a href="./5062.html" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] standard names for ocean model turbulent quantities&quot;">Previous message</a> ]
-[ <a href="./5055.html" title="Seth McGinnis: &quot;[CF-metadata] Rotated Pole projection possibly wrong&quot;">In reply to</a> ]
+[ <a href="./5064.html" accesskey="d" title="Karl Taylor: &quot;[CF-metadata] cf2cf - a new tool&quot;">Next message</a> ]
+[ <a href="./5062.html" title="Nan Galbraith: &quot;[CF-metadata] Fwd: surface_air_pressure vs	air_pressure_at_sea_level&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./5054.html" accesskey="t" title="Burkhardt Rockel: &quot;[CF-metadata] Rotated Pole projection possibly wrong&quot;">Next in thread</a> ]
+[ <a href="./5064.html" accesskey="t" title="Karl Taylor: &quot;[CF-metadata] cf2cf - a new tool&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -71,224 +70,71 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Tom Kunicki &lt;<a href="mailto:tkunicki?Subject=Re%3A%20%5BCF-metadata%5D%20Rotated%20Pole%20projection%20possibly%20wrong">tkunicki</a>&gt;
+<dfn>From</dfn>: David Hassell &lt;<a href="mailto:d.c.hassell?Subject=Re%3A%20%5BCF-metadata%5D%20cf2cf%20-%20a%20new%20tool">d.c.hassell</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Sat, 9 Mar 2013 19:53:16 -0600</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 19 Mar 2012 17:28:55 +0000</span><br />
 </address>
 <br />
-The Z, Y', X'' rotation scheme, intrinsic or extrinsic, sounds like an application of Euler (sounds like &quot;Oiler&quot;) angles [1,2].
+Hello,
 <br />
-<br />Tom Kunicki
+<br />I'd like to advertise a hopefully useful new tool called 'cf2cf' for
 <br />
-Center for Integrated Data Analytics
+combining many CF-netCDF files into a single CF-netCDF file, where the
 <br />
-U.S. Geological Survey
+input fields are aggregated into as few multidimensional netCDF
 <br />
-8505 Research Way
+variables as possible.
 <br />
-Middleton, WI  53562
+<br />This is a command line utility which utilizes the proposed CF
 <br />
-<br />[1] <a href="http://en.wikipedia.org/wiki/Euler_angles">http://en.wikipedia.org/wiki/Euler_angles</a>
+aggregation rules (trac ticket #78) to combine CF fields based on
 <br />
-[2] <a href="http://mathworld.wolfram.com/EulerAngles.html">http://mathworld.wolfram.com/EulerAngles.html</a>
+their metadata. In particular differing variables' units, dimension
 <br />
-<br /><br />On Mar 6, 2013, at 2:17 PM, Seth McGinnis &lt;mcginnis at ucar.edu&gt; wrote:
+order, dimension direction and netCDF variable names are are accounted
 <br />
-<br /><em class="quotelev1">&gt; So there are an infinite number of ways to decompose a 3-D orientation into
-</em><br />
-<em class="quotelev1">&gt; three orthogonal rotations.  Specifying the projection in terms of the final
-</em><br />
-<em class="quotelev1">&gt; location of the north pole and an optional rotation around that point means
-</em><br />
-<em class="quotelev1">&gt; that CF is actually agnostic about exactly how you get there.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; That said, given that it's being specified in that way, the decomposition that
-</em><br />
-<em class="quotelev1">&gt; maps most straightforwardly to those parameters is a Z-Y-X rotation sequence
-</em><br />
-<em class="quotelev1">&gt; using an extrinsic (space-fixed) coordinate system:
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; First rotate by angle phi around the north pole in space-fixed coordinates.
-</em><br />
-<em class="quotelev1">&gt; Then rotate by angle theta around 0N 90E in space-fixed coordinates.
-</em><br />
-<em class="quotelev1">&gt; Finally, rotate by angle psi around 0N 0E in space-fixed coordinates.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; The location of the grid's north pole in the original lat-lon coordinate system
-</em><br />
-<em class="quotelev1">&gt; is now at longitude = phi, colatitude = minus theta.  
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; (I'm not sure how psi relates to north_pole_grid_longitude mathematically; it
-</em><br />
-<em class="quotelev1">&gt; defaults to zero and I've never seen it in use, so I think it's included mostly
-</em><br />
-<em class="quotelev1">&gt; for completeness. I agree that we may well want to change it to something more
-</em><br />
-<em class="quotelev1">&gt; obvious like an azimuth angle.)
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Switching to the GRIB2 convention where you use the south pole instead of the
-</em><br />
-<em class="quotelev1">&gt; north should be just a matter of adding 180 degrees to phi and negating theta.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Cheers,
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; --Seth
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; On Wed, 6 Mar 2013 18:29:47 +0000
-</em><br />
-<em class="quotelev1">&gt; David Hassell &lt;d.c.hassell at reading.ac.uk&gt; wrote:
-</em><br />
-<em class="quotelev2">&gt;&gt; Hello,
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; It is a bit of mess! As I understand it, the full rotation described
-</em><br />
-<em class="quotelev2">&gt;&gt; is a sequence of rotations about three different axes:
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt;  Z  = 90S - 90N
-</em><br />
-<em class="quotelev2">&gt;&gt;  Y' = 90W' - 90E'
-</em><br />
-<em class="quotelev2">&gt;&gt;  X&quot; = 0E&quot; - 180E&quot;
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; where it is understood that the definitions of the N-S and W-E axes
-</em><br />
-<em class="quotelev2">&gt;&gt; change after each rotation (hence the primes and double
-</em><br />
-<em class="quotelev2">&gt;&gt; primes). Therefore the order in which they are done matters.
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; I suspect that the usual and assumed order is Z, Y', X&quot;?
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; From the GRIB-2 stuff John posted the north_pole_grid_longitude gives
-</em><br />
-<em class="quotelev2">&gt;&gt; the rotation about the X&quot; axis.
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; Something like John's &quot;Angle of rotation&quot; seems right to me. 
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; The apparent lack of consistency between the parameter names irks
-</em><br />
-<em class="quotelev2">&gt;&gt; me. Perhaps one solution could be to:
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; i) Add some text to the conventions state the order (Z, Y', X&quot;, say)
-</em><br />
-<em class="quotelev2">&gt;&gt;  and direction of rotations.
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; ii) add three new, consistent, self-describing parameters (e.g.)
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; angle_of_rotation_z
-</em><br />
-<em class="quotelev2">&gt;&gt; angle_of_rotation_y
-</em><br />
-<em class="quotelev2">&gt;&gt; angle_of_rotation_x
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; iii) allow aliases for backwards compatibility
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; grid_north_pole_longitude &lt;=&gt; angle_of_rotation_z
-</em><br />
-<em class="quotelev2">&gt;&gt; grid_north_pole_latitude  &lt;=&gt; angle_of_rotation_y
-</em><br />
-<em class="quotelev2">&gt;&gt; north_pole_grid_longitude &lt;=&gt; angle_of_rotation_x   
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; Or would that just obfuscate things even more?
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; All the best,
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; David
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; P.S. If you have a copy available, there are some nice descriptions in
-</em><br />
-<em class="quotelev2">&gt;&gt;    &quot;Coordinate Systems and Map Projections&quot; by D. H. Maling
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; --
-</em><br />
-<em class="quotelev2">&gt;&gt; David Hassell
-</em><br />
-<em class="quotelev2">&gt;&gt; National Centre for Atmospheric Science (NCAS)
-</em><br />
-<em class="quotelev2">&gt;&gt; Department of Meteorology, University of Reading,
-</em><br />
-<em class="quotelev2">&gt;&gt; Earley Gate, PO Box 243,
-</em><br />
-<em class="quotelev2">&gt;&gt; Reading RG6 6BB, U.K.
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; Tel   : 0118 3785613
-</em><br />
-<em class="quotelev2">&gt;&gt; Fax   : 0118 3788316
-</em><br />
-<em class="quotelev2">&gt;&gt; E-mail: d.c.hassell at reading.ac.uk
-</em><br />
-<em class="quotelev2">&gt;&gt; _______________________________________________
-</em><br />
-<em class="quotelev2">&gt;&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev2">&gt;&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev2">&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<span id="received"><dfn>Received on</dfn> Sat Mar 09 2013 - 18:53:16 GMT</span>
+for in the aggregation process.
+<br />
+<br />A quick, simple example:
+<br />
+<br />% cf2cf -o one_output_file.nc lots_of_input_files*.nc
+<br />
+<br />All details, including full documentation, more examples and
+<br />
+installation, may be found at
+<br />
+<a href="http://www.met.reading.ac.uk/~david/cf2cf.html">http://www.met.reading.ac.uk/~david/cf2cf.html</a>
+<br />
+<br />This tool uses the python cf package
+<br />
+(<a href="http://code.google.com/p/cf-python">http://code.google.com/p/cf-python</a>), which also makes the same CF
+<br />
+aggregation and the CF data model (trac ticket #68) available in an
+<br />
+API, in a memory efficient manner.
+<br />
+<br />Any feedback, positive or negative, on cf2cf, the CF aggregation rules
+<br />
+and the cf python package would, of course, be most gratefully
+<br />
+received, to help make these better.
+<br />
+<br />All the best,
+<br />
+<br />David
+<br />
+<br /><pre>
+--
+David Hassell
+National Centre for Atmospheric Science (NCAS)
+Department of Meteorology, University of Reading,
+Earley Gate, PO Box 243,
+Reading RG6 6BB, U.K.
+Tel   : 0118 3785613
+Fax   : 0118 3788316
+E-mail: d.c.hassell at reading.ac.uk
+</pre>
+<span id="received"><dfn>Received on</dfn> Mon Mar 19 2012 - 11:28:55 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -296,11 +142,12 @@ Middleton, WI  53562
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5063">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5064.html" title="Next message in the list">alison.pamment at stfc.ac.uk: "[CF-metadata] Proposal for standard names: tropospheric trace gas column amounts"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5062.html" title="Previous message in the list">alison.pamment at stfc.ac.uk: "[CF-metadata] standard names for ocean model turbulent quantities"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./5055.html" title="Message to which this message replies">Seth McGinnis: "[CF-metadata] Rotated Pole projection possibly wrong"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5064.html" title="Next message in the list">Karl Taylor: "[CF-metadata] cf2cf - a new tool"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5062.html" title="Previous message in the list">Nan Galbraith: "[CF-metadata] Fwd: surface_air_pressure vs	air_pressure_at_sea_level"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./5054.html" title="Next message in this discussion thread">Burkhardt Rockel: "[CF-metadata] Rotated Pole projection possibly wrong"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./5064.html" title="Next message in this discussion thread">Karl Taylor: "[CF-metadata] cf2cf - a new tool"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./5064.html" title="Message sent in reply to this message">Karl Taylor: "[CF-metadata] cf2cf - a new tool"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -311,7 +158,7 @@ Middleton, WI  53562
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:15 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5062.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5064.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

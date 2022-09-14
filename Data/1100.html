@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]  Fwd: Two-variable integer Time in CF? (V. Balaji) from Jonathan Gregory on 2007-11-06 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata]  Fwd: Two-variable integer Time in CF? (V. Balaji)" />
-<meta name="Date" content="2007-11-06" />
+<title>[CF-metadata] question about use of standard name to identify coord vars associated with a grid... from Brian Eaton on 2006-10-05 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Brian Eaton (eaton)" />
+<meta name="Subject" content="[CF-metadata] question about use of standard name to identify coord vars associated with a grid..." />
+<meta name="Date" content="2006-10-05" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1099.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1101.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  Fwd: Two-variable integer Time in CF? (V. Balaji)</h1>
-<!-- received="Tue Nov  6 01:16:04 2007" -->
-<!-- isoreceived="20071106011604" -->
-<!-- sent="Tue, 6 Nov 2007 08:16:04 +0000" -->
-<!-- isosent="20071106081604" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata]  Fwd: Two-variable integer Time in CF? (V. Balaji)" -->
-<!-- id="20071106081604.GB16258_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./1099.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1101.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] question about use of standard name to identify coord vars associated with a grid...</h1>
+<!-- received="Thu Oct  5 12:46:44 2006" -->
+<!-- isoreceived="20061005114644" -->
+<!-- sent="Thu, 5 Oct 2006 12:46:44 -0600" -->
+<!-- isosent="20061005184644" -->
+<!-- name="Brian Eaton" -->
+<!-- email="eaton" -->
+<!-- subject="[CF-metadata] question about use of standard name to identify coord vars associated with a grid..." -->
+<!-- id="20061005184644.GC9727_at_ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="wrxr6xm1w3j.fsf_at_shecky.unidata.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1101.html" accesskey="d" title="Pamment, JA: &quot;[CF-metadata] Re. chemicals and aerosols&quot;">Next message</a> ]
-[ <a href="./1099.html" title="Jonathan Gregory: &quot;[CF-metadata] please comment on cell_methods, ticket 17&quot;">Previous message</a> ]
+[ <a href="./1101.html" accesskey="d" title="Brian Eaton: &quot;[CF-metadata] why not use attributes instead of scalar variables for terms in dimensionless vertical coordinates...&quot;">Next message</a> ]
+[ <a href="./1099.html" title="Ed Hartnett: &quot;[CF-metadata] question about use of standard name to identify coord vars associated with a grid...&quot;">Previous message</a> ]
+[ <a href="./1099.html" title="Ed Hartnett: &quot;[CF-metadata] question about use of standard name to identify coord vars associated with a grid...&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,34 +70,110 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20Fwd%3A%20Two-variable%20integer%20Time%20in%20CF%3F%20(V.%20Balaji)">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Brian Eaton &lt;<a href="mailto:eaton?Subject=Re%3A%20%5BCF-metadata%5D%20question%20about%20use%20of%20standard%20name%20to%20identify%20coord%20vars%20associated%20with%20a%20grid...">eaton</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 6 Nov 2007 08:16:04 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 5 Oct 2006 12:46:44 -0600</span><br />
 </address>
 <br />
-Dear Philip
+Hi Ed,
 <br />
-<br /><em class="quotelev1">&gt; an alternative Earth day: the sidereal day (the time it takes for 
+<br />Recognizing that a variable contains longitude or latitude values is a
+<br />
+separate problem from knowing which variables contain the coordinate values
+<br />
+for a given variable in the file.  The association between a variable that
+<br />
+contains field data, and the variables that describe the grid of the field
+<br />
+data, is *always* made using either &quot;coordinate variables&quot; or &quot;auxilliary
+<br />
+coordinate variables&quot;.  Thus no matter how many grids are present in a
+<br />
+single file, variables always point directly to the associated variables
+<br />
+that contain their grid coordinate values.
+<br />
+<br />For each variable that contains field data (as opposed to coordinate data),
+<br />
+once you know which variables contain the coordinate values, you need to
+<br />
+identify what type of coordinate it is.  For latitude and longitude
+<br />
+coordinates the units must match one of the udunits specified versions of
+<br />
+degrees_east or degrees_north.  But these terms don't make sense for the
+<br />
+coordinates in the rotated pole grid.  So we decided to allow the use of
+<br />
+the generic unit &quot;degrees&quot; and to use the standard_name attribute to
+<br />
+identify that the variable contains latitudes or longitudes relative to a
+<br />
+rotated pole.
+<br />
+<br />Hope that helps,
+<br />
+Brian
+<br />
+<br /><br />On Thu, Oct 05, 2006 at 12:00:32PM -0600, Ed Hartnett wrote:
+<br />
+<em class="quotelev1">&gt; Howdy all!
 </em><br />
-<em class="quotelev1">&gt; the Earth to spin once and face the same stars, as opposed to the sun). 
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; The difference is about 4 minutes less than a calendar day.
+<em class="quotelev1">&gt; Here's a question about section 5.6, Grid mappings and projections, of
 </em><br />
-<br />udunits supports this unit as well:
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;day&gt; = &lt;sidereal_day&gt;*0.99727
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;day&gt; = &lt;sidereal_day&gt;/1.00274
-<br />
-<br />I agree, &quot;day&quot; is an important unit. It relates to the calendar, but unlike
-<br />
-&quot;month&quot; and &quot;year&quot;, its length is constant (at 86400 s).
-<br />
-<br />Cheers
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Tue Nov 06 2007 - 01:16:04 GMT</span>
+<em class="quotelev1">&gt; the CF document.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt;From the CF document:
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt;    &quot;A CF compliant application can determine that rlon and rlat are
+</em><br />
+<em class="quotelev1">&gt;    longitude and latitude values in the rotated grid by recognizing the
+</em><br />
+<em class="quotelev1">&gt;    standard names grid_longitude and grid_latitude.&quot;
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; But if there were two rotated pole grids in the same file, then the
+</em><br />
+<em class="quotelev1">&gt; standard names would not allow me to associate the appropriate rlat
+</em><br />
+<em class="quotelev1">&gt; and rlon coordinates with the grid, because there would be two of
+</em><br />
+<em class="quotelev1">&gt; each.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Or am I missing something?
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Thanks!
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Ed
+</em><br />
+<em class="quotelev1">&gt; -- 
+</em><br />
+<em class="quotelev1">&gt; Ed Hartnett  -- ed at unidata.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<span id="received"><dfn>Received on</dfn> Thu Oct 05 2006 - 12:46:44 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -103,8 +181,9 @@ Dear Philip
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1100">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1101.html" title="Next message in the list">Pamment, JA: "[CF-metadata] Re. chemicals and aerosols"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1099.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] please comment on cell_methods, ticket 17"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1101.html" title="Next message in the list">Brian Eaton: "[CF-metadata] why not use attributes instead of scalar variables for terms in dimensionless vertical coordinates..."</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1099.html" title="Previous message in the list">Ed Hartnett: "[CF-metadata] question about use of standard name to identify coord vars associated with a grid..."</a></li>
+<li><dfn>In reply to</dfn>: <a href="./1099.html" title="Message to which this message replies">Ed Hartnett: "[CF-metadata] question about use of standard name to identify coord vars associated with a grid..."</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -116,7 +195,7 @@ Dear Philip
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:00 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1099.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1101.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

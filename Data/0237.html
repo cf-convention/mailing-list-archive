@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Use of Standard Names and Coordinate Variables (relevant to the aerosol discussion) from Jonathan Gregory on 2006-09-27 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] Use of Standard Names and Coordinate Variables (relevant to the aerosol discussion)" />
-<meta name="Date" content="2006-09-27" />
+<title>[CF-metadata] Vertical Coordinate Systems from Brian Eaton on 2003-07-28 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Brian Eaton (eaton)" />
+<meta name="Subject" content="[CF-metadata] Vertical Coordinate Systems" />
+<meta name="Date" content="2003-07-28" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0236.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0238.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Use of Standard Names and Coordinate Variables (relevant to the aerosol discussion)</h1>
-<!-- received="Wed Sep 27 09:03:54 2006" -->
-<!-- isoreceived="20060927080354" -->
-<!-- sent="Wed, 27 Sep 2006 16:03:54 +0100" -->
-<!-- isosent="20060927150354" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] Use of Standard Names and Coordinate Variables (relevant to the aerosol discussion)" -->
-<!-- id="20060927150354.GC22412_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0236.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0238.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Vertical Coordinate Systems</h1>
+<!-- received="Mon Jul 28 14:20:11 2003" -->
+<!-- isoreceived="20030728132011" -->
+<!-- sent="Mon, 28 Jul 2003 14:20:11 -0600" -->
+<!-- isosent="20030728202011" -->
+<!-- name="Brian Eaton" -->
+<!-- email="eaton" -->
+<!-- subject="[CF-metadata] Vertical Coordinate Systems" -->
+<!-- id="20030728202010.GB3723_at_ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20030728160321.GC23838_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,11 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0238.html" accesskey="d" title="Roy Lowry: &quot;[CF-metadata] standard names for aerosols and chemistry&quot;">Next message</a> ]
-[ <a href="./0236.html" title="Jonathan Gregory: &quot;[CF-metadata] standard names for aerosols and chemistry&quot;">Previous message</a> ]
+[ <a href="./0238.html" accesskey="d" title="Brian Eaton: &quot;[CF-metadata] cartesian_x_coordinate&quot;">Next message</a> ]
+[ <a href="./0236.html" title="Jonathan Gregory: &quot;[CF-metadata] Vertical Coordinate Systems&quot;">Previous message</a> ]
+[ <a href="./0236.html" title="Jonathan Gregory: &quot;[CF-metadata] Vertical Coordinate Systems&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0240.html" accesskey="t" title="Bryan Lawrence: &quot;[CF-metadata] Use of Standard Names and Coordinate Variables (relevant to the aerosol discussion)&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,68 +70,128 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Use%20of%20Standard%20Names%20and%20Coordinate%20Variables%20(relevant%20to%20the%20aerosol%20discussion)">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Brian Eaton &lt;<a href="mailto:eaton?Subject=Re%3A%20%5BCF-metadata%5D%20Vertical%20Coordinate%20Systems">eaton</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 27 Sep 2006 16:03:54 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 28 Jul 2003 14:20:11 -0600</span><br />
 </address>
 <br />
-Dear Bryan
+Hi Jonathan and Juerg,
 <br />
-<br />Actually I agree with you. This is quite ironic, because my preference is
+<br />I agree with what Jonathan has written below, and would like to add a
 <br />
-generally to put as much as possible in one attribute with as little hierarchy
+suggestion for treating the positive attribute:
 <br />
-as we can get away with, because it makes searching easier, and it means that
+<br />To identify a vertical coordinate one looks for pressure units or the
 <br />
-decisions about how to structure a hierarchy (which are generally hard and
+positive attribute.  The positive attribute was defined by COARDS in the
 <br />
-often cause problems later, since any choice is arbitrary) can be avoided.
+context of 1D coordinate variables.  Since it has proven to be a useful way
 <br />
-However in previous discussions I have felt myself to be a minority in arguing
+to identify a generic vertical coordinate, I propose that we extend its
 <br />
-against splitting up names. For instance, I think that special surfaces
+definition to cover the multi-dimensional variable case.  The current
 <br />
-(surface, TOA, tropopause, etc.) should be in the standard name, because there
+wording is
 <br />
-are not many of them, and it would only make things more complicated to split
+<br />&nbsp;&nbsp;The direction of positive (i.e., the direction in which the coordinate
 <br />
-them off into a separate attribute.
+&nbsp;&nbsp;values are increasing), whether up or down, cannot in all cases be
 <br />
-<br />I feel that parts of the description should appears as coordinates if there
+&nbsp;&nbsp;inferred from the units.  The direction of positive is useful for
 <br />
-are many possible values they could take, to avoid the vocabulary expanding
+&nbsp;&nbsp;applications displaying the data. For this reason the attribute positive
 <br />
-too much. If aerosol size can only foreseeably take a very small number of
+&nbsp;&nbsp;as defined in the COARDS standard is required if the vertical axis units
 <br />
-values, it doesn't need to be a coordinate. On the other hand, we have provided
+&nbsp;&nbsp;are not a valid unit of pressure (a determination which can be made using
 <br />
-ways to make land surface type a coordinate, since it can take a lot of values
+&nbsp;&nbsp;the udunits routine, utScan) -- otherwise its inclusion is optional. The
 <br />
-and every type has the same kind of quantities which need to be named. More-
+&nbsp;&nbsp;positive attribute may have the value up or down (case insensitive).
 <br />
-over, in that case the answer to
+<br />I suggest we modify this to something like:
 <br />
-<em class="quotelev1">&gt; Do we ever expect people to use these variables as coordinates per se?
+<br />&nbsp;&nbsp;The direction of positive (i.e., the direction in which the coordinate
+<br />
+&nbsp;&nbsp;values along a vertical column are increasing), whether up or down,
+<br />
+&nbsp;&nbsp;cannot in all cases be inferred from the units.  The direction of
+<br />
+&nbsp;&nbsp;positive is useful for applications displaying the data. For this reason
+<br />
+&nbsp;&nbsp;the attribute positive as defined in the COARDS standard is required if
+<br />
+&nbsp;&nbsp;the vertical coordinate units are not a valid unit of pressure (a
+<br />
+&nbsp;&nbsp;determination which can be made using the udunits routine, utScan) --
+<br />
+&nbsp;&nbsp;otherwise its inclusion is optional. The positive attribute may have the
+<br />
+&nbsp;&nbsp;value up or down (case insensitive).  This attribute may be applied to
+<br />
+&nbsp;&nbsp;either coordinate variables or auxillary coordinate variables that
+<br />
+&nbsp;&nbsp;contain vertical coordinate values.
+<br />
+<br />Brian
+<br />
+<br /><br />On Mon, Jul 28, 2003 at 05:03:21PM +0100, Jonathan Gregory wrote:
+<br />
+<em class="quotelev1">&gt; Dear Juerg
 </em><br />
-is Yes. Land surface type is a coordinate (a tile index) in models.
-<br />
-<br /><em class="quotelev1">&gt; I'm not even convinced by the argument that wavelength and
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; RH should disappear off into coordinate variables either.
+<em class="quotelev2">&gt; &gt; But why the positive
 </em><br />
-It depends principally on whether there are many possible values, I think.
-<br />
-Of course, if there is only possible value, it does not even need to be stated
-<br />
-in the standard name. It can just be part of the definition. The fact of
-<br />
-wanting to state it in the name itself implies that other values are possible.
-<br />
-<br />Cheers
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Wed Sep 27 2006 - 09:03:54 BST</span>
+<em class="quotelev2">&gt; &gt; attribute? Is the positive attribute not only applicable to 1-dimensional
+</em><br />
+<em class="quotelev2">&gt; &gt; coordinate variables?
+</em><br />
+<em class="quotelev1">&gt; I think this is something we'll have to decide.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; I see what you are getting at with the generalised height coordinate: you
+</em><br />
+<em class="quotelev1">&gt; regard Z as a function of model level, x and y, and see this as analogous
+</em><br />
+<em class="quotelev1">&gt; to having pressure as a dimensional vertical coordinate being a function of
+</em><br />
+<em class="quotelev1">&gt; dimensionless sigma, x and y (via ps), for instance.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; However, I still think that a better scheme is to name it in the coordinates
+</em><br />
+<em class="quotelev1">&gt; attribute. It can be identified by its standard_name and units if not by a
+</em><br />
+<em class="quotelev1">&gt; positive attribute. It isn't really a &quot;function&quot; of model level, x and y in
+</em><br />
+<em class="quotelev1">&gt; the sense for which formula_terms was intended. There is no computation
+</em><br />
+<em class="quotelev1">&gt; involved - it's just a look-up. I see an auxiliary coordinate variable
+</em><br />
+<em class="quotelev1">&gt; Z(zlay,yc,xc) as analogous, for instance, to a 2D longitude variable
+</em><br />
+<em class="quotelev1">&gt; longitude(yc,xc).
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Cheers
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Jonathan
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<span id="received"><dfn>Received on</dfn> Mon Jul 28 2003 - 14:20:11 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -139,12 +199,10 @@ wanting to state it in the name itself implies that other values are possible.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start237">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0238.html" title="Next message in the list">Roy Lowry: "[CF-metadata] standard names for aerosols and chemistry"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0236.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] standard names for aerosols and chemistry"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0238.html" title="Next message in the list">Brian Eaton: "[CF-metadata] cartesian_x_coordinate"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0236.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Vertical Coordinate Systems"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0236.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] Vertical Coordinate Systems"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0240.html" title="Next message in this discussion thread">Bryan Lawrence: "[CF-metadata] Use of Standard Names and Coordinate Variables (relevant to the aerosol discussion)"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0240.html" title="Message sent in reply to this message">Bryan Lawrence: "[CF-metadata] Use of Standard Names and Coordinate Variables (relevant to the aerosol discussion)"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -155,7 +213,7 @@ wanting to state it in the name itself implies that other values are possible.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:46 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0236.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0238.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

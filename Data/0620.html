@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] axis attribute from Jonathan Gregory on 2006-12-23 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] axis attribute" />
-<meta name="Date" content="2006-12-23" />
+<title>[CF-metadata] What do models assume for the shape of the Earth? from Rich Signell on 2005-04-07 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Rich Signell (rsignell)" />
+<meta name="Subject" content="[CF-metadata] What do models assume for the shape of the Earth?" />
+<meta name="Date" content="2005-04-07" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0619.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0621.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] axis attribute</h1>
-<!-- received="Sat Dec 23 15:17:32 2006" -->
-<!-- isoreceived="20061223151732" -->
-<!-- sent="Sat, 23 Dec 2006 22:17:32 +0000" -->
-<!-- isosent="20061223221732" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] axis attribute" -->
-<!-- id="20061223221732.GA13471_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0619.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0621.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] What do models assume for the shape of the Earth?</h1>
+<!-- received="Thu Apr  7 15:19:16 2005" -->
+<!-- isoreceived="20050407141916" -->
+<!-- sent="Thu, 07 Apr 2005 17:19:16 -0400" -->
+<!-- isosent="20050407211916" -->
+<!-- name="Rich Signell" -->
+<!-- email="rsignell" -->
+<!-- subject="[CF-metadata] What do models assume for the shape of the Earth?" -->
+<!-- id="4255A3D4.5060006_at_usgs.gov" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="42557E33.9050403_at_unidata.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,11 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0621.html" accesskey="d" title="Brian Eaton: &quot;[CF-metadata] axis attribute&quot;">Next message</a> ]
-[ <a href="./0619.html" title="Jonathan Gregory: &quot;[CF-metadata] aerosol and chemistry names - continuation&quot;">Previous message</a> ]
+[ <a href="./0621.html" accesskey="d" title="Bryan Lawrence: &quot;[CF-metadata] What do models assume for the shape of the Earth?&quot;">Next message</a> ]
+[ <a href="./0619.html" title="John Caron: &quot;[CF-metadata] What do models assume for the shape of the Earth?&quot;">Previous message</a> ]
+[ <a href="./0619.html" title="John Caron: &quot;[CF-metadata] What do models assume for the shape of the Earth?&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0621.html" accesskey="t" title="Brian Eaton: &quot;[CF-metadata] axis attribute&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,64 +70,69 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20axis%20attribute">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Rich Signell &lt;<a href="mailto:rsignell?Subject=Re%3A%20%5BCF-metadata%5D%20What%20do%20models%20assume%20for%20the%20shape%20of%20the%20Earth%3F">rsignell</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Sat, 23 Dec 2006 22:17:32 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 07 Apr 2005 17:19:16 -0400</span><br />
 </address>
 <br />
-Dear all
+John Caron wrote:
 <br />
-<br />This debate went quiet about a month ago. I'd like to propose the following,
+<em class="quotelev1"> &gt;
+</em><br />
+<em class="quotelev1"> &gt; Another question is which ellipsoid is being used. According to Snyder,
+</em><br />
+<em class="quotelev1"> &gt; when US switched from NAD27 to NAD83, nearly every point in North
+</em><br />
+<em class="quotelev1"> &gt; America got a new lat/lon, and &quot;the difference can reach 300 m&quot;. (p 13).
+</em><br />
+<em class="quotelev1"> &gt; So perhaps we are talking about 300 m rather than 20 km ? Rich can you
+</em><br />
+<em class="quotelev1"> &gt; comment more on this?
+</em><br />
+<em class="quotelev1"> &gt;
+</em><br />
+<br />John,
 <br />
-in the light of what was said then.
+<br />It can be up to 20 km if you are half way between the pole and the equator and 
 <br />
-<br />Requirement: A way to identify the horizontal coordinate variables.
+converting lon,lat values from a bogus ellipsoid, like a sphere, to a real 
 <br />
-<br />(NB coordinate variables means 1D, in the Unidata sense, as usual in CF.)
+ellipsoid, like WGS84.
 <br />
-<br />Proposal: It can be done using COARDS rules for units in the case of latitude
+<br />It's much less, like your 300 m value if you are converting between true 
 <br />
-and longitude. In other cases (such as projection coordinates, rotated latitude
+ellipsoids &amp; datums, such as from NAD27 to NAD83.
 <br />
-and longitude) the standard name can be used, but that requires recognising
+<br />If you want to play with these datum conversions, you can use the &quot;cs2cs&quot; 
 <br />
-specific names, and standard names are optional anyway. The axis attribute is
+function in the freely available proj4 package, available at:
 <br />
-also optional but if present it can be used to identify horizontal coordinates
+<a href="http://proj.maptools.org/">http://proj.maptools.org/</a>
 <br />
-as those having axis=&quot;X&quot; or axis=&quot;Y&quot;. If both X- and Y-axis are identified,
+<br />For example:
 <br />
-X-Y-up should define a right-handed coordinate system i.e. rotation from the
+<br />cs2cs +proj=latlong +ellps=sphere  +to +proj=latlong +ellps=WGS84
 <br />
-positive X direction to the positive Y direction is anticlockwise if viewed
+-117 45
 <br />
-from above. The axis attribute is allowed for longitude (X) and latitude (Y)
+117dW   45d11'32.334&quot;N 3579.255
 <br />
-coordinate variables. The axis attribute is not allowed for auxiliary
+<br />cs2cs +proj=latlong +datum=NAD27 +to +proj=latlong +datum=NAD83
 <br />
-coordinate variables. Auxiliary coordinate variables can be identified as
+-117 45
 <br />
-lying in the horizontal surface (e.g. 2D latitude and longitude) by the fact
+117d0'3.587&quot;W   44d59'59.568&quot;N 0.000
 <br />
-of their having dimensions which all belong to 1D horizontal coordinate
+<br />-Rich
 <br />
-variables.
-<br />
-<br />Change to current standard: Remove the prohibition on axis attribute for
-<br />
-rotated lat and lon. Introduce the requirement for X-Y-up to be right-handed.
-<br />
-Add a remark about how aux coord vars can be inferred to be horizontal. Make
-<br />
-it clear that axis is not allowed on aux coord vars (but that is probably
-<br />
-already the case, so not a change to the standard).
-<br />
-<br />Cheers
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Sat Dec 23 2006 - 15:17:32 GMT</span>
+<br /><br /><pre>
+-- 
+Richard P. Signell           rsignell at usgs.gov
+U.S. Geological Survey       Phone: (508) 457-2229
+384 Woods Hole Road          Fax:   (508) 457-2310
+Woods Hole, MA  02543-1598
+</pre>
+<span id="received"><dfn>Received on</dfn> Thu Apr 07 2005 - 15:19:16 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -135,13 +140,10 @@ already the case, so not a change to the standard).
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start620">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0621.html" title="Next message in the list">Brian Eaton: "[CF-metadata] axis attribute"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0619.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] aerosol and chemistry names - continuation"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0621.html" title="Next message in the list">Bryan Lawrence: "[CF-metadata] What do models assume for the shape of the Earth?"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0619.html" title="Previous message in the list">John Caron: "[CF-metadata] What do models assume for the shape of the Earth?"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0619.html" title="Message to which this message replies">John Caron: "[CF-metadata] What do models assume for the shape of the Earth?"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0621.html" title="Next message in this discussion thread">Brian Eaton: "[CF-metadata] axis attribute"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0621.html" title="Message sent in reply to this message">Brian Eaton: "[CF-metadata] axis attribute"</a></li>
-<li><dfn>Reply</dfn>: <a href="./0625.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] axis attribute"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -152,7 +154,7 @@ already the case, so not a change to the standard).
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:53 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0619.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0621.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

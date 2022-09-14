@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] axis attribute from Jonathan Gregory on 2006-12-28 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] axis attribute" />
-<meta name="Date" content="2006-12-28" />
+<title>[CF-metadata] CF compliant Graphics? from Rich Signell on 2005-04-21 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Rich Signell (rsignell)" />
+<meta name="Subject" content="[CF-metadata] CF compliant Graphics?" />
+<meta name="Date" content="2005-04-21" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0625.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0627.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] axis attribute</h1>
-<!-- received="Thu Dec 28 02:47:48 2006" -->
-<!-- isoreceived="20061228024748" -->
-<!-- sent="Thu, 28 Dec 2006 09:47:48 +0000" -->
-<!-- isosent="20061228094748" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] axis attribute" -->
-<!-- id="20061228094747.GA2031_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0625.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0627.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF compliant Graphics?</h1>
+<!-- received="Thu Apr 21 12:47:42 2005" -->
+<!-- isoreceived="20050421114742" -->
+<!-- sent="Thu, 21 Apr 2005 14:47:42 -0400" -->
+<!-- isosent="20050421184742" -->
+<!-- name="Rich Signell" -->
+<!-- email="rsignell" -->
+<!-- subject="[CF-metadata] CF compliant Graphics?" -->
+<!-- id="4267F54E.9030202_at_usgs.gov" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="11690B780C9F774E8B604450A635B4B015854B_at_serc7.us.sinet.si.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,9 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0627.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] curvilinear cartesian coordinates case?&quot;">Next message</a> ]
-[ <a href="./0625.html" title="John Caron: &quot;[CF-metadata] axis attribute&quot;">Previous message</a> ]
+[ <a href="./0627.html" accesskey="d" title="Karl Taylor: &quot;[CF-metadata] CF compliant Graphics?&quot;">Next message</a> ]
+[ <a href="./0625.html" title="Gross, Tom: &quot;[CF-metadata] CF compliant Graphics?&quot;">Previous message</a> ]
+[ <a href="./0625.html" title="Gross, Tom: &quot;[CF-metadata] CF compliant Graphics?&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0627.html" accesskey="t" title="Karl Taylor: &quot;[CF-metadata] CF compliant Graphics?&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,56 +71,51 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20axis%20attribute">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Rich Signell &lt;<a href="mailto:rsignell?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20compliant%20Graphics%3F">rsignell</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 28 Dec 2006 09:47:48 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 21 Apr 2005 14:47:42 -0400</span><br />
 </address>
 <br />
-Dear John
+Gross, Tom wrote:
 <br />
-<br /><em class="quotelev2">&gt; &gt;Requirement: A way to identify the horizontal coordinate variables.
+<em class="quotelev1">&gt; I?ve gone to all the trouble of creating CF compliant netcdf files.  I 
 </em><br />
-<em class="quotelev2">&gt; &gt;
+<em class="quotelev1">&gt; assume that this is to allow graphics programs and other software to 
 </em><br />
-<em class="quotelev1">&gt; Sorry I dont understand the requirement. Is this for the case where its 
+<em class="quotelev1">&gt; easily use the included metadata.  What are such packages? 
 </em><br />
-<em class="quotelev1">&gt; not a lat/lon nor a projection x, y coordinate ? Is the use case 
-</em><br />
-<em class="quotelev1">&gt; rotated_latitude_longitude ? 
-</em><br />
-<br />The beginning of the proposal tries to answer that:
+<br />The only software I know that takes advantage of CF conventions (those 
 <br />
-<br />Proposal: It can be done using COARDS rules for units in the case of latitude
+conventions that extend beyond COARDS) is Unidata's IDV.  It handles several of 
 <br />
-and longitude. In other cases (such as projection coordinates, rotated latitude
+the dimensionless vertical coordinates, and also auxilliary coordinate variables 
 <br />
-and longitude) the standard name can be used, but that requires recognising
+&nbsp;&nbsp;via the &quot;coordinates&quot; attribute.  Thus the IDV can handle netcdf output on 
 <br />
-specific names, and standard names are optional anyway.
+general curvilinear grids in the horizontal and stretched coordinates in the 
 <br />
-<br />So, the axis attribute, if present (it is optional), can be used to
+vertical.
 <br />
-identify horizontal coordinates in any case. Lat/lon, projection coordinates,
+<br />We definitely need more tools.  When we have nice Matlab and IDL toolkits for CF 
 <br />
-rotated lat/lon, and any other mapping which might be invented require the
+compliant data, people will start *wanting* to put their output in CF-compliant 
 <br />
-software to recognise specific units or standard names for this purpose. The
+form, and we'll get a lot more CF-compliant data.
 <br />
-axis attribute is a more general solution that works without any knowledge of
+<br />Not many people will convert to CF just because it's a good thing to do.
 <br />
-the details of the horizontal grid.
+Well, maybe a few government employees.   ;-)
 <br />
-<br /><em class="quotelev1">&gt; BTW, theres no reference to how rotated_latitude_longitude works in the 
-</em><br />
-<em class="quotelev1">&gt; Appendix.
-</em><br />
-<br />Yes, it is there, under the name &quot;Rotated pole&quot;, after &quot;Polar stereographic&quot;.
+<br />-Rich
 <br />
-<br />Best wishes
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Thu Dec 28 2006 - 02:47:48 GMT</span>
+<br /><br /><br /><pre>
+-- 
+Richard P. Signell           rsignell at usgs.gov
+U.S. Geological Survey       Phone: (508) 457-2229
+384 Woods Hole Road          Fax:   (508) 457-2310
+Woods Hole, MA  02543-1598
+</pre>
+<span id="received"><dfn>Received on</dfn> Thu Apr 21 2005 - 12:47:42 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -125,9 +123,11 @@ the details of the horizontal grid.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start626">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0627.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] curvilinear cartesian coordinates case?"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0625.html" title="Previous message in the list">John Caron: "[CF-metadata] axis attribute"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0627.html" title="Next message in the list">Karl Taylor: "[CF-metadata] CF compliant Graphics?"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0625.html" title="Previous message in the list">Gross, Tom: "[CF-metadata] CF compliant Graphics?"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0625.html" title="Message to which this message replies">Gross, Tom: "[CF-metadata] CF compliant Graphics?"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0627.html" title="Next message in this discussion thread">Karl Taylor: "[CF-metadata] CF compliant Graphics?"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -138,7 +138,7 @@ the details of the horizontal grid.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:53 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0625.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0627.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] How to define time coordinate in GPS? from Jonathan Gregory on 2015-06-12 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] How to define time coordinate in GPS?" />
-<meta name="Date" content="2015-06-12" />
+<title>[CF-metadata] Daily climatology? from Seth McGinnis on 2014-06-02 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Seth McGinnis (mcginnis)" />
+<meta name="Subject" content="[CF-metadata] Daily climatology?" />
+<meta name="Date" content="2014-06-02" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./7115.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7117.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] How to define time coordinate in GPS?</h1>
-<!-- received="Fri Jun 12 10:30:08 2015" -->
-<!-- isoreceived="20150612093008" -->
-<!-- sent="Fri, 12 Jun 2015 18:30:08 +0200" -->
-<!-- isosent="20150612163008" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] How to define time coordinate in GPS?" -->
-<!-- id="20150612163007.GA2062_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./7115.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7117.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Daily climatology?</h1>
+<!-- received="Mon Jun  2 15:52:05 2014" -->
+<!-- isoreceived="20140602145205" -->
+<!-- sent="Mon, 02 Jun 2014 15:52:05 -0600" -->
+<!-- isosent="20140602215205" -->
+<!-- name="Seth McGinnis" -->
+<!-- email="mcginnis" -->
+<!-- subject="[CF-metadata] Daily climatology?" -->
+<!-- id="538CF205.20909_at_ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="538CCD42.7010106_at_cicsnc.org" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./7117.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Roms: ocean_s_coordinate_g1 and g2?&quot;">Next message</a> ]
-[ <a href="./7115.html" title="Jim Biard: &quot;[CF-metadata] Page with searchable UDUNITS tables now available&quot;">Previous message</a> ]
+[ <a href="./7117.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Daily climatology?&quot;">Next message</a> ]
+[ <a href="./7115.html" title="Jim Biard: &quot;[CF-metadata] Daily climatology?&quot;">Previous message</a> ]
+[ <a href="./7115.html" title="Jim Biard: &quot;[CF-metadata] Daily climatology?&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./7137.html" accesskey="t" title="Jim Biard: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
+[ <a href="./7117.html" accesskey="t" title="Jonathan Gregory: &quot;[CF-metadata] Daily climatology?&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,110 +71,310 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20How%20to%20define%20time%20coordinate%20in%20GPS%3F">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Seth McGinnis &lt;<a href="mailto:mcginnis?Subject=Re%3A%20%5BCF-metadata%5D%20Daily%20climatology%3F">mcginnis</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 12 Jun 2015 18:30:08 +0200</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 02 Jun 2014 15:52:05 -0600</span><br />
 </address>
 <br />
-Dear Jim
+Jim,
 <br />
-<br />It appears that we have some irreconcilable differences in interpretation but
+<br />Hmm, good question.  Looking at the examples in section 7.4 in more
 <br />
-I am not sure that they make any difference in practice, which is fortunate
+detail, I'm no longer certain about my proposed cell_methods string.
 <br />
-if correct.
+<br />If you were using option 3, I do think 'point' would be the method to go
 <br />
-<br /><em class="quotelev1">&gt; The definition of a calendar includes (by implication) the rules for how
+in the 'over days' slot.  That method describes how values are
+<br />
+aggregated over days and months, and it says in Appendix E that the
+<br />
+'point' method indicates that the values are &quot;representative of points
+<br />
+in time and space&quot;, which I take to mean that at that scale they are not
+<br />
+aggregated at all.
+<br />
+<br />However, I think your description of how the option 1 case would work
+<br />
+makes a lot of sense, also.
+<br />
+<br />I guess the ambiguity creeps in because there are two natural cycles
+<br />
+that we can construct climatologies over: the daily cycle and the annual
+<br />
+cycle.  Option 1 is for annual-cycle climatologies, option 2 is for the
+<br />
+daily cycle, and option 3 is for both.  You're dealing with both cycles,
+<br />
+but since you're averaging over the entire day, your climatology is
+<br />
+degenerate in the daily cycle.  So it's analogous to having a singleton
+<br />
+dimension, and the question is, do you leave it in as a placeholder
+<br />
+(option 3), or drop it (option 1)?
+<br />
+<br />My opinion is that it would probably be valid to do it either way, but
+<br />
+when in doubt, one should go for the simpler option.  So I'll abandon my
+<br />
+previous recommendation and say use option 1 as you have described it
+<br />
+here.  That seems like it is the mostly likely to be interpreted
+<br />
+correctly anyway.
+<br />
+<br />Cheers,
+<br />
+<br />--Seth
+<br />
+<br /><br />On 6/2/14 1:15 PM, Jim Biard wrote:
+<br />
+<em class="quotelev1">&gt; Seth,
 </em><br />
-<em class="quotelev1">&gt; to convert between an elapsed time count since a reference epoch and
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; a timestamp as expressed in that calendar.
+<em class="quotelev1">&gt; I missed the fact that I must fit one of the listed options for 
 </em><br />
-Yes. The elapsed time count is the time coordinate. That's what I mean by the
-<br />
-rules for encoding and decoding. In addition, the calendar attribute states
-<br />
-the calendar of the reference time. (I can't understand why taking these
-<br />
-together doesn't mean that the attribute implies the calendar of the decoded
-<br />
-timestamps too, but I don't mind if we don't say that! I've always assumed
-<br />
-that the calendar is regarded as a property of the time coordinate construct
-<br />
-as a whole, because it's an attribute of the time coordinate variable.)
-<br />
-<br />Yes, I agree that you can change the calendar without modifying the time
-<br />
-coordinate values if you instead alter the reference time so that it refers
-<br />
-to the same instant of real time in the new calendar. (I was considering the
-<br />
-case when you wished to keep the same reference time, say 1st Jan 2015, but
-<br />
-alter the calendar. In that case you have to add an offset to the coordinate
-<br />
-values, which can be done be decoding and reencoding or by other means, but
-<br />
-the method used isn't material to the definition, so there is no need to say
-<br />
-how this is done.)
-<br />
-<br /><em class="quotelev1">&gt; Matching timestamps without conversion is exactly what you would
+<em class="quotelev1">&gt; climatology cell_methods. So, if I must try to fit in the third 
 </em><br />
-<em class="quotelev1">&gt; *not* want to do when comparing observations recorded using two
+<em class="quotelev1">&gt; option:
 </em><br />
-<em class="quotelev1">&gt; different real-world calendars.
+<em class="quotelev1">&gt; 
 </em><br />
-That is true. But it is exactly what you do want to do when comparing real-
-<br />
-world and model calendars, or different model calendars, which is the common
-<br />
-case for a lot of CF data. In that common case, the timestamps are primary.
-<br />
-For example, climatological means, for which we have a CF conversion, assume
-<br />
-that users want to deal with time in a timestamp-based way, in which months
-<br />
-are equivalent regardless of calendar. It is inexact in a sense, but it's what
-<br />
-we need to do. More generally, you could argue that CF is quite a lot concerned
-<br />
-with the general problem of comparing apples and quinces. CF provides metadata
-<br />
-which enables users to indicate that the comparison is valid, by giving the
-<br />
-two things the same label.
-<br />
-<br />I don't think the question of whether timestamps are primary makes a material
-<br />
-difference to the convention or its use. It would be fine to state that the
-<br />
-encoded time coordinate is an elapsed time and has no discontinuities, except
-<br />
-for small ones in the case of using the no-leap-second calendar to encode UTC
-<br />
-time. I think we have to support this case because it is almost certainly in
-<br />
-use, perhaps widespread use, and it's better to be explicit about it. CF does
-<br />
-not generally try to tell people what to do, but to enable them to describe
-<br />
-clearly what they have done.
-<br />
-<br />I agree that seconds are always the same length. If only days were too! (But
-<br />
-they are in udunits, so we could warn against using days as a unit of time
-<br />
-in calendar=&quot;gregorian_utc&quot; because it could be confusing, although encoding
-<br />
-and decoding would work correctly.)
-<br />
-<br />Best wishes
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Fri Jun 12 2015 - 10:30:08 BST</span>
+<em class="quotelev1">&gt; time: mean within days time: point over days time: mean over years
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; is &quot;point&quot; the right answer for the second method? Since the starting
+</em><br />
+<em class="quotelev1">&gt; and ending month values are identical in the climatology bounds,
+</em><br />
+<em class="quotelev1">&gt; doesn't that imply that the point operation is applied over a full
+</em><br />
+<em class="quotelev1">&gt; year? Is there some place in the Conventions where this use for point
+</em><br />
+<em class="quotelev1">&gt; is defined/explained?
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Or, should I use the first option:
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; time: mean within years time: mean over years
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; since my first time interval (for the first cell) is specified to be 
+</em><br />
+<em class="quotelev1">&gt; Jan 1 00:00:00 to Jan 2 00:00:00, which is applied within each 
+</em><br />
+<em class="quotelev1">&gt; individual year, and then the set of means for Jan 1 for each year 
+</em><br />
+<em class="quotelev1">&gt; are averaged.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Grace and peace,
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Jim
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; On 6/2/14, 2:32 PM, Seth McGinnis wrote:
+</em><br />
+<em class="quotelev2">&gt;&gt; Jim--
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Section 7.4 covers climatologies.  My understanding of it is:
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; 1) Those are the right bounds values, but you should reference them
+</em><br />
+<em class="quotelev2">&gt;&gt; using a &quot;climatology&quot; attribute instead of a &quot;bounds&quot; attribute.
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; I would think the cell_methods string for a daily climatology
+</em><br />
+<em class="quotelev2">&gt;&gt; ought to be &quot;time: mean within days time: mean over years&quot;, but
+</em><br />
+<em class="quotelev2">&gt;&gt; that doesn't follow one of the three allowed forms for
+</em><br />
+<em class="quotelev2">&gt;&gt; climatologies.  I guess the way to make it fit the schema is to use
+</em><br />
+<em class="quotelev2">&gt;&gt; &quot;point&quot; to indicate a no-op for how you're aggregating days within
+</em><br />
+<em class="quotelev2">&gt;&gt; the annual cycle, which gives you:
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; &quot;time: mean within days time: point over days time: mean over 
+</em><br />
+<em class="quotelev2">&gt;&gt; years&quot;
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; 2) Quite a conundrum, isn't it?  Probably why we don't see more 
+</em><br />
+<em class="quotelev2">&gt;&gt; daily climatologies...  My inclination would be to simply discard 
+</em><br />
+<em class="quotelev2">&gt;&gt; the leap days and use a noleap calendar for your climatology.
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; (Another approach is to normalize time by multiplying it by 
+</em><br />
+<em class="quotelev2">&gt;&gt; 360/yearlength, so that you're basically working with orbital 
+</em><br />
+<em class="quotelev2">&gt;&gt; position instead of days since some starting point.  I find that 
+</em><br />
+<em class="quotelev2">&gt;&gt; useful for comparisons across different calendars, but it's a bit 
+</em><br />
+<em class="quotelev2">&gt;&gt; unorthodox, and would likely be confusing in a published data 
+</em><br />
+<em class="quotelev2">&gt;&gt; product.)
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; In any case, I don't think there's really a standard &quot;best&quot;
+</em><br />
+<em class="quotelev2">&gt;&gt; answer, so the most important thing is to document your choice
+</em><br />
+<em class="quotelev2">&gt;&gt; thoroughly. As long as the end-user can easily figure out how you
+</em><br />
+<em class="quotelev2">&gt;&gt; handled leap days, I think it's reasonable for you to deal with the
+</em><br />
+<em class="quotelev2">&gt;&gt; issue in whatever way you find most convenient.
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Cheers,
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; --Seth
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; ---- Seth McGinnis mcginnis at ucar.edu NARCCAP Data Manager RISC / 
+</em><br />
+<em class="quotelev2">&gt;&gt; IMAGe / NCAR ----
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; On 6/2/14 8:20 AM, Jim Biard wrote:
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Hi.
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; We have a dataset that contains a climatology giving the daily 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; average temperature over 30 years. (So, it has the average 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; temperature for January 1 over the period from 1981 - 2010.) I 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; have two questions about this.
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 1) How exactly should that be represented, both with the bounds 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; and with the cell_methods? Should the  bounds be (for example) 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 00:00:00, Jan 1, 1981 and 00:00:00 Jan 2, 2010? Should the 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; cell_methods be &quot;time: mean over days time: mean over years&quot;?
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 2) How should we handle February 29?
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Grace and peace,
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Jim
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; -- CICS-NC &lt;<a href="http://www.cicsnc.org/">http://www.cicsnc.org/</a>&gt; Visit us on Facebook 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; &lt;<a href="http://www.facebook.com/cicsnc">http://www.facebook.com/cicsnc</a>&gt; 	*Jim Biard* *Research Scholar*
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;  Cooperative Institute for Climate and Satellites NC 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; &lt;<a href="http://cicsnc.org/">http://cicsnc.org/</a>&gt; North Carolina State University 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; &lt;<a href="http://ncsu.edu/">http://ncsu.edu/</a>&gt; NOAA's National Climatic Data Center 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; &lt;<a href="http://ncdc.noaa.gov/">http://ncdc.noaa.gov/</a>&gt; 151 Patton Ave, Asheville, NC 28801 e: 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; jbiard at cicsnc.org o: +1 828 271 4900
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; _______________________________________________ CF-metadata 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; mailing list CF-metadata at cgd.ucar.edu 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; _______________________________________________ CF-metadata
+</em><br />
+<em class="quotelev2">&gt;&gt; mailing list CF-metadata at cgd.ucar.edu 
+</em><br />
+<em class="quotelev2">&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; -- CICS-NC &lt;<a href="http://www.cicsnc.org/">http://www.cicsnc.org/</a>&gt; Visit us on Facebook 
+</em><br />
+<em class="quotelev1">&gt; &lt;<a href="http://www.facebook.com/cicsnc">http://www.facebook.com/cicsnc</a>&gt; 	*Jim Biard* *Research Scholar* 
+</em><br />
+<em class="quotelev1">&gt; Cooperative Institute for Climate and Satellites NC 
+</em><br />
+<em class="quotelev1">&gt; &lt;<a href="http://cicsnc.org/">http://cicsnc.org/</a>&gt; North Carolina State University 
+</em><br />
+<em class="quotelev1">&gt; &lt;<a href="http://ncsu.edu/">http://ncsu.edu/</a>&gt; NOAA's National Climatic Data Center 
+</em><br />
+<em class="quotelev1">&gt; &lt;<a href="http://ncdc.noaa.gov/">http://ncdc.noaa.gov/</a>&gt; 151 Patton Ave, Asheville, NC 28801 e: 
+</em><br />
+<em class="quotelev1">&gt; jbiard at cicsnc.org o: +1 828 271 4900
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<span id="received"><dfn>Received on</dfn> Mon Jun 02 2014 - 15:52:05 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -181,12 +382,11 @@ and decoding would work correctly.)
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start7116">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./7117.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Roms: ocean_s_coordinate_g1 and g2?"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./7115.html" title="Previous message in the list">Jim Biard: "[CF-metadata] Page with searchable UDUNITS tables now available"</a></li>
+<li><dfn>Next message</dfn>: <a href="./7117.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Daily climatology?"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./7115.html" title="Previous message in the list">Jim Biard: "[CF-metadata] Daily climatology?"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./7115.html" title="Message to which this message replies">Jim Biard: "[CF-metadata] Daily climatology?"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./7137.html" title="Next message in this discussion thread">Jim Biard: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./7137.html" title="Message sent in reply to this message">Jim Biard: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./7117.html" title="Next message in this discussion thread">Jonathan Gregory: "[CF-metadata] Daily climatology?"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -197,7 +397,7 @@ and decoding would work correctly.)
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:57 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./7115.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7117.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

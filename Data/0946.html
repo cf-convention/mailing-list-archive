@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF-metadata Digest - cell method change... from Schultz, Martin on 2007-07-11 (mailing-list-archive)</title>
-<meta name="Author" content="Schultz, Martin (m.schultz)" />
-<meta name="Subject" content="[CF-metadata] CF-metadata Digest - cell method change..." />
-<meta name="Date" content="2007-07-11" />
+<title>[CF-metadata] RE: GDAL NetCDF driver and projection. from Steve Kopp on 2006-04-28 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Steve Kopp (skopp)" />
+<meta name="Subject" content="[CF-metadata] RE: GDAL NetCDF driver and projection." />
+<meta name="Date" content="2006-04-28" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0945.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0947.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF-metadata Digest - cell method change...</h1>
-<!-- received="Wed Jul 11 09:33:45 2007" -->
-<!-- isoreceived="20070711083345" -->
-<!-- sent="Wed, 11 Jul 2007 17:33:45 +0200" -->
-<!-- isosent="20070711153345" -->
-<!-- name="Schultz, Martin" -->
-<!-- email="m.schultz" -->
-<!-- subject="[CF-metadata] CF-metadata Digest - cell method change..." -->
-<!-- id="2E9C45494F78A3498A77616E7C2DBB4C012D7B5C_at_icg217.icg-ii-w2k.kfa-juelich.de" -->
+<a style="text-decoration:none" href="./0945.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0947.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] RE: GDAL NetCDF driver and projection.</h1>
+<!-- received="Fri Apr 28 13:03:06 2006" -->
+<!-- isoreceived="20060428120306" -->
+<!-- sent="Fri, 28 Apr 2006 12:03:06 -0700" -->
+<!-- isosent="20060428190306" -->
+<!-- name="Steve Kopp" -->
+<!-- email="skopp" -->
+<!-- subject="[CF-metadata] RE: GDAL NetCDF driver and projection." -->
+<!-- id="1991EA1FD4698B469010E81AEA3AD3BE0854B177_at_barbwire.esri.com" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4694F3AD.3000007_at_llnl.gov" -->
+<!-- inreplyto="304163b00604280838w21dcefeby5592f3a1130349ad&#64;mail.gmail.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0947.html" accesskey="d" title="Roy Lowry: &quot;[CF-metadata] CF standard names for mercury in the gas	phase&quot;">Next message</a> ]
-[ <a href="./0945.html" title="Christiane Textor: &quot;[CF-metadata] wiki for standard_names for aerosols and chemistry updated&quot;">Previous message</a> ]
-[ <a href="./0944.html" title="Karl Taylor: &quot;[CF-metadata] CF-metadata Digest - cell method change...&quot;">In reply to</a> ]
+[ <a href="./0947.html" accesskey="d" title="Kettleborough, Jamie: &quot;[CF-metadata] CF and a representation of probalistic forecasts&quot;">Next message</a> ]
+[ <a href="./0945.html" title="Steve Kopp: &quot;[CF-metadata] RE: GDAL NetCDF driver and projection.&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0947.html" accesskey="t" title="Kettleborough, Jamie: &quot;[CF-metadata] CF and a representation of probalistic forecasts&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,151 +71,492 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Schultz, Martin &lt;<a href="mailto:m.schultz?Subject=Re%3A%20%5BCF-metadata%5D%20CF-metadata%20Digest%20-%20cell%20method%20change...">m.schultz</a>&gt;
+<dfn>From</dfn>: Steve Kopp &lt;<a href="mailto:skopp?Subject=Re%3A%20%5BCF-metadata%5D%20RE%3A%20GDAL%20NetCDF%20driver%20and%20projection.">skopp</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 11 Jul 2007 17:33:45 +0200</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 28 Apr 2006 12:03:06 -0700</span><br />
 </address>
 <br />
-Dear Karl et al.,
+Sounds good.
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in my view this difference is at best philosophical. If time doesn't matter then you would not need the information &quot;over_time&quot; nor the time interval over which the change occured. As soon as you define the time interval you end up with a rate of change, no matter what. What use can you make of the information &quot;the pressure change is 10 hPa.&quot;? The only sensible way I can think of to express this would be &quot;The pressure change over a 3-hour interval is 10 hPa.&quot; Everything else must imply a certain amount of time, which may be known to a specific community by long-standing agreements, but is not suitable for defining a standard in my humble view.
+<br />We prefaced ours with esri_pe_string because it has some small differences from the official GML WKT.
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OK - there is a difference, which is probably what you have in mind: with &quot;rate of change&quot; one typically labels an &quot;instantaneous rate of change&quot;, i.e. the derivative of a quantity. In contrast, the &quot;change&quot; you are alluding to is the integral over this derivative, or integral{dQ/dt*dt'}. But then the name should reflect this as &quot;integrated_change...&quot; -- perhaps this is better defined in the cell_method as proposed earlier, but I think it is important to include the term &quot;integrated change&quot; somewhere.
+<br />I'll spend some time looking into be able to read both representations. Might not make it into ver 9.2 since we've wrapped development on it but should at least have it in the next release followin that.
 <br />
-<br />Best regards,
+<br />Steve
 <br />
-<br />Martin
+<br />-----Original Message-----
 <br />
-<br />&lt; Dr. Martin G. Schultz, ICG-II, Forschungszentrum J?lich &gt;
+From: Denis Nadeau [mailto:denis.nadeau at gmail.com]
 <br />
-&lt; D-52425 J?lich, Germany                                 &gt;
+Sent: Fri 4/28/2006 8:38 AM
 <br />
-&lt; ph: +49 (0)2461 61 2831, fax: +49 (0)2461 61 8131       &gt;
+To: Steve Kopp
 <br />
-&lt; email: m.schultz at fz-juelich.de                          &gt;
+Cc: John Caron; galeon at unidata.ucar.edu; CF
 <br />
-&lt; web: <a href="http://www.fz-juelich.de/icg/icg-2/m_schultz">http://www.fz-juelich.de/icg/icg-2/m_schultz</a>      &gt;
+Subject: Re: GDAL NetCDF driver and projection.
 <br />
-<br /><br /><br /><br /><br />-----Original Message-----
+&nbsp;
 <br />
-From: Karl Taylor [mailto:taylor13 at llnl.gov] 
+Steve,
 <br />
-Sent: Wednesday, July 11, 2007 5:14 PM
+<br />I have finished the projection part of NetCDF with the same approach.  It is
 <br />
-To: Schultz, Martin
+not checked in yet, but I am planning to do so today.    I have created and
 <br />
-Cc: cf-metadata at cgd.ucar.edu
+computed the following metadata.
 <br />
-Subject: Re: [CF-metadata] CF-metadata Digest - cell method change...
+<br />Attributes:
 <br />
-<br />Martin and all,
+Northernmost_Northing   (These attributes are used only if there is no
 <br />
-<br />I think the quantity under discussion is delta-p, *not* delta-p/delta-t; one is a simple difference, the other a rate of change. I think Seth McGinnis (email copied directly below) provided the correct approach for specifying standard name, units and cell-methods for delta-p.
+GeoTransform array.)
 <br />
-<br />Do you agree?
+Southernmost_Northing
 <br />
-<br />Thanks for contributing to the discussion.
+Easternmost_Easting
 <br />
-<br />Karl
+Westernmost_Easting
 <br />
-<br />It looks like a case where you apply one of the transformational rules:
+<br />GeoTransform  (this is the GDAL adfGeoTransform array  )
 <br />
-<br />RULE:        change_over_time_in_X
+<br />spatial_ref (this is the WKT you called esri_pe_string );
 <br />
-<br />UNITS:       [X]
+<br />Denis
 <br />
-<br />MEANING:     change in a quantity X over a time-interval, which should
+<br />2006/4/28, Steve Kopp &lt;skopp at esri.com&gt;:
 <br />
-be defined by the bounds of the time coordinate.
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  Denis,
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; After discussions with John last year, this is the same approach we have
+</em><br />
+<em class="quotelev1">&gt; taken with ArcGIS when exporting to netCDF, and so far it is working well
+</em><br />
+<em class="quotelev1">&gt; for us.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; When we export to a netCDF file we write projection information as an
+</em><br />
+<em class="quotelev1">&gt; attribute of a variable. We call the attribute &quot;esri_pe_string&quot;. Of course
+</em><br />
+<em class="quotelev1">&gt; we are reading and writing the CF standard projection information when it is
+</em><br />
+<em class="quotelev1">&gt; a coordinate system supported by CF.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Steve
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; float wdemclputm(y, x) ;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;                    wdemclputm:long_name = &quot;wdemclputm&quot; ;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;                    wdemclputm:esri_pe_string =
+</em><br />
+<em class="quotelev1">&gt; &quot;PROJCS[\&quot;Clarke_1866_UTM_Zone_12N\&quot;,GEOGCS[\&quot;GCS_Clarke_1866\&quot;,DATUM[\&quot;D_Clarke_1866\&quot;,SPHEROID[\&quot;Clarke_1866\&quot;,
+</em><br />
+<em class="quotelev1">&gt; 6378206.4,294.9786982]],PRIMEM[\&quot;Greenwich\&quot;,0.0],UNIT[\&quot;Degree\&quot;,
+</em><br />
+<em class="quotelev1">&gt; 0.0174532925199433
+</em><br />
+<em class="quotelev1">&gt; ]],PROJECTION[\&quot;Transverse_Mercator\&quot;],PARAMETER[\&quot;False_Easting\&quot;,
+</em><br />
+<em class="quotelev1">&gt; 500000.0],PARAMETER[\&quot;False_Northing\&quot;,0.0
+</em><br />
+<em class="quotelev1">&gt; ],PARAMETER[\&quot;Central_Meridian\&quot;,-111.0],PARAMETER[\&quot;Scale_Factor\&quot;,0.9996
+</em><br />
+<em class="quotelev1">&gt; ],PARAMETER[\&quot;Latitude_Of_Origin\&quot;,0.0],UNIT[\&quot;Meter\&quot;,1.0]]&quot; ;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  ------------------------------
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; *From:* owner-galeon at unidata.ucar.edu [mailto:
+</em><br />
+<em class="quotelev1">&gt; owner-galeon at unidata.ucar.edu] *On Behalf Of *Denis Nadeau
+</em><br />
+<em class="quotelev1">&gt; *Sent:* Thursday, April 27, 2006 6:51 AM
+</em><br />
+<em class="quotelev1">&gt; *To:* John Caron
+</em><br />
+<em class="quotelev1">&gt; *Cc:* galeon at unidata.ucar.edu; CF
+</em><br />
+<em class="quotelev1">&gt; *Subject:* Re: GDAL NetCDF driver and projection.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Hi John,
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Thank you for taking the time to write this email.  Your points are very
+</em><br />
+<em class="quotelev1">&gt; clear, and they are very helpful.  I must tell you that you give me
+</em><br />
+<em class="quotelev1">&gt; information and that you sure taught me about CF-1 convention community .  I
+</em><br />
+<em class="quotelev1">&gt; will keep your email as a reference when coding the GDAL  NetCDF driver.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I have decided to use WKT to encode projections and if I see a new
+</em><br />
+<em class="quotelev1">&gt; governance structure from CF checked in, I will update the driver.  As well,
+</em><br />
+<em class="quotelev1">&gt; I think for this time being I will relax the lat,lon array requirements.  If
+</em><br />
+<em class="quotelev1">&gt; needed by the community, it would be very easy to compute, but I do not want
+</em><br />
+<em class="quotelev1">&gt; the driver to be expensive in CPU and space.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Thanks again,
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Regards,
+</em><br />
+<em class="quotelev1">&gt; Denis
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  2006/4/26, John Caron &lt;caron at unidata.ucar.edu&gt;:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Hi Denis:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; 1) CF has unfortunately not yet dealt with datum and spheroid encoding
+</em><br />
+<em class="quotelev1">&gt; (not sure what &quot;authority&quot; is), but its on our list to tackle. CF does
+</em><br />
+<em class="quotelev1">&gt; specify a list of known projections and how to encode those (Appendix F).
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; 2) You can, of course, add any metadata you want, eg GeoTransform values,
+</em><br />
+<em class="quotelev1">&gt; from the CF POV, which CF readers are likely to ignore.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; 3) Frank Warmerdam and I talked a while ago about using WKT to encode
+</em><br />
+<em class="quotelev1">&gt; projection info. At the moment, it seems as good as any, with the proviso
+</em><br />
+<em class="quotelev1">&gt; that the CF group may decide to do it another way (when we eventually
+</em><br />
+<em class="quotelev1">&gt; decide).
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; 4) Calculating the lat,lon arrays for projections is currently required
+</em><br />
+<em class="quotelev1">&gt; under CF. I have proposed that this requirement be relaxed, perhaps as a CF
+</em><br />
+<em class="quotelev1">&gt; profile, for the case where this is unneeded and burdonsome. Issues like
+</em><br />
+<em class="quotelev1">&gt; this are awaiting a new CF governence structure.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; 5) Unidata's software maps OPeNDAP datasets into the NetCDF data model
+</em><br />
+<em class="quotelev1">&gt; (aka &quot;Common Data Model&quot;), so we strongly encourage everyone to use the
+</em><br />
+<em class="quotelev1">&gt; NetCDF metadata conventions such as CF in their OPeNDAP Servers. We think of
+</em><br />
+<em class="quotelev1">&gt; OPeNDAP datasets as remote NetCDF datasets, and make access to them as
+</em><br />
+<em class="quotelev1">&gt; transparent as possible.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; 6) BTW, CF is an organization independent of Unidata. It grew out of
+</em><br />
+<em class="quotelev1">&gt; &quot;climate and forecasting&quot; modelers using NetCDF files, but is now broader
+</em><br />
+<em class="quotelev1">&gt; than that, and is an exemplar &quot;community of practice&quot; around scientific
+</em><br />
+<em class="quotelev1">&gt; metadata.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I am cc'ing to the CF list in case anyone there wants to add more, and so
+</em><br />
+<em class="quotelev1">&gt; the list can hear about what you are trying to do. In case anyone doenst
+</em><br />
+<em class="quotelev1">&gt; know, GDAL is an excellent C library for geospatial work, kind of a &quot;Common
+</em><br />
+<em class="quotelev1">&gt; Data Model&quot; for C .
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Denis Nadeau wrote:
+</em><br />
+<em class="quotelev2">&gt; &gt; Hi,
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; I have looked at the DODS OpeNDAP site and I could use the same metadata
+</em><br />
+<em class="quotelev2">&gt; &gt; structure to store NetCDF projection information.  This way if somebody
+</em><br />
+<em class="quotelev2">&gt; &gt; needs to convert from GTIFF to NetCDF, all projecton information could
+</em><br />
+<em class="quotelev2">&gt; &gt; be used by GRADS, Openev or other applications. I guess my main problem
+</em><br />
+<em class="quotelev2">&gt; &gt; is related on how the CF-1 convention from Unidata handle projections.
+</em><br />
+<em class="quotelev2">&gt; &gt; This bring me to a main question:
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; What are the needs for projections in the GALEON projects?
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; I am the current GDAL NetCDF driver programmer, and would like to make
+</em><br />
+<em class="quotelev2">&gt; &gt; the driver as useful as it can be to the community.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; Thanks,
+</em><br />
+<em class="quotelev2">&gt; &gt; Denis
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;     Here are some notes on what was planned for storing projection, etc
+</em><br />
+<em class="quotelev1">&gt; in
+</em><br />
+<em class="quotelev2">&gt; &gt;     other parts of GDAL drivers.  To my knowledge, the never really
+</em><br />
+<em class="quotelev2">&gt; &gt;     propogated
+</em><br />
+<em class="quotelev2">&gt; &gt;     through to the OPeNDAP driver.  If the NetCDF or HDF direct access
+</em><br />
+<em class="quotelev1">&gt; GDAL
+</em><br />
+<em class="quotelev2">&gt; &gt;     driver is updated that those changes propogate through to the
+</em><br />
+<em class="quotelev1">&gt; OPeNDAP
+</em><br />
+<em class="quotelev2">&gt; &gt;     driver so that the same NetCDF/HDF datasets are accessible via
+</em><br />
+<em class="quotelev1">&gt; native
+</em><br />
+<em class="quotelev2">&gt; &gt;     OPeNDAP server, Grads GDS and THREDDS.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;     At this point, a lot more support is there for local NetCDF/HDF
+</em><br />
+<em class="quotelev2">&gt; &gt;     files than
+</em><br />
+<em class="quotelev2">&gt; &gt;     for support of those files through OPeNDAP.   Its on my rather large
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;     to do
+</em><br />
+<em class="quotelev2">&gt; &gt;     list, but somewhere in the 2 year timeframe.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;     <a href="http://home.gdal.org/~warmerda/gdal_opendap_design.html">http://home.gdal.org/~warmerda/gdal_opendap_design.html</a>&lt;<a href="http://home.gdal.org/%7Ewarmerda/gdal_opendap_design.html">http://home.gdal.org/%7Ewarmerda/gdal_opendap_design.html</a>&gt;(GeoTiff)
+</em><br />
+<em class="quotelev2">&gt; &gt;     <a href="http://gdal.maptools.org/frmt_dods.html">http://gdal.maptools.org/frmt_dods.html</a>
+</em><br />
+<em class="quotelev2">&gt; &gt;     &lt;<a href="http://gdal.maptools.org/frmt_dods.html">http://gdal.maptools.org/frmt_dods.html</a> &gt; (DODS/OPeNDAP)
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;     Thanks!
+</em><br />
+<em class="quotelev2">&gt; &gt;     Rob
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;     On Wed, April 26, 2006 5:32 am, Denis Nadeau wrote:
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt; Hi All,
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt;
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt; I would like to have suggestions from the community on the
+</em><br />
+<em class="quotelev2">&gt; &gt;     current needs
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt; for the GDAL NetCDF driver.  I am currently writing the
+</em><br />
+<em class="quotelev1">&gt; CreateCopy
+</em><br />
+<em class="quotelev2">&gt; &gt;     method to
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt; allow people to convert from any GDAL supported format to NetCDF
+</em><br />
+<em class="quotelev1">&gt; CF-1
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt; convention format.
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt;
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt; At this point I am stuck with projection issues.  How should I
+</em><br />
+<em class="quotelev1">&gt; handle
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt; DATUM,
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt; SPHEROID and AUTHORITY?  I can produce a lat lon arrays to
+</em><br />
+<em class="quotelev2">&gt; &gt;     reproject the
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt; projected coordinates to lat/lon space but that may be expensive
+</em><br />
+<em class="quotelev2">&gt; &gt;     in cpu
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt; and
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt; space.
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt;
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt; I am thinking as well to create an array containning the
+</em><br />
+<em class="quotelev2">&gt; &gt;     GeoTransform
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt; values
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt; if found in the source file.
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt;
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt;      adfGeoTransform[0] /* top left x */
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt;      adfGeoTransform[1] /* w-e pixel resolution */
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt;      adfGeoTransform[2] /* rotation, 0 if image is &quot;north up&quot; */
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt;      adfGeoTransform[3] /* top left y */
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt;      adfGeoTransform[4] /* rotation, 0 if image is &quot;north up&quot; */
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt;      adfGeoTransform[5] /* n-s pixel resolution */
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt;
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt;
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt; Thanks for your suggestion,
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt;
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt; Best Regards,
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt; Denis Nadeau
+</em><br />
+<em class="quotelev3">&gt; &gt;      &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;     --
+</em><br />
+<em class="quotelev2">&gt; &gt;     Alaska Ocean Observing System
+</em><br />
+<em class="quotelev2">&gt; &gt;     Database Manager
+</em><br />
+<em class="quotelev2">&gt; &gt;     907-474-7948
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev1">&gt; ===============================================================================
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;     To unsubscribe galeon, visit:
+</em><br />
+<em class="quotelev2">&gt; &gt;     <a href="http://www.unidata.ucar.edu/mailing-list-delete-form.html">http://www.unidata.ucar.edu/mailing-list-delete-form.html</a>
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev1">&gt; ===============================================================================
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<br />-------------- next part --------------
 <br />
-<br />(From &quot;Guidelines for Construction of CF Standard Names, at:
+An HTML attachment was scrubbed...
 <br />
-<a href="http://cf-pcmdi.llnl.gov/documents/cf-standard-names/guidelines">http://cf-pcmdi.llnl.gov/documents/cf-standard-names/guidelines</a> )
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20060428/1d8e9344/attachment-0002.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20060428/1d8e9344/attachment-0002.html</a>&gt;
 <br />
-<br />So the standard name would be &quot;change_over_time_in_air_pressure&quot;, I think, with an associated timebnds variable as described in section 7.1.
-<br />
-<br />--Seth
-<br />
-<br /><br /><pre>
-----
-Seth McGinnis
-Associate Scientist
-ISSE/NCAR
-----
-Schultz, Martin wrote:
-&gt; Dear all,
-&gt; 
-&gt;      I am loosely following the CF discussions. But here I stumbled: 
-&gt; if you have a variable changin over time, then its physical unit can't 
-&gt; be &quot;Pa&quot; any longer but should be &quot;Pa s-1&quot; in SI units or something 
-&gt; like &quot;Pa (3h)-1&quot; if the seconds are inconvenient. Looks like one of 
-&gt; those problems where habits have generated their own rules which makes 
-&gt; it difficult to formulate them in precise physically correct rules.
-&gt; 
-&gt; Best regards,
-&gt; 
-&gt; Martin
-&gt; 
-&gt;     
-&gt; 
-&gt; Message: 2
-&gt; Date: Fri, 29 Jun 2007 09:42:33 -0700
-&gt; From: &quot;Godin, Michael&quot; &lt;godin at mbari.org&gt;
-&gt; Subject: [CF-metadata] Proposed cell_methods method CF Community,
-&gt; 
-&gt; In another community, a member is trying to correctly represent a 
-&gt; variable with a long name of &quot;3 hour pressure change&quot;.  The variable 
-&gt; has units of Pa, so I believe it's standard name should be 
-&gt; &quot;air_pressure&quot;, not &quot;tendency_of_air_pressure&quot;.  However, the variable 
-&gt; should probably have a cell_methods attribute that indicates this is a 
-&gt; change over time, not an absolute measurement.  But how to do so?
-&gt; 
-&gt; Perhaps something like cell_methods=&quot;time: change (interval: 3 hour)&quot; 
-&gt; 
-&gt; But there is no cell_method in appendix E like &quot;change&quot;.  
-&gt; 
-&gt; The alternative is to propose a new standard name 
-&gt; &quot;change_over_time_in_air_pressure&quot;, but doing so seems inelegant.
-&gt; 
-&gt; Mike
-&gt; 
-&gt; _____________________________________________
-&gt; Michael A. Godin
-&gt; Software Engineer
-&gt; Monterey Bay Aquarium Research Institute
-&gt; Phone: 831-775-2063  <a href="http://www.mbari.org">http://www.mbari.org</a> Forschungszentrum Juelich 
-&gt; GmbH
-&gt; 52425 Juelich
-&gt; 
-&gt; Sitz der Gesellschaft: Juelich
-&gt; Eingetragen im Handelsregister des Amtsgerichts Dueren Nr. HR B 3498 
-&gt; Vorsitzende des Aufsichtsrats: MinDirig'in Baerbel Brumme-Bothe
-&gt; Vorstand: Prof. Dr. Achim Bachem (Vorsitzender), Dr. Ulrich Krafft (stellv. 
-&gt; Vorsitzender)
-&gt; 
-&gt; 
-&gt; 
-&gt; _______________________________________________
-&gt; CF-metadata mailing list
-&gt; CF-metadata at cgd.ucar.edu
-&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-&gt; 
-Forschungszentrum J?lich GmbH
-52425 J?lich
-Sitz der Gesellschaft: J?lich
-Eingetragen im Handelsregister des Amtsgerichts D?ren Nr. HR B 3498
-Vorsitzende des Aufsichtsrats: MinDirig'in B?rbel Brumme-Bothe
-Vorstand: Prof. Dr. Achim Bachem (Vorsitzender), Dr. Ulrich Krafft (stellv. 
-Vorsitzender)
--------------- next part --------------
-A non-text attachment was scrubbed...
-Name: Martin Schultz (m.schultz at fz-juelich.de).vcf
-Type: text/x-vcard
-Size: 481 bytes
-Desc: Martin Schultz (m.schultz at fz-juelich.de).vcf
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20070711/2387d8e4/attachment-0002.vcf">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20070711/2387d8e4/attachment-0002.vcf</a>&gt;
-</pre>
-<span id="received"><dfn>Received on</dfn> Wed Jul 11 2007 - 09:33:45 BST</span>
+<span id="received"><dfn>Received on</dfn> Fri Apr 28 2006 - 13:03:06 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -222,10 +564,12 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start946">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0947.html" title="Next message in the list">Roy Lowry: "[CF-metadata] CF standard names for mercury in the gas	phase"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0945.html" title="Previous message in the list">Christiane Textor: "[CF-metadata] wiki for standard_names for aerosols and chemistry updated"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0944.html" title="Message to which this message replies">Karl Taylor: "[CF-metadata] CF-metadata Digest - cell method change..."</a></li>
+<li><dfn>Next message</dfn>: <a href="./0947.html" title="Next message in the list">Kettleborough, Jamie: "[CF-metadata] CF and a representation of probalistic forecasts"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0945.html" title="Previous message in the list">Steve Kopp: "[CF-metadata] RE: GDAL NetCDF driver and projection."</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0947.html" title="Next message in this discussion thread">Kettleborough, Jamie: "[CF-metadata] CF and a representation of probalistic forecasts"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0947.html" title="Message sent in reply to this message">Kettleborough, Jamie: "[CF-metadata] CF and a representation of probalistic forecasts"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -236,7 +580,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:58 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0945.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0947.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

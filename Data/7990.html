@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Standard name and area type tables updated from Elodie Fernandez on 2017-02-02 (mailing-list-archive)</title>
-<meta name="Author" content="Elodie Fernandez (elodie.fernandez)" />
-<meta name="Subject" content="[CF-metadata] Standard name and area type tables updated" />
-<meta name="Date" content="2017-02-02" />
+<title>[CF-metadata] Salinity units from Durack, Paul J. on 2015-06-30 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Durack, Paul J. (durack1)" />
+<meta name="Subject" content="[CF-metadata] Salinity units" />
+<meta name="Date" content="2015-06-30" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./7989.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7991.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Standard name and area type tables updated</h1>
-<!-- received="Thu Feb  2 03:05:24 2017" -->
-<!-- isoreceived="20170202030524" -->
-<!-- sent="Thu, 02 Feb 2017 11:05:24 +0100" -->
-<!-- isosent="20170202100524" -->
-<!-- name="Elodie Fernandez" -->
-<!-- email="elodie.fernandez" -->
-<!-- subject="[CF-metadata] Standard name and area type tables updated" -->
-<!-- id="58930464.6070207_at_mercator-ocean.fr" -->
+<a style="text-decoration:none" href="./7989.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7991.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Salinity units</h1>
+<!-- received="Tue Jun 30 11:23:06 2015" -->
+<!-- isoreceived="20150630102306" -->
+<!-- sent="Tue, 30 Jun 2015 17:23:06 +0000" -->
+<!-- isosent="20150630172306" -->
+<!-- name="Durack, Paul J." -->
+<!-- email="durack1" -->
+<!-- subject="[CF-metadata] Salinity units" -->
+<!-- id="D1B81E87.68AD%durack1_at_llnl.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="014539AC4976BE4490A360410A8C201701069B6B90_at_exchmbx03" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,10 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./7991.html" accesskey="d" title="David Blodgett: &quot;[CF-metadata] Feedback requested on proposed CF Simple Geometries&quot;">Next message</a> ]
-[ <a href="./7989.html" title="Jonathan Gregory: &quot;[CF-metadata] Feedback requested on proposed CF Simple Geometries&quot;">Previous message</a> ]
-[ <a href="./7984.html" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] Standard name and area type tables updated&quot;">In reply to</a> ]
+[ <a href="./7991.html" accesskey="d" title="martin.juckes at stfc.ac.uk: &quot;[CF-metadata] Specifying latitude and longitude of transects and	regions&quot;">Next message</a> ]
+[ <a href="./7989.html" title="Jim Biard: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./7992.html" accesskey="t" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] Salinity units&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,276 +70,49 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Elodie Fernandez &lt;<a href="mailto:elodie.fernandez?Subject=Re%3A%20%5BCF-metadata%5D%20Standard%20name%20and%20area%20type%20tables%20updated">elodie.fernandez</a>&gt;
+<dfn>From</dfn>: Durack, Paul J. &lt;<a href="mailto:durack1?Subject=Re%3A%20%5BCF-metadata%5D%20Salinity%20units">durack1</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 02 Feb 2017 11:05:24 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 30 Jun 2015 17:23:06 +0000</span><br />
 </address>
 <br />
-Dear Alison, dear all,
+Apologies for coming to the party so late on this one folks.. I do believe that before progressing on changing the units for any of these variables, there needs to be a consideration/revisitation of what is currently in place.
 <br />
-<br />Back in September, I suggested the addition of new standard names
+<br />Back in 2011 when the TEOS-10 standard names were proposed we spent a fair amount of time attempting to clean up the mess that was (and is) salinity and ?units?.
 <br />
-&quot;geostrophic_eastward_sea_water_velocity&quot; and
+<br />For historians, there?s a full trail of the discussions available at <a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2011/022581.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2011/022581.html</a> and linked messages previous and subsequent.
 <br />
-&quot;geostrophic_northward_sea_water_velocity&quot; (see
+<br />For this reason 3 ?historical? salinities were proposed and accepted (along with a bunch of other quantities) which included ?sea_water_knudsen_salinity?, ?sea_water_cox_salinity? and ?sea_water_practical_salinity? which were intentionally added to attempt to give some context in how ?salinity? had been measured through time.
 <br />
-<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2016/059015.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2016/059015.html</a>).
+<br />For each of these quantities, there is considerable descriptive text included in order to put these quantities into perspective:
 <br />
-There have been quite a few updates of the tables since, but those names
+<br />sea_water_knudsen_salinity:
 <br />
-are not included yet. Is there anything I could/should do to get them
+Knudsen Salinity, S_K, is defined unitless as a mass fraction per mil (0/00) or &quot;parts per thousand&quot;, and was calculated from the titration of inorganic salts from a sample of sea water after a commission to study the problem of determining salinity and density was initiated by the International Council for the Exploration of the Sea (ICES) in 1899. S_K was the standard salinity measure until S_C (Cox Salinity) was established in 1967. Since the work of Knudsen (1901), chlorinity is converted into Knudsen Salinity using S_K = 0.030 + 1.805 Cl. This type of salinity was called simply &quot;salinity&quot; from 1901 to 1966. From the 1960s on, electrical conductivity began to be used to estimate the Knudsen Salinity, rather than chemical titration. Knudsen Salinity was replaced by Cox Salinity in 1967 which was in turn replaced by Practical Salinity, S_P, in 1978. Conversion of Knudsen Salinity to Practical Salinity follows S_P = (S_K - 0.03) * (1.80655 / 1.805). Reference: Knudsen, 1901; Thomas et al., 1934 doi: 10.1093<br />
+/icesjms/9.1.28; Lyman, 1969 doi: 10.4319/lo.1969.14.6.0928; Wooster et al., 1969 doi: 10.4319/lo.1969.14.3.0437; Lewis, 1980 doi: 10.1109/JOE.1980.1145448; Millero et al., 2008 doi: 10.1016/j.dsr.2007.10.001. There are standard names for the precisely defined salinity quantities sea_water_cox_salinity, S_C (used for salinity observations between 1967 and 1977), sea_water_practical_salinity, S_P, sea_water_absolute_salinity, S_A, sea_water_preformed_salinity, S_* and sea_water_reference_salinity. Salinity quantities that do not match any of the precise definitions should be given the more general standard name of sea_water_salinity.
 <br />
-included?
+<br />sea_water_cox_salinity:
 <br />
-<br />In April, there were also discussions on the inclusion of wave standard
+Cox Salinity, S_C, is defined unitless as a mass fraction per mil (0/00) or &quot;parts per thousand&quot;. S_C was the standard salinity measure from 1967 until Practical Salinity, S_P, was established with PSS-78 (1978). Chlorinity, Cl, is calculated from the conductivity of a sea water sample and since the work of the Joint Panel for Oceanographic Tables and Standards (JPOTS; 1966) is converted into Cox Salinity using S_C = 1.80655Cl. This type of salinity was called simply &quot;salinity&quot; from 1967 to 1978. Cox Salinity was replaced by Practical Salinity in 1978. Cox Salinity is converted to Practical Salinity following S_P = S_C, however the accuracy of this is dependent on whether chlorinity or conductivity was used to determine the S_C value, with this inconsistency driving the development of the Practical Salinity Scale 1978 (PSS-78). Reference: Cox et al., 1967 doi: 10.1016/0011-7471(67)90006-X; Lyman, 1969 doi: 10.4319/lo.1969.14.6.0928; Wooster et al., 1969 doi: 10.4319/lo.1969.14.3.0437. There are standard name<br />
+s for the precisely defined salinity quantities sea_water_knudsen_salinity, S_K (used for salinity observations between 1901 and 1966), sea_water_practical_salinity, S_P, sea_water_absolute_salinity, S_A, sea_water_preformed_salinity, S_* and sea_water_reference_salinity. Salinity quantities that do not match any of the precise definitions should be given the more general standard name of sea_water_salinity.
 <br />
-names. The height parameters have been included in table v35 in July.
+<br />sea_water_practical_salinity:
 <br />
-But the others (mostly period and direction) are still &quot;under
+Practical Salinity, S_P, is defined on the Practical Salinity Scale of 1978 (PSS-78) and is calculated from the electrical conductivity of sea water (as well as temperature and pressure). Officially S_P is dimensionless so that, while convenient, and while it is common practice, it is not officially sanctioned to say S_P = 35 psu. Often authors use PSS-78, as in S_P = 35 PSS-78. If salinity was measured using remote sensing techniques and not conductivity, then it is recommended that additional metadata (calibration/validation information) be described in the variable comment attribute. This name should be used to describe salinity observations made from 1978 onwards (Practical Salinity is the salinity quantity stored by national data centres for post-1978 observations). The only exception to this is where the observed salinities are definitely known not to be recorded on the Practical Salinity Scale. There are also standard names for the precisely defined salinity quantities sea_water_knudsen_salinity, S_K <br />
+(used for salinity observations between 1901 and 1966), sea_water_cox_salinity, S_C (used for salinity observations between 1967 and 1977), sea_water_absolute_salinity, S_A, sea_water_preformed_salinity, S_*, and sea_water_reference_salinity. Salinity quantities that do not match any of the precise definitions should be given the more general standard name of sea_water_salinity. Reference: www.teos-10.org; Lewis, 1980 doi:10.1109/JOE.1980.1145448
 <br />
-discussion&quot; on the &quot;CF proposal page&quot;. Any news on that topic?
+<br /><br />We need to be a little careful with any changes, as sea_surface_salinity which is now measured by satellite has been calibrated back to in-situ measurements which themselves align to PSS-78 (as do all ongoing measurements that are being and will be stored in oceanographic databases now and in the future).
 <br />
-<br />Regards,
+<br />Cheers,
 <br />
-Elodie
+<br />P
 <br />
-<br />On 01/02/2017 16:19, alison.pamment at stfc.ac.uk wrote:
+-------------- next part --------------
 <br />
-<em class="quotelev1">&gt; Dear All,
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; The standard name and area type tables have both been updated. The standard name table is now at version 40 and the area type table is at version 5, both dated 25 January 2017. The changes to both tables have also been published in the NERC Vocabulary Server.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; The changes are listed below. I have also given details of the changes that went into the standard name table at version 39, published in December 2016, as I did not send those to the mailing list at the time.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Mike Godin, David Lawrence, Sophie Nowicki and Elena Shevliakova have been added to the list of contributors to CF standard names: <a href="http://cfconventions.org/Data/cf-standard-names/docs/standard-name-contributors.html">http://cfconventions.org/Data/cf-standard-names/docs/standard-name-contributors.html</a>.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; The next update to standard names is planned for 21st February 2017.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Best wishes,
-</em><br />
-<em class="quotelev1">&gt; Alison
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; ---
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; V39 standard name changes:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; 1. New names
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; a. Proposed by David Lawrence and Elena Shevliakova for the CMIP6 LUMIP experiment:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; carbon_mass_flux_into_forestry_and_agricultural_products_due_to_anthropogenic_land_use_or_land_cover_change (canonical units: kg m-2 s-1)
-</em><br />
-<em class="quotelev1">&gt; carbon_mass_flux_into_soil_and_litter_due_to_anthropogenic_land_use_or_land_cover_change (canonical units: kg m-2 s-1)
-</em><br />
-<em class="quotelev1">&gt; gross_rate_of_decrease_in_area_fraction (canonical units: s-1)
-</em><br />
-<em class="quotelev1">&gt; gross_rate_of_increase_in_area_fraction (canonical units: s-1)
-</em><br />
-<em class="quotelev1">&gt; mass_content_of_water_in_soil (canonical units: kg m-2)
-</em><br />
-<em class="quotelev1">&gt; mass_content_of_water_in_soil_layer (canonical units: kg m-2)
-</em><br />
-<em class="quotelev1">&gt; surface_downward_mass_flux_of_water_due_to_irrigation (canonical units: kg m-2 s-1)
-</em><br />
-<em class="quotelev1">&gt; surface_upward_heat_flux_due_to_anthropogenic_energy_consumption (canonical units: W m-2)
-</em><br />
-<em class="quotelev1">&gt; surface_upward_mass_flux_of_carbon_dioxide_expressed_as_carbon_due_to_anthropogenic_land_use_or_land_cover_change (canonical units: kg m-2 s-1)
-</em><br />
-<em class="quotelev1">&gt; tendency_of_atmosphere_mass_content_of_carbon_dioxide_expressed_as_carbon_due_to_emission_from_forestry_and_agricultural_products (canonical units: kg m-2 s-1)
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; b. Proposed by Paul Durack for the CMIP6 OMIP experiment:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; mole_concentration_of_dissolved_inorganic_phosphorus_in_sea_water (canonical units: mol m-3)
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; 2. Aliases
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; During the discussion of the LUMIP names it was agreed that the phrase &quot;forestry and agricultural products&quot; would be used in standard names in preference to &quot;products of anthropogenic_land_use_change&quot;. This affected one existing name which has been updated as follows:
-</em><br />
-<em class="quotelev1">&gt; carbon_content_of_products_of_anthropogenic_land_use_change (kg m-2) -&gt; carbon_content_of_forestry_and_agricultural_products (kg m-2)
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; ---
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; V40 standard name changes:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; 1. New names
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; a. Proposed by Sophie Nowicki for the CMIP6 ISMIP6 experiment
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; floating_ice_sheet_area_fraction (canonical units: 1)
-</em><br />
-<em class="quotelev1">&gt; grounded_ice_sheet_area_fraction (canonical units: 1)
-</em><br />
-<em class="quotelev1">&gt; land_ice_basal_specific_mass_balance_flux (canonical units: kg m-2 s-1)
-</em><br />
-<em class="quotelev1">&gt; land_ice_basal_upward_velocity (canonical units: m s-1)
-</em><br />
-<em class="quotelev1">&gt; land_ice_runoff_flux (canonical units: kg m-2 s-1)
-</em><br />
-<em class="quotelev1">&gt; land_ice_specific_mass_flux_due_to_calving (canonical units: kg m-2 s-1)
-</em><br />
-<em class="quotelev1">&gt; land_ice_specific_mass_flux_due_to_calving_and_ice_front_melting (canonical units: kg m-2 s-1)
-</em><br />
-<em class="quotelev1">&gt; land_ice_surface_melt_flux (canonical units: kg m-2 s-1)
-</em><br />
-<em class="quotelev1">&gt; land_ice_surface_upward_velocity (canonical units: m s-1)
-</em><br />
-<em class="quotelev1">&gt; land_ice_surface_x_velocity (canonical units: m s-1)
-</em><br />
-<em class="quotelev1">&gt; land_ice_surface_y_velocity (canonical units: m s-1)
-</em><br />
-<em class="quotelev1">&gt; temperature_at_base_of_ice_sheet_model (canonical units: K)
-</em><br />
-<em class="quotelev1">&gt; temperature_at_top_of_ice_sheet_model (canonical units: K)
-</em><br />
-<em class="quotelev1">&gt; tendency_of_land_ice_mass_due_to_basal_mass_balance (canonical units: kg s-1)
-</em><br />
-<em class="quotelev1">&gt; tendency_of_land_ice_mass_due_to_calving (canonical units: kg s-1)
-</em><br />
-<em class="quotelev1">&gt; upward_geothermal_heat_flux_at_ground_level_in_land_ice (canonical units: W m-2)
-</em><br />
-<em class="quotelev1">&gt; water_flux_into_sea_water_from_land_ice (canonical units: kg m-2 s-1)
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; b. Proposed by Mike Godin
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; mass_concentration_of_petroleum_hydrocarbons_in_sea_water (canonical units: kg m-3)
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; 2. Aliases
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; No new aliases were created at version 40 of the standard name table
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; 3. Modifications to definitions of existing names
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; The definition of one existing name, land_ice_surface_specific_mass_balance_flux (kg m-2 s-1), was modified to make the wording more consistent with that of the new land ice mass balance names.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; ---
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; V5 area type changes:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; 1. New area types
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; a. Proposed by David Lawrence and Elena Shevliakova for the CMIP6 LUMIP experiment
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; primary_and_secondary_land
-</em><br />
-<em class="quotelev1">&gt; urban
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; b. Proposed by Sophie Nowicki for the CMIP6 ISMIP6 experiment
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; ice_sheet
-</em><br />
-<em class="quotelev1">&gt; floating_ice_shelf
-</em><br />
-<em class="quotelev1">&gt; grounded_ice_sheet
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; 2. Modifications to definitions of existing area types
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; a. Proposed by David Lawrence and Elena Shevliakova for the CMIP6 LUMIP experiment
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; A second sentence was added to the definition of the area_type 'pastures', which now reads 'Pastures are assumed to be anthropogenic in origin. They include anthropogenically managed pastureland and rangeland.'
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; ---
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; ------
-</em><br />
-<em class="quotelev1">&gt; Alison Pamment                                                       Tel: +44 1235 778065
-</em><br />
-<em class="quotelev1">&gt; Centre for Environmental Data Analysis         Email: alison.pamment at stfc.ac.uk
-</em><br />
-<em class="quotelev1">&gt; STFC Rutherford Appleton Laboratory     
-</em><br />
-<em class="quotelev1">&gt; R25, 2.22
-</em><br />
-<em class="quotelev1">&gt; Harwell Campus, Didcot, OX11 0QX, U.K.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<span id="received"><dfn>Received on</dfn> Thu Feb 02 2017 - 03:05:24 GMT</span>
+An HTML attachment was scrubbed...
+<br />
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150630/3e6dbbb8/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150630/3e6dbbb8/attachment.html</a>&gt;
+<br />
+<span id="received"><dfn>Received on</dfn> Tue Jun 30 2015 - 11:23:06 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -347,10 +120,12 @@ Elodie
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start7990">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./7991.html" title="Next message in the list">David Blodgett: "[CF-metadata] Feedback requested on proposed CF Simple Geometries"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./7989.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Feedback requested on proposed CF Simple Geometries"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./7984.html" title="Message to which this message replies">alison.pamment at stfc.ac.uk: "[CF-metadata] Standard name and area type tables updated"</a></li>
+<li><dfn>Next message</dfn>: <a href="./7991.html" title="Next message in the list">martin.juckes at stfc.ac.uk: "[CF-metadata] Specifying latitude and longitude of transects and	regions"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./7989.html" title="Previous message in the list">Jim Biard: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./7992.html" title="Next message in this discussion thread">alison.pamment at stfc.ac.uk: "[CF-metadata] Salinity units"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./7992.html" title="Message sent in reply to this message">alison.pamment at stfc.ac.uk: "[CF-metadata] Salinity units"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -361,7 +136,7 @@ Elodie
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:08 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./7989.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7991.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

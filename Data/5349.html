@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]  new standard name: lifted_index from Jonathan Gregory on 2013-05-18 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata]  new standard name: lifted_index" />
-<meta name="Date" content="2013-05-18" />
+<title>[CF-metadata] cf data model | Terms of Reference from Hedley, Mark on 2012-05-29 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Hedley, Mark (mark.hedley)" />
+<meta name="Subject" content="[CF-metadata] cf data model | Terms of Reference" />
+<meta name="Date" content="2012-05-29" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5348.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5350.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  new standard name: lifted_index</h1>
-<!-- received="Sat May 18 08:05:45 2013" -->
-<!-- isoreceived="20130518070545" -->
-<!-- sent="Sat, 18 May 2013 15:05:45 +0100" -->
-<!-- isosent="20130518140545" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata]  new standard name: lifted_index" -->
-<!-- id="20130518140544.GA21199_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./5348.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5350.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] cf data model | Terms of Reference</h1>
+<!-- received="Tue May 29 07:49:05 2012" -->
+<!-- isoreceived="20120529064905" -->
+<!-- sent="Tue, 29 May 2012 14:49:05 +0100" -->
+<!-- isosent="20120529134905" -->
+<!-- name="Hedley, Mark" -->
+<!-- email="mark.hedley" -->
+<!-- subject="[CF-metadata] cf data model | Terms of Reference" -->
+<!-- id="8AC4893FB411FA4AA8CFECD9C8913B660CB47D68_at_EXXMAIL01.desktop.frd.metoffice.com" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5350.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  new standard name: total_totals_index&quot;">Next message</a> ]
-[ <a href="./5348.html" title="Lowry, Roy K.: &quot;[CF-metadata] is molecular oxygen in seawater always dissolved?&quot;">Previous message</a> ]
+[ <a href="./5350.html" accesskey="d" title="Etienne Tourigny: &quot;[CF-metadata] how to represent a &#0034;pft&#0034; dimension&quot;">Next message</a> ]
+[ <a href="./5348.html" title="Jonathan Gregory: &quot;[CF-metadata] (new) standard names: concerning &#0034;heat_flux_in_sea_water_due_to_advection&#0034;&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./5357.html" accesskey="t" title="Cameron-smith, Philip: &quot;[CF-metadata] new standard name: lifted_index&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,76 +68,32 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20new%20standard%20name%3A%20lifted_index">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Hedley, Mark &lt;<a href="mailto:mark.hedley?Subject=Re%3A%20%5BCF-metadata%5D%20cf%20data%20model%20%7C%20Terms%20of%20Reference">mark.hedley</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Sat, 18 May 2013 15:05:45 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 29 May 2012 14:49:05 +0100</span><br />
 </address>
 <br />
-Dear Jonathan
+Hello CF community
 <br />
-<br /><em class="quotelev1">&gt; lifted_index
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; with the associated definition:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; The Lifted Index (LI) is an index that provides a measure of the
-</em><br />
-<em class="quotelev1">&gt; instability of the atmosphere. The index is defined as the
-</em><br />
-<em class="quotelev1">&gt; temperature difference between a parcel of air lifted from the
-</em><br />
-<em class="quotelev1">&gt; surface to a given air pressure in the troposphere and the ambient
-</em><br />
-<em class="quotelev1">&gt; air temperature at a given air pressure in the troposphere.
-</em><br />
-<br />I think this presents an example of a kind of problem we have had before with
+<br />I am interested in taking the excellent work on a logical data model for CF Jonathan and David documented in <a href="https://cf-pcmdi.llnl.gov/trac/ticket/68">https://cf-pcmdi.llnl.gov/trac/ticket/68</a> further, in the hope that this may reach a stable, agreed state.
 <br />
-the standard name table (and total_totals_index does too - in my next email),
+<br />I would like to address the scope and terms of reference of the logical data model first, as I feel that this sets the scene and helps us all to consider how to input into detail discussions and what the implications of adopting a logical data model are.
 <br />
-that there's a conflict between (a) using a term that is in common use in its
+<br />I have thus created a new ticket
 <br />
-field of application, but which is opaque jargon to anyone who is not familiar
+<a href="https://cf-pcmdi.llnl.gov/trac/ticket/88">https://cf-pcmdi.llnl.gov/trac/ticket/88</a>
 <br />
-with it, or (b) using something more descriptive, which would be understandable
+<br />focussed exclusively on agreeing the terms of reference and scope
 <br />
-to more people, but surprising to those who are familiar with the jargon term,
+<br />I encourage people to look at this and consider the implications.  I would like to try and get agreement on the these so enable a continuation of the discussions on the data model details.
 <br />
-who might not recognise the quantity for what it is. The reason why we have
+<br />I hope that this will allow the community to consider adopting a CF data model as part of the CF metadata project.
 <br />
-this conflict is that the standard name table, and CF-netCDF datasets, cover
+<br />all the best
 <br />
-many geophysical disciplines. Also I think the term &quot;standard name&quot; has often
+mark
 <br />
-been a cause of disappointed expectations, because actually many of them are
-<br />
-not names, but short definitions.
-<br />
-<br /><em class="quotelev1">&gt;From a generalistic perspective I tend to argue for (b) and domain experts
-</em><br />
-often argue for (a), not surprisingly! In this case, I would like to make a
-<br />
-(b)-type proposal. We could call this quantity
-<br />
-<br />temperature_difference_between_ambient_air_and_surface_air_lifted_adiabatically
-<br />
-<br />Would people who know &quot;lifted index&quot; recognise that as being the definition of
-<br />
-this quantity? Have I written that the right way round i.e. is it ambient air
-<br />
-temperature minus lifted surface air temperature? If we did adopt such a name,
-<br />
-then its definition would say that this is often called the &quot;lifted index&quot;. But
-<br />
-it is also a general-purpose atmopheric quantity.
-<br />
-<br />Cheers
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Sat May 18 2013 - 08:05:45 BST</span>
+<span id="received"><dfn>Received on</dfn> Tue May 29 2012 - 07:49:05 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -147,13 +101,9 @@ it is also a general-purpose atmopheric quantity.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5349">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5350.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  new standard name: total_totals_index"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5348.html" title="Previous message in the list">Lowry, Roy K.: "[CF-metadata] is molecular oxygen in seawater always dissolved?"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5350.html" title="Next message in the list">Etienne Tourigny: "[CF-metadata] how to represent a &#0034;pft&#0034; dimension"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5348.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] (new) standard names: concerning &#0034;heat_flux_in_sea_water_due_to_advection&#0034;"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./5357.html" title="Next message in this discussion thread">Cameron-smith, Philip: "[CF-metadata] new standard name: lifted_index"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./5357.html" title="Message sent in reply to this message">Cameron-smith, Philip: "[CF-metadata] new standard name: lifted_index"</a></li>
-<li><dfn>Reply</dfn>: <a href="./5369.html" title="Message sent in reply to this message">Jonathan Wrotny: "[CF-metadata] new standard name: lifted_index"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -164,7 +114,7 @@ it is also a general-purpose atmopheric quantity.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:21 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5348.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5350.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

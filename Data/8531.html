@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Add new integer types to CF? from Charlie Zender on 2017-09-27 (mailing-list-archive)</title>
-<meta name="Author" content="Charlie Zender (zender)" />
-<meta name="Subject" content="[CF-metadata] Add new integer types to CF?" />
-<meta name="Date" content="2017-09-27" />
+<title>[CF-metadata]  CMIP6 Sea Ice MIP: Integrated quantities from martin.juckes at stfc.ac.uk on 2016-07-25 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="martin.juckes at stfc.ac.uk (martin.juckes)" />
+<meta name="Subject" content="[CF-metadata]  CMIP6 Sea Ice MIP: Integrated quantities" />
+<meta name="Date" content="2016-07-25" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./8530.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8532.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Add new integer types to CF?</h1>
-<!-- received="Tue Sep 26 21:20:31 2017" -->
-<!-- isoreceived="20170926202031" -->
-<!-- sent="Tue, 26 Sep 2017 20:20:31 -0700" -->
-<!-- isosent="20170927032031" -->
-<!-- name="Charlie Zender" -->
-<!-- email="zender" -->
-<!-- subject="[CF-metadata] Add new integer types to CF?" -->
-<!-- id="5d1717ec-9baa-c8d0-14e7-67d5d76df44b_at_uci.edu" -->
+<a style="text-decoration:none" href="./8530.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8532.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  CMIP6 Sea Ice MIP: Integrated quantities</h1>
+<!-- received="Mon Jul 25 03:15:54 2016" -->
+<!-- isoreceived="20160725021554" -->
+<!-- sent="Mon, 25 Jul 2016 09:15:54 +0000" -->
+<!-- isosent="20160725091554" -->
+<!-- name="martin.juckes at stfc.ac.uk" -->
+<!-- email="martin.juckes" -->
+<!-- subject="[CF-metadata]  CMIP6 Sea Ice MIP: Integrated quantities" -->
+<!-- id="E21FBC3F00D7304687CB46529F9676D7010284836C_at_exchmbx01" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./8532.html" accesskey="d" title="Kehoe, Kenneth E.: &quot;[CF-metadata] positive attribute expansion of use and reserved values&quot;">Next message</a> ]
-[ <a href="./8530.html" title="Jonathan Gregory: &quot;[CF-metadata] Add new integer types to CF?&quot;">Previous message</a> ]
+[ <a href="./8532.html" accesskey="d" title="Mitchelson, Joel: &quot;[CF-metadata] Conventions for use of local solar time in gridded climate data&quot;">Next message</a> ]
+[ <a href="./8530.html" title="Jonathan Gregory: &quot;[CF-metadata] CMIP6 Sea Ice MIP: Ice thickness&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./8545.html" accesskey="t" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] CMIP6 Sea Ice MIP: Integrated quantities&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,35 +70,72 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Charlie Zender &lt;<a href="mailto:zender?Subject=Re%3A%20%5BCF-metadata%5D%20Add%20new%20integer%20types%20to%20CF%3F">zender</a>&gt;
+<dfn>From</dfn>: martin.juckes at stfc.ac.uk &lt;<a href="mailto:martin.juckes?Subject=Re%3A%20%5BCF-metadata%5D%20%20CMIP6%20Sea%20Ice%20MIP%3A%20Integrated%20quantities">martin.juckes</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 26 Sep 2017 20:20:31 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 25 Jul 2016 09:15:54 +0000</span><br />
 </address>
 <br />
-<em class="quotelev1"> &gt; But perhaps you mean to keep the attributes but deprecate their use to
+Dear Jonathon, Dirk,
+<br />
+<br />I agree with Jonathon that it is a good idea to follow the approach used in other names (e.g. number_of_days_with_air_temperature_above_threshold) and use a coordinate for the threshold value .. though I would prefer to make it obligatory to state the threshold in order to avoid ambiguity.
+<br />
+<br />Another issue is the domain .. the variable is being defined as the total area of cells above the threshold within a specific domain (the N. hemisphere of S. hemisphere in the CMIP6 data request). The threshold examples that I could find in the existing standard names are all temporal statistics (e.g. number of days with quantity X above a threshold within a year) and so use a climatological time variable. Here we want to specify the area over which cells are being summed. Would it make sense to use a 2nd coordinate variable, with standard name &quot;region&quot; specifying the region (this would also require adding &quot;northern_hemisphere&quot; and &quot;southern_hemisphere&quot; to the region list)? Alternatively, we could use latitude and longitude coordinate variables with bounds attributes to declare the region.
+<br />
+<br />The region will be in the long name, of course, but it would be good to have an agreed approach to encoding it in CF,
+<br />
+<br />regards,
+<br />
+Martin
+<br />
+<br /><br />Dear Dirk
+<br />
+<br /><em class="quotelev1">&gt; For sea_ice_extent, there is currently no definition in the CF
 </em><br />
-<em class="quotelev1"> &gt; indicate whether a data type is unsigned? That would be fine.
+<em class="quotelev1">&gt; convention. This variable is somewhat odd in a CF context, as it only
 </em><br />
-<br />Yes, that is what I mean. We propose to deprecate the specific use of
+<em class="quotelev1">&gt; makes sense when applied over several grid cells.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Hence, we suggest to adopt a definition which implies usage over several
+</em><br />
+<em class="quotelev1">&gt; grid cells:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; sea_ice_extent: Total area of all grid cells that are covered by a
+</em><br />
+<em class="quotelev1">&gt; minimum of a given area fraction [usually 15 %) of sea ice in a
+</em><br />
+<em class="quotelev1">&gt; specified region&quot;.
+</em><br />
+<br />I agree that it needs a definition. It is like sea ice area (m2) in being an
 <br />
-valid_* to signify &quot;unsignedness&quot;. Other uses of valid_* are unchanged.
+extensive quantity which is integrated over the area considered, but I agree
 <br />
-However we have not reached consensus. One person (Dave A.) wants to
+that extent is not meaningful unless there is some discretisation of area.
 <br />
-split the unsigned-workaround part from the new-integer-atomic-type 
+I would suggest that we could allow for the possibility of the threshold
 <br />
-part, which is fine with me. The new types are logically independent
+being other than 15%, following practice for other standard names (as in
 <br />
-from clarifying the unsigned-workaround type.
+recent emails of Martin's), like this
 <br />
-<br />Charlie
+<br />sea_ice_extent: Total area of all grid cells in which the sea ice area
 <br />
-<pre>
--- 
-Charlie Zender, Earth System Sci. &amp; Computer Sci.
-University of California, Irvine 949-891-2429 )'(
-</pre>
-<span id="received"><dfn>Received on</dfn> Tue Sep 26 2017 - 21:20:31 BST</span>
+fraction equals or exceeds a threshold. By default the threshold is 15%.
+<br />
+The threshold can be specified by supplying a coordinate variable or scalar
+<br />
+coordinate variable with standard_name of sea_ice_area_fraction.
+<br />
+<br />Would something like that be OK?
+<br />
+<br />Best wishes
+<br />
+<br />Jonathan
+<br />
+<span id="received"><dfn>Received on</dfn> Mon Jul 25 2016 - 03:15:54 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -104,9 +143,12 @@ University of California, Irvine 949-891-2429 )'(
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start8531">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./8532.html" title="Next message in the list">Kehoe, Kenneth E.: "[CF-metadata] positive attribute expansion of use and reserved values"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./8530.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Add new integer types to CF?"</a></li>
+<li><dfn>Next message</dfn>: <a href="./8532.html" title="Next message in the list">Mitchelson, Joel: "[CF-metadata] Conventions for use of local solar time in gridded climate data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./8530.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] CMIP6 Sea Ice MIP: Ice thickness"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./8545.html" title="Next message in this discussion thread">alison.pamment at stfc.ac.uk: "[CF-metadata] CMIP6 Sea Ice MIP: Integrated quantities"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./8545.html" title="Message sent in reply to this message">alison.pamment at stfc.ac.uk: "[CF-metadata] CMIP6 Sea Ice MIP: Integrated quantities"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -117,7 +159,7 @@ University of California, Irvine 949-891-2429 )'(
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:17 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./8530.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8532.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

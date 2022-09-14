@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]  CF &quot;datasets&quot; from Jonathan Gregory on 2007-01-10 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata]  CF &quot;datasets&quot;" />
-<meta name="Date" content="2007-01-10" />
+<title>[CF-metadata] stations and trajectories  (the OTS standard) from Nancy Galbraith on 2005-06-16 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Nancy Galbraith (ngalbraith)" />
+<meta name="Subject" content="[CF-metadata] stations and trajectories  (the OTS standard)" />
+<meta name="Date" content="2005-06-16" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0671.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0673.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  CF &quot;datasets&quot;</h1>
-<!-- received="Wed Jan 10 11:05:55 2007" -->
-<!-- isoreceived="20070110110555" -->
-<!-- sent="Wed, 10 Jan 2007 18:05:55 +0000" -->
-<!-- isosent="20070110180555" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata]  CF &quot;datasets&quot;" -->
-<!-- id="20070110180555.GA11992_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0671.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0673.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] stations and trajectories  (the OTS standard)</h1>
+<!-- received="Thu Jun 16 08:35:12 2005" -->
+<!-- isoreceived="20050616073512" -->
+<!-- sent="Thu, 16 Jun 2005 10:35:12 -0400" -->
+<!-- isosent="20050616143512" -->
+<!-- name="Nancy Galbraith" -->
+<!-- email="ngalbraith" -->
+<!-- subject="[CF-metadata] stations and trajectories  (the OTS standard)" -->
+<!-- id="42B18E20.5080307_at_whoi.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20050615182714.GA544_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,9 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0673.html" accesskey="d" title="Godin, Michael: &quot;[CF-metadata] Indicating data lineage or provenance&quot;">Next message</a> ]
-[ <a href="./0671.html" title="Steve Hankin: &quot;[CF-metadata]  CF &#0034;datasets&#0034;&quot;">Previous message</a> ]
+[ <a href="./0673.html" accesskey="d" title="Roy Lowry: &quot;[CF-metadata] stations and trajectories  (the OTS standard)&quot;">Next message</a> ]
+[ <a href="./0671.html" title="Jonathan Gregory: &quot;[CF-metadata] stations and trajectories  (the OTS standard)&quot;">Previous message</a> ]
+[ <a href="./0671.html" title="Jonathan Gregory: &quot;[CF-metadata] stations and trajectories  (the OTS standard)&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0674.html" accesskey="t" title="Jonathan Gregory: &quot;[CF-metadata] udunits for OTS and CF&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,38 +72,142 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20CF%20%22datasets%22">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Nancy Galbraith &lt;<a href="mailto:ngalbraith?Subject=Re%3A%20%5BCF-metadata%5D%20stations%20and%20trajectories%20%20(the%20OTS%20standard)">ngalbraith</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 10 Jan 2007 18:05:55 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 16 Jun 2005 10:35:12 -0400</span><br />
 </address>
 <br />
-Dear Steve
+Thanks for bringing OTS into the discussion, Steve, and thanks for your 
 <br />
-<br /><em class="quotelev1">&gt;    As a general matter, I think we ought to get to the heart of this
+comments
+<br />
+Jonathan.
+<br />
+<br />Our operational data is so much simpler than that of some other CF users 
+<br />
+that it
+<br />
+sometimes seems we don't exactly fit here, but the CF community and 
+<br />
+resources
+<br />
+have been really helpful,  and your standard was the obvious choice for 
+<br />
+our data.
+<br />
+<br /><em class="quotelev1">&gt; But instead they could be CF-compliant by dimensioning
 </em><br />
-<em class="quotelev1">&gt;    &quot;dataset&quot; concept.  CF &quot;datasets&quot;, that are not simple files, have
+<em class="quotelev1">&gt; the data variable as (time,depth) and giving it a coordinates
 </em><br />
-<em class="quotelev1">&gt;    been in routine use for a long time.  It is routine that the data
+<em class="quotelev1">&gt; attribute to point to auxiliary coordinate variables of lat(time)
 </em><br />
-<em class="quotelev1">&gt;    object we think of as a &quot;CF thingy&quot; is actually an aggregation of many
+<em class="quotelev1">&gt; and lon(time).... These are what CF calls &quot;scalar coordinate
 </em><br />
-<em class="quotelev1">&gt;    files.
+<em class="quotelev1">&gt; variables&quot; and they avoid introducing a size-one dimension
 </em><br />
-<br />I agree. I think it would be good to say something explicitly about it in the
+<em class="quotelev1">&gt; just to attach coordinate info.
+</em><br />
+<br />Maybe I didn't think this through well enough, or I completely missed 
 <br />
-standard. It is an obvious and convenient idea that a collection of files can
+one of
 <br />
-be treated as one file. However, certain conventions are needed to know how
+the basic CF concepts. I somehow missed that CF files should &quot;avoid 
 <br />
-to aggregate the variables and dimensions, and probably software in use may
+introducing
 <br />
-make different assumptions.
+a size-one dimension just to attach coordinate info&quot; and thought that 4 
 <br />
-<br />Best wishes
+dimensions was
 <br />
-<br />Jonathan
+a reasonable way to go, as it gives you the overall size of the dataset 
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Jan 10 2007 - 11:05:55 GMT</span>
+in one query.
+<br />
+For mooring data, this seems to make perfect sense, or maybe I just 
+<br />
+expect it because
+<br />
+it was standard in our old NetCDF implementation, EPIC.
+<br />
+<br />We have not ruled out files containing data from more than one platform 
+<br />
+- as we
+<br />
+sometimes deploy arrays of sensors. Such  a file would have lat/lon 
+<br />
+dimensions &gt; 1,
+<br />
+in all other files these dimensions would be 1.  This does lead to a 
+<br />
+problem with drifters,
+<br />
+where the X and Y dimensions of the measured parameters are 1 but lat 
+<br />
+and long are
+<br />
+of dimension T.
+<br />
+<br /><em class="quotelev1">&gt; CF provides a method to attach quality-control info to data
+</em><br />
+<em class="quotelev1">&gt; variables, which OTS could extend to meet their needs in this
+</em><br />
+<em class="quotelev1">&gt; area (CF 3.4).
+</em><br />
+<br />The CF scheme for QC might help us give the different data providers 
+<br />
+more flexibility
+<br />
+than having a defined table as we currently do. The down side is that if 
+<br />
+the flag_meanings
+<br />
+are not defined as part of the standard, they can't be interpreted by 
+<br />
+software; I'm not
+<br />
+sure how CF users implement this.
+<br />
+<br />We also have some data sets (mine, for instance) where QC information is 
+<br />
+more
+<br />
+logically supplied as an attribute, because the data is interpolated 
+<br />
+over time to correct
+<br />
+clock drift after initial QC procedures. The original individual points 
+<br />
+are gone,
+<br />
+and point-specific QC becomes meaningless.
+<br />
+<br /><em class="quotelev1">&gt; They probably would like some additions to the standard
+</em><br />
+<em class="quotelev1">&gt; name table.
+</em><br />
+<br />I haven't had a problem finding standard names for our parameters yet. I'm
+<br />
+still hoping the udunits system will at some point include conductivity and
+<br />
+salinity units other than 1, though. Meanwhile I'm dealing with this by
+<br />
+specifying CF-compliant &quot;units&quot;  and &quot;text_units&quot; that are useful for labels
+<br />
+and don't have to be accepted by udunits.
+<br />
+<br />Cheers - Nan
+<br />
+<br />&nbsp;
+<br />
+*************************************************************
+<br />
+*Nan Galbraith            Upper Ocean Processes Group       *
+<br />
+*Woods Hole Oceanographic Institution Woods Hole, MA 02540  *
+<br />
+*************************************************************
+<br />
+<span id="received"><dfn>Received on</dfn> Thu Jun 16 2005 - 08:35:12 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -107,9 +215,14 @@ make different assumptions.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start672">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0673.html" title="Next message in the list">Godin, Michael: "[CF-metadata] Indicating data lineage or provenance"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0671.html" title="Previous message in the list">Steve Hankin: "[CF-metadata]  CF &#0034;datasets&#0034;"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0673.html" title="Next message in the list">Roy Lowry: "[CF-metadata] stations and trajectories  (the OTS standard)"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0671.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] stations and trajectories  (the OTS standard)"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0671.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] stations and trajectories  (the OTS standard)"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0674.html" title="Next message in this discussion thread">Jonathan Gregory: "[CF-metadata] udunits for OTS and CF"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0674.html" title="Message sent in reply to this message">Jonathan Gregory: "[CF-metadata] udunits for OTS and CF"</a></li>
+<li><dfn>Reply</dfn>: <a href="./0681.html" title="Message sent in reply to this message">Jonathan Gregory: "[CF-metadata] stations and trajectories  (the OTS standard)"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -120,7 +233,7 @@ make different assumptions.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:54 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0671.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0673.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

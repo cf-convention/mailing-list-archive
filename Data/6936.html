@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Use of &quot;interval&quot; in cell_methods to imply bounds of prior operations from Calvert, Daley on 2015-05-05 (mailing-list-archive)</title>
-<meta name="Author" content="Calvert, Daley (daley.calvert)" />
-<meta name="Subject" content="[CF-metadata] Use of &quot;interval&quot; in cell_methods to imply bounds of prior operations" />
-<meta name="Date" content="2015-05-05" />
+<title>[CF-metadata] can a cell method be an attribute of an auxiliary coordinate variable ? from Jim Biard on 2014-03-04 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jim Biard (jbiard)" />
+<meta name="Subject" content="[CF-metadata] can a cell method be an attribute of an auxiliary coordinate variable ?" />
+<meta name="Date" content="2014-03-04" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./6935.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6937.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Use of &quot;interval&quot; in cell_methods to imply bounds of prior operations</h1>
-<!-- received="Tue May  5 10:55:13 2015" -->
-<!-- isoreceived="20150505095513" -->
-<!-- sent="Tue, 5 May 2015 16:55:13 +0000" -->
-<!-- isosent="20150505165513" -->
-<!-- name="Calvert, Daley" -->
-<!-- email="daley.calvert" -->
-<!-- subject="[CF-metadata] Use of &quot;interval&quot; in cell_methods to imply bounds of prior operations" -->
-<!-- id="A865BCFFA69B4D43B54B6B657A0AA67935787D59_at_EXXCMPD1DAG1.cmpd1.metoffice.gov.uk" -->
+<a style="text-decoration:none" href="./6935.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6937.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] can a cell method be an attribute of an auxiliary coordinate variable ?</h1>
+<!-- received="Tue Mar  4 12:39:53 2014" -->
+<!-- isoreceived="20140304123953" -->
+<!-- sent="Tue, 4 Mar 2014 14:39:53 -0500" -->
+<!-- isosent="20140304193953" -->
+<!-- name="Jim Biard" -->
+<!-- email="jbiard" -->
+<!-- subject="[CF-metadata] can a cell method be an attribute of an auxiliary coordinate variable ?" -->
+<!-- id="0F09A973-D531-4150-966C-8CC141C680C2_at_cicsnc.org" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20140304163900.GA24410_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./6937.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Ancillary variables in coordinate variables (latitude, longitude, ...)&quot;">Next message</a> ]
-[ <a href="./6935.html" title="Jonathan Gregory: &quot;[CF-metadata]  Usage of status flag as a standard name modifier&quot;">Previous message</a> ]
+[ <a href="./6937.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] can a cell method be an attribute of an auxiliary coordinate variable ?&quot;">Next message</a> ]
+[ <a href="./6935.html" title="Jonathan Gregory: &quot;[CF-metadata] can a cell method be an attribute of an auxiliary coordinate variable ?&quot;">Previous message</a> ]
+[ <a href="./6935.html" title="Jonathan Gregory: &quot;[CF-metadata] can a cell method be an attribute of an auxiliary coordinate variable ?&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,62 +70,268 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Calvert, Daley &lt;<a href="mailto:daley.calvert?Subject=Re%3A%20%5BCF-metadata%5D%20Use%20of%20%22interval%22%20in%20cell_methods%20to%20imply%20bounds%20of%20prior%20operations">daley.calvert</a>&gt;
+<dfn>From</dfn>: Jim Biard &lt;<a href="mailto:jbiard?Subject=Re%3A%20%5BCF-metadata%5D%20can%20a%20cell%20method%20be%20an%20attribute%20of%20an%20auxiliary%20coordinate%20variable%20%3F">jbiard</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 5 May 2015 16:55:13 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 4 Mar 2014 14:39:53 -0500</span><br />
 </address>
 <br />
-Hi all,
+Jonathan,
 <br />
-<br />I had sent this previously, but I was not registered to the mailing list at the time and I fear it may still be awaiting moderator approval.
+<br />We are attempting to follow section 9.  The centroid of the weather system is calculated at each time step, and we are planning to use the longitude and latitude calculated as the coordinates of the system.  So, for example, would the variables below be OK?  (I?ve left out time and numerous other variables.)
 <br />
-<br />Apologies if this was in fact answered!
+<br />float lat(trajectory, obs)
 <br />
-<br /><br />Thanks,
+:standard_name = ?latitude?
 <br />
-<br />Daley
+:axis = ?Y?
 <br />
-<br />From: Calvert, Daley
+:cell_methods = ?latitude:mean (over system)?
 <br />
-Sent: 31 March 2015 16:27
+<br />float lon(trajectory, obs)
 <br />
-To: 'cf-metadata at cgd.ucar.edu'
+:standard_name = ?longitude?
 <br />
-Subject: Use of &quot;interval&quot; in cell_methods to imply bounds of prior operations
+:axis = ?X?
 <br />
-<br />Hi all,
+:cell_methods = ?longitude:mean (over system)?
 <br />
-<br />I am attempting to improve the compliance of output from an ocean model I/O server with the CF standard. In particular I am looking to improve the representation of time operations performed by the server, which can be applied up to two consecutive times for statistics such as &quot;5-day mean daily maximum&quot; and such forth.
+<br />float maxlat(trajectory, obs)
 <br />
-<br />I would like to represent the cell_methods as generically as possible, listing the consecutive time operations and the frequency relating to the first time operation. For example, a 10-day mean of 2-day maxima might be written as:
+:cell_methods = ?latitude:maximum (over system)&quot;
 <br />
-<br />cell_methods = &quot;time: maximum over days (interval: &lt;timestep size&gt;) time: mean over days (interval: 2 days)
+<br />float mtpwv(trajectory, obs)
 <br />
-<br />However I can't tell whether it is correct to use the interval comment to imply that the maximum has been calculated every two days prior to the 10 day mean.
+:long_name = ?mean total precipitable water vapor?
 <br />
-<br />Any advice on this would be very welcome!
+:cell_methods = ?area:mean (over system)?
 <br />
-<br /><br />Thanks,
+<br />Grace and peace,
 <br />
-<br />Daley
+<br />Jim
 <br />
-<br /><br />Daley Calvert  Ocean Scientist
+<br />Visit us on
 <br />
-Met Office Hadley Centre  Fitzroy Road  Exeter  Devon  EX1 3PB  United Kingdom
+Facebook	Jim Biard
 <br />
-Tel: +44 (0)1392 885742
+Research Scholar
 <br />
-Email: daley.calvert at metoffice.gov.uk&lt;mailto:daley.calvert at metoffice.gov.uk&gt;  Website: www.metoffice.gov.uk
+Cooperative Institute for Climate and Satellites NC
 <br />
-See our guide to climate change at <a href="http://www.metoffice.gov.uk/climate-change/guide/">http://www.metoffice.gov.uk/climate-change/guide/</a>
+North Carolina State University
 <br />
+NOAA's National Climatic Data Center
+<br />
+151 Patton Ave, Asheville, NC 28801
+<br />
+e: jbiard at cicsnc.org
+<br />
+o: +1 828 271 4900
+<br />
+<br /><br /><br /><br />On Mar 4, 2014, at 11:39 AM, Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt; wrote:
+<br />
+<br /><em class="quotelev1">&gt; Dear Jim
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Is it a trajectory feature using the discrete sampling geometry convention
+</em><br />
+<em class="quotelev1">&gt; of section 9? In that case it is required that there should be a nominal
+</em><br />
+<em class="quotelev1">&gt; longitude, latitude and time for each observation along the trajectory.
+</em><br />
+<em class="quotelev1">&gt; However you could also supply data variables of longitude and latitude with
+</em><br />
+<em class="quotelev1">&gt; cell_methods along the same trajectory, and these data variables could be
+</em><br />
+<em class="quotelev1">&gt; named by the coordinates attribute of other data variables (serving as
+</em><br />
+<em class="quotelev1">&gt; auxiliary coordinate variables), to provide a more precise indication of
+</em><br />
+<em class="quotelev1">&gt; location, as in section 9.5.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Yes, the cell_methods would be &quot;cell methods where there are no coordinates&quot;
+</em><br />
+<em class="quotelev1">&gt; of section 7.3.4 since you don't have longitude and latitude dimensions. It is
+</em><br />
+<em class="quotelev1">&gt; permitted to specify &quot;area:&quot; for a cell method even if there are no horizontal
+</em><br />
+<em class="quotelev1">&gt; dimensions specified.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Cheers
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Jonathan
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; ----- Forwarded message from Jim Biard &lt;jbiard at cicsnc.org&gt; -----
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Jonathan,
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; What I mean is, this is not gridded data.  The operations being performed (mean latitude, etc) are over a geographic region that is not described anywhere in the file, which is the region considered to be the extent of the weather system.  So, you are saying that this trajectory case falls under the ?Cell methods when there are no coordinates? case, is that right?
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Jim
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Visit us on
+</em><br />
+<em class="quotelev2">&gt;&gt; Facebook	Jim Biard
+</em><br />
+<em class="quotelev2">&gt;&gt; Research Scholar
+</em><br />
+<em class="quotelev2">&gt;&gt; Cooperative Institute for Climate and Satellites NC
+</em><br />
+<em class="quotelev2">&gt;&gt; North Carolina State University
+</em><br />
+<em class="quotelev2">&gt;&gt; NOAA's National Climatic Data Center
+</em><br />
+<em class="quotelev2">&gt;&gt; 151 Patton Ave, Asheville, NC 28801
+</em><br />
+<em class="quotelev2">&gt;&gt; e: jbiard at cicsnc.org
+</em><br />
+<em class="quotelev2">&gt;&gt; o: +1 828 271 4900
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; On Mar 4, 2014, at 9:30 AM, Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt; wrote:
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Dear Jim
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; Even though there are no cells?  That?s the part that I?m feeling confused about.
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Sorry, I'm not sure why you say there are no cells. &quot;Cell&quot; does not imply any
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; number of spatial dimensions - is that the problem? It means the portion of
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; the domain, of whatever dimensionality, which is represented by a particular
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; data value. The cell_methods attribute indicates how that data value represents
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; unrecorded variability of the quantity represented within the cell.
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Best wishes
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Jonathan
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; On Mar 3, 2014, at 1:22 PM, Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt; wrote:
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; Dear Jim
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; Yes, I think such an approach is applicable. Any data variable can have
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; cell_methods and any data variable could be used as an aux coord variable.
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; Although unusual, I don't see a reason not to have data variables of latitude
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; and longitude, qualified by cell_methods, if required.
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; Best wishes
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; Jonathan
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; ----- Forwarded message from Jim Biard &lt;jbiard at cicsnc.org&gt; -----
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt;&gt;&gt;&gt;&gt; Subject: Re: [CF-metadata] can a cell method be an attribute of an auxiliary
+</em><br />
+<em class="quotelev2">&gt;&gt;&gt;&gt;&gt;&gt; 	coordinate variable ?
+</em><br />
+<em class="quotelev2">&gt;&gt;&gt;&gt;&gt;&gt; From: Jim Biard &lt;jbiard at cicsnc.org&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;&gt;&gt;&gt;&gt; Date: Fri, 28 Feb 2014 14:01:24 -0500
+</em><br />
+<em class="quotelev2">&gt;&gt;&gt;&gt;&gt;&gt; CC: cf-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt;&gt;&gt;&gt;&gt;&gt; To: Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;&gt;&gt;&gt;&gt; X-Mailer: Apple Mail (2.1874)
+</em><br />
+<em class="quotelev2">&gt;&gt;&gt;&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt;&gt;&gt;&gt;&gt; Jonathan,
+</em><br />
+<em class="quotelev2">&gt;&gt;&gt;&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt;&gt;&gt;&gt;&gt; So, I?ve got a broader question.  We have a case in hand with trajectory data for a physically extensive weather system.  Two data variables are the mean longitude and latitude of the system, which we are treating as the auxiliary coordinate variables.  Other data variables contain measurements such as maximum latitude at the mean longitude, etc.  Are cell_methods applicable in this case?  There is no grid, so the cell would be the area covered by the system, and the extents of this area are not described.
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; _______________________________________________
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; ----- End forwarded message -----
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
 <br />-------------- next part --------------
 <br />
 An HTML attachment was scrubbed...
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150505/a3ecc095/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150505/a3ecc095/attachment.html</a>&gt;
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140304/aaf47f74/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140304/aaf47f74/attachment-0001.html</a>&gt;
 <br />
-<span id="received"><dfn>Received on</dfn> Tue May 05 2015 - 10:55:13 BST</span>
+<span id="received"><dfn>Received on</dfn> Tue Mar 04 2014 - 12:39:53 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -131,8 +339,9 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start6936">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./6937.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Ancillary variables in coordinate variables (latitude, longitude, ...)"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./6935.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]  Usage of status flag as a standard name modifier"</a></li>
+<li><dfn>Next message</dfn>: <a href="./6937.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] can a cell method be an attribute of an auxiliary coordinate variable ?"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./6935.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] can a cell method be an attribute of an auxiliary coordinate variable ?"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./6935.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] can a cell method be an attribute of an auxiliary coordinate variable ?"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -144,7 +353,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:54 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./6935.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6937.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

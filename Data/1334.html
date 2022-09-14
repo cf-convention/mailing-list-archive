@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF from John Graybeal on 2008-04-14 (mailing-list-archive)</title>
-<meta name="Author" content="John Graybeal (graybeal)" />
-<meta name="Subject" content="[CF-metadata] CF" />
-<meta name="Date" content="2008-04-14" />
+<title>[CF-metadata] curvilinear cartesian coordinates case from John Caron on 2006-12-01 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] curvilinear cartesian coordinates case" />
+<meta name="Date" content="2006-12-01" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1333.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1335.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF</h1>
-<!-- received="Mon Apr 14 14:17:53 2008" -->
-<!-- isoreceived="20080414131753" -->
-<!-- sent="Mon, 14 Apr 2008 13:17:53 -0700" -->
-<!-- isosent="20080414201753" -->
-<!-- name="John Graybeal" -->
-<!-- email="graybeal" -->
-<!-- subject="[CF-metadata] CF" -->
-<!-- id="p06240815c4296a135fba_at_[192.168.1.101]" -->
+<a style="text-decoration:none" href="./1333.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1335.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] curvilinear cartesian coordinates case</h1>
+<!-- received="Thu Nov 30 17:29:00 2006" -->
+<!-- isoreceived="20061130172900" -->
+<!-- sent="Thu, 30 Nov 2006 17:29:00 -0700" -->
+<!-- isosent="20061201002900" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] curvilinear cartesian coordinates case" -->
+<!-- id="456F774C.2080702_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20061130181422.GA26280_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1335.html" accesskey="d" title="Craig Donlon: &quot;[CF-metadata] CF&quot;">Next message</a> ]
-[ <a href="./1333.html" title="Hans Bonekamp: &quot;[CF-metadata] Adding new standard names for satellite	altimetry&quot;">Previous message</a> ]
+[ <a href="./1335.html" accesskey="d" title="John Caron: &quot;[CF-metadata] curvilinear cartesian coordinates case&quot;">Next message</a> ]
+[ <a href="./1333.html" title="Steve Hankin: &quot;[CF-metadata] CF provisional standards -- how to handle multiple projections&quot;">Previous message</a> ]
+[ <a href="./1331.html" title="Jonathan Gregory: &quot;[CF-metadata] curvilinear cartesian coordinates case&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,57 +70,72 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: John Graybeal &lt;<a href="mailto:graybeal?Subject=Re%3A%20%5BCF-metadata%5D%20CF">graybeal</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20curvilinear%20cartesian%20coordinates%20case">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 14 Apr 2008 13:17:53 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 30 Nov 2006 17:29:00 -0700</span><br />
 </address>
 <br />
-I apologize in advance for a post that may be vague. It is my best attempt to bring out my needs as a practical developer/designer/user.
+Jonathan Gregory wrote:
 <br />
-<br />With *any* community vocabulary, or vocabulary mapping process, that I have worked with or known so far (not an immense number of either), I have had a problem.  This difficulty is that when we say what something IS, or what it EQUALS (is the sameAs), we have been largely silent about the range of characteristics we are (and are not) addressing.
+<em class="quotelev1">&gt; Dear Rich
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt;I also would vote for Bert's original suggestion of attaching the
+</em><br />
+<em class="quotelev2">&gt;&gt;grid_mapping directly to
+</em><br />
+<em class="quotelev2">&gt;&gt;the coordinates that use that mapping.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Can you explain why that seems better to you than (my) alternative of naming
+</em><br />
+<em class="quotelev1">&gt; 2D projection coordinates in the grid_mapping variable instead of making them
+</em><br />
+<em class="quotelev1">&gt; auxiliary coordinate variables? The reasons why I prefer this at present are
+</em><br />
+<em class="quotelev1">&gt; that the grid_mapping attribute stays where it is, that it serves as a single
+</em><br />
+<em class="quotelev1">&gt; place to find the information that defines the mappings, and that there is no
+</em><br />
+<em class="quotelev1">&gt; redundancy. Perhaps other people have other ideas.
+</em><br />
+<br />I'd like to give a different slant on it.
 <br />
-<br />This shows up in CF standard names. On the one hand, have they hit the sweet spot of usability, with the right level of detail in the standard name to satisfy most users?  On the other hand, can they survive transition to an even wider user community, which will want to factor in dozens of different characteristics and priorities? 
+<br /><em class="quotelev1">&gt;From my POV, the problem is that there a concept &quot;coordinate system&quot; floating around that doesnt currently have a representation in the netcdf file. If I understand Bert's case, he has (at least) 2 coordinate systems for his data variables. This actually comes up anytime you have both projection x,y and lat,lon coordinates, for example.
+</em><br />
+<br />So going into abstraction, we want to have coordinate system &quot;objects&quot;, and we want to be able to associate more than one of them with a data variable. A coordinate system consists of a list of coordinate variables (1D &quot;coordinate variables&quot; or &quot;auxilary variables&quot;), and &quot;coordinate transforms&quot; such as projections or vertical transforms. (Ive worked out this object model in more detail at <a href="http://www.unidata.ucar.edu/software/netcdf-java/reference/CSObjectModel.html">http://www.unidata.ucar.edu/software/netcdf-java/reference/CSObjectModel.html</a>. The CDM maps CF-1.0 into this object model.)
 <br />
-<br />It seems impossible to create a name that on its own is sufficient for most users to determine comparability of variables. At most the standard name seems to be a particularly well constructed and detailed discovery mechanism, but not designed  to serve entirely automated algorithms all by itself. (For example, lacking ontological relations between CF terms, I don't know how to reliable determine their relationships algorithmically.) 
+<br />Coming back to representation, one possibilty is to steal the same idea we used for &quot;grid mapping variables&quot;, which is really just a container variable for projecction parameters. In the CDM, this is a &quot;coordinate transform variable&quot;, ie a variable that defines a coordinate transform, in this case a projection. So we could also define a &quot;coordinate system variable&quot;, which defines both its coordinates and the grid_mapping:
 <br />
-<br />Do we think the CF standard name is for more than detailed discovery? If not, are we already trying to make it more than that, or do we want to try to do that?
+<br />int Dutch_CoordSystem; 
 <br />
-<br />Insofar as CF is perhaps the most well constructed set of such low-level terms, I wonder if they should help drive the process of moving from the current situation to a more computable one, with whatever technologies seem most appropriate?
+&nbsp;&nbsp;&nbsp;:coordinates = &quot;dutch_x dutch_y&quot;;
 <br />
-<br />John
+&nbsp;&nbsp;&nbsp;:grid_mapping = EPSG19914;
 <br />
-<br /><br />At 3:50 PM -0600 4/12/08, John Caron wrote:
+<br />int German_CoordSystem; 
 <br />
-<em class="quotelev1">&gt;Hi Jonathan, and all:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;This is a really helpful comment for me on &quot;what standard names are for&quot;. I have had reservations since the beginning about standard names, because they are &quot;just a string&quot;, which severely limits what kind of relationships can be expressed among them.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;Now &quot;standard name = succint description = quick answer to 'what is this'?&quot; finally makes this difficult process seem worth it. (Maybe its that Ive been stuck in the hell realm trying to figure out what arbitrary BUFR files mean using only the standard tables - no arbitrary key/value metadata! how sad!).
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;What Ive been hoping for is a way to describe the relationships between data variables, in a way that allows users to make queries across a large collection of heterogeneous datasets. This is what (I think) all the work in ontologies is after. Now it seems clear that standard names may be a good starting point, but alone are not rich enough to express the kinds of relationships needed  to achieve this.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;Since the &quot;common concept&quot; proposal seems to be also striving for this, its clearly time to consider what else is needed in addition to standard names. I will add further thoughts under that thread at:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  <a href="http://cf-pcmdi.llnl.gov/trac/ticket/24">http://cf-pcmdi.llnl.gov/trac/ticket/24</a>
-</em><br />
-<pre>
--- 
-----------
-John Graybeal   &lt;mailto:graybeal at mbari.org&gt;  -- 831-775-1956
-Monterey Bay Aquarium Research Institute
-Marine Metadata Initiative: <a href="http://marinemetadata.org">http://marinemetadata.org</a>   ||  Shore Side Data System: <a href="http://www.mbari.org/ssds">http://www.mbari.org/ssds</a>
-</pre>
-<span id="received"><dfn>Received on</dfn> Mon Apr 14 2008 - 14:17:53 BST</span>
+&nbsp;&nbsp;&nbsp;:coordinates = &quot;german_x german_y&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;:grid_mapping = EPSG16362;
+<br />
+<br />and the data variables point to them, instead of using coordinates attribute:
+<br />
+<br />float velocity_x(TIME,Layer,M,N);
+<br />
+&nbsp;&nbsp;velocity_x:long_name = &quot;velocity, x-component&quot; ;
+<br />
+&nbsp;&nbsp;velocity_x:units = &quot;M/S&quot; ;
+<br />
+&nbsp;&nbsp;velocity_x:standard_name = &quot;x_sea_water_velocity&quot; ;
+<br />
+&nbsp;&nbsp;velocity_x:coordinateSystems = &quot;Dutch_CoordSystem Belgian_CoordSystem&quot; ;
+<br />
+<span id="received"><dfn>Received on</dfn> Thu Nov 30 2006 - 17:29:00 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -126,8 +143,9 @@ Marine Metadata Initiative: <a href="http://marinemetadata.org">http://marinemet
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1334">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1335.html" title="Next message in the list">Craig Donlon: "[CF-metadata] CF"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1333.html" title="Previous message in the list">Hans Bonekamp: "[CF-metadata] Adding new standard names for satellite	altimetry"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1335.html" title="Next message in the list">John Caron: "[CF-metadata] curvilinear cartesian coordinates case"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1333.html" title="Previous message in the list">Steve Hankin: "[CF-metadata] CF provisional standards -- how to handle multiple projections"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./1331.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] curvilinear cartesian coordinates case"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -139,7 +157,7 @@ Marine Metadata Initiative: <a href="http://marinemetadata.org">http://marinemet
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:04 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1333.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1335.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

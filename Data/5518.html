@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]  publishing standard names from Hedley, Mark on 2013-06-13 (mailing-list-archive)</title>
-<meta name="Author" content="Hedley, Mark (mark.hedley)" />
-<meta name="Subject" content="[CF-metadata]  publishing standard names" />
-<meta name="Date" content="2013-06-13" />
+<title>[CF-metadata] making GOES-R level 1b space weather products CF compliant from Randy Horne on 2012-09-11 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Randy Horne (rhorne)" />
+<meta name="Subject" content="[CF-metadata] making GOES-R level 1b space weather products CF compliant" />
+<meta name="Date" content="2012-09-11" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5517.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5519.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  publishing standard names</h1>
-<!-- received="Thu Jun 13 10:14:53 2013" -->
-<!-- isoreceived="20130613091453" -->
-<!-- sent="Thu, 13 Jun 2013 16:14:53 +0000" -->
-<!-- isosent="20130613161453" -->
-<!-- name="Hedley, Mark" -->
-<!-- email="mark.hedley" -->
-<!-- subject="[CF-metadata]  publishing standard names" -->
-<!-- id="7819C496F4E10E47BCEFBE74551AAC9604C83D_at_EXXCMPD1DAG3.cmpd1.metoffice.gov.uk" -->
+<a style="text-decoration:none" href="./5517.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5519.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] making GOES-R level 1b space weather products CF compliant</h1>
+<!-- received="Tue Sep 11 14:12:33 2012" -->
+<!-- isoreceived="20120911131233" -->
+<!-- sent="Tue, 11 Sep 2012 16:12:33 -0400" -->
+<!-- isosent="20120911201233" -->
+<!-- name="Randy Horne" -->
+<!-- email="rhorne" -->
+<!-- subject="[CF-metadata] making GOES-R level 1b space weather products CF compliant" -->
+<!-- id="201209111612.AA143065410_at_excaliburlabs.com" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,10 +53,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5519.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  scalar coordinate variables&quot;">Next message</a> ]
-[ <a href="./5517.html" title="Lowry, Roy K.: &quot;[CF-metadata] standard_name_vocabulary attribute&quot;">Previous message</a> ]
+[ <a href="./5519.html" accesskey="d" title="John Graybeal: &quot;[CF-metadata] Expanding the standard_name metadata&quot;">Next message</a> ]
+[ <a href="./5517.html" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] CF standard name table updated&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./5543.html" accesskey="t" title="John Graybeal: &quot;[CF-metadata] publishing standard names&quot;">Next in thread</a> ]
+[ <a href="./5575.html" accesskey="t" title="Tom Whittaker: &quot;[CF-metadata] [cf-satellite] making GOES-R level 1b space weather products CF compliant&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,86 +70,72 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Hedley, Mark &lt;<a href="mailto:mark.hedley?Subject=Re%3A%20%5BCF-metadata%5D%20%20publishing%20standard%20names">mark.hedley</a>&gt;
+<dfn>From</dfn>: Randy Horne &lt;<a href="mailto:rhorne?Subject=Re%3A%20%5BCF-metadata%5D%20making%20GOES-R%20level%201b%20space%20weather%20products%20CF%20compliant">rhorne</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 13 Jun 2013 16:14:53 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 11 Sep 2012 16:12:33 -0400</span><br />
 </address>
 <br />
-Thank you for the reminder Roy, I should have posted this a while back
+Folks:
 <br />
-<br />I have written a paper on publishing standard names which I think might provide some of the required functionality for the community.
+<br />The GOES-R system generates level 1b space weather products.  These products fall into three categories:
 <br />
-<br />It would be very useful for me and work I am involved in.
+<br />(1)	Products data generated from looking directionally with 3D field of views into celestial space
 <br />
-<br />The paper is attached.  I invite feedback on this proposal
+(2)	Products data generated from observing the sun
 <br />
-<br />many thanks
+(3)	Product data generated from observing the magnetic fields around the satellite.
 <br />
-mark
+<br />While many CF conventions can be used as is to support a CF compliant space weather product, there are some areas where CF conventions need to be extended.  Note that two specific enhancements, which are covered in trac items 70 (Connecting coordinates to Grid Mapping variables) and 79 (Handling and formatting of vector quantities in CF) are assumed to be adopted in the near-term.
 <br />
-<br /><br /><br />________________________________
+<br />The additional areas where enhancement to the CF conventions is required are as follows:
 <br />
-From: CF-metadata [cf-metadata-bounces at cgd.ucar.edu] on behalf of Lowry, Roy K. [rkl at bodc.ac.uk]
+<br />(1)
 <br />
-Sent: 13 June 2013 14:50
+The set of discrete sampling geometries in the current CF standard don?t adequately address the needs for space weather products.  Four new space weather specific discrete sampling geometry types have been identified.
 <br />
-To: Ajay Krishnan - NOAA Affiliate; cf-metadata at cgd.ucar.edu
+<br />(2)
 <br />
-Subject: Re: [CF-metadata] standard_name_vocabulary attribute
+The CF cell construct in the current CF standard does not address the space weather product data generated from looking directionally with a 3D field of view into celestial space.  The enhancement to the CF cell construct must include a method to specify both a (1) an angular extent around a sensing instrument boresight angle, and (2) a means to specify field of views resulting from more elaborate instruments where the field of view is not a cone.  Specific enhancements to the CF cell construct have been identified.
 <br />
-<br />Hello Ajay,
+<br />(3)
 <br />
-<br />If I've got it right, your example is a URL for a single standard name.  The version numbers refer to versions of the whole list and so including the version number in a reference to a single standard name causes the standard name to inherit the version number of the list of which it is a member.  Trouble is that most standard names are members of more than one list version but the standard name is exactly the same in each of these versions.  Consequently, a given standard name ends up with multiple URIs.  In version 1 of the vocabulary server we run (NERC Vocabulary Server or NVS) we made the mistake of list members inheriting the version numbers of their parent lists and learned the hard way the problems it causes for operational systems.  Versioning in the current version of NVS (V2)has been done differently with list member and list versioning totally decoupled and the versioning information explicitly excluded from list member URIs.
+New three dimensional coordinate systems (enabled by additional grid mappings) to support locating the space weather product data elements in both a celestial and an observation platform centric context.  The new grid mappings have been identified.
 <br />
-<br />I am aware of work underway by Mark Hedley at the UK Met Office to provide URLs for Standard Names in a CF namespace that follow linked data principles by resolving into usable XML (SKOS RDF) documents.  I'm not sure how far this work has progressed, so I'll leave it Mark to say more on the list if he feels he's ready.
+<br />(4)
 <br />
-<br />Cheers, Roy.
+The current CF standard does not include a convention for capturing the location of the observing (i.e. sensing platform).  This is a ubiquitous need for the users of space weather products.  An approach to provide this has been developed.
 <br />
-<br /><br /><br />________________________________
+<br />(5)
 <br />
-From: CF-metadata [cf-metadata-bounces at cgd.ucar.edu] on behalf of Ajay Krishnan - NOAA Affiliate [ajay.krishnan at noaa.gov]
+The current CF standard does not include a convention for capturing the name of the celestial object being observed.  The only two celestial objects that may be viewed in the context of space weather are the sun and the moon.  This is a ubiquitous need for the users of the applicable space weather products. An approach to provide this has been developed.
 <br />
-Sent: 13 June 2013 13:44
+<br />The scope of these potential CF enhancements significantly exceeds what is usually addressed in a single message to this board.  The intent of this message is to provide an overview of the suggested CF enhancements, and solicit advice on how best to proceed.
 <br />
-To: cf-metadata at cgd.ucar.edu
+<br />Note that a technical memo exists that provides background information on the space weather instruments and products, and the detailed information required to make a CF compliance level 1b space weather product possible.  This technical memo can be made available to folks on the message board.
 <br />
-Subject: [CF-metadata] standard_name_vocabulary attribute
+<br />very respectfully,
 <br />
-<br /><br />Hi,
+randy
 <br />
-<br />There seems to be some ambiguity about the usage of the standard_name_vocabulary attribute. Based on the link below, the right value would be to use something like CF 1.6
+<br /><br />Randy C. Horne (rhorne at excaliburlabs.com)
 <br />
-<a href="http://www.unidata.ucar.edu/software/netcdf-java/formats/DataDiscoveryAttConvention.html#standard_name_vocabulary_Attribute">http://www.unidata.ucar.edu/software/netcdf-java/formats/DataDiscoveryAttConvention.html#standard_name_vocabulary_Attribute</a>
+Principal Engineer, Excalibur Laboratories Inc.
 <br />
-<br />Is that the right usage or should we reference the version of the cf-standard-name-table like v1..v23 etc.?
+voice &amp; fax: (321) 952-5100
 <br />
-<br />Any info on this would be much appreciated.
+url: <a href="http://www.excaliburlabs.com">http://www.excaliburlabs.com</a>
 <br />
-<br />Thanks,
+<br />&nbsp;
 <br />
-Ajay
+<br />&nbsp;
 <br />
--------------- next part --------------
+..............End of Message ...............................--&gt;
 <br />
-An HTML attachment was scrubbed...
+<br /><br />&nbsp;
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130613/443c998e/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130613/443c998e/attachment-0001.html</a>&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <br />
--------------- next part --------------
-<br />
-A non-text attachment was scrubbed...
-<br />
-Name: publishingStandardNames.pdf
-<br />
-Type: application/pdf
-<br />
-Size: 63930 bytes
-<br />
-Desc: publishingStandardNames.pdf
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130613/443c998e/attachment-0001.pdf">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130613/443c998e/attachment-0001.pdf</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Thu Jun 13 2013 - 10:14:53 BST</span>
+<span id="received"><dfn>Received on</dfn> Tue Sep 11 2012 - 14:12:33 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -157,12 +143,12 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5518">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5519.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  scalar coordinate variables"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5517.html" title="Previous message in the list">Lowry, Roy K.: "[CF-metadata] standard_name_vocabulary attribute"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5519.html" title="Next message in the list">John Graybeal: "[CF-metadata] Expanding the standard_name metadata"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5517.html" title="Previous message in the list">alison.pamment at stfc.ac.uk: "[CF-metadata] CF standard name table updated"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./5543.html" title="Next message in this discussion thread">John Graybeal: "[CF-metadata] publishing standard names"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./5575.html" title="Next message in this discussion thread">Tom Whittaker: "[CF-metadata] [cf-satellite] making GOES-R level 1b space weather products CF compliant"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./5543.html" title="Message sent in reply to this message">John Graybeal: "[CF-metadata] publishing standard names"</a></li>
+<dfn>Reply</dfn>: <a href="./5575.html" title="Message sent in reply to this message">Tom Whittaker: "[CF-metadata] [cf-satellite] making GOES-R level 1b space weather products CF compliant"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -173,7 +159,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:24 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5517.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5519.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

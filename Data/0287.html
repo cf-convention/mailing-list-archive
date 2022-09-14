@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Use of Standard Names and Coordinate Variables (relevant to the aerosol discussion) from Christiane Textor on 2006-10-05 (mailing-list-archive)</title>
-<meta name="Author" content="Christiane Textor (christiane.textor)" />
-<meta name="Subject" content="[CF-metadata] Use of Standard Names and Coordinate Variables (relevant to the aerosol discussion)" />
-<meta name="Date" content="2006-10-05" />
+<title>[CF-metadata] WRF staggered grids from Jonathan Gregory on 2003-10-23 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] WRF staggered grids" />
+<meta name="Date" content="2003-10-23" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0286.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0288.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Use of Standard Names and Coordinate Variables (relevant to the aerosol discussion)</h1>
-<!-- received="Thu Oct  5 11:24:49 2006" -->
-<!-- isoreceived="20061005102449" -->
-<!-- sent="Thu, 05 Oct 2006 19:24:49 +0200" -->
-<!-- isosent="20061005172449" -->
-<!-- name="Christiane Textor" -->
-<!-- email="christiane.textor" -->
-<!-- subject="[CF-metadata] Use of Standard Names and Coordinate Variables (relevant to the aerosol discussion)" -->
-<!-- id="45253FE1.8090601_at_aero.jussieu.fr" -->
+<a style="text-decoration:none" href="./0286.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0288.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] WRF staggered grids</h1>
+<!-- received="Thu Oct 23 02:04:48 2003" -->
+<!-- isoreceived="20031023010448" -->
+<!-- sent="Thu, 23 Oct 2003 09:04:48 +0100" -->
+<!-- isosent="20031023080448" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] WRF staggered grids" -->
+<!-- id="20031023080448.GB5787_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0288.html" accesskey="d" title="Ed Hartnett: &quot;[CF-metadata] question about use of standard name to identify coord vars associated with a grid...&quot;">Next message</a> ]
-[ <a href="./0286.html" title="Christiane Textor: &quot;[CF-metadata] standard names for aerosols and chemistry&quot;">Previous message</a> ]
+[ <a href="./0288.html" accesskey="d" title="Brian Eaton: &quot;[CF-metadata] UTM projections&quot;">Next message</a> ]
+[ <a href="./0286.html" title="Jonathan Gregory: &quot;[CF-metadata] UTM projections&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0292.html" accesskey="t" title="John Caron: &quot;[CF-metadata] WRF staggered grids&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,136 +70,48 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Christiane Textor &lt;<a href="mailto:christiane.textor?Subject=Re%3A%20%5BCF-metadata%5D%20Use%20of%20Standard%20Names%20and%20Coordinate%20Variables%20(relevant%20to%20the%20aerosol%20discussion)">christiane.textor</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20WRF%20staggered%20grids">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 05 Oct 2006 19:24:49 +0200</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 23 Oct 2003 09:04:48 +0100</span><br />
 </address>
 <br />
-Dear all,
+Dear John
 <br />
-<br />Please find an updated version (3) of the aerosol and chemical standard 
+<br /><em class="quotelev1">&gt; Has there been any discusion of staggered coordinate systems?
+</em><br />
+Yes, informally, but no proposals are &quot;on the table&quot;.
 <br />
-names at 
+<br /><em class="quotelev1">&gt; It has variables on various staggerings, for example U is on (z,y,x_stag) 
+</em><br />
+<em class="quotelev1">&gt; while V is on (z, y_stag, x), and W is on (z_stag,y,x), where the 
+</em><br />
+<em class="quotelev1">&gt; staggered coordinates are the  &quot;edges&quot; of the non-staggered coordinates.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; On first pass these could constitute seperate coordinate systems, but it 
+</em><br />
+<em class="quotelev1">&gt; seems like it would be better to represent how they are related.
+</em><br />
+<br />I think the representation as separate systems is essential. For most software
 <br />
-<a href="http://wiki.esipfed.org/index.php/CF_Standard_Names_-_Proposed_names_for_TF_HTAP">http://wiki.esipfed.org/index.php/CF_Standard_Names_-_Proposed_names_for_TF_HTAP</a>
+that is all which is necessary and the program shouldn't be expected to do
 <br />
-<br />This email is in response to the comments on standard names for aerosols 
+anything cleverer. The issue is whether we want to include additional metadata
 <br />
-and chemistry concerning coordinate variables.
+which indicates how the systems are related. Are you aware of a need for this
 <br />
-<br />I understand the purpose of using coordinate variables for quantities 
+higher-level information? For instance, when would you like to know that the
 <br />
-dependent on other (coordinate-) variables. However, under the condition 
+pressure, U and V are in an Arakawa C-grid arrangement? To record this would
 <br />
-is that the coordinated variables take many values (like spatial 
+be redundant, in principle, so is it better to deduce it when you need to?
 <br />
-coordinates). It does not make sense to use coordinate variables, if 
+<br />Best wishes
 <br />
-there are only very few used (like pm? for particle size). Maybe a 
+<br />Jonathan
 <br />
-minimum of probable values for the coordinate variables could be 10. 
-<br />
-Otherwise the information should be included in the standard_name.
-<br />
-<br />This gives the following CF standard_names for aerosols/chemistry:
-<br />
-<br />-particle sizes (pm?) would be part of the names, not a coordinate
-<br />
-<br />-standardization of the rel. humidity RH at which the particle size is 
-<br />
-given is desirable, and as little as possible values should be used in 
-<br />
-the community. Hence, the RH should be part of the standard_name.
-<br />
-<br />-sensitivity studies/tagged tracers
-<br />
-There are several CO tracers used in the HTAP experiments, given here 
-<br />
-with there variable names:
-<br />
-<br />1 vmr_codirect    CO_with_lifetime_of_25_days			
-<br />
-2 vmr_cofromch4   CO_due_to_methane_oxidation			
-<br />
-3 vmr_cofromavoc  CO_due_to_oxidation_of_anthropogenic_NMVOC	
-<br />
-4 vmr_cofrombvoc  CO_due_to_oxidation_of_biogenic_NMVOC		
-<br />
-5 vmr_cofromea    CO_due_to_emissions_from_East_Asia		
-<br />
-6 vmr_cofromeu    CO_due_to_emissions_from_Europe_and_North_Africa
-<br />
-7 vmr_cofromna    CO_due_to_emissions_from_North_America 	 	
-<br />
-8 vmr_cofromsa    CO_due_to_emissions_from_South_Asia
-<br />
-<br />I do not think that a standard_name should be defined for those, this 
-<br />
-should go into a coordinate variable. Is it possible to have a 
-<br />
-coordinated variable that specifies the tag?
-<br />
-<br />&nbsp;&nbsp;&nbsp;float  vmr_cofromch4(time,lev,lat,lon,tag);
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VMR_CO:unit=&quot;1&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VMR_CO:coordinates=&quot;tag_name&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VMR_CO:standard_name=&quot;mole_fraction_of_CO_in_air&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;double time(time) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:long_name = &quot;time&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:units = &quot;days since 1990-1-1 0:0:0&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;float lat(lat) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat:long_name = &quot;latitude&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat:units = &quot;degrees_north&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;float lon(lon) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon:standard_name = &quot;longitude&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon:long_name = &quot;longitude&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon:units = &quot;degrees_east&quot;
-<br />
-&nbsp;&nbsp;&nbsp;char tag_name(tag,strlen) ;
-<br />
-<br />and then in the tag_name variable the experiments would be described as 
-<br />
-given above. Sensitivity studies with tagged tracers are widely used in 
-<br />
-model studies and it seems to me, that is is useful to define a suitable 
-<br />
-strategie for CF.
-<br />
-<br />-wavelength for aerosol optical depth
-<br />
-A coordinate variable could probably be used in this case, as many 
-<br />
-wavelengths can be used.
-<br />
-<br />Best regards,
-<br />
-Christiane
-<br />
-<br /><pre>
--- 
-Christiane Textor
-Service d'A?ronomie INSU CNRS, Tour 46, RDC # 2
-Universit? Pierre et Marie Curie, Boite 102
-4 place Jussieu
-75252 Paris C?dex 05
-France
-Tel: ++33 1.44.27.21.82
-Fax: ++33 1.44.27.21.81
-Email: christiane.textor at aero.jussieu.fr
-</pre>
-<span id="received"><dfn>Received on</dfn> Thu Oct 05 2006 - 11:24:49 BST</span>
+<span id="received"><dfn>Received on</dfn> Thu Oct 23 2003 - 02:04:48 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -205,9 +119,12 @@ Email: christiane.textor at aero.jussieu.fr
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start287">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0288.html" title="Next message in the list">Ed Hartnett: "[CF-metadata] question about use of standard name to identify coord vars associated with a grid..."</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0286.html" title="Previous message in the list">Christiane Textor: "[CF-metadata] standard names for aerosols and chemistry"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0288.html" title="Next message in the list">Brian Eaton: "[CF-metadata] UTM projections"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0286.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] UTM projections"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0292.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] WRF staggered grids"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0292.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] WRF staggered grids"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -218,7 +135,7 @@ Email: christiane.textor at aero.jussieu.fr
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:47 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0286.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0288.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

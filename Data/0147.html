@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Standard names for wave model data. from Stark, John on 2006-05-31 (mailing-list-archive)</title>
-<meta name="Author" content="Stark, John (john.stark)" />
-<meta name="Subject" content="[CF-metadata] Standard names for wave model data." />
-<meta name="Date" content="2006-05-31" />
+<title>[CF-metadata] bounds from Jonathan Gregory on 2003-04-28 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (jonathan.gregory)" />
+<meta name="Subject" content="[CF-metadata] bounds" />
+<meta name="Date" content="2003-04-28" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0146.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0148.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Standard names for wave model data.</h1>
-<!-- received="Wed May 31 08:11:36 2006" -->
-<!-- isoreceived="20060531071136" -->
-<!-- sent="Wed, 31 May 2006 15:11:36 +0100" -->
-<!-- isosent="20060531141136" -->
-<!-- name="Stark, John" -->
-<!-- email="john.stark" -->
-<!-- subject="[CF-metadata] Standard names for wave model data." -->
-<!-- id="1149084696.26989.299.camel_at_eld334.desktop.frd.metoffice.com" -->
+<a style="text-decoration:none" href="./0146.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0148.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] bounds</h1>
+<!-- received="Mon Apr 28 16:24:30 2003" -->
+<!-- isoreceived="20030428152430" -->
+<!-- sent="Mon, 28 Apr 2003 23:24:30 +0100" -->
+<!-- isosent="20030428222430" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="jonathan.gregory" -->
+<!-- subject="[CF-metadata] bounds" -->
+<!-- id="20030428232430.A1971_at_mreydhon.lan" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0148.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Standard names for wave model data.&quot;">Next message</a> ]
-[ <a href="./0146.html" title="Jonathan Gregory: &quot;[CF-metadata] contributors to standard name table&quot;">Previous message</a> ]
+[ <a href="./0148.html" accesskey="d" title="Bob Drach: &quot;[CF-metadata] bounds&quot;">Next message</a> ]
+[ <a href="./0146.html" title="Stephens, A: &quot;[CF-metadata] Encoding Errors on variables in CF&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0148.html" accesskey="t" title="Bob Drach: &quot;[CF-metadata] bounds&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,92 +70,132 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Stark, John &lt;<a href="mailto:john.stark?Subject=Re%3A%20%5BCF-metadata%5D%20Standard%20names%20for%20wave%20model%20data.">john.stark</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:jonathan.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20bounds">jonathan.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 31 May 2006 15:11:36 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 28 Apr 2003 23:24:30 +0100</span><br />
 </address>
 <br />
-Hi,
+Dear All
 <br />
-<br />I would like to request some new standard names to cover output from a
+<br />I believe the issue of bounds is the only thing which stands in the way of a
 <br />
-wave model. The model makes no distinction between 'wind' and 'swell'
+non-beta release of CF. There hasn't been any further activity on that thread
 <br />
-waves, which there are names for, but is spectral, having both frequency
+this month, so I'd like to restart it by summarising the position. I think
 <br />
-and direction dimensions at each location. Typically the output is
+there are three cases to distinguish in the current CF draft:
 <br />
-integrated over direction (giving a wave spectrum but no direction
+<br />1D: A coordinate variable x(x) has bounds (x,2) i.e. each cell has an upper and
 <br />
-information), and presented together with the dominant direction at each
+a lower boundary. This allows cells to be non-contiguous or overlapping, but it
 <br />
-location.
+means a check is needed to determine whether they are contiguous.
 <br />
-&nbsp;&nbsp;&nbsp;
+<br />2D rectilinear: In the case when lat and lon are not 1D axes but there are two
 <br />
-We could use &quot;wind_and_swell_wave&quot; instead of just &quot;wave&quot; in the
+1D projection/transformation axes x and y in the horizontal plane, the
 <br />
-following names.   
+auxiliary coordinates lat(y,x) and lon(y,x) have bounds (y,x,4). The order of
 <br />
-&nbsp;&nbsp;&nbsp;
+the vertices is not specified. The axes x and y can themselves have 1D bounds.
 <br />
-Coordinate variable describing the wave-direction axis:
+The 2D cells are contiguous in lat and lon if they are contiguous in x and y,
 <br />
-standard_name = &quot;direction_of_wave_velocity&quot; ;
+so contiguousness can be checked in 1D if the bounds are supplied.
 <br />
-units = &quot;degree&quot;
+<br />2D non-rectilinear: In the case when the horizontal cells are not arranged in a
 <br />
-<br />Coordinate variable describing the frequency axis:
+2D array, they have one or more index dimensions n,..., with auxiliary
 <br />
-standard_name = &quot;wave_frequency&quot; ;
+coordinate variables lat(...,n) and lon(...,n) having bounds (...,n,p), where p
 <br />
-units = &quot;s-1&quot;
+is the number of vertices of the cells e.g. they could be hexagonal. Checking
 <br />
-<br />This variable describes the wave spectral energy density in each
+for contiguous cells in this case is complicated.
 <br />
-frequency and direction bin. 
+<br />In the 1D case, an alternative representation for contiguous cells would have
 <br />
-standard_name = &quot;directional_wave_spectrum_energy&quot; ;
+bounds (x+1), the bounds of cell i having indices i and i+1. This scheme is not
 <br />
-units = &quot;m2 s-1 radian-1&quot; ;
+currently included in CF but may seem more obvious. It has the attraction that
 <br />
-<br />Integrating the above over all angles gives the wave spectrum : 
+contiguousness is guaranteed by construction and therefore does not have to be
 <br />
-standard_name = &quot;wave_spectrum_energy&quot; ;
+tested. This avoids the difficulty of deciding how to check for contiguousness
 <br />
-units = &quot;m2 s-1&quot; ;
+reliably, given numerical imprecision.
 <br />
-<br />This variable describes the direction that waves are arriving from :
+<br />However, it has the drawbacks (a) it can't be used for the unlimited dimension,
 <br />
-standard_name = &quot;wave_spectrum_direction&quot; ;
+(b) it doesn't avoid an explicit contiguousness check for wrap-round axes e.g.
 <br />
-units = &quot;degree&quot; ;
+longitude, in which the first and last boundaries may be coincident, (c) it may
 <br />
-<br />This variable would be used to describe the (zero upcrossing) wave
+be unreliable to assume that all contiguous cases use (x+1), since (x,2) must
 <br />
-period at each location:
+also be supported; hence a contiguousness check may still be needed for (x,2).
 <br />
-standard_name = &quot;wave_period&quot; ;
+<br />My own opinion is that we should stick with supporting just (x,2) for 1D and
 <br />
-units = &quot;s&quot;
+not allow (x+1) as an alternative. I don't think that the advantage of not
 <br />
-<br />This variable would be used to describe the period at which peak wave
+having to test for contiguousness in certain cases justifies the extra
 <br />
-energy occurs at each location:
+complexity of supporting two schemes in the standard.
 <br />
-standard_name = &quot;peak_period_of_wave_field&quot; ;
+<br />I'd like to make the following proposals concerning bounds (a summary of what I
 <br />
-units = &quot;s&quot;
+proposed in my last posting):
 <br />
-<br />John
+<br />(1) In the 1D case, if no bounds are supplied, assume contiguous cells.
 <br />
-<br /><br />John Stark             SST and Sea Ice Scientist
+<br />(2) For a 1D coordinate variable with bounds (x,2), define an ordering for the
 <br />
-Met Office   FitzRoy Road   Exeter   EX1 3PB  United Kingdom
+2nd index, namely that the bounds should be ordered in the same sense as the
 <br />
-Tel: +44 (0)1392 885059   Fax: +44 (0)1392 885681
+coordinates, so that the 0-bound of cell i is on the side that faces cell i-1
 <br />
-<span id="received"><dfn>Received on</dfn> Wed May 31 2006 - 08:11:36 BST</span>
+and the 1-bound on the side facing cell i+1.
+<br />
+<br />(3) It follows that cells i and i+1 are contiguous if bound (i,1) equals bound
+<br />
+(i+1,0), with a tolerance that the absolute difference between the bounds must
+<br />
+be several orders of magnitude smaller than the absolute difference between the
+<br />
+gridpoints of the cells.
+<br />
+<br />(4) In the 2D rectilinear case, the bounds should be dimensioned (y,x,2,2),
+<br />
+where the 3rd index corresponds to y and the 4th to x.  (This is a change from
+<br />
+the current CF standard.) This case is indicated by their being two trailing
+<br />
+dimensions of size 2. Contiguousness should be checked on the bounds of the 1D
+<br />
+coordinate variables rather than the 2D auxiliary coordinate variables.  As a
+<br />
+consequence of the ordering of the 1D bounds, the 2D vertices are ordered in a
+<br />
+&quot;zigzag&quot; - an N or a Z or their mirror images.
+<br />
+<br />(5) In the non-rectilinear case, the bounds should be dimensioned (...,n,p) (no
+<br />
+change to CF). The fact that there is only a single bounds dimension, which has
+<br />
+size p&gt;2, indicates this case. The vertices must be traversed anticlockwise in
+<br />
+the lat-lon plane as viewed from above. Testing for contiguousness is a
+<br />
+complicated operation, so you might want to save the results. I suggested in an
+<br />
+earlier posting a scheme we might adopt for this (on Mon Mar 17 at 17:49:50).
+<br />
+<br />Best wishes
+<br />
+<br />Jonathan
+<br />
+<span id="received"><dfn>Received on</dfn> Mon Apr 28 2003 - 16:24:30 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -161,9 +203,12 @@ Tel: +44 (0)1392 885059   Fax: +44 (0)1392 885681
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start147">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0148.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Standard names for wave model data."</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0146.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] contributors to standard name table"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0148.html" title="Next message in the list">Bob Drach: "[CF-metadata] bounds"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0146.html" title="Previous message in the list">Stephens, A: "[CF-metadata] Encoding Errors on variables in CF"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0148.html" title="Next message in this discussion thread">Bob Drach: "[CF-metadata] bounds"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0148.html" title="Message sent in reply to this message">Bob Drach: "[CF-metadata] bounds"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -174,7 +219,7 @@ Tel: +44 (0)1392 885059   Fax: +44 (0)1392 885681
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:45 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0146.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0148.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

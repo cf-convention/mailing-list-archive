@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]  fixed sensors, depth, datum from Jonathan Gregory on 2008-09-15 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata]  fixed sensors, depth, datum" />
-<meta name="Date" content="2008-09-15" />
+<title>[CF-metadata] some concerns about the &quot;ensemble axis&quot; proposal from John Caron on 2007-02-26 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] some concerns about the &quot;ensemble axis&quot; proposal" />
+<meta name="Date" content="2007-02-26" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1535.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1537.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  fixed sensors, depth, datum</h1>
-<!-- received="Mon Sep 15 11:32:28 2008" -->
-<!-- isoreceived="20080915103228" -->
-<!-- sent="Mon, 15 Sep 2008 18:32:28 +0100" -->
-<!-- isosent="20080915173228" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata]  fixed sensors, depth, datum" -->
-<!-- id="20080915173228.GB2166_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./1535.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1537.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] some concerns about the &quot;ensemble axis&quot; proposal</h1>
+<!-- received="Mon Feb 26 10:27:32 2007" -->
+<!-- isoreceived="20070226102732" -->
+<!-- sent="Mon, 26 Feb 2007 10:27:32 -0700" -->
+<!-- isosent="20070226172732" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] some concerns about the &quot;ensemble axis&quot; proposal" -->
+<!-- id="45E31884.60109_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="45E2F2C6.4050505_at_ecmwf.int" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1537.html" accesskey="d" title="Ethan Davis: &quot;[CF-metadata] fixed sensors, depth, datum&quot;">Next message</a> ]
-[ <a href="./1535.html" title="Steve Hankin: &quot;[CF-metadata] fixed sensors, depth, datum&quot;">Previous message</a> ]
+[ <a href="./1537.html" accesskey="d" title="Jon Blower: &quot;[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal&quot;">Next message</a> ]
+[ <a href="./1535.html" title="Francisco Doblas-Reyes: &quot;[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal&quot;">Previous message</a> ]
+[ <a href="./1535.html" title="Francisco Doblas-Reyes: &quot;[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./1540.html" accesskey="t" title="olivier lauret: &quot;[CF-metadata] fixed sensors, depth, datum&quot;">Next in thread</a> ]
+[ <a href="./1537.html" accesskey="t" title="Jon Blower: &quot;[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,86 +72,18 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20fixed%20sensors%2C%20depth%2C%20datum">j.m.gregory</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20some%20concerns%20about%20the%20%22ensemble%20axis%22%20proposal">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 15 Sep 2008 18:32:28 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 26 Feb 2007 10:27:32 -0700</span><br />
 </address>
 <br />
-Dear all
+Without following some of the details of this discussion very closely, my feeling is that when you have a set of data arrays, say an ensemble forecast from the same model, that have exactly the same coordinate system, metadata, etc then an ensemble dimension is reasonable. 
 <br />
-<br />Referring to Dale's list of requirements
+<br />If its coming from different models, it seems unlikely that the meaning of the data is close enough to justify putting the data in the same array. They should be different variables, possibly different datasets.
 <br />
-<br />- height relative to the ellipsoid
+<br />Thats just a first thought from an abstract data model POV. There could be other practical reasons why you dont want to combine them (like existing apps that cant handle another dimension).
 <br />
-- height relative to the geoid
-<br />
-In my opinion these are distinct geophysical quantities. As Dale pointed out,
-<br />
-we already have the standard name of &quot;altitude&quot; for the second of them, and
-<br />
-the first should probably have the name height_above_reference_ellipsoid for
-<br />
-consistency with other standard names. That would need to be proposed to this
-<br />
-email list.
-<br />
-<br />- name of the ellipsoid
-<br />
-- name of the geoid
-<br />
-These could be added as possible attributes to the grid_mapping variable.
-<br />
-That is a conventions change that would need a trac ticket to propose and
-<br />
-discuss. In fact Phil Bentley did propose to have such attributes in his
-<br />
-CRS ticket. We had discussions in which I expressed my usual disquiet about
-<br />
-redundancy. What if the name of the ellipsoid is not consistent with the
-<br />
-parameters of the ellipsoid that have been supplied, if they have been? I
-<br />
-am not sure how to resolve that. This concern does not apply to the geoid,
-<br />
-because it is not practical to specify it in detail as part of CF metadata;
-<br />
-we can only identify it by name. If the ellipsoid_name is a grid_mapping
-<br />
-attribute too, it simplifies Dale's example, as it doesn't have to appear
-<br />
-in its own dummy variable.
-<br />
-<br />- altitude of (offset to) other common datums (e.g. MLLW) 
-<br />
-Dale's offsets are single numbers, but they could in some circumstances be
-<br />
-(lon,lat) fields, as Ethan says. In either case, they can be data variables,
-<br />
-so I see no problem that that. The other common datums are tidal datums, for
-<br />
-instance. Again, I think the various tidal levels are distinct geophysical
-<br />
-variables, and need different standard names to be proposed
-<br />
-e.g. altitude_of_mean_lower_low_water and altitude_of_mean_low_water.
-<br />
-<br />I think I don't properly understand how these concepts relate to concepts
-<br />
-like &quot;Australian height datum&quot;, which Ethan mentions. What does that mean
-<br />
-exactly, can someone explain? I suspect it must mean the designation of a
-<br />
-particular geoid, and saying that a particular location has a certain altitude
-<br />
-wrt that geoid. By specifying a geoid, a location and an altitude you would
-<br />
-thereby define altitude for everywhere else in the world. Is that right?
-<br />
-<br />Best wishes
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Mon Sep 15 2008 - 11:32:28 BST</span>
+<span id="received"><dfn>Received on</dfn> Mon Feb 26 2007 - 10:27:32 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -157,13 +91,13 @@ thereby define altitude for everywhere else in the world. Is that right?
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1536">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1537.html" title="Next message in the list">Ethan Davis: "[CF-metadata] fixed sensors, depth, datum"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1535.html" title="Previous message in the list">Steve Hankin: "[CF-metadata] fixed sensors, depth, datum"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1537.html" title="Next message in the list">Jon Blower: "[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1535.html" title="Previous message in the list">Francisco Doblas-Reyes: "[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./1535.html" title="Message to which this message replies">Francisco Doblas-Reyes: "[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./1540.html" title="Next message in this discussion thread">olivier lauret: "[CF-metadata] fixed sensors, depth, datum"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./1537.html" title="Next message in this discussion thread">Jon Blower: "[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./1540.html" title="Message sent in reply to this message">olivier lauret: "[CF-metadata] fixed sensors, depth, datum"</a></li>
-<li><dfn>Reply</dfn>: <a href="./1541.html" title="Message sent in reply to this message">Jon Blower: "[CF-metadata] fixed sensors, depth, datum"</a></li>
+<dfn>Reply</dfn>: <a href="./1537.html" title="Message sent in reply to this message">Jon Blower: "[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -174,7 +108,7 @@ thereby define altitude for everywhere else in the world. Is that right?
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:08 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1535.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1537.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

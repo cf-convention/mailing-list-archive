@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Is there a 'turnkey' application that displays CF trajectory plots? from Cathy Smith on 2014-08-06 (mailing-list-archive)</title>
-<meta name="Author" content="Cathy Smith (cathy.smith)" />
-<meta name="Subject" content="[CF-metadata] Is there a 'turnkey' application that displays CF trajectory plots?" />
-<meta name="Date" content="2014-08-06" />
+<title>[CF-metadata] Using cell methods for statistics associated with gridded observation data from rhorne at excaliburlabs.com on 2013-07-03 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="rhorne at excaliburlabs.com (rhorne)" />
+<meta name="Subject" content="[CF-metadata] Using cell methods for statistics associated with gridded observation data" />
+<meta name="Date" content="2013-07-03" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./6409.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6411.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Is there a 'turnkey' application that displays CF trajectory plots?</h1>
-<!-- received="Wed Aug  6 09:03:08 2014" -->
-<!-- isoreceived="20140806080308" -->
-<!-- sent="Wed, 06 Aug 2014 09:03:08 -0600" -->
-<!-- isosent="20140806150308" -->
-<!-- name="Cathy Smith" -->
-<!-- email="cathy.smith" -->
-<!-- subject="[CF-metadata] Is there a 'turnkey' application that displays CF trajectory plots?" -->
-<!-- id="53E243AC.4030407_at_noaa.gov" -->
+<a style="text-decoration:none" href="./6409.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6411.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Using cell methods for statistics associated with gridded observation data</h1>
+<!-- received="Wed Jul  3 08:43:02 2013" -->
+<!-- isoreceived="20130703074302" -->
+<!-- sent="Wed, 3 Jul 2013 10:43:02 -0400" -->
+<!-- isosent="20130703144302" -->
+<!-- name="rhorne at excaliburlabs.com" -->
+<!-- email="rhorne" -->
+<!-- subject="[CF-metadata] Using cell methods for statistics associated with gridded observation data" -->
+<!-- id="7ac6e1a9$7bc00872$29b66195$_at_excaliburlabs.com" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="53E23EEF.7000002_at_noaa.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./6411.html" accesskey="d" title="Don Murray: &quot;[CF-metadata] Is there a &#0039;turnkey&#0039; application that displays CF trajectory plots?&quot;">Next message</a> ]
-[ <a href="./6409.html" title="Jim Biard: &quot;[CF-metadata] Is there a &#0039;turnkey&#0039; application that displays CF trajectory plots?&quot;">Previous message</a> ]
-[ <a href="./6409.html" title="Jim Biard: &quot;[CF-metadata] Is there a &#0039;turnkey&#0039; application that displays CF trajectory plots?&quot;">In reply to</a> ]
+[ <a href="./6411.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Using cell methods for statistics associated with gridded observation data&quot;">Next message</a> ]
+[ <a href="./6409.html" title="Jonathan Gregory: &quot;[CF-metadata]   Non-real-world calendars&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./6411.html" accesskey="t" title="Don Murray: &quot;[CF-metadata] Is there a &#0039;turnkey&#0039; application that displays CF trajectory plots?&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -71,119 +68,182 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Cathy Smith &lt;<a href="mailto:cathy.smith?Subject=Re%3A%20%5BCF-metadata%5D%20Is%20there%20a%20'turnkey'%20application%20that%20displays%20CF%20trajectory%20plots%3F">cathy.smith</a>&gt;
+<dfn>From</dfn>: rhorne at excaliburlabs.com &lt;<a href="mailto:rhorne?Subject=Re%3A%20%5BCF-metadata%5D%20Using%20cell%20methods%20for%20statistics%20associated%20with%20gridded%20observation%20data">rhorne</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 06 Aug 2014 09:03:08 -0600</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 3 Jul 2013 10:43:02 -0400</span><br />
 </address>
 <br />
-Jim
+Dear Jonathan:   Thanks for taking the time to look at my long-winded post. 
 <br />
-<br />We plot trajectories here.
+&nbsp;You posed a question I would like to answer:   Is &quot;sum&quot; really the right 
 <br />
-<br /><a href="http://www.esrl.noaa.gov/psd/cgi-bin/data/trajtool/traj.pl">http://www.esrl.noaa.gov/psd/cgi-bin/data/trajtool/traj.pl</a>
+cell_method? I would have expected &quot;mean&quot;.
 <br />
-<br />We use Fortran code to calculate the trajectories, stored the output in
+&nbsp;The cell method &quot;sum&quot; is applied to the &quot;time&quot;  and &quot;y&quot; and &quot;x&quot; coordinate 
 <br />
-nertCDF and then use a NCL script to plot them. The script works pretty
+variables   The reason &quot;sum&quot; is used for the &quot;time&quot; coordinate variable is 
 <br />
-well (except where trajectories pass over 0E). We looked into CF
+that the sensing of a region (i.e.cell) occurs over a several minute 
 <br />
-complaint netCDF trajectories standard a while back but didn't implement
+period.  The sensing associated with a particular observation/pixel in the 
 <br />
-them. Part of the reason was that the code output into it's own netCDF
+region (i.e. cell) happens in less than a second.  Statistics associated 
 <br />
-format. Still, we could have reread and stored the data. I think we
+this cell in time are really an accumulation over the several minute 
 <br />
-would have needed to change how time was handled. Also, times went
+sensing period.   The use of &quot;sum&quot; for &quot;area&quot; in the example below is a 
 <br />
-backward for back trajectories and we weren't clear if that was okay.
+mistake.  The example wss supposed to show the minimum AOD value for the 
 <br />
-<br />We may try to transition to CF at some point.
+region (i.e. cell) that was sensed over a several minute period.  I should 
 <br />
-<br />Cathy Smith
+have used &quot;minimum&quot;.   
 <br />
-<br />On 8/6/14 8:42 AM, Jim Biard wrote:
+<br />Here is the correction to the declaration of the cell_methods attribute: 
 <br />
-<em class="quotelev1">&gt; Hi.
+<br />&nbsp;&nbsp;
+<br />
+<br />cell_methods = &quot;time: sum area: minimum (interval: 2 km 
+<br />
+comment:solar_zenith_angle and platform_zenith_angle conforming pixels 
+<br />
+only)&quot; ; 
+<br />
+<br />&nbsp;&nbsp;
+<br />
+<br />&nbsp;&nbsp;
+<br />
+<br />very respectfully, 
+<br />
+<br />&nbsp;&nbsp;
+<br />
+<br />randy
+<br />
+<br />----------------------------------------
+<br />
+&nbsp;From: &quot;Jonathan Gregory&quot; &lt;j.m.gregory at reading.ac.uk&gt;
+<br />
+Sent: Wednesday, July 03, 2013 10:03 AM
+<br />
+To: cf-metadata at cgd.ucar.edu
+<br />
+Subject: [CF-metadata] Using cell methods for statistics associated with 
+<br />
+gridded observation data
+<br />
+<br />Dear Randy
+<br />
+<br /><em class="quotelev1">&gt; The GOES-R ground system generates level 2+ products such as aerosol 
 </em><br />
-<em class="quotelev1">&gt;
+optical depth, for the hemispheric, continental US, and mesocale (100 km x 
+<br />
+1000 km) regions.
+<br />
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; We are working on building a CF-compliant trajectory dataset. I'd like
+<em class="quotelev1">&gt; The NetCDF product files need to contain statistics (min, max, mean, and 
 </em><br />
-<em class="quotelev1">&gt; to be able to verify correctness by using an existing application to
+standard deviation) associated with ALL the gridded data associated with a 
+<br />
+region.
+<br />
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; plot the trajectories, but I can't seem to find any applications that
+<em class="quotelev1">&gt; It would seem the use of cell methods to express these statistics in the 
 </em><br />
-<em class="quotelev1">&gt; are &quot;trajectory aware&quot;.  Any suggestions?
+product file makes sense even though there is only one cell (i.e. the one 
+<br />
+cell that captures the statistic for the entire region).
+<br />
+<br />Yes, I agree.
+<br />
+<br /><em class="quotelev1">&gt; It is stated in the first sentence of CF standard para. 7.3.3 that the 
 </em><br />
-<em class="quotelev1">&gt;
+statistical method is evaluated over the entire horizontal area of the 
+<br />
+cell. In the case of our level 2+ products, this is not always the case, so 
+<br />
+we have a need to somehow express that the statistic is associated with a 
+<br />
+subset of the cell.
+<br />
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; Grace and peace,
+<em class="quotelev1">&gt; For example, in the case of the Aerosol Optical Depth (AOD) product, the 
 </em><br />
-<em class="quotelev1">&gt;
+algorithm that generates the gridded data is has solar zenith angle and 
+<br />
+platform zenith angle constraints.
+<br />
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; Jim
+<em class="quotelev1">&gt; Essentially, these statistics apply to a portion of the single cell. 
 </em><br />
-<em class="quotelev1">&gt; -- 
+Unfortunately, the &quot;where &lt;area_type&gt;&quot; features discussed in CF standard 
+<br />
+para. 7.3.3 do not work for us because the AOD product constraints are 
+<br />
+associated with the solar zenith angle and platform zenith angle at the 
+<br />
+time of observation, not one of the area_types.
+<br />
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; CICS-NC &lt;<a href="http://www.cicsnc.org/">http://www.cicsnc.org/</a>&gt; Visit us on
+<em class="quotelev1">&gt; Given the currently available cell method constructs, which allow for 
 </em><br />
-<em class="quotelev1">&gt; Facebook &lt;<a href="http://www.facebook.com/cicsnc">http://www.facebook.com/cicsnc</a>&gt; 	*Jim Biard*
+capturing the original spacing of the gridded data elements and the ability 
+<br />
+to include non-standardized information, we have applied the existing CF 
+<br />
+cell_method constructs as follow:
+<br />
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; *Research Scholar*
+<em class="quotelev1">&gt; float minimum_AOD_for_region ;
 </em><br />
-<em class="quotelev1">&gt; Cooperative Institute for Climate and Satellites NC &lt;<a href="http://cicsnc.org/">http://cicsnc.org/</a>&gt;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; North Carolina State University &lt;<a href="http://ncsu.edu/">http://ncsu.edu/</a>&gt;
+<em class="quotelev1">&gt; coordinates = &quot;solar_zenith_angle platform_zenith_angle time y x&quot; ;
 </em><br />
-<em class="quotelev1">&gt; NOAA's National Climatic Data Center &lt;<a href="http://ncdc.noaa.gov/">http://ncdc.noaa.gov/</a>&gt;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; 151 Patton Ave, Asheville, NC 28801
+<em class="quotelev1">&gt; cell_methods = &quot;time: sum area: sum (interval: 2 km 
 </em><br />
-<em class="quotelev1">&gt; e: jim.biard at noaa.gov
+comment:solar_zenith_angle and platform_zenith_angle conforming pixels 
+<br />
+only)&quot; ;
+<br />
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; o: +1 828 271 4900
+<em class="quotelev1">&gt; Is the way we are applying cell methods consistent with the CF standard 
 </em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<br /><pre>
--- 
-----------------------------------------------
-NOAA/ESRL PSD and CU CIRES
-303-497-6263
-<a href="http://www.esrl.noaa.gov/psd/people/cathy.smith/">http://www.esrl.noaa.gov/psd/people/cathy.smith/</a>
-Emails about data/webpages may get quicker responses from emailing 
-esrl.psd.data at noaa.gov
--------------- next part --------------
+?
+<br />
+<br />Yes, I think that is fine, if it's OK for you to use non-standardised
+<br />
+information. This sort of application was the intention of the standard.
+<br />
+<br />Is &quot;sum&quot; really the right cell_method? I would have expected &quot;mean&quot;.
+<br />
+<br />Best wishes
+<br />
+<br />Jonathan
+<br />
+_______________________________________________
+<br />
+CF-metadata mailing list
+<br />
+CF-metadata at cgd.ucar.edu
+<br />
+<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+<br />
+<br /><br />-------------- next part --------------
+<br />
 An HTML attachment was scrubbed...
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140806/cc57db86/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140806/cc57db86/attachment-0001.html</a>&gt;
--------------- next part --------------
-A non-text attachment was scrubbed...
-Name: not available
-Type: image/png
-Size: 11847 bytes
-Desc: not available
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140806/cc57db86/attachment-0001.png">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140806/cc57db86/attachment-0001.png</a>&gt;
-</pre>
-<span id="received"><dfn>Received on</dfn> Wed Aug 06 2014 - 09:03:08 BST</span>
+<br />
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130703/cb263473/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130703/cb263473/attachment-0001.html</a>&gt;
+<br />
+<span id="received"><dfn>Received on</dfn> Wed Jul 03 2013 - 08:43:02 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -191,11 +251,9 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start6410">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./6411.html" title="Next message in the list">Don Murray: "[CF-metadata] Is there a &#0039;turnkey&#0039; application that displays CF trajectory plots?"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./6409.html" title="Previous message in the list">Jim Biard: "[CF-metadata] Is there a &#0039;turnkey&#0039; application that displays CF trajectory plots?"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./6409.html" title="Message to which this message replies">Jim Biard: "[CF-metadata] Is there a &#0039;turnkey&#0039; application that displays CF trajectory plots?"</a></li>
+<li><dfn>Next message</dfn>: <a href="./6411.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Using cell methods for statistics associated with gridded observation data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./6409.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]   Non-real-world calendars"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./6411.html" title="Next message in this discussion thread">Don Murray: "[CF-metadata] Is there a &#0039;turnkey&#0039; application that displays CF trajectory plots?"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -206,7 +264,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:45 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./6409.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6411.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

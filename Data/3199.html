@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="US-ASCII"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF:featureType and Naming Conventions from Jonathan Gregory on 2011-02-22 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] CF:featureType and Naming Conventions" />
-<meta name="Date" content="2011-02-22" />
+<title>[CF-metadata] The Conventions attribute from Egil Støren on 2010-01-22 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Egil Støren (egil.storen)" />
+<meta name="Subject" content="[CF-metadata] The Conventions attribute" />
+<meta name="Date" content="2010-01-22" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./3198.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3200.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF:featureType and Naming Conventions</h1>
-<!-- received="Tue Feb 22 04:10:02 2011" -->
-<!-- isoreceived="20110222041002" -->
-<!-- sent="Tue, 22 Feb 2011 11:10:02 +0000" -->
-<!-- isosent="20110222111002" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] CF:featureType and Naming Conventions" -->
-<!-- id="20110222111002.GA14139_at_met.reading.ac.uk" -->
-<!-- charset="US-ASCII" -->
-<!-- inreplyto="5B141CC6507E4944995EAFDF6298A2F8B40D6FE085_at_MBX-CLUSTER01.ad.fz-juelich.de" -->
+<a style="text-decoration:none" href="./3198.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3200.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] The Conventions attribute</h1>
+<!-- received="Fri Jan 22 02:57:44 2010" -->
+<!-- isoreceived="20100122025744" -->
+<!-- sent="Fri, 22 Jan 2010 10:57:44 +0100" -->
+<!-- isosent="20100122095744" -->
+<!-- name="Egil Støren" -->
+<!-- email="egil.storen" -->
+<!-- subject="[CF-metadata] The Conventions attribute" -->
+<!-- id="4B597698.7060601_at_met.no" -->
+<!-- charset="ISO-8859-1" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./3200.html" accesskey="d" title="David Neufeld: &quot;[CF-metadata]  CF and ISO19115&quot;">Next message</a> ]
-[ <a href="./3198.html" title="Schultz, Martin: &quot;[CF-metadata] CF:featureType and Naming Conventions&quot;">Previous message</a> ]
-[ <a href="./3198.html" title="Schultz, Martin: &quot;[CF-metadata] CF:featureType and Naming Conventions&quot;">In reply to</a> ]
+[ <a href="./3200.html" accesskey="d" title="Heiko Klein: &quot;[CF-metadata] Discovery metadata for CF?&quot;">Next message</a> ]
+[ <a href="./3198.html" title="Karl Taylor: &quot;[CF-metadata] standard way to store lookuptables&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,38 +68,76 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20CF%3AfeatureType%20and%20Naming%20Conventions">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Egil Støren &lt;<a href="mailto:egil.storen?Subject=Re%3A%20%5BCF-metadata%5D%20The%20Conventions%20attribute">egil.storen</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 22 Feb 2011 11:10:02 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 22 Jan 2010 10:57:44 +0100</span><br />
 </address>
 <br />
-Dear Martin
+Hi all,
 <br />
-<br /><em class="quotelev1">&gt;     here is my daily fanpost (don't worry I will be quiet again at some point;-):
-</em><br />
-<br />Thank you for your energetic contributions to CF!
+<br />There seem to be a need for upgrading the text in the CF Conventions 
 <br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt;     in the discussion document on &quot;discrete sampling geometries&quot; a recommendation is made to introduce a CF:featureType attribute (with values of point, timeSeries, trajectory, etc.). While this is very reasonable in principle, it opens up the name space for CF attributes
-</em><br />
-<br />In the current draft, the attribute is just featureType, because the
+documents about the global &quot;Conventions&quot; attribute. I am thinking of 
 <br />
-convention of identifying namespaces e.g. with a &quot;CF:&quot; prefix has not yet
+paragraph 2.6.1 &quot;Identification of Conventions&quot;, which seems to have 
 <br />
-been agreed.
+remained unchanged (except for different Conventions version numbers) 
 <br />
-<br /><em class="quotelev1">&gt;      A minor issue: why did you choose attribute names which begin with lower case characters but have upper case chars embedded in the name? Wouldn't it be more logical to say &quot;TimeSeries&quot; instead of &quot;timeSeries&quot;?
-</em><br />
-<br />The values of the featureType are not case-sensitive. (This is generally the
+throughout the history of CF.
 <br />
-case with the possible values for keywords in CF attributes.)
+<br />The text in the CF 1.4 document says: 'We recommend that netCDF files 
 <br />
-<br />Best wishes
+that follow these conventions indicate this by setting the NUG defined 
 <br />
-<br />Jonathan
+global attribute Conventions to the string value &quot;CF-1.4&quot; .'
 <br />
-<span id="received"><dfn>Received on</dfn> Tue Feb 22 2011 - 04:10:02 GMT</span>
+<br />According to the Unidata web page on NetCDF Conventions 
+<br />
+(<a href="http://www.unidata.ucar.edu/software/netcdf/conventions.html">http://www.unidata.ucar.edu/software/netcdf/conventions.html</a>), 
+<br />
+specifying multiple conventions (either space separated or comma 
+<br />
+separated) in this attribute is allowed. But the text above seems to 
+<br />
+indicate that &quot;CF-1.4&quot; should be the only &quot;recommended&quot; value. My 
+<br />
+impression, by sporadically following this mail list, is that this 
+<br />
+restriction has never been intended, and that other additional 
+<br />
+conventions are allowed in the Conventions attribute.
+<br />
+<br />The reason I am raising this issue is an E-mail exchange on the THREDDS 
+<br />
+E-mail list (subject &quot;NcML and the &lt;geospatialCoverage&gt; element&quot;, 
+<br />
+<a href="http://www.unidata.ucar.edu/mailing_lists/archives/thredds/2010/subject.html">http://www.unidata.ucar.edu/mailing_lists/archives/thredds/2010/subject.html</a>). 
+<br />
+See specifically the discussion from January 21 and on. Some confusion 
+<br />
+obviously exist on what actually are required by CF.
+<br />
+<br />Further down in the same 2.6.1 paragraph I discovered another problem. 
+<br />
+&nbsp;From the document: &quot;The string is interpreted as a directory name 
+<br />
+relative to a directory that is a repository of documents describing 
+<br />
+sets of discipline-specific conventions. The conventions directory name 
+<br />
+is currently interpreted relative to the directory 
+<br />
+pub/netcdf/Conventions/  on the host machine ftp.unidata.ucar.edu.&quot;
+<br />
+<br />There is no reference to CF on 
+<br />
+<a href="ftp://ftp.unidata.ucar.edu/pub/netcdf/Conventions/">ftp://ftp.unidata.ucar.edu/pub/netcdf/Conventions/</a>.
+<br />
+<br /><br />Best regards,
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;Egil St?ren
+<br />
+<span id="received"><dfn>Received on</dfn> Fri Jan 22 2010 - 02:57:44 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -109,9 +145,8 @@ case with the possible values for keywords in CF attributes.)
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start3199">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./3200.html" title="Next message in the list">David Neufeld: "[CF-metadata]  CF and ISO19115"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./3198.html" title="Previous message in the list">Schultz, Martin: "[CF-metadata] CF:featureType and Naming Conventions"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./3198.html" title="Message to which this message replies">Schultz, Martin: "[CF-metadata] CF:featureType and Naming Conventions"</a></li>
+<li><dfn>Next message</dfn>: <a href="./3200.html" title="Next message in the list">Heiko Klein: "[CF-metadata] Discovery metadata for CF?"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./3198.html" title="Previous message in the list">Karl Taylor: "[CF-metadata] standard way to store lookuptables"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -123,7 +158,7 @@ case with the possible values for keywords in CF attributes.)
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:40 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./3198.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3200.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>
