@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Changes shown in documents from Chris Barker on 2015-06-24 (mailing-list-archive)</title>
-<meta name="Author" content="Chris Barker (chris.barker)" />
-<meta name="Subject" content="[CF-metadata] Changes shown in documents" />
-<meta name="Date" content="2015-06-24" />
+<title>[CF-metadata] Question about cell_methods from Jim Biard on 2014-06-26 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jim Biard (jbiard)" />
+<meta name="Subject" content="[CF-metadata] Question about cell_methods" />
+<meta name="Date" content="2014-06-26" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./7139.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7141.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Changes shown in documents</h1>
-<!-- received="Wed Jun 24 13:40:53 2015" -->
-<!-- isoreceived="20150624124053" -->
-<!-- sent="Wed, 24 Jun 2015 12:40:53 -0700" -->
-<!-- isosent="20150624194053" -->
-<!-- name="Chris Barker" -->
-<!-- email="chris.barker" -->
-<!-- subject="[CF-metadata] Changes shown in documents" -->
-<!-- id="CALGmxEL5Be11sU=aAZ3Wzpg37TadwOZYFVTQ09npjnvmqcT1XA_at_mail.gmail.com" -->
+<a style="text-decoration:none" href="./7139.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7141.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Question about cell_methods</h1>
+<!-- received="Thu Jun 26 07:22:19 2014" -->
+<!-- isoreceived="20140626062219" -->
+<!-- sent="Thu, 26 Jun 2014 09:22:19 -0400" -->
+<!-- isosent="20140626132219" -->
+<!-- name="Jim Biard" -->
+<!-- email="jbiard" -->
+<!-- subject="[CF-metadata] Question about cell_methods" -->
+<!-- id="53AC1E8B.9070405_at_cicsnc.org" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./7141.html" accesskey="d" title="John Graybeal: &quot;[CF-metadata] Avoiding link rot&quot;">Next message</a> ]
-[ <a href="./7139.html" title="Christopher Webster: &quot;[CF-metadata] Avoiding link rot&quot;">Previous message</a> ]
+[ <a href="./7141.html" accesskey="d" title="John Graybeal: &quot;[CF-metadata] request for large number of new variable names&quot;">Next message</a> ]
+[ <a href="./7139.html" title="Brigitte Koffi: &quot;[CF-metadata] String attribute syntax&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./7142.html" accesskey="t" title="John Graybeal: &quot;[CF-metadata] Changes shown in documents&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,64 +68,56 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Chris Barker &lt;<a href="mailto:chris.barker?Subject=Re%3A%20%5BCF-metadata%5D%20Changes%20shown%20in%20documents">chris.barker</a>&gt;
+<dfn>From</dfn>: Jim Biard &lt;<a href="mailto:jbiard?Subject=Re%3A%20%5BCF-metadata%5D%20Question%20about%20cell_methods">jbiard</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 24 Jun 2015 12:40:53 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 26 Jun 2014 09:22:19 -0400</span><br />
 </address>
 <br />
-Just a comment from the Peanut Gallery:
+Hi.
 <br />
-<br />when I go to:
+<br />I have a situation where there are multiple measurements within a 4D 
 <br />
-<br /><a href="http://cfconventions.org/latest.html">http://cfconventions.org/latest.html</a>
+lon/lat/z/t volume, for which a single value is produced by calculating 
 <br />
-<br />and click on:
+the weighted mean of all the measurements. This mean is of the form
 <br />
-<br />Most Recent Release (v1.6)
+<br />(sum over i of wi * vi) / (sum over i of wi)
 <br />
-<br />I get a document with a whole pile of multi-colored, some crossed, out,
+<br />where wi is the inverse of the uncertainty in the measurement vi.
 <br />
-etc, sections. presumably to show changes.
+<br />So how do I represent that within cell_methods? Would it be
 <br />
-<br />But as an external user, I wouldn't expect that at all -- I want a single,
+<br />lon lat z t: mean (uncertainty weighted)
 <br />
-this is the &quot;current&quot; version of the standard -- I don't care about what's
+<br />or something else?
 <br />
-changes when, and I dont want to be confused by all that.
+<br />Grace and peace,
 <br />
-<br />It makes sense to show that in the &quot;Working Draft&quot; version, I suppose, but
+<br />Jim
 <br />
-not in a &quot;released&quot; version.  It would be good for there to be an easy way
-<br />
-to see what's changed if you want to, but having it all in the official doc
-<br />
-seems odd.
-<br />
-<br />-CHB
-<br />
-<br /><br /><br /><br /><br />&nbsp;&nbsp;--
-<br />
-<br />Christopher Barker, Ph.D.
-<br />
-Oceanographer
-<br />
-<br />Emergency Response Division
-<br />
-NOAA/NOS/OR&amp;R            (206) 526-6959   voice
-<br />
-7600 Sand Point Way NE   (206) 526-6329   fax
-<br />
-Seattle, WA  98115       (206) 526-6317   main reception
-<br />
-<br />Chris.Barker at noaa.gov
-<br />
+<br /><pre>
+-- 
+CICS-NC &lt;<a href="http://www.cicsnc.org/">http://www.cicsnc.org/</a>&gt; Visit us on
+Facebook &lt;<a href="http://www.facebook.com/cicsnc">http://www.facebook.com/cicsnc</a>&gt; 	*Jim Biard*
+*Research Scholar*
+Cooperative Institute for Climate and Satellites NC &lt;<a href="http://cicsnc.org/">http://cicsnc.org/</a>&gt;
+North Carolina State University &lt;<a href="http://ncsu.edu/">http://ncsu.edu/</a>&gt;
+NOAA's National Climatic Data Center &lt;<a href="http://ncdc.noaa.gov/">http://ncdc.noaa.gov/</a>&gt;
+151 Patton Ave, Asheville, NC 28801
+e: jbiard at cicsnc.org
+o: +1 828 271 4900
 -------------- next part --------------
-<br />
 An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150624/7262da96/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150624/7262da96/attachment.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Wed Jun 24 2015 - 13:40:53 BST</span>
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140626/bd6bb2b9/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140626/bd6bb2b9/attachment-0001.html</a>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: agagcchc.png
+Type: image/png
+Size: 11847 bytes
+Desc: not available
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140626/bd6bb2b9/attachment-0001.png">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140626/bd6bb2b9/attachment-0001.png</a>&gt;
+</pre>
+<span id="received"><dfn>Received on</dfn> Thu Jun 26 2014 - 07:22:19 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -135,12 +125,9 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start7140">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./7141.html" title="Next message in the list">John Graybeal: "[CF-metadata] Avoiding link rot"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./7139.html" title="Previous message in the list">Christopher Webster: "[CF-metadata] Avoiding link rot"</a></li>
+<li><dfn>Next message</dfn>: <a href="./7141.html" title="Next message in the list">John Graybeal: "[CF-metadata] request for large number of new variable names"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./7139.html" title="Previous message in the list">Brigitte Koffi: "[CF-metadata] String attribute syntax"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./7142.html" title="Next message in this discussion thread">John Graybeal: "[CF-metadata] Changes shown in documents"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./7142.html" title="Message sent in reply to this message">John Graybeal: "[CF-metadata] Changes shown in documents"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -151,7 +138,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:57 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./7139.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7141.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

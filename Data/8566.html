@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] various &quot;time&quot; in CF from Sebastien Villaume on 2017-10-25 (mailing-list-archive)</title>
-<meta name="Author" content="Sebastien Villaume (sebastien.villaume)" />
-<meta name="Subject" content="[CF-metadata] various &quot;time&quot; in CF" />
-<meta name="Date" content="2017-10-25" />
+<title>[CF-metadata] string variables and netCDF4 from Jonathan Gregory on 2016-08-15 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] string variables and netCDF4" />
+<meta name="Date" content="2016-08-15" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./8565.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8567.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] various &quot;time&quot; in CF</h1>
-<!-- received="Wed Oct 25 09:57:18 2017" -->
-<!-- isoreceived="20171025085718" -->
-<!-- sent="Wed, 25 Oct 2017 15:57:18 +0000 (GMT-00:00)" -->
-<!-- isosent="20171025155718" -->
-<!-- name="Sebastien Villaume" -->
-<!-- email="sebastien.villaume" -->
-<!-- subject="[CF-metadata] various &quot;time&quot; in CF" -->
-<!-- id="152219322.504121.1508947038876.JavaMail.zimbra_at_ecmwf.int" -->
+<a style="text-decoration:none" href="./8565.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8567.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] string variables and netCDF4</h1>
+<!-- received="Mon Aug 15 07:13:13 2016" -->
+<!-- isoreceived="20160815061313" -->
+<!-- sent="Mon, 15 Aug 2016 14:13:13 +0100" -->
+<!-- isosent="20160815131313" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] string variables and netCDF4" -->
+<!-- id="20160815131313.GA9545_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20171025125052.GA2920_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./8567.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] [Use GitHub instead Trac proposal] CF Conventions 1.7 is released&quot;">Next message</a> ]
-[ <a href="./8565.html" title="Antonio S. Cofi&#0241;o: &quot;[CF-metadata] [Use GitHub instead Trac proposal] CF Conventions 1.7 is released&quot;">Previous message</a> ]
-[ <a href="./8564.html" title="Jonathan Gregory: &quot;[CF-metadata] various &#0034;time&#0034; in CF&quot;">In reply to</a> ]
+[ <a href="./8567.html" accesskey="d" title="Mary Jo Brodzik: &quot;[CF-metadata] Best practice to include spatial resolution for projected data&quot;">Next message</a> ]
+[ <a href="./8565.html" title="V Balaji - NOAA Affiliate: &quot;[CF-metadata] string variables and netCDF4&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./8569.html" accesskey="t" title="Chris Barker: &quot;[CF-metadata] various &#0034;time&#0034; in CF&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,330 +68,250 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Sebastien Villaume &lt;<a href="mailto:sebastien.villaume?Subject=Re%3A%20%5BCF-metadata%5D%20various%20%22time%22%20in%20CF">sebastien.villaume</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20string%20variables%20and%20netCDF4">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 25 Oct 2017 15:57:18 +0000 (GMT-00:00)</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 15 Aug 2016 14:13:13 +0100</span><br />
 </address>
 <br />
-Dear Jonathan, Chris and other,
+Dear Balaji
 <br />
-<br />_at_Chris, thanks for your contribution to the discussion. very interesting
+<br />Yes, I believe so. Hence it needs to be treated with care. It means that data
 <br />
-<br />I don't agree with your comment regarding 3D data variable with 4 coordinates being wrong. I have 3 physical axes and 4 coordinates, yes, but leadtime is a coordinates associated to the same time axis than the forecast_reference_time coordinate.
+written in this way could not be read by software that supports only the netCDF
 <br />
-In other words, I have 2 coordinates sharing the same physical axis. I don't have multiple Time, I have multiple descriptions/partitioning of Time.
+classic model, doesn't it. We have to be satisfied that the benefit justifies
 <br />
-<br />I am doing this because I want to associate 2 informations for each time: the reference time and the elapsed time since that reference time (instead of only providing the valid time which is simply the composite of the two with a loss of information). As Jonathan pointed it out, this is discussed in detail in trac ticket 117 and on this mailing list. I have also looked at the discussions from the early 90's on the unidata netCDF mailing list. It took a while to go through, it seems to be a recurrent problem and nobody really solved it so far.
-<br />
-<br />_at_Jonathan,
-<br />
-<br />I started this thread precisely to revive the discussion from trac ticket 117 (btw, I can log in on the trac site but sadly not add any comments to existing tickets(!))
-<br />
-<br />We have a fundamental disagreement: I don't see this as a &quot;multiple time axes&quot; problem, I see it as a &quot;single time axis with multiple time coordinates defined on it&quot; problem. Our preferred solution (so far) is in fact to use all three standard names (time, forecast_reference_time and forecast_period) in the same file but only &quot;time&quot; has the attribute &quot;axis = T&quot;. One can see the two other coordinates as &quot;auxiliary coordinates&quot; of the same physical axis. It means having redundant informations (only 2 are needed, the 3rd one can be derived from these 2) but it makes the data files compatible with more tools.
-<br />
-<br />I see two options to move forward:
-<br />
-1) expand the available list of standard names to be able to describe accurately any type of forecasts, analysis, hindcast, etc.
-<br />
-<br />2) recognise that time and processes are decoupled information, deprecates &quot;forecast_reference_time&quot; and &quot;forecast_period&quot; for something more generic like &quot;reference_time&quot; and &quot;time_interval&quot;, and finally design a mechanism to describe forecast, hindcast, analysis, etc. 
-<br />
-<br /><br />&nbsp;
-<br />
-cheers,
-<br />
-/S?bastien
-<br />
-<br />----- Original Message -----
-<br />
-From: &quot;Jonathan Gregory&quot; &lt;j.m.gregory at reading.ac.uk&gt;
-<br />
-To: cf-metadata at cgd.ucar.edu
-<br />
-Sent: Wednesday, 25 October, 2017 13:50:53
-<br />
-Subject: Re: [CF-metadata] various &quot;time&quot; in CF
-<br />
-<br />Dear Sebastien and Chris
-<br />
-<br />The various ways to handle forecast times, analysis times and forecast
-<br />
-periods with multiple time axes have been discussed several times before. Since
-<br />
-there are plenty of use-cases, and it's complicated, it would be good if we
-<br />
-could agree on recommended ways to do it, which could be added to the CF
-<br />
-standard document as examples. The last time this was attempted was over two
-<br />
-years ago, in cf-trac.llnl.gov/trac/ticket/117. Perhaps you could have a look
-<br />
-at that and comment if appropriate, and maybe also my earlier summary, over a
-<br />
-decade ago (!), in mailman.cgd.ucar.edu/pipermail/cf-metadata/2006/001008.html.
+the drawback.
 <br />
 <br />Best wishes
 <br />
 <br />Jonathan
 <br />
-<br />----- Forwarded message from Chris Barker &lt;chris.barker at noaa.gov&gt; -----
+<br />----- Forwarded message from V Balaji - NOAA Affiliate &lt;v.balaji at noaa.gov&gt; -----
 <br />
-<br /><em class="quotelev1">&gt; Date: Tue, 24 Oct 2017 14:12:33 -0700
+<br /><em class="quotelev1">&gt; From: V Balaji - NOAA Affiliate &lt;v.balaji at noaa.gov&gt;
 </em><br />
-<em class="quotelev1">&gt; From: Chris Barker &lt;chris.barker at noaa.gov&gt;
+<em class="quotelev1">&gt; Date: Mon, 15 Aug 2016 09:08:22 -0400
 </em><br />
-<em class="quotelev1">&gt; To: Sebastien Villaume &lt;sebastien.villaume at ecmwf.int&gt;
+<em class="quotelev1">&gt; Subject: Re: [CF-metadata] string variables and netCDF4
 </em><br />
-<em class="quotelev1">&gt; CC: &quot;cf-metadata at cgd.ucar.edu&quot; &lt;cf-metadata at cgd.ucar.edu&gt;
+<em class="quotelev1">&gt; To: Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt;
 </em><br />
-<em class="quotelev1">&gt; Subject: Re: [CF-metadata] various &quot;time&quot; in CF
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; My thoughts:
+<em class="quotelev1">&gt; CC: cf-metadata at cgd.ucar.edu
 </em><br />
 <em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; Example 1:
+<em class="quotelev1">&gt; Would this be the first time the CF conventions use a data structure that
+</em><br />
+<em class="quotelev1">&gt; cannot be represented in netCDF-3?
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; On Mon, Aug 15, 2016 at 3:46 AM, Jonathan Gregory &lt;j.m.gregory at reading.ac.uk
+</em><br />
+<em class="quotelev2">&gt; &gt; wrote:
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; Dear Karl
 </em><br />
 <em class="quotelev2">&gt; &gt;
 </em><br />
-<em class="quotelev2">&gt; &gt; ...
+<em class="quotelev2">&gt; &gt; I think that allowing strings as an alternative to char arrays is a natural
 </em><br />
-<em class="quotelev1">&gt;  variables:
+<em class="quotelev2">&gt; &gt; extension and should not be problematic since the information content is
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev2">&gt; &gt; the
 </em><br />
-<em class="quotelev2">&gt; &gt;
+<em class="quotelev2">&gt; &gt; same. It's good to hear from Jim that the cf-checker is happy with it. We
 </em><br />
-<em class="quotelev2">&gt; &gt;     double time(t) ;
+<em class="quotelev2">&gt; &gt; have discussed this before. As you say, the CF convention does not allow
 </em><br />
-<em class="quotelev2">&gt; &gt;         time:units = &quot;hours since 2010-01-01 00:00:00&quot; ;
+<em class="quotelev2">&gt; &gt; for
 </em><br />
-<em class="quotelev2">&gt; &gt;         time:standard_name = &quot;time&quot; ;
+<em class="quotelev2">&gt; &gt; it at the moment, and so a change is needed. This depends on someone
 </em><br />
-<em class="quotelev2">&gt; &gt;         time:calendar = &quot;gregorian&quot; ;
+<em class="quotelev2">&gt; &gt; carefully
 </em><br />
-<em class="quotelev2">&gt; &gt;         time:axis = &quot;T&quot; ;
+<em class="quotelev2">&gt; &gt; going through the document to see what might need to be changed to include
 </em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt;     .... lat/long  here ....
+<em class="quotelev2">&gt; &gt; this alternative.
 </em><br />
 <em class="quotelev2">&gt; &gt;
 </em><br />
-<em class="quotelev2">&gt; &gt;     float data(t, j, i) ;
-</em><br />
-<em class="quotelev2">&gt; &gt;         ...
-</em><br />
-<em class="quotelev2">&gt; &gt;         data:standard_name = &quot;temperature&quot; ;
-</em><br />
-<em class="quotelev2">&gt; &gt;         data:coordinates = &quot;time lat lon&quot; ;
-</em><br />
-<em class="quotelev2">&gt; &gt;         ...
-</em><br />
-<em class="quotelev2">&gt; &gt; What is this? Is this an analysis? an observation? or something else?
+<em class="quotelev2">&gt; &gt; Best wishes
 </em><br />
 <em class="quotelev2">&gt; &gt;
 </em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; That should be specified one way or another in the attributes of the data
-</em><br />
-<em class="quotelev1">&gt; variable -- what type of data it is has nothing to do with what time it is
-</em><br />
-<em class="quotelev1">&gt; associated with.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; the coordinates attribute specifies that the time axis is described by the
-</em><br />
-<em class="quotelev1">&gt; &quot;time&quot; variable, and the time attributes specify that it is representing
-</em><br />
-<em class="quotelev1">&gt; time, and what units an calendar -- a particular datetime is exactly the
-</em><br />
-<em class="quotelev1">&gt; same regardless of whether it's an analysis or observation, etc.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Indeed, one very might have an analysis and measured data corresponding to
-</em><br />
-<em class="quotelev1">&gt; the same time - in which case having them share a time variable would make
-</em><br />
-<em class="quotelev1">&gt; perfect sense.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Example 2:
+<em class="quotelev2">&gt; &gt; Jonathan
 </em><br />
 <em class="quotelev2">&gt; &gt;
 </em><br />
-<em class="quotelev2">&gt; &gt; ...
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev2">&gt; &gt; variables:
-</em><br />
-<em class="quotelev2">&gt; &gt;     double forecast_reference_time(t) ;
-</em><br />
-<em class="quotelev2">&gt; &gt;         forecast_reference_time:units = &quot;hours since 2010-01-01 00:00:00&quot; ;
-</em><br />
-<em class="quotelev2">&gt; &gt;         forecast_reference_time:standard_name = &quot;forecast_reference_time&quot;
-</em><br />
-<em class="quotelev2">&gt; &gt; ;
+<em class="quotelev2">&gt; &gt; ----- Forwarded message from Jim Biard &lt;jbiard at cicsnc.org&gt; -----
 </em><br />
 <em class="quotelev2">&gt; &gt;
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev3">&gt; &gt; &gt; Date: Fri, 12 Aug 2016 16:46:18 -0400
 </em><br />
-<em class="quotelev1">&gt; again, this is a datetime variable, nothing wrong with using the &quot;time&quot;
+<em class="quotelev3">&gt; &gt; &gt; From: Jim Biard &lt;jbiard at cicsnc.org&gt;
 </em><br />
-<em class="quotelev1">&gt; standard name. There is nothing about the fact that it is being used for a
+<em class="quotelev3">&gt; &gt; &gt; To: &quot;cf-metadata at cgd.ucar.edu&quot; &lt;cf-metadata at cgd.ucar.edu&gt;
 </em><br />
-<em class="quotelev1">&gt; forecast reference that changes that.
+<em class="quotelev3">&gt; &gt; &gt; Subject: Re: [CF-metadata] string variables and netCDF4
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev3">&gt; &gt; &gt;
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev3">&gt; &gt; &gt; Karl,
 </em><br />
-<em class="quotelev2">&gt; &gt;     double leadtime(t) ;
+<em class="quotelev3">&gt; &gt; &gt;
 </em><br />
-<em class="quotelev2">&gt; &gt;         leadtime:units=&quot;hours&quot; ;
+<em class="quotelev3">&gt; &gt; &gt; The string type passes the cf checker as long as it is an ASCII string.
 </em><br />
-<em class="quotelev2">&gt; &gt;         leadtime:standard_name=&quot;forecast_period&quot; ;
+<em class="quotelev2">&gt; &gt; It
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; is possible to make a unicode string, and that fails. So, from a
+</em><br />
+<em class="quotelev2">&gt; &gt; practical
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; perspective, it is fine.
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt;
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; Grace and peace,
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt;
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; Jim
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt;
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; [image: CICS-NC] &lt;<a href="http://www.cicsnc.org/">http://www.cicsnc.org/</a>&gt;Visit us on
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; Facebook &lt;<a href="http://www.facebook.com/cicsnc">http://www.facebook.com/cicsnc</a>&gt; *Jim Biard*
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; *Research Scholar*
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; Cooperative Institute for Climate and Satellites NC  &lt;<a href="http://cicsnc.org/">http://cicsnc.org/</a>
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt;
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; North Carolina State University  &lt;<a href="http://ncsu.edu/">http://ncsu.edu/</a>&gt;
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; NOAA National Centers for Environmental Information  &lt;
+</em><br />
+<em class="quotelev2">&gt; &gt; <a href="http://ncdc.noaa.gov/">http://ncdc.noaa.gov/</a>&gt;
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; *formerly NOAA?s National Climatic Data Center*
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; 151 Patton Ave, Asheville, NC 28801
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; e: jbiard at cicsnc.org
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; o: +1 828 271 4900
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt;
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; *Connect with us on Facebook for climate
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; &lt;<a href="http://www.facebook.com/NOAANCEIclimate">http://www.facebook.com/NOAANCEIclimate</a>&gt; and ocean and geophysics
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; &lt;<a href="http://www.facebook.com/NOAANCEIoceangeo">http://www.facebook.com/NOAANCEIoceangeo</a>&gt; information, and follow us on
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; Twitter at _at_NOAANCEIclimate
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; &lt;<a href="http://www.twitter.com/NOAANCEIclimate">http://www.twitter.com/NOAANCEIclimate</a>&gt;and _at_NOAANCEIocngeo
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; &lt;<a href="http://www.twitter.com/NOAANCEIocngeo">http://www.twitter.com/NOAANCEIocngeo</a>&gt;.*
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt;
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt;
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; On Fri, Aug 12, 2016 at 12:31 PM, Karl Taylor &lt;taylor13 at llnl.gov&gt; wrote:
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt;
+</em><br />
+<em class="quotelev4">&gt; &gt; &gt; &gt; Hi all,
+</em><br />
+<em class="quotelev4">&gt; &gt; &gt; &gt;
+</em><br />
+<em class="quotelev4">&gt; &gt; &gt; &gt; I have a question from Robert Pincus that I don't know that answer to:
+</em><br />
+<em class="quotelev4">&gt; &gt; &gt; &gt;
+</em><br />
+<em class="quotelev4">&gt; &gt; &gt; &gt; Is it ok to use a one-dimensional ?string? variable instead of a
+</em><br />
+<em class="quotelev4">&gt; &gt; &gt; &gt; two-dimensional character variable to encode expt_label? This might be
+</em><br />
+<em class="quotelev4">&gt; &gt; &gt; &gt; asking whether it?s ok to use netCDF4, which I certainly hope is the
+</em><br />
+<em class="quotelev2">&gt; &gt; case.
+</em><br />
+<em class="quotelev4">&gt; &gt; &gt; &gt;
+</em><br />
+<em class="quotelev4">&gt; &gt; &gt; &gt; He's defining an array of &quot;labels&quot;.
+</em><br />
+<em class="quotelev4">&gt; &gt; &gt; &gt;
+</em><br />
+<em class="quotelev4">&gt; &gt; &gt; &gt; The conventions document states: &quot;NetCDF does not support a character
+</em><br />
+<em class="quotelev4">&gt; &gt; &gt; &gt; string type, so these must be represented as character arrays.&quot;
+</em><br />
+<em class="quotelev4">&gt; &gt; &gt; &gt;
+</em><br />
+<em class="quotelev4">&gt; &gt; &gt; &gt; so my take on this is that a one-dimensional array of &quot;string&quot;
+</em><br />
+<em class="quotelev2">&gt; &gt; variables
+</em><br />
+<em class="quotelev4">&gt; &gt; &gt; &gt; would not be permitted.  In general do we forbid use of any of the new
+</em><br />
+<em class="quotelev4">&gt; &gt; &gt; &gt; netCDF4 structures? (I guess yes).
+</em><br />
+<em class="quotelev4">&gt; &gt; &gt; &gt;
+</em><br />
+<em class="quotelev4">&gt; &gt; &gt; &gt; thanks,
+</em><br />
+<em class="quotelev4">&gt; &gt; &gt; &gt; Karl
+</em><br />
+<em class="quotelev4">&gt; &gt; &gt; &gt; _______________________________________________
+</em><br />
+<em class="quotelev4">&gt; &gt; &gt; &gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev4">&gt; &gt; &gt; &gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev4">&gt; &gt; &gt; &gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev4">&gt; &gt; &gt; &gt;
 </em><br />
 <em class="quotelev2">&gt; &gt;
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev3">&gt; &gt; &gt; _______________________________________________
 </em><br />
-<em class="quotelev1">&gt; This is NOT a datetime -- it is a time-delta (number of hours -- you can't
+<em class="quotelev3">&gt; &gt; &gt; CF-metadata mailing list
 </em><br />
-<em class="quotelev1">&gt; map it to a particular date and time) -- not sure what the standard name is
+<em class="quotelev3">&gt; &gt; &gt; CF-metadata at cgd.ucar.edu
 </em><br />
-<em class="quotelev1">&gt; for that, but it should be different than &quot;time&quot;, though the units may make
-</em><br />
-<em class="quotelev1">&gt; that clear enough.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt;     float data(t, j, i) ;
-</em><br />
-<em class="quotelev2">&gt; &gt;         ...
-</em><br />
-<em class="quotelev2">&gt; &gt;         data:standard_name = &quot;temperature&quot; ;
-</em><br />
-<em class="quotelev2">&gt; &gt;         data:coordinates = &quot;leadtime forecast_reference_time lat lon&quot; ;
-</em><br />
-<em class="quotelev2">&gt; &gt;         ...
+<em class="quotelev3">&gt; &gt; &gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
 <em class="quotelev2">&gt; &gt;
 </em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; here you have a 3D variable with four coordinates -- I think we have a
-</em><br />
-<em class="quotelev1">&gt; problem there.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I _think_ what you want is to have the time coordinates of this variable to
-</em><br />
-<em class="quotelev1">&gt; be forecast_reference.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; The leadtime variable would then be a data variable (not a coordinate
-</em><br />
-<em class="quotelev1">&gt; variable) with forecast_reference_time as its coordinate variable.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; What is this? is it the forecast done back on the 1st January 2010? or is
-</em><br />
-<em class="quotelev2">&gt; &gt; it a hindcast done years later to test the model of today? or is it a
-</em><br />
-<em class="quotelev2">&gt; &gt; forecast from a reanalysis dataset, for instance ERA5? or something else?
-</em><br />
 <em class="quotelev2">&gt; &gt;
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev2">&gt; &gt; ----- End forwarded message -----
 </em><br />
-<em class="quotelev1">&gt; There is only so much one can do with standard names, but if you were to
+<em class="quotelev2">&gt; &gt; _______________________________________________
 </em><br />
-<em class="quotelev1">&gt; specify that more, it would be with the attributes of the data variables..
+<em class="quotelev2">&gt; &gt; CF-metadata mailing list
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev2">&gt; &gt; CF-metadata at cgd.ucar.edu
 </em><br />
-<em class="quotelev1">&gt; I would tend to think that you'd want to have:
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; - A time coordinate -- a &quot;Proper&quot; datetime, which is for when the data are
-</em><br />
-<em class="quotelev1">&gt; valid.
-</em><br />
-<em class="quotelev1">&gt; - A data variable for when the forecast (or hindcast) was produced
-</em><br />
-<em class="quotelev1">&gt; - An attribute on the dat variable(s) indicating that it's a hindcast (if
-</em><br />
-<em class="quotelev1">&gt; it is) -- probably the long name.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Proper attributes, probably some on the Dataset, that specify all the rest
-</em><br />
-<em class="quotelev1">&gt; of it.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; extra question for example 2: lets assume it is a hindcast. how will I be
-</em><br />
-<em class="quotelev2">&gt; &gt; able to distinguish this hindcast done today from the hindcast I am going
-</em><br />
-<em class="quotelev2">&gt; &gt; to do in 5 years time to test the model then? or from the hindcast I did 2
-</em><br />
-<em class="quotelev2">&gt; &gt; years ago for that date?
+<em class="quotelev2">&gt; &gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
 <em class="quotelev2">&gt; &gt;
 </em><br />
 <em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; How would you distinguish this hindcast from one done by someone else? or
-</em><br />
-<em class="quotelev1">&gt; with a different model,? or ???? that all has to be elsewhere in the
-</em><br />
-<em class="quotelev1">&gt; metadata somewhere -- none of it has anything to do with the time
-</em><br />
-<em class="quotelev1">&gt; coordinate variable, nor is any of is part of the standard name.
-</em><br />
 <em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I think of it this way -- as this is my use case:
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I want the standard names, coordinate variables, etc to be the information
-</em><br />
-<em class="quotelev1">&gt; I need to use these model results to drive my oil spill model. In that
-</em><br />
-<em class="quotelev1">&gt; case, whether I'm driving it with a forecast or a hindcast, or when it was
-</em><br />
-<em class="quotelev1">&gt; done, or what model it was done with, is all irrelevant. My code does the
-</em><br />
-<em class="quotelev1">&gt; exact same thing with all of those.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; HTH,
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; -Chris
 </em><br />
 <em class="quotelev1">&gt; 
 </em><br />
@@ -403,43 +319,15 @@ decade ago (!), in mailman.cgd.ucar.edu/pipermail/cf-metadata/2006/001008.html.
 </em><br />
 <em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; Christopher Barker, Ph.D.
+<em class="quotelev1">&gt; V. Balaji                               Office:  +1-609-452-6516
 </em><br />
-<em class="quotelev1">&gt; Oceanographer
+<em class="quotelev1">&gt; Head, Modeling Systems Group, GFDL      Mobile:  +1-917-273-9824
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; Princeton University                    Email: v.balaji at noaa.gov
 </em><br />
-<em class="quotelev1">&gt; Emergency Response Division
-</em><br />
-<em class="quotelev1">&gt; NOAA/NOS/OR&amp;R            (206) 526-6959   voice
-</em><br />
-<em class="quotelev1">&gt; 7600 Sand Point Way NE   (206) 526-6329   fax
-</em><br />
-<em class="quotelev1">&gt; Seattle, WA  98115       (206) 526-6317   main reception
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Chris.Barker at noaa.gov
-</em><br />
-<br /><em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<br /><br />----- End forwarded message -----
+<br />----- End forwarded message -----
 <br />
-_______________________________________________
-<br />
-CF-metadata mailing list
-<br />
-CF-metadata at cgd.ucar.edu
-<br />
-<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-<br />
-<span id="received"><dfn>Received on</dfn> Wed Oct 25 2017 - 09:57:18 BST</span>
+<span id="received"><dfn>Received on</dfn> Mon Aug 15 2016 - 07:13:13 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -447,13 +335,9 @@ CF-metadata at cgd.ucar.edu
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start8566">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./8567.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] [Use GitHub instead Trac proposal] CF Conventions 1.7 is released"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./8565.html" title="Previous message in the list">Antonio S. Cofi&#0241;o: "[CF-metadata] [Use GitHub instead Trac proposal] CF Conventions 1.7 is released"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./8564.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] various &#0034;time&#0034; in CF"</a></li>
+<li><dfn>Next message</dfn>: <a href="./8567.html" title="Next message in the list">Mary Jo Brodzik: "[CF-metadata] Best practice to include spatial resolution for projected data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./8565.html" title="Previous message in the list">V Balaji - NOAA Affiliate: "[CF-metadata] string variables and netCDF4"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./8569.html" title="Next message in this discussion thread">Chris Barker: "[CF-metadata] various &#0034;time&#0034; in CF"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./8569.html" title="Message sent in reply to this message">Chris Barker: "[CF-metadata] various &#0034;time&#0034; in CF"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -464,7 +348,7 @@ CF-metadata at cgd.ucar.edu
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:17 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./8565.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8567.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

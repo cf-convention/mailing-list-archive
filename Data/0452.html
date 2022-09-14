@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF provisional standards from Jonathan Gregory on 2006-11-17 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] CF provisional standards" />
-<meta name="Date" content="2006-11-17" />
+<title>[CF-metadata] Tool to transform HDF-EOS2 to netCDF? from Brian Eaton on 2004-09-28 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Brian Eaton (eaton)" />
+<meta name="Subject" content="[CF-metadata] Tool to transform HDF-EOS2 to netCDF?" />
+<meta name="Date" content="2004-09-28" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0451.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0453.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF provisional standards</h1>
-<!-- received="Fri Nov 17 06:49:52 2006" -->
-<!-- isoreceived="20061117064952" -->
-<!-- sent="Fri, 17 Nov 2006 13:49:52 +0000" -->
-<!-- isosent="20061117134952" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] CF provisional standards" -->
-<!-- id="20061117134952.GA152_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0451.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0453.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Tool to transform HDF-EOS2 to netCDF?</h1>
+<!-- received="Tue Sep 28 08:38:06 2004" -->
+<!-- isoreceived="20040928073806" -->
+<!-- sent="Tue, 28 Sep 2004 08:38:06 -0600" -->
+<!-- isosent="20040928143806" -->
+<!-- name="Brian Eaton" -->
+<!-- email="eaton" -->
+<!-- subject="[CF-metadata] Tool to transform HDF-EOS2 to netCDF?" -->
+<!-- id="20040928143806.GB13821_at_ucar.edu" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0453.html" accesskey="d" title="Bryan Lawrence: &quot;[CF-metadata] CF provisional standards&quot;">Next message</a> ]
-[ <a href="./0451.html" title="Bryan Lawrence: &quot;[CF-metadata] CF provisional standards&quot;">Previous message</a> ]
+[ <a href="./0453.html" accesskey="d" title="John Caron: &quot;[CF-metadata] staggered grids&quot;">Next message</a> ]
+[ <a href="./0451.html" title="John Caron: &quot;[CF-metadata] The CF Standard Names&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0453.html" accesskey="t" title="Bryan Lawrence: &quot;[CF-metadata] CF provisional standards&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,44 +68,50 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20provisional%20standards">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Brian Eaton &lt;<a href="mailto:eaton?Subject=Re%3A%20%5BCF-metadata%5D%20Tool%20to%20transform%20HDF-EOS2%20to%20netCDF%3F">eaton</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 17 Nov 2006 13:49:52 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 28 Sep 2004 08:38:06 -0600</span><br />
 </address>
 <br />
-Dear Bryan
+----- Forwarded message from cf-metadata-owner at cgd.ucar.edu -----
 <br />
-<br /><em class="quotelev2">&gt; &gt; I disagree. We have only discussed and agreed things when people said they
-</em><br />
-<em class="quotelev2">&gt; &gt; needed them. I think it is unlikely that there is any single codebase that
-</em><br />
-<em class="quotelev2">&gt; &gt; supports all of it, but I expect that nearly all of it has been used some-
-</em><br />
-<em class="quotelev2">&gt; &gt; where to *write* data at least, if not to read it. Because data exists for
-</em><br />
-<em class="quotelev2">&gt; &gt; longer and is harder to rewrite than software, we have to be very cautious
-</em><br />
-<em class="quotelev2">&gt; &gt; about changing a convention once it has been agreed.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Huh? Are you really arguing for what I call a WORN archive: Write Once
-</em><br />
-<em class="quotelev1">&gt; Read Never ??? 
-</em><br />
-<br />No. I expect the data has been used, but it might be that some of the metadata
+<br />Date: Mon, 27 Sep 2004 16:02:05 -0700 (PDT)
 <br />
-has not been interpreted by programs, although it might have been examined
+From: Evan Manning &lt;Evan.M.Manning at jpl.nasa.gov&gt;
 <br />
-by humans. However, conventions were devised so the metadata could be written,
+Reply-To: Evan Manning &lt;Evan.M.Manning at jpl.nasa.gov&gt;
 <br />
-because people thought it worthwhile to record it.
+Subject: Tool to transform HDF-EOS2 to netCDF?
 <br />
-<br />Cheers
+To: cf-metadata at cgd.ucar.edu
 <br />
-<br />Jonathan
+<br />Hi,
 <br />
-<span id="received"><dfn>Received on</dfn> Fri Nov 17 2006 - 06:49:52 GMT</span>
+<br />I work for AIRS on EOS-Aqua, and I saw in the agenda for
+<br />
+the upcoming HDF/HDF-EOS conference that you have a tool
+<br />
+that will convert HDF-EOS2 to netCDF.  I can only find links
+<br />
+on the web to the older version that only works for HDF-EOS5.
+<br />
+<br />Some of our science staff prefers to work with netCDF, so
+<br />
+I'd like to provide it for them if possible.
+<br />
+<br />Can you give me a link to download this tool?
+<br />
+<br />Thanks!
+<br />
+<br />&nbsp;&nbsp;-- Evan
+<br />
+<br />P.S. I probably won't make the October conference but will
+<br />
+be at AGU in December.
+<br />
+<br />----- End forwarded message -----
+<br />
+<span id="received"><dfn>Received on</dfn> Tue Sep 28 2004 - 08:38:06 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -115,12 +119,9 @@ because people thought it worthwhile to record it.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start452">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0453.html" title="Next message in the list">Bryan Lawrence: "[CF-metadata] CF provisional standards"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0451.html" title="Previous message in the list">Bryan Lawrence: "[CF-metadata] CF provisional standards"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0453.html" title="Next message in the list">John Caron: "[CF-metadata] staggered grids"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0451.html" title="Previous message in the list">John Caron: "[CF-metadata] The CF Standard Names"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0453.html" title="Next message in this discussion thread">Bryan Lawrence: "[CF-metadata] CF provisional standards"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0453.html" title="Message sent in reply to this message">Bryan Lawrence: "[CF-metadata] CF provisional standards"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -131,7 +132,7 @@ because people thought it worthwhile to record it.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:50 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0451.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0453.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Standard names  added from Richard Gorman on 2007-01-09 (mailing-list-archive)</title>
-<meta name="Author" content="Richard Gorman (r.gorman)" />
-<meta name="Subject" content="[CF-metadata] Standard names  added" />
-<meta name="Date" content="2007-01-09" />
+<title>[CF-metadata] stations and trajectories from Magnus Hagdorn on 2005-06-12 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Magnus Hagdorn (Magnus.Hagdorn)" />
+<meta name="Subject" content="[CF-metadata] stations and trajectories" />
+<meta name="Date" content="2005-06-12" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0665.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0667.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Standard names  added</h1>
-<!-- received="Mon Jan  8 18:27:14 2007" -->
-<!-- isoreceived="20070108182714" -->
-<!-- sent="Tue, 09 Jan 2007 14:27:14 +1300" -->
-<!-- isosent="20070109012714" -->
-<!-- name="Richard Gorman" -->
-<!-- email="r.gorman" -->
-<!-- subject="[CF-metadata] Standard names  added" -->
-<!-- id="45A2EF72.50200_at_niwa.co.nz" -->
+<a style="text-decoration:none" href="./0665.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0667.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] stations and trajectories</h1>
+<!-- received="Sun Jun 12 05:27:23 2005" -->
+<!-- isoreceived="20050612042723" -->
+<!-- sent="Sun, 12 Jun 2005 12:27:23 +0100" -->
+<!-- isosent="20050612112723" -->
+<!-- name="Magnus Hagdorn" -->
+<!-- email="Magnus.Hagdorn" -->
+<!-- subject="[CF-metadata] stations and trajectories" -->
+<!-- id="1118575643.8315.23.camel_at_localhost.localdomain" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="EB861CD59F6DAA4BBC25EAE9987C5BC938D2FA_at_EXCHANGE29.fed.cclrc.ac.uk" -->
+<!-- inreplyto="20050612081204.GA15454_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0667.html" accesskey="d" title="John Caron: &quot;[CF-metadata] COARDS name for a time offset&quot;">Next message</a> ]
-[ <a href="./0665.html" title="Ed Armstrong: &quot;[CF-metadata] COARDS name for a time offset&quot;">Previous message</a> ]
-[ <a href="./0226.html" title="Pamment, JA: &quot;[CF-metadata] Standard names  added&quot;">In reply to</a> ]
+[ <a href="./0667.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] more netcdf attributes&quot;">Next message</a> ]
+[ <a href="./0665.html" title="Jonathan Gregory: &quot;[CF-metadata] stations and trajectories&quot;">Previous message</a> ]
+[ <a href="./0665.html" title="Jonathan Gregory: &quot;[CF-metadata] stations and trajectories&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0684.html" accesskey="t" title="John Caron: &quot;[CF-metadata] stations and trajectories&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,50 +71,86 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Richard Gorman &lt;<a href="mailto:r.gorman?Subject=Re%3A%20%5BCF-metadata%5D%20Standard%20names%20%20added">r.gorman</a>&gt;
+<dfn>From</dfn>: Magnus Hagdorn &lt;<a href="mailto:Magnus.Hagdorn?Subject=Re%3A%20%5BCF-metadata%5D%20stations%20and%20trajectories">Magnus.Hagdorn</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 09 Jan 2007 14:27:14 +1300</span><br />
+<span id="date"><dfn>Date</dfn>: Sun, 12 Jun 2005 12:27:23 +0100</span><br />
 </address>
 <br />
-Hello Alison,
+On Sun, 2005-06-12 at 09:12 +0100, Jonathan Gregory wrote:
 <br />
-<br />In September you informed us of some additions to the standard names 
-<br />
-table. Checking the table, I see that these included
-<br />
-<br /><em class="quotelev1">&gt; sea_surface_wave_directional_variance_spectral_density
+<br /><em class="quotelev1">&gt; This is like storing all the timeseries in a single SQL table, when you would
 </em><br />
-with units m2 s-1 rad-1
-<br />
-and
-<br />
-<em class="quotelev1">&gt; sea_surface_wave_variance_spectral_density
+<em class="quotelev1">&gt; extract the timeseries for a particular station using
 </em><br />
-with units m2 s-1
+<em class="quotelev1">&gt;   select time,measure1 where station=something;
+</em><br />
+<em class="quotelev1">&gt; Is that how you did it in SQL, Magi?
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+I use two main tables, one for the measurements and one for the
 <br />
-<br />I believe that these should be m2 s rad-1 and m2 s, respectively. 
+locations:
 <br />
-Integrating the variance spectral density over frequency (units s-1) 
+for the measurements I store
 <br />
-should give a sea level variance (units m2).
+measure_id, loc_id, time, observation, errors
 <br />
-<br />Apologies for not noticing sooner.
+and for the locations:
 <br />
-<br />Regards,
+loc_id, name, long, lat
 <br />
-Richard
+I've built indexes on loc_id and (long, lat)
 <br />
-<br /><pre>
+Searching the database is straight forward. So for example to get all
+<br />
+time series for specified geographic region, you can do:
+<br />
+SELECT * FROM location WHERE long BETWEEN %f AND %f AND lat BETWEEN %f
+<br />
+AND %f
+<br />
+etc. It might not be the fastest, but logically it seemed to make most
+<br />
+sense to me. I think the fundamental problem is that time data are not
+<br />
+as well structured as gridded data which makes it hard to store it in a
+<br />
+data format designed to be used with gridded data. I guess it will
+<br />
+really depend on the nature of the time series, for example storing a
+<br />
+fixed number of time series where measurements are taken at the same
+<br />
+time will be straight forward. In my case I had to store relative sea
+<br />
+level observations, with different numbers of observations at different
+<br />
+times with different associated measurement errors. I also store
+<br />
+additional information like authors and name of the collection of data
+<br />
+in separate tables.
+<br />
+Cheers
+<br />
+magi
+<br />
+<pre>
 -- 
-=========================================================
-Richard Gorman
-National Institute of Water and Atmospheric Research
-PO Box 11-115, Hamilton, 3251, New Zealand
-Tel: +64 7 856 1736 Mob: 021 074 7490 Fax: +64 7 856 0151
-Email: r.gorman at niwa.co.nz   Web: <a href="http://www.niwa.co.nz">http://www.niwa.co.nz</a>
-=========================================================
+Magnus Hagdorn
+School of GeoSciences
+The University of Edinburgh
+Grant Institute
+West Mains Road
+Edinburgh EH9 3JW
+Scotland
+PHONE: (+44) 131 650 8523
+FAX:   (+44) 131 668 3184
+email: Magnus.Hagdorn at glg.ed.ac.uk
+web:   <a href="http://www.glg.ed.ac.uk/~mhagdorn">http://www.glg.ed.ac.uk/~mhagdorn</a>
 </pre>
-<span id="received"><dfn>Received on</dfn> Mon Jan 08 2007 - 18:27:14 GMT</span>
+<span id="received"><dfn>Received on</dfn> Sun Jun 12 2005 - 05:27:23 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -121,10 +158,11 @@ Email: r.gorman at niwa.co.nz   Web: <a href="http://www.niwa.co.nz">http://www.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start666">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0667.html" title="Next message in the list">John Caron: "[CF-metadata] COARDS name for a time offset"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0665.html" title="Previous message in the list">Ed Armstrong: "[CF-metadata] COARDS name for a time offset"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0226.html" title="Message to which this message replies">Pamment, JA: "[CF-metadata] Standard names  added"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0667.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] more netcdf attributes"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0665.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] stations and trajectories"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0665.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] stations and trajectories"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0684.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] stations and trajectories"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -135,7 +173,7 @@ Email: r.gorman at niwa.co.nz   Web: <a href="http://www.niwa.co.nz">http://www.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:53 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0665.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0667.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

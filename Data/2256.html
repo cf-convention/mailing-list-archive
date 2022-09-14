@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Cell bounds associated with coordinate variable rather than data variable from Ethan Davis on 2009-10-22 (mailing-list-archive)</title>
-<meta name="Author" content="Ethan Davis (edavis)" />
-<meta name="Subject" content="[CF-metadata] Cell bounds associated with coordinate variable rather than data variable" />
-<meta name="Date" content="2009-10-22" />
+<title>[CF-metadata] Proposed CF standard names for the NEMO	oceanmodel from Ian Culverwell on 2008-07-10 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Ian Culverwell (ian.culverwell)" />
+<meta name="Subject" content="[CF-metadata] Proposed CF standard names for the NEMO	oceanmodel" />
+<meta name="Date" content="2008-07-10" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2255.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2257.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Cell bounds associated with coordinate variable rather than data variable</h1>
-<!-- received="Wed Oct 21 22:56:11 2009" -->
-<!-- isoreceived="20091021215611" -->
-<!-- sent="Wed, 21 Oct 2009 22:56:11 -0600" -->
-<!-- isosent="20091022045611" -->
-<!-- name="Ethan Davis" -->
-<!-- email="edavis" -->
-<!-- subject="[CF-metadata] Cell bounds associated with coordinate variable rather than data variable" -->
-<!-- id="4ADFE5EB.5040106_at_unidata.ucar.edu" -->
+<a style="text-decoration:none" href="./2255.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2257.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Proposed CF standard names for the NEMO	oceanmodel</h1>
+<!-- received="Thu Jul 10 09:49:40 2008" -->
+<!-- isoreceived="20080710084940" -->
+<!-- sent="Thu, 10 Jul 2008 16:49:40 +0100" -->
+<!-- isosent="20080710154940" -->
+<!-- name="Ian Culverwell" -->
+<!-- email="ian.culverwell" -->
+<!-- subject="[CF-metadata] Proposed CF standard names for the NEMO	oceanmodel" -->
+<!-- id="1215704980.29315.43.camel_at_eld336.desktop.frd.metoffice.com" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="1240F43731C2EB4F8CC9BF70D233B5110B8839_at_SRV-XCHANGE-2K3.pc.cls.fr" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2257.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Cell bounds associated with coordinate variable rather than data variable&quot;">Next message</a> ]
-[ <a href="./2255.html" title="olivier lauret: &quot;[CF-metadata] Sea water transparency and reflectance.&quot;">Previous message</a> ]
+[ <a href="./2257.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  Proposed CF standard names for the NEMO?oceanmodel&quot;">Next message</a> ]
+[ <a href="./2255.html" title="olivier lauret: &quot;[CF-metadata] Proposed CF standard names for the NEMO oceanmodel&quot;">Previous message</a> ]
+[ <a href="./2255.html" title="olivier lauret: &quot;[CF-metadata] Proposed CF standard names for the NEMO oceanmodel&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./2257.html" accesskey="t" title="Jonathan Gregory: &quot;[CF-metadata] Cell bounds associated with coordinate variable rather than data variable&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
+[ <a href="./2261.html" accesskey="t" title="Jonathan Gregory: &quot;[CF-metadata] Proposed CF standard names for the NEMO ocean model&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,108 +71,123 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Ethan Davis &lt;<a href="mailto:edavis?Subject=Re%3A%20%5BCF-metadata%5D%20Cell%20bounds%20associated%20with%20coordinate%20variable%20rather%20than%20data%20variable">edavis</a>&gt;
+<dfn>From</dfn>: Ian Culverwell &lt;<a href="mailto:ian.culverwell?Subject=Re%3A%20%5BCF-metadata%5D%20Proposed%20CF%20standard%20names%20for%20the%20NEMO%09oceanmodel">ian.culverwell</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 21 Oct 2009 22:56:11 -0600</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 10 Jul 2008 16:49:40 +0100</span><br />
 </address>
 <br />
-Hi all,
+Dear Olivier,
 <br />
-<br />We're looking at some GRIB-2 model data that contains 3, 6, 12, and 24
+<br />Thanks for this.  I don't know how to set up CF standard name aliases
 <br />
-hour accumulated precipitation. I had been thinking we could represent
+(I'll look into it), but I agree that keeping a &quot;proper&quot; long standard
 <br />
-it through the netCDF-Java library as follows:
+name (specifying precisely which SSH is meant) and a snappier alias
 <br />
-<br /><em class="quotelev1">&gt; dimensions:
-</em><br />
-<em class="quotelev1">&gt;   time=30;
-</em><br />
-<em class="quotelev1">&gt;   x=185;
-</em><br />
-<em class="quotelev1">&gt;   y=129;
-</em><br />
-<em class="quotelev1">&gt;   nv=2;
+would be a good way to go in this instance. Thank you for the
+<br />
+suggestion.
+<br />
+<br />Regards,
+<br />
+Ian.
+<br />
+<br /><br />On Thu, 2008-07-10 at 17:36 +0200, olivier lauret wrote:
+<br />
+<em class="quotelev1">&gt; Dear Ian,
 </em><br />
 <em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; variables:
-</em><br />
-<em class="quotelev1">&gt;   float time(time), x(x), y(y);
+<em class="quotelev1">&gt; Yes, your explanation is clear enough, thank you; perhaps it would be nice in that case to turn the water flux standard name into &quot;upward_water_flux_out_of_ocean_affecting_sea_surface_height_above_geiod&quot;. As it is a very, very long attribute I guess it is possible in CF to make an alias with &quot;upward_water_flux_out_of_ocean_affecting_SSH&quot; (ie SSH=sea_surface_height_above_geiod)? Yes?
 </em><br />
 <em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;   float 3hr_accumulated_precip(time,y,x);
-</em><br />
-<em class="quotelev1">&gt;     3hr_accumulated_precip:bounds=&quot;3hr_bounds&quot;;
-</em><br />
-<em class="quotelev1">&gt;     3hr_accumulated_precip:cell_methods = &quot;time: sum&quot;;
-</em><br />
-<em class="quotelev1">&gt;   float 6hr_accumulated_precip(time,y,x);
-</em><br />
-<em class="quotelev1">&gt;     6hr_accumulated_precip:bounds=&quot;6hr_bounds&quot;;
-</em><br />
-<em class="quotelev1">&gt;     6hr_accumulated_precip:cell_methods = &quot;time: sum&quot;;
-</em><br />
-<em class="quotelev1">&gt;   float 12hr_accumulated_precip(time,y,x);
-</em><br />
-<em class="quotelev1">&gt;     12hr_accumulated_precip:bounds=&quot;12hr_bounds&quot;;
-</em><br />
-<em class="quotelev1">&gt;     12hr_accumulated_precip:cell_methods = &quot;time: sum&quot;;
-</em><br />
-<em class="quotelev1">&gt;   float 24hr_accumulated_precip(time,y,x);
-</em><br />
-<em class="quotelev1">&gt;     24hr_accumulated_precip:bounds=&quot;24hr_bounds&quot;;
-</em><br />
-<em class="quotelev1">&gt;     24hr_accumulated_precip:cell_methods = &quot;time: sum&quot;;
+<em class="quotelev1">&gt; Kind regards
 </em><br />
 <em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;   float 3hr_bounds(time,nv);
-</em><br />
-<em class="quotelev1">&gt;   float 6hr_bounds(time,nv);
-</em><br />
-<em class="quotelev1">&gt;   float 12hr_bounds(time,nv);
-</em><br />
-<em class="quotelev1">&gt;   float 24hr_bounds(time,nv);
+<em class="quotelev1">&gt; Olivier.
 </em><br />
 <em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; data:
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;   3hr_bounds = _, _, 0, 3, 3, 6, 6, 9, 9, 12, ...;
+<em class="quotelev1">&gt; -----Message d'origine-----
 </em><br />
-<em class="quotelev1">&gt;   6hr_bounds = _, _, _, _, 0, 6, 3, 9, 6, 12, 9, 15, ...;
+<em class="quotelev1">&gt; De : Ian Culverwell [mailto:ian.culverwell at metoffice.gov.uk] 
 </em><br />
-<em class="quotelev1">&gt;   12hr_bounds = _, _, _, _, _, _, _, _, 0, 12, 3, 15, 6, 18, ...;
+<em class="quotelev1">&gt; Envoy? : jeudi 10 juillet 2008 09:56
 </em><br />
-<em class="quotelev1">&gt;   24hr_bounds = _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 0, 24, 3, 27, 6, 30, ...;
+<em class="quotelev1">&gt; ? : olivier lauret
 </em><br />
-<br />But after re-reading section 7.1 &quot;Cell Boundaries&quot; it seems that a
-<br />
-boundary variable should be associated with a coordinate variable rather
-<br />
-than a data variable.
-<br />
-<br />I would prefer not to create duplicate time coordinate variables with
-<br />
-different bounds as that would put each data variable on a different
-<br />
-time coordinate. Which doesn't seem optimal.
-<br />
-<br />Am I missing another way to represent this? If not, why are boundary
-<br />
-variables associated with coordinate variables rather than data
-<br />
-variables? Is it just that this type of use case hasn't come up before
-<br />
-or is there something more fundamental I'm missing?
-<br />
-<br />Thanks,
-<br />
-<br />Ethan
-<br />
-<span id="received"><dfn>Received on</dfn> Wed Oct 21 2009 - 22:56:11 BST</span>
+<em class="quotelev1">&gt; Cc : Ian Culverwell; cf-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; Objet : RE: [CF-metadata] Proposed CF standard names for the NEMO oceanmodel
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Dear Olivier,
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; On Thu, 2008-06-26 at 17:04 +0100, Ian Culverwell wrote:
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; For example by 'SSH' you perhaps mean 'sea surface height', and there are 3 kinds of different sea surface heights in the CF standard name table. What kind of SSH would it match? Do you think it changes the meaning of (T3) not to mention 'affecting_SSH'? I'm asking this because I am not sure it is..But I way be wrong, please tell me. 
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; I didn't know about 3 types of SSH - I'll think about what I mean
+</em><br />
+<em class="quotelev2">&gt; &gt; precisely and get back to you when I return from vacation in the week
+</em><br />
+<em class="quotelev2">&gt; &gt; beginning Jul 7th.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; I've had time to think about this now - thanks for your patience. 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; The water flux in T.3 (&quot;upward_water_flux_out_of_ocean_affecting_SSH&quot;)
+</em><br />
+<em class="quotelev1">&gt; is the one that affects the sea_surface_height_above_geiod.  It differs
+</em><br />
+<em class="quotelev1">&gt; from T.5 (&quot;upward_water_flux_out_of_ocean_affecting_SSS&quot;) by terms
+</em><br />
+<em class="quotelev1">&gt; involving salt and freshwater fluxes from sea-ice - at least in the NEMO
+</em><br />
+<em class="quotelev1">&gt; formulation. I don't know whether in observational reality one could or
+</em><br />
+<em class="quotelev1">&gt; should distinguish between the two, but they're different in the model
+</em><br />
+<em class="quotelev1">&gt; and so we need different standard names. Hence the qualifications
+</em><br />
+<em class="quotelev1">&gt; &quot;..._affecting_X&quot;.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Hope this clears things up a bit.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Regards,
+</em><br />
+<em class="quotelev1">&gt; Ian.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<pre>
+-- 
+Ian Culverwell B-2-81 Ocean and Sea Ice Modelling
+Met Office  FitzRoy Road  Exeter  Devon  EX1 3PB  United Kingdom
+Tel: +44 (0)1392 884017                 Fax: +44 (0)1392 885861
+E-mail: ian.culverwell at metoffice.gov.uk <a href="http://www.metoffice.gov.uk">http://www.metoffice.gov.uk</a>
+Met Office climate change predictions can now be viewed on Google Earth 
+<a href="http://www.metoffice.gov.uk/research/hadleycentre/google/">http://www.metoffice.gov.uk/research/hadleycentre/google/</a>
+</pre>
+<span id="received"><dfn>Received on</dfn> Thu Jul 10 2008 - 09:49:40 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -179,13 +195,11 @@ or is there something more fundamental I'm missing?
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2256">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2257.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Cell bounds associated with coordinate variable rather than data variable"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2255.html" title="Previous message in the list">olivier lauret: "[CF-metadata] Sea water transparency and reflectance."</a></li>
+<li><dfn>Next message</dfn>: <a href="./2257.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  Proposed CF standard names for the NEMO?oceanmodel"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2255.html" title="Previous message in the list">olivier lauret: "[CF-metadata] Proposed CF standard names for the NEMO oceanmodel"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./2255.html" title="Message to which this message replies">olivier lauret: "[CF-metadata] Proposed CF standard names for the NEMO oceanmodel"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./2257.html" title="Next message in this discussion thread">Jonathan Gregory: "[CF-metadata] Cell bounds associated with coordinate variable rather than data variable"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./2257.html" title="Message sent in reply to this message">Jonathan Gregory: "[CF-metadata] Cell bounds associated with coordinate variable rather than data variable"</a></li>
-<li><dfn>Reply</dfn>: <a href="./2259.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] Cell bounds associated with coordinate variable rather than data variable"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./2261.html" title="Next message in this discussion thread">Jonathan Gregory: "[CF-metadata] Proposed CF standard names for the NEMO ocean model"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -196,7 +210,7 @@ or is there something more fundamental I'm missing?
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:22 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2255.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2257.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Proposed acoustic standard names from Roy Lowry on 2006-07-27 (mailing-list-archive)</title>
-<meta name="Author" content="Roy Lowry (rkl)" />
-<meta name="Subject" content="[CF-metadata] Proposed acoustic standard names" />
-<meta name="Date" content="2006-07-27" />
+<title>[CF-metadata] Example of forecast data from Brian Eaton on 2003-06-11 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Brian Eaton (eaton)" />
+<meta name="Subject" content="[CF-metadata] Example of forecast data" />
+<meta name="Date" content="2003-06-11" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0172.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0174.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Proposed acoustic standard names</h1>
-<!-- received="Thu Jul 27 06:38:22 2006" -->
-<!-- isoreceived="20060727053822" -->
-<!-- sent="Thu, 27 Jul 2006 13:38:22 +0100" -->
-<!-- isosent="20060727123822" -->
-<!-- name="Roy Lowry" -->
-<!-- email="rkl" -->
-<!-- subject="[CF-metadata] Proposed acoustic standard names" -->
-<!-- id="s4c8c1f0.044_at_wpo.nerc.ac.uk" -->
+<a style="text-decoration:none" href="./0172.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0174.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Example of forecast data</h1>
+<!-- received="Tue Jun 10 17:03:53 2003" -->
+<!-- isoreceived="20030610160353" -->
+<!-- sent="Tue, 10 Jun 2003 17:03:53 -0600" -->
+<!-- isosent="20030610230353" -->
+<!-- name="Brian Eaton" -->
+<!-- email="eaton" -->
+<!-- subject="[CF-metadata] Example of forecast data" -->
+<!-- id="20030610230353.GH29225_at_ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="49F73BEED865D3119F8700902773C9F902D18FDF_at_exchange09.rl.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,9 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0174.html" accesskey="d" title="Pamment, JA: &quot;[CF-metadata] RE: Proposed acoustic standard names&quot;">Next message</a> ]
-[ <a href="./0172.html" title="Godin, Michael: &quot;[CF-metadata] Proposed acoustic standard names&quot;">Previous message</a> ]
+[ <a href="./0174.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Example of forecast data&quot;">Next message</a> ]
+[ <a href="./0172.html" title="Eric Marshall: &quot;[CF-metadata] CF standard and Dubin Core&quot;">Previous message</a> ]
+[ <a href="./0171.html" title="Stephens, A: &quot;[CF-metadata] Example of forecast data&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0174.html" accesskey="t" title="Jonathan Gregory: &quot;[CF-metadata] Example of forecast data&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,74 +72,368 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Roy Lowry &lt;<a href="mailto:rkl?Subject=Re%3A%20%5BCF-metadata%5D%20Proposed%20acoustic%20standard%20names">rkl</a>&gt;
+<dfn>From</dfn>: Brian Eaton &lt;<a href="mailto:eaton?Subject=Re%3A%20%5BCF-metadata%5D%20Example%20of%20forecast%20data">eaton</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 27 Jul 2006 13:38:22 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 10 Jun 2003 17:03:53 -0600</span><br />
 </address>
 <br />
-Michael,
+Hi Ag and Jonathan,
 <br />
-<br />I worry about 'mass_concentration_of_oxygen_in_sea_water: kg m-3' as we allready have 'moles_of_oxygen_per_unit_mass_in_sea_water' which is effectively the same thing, but in different units.  If we start setting up standard names for each chemical species for the various combinations of moles/mass/per litre/per kilogram, we are likely to be overwhelmed.
+<br />Using suggestion (i) from Jonathan's list Ag's example of the 24-hr
 <br />
-<br />Cheers, Roy. 
+forecast would look like this:
 <br />
-<br /><em class="quotelev3">&gt;&gt;&gt; &quot;Godin, Michael&quot; &lt;Godin at mbari.org&gt; 7/25/2006 9:14 pm &gt;&gt;&gt;
+<br />variables:
+<br />
+&nbsp;&nbsp;double atime(atime)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;atime:standard_name = &quot;forecast_reference_time&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;atime:units = &quot;hours since 1999-01-01 00:00&quot; ;
+<br />
+&nbsp;&nbsp;double time(time);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;time:standard_name = &quot;time&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;time:units = &quot;hours since 1999-01-01 00:00&quot; ;
+<br />
+&nbsp;&nbsp;float temp(time,atime,level,lat,lon);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;temp:long_name = &quot;Air temperature on model levels&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;temp:standard_name = &quot;air_temperature&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;temp:units = &quot;K&quot; ;
+<br />
+data:
+<br />
+&nbsp;&nbsp;time = 24 ;
+<br />
+&nbsp;&nbsp;a_time = 0 ;
+<br />
+<br />Note that I have made use of the standard name &quot;forecast_reference_time&quot; to
+<br />
+identify the analysis time.
+<br />
+<br />While this approach is very general, and easily extended to Jonathan's case
+<br />
+(ii) with multiple validity and analysis times, it seems overly complicated
+<br />
+for the simple case of a series of forecasts from a single analysis.  I'd
+<br />
+like to propose another option, namely
+<br />
+<br />variables:
+<br />
+&nbsp;&nbsp;double time(time);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;time:standard_name = &quot;forecast_period&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;time:units = &quot;hours since 1999-01-01 00:00&quot; ;
+<br />
+&nbsp;&nbsp;float temp(time,level,lat,lon);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;temp:long_name = &quot;Air temperature on model levels&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;temp:standard_name = &quot;air_temperature&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;temp:units = &quot;K&quot; ;
+<br />
+data:
+<br />
+&nbsp;&nbsp;time = 24 ;
+<br />
+<br />In this example I've used the standard name &quot;forecast_period&quot; rather than
+<br />
+&quot;time&quot; to identify the validity time.  The proposal is that when the
+<br />
+standard name &quot;forecast_period&quot; is used to identify a time coordinate, that
+<br />
+the reference date part of the time units is to be interpreted as the analysis
+<br />
+time.
+<br />
+<br />Using this convention Ag's example with 3 variables at the same validity
+<br />
+time but different analysis times
+<br />
+<br /><em class="quotelev1">&gt; 20030101 12:00 analysis
 </em><br />
-In addition to the acoustic names below, I'd like to propose two more acoustic variable names, and one non-acoustic variable name:
+<em class="quotelev1">&gt; 20030101 00:00 analysis 12hr forecast
+</em><br />
+<em class="quotelev1">&gt; 20030101 06:00 analysis 6hr forecast
+</em><br />
+<br />would be expressed as follows:
 <br />
-&nbsp;
+<br />variables:
 <br />
-spectral_noise_level_in_air: dB : decibels referenced to a sound pressure of 2x10-5 Pa divided by the square root of frequency in Hz.
+&nbsp;&nbsp;double time1(time1);
 <br />
-spectral_noise_level_in_water: dB : decibels referenced to a sound pressure of 1x10-6 Pa divided by the square root of frequency in Hz.
+&nbsp;&nbsp;&nbsp;&nbsp;time1:standard_name = &quot;forecast_period&quot; ;
 <br />
-<br />mass_concentration_of_oxygen_in_sea_water: kg m-3 : Mass of dissolved oxygen per unit volume sea water.
+&nbsp;&nbsp;&nbsp;&nbsp;time1:units = &quot;hours since 2003-01-01 00:00&quot; ;
 <br />
-&nbsp;
+&nbsp;&nbsp;double time2(time2);
 <br />
-Mike
+&nbsp;&nbsp;&nbsp;&nbsp;time2:standard_name = &quot;forecast_period&quot; ;
 <br />
-<br />________________________________
+&nbsp;&nbsp;&nbsp;&nbsp;time2:units = &quot;hours since 2003-01-01 06:00&quot; ;
 <br />
-<br />Sent: Thursday, July 20, 2006 5:22 PM
+&nbsp;&nbsp;double time3(time3);
 <br />
-To: cf-metadata at cgd.ucar.edu 
+&nbsp;&nbsp;&nbsp;&nbsp;time3:standard_name = &quot;forecast_period&quot; ;
 <br />
-Subject: [CF-metadata] Proposed acoustic standard names
+&nbsp;&nbsp;&nbsp;&nbsp;time3:units = &quot;hours since 2003-01-01 12:00&quot; ;
 <br />
-&nbsp;
+&nbsp;&nbsp;float temp1(time1,level,lat,lon);
 <br />
-Here are some names I'd like to propose for acoustic measurements:
+&nbsp;&nbsp;&nbsp;&nbsp;temp1:long_name = &quot;Air temperature on model levels&quot; ;
 <br />
-<br />frequency: s-1 : inverse of period
+&nbsp;&nbsp;&nbsp;&nbsp;temp1:standard_name = &quot;air_temperature&quot; ;
 <br />
-sound_intensity_in_air: W m-2
+&nbsp;&nbsp;&nbsp;&nbsp;temp1:units = &quot;K&quot; ;
 <br />
-sound_pressure_in_air: Pa
+&nbsp;&nbsp;float temp2(time2,level,lat,lon);
 <br />
-sound_intensity_level_in_air: dB : decibels referenced to a sound intensity of 10-12 W m-2.
+&nbsp;&nbsp;&nbsp;&nbsp;temp2:long_name = &quot;Air temperature on model levels&quot; ;
 <br />
-sound_pressure_level_in_air: dB : decibels referenced to a sound pressure of = 2 ? 10-5 Pa.
+&nbsp;&nbsp;&nbsp;&nbsp;temp2:standard_name = &quot;air_temperature&quot; ;
 <br />
-sound_intensity_in_water: W m-2
+&nbsp;&nbsp;&nbsp;&nbsp;temp2:units = &quot;K&quot; ;
 <br />
-sound_pressure_in_water: Pa
+&nbsp;&nbsp;float temp3(time3,level,lat,lon);
 <br />
-sound_intensity_level_in_water: dB : decibels referenced to a sound intensity of 6.7 x 10-19 W m-2.
+&nbsp;&nbsp;&nbsp;&nbsp;temp3:long_name = &quot;Air temperature on model levels&quot; ;
 <br />
-sound_pressure_level_in_water: dB : decibels referenced to a sound pressure of = 10-6 Pa.
+&nbsp;&nbsp;&nbsp;&nbsp;temp3:standard_name = &quot;air_temperature&quot; ;
 <br />
-<br />Regards, Mike 
+&nbsp;&nbsp;&nbsp;&nbsp;temp3:units = &quot;K&quot; ;
 <br />
-<br /><br /><pre>
--- 
-This message (and any attachments) is for the recipient only. NERC
-is subject to the Freedom of Information Act 2000 and the contents
-of this email and any reply you make may be disclosed by NERC unless
-it is exempt from release under the Act. Any material supplied to
-NERC may be stored in an electronic records management system.
-</pre>
-<span id="received"><dfn>Received on</dfn> Thu Jul 27 2006 - 06:38:22 BST</span>
+data:
+<br />
+&nbsp;&nbsp;time1 = 12. ;
+<br />
+&nbsp;&nbsp;time2 = 6. ;
+<br />
+&nbsp;&nbsp;time3 = 0. ;
+<br />
+<br />Brian
+<br />
+<br /><br />On Tue, Jun 10, 2003 at 03:35:44PM +0100, Stephens, A (Ag)  wrote:
+<br />
+<em class="quotelev1">&gt; Dear Jonathan,
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; I agree that using the size-one axes is a sensible way to denote the
+</em><br />
+<em class="quotelev1">&gt; metadata and the four examples seem sensible.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; I think the panacea is a metadata description (and software analysing it)
+</em><br />
+<em class="quotelev1">&gt; that could allow combinations of forecasts and analyses to be compared that
+</em><br />
+<em class="quotelev1">&gt; all represent the exact same time-step (in realtime). Such as:
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 20030101 12:00 analysis
+</em><br />
+<em class="quotelev1">&gt; 20030101 00:00 analysis 12hr forecast
+</em><br />
+<em class="quotelev1">&gt; 20030101 06:00 analysis 6hr forecast
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; I think the key will be how software can deal with it. Most of the packages
+</em><br />
+<em class="quotelev1">&gt; I am familiar with do not understand the concept of forecasts and they just
+</em><br />
+<em class="quotelev1">&gt; reduce a forecast step to a time-stamp and forget the relationship to an
+</em><br />
+<em class="quotelev1">&gt; analysis. I have e-mailed the cdat-discussion list to enquire whether cdat
+</em><br />
+<em class="quotelev1">&gt; has a way of dealing with forecasts.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Kind regards,
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Ag
+</em><br />
+<em class="quotelev1">&gt; -------------------------------------------------------------
+</em><br />
+<em class="quotelev1">&gt; Ag Stephens                           Ph : +44 (0)1235 446220
+</em><br />
+<em class="quotelev1">&gt; Data Scientist,                       Fax: +44 (0)1235 446314
+</em><br />
+<em class="quotelev1">&gt; British Atmospheric Data Centre,     
+</em><br />
+<em class="quotelev1">&gt; Rutherford Appleton Laboratory,               
+</em><br />
+<em class="quotelev1">&gt; Chilton, Didcot, OX11 0QX, U.K. 
+</em><br />
+<em class="quotelev1">&gt; Email:   A.Stephens at rl.ac.uk      Web: <a href="http://badc.nerc.ac.uk">http://badc.nerc.ac.uk</a>
+</em><br />
+<em class="quotelev1">&gt; -------------------------------------------------------------
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; -----Original Message-----
+</em><br />
+<em class="quotelev2">&gt; &gt; From: Jonathan Gregory [mailto:j.m.gregory at reading.ac.uk]
+</em><br />
+<em class="quotelev2">&gt; &gt; Sent: 10 June 2003 09:24
+</em><br />
+<em class="quotelev2">&gt; &gt; To: Stephens, A (Ag) ; cf-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt; &gt; Subject: Re: [CF-metadata] Example of forecast data
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; Dear Ag
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; We have had discussions about how to represent forecast time, 
+</em><br />
+<em class="quotelev2">&gt; &gt; but so far not
+</em><br />
+<em class="quotelev2">&gt; &gt; put anything in the standard because we didn't have potential 
+</em><br />
+<em class="quotelev2">&gt; &gt; users. Evidently
+</em><br />
+<em class="quotelev2">&gt; &gt; we have now!
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; The methods earlier discussed all used the idea that forecast 
+</em><br />
+<em class="quotelev2">&gt; &gt; time would have
+</em><br />
+<em class="quotelev2">&gt; &gt; a separate time dimension from analysis time. This seems to 
+</em><br />
+<em class="quotelev2">&gt; &gt; be a more flexible
+</em><br />
+<em class="quotelev2">&gt; &gt; approach than giving a special interpretation to bounds. What 
+</em><br />
+<em class="quotelev2">&gt; &gt; do you think of
+</em><br />
+<em class="quotelev2">&gt; &gt; the below? Your case would appear to be a simple kind of (i), 
+</em><br />
+<em class="quotelev2">&gt; &gt; with a size-one
+</em><br />
+<em class="quotelev2">&gt; &gt; forecast time axis and a size-one analysis time axis. Using 
+</em><br />
+<em class="quotelev2">&gt; &gt; size-one axes is
+</em><br />
+<em class="quotelev2">&gt; &gt; a convenient way of attaching metadata with units etc., as we 
+</em><br />
+<em class="quotelev2">&gt; &gt; do for example
+</em><br />
+<em class="quotelev2">&gt; &gt; by having a size-one vertical axis to indicate a quantity at 
+</em><br />
+<em class="quotelev2">&gt; &gt; 1.5 m height.
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; Best wishes
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; Jonathan
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; Four cases were identified:
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; (i) A forecast run with multiple forecast periods (12 h, 24 
+</em><br />
+<em class="quotelev2">&gt; &gt; h, 36 h, etc.)
+</em><br />
+<em class="quotelev2">&gt; &gt; from a single analysis. This can be done with a size-one 
+</em><br />
+<em class="quotelev2">&gt; &gt; analysis time axis
+</em><br />
+<em class="quotelev2">&gt; &gt; and a separate validity time axis. If the reference time for 
+</em><br />
+<em class="quotelev2">&gt; &gt; the validity time
+</em><br />
+<em class="quotelev2">&gt; &gt; units is the analysis time, the values of the validity time 
+</em><br />
+<em class="quotelev2">&gt; &gt; coordinates equal
+</em><br />
+<em class="quotelev2">&gt; &gt; the forecast period.
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; (ii) Multiple validity and analysis times, where all 
+</em><br />
+<em class="quotelev2">&gt; &gt; combinations exist. This
+</em><br />
+<em class="quotelev2">&gt; &gt; can be done with 2 axes.
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; (iii) Forecast runs with multiple forecast periods from 
+</em><br />
+<em class="quotelev2">&gt; &gt; various analyses,
+</em><br />
+<em class="quotelev2">&gt; &gt; where all combinations exist. This is also a 2D case, where 
+</em><br />
+<em class="quotelev2">&gt; &gt; the analysis time
+</em><br />
+<em class="quotelev2">&gt; &gt; is a time axis with a reference time, and the forecast period 
+</em><br />
+<em class="quotelev2">&gt; &gt; is plain elapsed
+</em><br />
+<em class="quotelev2">&gt; &gt; time. You have to add the forecast period to the analysis 
+</em><br />
+<em class="quotelev2">&gt; &gt; time to get the
+</em><br />
+<em class="quotelev2">&gt; &gt; validity time. The forecast period is a time offset.
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; (iv) Multiple validity and analysis times, where not all 
+</em><br />
+<em class="quotelev2">&gt; &gt; cases exist, for
+</em><br />
+<em class="quotelev2">&gt; &gt; instance forecasts out to a given validity time from 
+</em><br />
+<em class="quotelev2">&gt; &gt; successive analyses. This
+</em><br />
+<em class="quotelev2">&gt; &gt; can be done by using a single index dimension, with validity 
+</em><br />
+<em class="quotelev2">&gt; &gt; and analysis time
+</em><br />
+<em class="quotelev2">&gt; &gt; coordinates having this dimension pointed to by the 
+</em><br />
+<em class="quotelev2">&gt; &gt; coordinates attribute.
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<span id="received"><dfn>Received on</dfn> Tue Jun 10 2003 - 17:03:53 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -143,9 +441,13 @@ NERC may be stored in an electronic records management system.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start173">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0174.html" title="Next message in the list">Pamment, JA: "[CF-metadata] RE: Proposed acoustic standard names"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0172.html" title="Previous message in the list">Godin, Michael: "[CF-metadata] Proposed acoustic standard names"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0174.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Example of forecast data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0172.html" title="Previous message in the list">Eric Marshall: "[CF-metadata] CF standard and Dubin Core"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0171.html" title="Message to which this message replies">Stephens, A: "[CF-metadata] Example of forecast data"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0174.html" title="Next message in this discussion thread">Jonathan Gregory: "[CF-metadata] Example of forecast data"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0174.html" title="Message sent in reply to this message">Jonathan Gregory: "[CF-metadata] Example of forecast data"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -156,7 +458,7 @@ NERC may be stored in an electronic records management system.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:45 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0172.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0174.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

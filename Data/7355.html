@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Mixing data and flag values in one variable from Jim Biard on 2015-12-10 (mailing-list-archive)</title>
-<meta name="Author" content="Jim Biard (jbiard)" />
-<meta name="Subject" content="[CF-metadata] Mixing data and flag values in one variable" />
-<meta name="Date" content="2015-12-10" />
+<title>[CF-metadata] GRIB2 data cutoff from Hattersley, Richard on 2014-09-23 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Hattersley, Richard (richard.hattersley)" />
+<meta name="Subject" content="[CF-metadata] GRIB2 data cutoff" />
+<meta name="Date" content="2014-09-23" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./7354.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7356.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Mixing data and flag values in one variable</h1>
-<!-- received="Thu Dec 10 07:00:39 2015" -->
-<!-- isoreceived="20151210070039" -->
-<!-- sent="Thu, 10 Dec 2015 09:00:39 -0500" -->
-<!-- isosent="20151210140039" -->
-<!-- name="Jim Biard" -->
-<!-- email="jbiard" -->
-<!-- subject="[CF-metadata] Mixing data and flag values in one variable" -->
-<!-- id="56698587.2050900_at_cicsnc.org" -->
+<a style="text-decoration:none" href="./7354.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7356.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] GRIB2 data cutoff</h1>
+<!-- received="Tue Sep 23 07:40:48 2014" -->
+<!-- isoreceived="20140923064048" -->
+<!-- sent="Tue, 23 Sep 2014 13:40:48 +0000" -->
+<!-- isosent="20140923134048" -->
+<!-- name="Hattersley, Richard" -->
+<!-- email="richard.hattersley" -->
+<!-- subject="[CF-metadata] GRIB2 data cutoff" -->
+<!-- id="21A2C87797FA6042B162A8A0A11A15DB06FD134B_at_EXXCMPD1DAG2.cmpd1.metoffice.gov.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="277E6F97-CFA7-4754-98A7-8A2C0EDF7488_at_ou.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,10 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./7356.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  Reference for GRIDSPEC?&quot;">Next message</a> ]
-[ <a href="./7354.html" title="Robert Oehmke: &quot;[CF-metadata] Reference for GRIDSPEC?&quot;">Previous message</a> ]
-[ <a href="./7353.html" title="Kehoe, Kenneth E.: &quot;[CF-metadata] Mixing data and flag values in one variable&quot;">In reply to</a> ]
+[ <a href="./7356.html" accesskey="d" title="Hattersley, Richard: &quot;[CF-metadata] Proposals for Versioning CF Conventions and Standard Names on Github&quot;">Next message</a> ]
+[ <a href="./7354.html" title="Hattersley, Richard: &quot;[CF-metadata] Proposals for Versioning CF Conventions and Standard Names on Github&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./7383.html" accesskey="t" title="Hedley, Mark: &quot;[CF-metadata] GRIB2 data cutoff&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,144 +70,32 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jim Biard &lt;<a href="mailto:jbiard?Subject=Re%3A%20%5BCF-metadata%5D%20Mixing%20data%20and%20flag%20values%20in%20one%20variable">jbiard</a>&gt;
+<dfn>From</dfn>: Hattersley, Richard &lt;<a href="mailto:richard.hattersley?Subject=Re%3A%20%5BCF-metadata%5D%20GRIB2%20data%20cutoff">richard.hattersley</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 10 Dec 2015 09:00:39 -0500</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 23 Sep 2014 13:40:48 +0000</span><br />
 </address>
 <br />
-Ken,
+Hi everyone,
 <br />
-<br />It looks valid to me. The missing_value attribute can also validly be an 
+<br />As a little &quot;light relief&quot; from the versioning discussion...
 <br />
-array attribute, but a lot of software doesn't handle that properly.
+<br />Does anyone have any prior art for representing the GRIB 2 concept of &quot;hours/minutes of observational data cutoff after reference time&quot; (as expressed in product definition template 4.0) within CF-netCDF?
 <br />
-<br />Grace and peace,
+<br /><br />Richard Hattersley  AVD  Expert Software Developer
 <br />
-<br />Jim
+Met Office  FitzRoy Road  Exeter  Devon  EX1 3PB  United Kingdom
 <br />
-<br />On 12/9/15 5:49 PM, Kehoe, Kenneth E. wrote:
+Tel: +44 (0)1392 885702  Fax: +44 (0)1392 885681
 <br />
-<em class="quotelev1">&gt; I have a question about mixing data values and flag values. I know the 
-</em><br />
-<em class="quotelev1">&gt; correct method is to separate the data information from the flag 
-</em><br />
-<em class="quotelev1">&gt; information, but my colleague would prefer to keep the two in the same 
-</em><br />
-<em class="quotelev1">&gt; variable to simplify processing and reduce file size. The data files 
-</em><br />
-<em class="quotelev1">&gt; are already quite large. I looked through the discussion archive but 
-</em><br />
-<em class="quotelev1">&gt; could not find any discussion about this.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; For example:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; I have a data vector that occasionally has missing value indicators. 
-</em><br />
-<em class="quotelev1">&gt; They want to use multiple missing value indicators to indicate why the 
-</em><br />
-<em class="quotelev1">&gt; data is missing. A value of -9999 indicates no data at all, a value of 
-</em><br />
-<em class="quotelev1">&gt; -2 indicates possible clear sky, -1 indicates it is clear sky, and 
-</em><br />
-<em class="quotelev1">&gt; anything greater than or equal to 0 represents a data value. We will 
-</em><br />
-<em class="quotelev1">&gt; use valid_range to indicate that any value below 0 is not valid data 
-</em><br />
-<em class="quotelev1">&gt; and will be excluded. (I can?t use valid_min for historical reasons. 
-</em><br />
-<em class="quotelev1">&gt; We are sticking with missing_value for historical reasons.)
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; cloud_layer_base_height(time, layer):float
-</em><br />
-<em class="quotelev1">&gt;     long_name = &quot;Cloud base height of hydrometeor layers? ;
-</em><br />
-<em class="quotelev1">&gt;     units = &quot;m? ;
-</em><br />
-<em class="quotelev1">&gt;     missing_value = -9999.f ;
-</em><br />
-<em class="quotelev1">&gt;     valid_range = 0.f, 100000.f ;
-</em><br />
-<em class="quotelev1">&gt;     flag_values = -2.f , -1.f ;
-</em><br />
-<em class="quotelev1">&gt;     flag_meanings = &quot;possible_clear_sky clear_sky? ;
-</em><br />
-<em class="quotelev1">&gt;     comment = &quot;-2. Possible clear sky (No MPL observations available, 
-</em><br />
-<em class="quotelev1">&gt; Ceilometer obscured, but no cloud detected), -1. Clear sky, &gt;= 0. 
-</em><br />
-<em class="quotelev1">&gt; Valid cloud base height? ;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Would this be acceptable?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Ken
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Kenneth E. Kehoe
-</em><br />
-<em class="quotelev1">&gt; Research Associate
-</em><br />
-<em class="quotelev1">&gt; ARM Climate Research Facility Data Quality Office
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Office: 303-497-4754
-</em><br />
-<em class="quotelev1">&gt; Cell: 405-826-0299
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<br /><pre>
--- 
-CICS-NC &lt;<a href="http://www.cicsnc.org/">http://www.cicsnc.org/</a>&gt; Visit us on
-Facebook &lt;<a href="http://www.facebook.com/cicsnc">http://www.facebook.com/cicsnc</a>&gt; 	*Jim Biard*
-*Research Scholar*
-Cooperative Institute for Climate and Satellites NC &lt;<a href="http://cicsnc.org/">http://cicsnc.org/</a>&gt;
-North Carolina State University &lt;<a href="http://ncsu.edu/">http://ncsu.edu/</a>&gt;
-NOAA National Centers for Environmental Information &lt;<a href="http://ncdc.noaa.gov/">http://ncdc.noaa.gov/</a>&gt;
-/formerly NOAA?s National Climatic Data Center/
-151 Patton Ave, Asheville, NC 28801
-e: jbiard at cicsnc.org &lt;mailto:jbiard at cicsnc.org&gt;
-o: +1 828 271 4900
-/Connect with us on Facebook for climate 
-&lt;<a href="https://www.facebook.com/NOAANCEIclimate">https://www.facebook.com/NOAANCEIclimate</a>&gt; and ocean and geophysics 
-&lt;<a href="https://www.facebook.com/NOAANCEIoceangeo">https://www.facebook.com/NOAANCEIoceangeo</a>&gt; information, and follow us 
-on Twitter at _at_NOAANCEIclimate &lt;<a href="https://twitter.com/NOAANCEIclimate">https://twitter.com/NOAANCEIclimate</a>&gt; and 
-_at_NOAANCEIocngeo &lt;<a href="https://twitter.com/NOAANCEIocngeo">https://twitter.com/NOAANCEIocngeo</a>&gt;. /
--------------- next part --------------
+Email: richard.hattersley at metoffice.gov.uk&lt;mailto:richard.hattersley at metoffice.gov.uk&gt;  Website: www.metoffice.gov.uk&lt;<a href="http://www.metoffice.gov.uk/">http://www.metoffice.gov.uk/</a>&gt;
+<br />
+<br />-------------- next part --------------
+<br />
 An HTML attachment was scrubbed...
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20151210/0814d567/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20151210/0814d567/attachment-0001.html</a>&gt;
--------------- next part --------------
-A non-text attachment was scrubbed...
-Name: CicsLogoTiny.png
-Type: image/png
-Size: 15784 bytes
-Desc: not available
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20151210/0814d567/attachment-0001.png">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20151210/0814d567/attachment-0001.png</a>&gt;
-</pre>
-<span id="received"><dfn>Received on</dfn> Thu Dec 10 2015 - 07:00:39 GMT</span>
+<br />
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140923/d81a8781/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140923/d81a8781/attachment.html</a>&gt;
+<br />
+<span id="received"><dfn>Received on</dfn> Tue Sep 23 2014 - 07:40:48 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -215,10 +103,12 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start7355">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./7356.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  Reference for GRIDSPEC?"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./7354.html" title="Previous message in the list">Robert Oehmke: "[CF-metadata] Reference for GRIDSPEC?"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./7353.html" title="Message to which this message replies">Kehoe, Kenneth E.: "[CF-metadata] Mixing data and flag values in one variable"</a></li>
+<li><dfn>Next message</dfn>: <a href="./7356.html" title="Next message in the list">Hattersley, Richard: "[CF-metadata] Proposals for Versioning CF Conventions and Standard Names on Github"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./7354.html" title="Previous message in the list">Hattersley, Richard: "[CF-metadata] Proposals for Versioning CF Conventions and Standard Names on Github"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./7383.html" title="Next message in this discussion thread">Hedley, Mark: "[CF-metadata] GRIB2 data cutoff"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./7383.html" title="Message sent in reply to this message">Hedley, Mark: "[CF-metadata] GRIB2 data cutoff"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -229,7 +119,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:00 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./7354.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7356.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

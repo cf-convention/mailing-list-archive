@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF-2 from Ted Habermann on 2014-09-24 (mailing-list-archive)</title>
-<meta name="Author" content="Ted Habermann (thabermann)" />
-<meta name="Subject" content="[CF-metadata] CF-2" />
-<meta name="Date" content="2014-09-24" />
+<title>[CF-metadata] ncdismember flattens hierarchical files, calls cfchecker from Lynnes, Christopher S. on 2013-09-27 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Lynnes, Christopher S. (christopher.s.lynnes)" />
+<meta name="Subject" content="[CF-metadata] ncdismember flattens hierarchical files, calls cfchecker" />
+<meta name="Date" content="2013-09-27" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./6562.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6564.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF-2</h1>
-<!-- received="Wed Sep 24 10:24:59 2014" -->
-<!-- isoreceived="20140924092459" -->
-<!-- sent="Wed, 24 Sep 2014 16:24:59 +0000" -->
-<!-- isosent="20140924162459" -->
-<!-- name="Ted Habermann" -->
-<!-- email="thabermann" -->
-<!-- subject="[CF-metadata] CF-2" -->
-<!-- id="0E15ECA9-943F-4FB5-A9B3-A7986E82050D_at_hdfgroup.org" -->
+<a style="text-decoration:none" href="./6562.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6564.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] ncdismember flattens hierarchical files, calls cfchecker</h1>
+<!-- received="Fri Sep 27 06:58:58 2013" -->
+<!-- isoreceived="20130927055858" -->
+<!-- sent="Fri, 27 Sep 2013 12:58:58 +0000" -->
+<!-- isosent="20130927125858" -->
+<!-- name="Lynnes, Christopher S." -->
+<!-- email="christopher.s.lynnes" -->
+<!-- subject="[CF-metadata] ncdismember flattens hierarchical files, calls cfchecker" -->
+<!-- id="A53BABC6-E2AD-4974-B3A3-1D7ACC9A5A07_at_nasa.gov" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="5244FA22.60108_at_uci.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,11 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./6564.html" accesskey="d" title="Chris Barker: &quot;[CF-metadata] CF-2&quot;">Next message</a> ]
-[ <a href="./6562.html" title="Chris Barker: &quot;[CF-metadata] Proposals for Versioning CF Conventions and Standard Names on Github&quot;">Previous message</a> ]
+[ <a href="./6564.html" accesskey="d" title="Hedley, Mark: &quot;[CF-metadata] Can we please close ticket 93 and modify the latest CF document accordingly?&quot;">Next message</a> ]
+[ <a href="./6562.html" title="Charlie Zender: &quot;[CF-metadata] ncdismember flattens hierarchical files, calls cfchecker&quot;">Previous message</a> ]
+[ <a href="./6562.html" title="Charlie Zender: &quot;[CF-metadata] ncdismember flattens hierarchical files, calls cfchecker&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./6564.html" accesskey="t" title="Chris Barker: &quot;[CF-metadata] CF-2&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,52 +70,139 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Ted Habermann &lt;<a href="mailto:thabermann?Subject=Re%3A%20%5BCF-metadata%5D%20CF-2">thabermann</a>&gt;
+<dfn>From</dfn>: Lynnes, Christopher S. &lt;<a href="mailto:christopher.s.lynnes?Subject=Re%3A%20%5BCF-metadata%5D%20ncdismember%20flattens%20hierarchical%20files%2C%20calls%20cfchecker">christopher.s.lynnes</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 24 Sep 2014 16:24:59 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 27 Sep 2013 12:58:58 +0000</span><br />
 </address>
 <br />
-All,
+Charlie,
 <br />
-<br />I originally sent this to an old list... Sorry for the duplication...
+&nbsp;&nbsp;A form of &quot;dismember&quot; is useful not only for checking for CF, but for easily converting files to be usable by legacy tools that currently support only netCDF3 and netCDF4 Classic Model. As such, it may provide a critical on-ramp for the successful adoption to bridge the flat-earthers, sorry, flat netcdf-ers (like me) with the newer hierarchical capability.
 <br />
-<br />Ted
+<br />On Sep 26, 2013, at 11:23 PM, Charlie Zender &lt;zender at uci.edu&gt;
 <br />
-<br />John et al.,
+&nbsp;wrote:
 <br />
-<br />Looking forward to your deliberations on the evolution of CF to include groups. I think this is a critical step forward (both for data and especially for metadata)... I am happy to say that Aleksandar Jelenak will be representing The HDF Group in these discussions...
-<br />
-<br />One other item that you might consider is sparse coordinate variables... These would be coordinate variables that have fewer items than the axis they are related to or essentially coordinate variables with a stride. This capability could be very helpful as we move to higher resolution datasets and would also facilitate integration of some legacy NASA datasets into CF tools... Just a thought...
-<br />
-<br />I know others have walked this path before and have been turned back... good luck to you and your colleagues!
-<br />
-<br />May the force be with you...
-<br />
-Ted
-<br />
-<br />[cid:32323496-C60B-49FF-8310-11CCF46BDC72]
-<br />
-<br />-------------- next part --------------
-<br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140924/d63682ba/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140924/d63682ba/attachment-0001.html</a>&gt;
-<br />
--------------- next part --------------
-<br />
-A non-text attachment was scrubbed...
-<br />
-Name: SignatureSm.png
-<br />
-Type: image/png
-<br />
-Size: 30402 bytes
-<br />
-Desc: SignatureSm.png
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140924/d63682ba/attachment-0001.png">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140924/d63682ba/attachment-0001.png</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Wed Sep 24 2014 - 10:24:59 BST</span>
+<br /><em class="quotelev1">&gt; Hi All,
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Some users at NASA have to flatten their hierarchical files so that
+</em><br />
+<em class="quotelev1">&gt; the constituent groups can be checked for CF-compliance with standard
+</em><br />
+<em class="quotelev1">&gt; CF checkers that are not &quot;group-aware&quot;. This can be painful if done by
+</em><br />
+<em class="quotelev1">&gt; &quot;brute force&quot;: ncdump (or h5dump), strip out group info, rebuild each
+</em><br />
+<em class="quotelev1">&gt; group as flat netCDF3, pass to a checker. To accelerate this procedure
+</em><br />
+<em class="quotelev1">&gt; I've modified the script I mentioned earlier so it can call cfchecker:
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; <a href="http://nco.sf.net/nco.html#dismember">http://nco.sf.net/nco.html#dismember</a>
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; ncdismember is a script that calls ncks to extract each leaf group
+</em><br />
+<em class="quotelev1">&gt; into a netCDF3 file, as expected by most compliance checkers.
+</em><br />
+<em class="quotelev1">&gt; It calls cfchecker when invoked with an optional third argument of
+</em><br />
+<em class="quotelev1">&gt; 'cf'. An example follows. Thanks to the Juelich group for making
+</em><br />
+<em class="quotelev1">&gt; cfchecker so painless to intall!
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Enjoy,
+</em><br />
+<em class="quotelev1">&gt; cz
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Dismembering:
+</em><br />
+<em class="quotelev1">&gt; zender at roulee:~$ ncdismember ~/nco/data/mdl.nc /data/zender/nco/tmp
+</em><br />
+<em class="quotelev1">&gt; Dismembering file /home/zender/nco/data/mdl.nc into following files:
+</em><br />
+<em class="quotelev1">&gt; /data/zender/nco/tmp/cesm.cesm_01.nc
+</em><br />
+<em class="quotelev1">&gt; /data/zender/nco/tmp/cesm.cesm_02.nc
+</em><br />
+<em class="quotelev1">&gt; /data/zender/nco/tmp/ecmwf.ecmwf_01.nc
+</em><br />
+<em class="quotelev1">&gt; /data/zender/nco/tmp/ecmwf.ecmwf_02.nc
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Dismembering followed by cfchecker compliance check:
+</em><br />
+<em class="quotelev1">&gt; zender at roulee:~$ ncdismember ~/nco/data/mdl.nc /data/zender/nco/tmp cf
+</em><br />
+<em class="quotelev1">&gt; Dismembering file /home/zender/nco/data/mdl.nc into following files:
+</em><br />
+<em class="quotelev1">&gt; /data/zender/nco/tmp/cesm.cesm_01.nc
+</em><br />
+<em class="quotelev1">&gt; WARNING: Using the default (non-CF) Udunits database
+</em><br />
+<em class="quotelev1">&gt; /data/zender/nco/tmp/cesm.cesm_01.nc:
+</em><br />
+<em class="quotelev1">&gt; INFO: INIT:	running CFchecker version 1.5.15
+</em><br />
+<em class="quotelev1">&gt; INFO: INIT:	checking compliance with convention CF-1.5
+</em><br />
+<em class="quotelev1">&gt; INFO: INIT:	using standard name table version: 25, last modified:
+</em><br />
+<em class="quotelev1">&gt; 2013-07-05T05:40:30Z
+</em><br />
+<em class="quotelev1">&gt; INFO: INIT:	using area type table version: 2, date: 10 July 2013
+</em><br />
+<em class="quotelev1">&gt; INFO: 2.4:	no axis information found in dimension variables, not
+</em><br />
+<em class="quotelev1">&gt; checking dimension order
+</em><br />
+<em class="quotelev1">&gt; WARNING: 3:	variable &quot;tas&quot; contains neither long_name nor standard_name
+</em><br />
+<em class="quotelev1">&gt; attribute
+</em><br />
+<em class="quotelev1">&gt; INFO: 3.1:	variable &quot;tas&quot; does not contain units attribute
+</em><br />
+<em class="quotelev1">&gt; --------------------------------------------------
+</em><br />
+<em class="quotelev1">&gt; total files: 1, OK: 0, with warnings: 1, with errors: 0
+</em><br />
+<em class="quotelev1">&gt; /data/zender/nco/tmp/cesm.cesm_02.nc
+</em><br />
+<em class="quotelev1">&gt; WARNING: Using the default (non-CF) Udunits database
+</em><br />
+<em class="quotelev1">&gt; ...
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; -- 
+</em><br />
+<em class="quotelev1">&gt; Charlie Zender, Earth System Sci. &amp; Computer Sci.
+</em><br />
+<em class="quotelev1">&gt; University of California, Irvine 949-891-2429 )'(
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<br /><pre>
+--
+Christopher Lynnes
+&quot;The future is already here ? it's just not very evenly distributed.&quot; - Wm. Gibson
+</pre>
+<span id="received"><dfn>Received on</dfn> Fri Sep 27 2013 - 06:58:58 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -123,12 +210,10 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start6563">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./6564.html" title="Next message in the list">Chris Barker: "[CF-metadata] CF-2"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./6562.html" title="Previous message in the list">Chris Barker: "[CF-metadata] Proposals for Versioning CF Conventions and Standard Names on Github"</a></li>
+<li><dfn>Next message</dfn>: <a href="./6564.html" title="Next message in the list">Hedley, Mark: "[CF-metadata] Can we please close ticket 93 and modify the latest CF document accordingly?"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./6562.html" title="Previous message in the list">Charlie Zender: "[CF-metadata] ncdismember flattens hierarchical files, calls cfchecker"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./6562.html" title="Message to which this message replies">Charlie Zender: "[CF-metadata] ncdismember flattens hierarchical files, calls cfchecker"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./6564.html" title="Next message in this discussion thread">Chris Barker: "[CF-metadata] CF-2"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./6564.html" title="Message sent in reply to this message">Chris Barker: "[CF-metadata] CF-2"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -139,7 +224,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:48 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./6562.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6564.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

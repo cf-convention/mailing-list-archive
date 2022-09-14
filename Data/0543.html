@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] curvilinear cartesian coordinates case from Jonathan Gregory on 2006-12-04 (mailing-list-archive)</title>
+<title>[CF-metadata] proposed UTM projection from Jonathan Gregory on 2005-02-02 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] curvilinear cartesian coordinates case" />
-<meta name="Date" content="2006-12-04" />
+<meta name="Subject" content="[CF-metadata] proposed UTM projection" />
+<meta name="Date" content="2005-02-02" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0542.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0544.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] curvilinear cartesian coordinates case</h1>
-<!-- received="Mon Dec  4 02:32:01 2006" -->
-<!-- isoreceived="20061204023201" -->
-<!-- sent="Mon, 4 Dec 2006 09:32:01 +0000" -->
-<!-- isosent="20061204093201" -->
+<a style="text-decoration:none" href="./0542.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0544.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] proposed UTM projection</h1>
+<!-- received="Wed Feb  2 01:16:08 2005" -->
+<!-- isoreceived="20050202011608" -->
+<!-- sent="Wed, 2 Feb 2005 08:16:08 +0000" -->
+<!-- isosent="20050202081608" -->
 <!-- name="Jonathan Gregory" -->
 <!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] curvilinear cartesian coordinates case" -->
-<!-- id="20061204093201.GB17830_at_met.reading.ac.uk" -->
+<!-- subject="[CF-metadata] proposed UTM projection" -->
+<!-- id="20050202081608.GA29575_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0544.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Proposed standard names for biological model outputs&quot;">Next message</a> ]
-[ <a href="./0542.html" title="Jonathan Gregory: &quot;[CF-metadata] curvilinear cartesian coordinates case&quot;">Previous message</a> ]
+[ <a href="./0544.html" accesskey="d" title="John Caron: &quot;[CF-metadata] proposed UTM projection&quot;">Next message</a> ]
+[ <a href="./0542.html" title="John Caron: &quot;[CF-metadata] proposed UTM projection&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0544.html" accesskey="t" title="John Caron: &quot;[CF-metadata] proposed UTM projection&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,34 +70,56 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20curvilinear%20cartesian%20coordinates%20case">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20proposed%20UTM%20projection">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 4 Dec 2006 09:32:01 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 2 Feb 2005 08:16:08 +0000</span><br />
 </address>
 <br />
-Dear all
+Dear John
 <br />
-<br />I have written the three proposed conventions on a wiki page
+<br />Thanks. This looks useful. I've had a look at the geotiff notes and I don't
 <br />
-<a href="http://cf-pcmdi.llnl.gov/trac/wiki/MultipleProjections">http://cf-pcmdi.llnl.gov/trac/wiki/MultipleProjections</a>
+find them very clear, so I think we need a bit more explanation.
 <br />
-You would need a trac login (from Kyle) to modify it.
+<br /><em class="quotelev1">&gt;    * UTM_Zone_Number - in range [1,60] (north) or [-1, -60] (south)
+</em><br />
+I suggest lower case (the software should be case-insensitive anyway, as in
 <br />
-<br />Is this a good use of the wiki? To me it seems that discussion could proceed
+CF standard 2.6). What does this parameter mean? In particular,
 <br />
-quite efficiently if we wrote emails or trac tickets describing our reasoning
+<em class="quotelev1">&gt; The central meridian and 
+</em><br />
+<em class="quotelev1">&gt; false_northing parameters are specified by the UTM zone.
+</em><br />
+how is this done? Can we give the formulae? Otherwise the specification may be
 <br />
-and comments, while recording the examples on a wiki page. I would find it
+incomplete.
 <br />
-useful if the wiki were automatically mailed out to accompany the comments,
+<br /><em class="quotelev1">&gt; false easting parameters (50000 m)
+</em><br />
+That should be 500000 m i.e. 500 km.
 <br />
-but providing the URL is not too bad.
+<br /><em class="quotelev1">&gt; The ellipsoid parameters /semimajor_axis/ and /inverse_flattening /are 
+</em><br />
+<em class="quotelev1">&gt; optional. If not present, the standard ellipsoid for the given UTM zone 
+</em><br />
+<em class="quotelev1">&gt; should be used.
+</em><br />
+What are these default values? I think we need to say how they are chosen.
 <br />
-<br />Cheers
+<br />Since it has these extra parameters, it appears that the UTM projection is not
+<br />
+just a special case of TM. I am not sure that the formulae in the geotiff page
+<br />
+actually say what to do with these numbers, do they? They are hard to follow.
+<br />
+Do you think there is enough information there for an implementation of UTM?
+<br />
+<br />best wishes
 <br />
 <br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Mon Dec 04 2006 - 02:32:01 GMT</span>
+<span id="received"><dfn>Received on</dfn> Wed Feb 02 2005 - 01:16:08 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -103,9 +127,12 @@ but providing the URL is not too bad.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start543">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0544.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Proposed standard names for biological model outputs"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0542.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] curvilinear cartesian coordinates case"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0544.html" title="Next message in the list">John Caron: "[CF-metadata] proposed UTM projection"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0542.html" title="Previous message in the list">John Caron: "[CF-metadata] proposed UTM projection"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0544.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] proposed UTM projection"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0544.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] proposed UTM projection"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -116,7 +143,7 @@ but providing the URL is not too bad.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:52 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0542.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0544.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

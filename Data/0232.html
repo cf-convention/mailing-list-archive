@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF Action Groups from Bryan Lawrence on 2006-09-26 (mailing-list-archive)</title>
-<meta name="Author" content="Bryan Lawrence (b.n.lawrence)" />
-<meta name="Subject" content="[CF-metadata] CF Action Groups" />
-<meta name="Date" content="2006-09-26" />
+<title>[CF-metadata] Vertical Coordinate Systems from Brian Eaton on 2003-07-28 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Brian Eaton (eaton)" />
+<meta name="Subject" content="[CF-metadata] Vertical Coordinate Systems" />
+<meta name="Date" content="2003-07-28" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0231.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0233.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF Action Groups</h1>
-<!-- received="Tue Sep 26 08:49:30 2006" -->
-<!-- isoreceived="20060926074930" -->
-<!-- sent="Tue, 26 Sep 2006 15:49:30 +0100" -->
-<!-- isosent="20060926144930" -->
-<!-- name="Bryan Lawrence" -->
-<!-- email="b.n.lawrence" -->
-<!-- subject="[CF-metadata] CF Action Groups" -->
-<!-- id="1159282170.21200.41.camel_at_localhost.localdomain" -->
+<a style="text-decoration:none" href="./0231.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0233.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Vertical Coordinate Systems</h1>
+<!-- received="Sun Jul 27 18:03:47 2003" -->
+<!-- isoreceived="20030727170347" -->
+<!-- sent="Sun, 27 Jul 2003 18:03:47 -0600" -->
+<!-- isosent="20030728000347" -->
+<!-- name="Brian Eaton" -->
+<!-- email="eaton" -->
+<!-- subject="[CF-metadata] Vertical Coordinate Systems" -->
+<!-- id="20030728000347.GC2960_at_ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="3F20023E.1011D4CE_at_geo.umnw.ethz.ch" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0233.html" accesskey="d" title="Roy Lowry: &quot;[CF-metadata] standard names for aerosols and chemistry&quot;">Next message</a> ]
-[ <a href="./0231.html" title="Christiane Textor: &quot;[CF-metadata] standard names for aerosols and chemistry&quot;">Previous message</a> ]
+[ <a href="./0233.html" accesskey="d" title="Schmidli Juerg: &quot;[CF-metadata] Vertical Coordinate Systems&quot;">Next message</a> ]
+[ <a href="./0231.html" title="Schmidli Juerg: &quot;[CF-metadata] cartesian_x_coordinate&quot;">Previous message</a> ]
+[ <a href="./0222.html" title="Schmidli Juerg: &quot;[CF-metadata] Vertical Coordinate Systems&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,54 +70,126 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Bryan Lawrence &lt;<a href="mailto:b.n.lawrence?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20Action%20Groups">b.n.lawrence</a>&gt;
+<dfn>From</dfn>: Brian Eaton &lt;<a href="mailto:eaton?Subject=Re%3A%20%5BCF-metadata%5D%20Vertical%20Coordinate%20Systems">eaton</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 26 Sep 2006 15:49:30 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Sun, 27 Jul 2003 18:03:47 -0600</span><br />
 </address>
 <br />
-Hi Folks
+Hi Jonathan and Juerg,
 <br />
-<br />I've been receiving some questions about a &quot;roadmap&quot; for CF lately from
+<br />I agree with Jonathan that we should not reformulate p0 as ptop in the
 <br />
-a couple of directions. Well, as you all know, I'm certainly not keeper
+atmosphere_hybrid_sigma_pressure_coordinate.  I don't think we should
 <br />
-of the CF direction, but I have been sitting on notes from a meeting in
+reformulate any of the existing coordinates in appendix C.  While there is
 <br />
-June ...
+a certain appeal to a consistent general formulation for all the
 <br />
-<br />The attached two-page word document summarises a discussion held at
+coordinates, that is not a goal of these conventions.  Usability is a goal
 <br />
-GO-ESSP which was aimed at identifying some individuals to take some
+and it is easier for data writers to use formulas that they're familiar
 <br />
-aspects of CF forward. 
+with.  That is why we provide two formulations for
 <br />
-<br />I've offered to hassle the folk concerned on a quarterly basis, to
+atmosphere_hybrid_sigma_pressure_coordinate.  There are large groups that
 <br />
-report to this list on progress ...
+use each of the formulations given, so we agreed to disagree on which
 <br />
-<br />Cheers
+formulation was &quot;better&quot; and included them both.
 <br />
-Bryan
+<br />Juerg, I'm confused by your last example which contains both a height
 <br />
-<br />p.s. Michael, Tom, while I haven't heard back from you to confirm you're
+coordinate variable and a height auxillary coordinate variable.  
 <br />
-happy to do this, I'm pretty sure you are. If you're not, let me know!!
+<br /><em class="quotelev1">&gt; Consider for example a model where the height of the model levels is a
+</em><br />
+<em class="quotelev1">&gt; function of x and y. Thus the &quot;generalised&quot; height is a 3-dimensional
+</em><br />
+<em class="quotelev1">&gt; auxillary coordinate variable, and not a coordinate variable.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Is this what you would suggest?
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; netcdf arp_general {
+</em><br />
+<em class="quotelev1">&gt; dimensions:
+</em><br />
+<em class="quotelev1">&gt;         xc = 16 ;
+</em><br />
+<em class="quotelev1">&gt;         yc = 2 ;
+</em><br />
+<em class="quotelev1">&gt;         zlay = 60 ;
+</em><br />
+<em class="quotelev1">&gt;         time = 2 ;
+</em><br />
+<em class="quotelev1">&gt;         one = 1 ;
+</em><br />
+<em class="quotelev1">&gt; variables:
+</em><br />
+<em class="quotelev1">&gt;         float xc(xc) ;
+</em><br />
+<em class="quotelev1">&gt;                 xc:axis = &quot;X&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 xc:long_name = &quot;x-coordinate&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 xc:units = &quot;m&quot; ;
+</em><br />
+<em class="quotelev1">&gt;         float yc(yc) ;
+</em><br />
+<em class="quotelev1">&gt;                 yc:axis = &quot;Y&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 yc:long_name = &quot;y-coordinate&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 yc:units = &quot;m&quot; ;
+</em><br />
+<em class="quotelev1">&gt;         float zlay(zlay) ;
+</em><br />
+<em class="quotelev1">&gt;                 zlay:axis = &quot;Z&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 zlay:standard_name = &quot;height&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 zlay:units = &quot;m&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 zlay:positive = &quot;up&quot; ;
+</em><br />
+<em class="quotelev1">&gt;         float time(time) ;
+</em><br />
+<em class="quotelev1">&gt;                 time:axis = &quot;T&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 time:units = &quot;seconds&quot; ;
+</em><br />
+<em class="quotelev1">&gt;         float U(time, zlay, yc, xc) ;
+</em><br />
+<em class="quotelev1">&gt;                 U:long_name = &quot;u wind component&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 U:units = &quot;m s-1&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 U:coordinates = &quot;Z&quot; ;
+</em><br />
+<em class="quotelev1">&gt;         float Z(zlay, yc, xc) ;
+</em><br />
+<em class="quotelev1">&gt;                 Z:standard_name = &quot;height&quot;
+</em><br />
+<em class="quotelev1">&gt; }
+</em><br />
+<br />A CF-compliant application would identify zlay as the vertical coordinate
 <br />
-<br /><br /><br />-------------- next part --------------
+variable since it has the positive attribute.  But if you want the
 <br />
-A non-text attachment was scrubbed...
+auxillary coordinate variable Z to be recognized as containing height
 <br />
-Name: CF-Actions-GO-ESSP-June2006-v2.doc
+coordinates, then zlay should not have the positive attribute and Z should
 <br />
-Type: application/msword
+have both the positive attribute and the units of &quot;m&quot; as Jonathan
 <br />
-Size: 36864 bytes
+suggested.
 <br />
-Desc: not available
+<br />Brian
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20060926/ced4c38c/attachment.doc">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20060926/ced4c38c/attachment.doc</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Tue Sep 26 2006 - 08:49:30 BST</span>
+<span id="received"><dfn>Received on</dfn> Sun Jul 27 2003 - 18:03:47 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -123,8 +197,9 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start232">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0233.html" title="Next message in the list">Roy Lowry: "[CF-metadata] standard names for aerosols and chemistry"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0231.html" title="Previous message in the list">Christiane Textor: "[CF-metadata] standard names for aerosols and chemistry"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0233.html" title="Next message in the list">Schmidli Juerg: "[CF-metadata] Vertical Coordinate Systems"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0231.html" title="Previous message in the list">Schmidli Juerg: "[CF-metadata] cartesian_x_coordinate"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0222.html" title="Message to which this message replies">Schmidli Juerg: "[CF-metadata] Vertical Coordinate Systems"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -136,7 +211,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:46 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0231.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0233.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

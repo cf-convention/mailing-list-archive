@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] COARDS name for a time offset from John Caron on 2007-01-09 (mailing-list-archive)</title>
-<meta name="Author" content="John Caron (caron)" />
-<meta name="Subject" content="[CF-metadata] COARDS name for a time offset" />
-<meta name="Date" content="2007-01-09" />
+<title>[CF-metadata] more netcdf attributes from Jonathan Gregory on 2005-06-15 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] more netcdf attributes" />
+<meta name="Date" content="2005-06-15" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0667.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0669.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] COARDS name for a time offset</h1>
-<!-- received="Tue Jan  9 08:57:18 2007" -->
-<!-- isoreceived="20070109085718" -->
-<!-- sent="Tue, 09 Jan 2007 08:57:18 -0700" -->
-<!-- isosent="20070109155718" -->
-<!-- name="John Caron" -->
-<!-- email="caron" -->
-<!-- subject="[CF-metadata] COARDS name for a time offset" -->
-<!-- id="45A3BB5E.2000507_at_unidata.ucar.edu" -->
+<a style="text-decoration:none" href="./0667.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0669.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] more netcdf attributes</h1>
+<!-- received="Wed Jun 15 01:05:27 2005" -->
+<!-- isoreceived="20050615000527" -->
+<!-- sent="Wed, 15 Jun 2005 08:05:27 +0100" -->
+<!-- isosent="20050615070527" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] more netcdf attributes" -->
+<!-- id="20050615070527.GB12812_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="p06110412c1c88c5e8acf_at_[137.79.160.215]" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0669.html" accesskey="d" title="Christiane Textor: &quot;[CF-metadata] aerosol and chemistry names - continuation&quot;">Next message</a> ]
-[ <a href="./0667.html" title="John Caron: &quot;[CF-metadata] COARDS name for a time offset&quot;">Previous message</a> ]
-[ <a href="./0665.html" title="Ed Armstrong: &quot;[CF-metadata] COARDS name for a time offset&quot;">In reply to</a> ]
+[ <a href="./0669.html" accesskey="d" title="Ethan Davis: &quot;[CF-metadata] more netcdf attributes&quot;">Next message</a> ]
+[ <a href="./0667.html" title="Jonathan Gregory: &quot;[CF-metadata] more netcdf attributes&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,56 +68,56 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20COARDS%20name%20for%20a%20time%20offset">caron</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20more%20netcdf%20attributes">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 09 Jan 2007 08:57:18 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 15 Jun 2005 08:05:27 +0100</span><br />
 </address>
 <br />
-ok, let me try this again:
+Dear Ethan
 <br />
-<br />abstractly, we have swath data with 2D time coordinates.
+<br /><em class="quotelev1">&gt; I'll put together another table trying to map the proposed attributes to 
+</em><br />
+<em class="quotelev1">&gt; existing CF attributes and we can use that to talk about this issue.
+</em><br />
+Good - that will be useful.
 <br />
-since the swath data occurs at the same lat/lon pixels, it is useful to 
+<br /><em class="quotelev1">&gt; Do you guys see combining of data types in the same file much?
+</em><br />
+Not often, but from the Hadley Centre models we can produce files containing
 <br />
-make these into 3D variables:
+both daily gridded data and daily timeseries.
 <br />
-<br />&nbsp;&nbsp;&nbsp;variable[t, y, x]
+<br /><em class="quotelev1">&gt; we are hoping to make harvesting the discovery level 
+</em><br />
+<em class="quotelev1">&gt; information easier. So that applications harvesting this information 
+</em><br />
+<em class="quotelev1">&gt; won't have to understand all the coordinate variables and geolocation 
+</em><br />
+<em class="quotelev1">&gt; information, the geospatial_ attributes would allow for that information 
+</em><br />
+<em class="quotelev1">&gt; to be bubbled up to a higher level. I agree that containing this 
+</em><br />
+<em class="quotelev1">&gt; information in the dataset may not always be the best idea. There need 
+</em><br />
+<em class="quotelev1">&gt; to be ways of bubbling this information up that are outside of the 
+</em><br />
+<em class="quotelev1">&gt; datasets.
+</em><br />
+It seems more robust to me if the metadata-harvesting program can be taught
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+to understand CF so that it can extract the geospatial information from the
 <br />
-which have coordinates:
+variables in the file. That would be more robust than depending on the writer
 <br />
-&nbsp;&nbsp;&nbsp;lat[y,x]
+of the dataset to create these extra attributes, and for subsequent processing
 <br />
-&nbsp;&nbsp;&nbsp;lon[y,x]
+programs to ensure they stayed correct.
 <br />
-&nbsp;&nbsp;&nbsp;time_for_variable[t,y,x]
+<br />Best wishes
 <br />
-<br />the times for different variables may be different.
+<br />Jonathan
 <br />
-<br />to save space, we want to calculate the time variables, instead of 
-<br />
-storing them,  as:
-<br />
-<br />&nbsp;&nbsp;time_for_variable[t, y, x] =  reference_time[t] + sst_dtime[t,y,x] + 
-<br />
-time_offset_for_variable
-<br />
-<br />or is it
-<br />
-<br />&nbsp;&nbsp;time_for_variable[t, y, x] =  reference_time[t] + sst_dtime[t,y,x] + 
-<br />
-time_offset_for_variable[y,x]
-<br />
-<br />as jonathan suggests??
-<br />
-<br />does this capture the issue correctly?
-<br />
-<br />if so, and we want to proceed, perhaps a &quot;formula&quot; attribute (a la 
-<br />
-grid_mapping)  would be a good generalized way to do these calculations?
-<br />
-<span id="received"><dfn>Received on</dfn> Tue Jan 09 2007 - 08:57:18 GMT</span>
+<span id="received"><dfn>Received on</dfn> Wed Jun 15 2005 - 01:05:27 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -127,9 +125,8 @@ grid_mapping)  would be a good generalized way to do these calculations?
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start668">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0669.html" title="Next message in the list">Christiane Textor: "[CF-metadata] aerosol and chemistry names - continuation"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0667.html" title="Previous message in the list">John Caron: "[CF-metadata] COARDS name for a time offset"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0665.html" title="Message to which this message replies">Ed Armstrong: "[CF-metadata] COARDS name for a time offset"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0669.html" title="Next message in the list">Ethan Davis: "[CF-metadata] more netcdf attributes"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0667.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] more netcdf attributes"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -141,7 +138,7 @@ grid_mapping)  would be a good generalized way to do these calculations?
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:54 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0667.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0669.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

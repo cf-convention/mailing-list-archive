@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] curvilinear cartesian coordinates case from Jonathan Gregory on 2006-11-28 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] curvilinear cartesian coordinates case" />
-<meta name="Date" content="2006-11-28" />
+<title>[CF-metadata]  The &quot;grid&quot; attribute seems to solve both unstructured and staggered grid issues from Rich Signell on 2004-11-22 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Rich Signell (rsignell)" />
+<meta name="Subject" content="[CF-metadata]  The &quot;grid&quot; attribute seems to solve both unstructured and staggered grid issues" />
+<meta name="Date" content="2004-11-22" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0505.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0507.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] curvilinear cartesian coordinates case</h1>
-<!-- received="Tue Nov 28 09:19:17 2006" -->
-<!-- isoreceived="20061128091917" -->
-<!-- sent="Tue, 28 Nov 2006 16:19:17 +0000" -->
-<!-- isosent="20061128161917" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] curvilinear cartesian coordinates case" -->
-<!-- id="20061128161917.GE4317_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0505.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0507.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  The &quot;grid&quot; attribute seems to solve both unstructured and staggered grid issues</h1>
+<!-- received="Mon Nov 22 06:41:06 2004" -->
+<!-- isoreceived="20041122064106" -->
+<!-- sent="Mon, 22 Nov 2004 08:41:06 -0500" -->
+<!-- isosent="20041122134106" -->
+<!-- name="Rich Signell" -->
+<!-- email="rsignell" -->
+<!-- subject="[CF-metadata]  The &quot;grid&quot; attribute seems to solve both unstructured and staggered grid issues" -->
+<!-- id="41A1EC72.50908_at_usgs.gov" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20041118161632.GC18354_at_ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0507.html" accesskey="d" title="Mark Ohrenschall: &quot;[CF-metadata] Need help writing point netCDF 3 dataset&quot;">Next message</a> ]
-[ <a href="./0505.html" title="Jonathan Gregory: &quot;[CF-metadata] Getting back to ensembles&quot;">Previous message</a> ]
+[ <a href="./0507.html" accesskey="d" title="Rich Signell: &quot;[CF-metadata] U and V &#0034;grid relative&#0034; velocities&quot;">Next message</a> ]
+[ <a href="./0505.html" title="Brian Eaton: &quot;[CF-metadata] Conventions for Unstructured Grid Data&quot;">Previous message</a> ]
+[ <a href="./0505.html" title="Brian Eaton: &quot;[CF-metadata] Conventions for Unstructured Grid Data&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0508.html" accesskey="t" title="Brian Eaton: &quot;[CF-metadata] curvilinear cartesian coordinates case&quot;">Next in thread</a> ]
+[ <a href="./0509.html" accesskey="t" title="John Caron: &quot;[CF-metadata]  The &#0034;grid&#0034; attribute seems to solve both unstructured and staggered grid issues&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,108 +72,255 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20curvilinear%20cartesian%20coordinates%20case">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Rich Signell &lt;<a href="mailto:rsignell?Subject=Re%3A%20%5BCF-metadata%5D%20%20The%20%22grid%22%20attribute%20seems%20to%20solve%20both%20unstructured%20and%20staggered%20grid%20issues">rsignell</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 28 Nov 2006 16:19:17 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 22 Nov 2004 08:41:06 -0500</span><br />
 </address>
 <br />
-Dear Bert
+CF Community,
 <br />
-<br />I agree with you and Brian that we could allow the grid_mapping attribute to
+<br />I think Brian's idea of a &quot;grid&quot; attribute is great!
 <br />
-be attached to auxiliary coordinate variables. The reason why we didn't do that
+By creating an attribute pointing to  a
 <br />
-before is because it isn't really the property of any auxiliary coordinate
+variable with metadata  about the grid is a great solution
 <br />
-variable, but belongs to a coordinate system composed of several auxiliary
+that not only solves the unstructured mesh problem, but the
 <br />
-variables. However you have raised a problem with that, and that's is a simple
+previously unresolved staggered grid problem as well.
 <br />
-solution. An alternative solution would be to change the grid_mapping attribute
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <br />
-to a different format, something like this:
+<br />I would argue (I think along with John Caron, if I interpret
 <br />
-<br />&nbsp;float waterlevel(TIME,M,N);
+&nbsp;his posts from a year ago correctly) that there *is* value
 <br />
-&nbsp;&nbsp;&nbsp;waterlevel:long_name = &quot;water level&quot; ;
+in the explicit specification of staggered grid information.
 <br />
-&nbsp;&nbsp;&nbsp;waterlevel:units = &quot;M&quot; ;
+For example, the C grid is used by most ocean models (POM,
 <br />
-&nbsp;&nbsp;&nbsp;waterlevel:standard_name = &quot;sea_surface_height&quot; ;
+NCOM, ROMS, to name a few), and these models also have
 <br />
-&nbsp;&nbsp;&nbsp;waterlevel:positive = &quot;up&quot; ;
+dimensionless coordinates that need to be calculated based on
 <br />
-&nbsp;&nbsp;&nbsp;waterlevel:coordinates = &quot;z_lat z_lon zgrid_y_nl zgrid_x_nl zgrid_y_de zgrid_x_de&quot;;
+time dependent variables like the sea surface height.  Since the
 <br />
-&nbsp;&nbsp;&nbsp;waterlevel:grid_mapping = &quot;zgrid_x_nl: zgrid_y_nl: EPSG19914 zgrid_x_de: zgrid_y_de: EPSG16362&quot;;
+sea surface height does not  exist at the u and v points,
 <br />
-&nbsp;double zgrid_x_nl(M,N);
+a client application trying to plot a vertical section of u
 <br />
-&nbsp;&nbsp;&nbsp;zgrid_x_nl:long_name = &quot;grid cell centres, x-coordinate, EPSG19914&quot; ;
+needs to interpolate the sea surface height (and the depth)
 <br />
-&nbsp;&nbsp;&nbsp;zgrid_x_nl:units = &quot;M&quot; ;
+to the u locations.   Clients *could* be made smart enough
 <br />
-&nbsp;&nbsp;&nbsp;zgrid_x_nl:standard_name = &quot;projection_x_coordinate&quot; ;
+to do interpolations whenever something doesn't exist at the
 <br />
-&nbsp;double zgrid_y_nl(M,N);
+location it is needed, but if we *know* that we are dealing
 <br />
-&nbsp;&nbsp;&nbsp;zgrid_y_nl:long_name = &quot;grid cell centres, y-coordinate, EPSG19914&quot; ;
+with a C grid, the clients can be simpler and more efficient,
 <br />
-&nbsp;&nbsp;&nbsp;zgrid_y_nl:units = &quot;M&quot; ;
+just averaging the sea surface height and depth from pressure
 <br />
-&nbsp;&nbsp;&nbsp;zgrid_y_nl:standard_name = &quot;projection_y_coordinate&quot; ;
+points  &quot;to the right&quot; and &quot;to the left&quot; of the u points.
 <br />
-&nbsp;double zgrid_x_de(M,N);
+<br />Of course the pressure point &quot;to the right&quot; of a u(i,j) point
 <br />
-&nbsp;&nbsp;&nbsp;zgrid_x_de:long_name = &quot;grid cell centres, x-coordinate, EPSG16362&quot; ;
+might be p(i,j) or it might be p(i+1,j).  Again, the client
 <br />
-&nbsp;&nbsp;&nbsp;zgrid_x_de:units = &quot;M&quot; ;
+*could* be smart enough to figure this out by looking at the
 <br />
-&nbsp;&nbsp;&nbsp;zgrid_x_de:standard_name = &quot;projection_x_coordinate&quot; ;
+relative location of the lon,lat points for u and p, but why
 <br />
-&nbsp;double zgrid_y_de(M,N);
+not specify this explicitly to make it easy for client builders?
 <br />
-&nbsp;&nbsp;&nbsp;zgrid_y_de:long_name = &quot;grid cell centres, y-coordinate, EPSG16362&quot; ;
+&nbsp;So for C grid, we could specify something like this:
 <br />
-&nbsp;&nbsp;&nbsp;zgrid_y_de:units = &quot;M&quot; ;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <br />
-&nbsp;&nbsp;&nbsp;zgrid_y_de:standard_name = &quot;projection_y_coordinate&quot; ;
+netcdf c_grid_example {   
 <br />
-<br />In this version, grid_mapping is still an attribute of the data variable, but
+....                                                
 <br />
-now it has the form &quot;auxcoord: [auxcoord: ...] grid_mapping [auxcoord: ...]&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;u:grid = &quot;grid_info&quot;
 <br />
-which indicates the set of auxiliary coordinates which belongs to each
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <br />
-grid_mapping variable. I'd suggest that an advantage of this is that it
+<br />&nbsp;&nbsp;&nbsp;&nbsp;v:grid = &quot;grid_info&quot;
 <br />
-wouldn't require looking in different places for the information. I based
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <br />
-this syntax on cell_methods but of course others would be possible. What do
+<br />&nbsp;char grid_info
 <br />
-you think?
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grid_info:grid_name = &quot;Arakawa_C_grid&quot;
 <br />
-<br />I assume that we should continue to support the current kind of grid_mapping
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grid_info:u_relative_to_pressure = &quot;left&quot;
 <br />
-in any case.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grid_info:v_relative_to_pressure = &quot;below&quot;
 <br />
-<br /><em class="quotelev1">&gt; 2) let the reader search for compatible coordinates (dimensions match data) 
+}
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br />
+<br />&nbsp;where the last two attributes would signify that u(i,j) is
+<br />
+&nbsp;&quot;left&quot; of p(i,j) and v(i,j) is &quot;below&quot; p(i,j).                            
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br />
+<br />&nbsp;Specifying C-grid would also allow the lon and lat positions
+<br />
+&nbsp;of the u and v points to be estimated in the case that they
+<br />
+&nbsp;were not supplied.  This is often the case -- there are many
+<br />
+&nbsp;C-grid netcdf data sets I know of where only then lon,lat of
+<br />
+&nbsp;the pressure points is given.
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br />
+&nbsp;Again I think this is a great development and hope we get some
+<br />
+&nbsp;discussion and or confirmation of these ideas!
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br />
+<br />-Rich Signell 
+<br />
+<br />Brian Eaton wrote:
+<br />
+<br /><em class="quotelev1">&gt;All,
 </em><br />
-<em class="quotelev1">&gt; based on standard_names.
+<em class="quotelev1">&gt;
 </em><br />
-<br />The reason we didn't do that is not only that it is more work, but that it
-<br />
-might not give the right results. There might be auxiliary coordinates with
-<br />
-a given dimension that applied to some data variables but not others, for
-<br />
-example.
-<br />
-<br />Best wishes
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Tue Nov 28 2006 - 09:19:17 GMT</span>
+<em class="quotelev1">&gt;I agree with Steve's general comments on the current proposal.  And I agree
+</em><br />
+<em class="quotelev1">&gt;with adding new attributes to point to the variables that will describe
+</em><br />
+<em class="quotelev1">&gt;properties of the mesh.  The only thing I'd like to modify about Steve's
+</em><br />
+<em class="quotelev1">&gt;proposal is that rather than attaching those attributes directly to the
+</em><br />
+<em class="quotelev1">&gt;dependent variables, I'd prefer an analogous approach to the one we chose
+</em><br />
+<em class="quotelev1">&gt;(after a lengthy discussion) for describing grid mappings.  In this case
+</em><br />
+<em class="quotelev1">&gt;we're trying to describe the grid, so I propose a &quot;grid&quot; attribute to
+</em><br />
+<em class="quotelev1">&gt;attach to the dependent variable, and that attribute points to a variable
+</em><br />
+<em class="quotelev1">&gt;which just acts as a container for all the specific attributes needed to
+</em><br />
+<em class="quotelev1">&gt;describe connections and boundary nodes for a particular type of mesh.
+</em><br />
+<em class="quotelev1">&gt;I've modified the original proposal to illustrate the idea, without having
+</em><br />
+<em class="quotelev1">&gt;given much thought to whether or not the specific attribute names are the
+</em><br />
+<em class="quotelev1">&gt;best ones.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;netcdf umesh_cf {
+</em><br />
+<em class="quotelev1">&gt;dimensions:
+</em><br />
+<em class="quotelev1">&gt;  node = 9700 ;
+</em><br />
+<em class="quotelev1">&gt;  nele = 17925 ;
+</em><br />
+<em class="quotelev1">&gt;  nbnd = 1476 ;
+</em><br />
+<em class="quotelev1">&gt;  nface = 3 ;
+</em><br />
+<em class="quotelev1">&gt;  nbi = 4 ;
+</em><br />
+<em class="quotelev1">&gt;  sigma = 1 ;
+</em><br />
+<em class="quotelev1">&gt;  time = UNLIMITED ; // (0 currently)
+</em><br />
+<em class="quotelev1">&gt;variables:
+</em><br />
+<em class="quotelev1">&gt;  float time(time) ;
+</em><br />
+<em class="quotelev1">&gt;    time:long_name = &quot;Time&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    time:units = &quot;days since 2003-01-01  0:00:00 00:00&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    time:base_date = 2003, 1, 1, 0 ;
+</em><br />
+<em class="quotelev1">&gt;    time:standard_name = &quot;time&quot; ;
+</em><br />
+<em class="quotelev1">&gt;  float lon(node) ;
+</em><br />
+<em class="quotelev1">&gt;    lon:long_name = &quot;Longitude&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    lon:units = &quot;degrees_east&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    lon:standard_name = &quot;longitude&quot; ;
+</em><br />
+<em class="quotelev1">&gt;  float lat(node) ;
+</em><br />
+<em class="quotelev1">&gt;    lat:long_name = &quot;Latitude&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    lat:units = &quot;degrees_north&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    lat:standard_name = &quot;latitude&quot; ;
+</em><br />
+<em class="quotelev1">&gt;  float depth(node) ;
+</em><br />
+<em class="quotelev1">&gt;    depth:long_name = &quot;Bathymetry&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    depth:units = &quot;meters&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    depth:positive = &quot;down&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    depth:standard_name = &quot;depth&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    depth:grid = &quot;grid_description&quot;;
+</em><br />
+<em class="quotelev1">&gt;  char grid_description
+</em><br />
+<em class="quotelev1">&gt;    mesh:grid_name = &quot;triangular_mesh&quot;;
+</em><br />
+<em class="quotelev1">&gt;    mesh:Horizontal_Triangular_Element_Incidence_List = &quot;ele&quot;;
+</em><br />
+<em class="quotelev1">&gt;    mesh:Boundary_Segment_Node_List = &quot;bnd&quot;;
+</em><br />
+<em class="quotelev1">&gt;    mesh:index_start = 1;
+</em><br />
+<em class="quotelev1">&gt;  int ele(nele, nface) ;
+</em><br />
+<em class="quotelev1">&gt;  int bnd(nbnd, nbi) ;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;Brian
+</em><br />
+<em class="quotelev1">&gt;_______________________________________________
+</em><br />
+<em class="quotelev1">&gt;CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt;CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt;<a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt;  
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<br /><br /><pre>
+-- 
+Richard P. Signell           rsignell at usgs.gov
+U.S. Geological Survey       Phone: (508) 457-2229
+384 Woods Hole Road          Fax:   (508) 457-2310
+Woods Hole, MA  02543-1598  
+</pre>
+<span id="received"><dfn>Received on</dfn> Mon Nov 22 2004 - 06:41:06 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -179,12 +328,13 @@ example.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start506">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0507.html" title="Next message in the list">Mark Ohrenschall: "[CF-metadata] Need help writing point netCDF 3 dataset"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0505.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Getting back to ensembles"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0507.html" title="Next message in the list">Rich Signell: "[CF-metadata] U and V &#0034;grid relative&#0034; velocities"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0505.html" title="Previous message in the list">Brian Eaton: "[CF-metadata] Conventions for Unstructured Grid Data"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0505.html" title="Message to which this message replies">Brian Eaton: "[CF-metadata] Conventions for Unstructured Grid Data"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0508.html" title="Next message in this discussion thread">Brian Eaton: "[CF-metadata] curvilinear cartesian coordinates case"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./0509.html" title="Next message in this discussion thread">John Caron: "[CF-metadata]  The &#0034;grid&#0034; attribute seems to solve both unstructured and staggered grid issues"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0508.html" title="Message sent in reply to this message">Brian Eaton: "[CF-metadata] curvilinear cartesian coordinates case"</a></li>
+<dfn>Reply</dfn>: <a href="./0509.html" title="Message sent in reply to this message">John Caron: "[CF-metadata]  The &#0034;grid&#0034; attribute seems to solve both unstructured and staggered grid issues"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -195,7 +345,7 @@ example.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:51 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0505.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0507.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

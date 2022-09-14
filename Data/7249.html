@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] original_ensemble_size from Karl Taylor on 2015-07-24 (mailing-list-archive)</title>
-<meta name="Author" content="Karl Taylor (taylor13)" />
-<meta name="Subject" content="[CF-metadata] original_ensemble_size" />
-<meta name="Date" content="2015-07-24" />
+<title>[CF-metadata] Days of rain from John Graybeal on 2014-09-03 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Graybeal (john.graybeal)" />
+<meta name="Subject" content="[CF-metadata] Days of rain" />
+<meta name="Date" content="2014-09-03" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./7248.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7250.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] original_ensemble_size</h1>
-<!-- received="Thu Jul 23 18:42:03 2015" -->
-<!-- isoreceived="20150723174203" -->
-<!-- sent="Thu, 23 Jul 2015 17:42:03 -0700" -->
-<!-- isosent="20150724004203" -->
-<!-- name="Karl Taylor" -->
-<!-- email="taylor13" -->
-<!-- subject="[CF-metadata] original_ensemble_size" -->
-<!-- id="55B189DB.7000701_at_llnl.gov" -->
+<a style="text-decoration:none" href="./7248.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7250.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Days of rain</h1>
+<!-- received="Wed Sep  3 10:27:42 2014" -->
+<!-- isoreceived="20140903092742" -->
+<!-- sent="Wed, 3 Sep 2014 09:27:42 -0700" -->
+<!-- isosent="20140903162742" -->
+<!-- name="John Graybeal" -->
+<!-- email="john.graybeal" -->
+<!-- subject="[CF-metadata] Days of rain" -->
+<!-- id="3969A993-A94F-424D-9FBB-BEAA9CE9A246_at_marinexplore.com" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="55B0D9F4.6020605_at_cicsnc.org" -->
+<!-- inreplyto="014539AC4976BE4490A360410A8C201779264741_at_EXCHMBX03.fed.cclrc.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./7250.html" accesskey="d" title="John Graybeal: &quot;[CF-metadata] original_ensemble_size&quot;">Next message</a> ]
-[ <a href="./7248.html" title="Jim Biard: &quot;[CF-metadata] original_ensemble_size&quot;">Previous message</a> ]
-[ <a href="./7248.html" title="Jim Biard: &quot;[CF-metadata] original_ensemble_size&quot;">In reply to</a> ]
+[ <a href="./7250.html" accesskey="d" title="John Graybeal: &quot;[CF-metadata] searching CF-Metadata list&quot;">Next message</a> ]
+[ <a href="./7248.html" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] Days of rain&quot;">Previous message</a> ]
+[ <a href="./7248.html" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] Days of rain&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./7256.html" accesskey="t" title="Hedley, Mark: &quot;[CF-metadata] original_ensemble_size&quot;">Next in thread</a> ]
+[ <a href="./7252.html" accesskey="t" title="Hollis, Dan: &quot;[CF-metadata] Days of rain&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,234 +72,258 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Karl Taylor &lt;<a href="mailto:taylor13?Subject=Re%3A%20%5BCF-metadata%5D%20original_ensemble_size">taylor13</a>&gt;
+<dfn>From</dfn>: John Graybeal &lt;<a href="mailto:john.graybeal?Subject=Re%3A%20%5BCF-metadata%5D%20Days%20of%20rain">john.graybeal</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 23 Jul 2015 17:42:03 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 3 Sep 2014 09:27:42 -0700</span><br />
 </address>
 <br />
-Hi all,
-<br />
-<br />This addresses the issue of how to associate an ensemble size with a 
-<br />
-variable.  It also suggests an alternate way of proceeding that is more 
-<br />
-general and will allow us to record, for example, which models were 
-<br />
-included in a multi-model mean.
-<br />
-<br />First to consider Jim's suggestion:
-<br />
-I agree with Jim that you might want to indicate which member (or 
-<br />
-members) of an ensemble were represented by the variable so you might 
-<br />
-want to include a coordinate variable of &quot;realization&quot;.  You could then 
-<br />
-also define an *attribute* of that coordinate as &quot;ensemble_size&quot; which 
-<br />
-would record the size, but currently that approach is not standardized 
-<br />
-(but of course is permitted) by our conventions.
-<br />
-<br />Now Mark's suggestion:
-<br />
-Mark's alternative approach to make &quot;ensemble_size&quot; a coordinate 
-<br />
-variable (presumably in addition to possibly including &quot;realization&quot;) 
-<br />
-would also relate it to the variable of interest, but this would be a 
-<br />
-bit unconventional since a variable would normally be considered to be a 
-<br />
-*function* of its (independent) coordinates. I don't think 
-<br />
-T(x,realization,ensemble_size)  is a proper function, since T depends on 
-<br />
-x and realization, but should be independent of ensemble size in most cases.
-<br />
-<br />Jonathan's suggestion:
-<br />
-I think Jonathan suggested including ensemble_size in a cell_methods 
-<br />
-attribute.  For example
-<br />
-<br />dimensions:
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon=72
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat=96
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e_size=5
-<br />
-<br />variables:
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float precip(lon,lat)
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;precip: cell_methods=&quot;realization: point (sample_size: e_size)
-<br />
-<br />where because &quot;realization&quot; is a standard name, it does not need to be 
-<br />
-explicitly declared with a &quot;coordinates&quot; attribute.  Jonathan originally 
-<br />
-used &quot;dimension&quot; rather than &quot;sample_size&quot;, but I prefer 
-<br />
-&quot;sample_size&quot;.   If this approach were followed, then CF would need to 
-<br />
-be modified so that &quot;sample_size&quot; (along with &quot;interval&quot;) was designated 
-<br />
-to be one of the options for providing &quot;standardized&quot; extra information 
-<br />
-in the cell_methods attribute.  Note that the variable &quot;pointed to&quot; by 
-<br />
-original_domain would not necessarily be a coordinate variable; it need 
-<br />
-not be monotonic and it could be a character variable (i.e., a list).
-<br />
-<br />Alternative &quot;new approach&quot;
-<br />
-<br />An approach that is a slight variant on Jonathan's and would allow even 
-<br />
-more information to be provided concerning the ensemble is illustrated 
-<br />
-by the following example:
-<br />
-<br />dimensions:
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon=72
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat=96
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;members=5
-<br />
-<br />variables:
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float precip(lon,lat)
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;precip: cell_methods=&quot;member: point (sample_pool: members)
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int member
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;member: standard_name=&quot;realization&quot;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int members(members)
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;members: standard_name=&quot;realization&quot;
-<br />
-<br />data:
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;member = 3
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;members = 1, 3, 5, 6, 10
-<br />
-<br />This would tell you T was from the realization labeled 3 of a 5-member 
-<br />
-ensemble (with labels 1, 3, 5, 6, and 10).  If this approach were 
-<br />
-adopted, then CF would need to be modified so that &quot;sample_pool&quot; (along 
-<br />
-with &quot;interval&quot;) was designated to be one of the the options for 
-<br />
-providing &quot;standardized&quot; extra information in the cell_methods attribute.
-<br />
-<br />Under Jonathan's approach and also the &quot;new approach&quot;, there wouldn't be 
-<br />
-a need to define the standard_name &quot;ensemble_size&quot; because that would be 
-<br />
-provided by the dimension size (5 in the above).
-<br />
-<br />Note that the new approach could also be used to record a multi-model 
-<br />
-ensemble mean (I'm not absolutely sure this example complies with the 
-<br />
-current convention, but I think it would if  the option to designate the 
-<br />
-&quot;original_domain&quot; were added to CF):
-<br />
-<br />dimensions:
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon=72
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat=96
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;models=5
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;max_len = 10
-<br />
-<br />variables:
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float precip(lon,lat)
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;precip: cell_methods=&quot;realization: mean (sample_pool: models)
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char models(models, max_len)
-<br />
-<br />data:
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;models = &quot;CanESM2&quot;, &quot;CESM1&quot;, &quot;CNRM-CM5&quot;, &quot;HadGEM2&quot;, &quot;MIROC-ESM&quot;
-<br />
-<br />Note also that the flexibility of this new approach could be useful for 
-<br />
-dimensions other than realization when, for example, the sampling 
-<br />
-interval for a spatial mean is from scattered stations.  If one were 
-<br />
-computing an spatial mean from 5 stations, for example, this could be 
-<br />
-recorded as follows:
-<br />
-<br />dimensions:
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stations=5
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;max_len=16
-<br />
-<br />variables:
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float precmean
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;precmean: cell_methods=&quot;area: mean (sample_pool: stations)&quot;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char stations(stations,max_len)
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stations: coordinates=&quot;lat lon&quot;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat(stations)
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat: standard_name=&quot;latitude&quot;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon(stations)
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon: standard_name=&quot;longitude&quot;
-<br />
-<br />data:
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stations = &quot;Oakland&quot;, &quot;San Francisco&quot;, &quot;Livermore&quot;, &quot;San Jose&quot;, 
-<br />
-&quot;Palo Alto&quot;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat = 37.62, 37.77, ...
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon = -122.27, -122.42, ....
-<br />
-<br />I would find it very nice to be able to specify the models contributing 
-<br />
-to a multi-model mean using the above approach.  Anyone else think so?  
-<br />
-It would also satisfy Mark's use case of wanting to record the size of 
-<br />
-the ensemble.
-<br />
-<br />Best regards,
-<br />
-Karl
-<br />
-<br />-------------- next part --------------
-<br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150723/c6afd02f/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150723/c6afd02f/attachment.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Thu Jul 23 2015 - 18:42:03 BST</span>
+While I agree it is not a big problem to use at_or_above_threshold in this and whatever other standard names eventually are needed, discoverability would be better with the boolean attribute (&quot;comparison_includes_equality&quot;?). As a practical matter, people looking for, e.g., number_of_days_with_lwe_thickness_of_precipitation_amount_above_threshold data will want to discover data that is at_or_above_threshold too, but may not think (or want) to search for the additional term using at_or_above_threshold, even if they know of that possibility. 
+<br />
+<br />That said, it's a minor point, I'm OK with either approach. I definitely think names should not rely on a particular observation technology or approach (e.g., quantization, rounding, measurement accuracy or technique). 
+<br />
+<br />Will start a new thread re archives.
+<br />
+<br />john
+<br />
+<br /><br /><br /><br />On Sep 3, 2014, at 06:52, alison.pamment at stfc.ac.uk wrote:
+<br />
+<br /><em class="quotelev1">&gt; Dear Dan,
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; I agree that setting a threshold depending on how the data were collected does not seem very satisfactory and it wouldn't allow you to combine readings from a variety of instruments into a single data product. The definition of 'greater|less than or equal to' is clearly not the same as 'greater|less than' so I would argue that they are different quantities and should have different standard names. Currently we have only nine 'threshold' names in the table and personally I don't think it's a big problem to add one more of the form
+</em><br />
+<em class="quotelev1">&gt; number_of_days_with_lwe_thickness_of_precipitation_amount_at_or_above_threshold. The definition would of course need to make clear the difference from the existing name and in fact the definitions should cross-reference one another to make users aware of both. Do others agree?
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Regarding searching the mailing list archives, if I want to find a very specific phrase within the email text I download the plain text file for the appropriate year (available from the main archive page <a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/</a>) and use my browser's 'Find' function. It takes a few minutes to download but it can be a useful way of pinpointing the thing you're looking for.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Best wishes,
+</em><br />
+<em class="quotelev1">&gt; Alison
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; ------
+</em><br />
+<em class="quotelev1">&gt; Alison Pamment                          Tel: +44 1235 778065
+</em><br />
+<em class="quotelev1">&gt; NCAS/British Atmospheric Data Centre    Email: alison.pamment at stfc.ac.uk
+</em><br />
+<em class="quotelev1">&gt; STFC Rutherford Appleton Laboratory     
+</em><br />
+<em class="quotelev1">&gt; R25, 2.22
+</em><br />
+<em class="quotelev1">&gt; Harwell Oxford, Didcot, OX11 0QX, U.K.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; -----Original Message-----
+</em><br />
+<em class="quotelev2">&gt;&gt; From: Hollis, Dan [mailto:dan.hollis at metoffice.gov.uk]
+</em><br />
+<em class="quotelev2">&gt;&gt; Sent: 03 September 2014 12:55
+</em><br />
+<em class="quotelev2">&gt;&gt; To: Gregory, Jonathan; cf-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt;&gt; Subject: Re: [CF-metadata] Days of rain
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Hi Jonathan,
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; For manually-read rain gauges the advice to the observer is simply to record
+</em><br />
+<em class="quotelev2">&gt;&gt; the measurement to one decimal place. For the thresholds of interest this
+</em><br />
+<em class="quotelev2">&gt;&gt; seems to me to be equivalent to saying the values have been rounded.
+</em><br />
+<em class="quotelev2">&gt;&gt; Therefore 0.2 mm does mean 0.15-0.25 mm, 1.0 mm means 0.95-1.05 mm,
+</em><br />
+<em class="quotelev2">&gt;&gt; and 10 mm means 9.95-10.05 mm.
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; In contrast automated sites use a tipping bucket gauge (in the UK at least)
+</em><br />
+<em class="quotelev2">&gt;&gt; which constrains the observations to be multiples of the bucket size. I
+</em><br />
+<em class="quotelev2">&gt;&gt; believe that for all the data we use this is a nominal 0.2 mm i.e.
+</em><br />
+<em class="quotelev2">&gt;&gt; precipitation totals can be 0.0 mm, 0.2 mm, 0.4 mm etc, and values such as
+</em><br />
+<em class="quotelev2">&gt;&gt; 0.1 mm, 0.3 mm, 0.5 mm cannot be reported. Given that all we know is that
+</em><br />
+<em class="quotelev2">&gt;&gt; the bucket has tipped (i.e. has become full and caused the mechanism to tip
+</em><br />
+<em class="quotelev2">&gt;&gt; and empty the bucket) this implies that an observation of 0.2 mm actually
+</em><br />
+<em class="quotelev2">&gt;&gt; means 0.2 &lt;= true value &lt; 0.4 (because the bucket has not yet tipped a
+</em><br />
+<em class="quotelev2">&gt;&gt; second time).
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; For our gridded climate datasets (rainfall total, days of rain etc) we use data
+</em><br />
+<em class="quotelev2">&gt;&gt; from both types of gauge without correction or adjustment. I think we can
+</em><br />
+<em class="quotelev2">&gt;&gt; be fairly confident that uncertainties in the interpolation process will be
+</em><br />
+<em class="quotelev2">&gt;&gt; quite a bit larger than either the observation uncertainty or the differences
+</em><br />
+<em class="quotelev2">&gt;&gt; between the two observation types i.e. these types of subtlety are probably
+</em><br />
+<em class="quotelev2">&gt;&gt; 'in the noise' and to be honest not something I'd given much thought to.
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; In conclusion I'm slightly reluctant to specify a threshold that tries to reflect
+</em><br />
+<em class="quotelev2">&gt;&gt; how the observations have been gathered, partly because this is not the
+</em><br />
+<em class="quotelev2">&gt;&gt; same for all sites and partly because it could change in the future (e.g. if we
+</em><br />
+<em class="quotelev2">&gt;&gt; were to adopt a different type of rain gauge). Personally I'd prefer to
+</em><br />
+<em class="quotelev2">&gt;&gt; describe what we do to the data once it has been collected, which in the
+</em><br />
+<em class="quotelev2">&gt;&gt; case of the 'days of rain' variables is to test if the value is greater than or
+</em><br />
+<em class="quotelev2">&gt;&gt; equal to a threshold.
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Thoughts?
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Regards,
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Dan
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; -----Original Message-----
+</em><br />
+<em class="quotelev2">&gt;&gt; From: CF-metadata [mailto:cf-metadata-bounces at cgd.ucar.edu] On Behalf
+</em><br />
+<em class="quotelev2">&gt;&gt; Of Jonathan Gregory
+</em><br />
+<em class="quotelev2">&gt;&gt; Sent: 01 September 2014 17:42
+</em><br />
+<em class="quotelev2">&gt;&gt; To: cf-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt;&gt; Subject: [CF-metadata] Days of rain
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Dear Dan
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; We have several variables that we describe loosely as 'days of rain'.
+</em><br />
+<em class="quotelev2">&gt;&gt; Strictly speaking they are a count (e.g. for a calendar month) of the number
+</em><br />
+<em class="quotelev2">&gt;&gt; of days when the 24-hour precipitation total was greater than or equal to a
+</em><br />
+<em class="quotelev2">&gt;&gt; threshold. We currently generate grids for three thresholds - 0.2mm, 1.0mm
+</em><br />
+<em class="quotelev2">&gt;&gt; and 10.0mm. My intention is to use the following existing standard name:
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; number_of_days_with_lwe_thickness_of_precipitation_amount_above_thr
+</em><br />
+<em class="quotelev2">&gt;&gt; eshold
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; My only slight problem is that the definition implies 'greater than'
+</em><br />
+<em class="quotelev2">&gt;&gt; whereas our variables are 'greater than or equal to' the threshold. Assuming
+</em><br />
+<em class="quotelev2">&gt;&gt; the observations have a precision of 0.1 mm ...
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; I think it depends on how the data have been treated. Are they rounded to
+</em><br />
+<em class="quotelev2">&gt;&gt; the
+</em><br />
+<em class="quotelev2">&gt;&gt; nearest 0.1 mm? If so, a recorded value of 0.0 mm means an actual value in
+</em><br />
+<em class="quotelev2">&gt;&gt; the
+</em><br />
+<em class="quotelev2">&gt;&gt; range 0.00-0.05 mm, 0.1 mm means 0.05-0.15 mm, 0.2 mm means 0.15-0.25
+</em><br />
+<em class="quotelev2">&gt;&gt; mm, etc.,
+</em><br />
+<em class="quotelev2">&gt;&gt; and your threshold of 0.2 mm in recorded precipitation is actually a
+</em><br />
+<em class="quotelev2">&gt;&gt; threshold
+</em><br />
+<em class="quotelev2">&gt;&gt; of 0.15 mm. That is therefore what I would suggest as the coordinate value
+</em><br />
+<em class="quotelev2">&gt;&gt; for
+</em><br />
+<em class="quotelev2">&gt;&gt; the threshold.
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Best wishes
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Jonathan
+</em><br />
+<em class="quotelev2">&gt;&gt; _______________________________________________
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev2">&gt;&gt; _______________________________________________
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt; -- 
+</em><br />
+<em class="quotelev1">&gt; Scanned by iCritical.
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<span id="received"><dfn>Received on</dfn> Wed Sep 03 2014 - 10:27:42 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -307,13 +331,13 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start7249">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./7250.html" title="Next message in the list">John Graybeal: "[CF-metadata] original_ensemble_size"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./7248.html" title="Previous message in the list">Jim Biard: "[CF-metadata] original_ensemble_size"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./7248.html" title="Message to which this message replies">Jim Biard: "[CF-metadata] original_ensemble_size"</a></li>
+<li><dfn>Next message</dfn>: <a href="./7250.html" title="Next message in the list">John Graybeal: "[CF-metadata] searching CF-Metadata list"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./7248.html" title="Previous message in the list">alison.pamment at stfc.ac.uk: "[CF-metadata] Days of rain"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./7248.html" title="Message to which this message replies">alison.pamment at stfc.ac.uk: "[CF-metadata] Days of rain"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./7256.html" title="Next message in this discussion thread">Hedley, Mark: "[CF-metadata] original_ensemble_size"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./7252.html" title="Next message in this discussion thread">Hollis, Dan: "[CF-metadata] Days of rain"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./7256.html" title="Message sent in reply to this message">Hedley, Mark: "[CF-metadata] original_ensemble_size"</a></li>
+<dfn>Reply</dfn>: <a href="./7252.html" title="Message sent in reply to this message">Hollis, Dan: "[CF-metadata] Days of rain"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -324,7 +348,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:58 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./7248.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7250.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

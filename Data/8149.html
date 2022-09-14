@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Recording &quot;day of year on which something happens&quot; from Jonathan Gregory on 2017-03-24 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] Recording &quot;day of year on which something happens&quot;" />
-<meta name="Date" content="2017-03-24" />
+<title>[CF-metadata] [netcdfgroup] Introducing netCDF Explorer from Pedro Vicente on 2015-11-07 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Pedro Vicente (pedro.vicente)" />
+<meta name="Subject" content="[CF-metadata] [netcdfgroup] Introducing netCDF Explorer" />
+<meta name="Date" content="2015-11-07" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./8148.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8150.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Recording &quot;day of year on which something happens&quot;</h1>
-<!-- received="Fri Mar 24 10:54:09 2017" -->
-<!-- isoreceived="20170324105409" -->
-<!-- sent="Fri, 24 Mar 2017 16:54:09 +0000" -->
-<!-- isosent="20170324165409" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] Recording &quot;day of year on which something happens&quot;" -->
-<!-- id="20170324165409.GC6110_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./8148.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8150.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] [netcdfgroup] Introducing netCDF Explorer</h1>
+<!-- received="Fri Nov  6 17:48:59 2015" -->
+<!-- isoreceived="20151106174859" -->
+<!-- sent="Fri, 6 Nov 2015 18:48:59 -0600" -->
+<!-- isosent="20151107004859" -->
+<!-- name="Pedro Vicente" -->
+<!-- email="pedro.vicente" -->
+<!-- subject="[CF-metadata] [netcdfgroup] Introducing netCDF Explorer" -->
+<!-- id="4E8B99553F8B4CF8AE3A9A339BCC83A5_at_toshiba" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="B9B42326-212C-43C7-A348-511689DA7A4B_at_reading.ac.uk" -->
+<!-- inreplyto="563D2354.8_at_cora.nwra.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./8150.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] geoid, sea surface, height, and standard names&quot;">Next message</a> ]
-[ <a href="./8148.html" title="martin.juckes at stfc.ac.uk: &quot;[CF-metadata] Silicate vs. dissolved inorganic silicon&quot;">Previous message</a> ]
-[ <a href="./8135.html" title="Jon Blower: &quot;[CF-metadata] Recording &#0034;day of year on which something happens&#0034;&quot;">In reply to</a> ]
+[ <a href="./8150.html" accesskey="d" title="Pedro Vicente: &quot;[CF-metadata] [netcdfgroup] Introducing netCDF Explorer&quot;">Next message</a> ]
+[ <a href="./8148.html" title="Painter, Jeff: &quot;[CF-metadata] mailing list and trac&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./8193.html" accesskey="t" title="Jon Blower: &quot;[CF-metadata] Recording &#0034;day of year on which something happens&#0034;&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,30 +69,352 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Recording%20%22day%20of%20year%20on%20which%20something%20happens%22">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Pedro Vicente &lt;<a href="mailto:pedro.vicente?Subject=Re%3A%20%5BCF-metadata%5D%20%5Bnetcdfgroup%5D%20Introducing%20netCDF%20Explorer">pedro.vicente</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 24 Mar 2017 16:54:09 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 6 Nov 2015 18:48:59 -0600</span><br />
 </address>
 <br />
-Dear Jon et al.
+Building from source is not very user-friendly at this time , sorry, I did 
 <br />
-<br />Just on the point of the cell_method of &quot;sum&quot;. I understand that this could be
+not want to add any dependencies to the git repo
 <br />
-misleading. The two default methods are point for intensive quantities and sum
+<br />Here are some notes, if you or anyone still cannot build after this, send me 
 <br />
-for extensive quantities. It doesn't literally mean it's a sum necessarily, but
+a private email
 <br />
-that it applies to the entire extent of the grid cell rather than a point
+<br />1)  To build in Linux / Mac
 <br />
-within it. If this is unbearably confusing, perhaps we should introduce a new
+<br />GNU Autoconf is used
 <br />
-synonym for this cell_method.
+<br />1A) Using  Bakefile
 <br />
-<br />Best wishes
+<br />You need Bakefile 0.29, install from source
 <br />
-<br />Jonathan
+<br /><a href="http://bakefile.org/">http://bakefile.org/</a>
 <br />
-<span id="received"><dfn>Received on</dfn> Fri Mar 24 2017 - 10:54:09 GMT</span>
+<br />This file was used to generate the gnu &quot;Makefile.in&quot; from a &quot;bakefile&quot;
+<br />
+<br /><a href="https://github.com/pedro-vicente/netcdf-explorer/blob/master/explorer.bkl">https://github.com/pedro-vicente/netcdf-explorer/blob/master/explorer.bkl</a>
+<br />
+<br />NOTE1 :
+<br />
+Bakefile is *ONLY* used to generate &quot;Makefile.in&quot;
+<br />
+If you want to avoid this, just modify the supplied &quot;Makefile.in&quot; regarding 
+<br />
+the hardcoded paths to HDF5 and netCDF
+<br />
+<br />NOTE 2:
+<br />
+HDF5 and netCDF dependencies were build from source with GNU autoconf
+<br />
+Using the Linux packages for these will probably work too
+<br />
+<br />I use ubuntu
+<br />
+<br />sudo apt-get install &lt; add here HDF5 , netCDF , curl, and probably other 
+<br />
+dependencies that I forgot now; if you get some errors, that will tell you 
+<br />
+:-) &gt;
+<br />
+<br />If you want to give a try to Bakefile, I *recommend* it
+<br />
+<br />I found Bakefile to be a very good alternative to CMake , because , unlike 
+<br />
+CMake, it has a learning curve of about 10 minutes...
+<br />
+Just by looking at the file explorer.bkl, about 17 lines,
+<br />
+one can guess what it does , just a list of source files, and extra 
+<br />
+libraries, that's really all we need... no hard to guess meaning CMake 
+<br />
+macros here
+<br />
+<br />usage is
+<br />
+<br />bakefile -v -f autoconf explorer.bkl
+<br />
+<br />1B) Using  wxWidgets
+<br />
+<br />You need wxWidgets
+<br />
+<br /><a href="https://www.wxwidgets.org/">https://www.wxwidgets.org/</a>
+<br />
+<br />This is where the GNU Autoconf build is located
+<br />
+<br />The best way is to include the netCDF Explorer code inside the &quot;samples&quot; 
+<br />
+folder,
+<br />
+say in a folder called &quot;explorer&quot;
+<br />
+<br />modify &quot;configure.in&quot;  to have this extra line
+<br />
+<br />SAMPLES_SUBDIRS=&quot;$SAMPLES_SUBDIRS explorer&quot;
+<br />
+<br />where &quot;explorer&quot; is the folder you made
+<br />
+<br />redo the autoconf stuff
+<br />
+<br />./autogen.sh
+<br />
+./configure
+<br />
+make
+<br />
+cd samples
+<br />
+make
+<br />
+<br />this should do it on Linux/Mac
+<br />
+<br /><br />2)  To build in Windows
+<br />
+<br />I used Visual Studio  2013
+<br />
+<br />2A) Modify the wxWidgets Visual Studio solution to have one more &quot;samples&quot; 
+<br />
+project, say &quot;explorer&quot; (just copy from the others or make a new one), and 
+<br />
+add the sources
+<br />
+<br />2B) You need Windows Visual Studio  builds of all the dependencies : HDF5, 
+<br />
+netCDF, curl
+<br />
+<br />in the curl site
+<br />
+<br /><a href="http://curl.haxx.se/">http://curl.haxx.se/</a>
+<br />
+<br />the latest distro has Visual Studio  ready solutions , which is fantastic
+<br />
+<br />Unfortunately the HDF Group and the netCDF folks do not supply  a Visual 
+<br />
+Studio  ready solution
+<br />
+<br />So,  you will have to generate the solution using Cmake ...
+<br />
+<br />for example, for HDF5
+<br />
+<br />cd build
+<br />
+cmake -C 
+<br />
+../config/cmake/cacheinit.cmake -D&quot;ZLIB_INCLUDE_DIR:PATH=K:\zlib\V1.2.5&quot; -D&quot;ZLIB_LIBRARY:FILEPATH=K:\zlib\V1.2.5\windows\static\zlib125d.lib&quot; 
+<br />
+&nbsp;-D&quot;BUILD_SHARED_LIBS:BOOL=OFF&quot; -D&quot;BUILD_STATIC_EXECS=ON&quot; -D&quot;BUILD_STATIC_CRT_LIBS=ON&quot; 
+<br />
+&nbsp;-D&quot;TARGET_STATIC_CRT_FLAGS=ON&quot; ..
+<br />
+<br />for netCDF
+<br />
+<br />cd build
+<br />
+cmake  -C 
+<br />
+../cmake/ConfigUser.cmake -D&quot;NC_USE_STATIC_CRT=ON&quot; -D&quot;BUILD_SHARED_LIBS=OFF&quot; 
+<br />
+&nbsp;-D&quot;ENABLE_DLL=OFF&quot; -D&quot;HDF5_INCLUDE_DIR=K:\data\hdf5-1.8.15\src&quot; -D&quot;HDF5_LIB=K:\data\hdf5-1.8.15\build\bin\Debug\libhdf5_D.lib&quot; 
+<br />
+&nbsp;-D&quot;HDF5_HL_LIB=K:\data\hdf5-1.8.15\build\bin\Debug\libhdf5_hl_D.lib&quot; -D&quot;ZLIB_INCLUDE_DIR:PATH=K:\zlib\V1.2.5&quot; 
+<br />
+&nbsp;-D&quot;ZLIB_LIBRARY:FILEPATH=K:\zlib\V1.2.5\windows\static\zlib125d.lib&quot;  -D&quot;ENABLE_DAP=ON&quot; 
+<br />
+&nbsp;&nbsp;-D&quot;CURL_LIBRARY=K:\curl-7.45.0\build\Win32\VC12\LIB 
+<br />
+Debug\libcurld.lib&quot; -D&quot;CURL_INCLUDE_DIR=K:\curl-7.45.0\include&quot;  ..
+<br />
+<br /><br />Hope this helps
+<br />
+<br />One last thing, if you want to avoid future headaches and lost time, use 
+<br />
+static build for all the builds .
+<br />
+<br />This is for both Windows *and* Linux ...
+<br />
+ah, that just reminded me that I had to build in Linux with
+<br />
+the C++ standard library as a static build ( -static-libgcc if I recall it's 
+<br />
+the option) because when I tried my ubuntu build on other systems it went to 
+<br />
+look for a missing dynamic library
+<br />
+Just hack the option into Makefile.in
+<br />
+<br />The supplied Linux binary is X86_64 by the way
+<br />
+<br />There may be something missing , send me a private email if something fails 
+<br />
+:-)
+<br />
+<br /><br />----------------------
+<br />
+Pedro Vicente
+<br />
+pedro.vicente at space-research.org
+<br />
+<a href="http://www.space-research.org/">http://www.space-research.org/</a>
+<br />
+<br /><br />----- Original Message ----- 
+<br />
+From: &quot;Orion Poplawski&quot; &lt;orion at cora.nwra.com&gt;
+<br />
+To: &quot;Pedro Vicente&quot; &lt;pedro.vicente at space-research.org&gt;; 
+<br />
+&lt;netcdfgroup at unidata.ucar.edu&gt;; &lt;hdf-forum at lists.hdfgroup.org&gt;; 
+<br />
+&lt;openldap-devel at openldap.org&gt;; &quot;openldap&quot; &lt;openldap-technical at openldap.org&gt;; 
+<br />
+&lt;nexus at nexusformat.org&gt;; &lt;cf-metadata at cgd.ucar.edu&gt;
+<br />
+Sent: Friday, November 06, 2015 4:01 PM
+<br />
+Subject: Re: [netcdfgroup] Introducing netCDF Explorer
+<br />
+<br /><br /><em class="quotelev1">&gt; On 11/01/2015 11:37 PM, Pedro Vicente wrote:
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Today we announce the release of a new product, netCDF Explorer.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; netCDF Explorer is multi-platform graphical browser for netCDF files. 
+</em><br />
+<em class="quotelev2">&gt;&gt; netCDF
+</em><br />
+<em class="quotelev2">&gt;&gt; Explorer can browse files locally or remotely, by means of OPeNDAP
+</em><br />
+<em class="quotelev2">&gt;&gt; &lt;<a href="http://www.opendap.org/">http://www.opendap.org/</a>&gt;.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; It is available at
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; <a href="http://www.space-research.org/">http://www.space-research.org/</a>
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Downloads are available for Mac, Windows and Linux. Source code is 
+</em><br />
+<em class="quotelev2">&gt;&gt; available
+</em><br />
+<em class="quotelev2">&gt;&gt; at GitHub.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; <a href="https://github.com/pedro-vicente/netcdf-explorer">https://github.com/pedro-vicente/netcdf-explorer</a>__
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; netCDF Explorer follows the design of our flagship product, HDF Explorer.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; *HDF Explorer recently reached the mark of 30,000 users. It has become 
+</em><br />
+<em class="quotelev2">&gt;&gt; the
+</em><br />
+<em class="quotelev2">&gt;&gt; most widely acclaimed browser for HDF files.*
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; *HDF Explorer was developed only for the Windows platform, and one 
+</em><br />
+<em class="quotelev2">&gt;&gt; request we
+</em><br />
+<em class="quotelev2">&gt;&gt; frequently have is the availability for Mac and Linux. When HDF Explorer 
+</em><br />
+<em class="quotelev2">&gt;&gt; was
+</em><br />
+<em class="quotelev2">&gt;&gt; written, there was not available a good (or any, for that matter), cross
+</em><br />
+<em class="quotelev2">&gt;&gt; platform GUI framework written in C++.*
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; We recently came across with an excellent GUI framework that is a joy to 
+</em><br />
+<em class="quotelev2">&gt;&gt; work
+</em><br />
+<em class="quotelev2">&gt;&gt; with, that allows the deployment to Mac, Linux, and Windows with one 
+</em><br />
+<em class="quotelev2">&gt;&gt; source
+</em><br />
+<em class="quotelev2">&gt;&gt; code base. So, a project that was on the back burner for many years, 
+</em><br />
+<em class="quotelev2">&gt;&gt; quickly
+</em><br />
+<em class="quotelev2">&gt;&gt; came to light in the short time frame of one month. The first product is
+</em><br />
+<em class="quotelev2">&gt;&gt; netCDF Explorer.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Due to the short time of development, netCDF Explorer can be considered 
+</em><br />
+<em class="quotelev2">&gt;&gt; as a
+</em><br />
+<em class="quotelev2">&gt;&gt; simple start with a lot of room to grow.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Nonetheless we decided to release it at this time to get a feeling of
+</em><br />
+<em class="quotelev2">&gt;&gt; netCDF/HDF/OpenDAP user?s comments, suggestions, or any problems they may
+</em><br />
+<em class="quotelev2">&gt;&gt; encounter examining their own netCDF files.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; So, please send any comments, suggestions, problems found.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; How the heck are you supposed to build this thing from source?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; $ bakefile -f gnu explorer.bkl
+</em><br />
+<em class="quotelev1">&gt; /export/home/orion/redhat/netcdf-explorer-0.1/netcdf-explorer-6cd807a8db1b02196371115689f248456d322e71/explorer.bkl:4:
+</em><br />
+<em class="quotelev1">&gt; error: can't find file '../../build/bakefiles/common_samples.bkl' in
+</em><br />
+<em class="quotelev1">&gt; /export/home/orion/redhat/netcdf-explorer-0.1/netcdf-explorer-6cd807a8db1b02196371115689f248456d322e71:/usr/share/bakefile/rules:/usr/share/bakefile/rules/modules:/usr/share/bakefile/output:/usr/share/bakefile
+</em><br />
+<em class="quotelev1">&gt;    included from
+</em><br />
+<em class="quotelev1">&gt; /export/home/orion/redhat/netcdf-explorer-0.1/netcdf-explorer-6cd807a8db1b02196371115689f248456d322e71/explorer.bkl:4
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; -- 
+</em><br />
+<em class="quotelev1">&gt; Orion Poplawski
+</em><br />
+<em class="quotelev1">&gt; Technical Manager                     303-415-9701 x222
+</em><br />
+<em class="quotelev1">&gt; NWRA, Boulder/CoRA Office             FAX: 303-415-9702
+</em><br />
+<em class="quotelev1">&gt; 3380 Mitchell Lane                       orion at nwra.com
+</em><br />
+<em class="quotelev1">&gt; Boulder, CO 80301                   <a href="http://www.nwra.com">http://www.nwra.com</a>
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<span id="received"><dfn>Received on</dfn> Fri Nov 06 2015 - 17:48:59 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -103,13 +422,9 @@ synonym for this cell_method.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start8149">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./8150.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] geoid, sea surface, height, and standard names"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./8148.html" title="Previous message in the list">martin.juckes at stfc.ac.uk: "[CF-metadata] Silicate vs. dissolved inorganic silicon"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./8135.html" title="Message to which this message replies">Jon Blower: "[CF-metadata] Recording &#0034;day of year on which something happens&#0034;"</a></li>
+<li><dfn>Next message</dfn>: <a href="./8150.html" title="Next message in the list">Pedro Vicente: "[CF-metadata] [netcdfgroup] Introducing netCDF Explorer"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./8148.html" title="Previous message in the list">Painter, Jeff: "[CF-metadata] mailing list and trac"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./8193.html" title="Next message in this discussion thread">Jon Blower: "[CF-metadata] Recording &#0034;day of year on which something happens&#0034;"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./8193.html" title="Message sent in reply to this message">Jon Blower: "[CF-metadata] Recording &#0034;day of year on which something happens&#0034;"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -120,7 +435,7 @@ synonym for this cell_method.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:11 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./8148.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8150.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

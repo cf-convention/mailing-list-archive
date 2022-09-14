@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] new standard name proposal: brightness_temperature_at_cloud_top from Randy Horne on 2014-04-16 (mailing-list-archive)</title>
-<meta name="Author" content="Randy Horne (rhorne)" />
-<meta name="Subject" content="[CF-metadata] new standard name proposal: brightness_temperature_at_cloud_top" />
-<meta name="Date" content="2014-04-16" />
+<title>[CF-metadata] use of _FillValue vs valid_range, and minimum and maximum from Schultz, Martin on 2013-05-23 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Schultz, Martin (m.schultz)" />
+<meta name="Subject" content="[CF-metadata] use of _FillValue vs valid_range, and minimum and maximum" />
+<meta name="Date" content="2013-05-23" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./6216.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6218.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new standard name proposal: brightness_temperature_at_cloud_top</h1>
-<!-- received="Wed Apr 16 06:19:51 2014" -->
-<!-- isoreceived="20140416051951" -->
-<!-- sent="Wed, 16 Apr 2014 08:19:51 -0400" -->
-<!-- isosent="20140416121951" -->
-<!-- name="Randy Horne" -->
-<!-- email="rhorne" -->
-<!-- subject="[CF-metadata] new standard name proposal: brightness_temperature_at_cloud_top" -->
-<!-- id="8420522E-109D-4B2C-9A2A-31A8DD1A5861_at_excaliburlabs.com" -->
+<a style="text-decoration:none" href="./6216.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6218.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] use of _FillValue vs valid_range, and minimum and maximum</h1>
+<!-- received="Thu May 23 09:10:44 2013" -->
+<!-- isoreceived="20130523081044" -->
+<!-- sent="Thu, 23 May 2013 15:10:44 +0000" -->
+<!-- isosent="20130523151044" -->
+<!-- name="Schultz, Martin" -->
+<!-- email="m.schultz" -->
+<!-- subject="[CF-metadata] use of _FillValue vs valid_range, and minimum and maximum" -->
+<!-- id="4A980E5ADF859E4E9007AA5514CF9C8E19A8060A_at_MBX2010-K01.ad.fz-juelich.de" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./6218.html" accesskey="d" title="Nan Galbraith: &quot;[CF-metadata] How to help correct problems with CF documents on github&quot;">Next message</a> ]
-[ <a href="./6216.html" title="Little, Chris: &quot;[CF-metadata] [CF Metadata] #107: CF Data Model 1.7&quot;">Previous message</a> ]
+[ <a href="./6218.html" accesskey="d" title="Karl Taylor: &quot;[CF-metadata] scalar coordinates&quot;">Next message</a> ]
+[ <a href="./6216.html" title="Ellyn Montgomery: &quot;[CF-metadata] use of _FillValue vs valid_range, and minimum and maximum variable attributes&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./6219.html" accesskey="t" title="John Graybeal: &quot;[CF-metadata] use of _FillValue vs valid_range, and minimum and maximum&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,38 +70,58 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Randy Horne &lt;<a href="mailto:rhorne?Subject=Re%3A%20%5BCF-metadata%5D%20new%20standard%20name%20proposal%3A%20brightness_temperature_at_cloud_top">rhorne</a>&gt;
+<dfn>From</dfn>: Schultz, Martin &lt;<a href="mailto:m.schultz?Subject=Re%3A%20%5BCF-metadata%5D%20use%20of%20_FillValue%20vs%20valid_range%2C%20and%20minimum%20and%20maximum">m.schultz</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 16 Apr 2014 08:19:51 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 23 May 2013 15:10:44 +0000</span><br />
 </address>
 <br />
-Dear All:
+<em class="quotelev2">&gt; &gt;...  but computing min &amp; max on the fly can also be very expensive.
+</em><br />
+<em class="quotelev2">&gt; &gt;We have aggregated model output datasets where each variable is more
+</em><br />
+<em class="quotelev2">&gt; &gt;than 1TB!
+</em><br />
+<br /><em class="quotelev1">&gt; Sure, I can see that that's useful metadata about the dataset, and that
+</em><br />
+<em class="quotelev1">&gt; there's value in caching it somewhere.  I just don't think it belongs with
+</em><br />
+<em class="quotelev1">&gt; the metadata inside the netcdf file. What's the use case for storing it
+</em><br />
+<em class="quotelev1">&gt; there?
+</em><br />
+<br />Dear all,
 <br />
-<br />I am proposing the following?
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;that may be an issue of &quot;style&quot;, or more technically speaking the way you set-up your system(s). I do think there is use for this as soon as you take a file out of an interoperable context. However, it's a very good and valid point to say that this information can (very) easily get corrupted. Thus it may be good to define some way of marking &quot;fragile&quot; metadata (i.e. metadata that can be corrupted by slicing or aggregating data from a file -- maybe even from several files). In fact this is related to the issue of tracking metadata information in the data model -- that has been brought up in the track ticket but was referred to the implementation...
 <br />
-<br />standard_name:
+<br />Cheers,
 <br />
-brightness_temperature_at_cloud_top
+<br />Martin
 <br />
-<br />definition:
+<br /><br /><br /><br />------------------------------------------------------------------------------------------------
 <br />
-cloud_top refers to the top of the highest cloud. brightness_temperature of a body is the temperature of a black body which radiates the same power per unit solid angle per unit area. A coordinate variable of radiation_wavelength, sensor_band_central_radiation_wavelength, or radiation_frequency may be specified to indicate that the brightness temperature applies at specific wavelengths or frequencies.
+------------------------------------------------------------------------------------------------
 <br />
-<br />canonical units:
+Forschungszentrum Juelich GmbH
 <br />
-<br />K
+52425 Juelich
 <br />
-<br /><br />very respectfully,
+Sitz der Gesellschaft: Juelich
 <br />
-<br />randy
+Eingetragen im Handelsregister des Amtsgerichts Dueren Nr. HR B 3498
 <br />
--------------- next part --------------
+Vorsitzender des Aufsichtsrats: MinDir Dr. Karl Eugen Huthmacher
 <br />
-An HTML attachment was scrubbed...
+Geschaeftsfuehrung: Prof. Dr. Achim Bachem (Vorsitzender),
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140416/292647e5/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140416/292647e5/attachment-0001.html</a>&gt;
+Karsten Beneke (stellv. Vorsitzender), Prof. Dr.-Ing. Harald Bolt,
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Apr 16 2014 - 06:19:51 BST</span>
+Prof. Dr. Sebastian M. Schmidt
+<br />
+------------------------------------------------------------------------------------------------
+<br />
+------------------------------------------------------------------------------------------------
+<br />
+<span id="received"><dfn>Received on</dfn> Thu May 23 2013 - 09:10:44 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -107,9 +129,12 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start6217">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./6218.html" title="Next message in the list">Nan Galbraith: "[CF-metadata] How to help correct problems with CF documents on github"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./6216.html" title="Previous message in the list">Little, Chris: "[CF-metadata] [CF Metadata] #107: CF Data Model 1.7"</a></li>
+<li><dfn>Next message</dfn>: <a href="./6218.html" title="Next message in the list">Karl Taylor: "[CF-metadata] scalar coordinates"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./6216.html" title="Previous message in the list">Ellyn Montgomery: "[CF-metadata] use of _FillValue vs valid_range, and minimum and maximum variable attributes"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./6219.html" title="Next message in this discussion thread">John Graybeal: "[CF-metadata] use of _FillValue vs valid_range, and minimum and maximum"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./6219.html" title="Message sent in reply to this message">John Graybeal: "[CF-metadata] use of _FillValue vs valid_range, and minimum and maximum"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -120,7 +145,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:40 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./6216.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6218.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

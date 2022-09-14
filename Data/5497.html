@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] new standard name: volcanic_ash_cloud_geopotential_height from Jonathan Wrotny on 2013-06-06 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Wrotny (jwrotny)" />
-<meta name="Subject" content="[CF-metadata] new standard name: volcanic_ash_cloud_geopotential_height" />
-<meta name="Date" content="2013-06-06" />
+<title>[CF-metadata] support for multiple auxulary coordinate variables from Jim Biard on 2012-09-05 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jim Biard (jim.biard)" />
+<meta name="Subject" content="[CF-metadata] support for multiple auxulary coordinate variables" />
+<meta name="Date" content="2012-09-05" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5496.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5498.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new standard name: volcanic_ash_cloud_geopotential_height</h1>
-<!-- received="Thu Jun  6 13:46:02 2013" -->
-<!-- isoreceived="20130606124602" -->
-<!-- sent="Thu, 06 Jun 2013 15:46:02 -0400" -->
-<!-- isosent="20130606194602" -->
-<!-- name="Jonathan Wrotny" -->
-<!-- email="jwrotny" -->
-<!-- subject="[CF-metadata] new standard name: volcanic_ash_cloud_geopotential_height" -->
-<!-- id="51B0E6FA.1080003_at_aer.com" -->
+<a style="text-decoration:none" href="./5496.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5498.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] support for multiple auxulary coordinate variables</h1>
+<!-- received="Wed Sep  5 12:29:00 2012" -->
+<!-- isoreceived="20120905112900" -->
+<!-- sent="Wed, 5 Sep 2012 14:29:00 -0400" -->
+<!-- isosent="20120905182900" -->
+<!-- name="Jim Biard" -->
+<!-- email="jim.biard" -->
+<!-- subject="[CF-metadata] support for multiple auxulary coordinate variables" -->
+<!-- id="EA192123-18C6-4680-BD16-B42AF5E2B517_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="51B0B75B.7090306_at_hilboll.de" -->
+<!-- inreplyto="20120905172828.GA3238_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5498.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] new standard name: land_surface_skin_temperature&quot;">Next message</a> ]
-[ <a href="./5496.html" title="Jonathan Wrotny: &quot;[CF-metadata] new standard name: land_surface_skin_temperature&quot;">Previous message</a> ]
-[ <a href="./5494.html" title="Andreas Hilboll: &quot;[CF-metadata] new standard name: volcanic_ash_cloud_geopotential_height&quot;">In reply to</a> ]
+[ <a href="./5498.html" accesskey="d" title="Jim Biard: &quot;[CF-metadata] Proposal for standard name &#0034;surface_snow_cover_binary_mask&#0034;&quot;">Next message</a> ]
+[ <a href="./5496.html" title="Ute Br&#0246;nner: &quot;[CF-metadata] Proposal for standard name &#0034;snow_cover_binary_mask&#0034;&quot;">Previous message</a> ]
+[ <a href="./5494.html" title="Jonathan Gregory: &quot;[CF-metadata] support for multiple auxulary coordinate variables&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,90 +70,109 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Wrotny &lt;<a href="mailto:jwrotny?Subject=Re%3A%20%5BCF-metadata%5D%20new%20standard%20name%3A%20volcanic_ash_cloud_geopotential_height">jwrotny</a>&gt;
+<dfn>From</dfn>: Jim Biard &lt;<a href="mailto:jim.biard?Subject=Re%3A%20%5BCF-metadata%5D%20support%20for%20multiple%20auxulary%20coordinate%20variables">jim.biard</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 06 Jun 2013 15:46:02 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 5 Sep 2012 14:29:00 -0400</span><br />
 </address>
 <br />
-Hello Andreas,
+Hi.
 <br />
-<br />Your suggestion certainly makes sense to me.  I'll wait for others to 
+<br />The new grid_mapping scheme looks great!  It accomplishes, in a more backward compatible way, most of the things that I was suggesting.
 <br />
-chime in with comments.
+<br />Regarding Jonathan's reply to my previous comment:
 <br />
-<br />Standard Name:   volcanic_ash_cloud_top_geopotential_height
+If I read a temperature using a thermometer, the value does not have a geographic coordinate system associated with it.  If I also use my handy GPS unit to read my location, I can associate that location with the temperature.   The location does have a coordinate system associated with it, and in fact is nearly meaningless without one.  I could also use more traditional surveying tools and determine a location with respect to an entirely different coordinate system.  The coordinate systems naturally associate with the locations, not the temperature.  The current CF approach leaves the coordinate system association with a given regular or auxiliary coordinate variable unspecified (in any direct fashion).  In order to determine the coordinate system for a coordinate, you must search the data variables for an association with the coordinate (through shape or through the coordinates attribute), then find the grid_mapping attribute.   The new scheme represents an improvement, but I still find myself asking why we<br />
+&nbsp;are placing a fundamental attribute of a coordinate anywhere other than directly with the coordinate.
 <br />
-<br />Definition:Geopotential is the sum of the specific gravitational 
+<br />Grace and peace,
 <br />
-potential energy relative to the geoid and the specific centripetal 
+<br />Jim
 <br />
-potential energy. Geopotential height is the geopotential divided by the 
+<br />Jim Biard
 <br />
-standard acceleration due to gravity.
+Research Scholar
 <br />
-<br /><br />Canonical Units:m
+Cooperative Institute for Climate and Satellites
 <br />
-<br />Sincerely,
+Remote Sensing and Applications Division
 <br />
-<br />Jonathan Wrotny
+National Climatic Data Center
 <br />
-<br />On 6/6/2013 12:22 PM, Andreas Hilboll wrote:
+151 Patton Ave, Asheville, NC 28801-5001
 <br />
-<em class="quotelev1">&gt; On 06.06.2013 18:06, Jonathan Wrotny wrote:
+<br />jim.biard at noaa.gov
+<br />
+828-271-4900
+<br />
+<br />On Sep 5, 2012, at 1:28 PM, Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt; wrote:
+<br />
+<br /><em class="quotelev1">&gt; Dear Randy
 </em><br />
-<em class="quotelev2">&gt;&gt; Dear CF board:
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev2">&gt;&gt;
+<em class="quotelev1">&gt; I agree with what you write. You could list the alternative sets of three
 </em><br />
-<em class="quotelev2">&gt;&gt; I would like to propose the following standard name:
+<em class="quotelev1">&gt; coordinates each all as auxiliary coord vars, and distinguish them with
 </em><br />
-<em class="quotelev2">&gt;&gt;
+<em class="quotelev1">&gt; standard_names; presumably you would want to propose some new standard_names.
 </em><br />
-<em class="quotelev2">&gt;&gt; Standard Name:  volcanic_ash_cloud_geopotential_height
+<em class="quotelev1">&gt; That would be fine and quite simple to do.
 </em><br />
-<em class="quotelev2">&gt;&gt;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev2">&gt;&gt;   
+<em class="quotelev1">&gt; In addition, you could propose new grid_mappings. Up to now grid_mappings
 </em><br />
-<em class="quotelev2">&gt;&gt;
+<em class="quotelev1">&gt; have been for 2D coordinate systems, but you would want something in 3D,
 </em><br />
-<em class="quotelev2">&gt;&gt; Definition:  Geopotential is the sum of the specific gravitational
+<em class="quotelev1">&gt; I think. If it's likely generally useful, it would interesting to see a
 </em><br />
-<em class="quotelev2">&gt;&gt; potential energy relative to the geoid and the specific centripetal
+<em class="quotelev1">&gt; proposal of what it might look like.
 </em><br />
-<em class="quotelev2">&gt;&gt; potential energy. Geopotential height is the geopotential divided by the
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev2">&gt;&gt; standard acceleration due to gravity.  The ash cloud geopotential height
+<em class="quotelev1">&gt; There is already an agreed change to the CF standard to allow more than
 </em><br />
-<em class="quotelev2">&gt;&gt; represents the height of the top of the ash cloud.
+<em class="quotelev1">&gt; one grid_mapping for a given data variable. This was proposed by Mark Hedley
 </em><br />
-<em class="quotelev2">&gt;&gt;
+<em class="quotelev1">&gt; in ticket 70 <a href="https://cf-pcmdi.llnl.gov/trac/ticket/70">https://cf-pcmdi.llnl.gov/trac/ticket/70</a> and will go in CF 1.7.
 </em><br />
-<em class="quotelev2">&gt;&gt;   
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev2">&gt;&gt;
+<em class="quotelev1">&gt; In response to Jim's comment, I would say that the data variable does have a
 </em><br />
-<em class="quotelev2">&gt;&gt; Canonical Units:  m
+<em class="quotelev1">&gt; coordinate system; it's defined by the various coordinate variables that the
 </em><br />
-<em class="quotelev1">&gt; If it's the top of the ash cloud, why not call the variable
+<em class="quotelev1">&gt; data variable is associated with, either 1D (Unidata) coordinate variables
 </em><br />
-<em class="quotelev1">&gt; &quot;volcanic_ash_cloud_top_geopotential_height&quot;? Otherwise you always have
+<em class="quotelev1">&gt; or auxiliary coordinate variables. The role of the grid_mapping is to make
 </em><br />
-<em class="quotelev1">&gt; to look up the definition to understand what the variable means.
+<em class="quotelev1">&gt; explicit the relationship among the coordinate variables of the space in which
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; the data variable exists.
 </em><br />
-<em class="quotelev1">&gt; -- Andreas
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; Best wishes
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Jonathan
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
 <br />-------------- next part --------------
 <br />
 An HTML attachment was scrubbed...
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130606/89556968/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130606/89556968/attachment.html</a>&gt;
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120905/799dde4b/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120905/799dde4b/attachment.html</a>&gt;
 <br />
-<span id="received"><dfn>Received on</dfn> Thu Jun 06 2013 - 13:46:02 BST</span>
+<span id="received"><dfn>Received on</dfn> Wed Sep 05 2012 - 12:29:00 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -161,9 +180,9 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5497">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5498.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] new standard name: land_surface_skin_temperature"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5496.html" title="Previous message in the list">Jonathan Wrotny: "[CF-metadata] new standard name: land_surface_skin_temperature"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./5494.html" title="Message to which this message replies">Andreas Hilboll: "[CF-metadata] new standard name: volcanic_ash_cloud_geopotential_height"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5498.html" title="Next message in the list">Jim Biard: "[CF-metadata] Proposal for standard name &#0034;surface_snow_cover_binary_mask&#0034;"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5496.html" title="Previous message in the list">Ute Br&#0246;nner: "[CF-metadata] Proposal for standard name &#0034;snow_cover_binary_mask&#0034;"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./5494.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] support for multiple auxulary coordinate variables"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -175,7 +194,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:24 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5496.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5498.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

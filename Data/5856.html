@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Cell methods when there are no coordinates from Hedley, Mark on 2013-11-13 (mailing-list-archive)</title>
-<meta name="Author" content="Hedley, Mark (mark.hedley)" />
-<meta name="Subject" content="[CF-metadata] Cell methods when there are no coordinates" />
-<meta name="Date" content="2013-11-13" />
+<title>[CF-metadata] sea_water_turbidity? from John Maurer on 2013-03-04 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Maurer (jmaurer)" />
+<meta name="Subject" content="[CF-metadata] sea_water_turbidity?" />
+<meta name="Date" content="2013-03-04" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5855.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5857.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Cell methods when there are no coordinates</h1>
-<!-- received="Wed Nov 13 07:04:32 2013" -->
-<!-- isoreceived="20131113070432" -->
-<!-- sent="Wed, 13 Nov 2013 14:04:32 +0000" -->
-<!-- isosent="20131113140432" -->
-<!-- name="Hedley, Mark" -->
-<!-- email="mark.hedley" -->
-<!-- subject="[CF-metadata] Cell methods when there are no coordinates" -->
-<!-- id="7819C496F4E10E47BCEFBE74551AAC9608F20F_at_EXXCMPD1DAG3.cmpd1.metoffice.gov.uk" -->
+<a style="text-decoration:none" href="./5855.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5857.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] sea_water_turbidity?</h1>
+<!-- received="Mon Mar  4 12:21:07 2013" -->
+<!-- isoreceived="20130304122107" -->
+<!-- sent="Mon, 4 Mar 2013 09:21:07 -1000" -->
+<!-- isosent="20130304192107" -->
+<!-- name="John Maurer" -->
+<!-- email="jmaurer" -->
+<!-- subject="[CF-metadata] sea_water_turbidity?" -->
+<!-- id="CAEoEVrn8z1UJvAiPGbkhhGfU-yguOmGnUzN7VfUm58_Aa=5vBQ_at_mail.gmail.com" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="52826A17.7070604_at_noaa.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5857.html" accesskey="d" title="Thomas Estilow: &quot;[CF-metadata] Standard name for Greenland surface melt product&quot;">Next message</a> ]
-[ <a href="./5855.html" title="Mike Grant: &quot;[CF-metadata] swath format -- not just for satellite, but for sonar?&quot;">Previous message</a> ]
-[ <a href="./5850.html" title="Steve Hankin: &quot;[CF-metadata] Cell methods when there are no coordinates&quot;">In reply to</a> ]
+[ <a href="./5857.html" accesskey="d" title="Tuomas Karna: &quot;[CF-metadata] standard names for ocean model turbulent quantities&quot;">Next message</a> ]
+[ <a href="./5855.html" title="Hedley, Mark: &quot;[CF-metadata] global attribute interpretation&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./5858.html" accesskey="t" title="Steve Hankin: &quot;[CF-metadata] Cell methods when there are no coordinates&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,132 +68,88 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Hedley, Mark &lt;<a href="mailto:mark.hedley?Subject=Re%3A%20%5BCF-metadata%5D%20Cell%20methods%20when%20there%20are%20no%20coordinates">mark.hedley</a>&gt;
+<dfn>From</dfn>: John Maurer &lt;<a href="mailto:jmaurer?Subject=Re%3A%20%5BCF-metadata%5D%20sea_water_turbidity%3F">jmaurer</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 13 Nov 2013 14:04:32 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 4 Mar 2013 09:21:07 -1000</span><br />
 </address>
 <br />
-Hello Steve
+Hi Jonathan,
 <br />
-<br />I appears we have very different perspectives on this.  I am interested that you state that:
+Turbidity is a measure of water clarity, the degree to which light entering
 <br />
-<em class="quotelev1">&gt; Cell_methods, as the name suggests, is the place to document the transformations that have occurred within grid cells -- beneath the resolution of the grid.
-</em><br />
-<br />after making the comment
+a column of water is scattered by suspended solids. Suspended solids
 <br />
-<em class="quotelev1">&gt; I'd like to cast a strong vote *against* the idea of overloading the cell_methods attribute (trac #108) for the purpose of describing collapsed axes.
-</em><br />
-<br />It seems to me that a collapsed axis is an aspect of a grid cell and the cell_method is exactly the place to capture the extra information, to be read with the standard_name and unit, defining what the data values refer to.
+include things such as mud, algae, plant/animal material, and fecal matter.
 <br />
-<br /><em class="quotelev1">&gt; What's needed is a consistent mechanism for documenting the details of how an axis was collapsed.
-</em><br />
-<br />I think this mechanism is currently the cell_method.  I have seen many CF compliant data files which use it in exactly this way.  I have also seen data processing code which explicitly adds an entry to the cell_methods string every time it collapses an axis.
+Factors contributing to water turbidity include soil erosion, elevated
 <br />
-<br />However you are challenging my assumptions about the purpose of a cell_method so I want to make my assumptions clear and let you and others help me reinterpret the conventions appropriately.
+nutrient inputs, and waste discharge.
 <br />
-<br />To try and illustrate my assumption another way: I think that a combination of standard_name, units and cell_methods enables me to explicitly and unambiguously encode that my 2D (lat lon) data values are:
+Thanks,
 <br />
-&nbsp;&nbsp;&quot;the 30 year mean of the seasonal(djf) mean of the daily maximum air_pressure values at the surface in hPa&quot;
+John
 <br />
-<br />I thought the was the raison d'etre of the cell_methods string
+<br />Date: Fri, 22 Feb 2013 09:05:38 +1100
 <br />
-<br />mark
+From: Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt;
 <br />
-<br />________________________________
+To: cf-metadata at cgd.ucar.edu
 <br />
-From: Steve Hankin [steven.c.hankin at noaa.gov]
+Subject: [CF-metadata]  sea_water_turbidity?
 <br />
-Sent: 12 November 2013 17:49
+Message-ID: &lt;20130221220538.GB2983 at met.reading.ac.uk&gt;
 <br />
-To: Gregory, Jonathan
+Content-Type: text/plain; charset=us-ascii
 <br />
-Cc: Hedley, Mark; CF metadata
+<br />Dear John
 <br />
-Subject: Re: [CF-metadata] Cell methods when there are no coordinates
+<br />Thanks for the suggestion. Please could you provide a definition for this
 <br />
-<br />Two quick comments:
+quantity?
 <br />
-<br />&nbsp;&nbsp;1.  &quot;We could perhaps ... introduce a new standard name such as ensemble_member_id (a string) or ...&quot;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*   Have you hit on a void in CF that needs to be filled?  Unless I've overlooked it CF has not yet standardized the manner in which ensemble axes are to be identified -- a standard_name for the ensemble axis, units, etc..  (The string &quot;ensemble&quot; does not appear in the CF 1.6 document.)
-<br />
-<br />&nbsp;&nbsp;2.  I'd like to cast a strong vote *against* the idea of overloading the cell_methods attribute (trac #108) for the purpose of describing collapsed axes.  What may appear as an appealing short cut now, seems to me destined come back to bite us later.  Cell_methods, as the name suggests, is the place to document the transformations that have occurred within grid cells -- beneath the resolution of the grid.
-<br />
-<br />The concept that is under discussion here is how to document an algorithm that was applied across the entire grid domain when collapsing an axis.   The concept is the same that is needed when documenting an axis collapsed by, say,  a long term time average or a vertical integration.  Isn't this the type of content that normally gets (partially) documented in the standard_name modifier -- &quot;integral of ...&quot;  &quot;change over time of ...&quot;?   Should a starting point for this discussion be a addition of &quot;ensemble average of ...&quot; to the list of standard_name modifiers?  (The cons of packing transformation descriptions into standard_name deserve debate as well as the pros, though for reasons that lie outside of the current discussion.)
-<br />
-<br />What's needed is a consistent mechanism for documenting the details of how an axis was collapsed.  We should consider how (say) the time limits of an axis that has been collapsed by performing a long term time average should get documented.  The answer to this question should guide the manner of documenting the collapse of an ensemble axis.  It is unlikely that cell_methods would be part of this answer.
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;- Steve
-<br />
-<br />========================================
-<br />
-<br />On 11/9/2013 1:07 PM, Jonathan Gregory wrote:
-<br />
-<br />Dear Mark
-<br />
-<br />Thanks for the clarifications in your last email. If I have understood this
-<br />
-correctly now, there are two needs, which might be distinct.
-<br />
-<br />(1) Indicate that a collapsed (size-one) axis is an ensemble axis, although
-<br />
-it doesn't have a coord var or any aux coord vars. I can see that it might
-<br />
-well not have these vars because there might not be anything useful you could
-<br />
-put in them. In the absence of these vars, the dimension name in the cell
-<br />
-methods isn't informative. We could perhaps solve this by introducing a new
-<br />
-standard name such as ensemble_member_id (a string) or ensemble_member_number
-<br />
-(a number) or perhaps both. These could anyway be useful. These standard names
-<br />
-could appear in your cell_methods, following section 7.3.4, instead of the name
-<br />
-of the size-one dimension, indicating that the statistic applied to all the
-<br />
-available members of an ensemble, without needing any coord information. I
-<br />
-don't think this change would require an alteration to the convention.
-<br />
-<br />(2) Point to the coordinate information which applied to the axis before the
-<br />
-collapse. This could be useful for any sort of collapsed axis, and in fact I
-<br />
-think we have discussed it before at some point in the last 15 years! I agree
-<br />
-with your suggestion that it would be logical to record this in cell_methods
-<br />
-as a standardised comment. An alternative would be to add an attribute to the
-<br />
-collapsed coord var, but you don't have those (as you say), and also the
-<br />
-collapse may apply to a combination of axes. You suggest listing all the coord
-<br />
-or aux coord vars in the cell_methods comment. Would it not be sufficient, and
-<br />
-more economical, to give the name of the uncollapsed dimension(s)?
-<br />
-<br />Best wishes
+<br />Cheers
 <br />
 <br />Jonathan
 <br />
-_______________________________________________
+<br />----- Forwarded message from John Maurer &lt;jmaurer at hawaii.edu&gt; -----
 <br />
-CF-metadata mailing list
-<br />
-CF-metadata at cgd.ucar.edu&lt;mailto:CF-metadata at cgd.ucar.edu&gt;
-<br />
-<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-<br />
-<br /><br />-------------- next part --------------
+<br /><em class="quotelev1">&gt; Date: Wed, 20 Feb 2013 14:52:11 -1000
+</em><br />
+<em class="quotelev1">&gt; From: John Maurer &lt;jmaurer at hawaii.edu&gt;
+</em><br />
+<em class="quotelev1">&gt; To: cf-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; Subject: [CF-metadata] sea_water_turbidity?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Dear CF-Metadata,
+</em><br />
+<em class="quotelev1">&gt; I would propose the addition of &quot;sea_water_turbidity&quot; to the CF Standard
+</em><br />
+<em class="quotelev1">&gt; Names. This has units of NTU (Nephelometric Turbidity Units), which would
+</em><br />
+<em class="quotelev1">&gt; be represented in UDUNITS as &quot;1e-3&quot; (similar to how sea_water_salinity is
+</em><br />
+<em class="quotelev1">&gt; in PSS (or PSU) and commonly represented as 1e-3).
+</em><br />
+<em class="quotelev1">&gt; Thanks,
+</em><br />
+<em class="quotelev1">&gt; John Maurer
+</em><br />
+<em class="quotelev1">&gt; Data System Administrator
+</em><br />
+<em class="quotelev1">&gt; Pacific Islands Ocean Observing System (PacIOOS)
+</em><br />
+<em class="quotelev1">&gt; University of Hawaii at Manoa
+</em><br />
+-------------- next part --------------
 <br />
 An HTML attachment was scrubbed...
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20131113/e3b5b4e2/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20131113/e3b5b4e2/attachment.html</a>&gt;
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130304/8268024e/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130304/8268024e/attachment.html</a>&gt;
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Nov 13 2013 - 07:04:32 GMT</span>
+<span id="received"><dfn>Received on</dfn> Mon Mar 04 2013 - 12:21:07 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -205,13 +157,9 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5856">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5857.html" title="Next message in the list">Thomas Estilow: "[CF-metadata] Standard name for Greenland surface melt product"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5855.html" title="Previous message in the list">Mike Grant: "[CF-metadata] swath format -- not just for satellite, but for sonar?"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./5850.html" title="Message to which this message replies">Steve Hankin: "[CF-metadata] Cell methods when there are no coordinates"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5857.html" title="Next message in the list">Tuomas Karna: "[CF-metadata] standard names for ocean model turbulent quantities"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5855.html" title="Previous message in the list">Hedley, Mark: "[CF-metadata] global attribute interpretation"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./5858.html" title="Next message in this discussion thread">Steve Hankin: "[CF-metadata] Cell methods when there are no coordinates"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./5858.html" title="Message sent in reply to this message">Steve Hankin: "[CF-metadata] Cell methods when there are no coordinates"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -222,7 +170,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:32 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5855.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5857.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

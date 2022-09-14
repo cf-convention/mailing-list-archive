@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] COARDS name for a time offset from Ed Armstrong on 2006-12-18 (mailing-list-archive)</title>
-<meta name="Author" content="Ed Armstrong (earmstro)" />
-<meta name="Subject" content="[CF-metadata] COARDS name for a time offset" />
-<meta name="Date" content="2006-12-18" />
+<title>[CF-metadata] CF standard_names for sea water pressure and so und intensity from McCann, Mike on 2005-03-24 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="McCann, Mike (mccann)" />
+<meta name="Subject" content="[CF-metadata] CF standard_names for sea water pressure and so und intensity" />
+<meta name="Date" content="2005-03-24" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0589.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0591.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] COARDS name for a time offset</h1>
-<!-- received="Mon Dec 18 11:49:10 2006" -->
-<!-- isoreceived="20061218114910" -->
-<!-- sent="Mon, 18 Dec 2006 10:49:10 -0800" -->
-<!-- isosent="20061218184910" -->
-<!-- name="Ed Armstrong" -->
-<!-- email="earmstro" -->
-<!-- subject="[CF-metadata] COARDS name for a time offset" -->
-<!-- id="p06230900c1ac8df057e7_at_[137.79.160.238]" -->
+<a style="text-decoration:none" href="./0589.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0591.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF standard_names for sea water pressure and so und intensity</h1>
+<!-- received="Thu Mar 24 14:45:27 2005" -->
+<!-- isoreceived="20050324144527" -->
+<!-- sent="Thu, 24 Mar 2005 13:45:27 -0800" -->
+<!-- isosent="20050324214527" -->
+<!-- name="McCann, Mike" -->
+<!-- email="mccann" -->
+<!-- subject="[CF-metadata] CF standard_names for sea water pressure and so und intensity" -->
+<!-- id="4563BD9694236148B04C5A220ADBD48B0145B9C4_at_stratus.shore.mbari.org" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0591.html" accesskey="d" title="Steve Hankin: &quot;[CF-metadata] Getting back to ensembles&quot;">Next message</a> ]
-[ <a href="./0589.html" title="Jonathan Gregory: &quot;[CF-metadata] new standard names -&#0062; cell metrics&quot;">Previous message</a> ]
+[ <a href="./0591.html" accesskey="d" title="&#21608;&#31435;: &quot;[CF-metadata] On Demand Staffing for Information Technology Projects&quot;">Next message</a> ]
+[ <a href="./0589.html" title="Jonathan Gregory: &quot;[CF-metadata] airspeed&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,84 +68,124 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Ed Armstrong &lt;<a href="mailto:earmstro?Subject=Re%3A%20%5BCF-metadata%5D%20COARDS%20name%20for%20a%20time%20offset">earmstro</a>&gt;
+<dfn>From</dfn>: McCann, Mike &lt;<a href="mailto:mccann?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20standard_names%20for%20sea%20water%20pressure%20and%20so%20und%20intensity">mccann</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 18 Dec 2006 10:49:10 -0800</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 24 Mar 2005 13:45:27 -0800</span><br />
 </address>
 <br />
-Hi CF folks,
+Jonathon,
 <br />
-<br />I would like some advice from your group on a name for a COARDS 
+<br />Thanks for your response. 
 <br />
-metadata atttribute to describe a time offset for a field.
+<br />Would you, or whoever can do this, add
 <br />
-<br />First off, I  represent the data management side  of GHRSST: 
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sea_water_pressure (canonical units dbar)
 <br />
-<a href="http://www.ghrsst-pp.org">http://www.ghrsst-pp.org</a>,  which has adopted netCDF and the CF format 
+<br />to CF standard names.  Old oceanographers (like me) are more used
 <br />
-for all our sea surface temperature satellite products.
+to pressure in units of dbar.  Pa is more in keeping with the 
 <br />
-<br />The problem is straightforward.  In all files we represent time of 
+canonical units of other pressures in CF, but bar is in udunits
 <br />
-the satellite observations of SST as the following field:
+so perhaps it could be dbar.
 <br />
-<br />int time(time) ;
+<br />Regarding ADCP measured acoustic echo intensity, my current data
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:long_name = &quot;reference time of sst file&quot; ;
+files have this as a count.  There is an algorithm to convert this
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:units = &quot;seconds since 1981-01-01 00:00:00&quot; ;
+to a measure of acoustic_echo_intensity in decibels (dB).  Is there a 
 <br />
-<br />however, within our files we have many other observations or model 
+need to distinguish this from acoustic_echo_intensity in other media
 <br />
-predictions of other fields (observed or predicted at different 
+by perhaps calling it sea_water_acoustic_echo_intensity?  
 <br />
-times) and we would like to propose something like a 
+dB is a non-SI unit and not in udunits (we have a lot these in 
 <br />
-&quot;offset_from_time&quot; field that represents the time difference in 
+oceanography).  I'm not sure where to go with this one.
 <br />
-seconds from &quot;time&quot; above.  An example might be :
+<br />-Mike
 <br />
-<br /><br />&nbsp;&nbsp;byte wind_speed(time, nj, ni) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_speed:long_name = &quot;wind speed&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_speed:units = &quot;m s-1&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_speed:_FillValue = -128b ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_speed:add_offset = 0.f ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_speed:scale_factor = 1.f ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_speed:valid_min = -127b ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_speed:valid_max = 127b ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_speed:coordinates = &quot;lon lat&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_speed: offset_from_time = 3600s
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_speed:offset_from_time_units: &quot;seconds&quot;
-<br />
-<br />Looking over the COARDS/CF documentation I found on the web, I could 
-<br />
-not find anything that describes what I would like to do. What I have 
-<br />
-proposed..... does it sound reasonable or have I overlooked existing 
-<br />
-COARDS metadata attributes that would fufill our needs ???
-<br />
-<br />Any advice appreciated
-<br />
-<br /><br /><br /><pre>
--- 
-    ~ed
-Edward M. Armstrong
-Physical Oceanography DAAC		Tel: 818 393-6710
-Jet Propulsion Laboratory		Fax: 818 393-2710
-	edward.armstrong at jpl.nasa.gov
-</pre>
-<span id="received"><dfn>Received on</dfn> Mon Dec 18 2006 - 11:49:10 GMT</span>
+<br /><em class="quotelev1">&gt; -----Original Message-----
+</em><br />
+<em class="quotelev1">&gt; From: Jonathan Gregory [mailto:j.m.gregory at reading.ac.uk]
+</em><br />
+<em class="quotelev1">&gt; Sent: Tuesday, March 22, 2005 11:38 AM
+</em><br />
+<em class="quotelev1">&gt; To: cf-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; Subject: [CF-metadata] CF standard_names for sea water pressure and
+</em><br />
+<em class="quotelev1">&gt; sound intensity
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Dear Mike
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; There isn't any procedure except writing to the email list, 
+</em><br />
+<em class="quotelev1">&gt; as you have done.
+</em><br />
+<em class="quotelev1">&gt; However as increasing numbers of names are being needed, this 
+</em><br />
+<em class="quotelev1">&gt; is becoming too
+</em><br />
+<em class="quotelev1">&gt; slow. We need automatic procedures and more people to work on 
+</em><br />
+<em class="quotelev1">&gt; it! These issues
+</em><br />
+<em class="quotelev1">&gt; will be discussed at a meeting the British Atmospheric Data 
+</em><br />
+<em class="quotelev1">&gt; Centre is hosting
+</em><br />
+<em class="quotelev1">&gt; in June of GO-ESSP (go-essp.gfdl.noaa.gov).
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; I'm glad you found most of what you need.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; I think sea_water_pressure (canonical units Pa) is fine.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Could you say more about ADCP measured acoustic echo 
+</em><br />
+<em class="quotelev1">&gt; intensity? What units
+</em><br />
+<em class="quotelev1">&gt; does it have? I would think that the physical quantity that 
+</em><br />
+<em class="quotelev1">&gt; should be given
+</em><br />
+<em class="quotelev1">&gt; a standard name is the acoustic echo intensity because 
+</em><br />
+<em class="quotelev1">&gt; presumably it is
+</em><br />
+<em class="quotelev1">&gt; applicable to other sonar devices as well.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Thanks. Best wishes
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Jonathan
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<span id="received"><dfn>Received on</dfn> Thu Mar 24 2005 - 14:45:27 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -153,8 +193,8 @@ Jet Propulsion Laboratory		Fax: 818 393-2710
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start590">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0591.html" title="Next message in the list">Steve Hankin: "[CF-metadata] Getting back to ensembles"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0589.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] new standard names -&#0062; cell metrics"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0591.html" title="Next message in the list">&#21608;&#31435;: "[CF-metadata] On Demand Staffing for Information Technology Projects"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0589.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] airspeed"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -166,7 +206,7 @@ Jet Propulsion Laboratory		Fax: 818 393-2710
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:52 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0589.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0591.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

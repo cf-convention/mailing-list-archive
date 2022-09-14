@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] curvilinear cartesian coordinates case (service-oriented approach) from Steve Hankin on 2006-12-06 (mailing-list-archive)</title>
-<meta name="Author" content="Steve Hankin (Steven.C.Hankin)" />
-<meta name="Subject" content="[CF-metadata] curvilinear cartesian coordinates case (service-oriented approach)" />
-<meta name="Date" content="2006-12-06" />
+<title>[CF-metadata] subgrid variation from Bryan Lawrence on 2005-02-24 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Bryan Lawrence (b.n.lawrence)" />
+<meta name="Subject" content="[CF-metadata] subgrid variation" />
+<meta name="Date" content="2005-02-24" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0564.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0566.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] curvilinear cartesian coordinates case (service-oriented approach)</h1>
-<!-- received="Wed Dec  6 10:07:58 2006" -->
-<!-- isoreceived="20061206100758" -->
-<!-- sent="Wed, 06 Dec 2006 09:07:58 -0800" -->
-<!-- isosent="20061206170758" -->
-<!-- name="Steve Hankin" -->
-<!-- email="Steven.C.Hankin" -->
-<!-- subject="[CF-metadata] curvilinear cartesian coordinates case (service-oriented approach)" -->
-<!-- id="4576F8EE.8050002_at_noaa.gov" -->
+<a style="text-decoration:none" href="./0564.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0566.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] subgrid variation</h1>
+<!-- received="Thu Feb 24 03:55:10 2005" -->
+<!-- isoreceived="20050224035510" -->
+<!-- sent="Thu, 24 Feb 2005 10:55:10 +0000" -->
+<!-- isosent="20050224105510" -->
+<!-- name="Bryan Lawrence" -->
+<!-- email="b.n.lawrence" -->
+<!-- subject="[CF-metadata] subgrid variation" -->
+<!-- id="200502241055.10873.b.n.lawrence_at_rl.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="068f01c71914$0069c300$22e40991_at_wl06377" -->
+<!-- inreplyto="20050208085419.GB1261_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0566.html" accesskey="d" title="Bert Jagers: &quot;[CF-metadata] curvilinear cartesian coordinates case (service-oriented approach)&quot;">Next message</a> ]
-[ <a href="./0564.html" title="Godin, Michael: &quot;[CF-metadata] Proposed standard names for biological model outputs&quot;">Previous message</a> ]
-[ <a href="./0563.html" title="Bert Jagers: &quot;[CF-metadata] curvilinear cartesian coordinates case (service-oriented approach)&quot;">In reply to</a> ]
+[ <a href="./0566.html" accesskey="d" title="Bryan Lawrence: &quot;[CF-metadata] GIS issues&quot;">Next message</a> ]
+[ <a href="./0564.html" title="Bryan Lawrence: &quot;[CF-metadata] cf futures (long)&quot;">Previous message</a> ]
+[ <a href="./0552.html" title="Jonathan Gregory: &quot;[CF-metadata] subgrid variation&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,316 +70,288 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Steve Hankin &lt;<a href="mailto:Steven.C.Hankin?Subject=Re%3A%20%5BCF-metadata%5D%20curvilinear%20cartesian%20coordinates%20case%20(service-oriented%20approach)">Steven.C.Hankin</a>&gt;
+<dfn>From</dfn>: Bryan Lawrence &lt;<a href="mailto:b.n.lawrence?Subject=Re%3A%20%5BCF-metadata%5D%20subgrid%20variation">b.n.lawrence</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 06 Dec 2006 09:07:58 -0800</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 24 Feb 2005 10:55:10 +0000</span><br />
 </address>
 <br />
-Hi Bert,
+Hi Folks
 <br />
-<br />This discussion is now turning towards an examination of alternative 
+<br />Apologies in advance. This will read like a criticism of the outstanding work 
 <br />
-approaches to meeting the needs that you have identified.  The 
+that has and is being done. It is, but hopefully both minor and constructive, 
 <br />
-discussion may lead back to changes in CF or it may not.  But it an 
+and the fact that I can do it at all is because of the outstanding start that 
 <br />
-important discussion to be having.  A couple of days ago Rich Signell 
+we have with CF ... and again apologies, this is long.
 <br />
-presented the Wki page that Jonathan created of the three alternative CF 
+<br />Ok, the subgrid variation.
 <br />
-encodings as a question for some experts in the OGC community.  He got 
+<br />I think this is one of the examples of things that no one is quite sure of the 
 <br />
-this response from Andrew Woolf:
+status of now ...
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&quot;I think from an OGC perspective, there's not a lot to pick between them
+<br />So, the issues this post raise are
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;- they all offer slightly different CF-mechanisms for specifying the
+<br />1) CF-1.0 was presumably frozen in place.  I can't find easily a place where 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;actual gridpoint positions under different CRS [&quot;coordinate reference systems&quot;].
+all the proposals for CF-2.0 are collected separately. Whatever we decide to 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;Any OGC geometry is
+do, we should cleanly separate proposals from CF-1.0. (This is not a 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;associated with (and specified in terms of) just one CRS - through the
+criticism of Brian or anyone else, this is hard to do, and takes time, so we 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;gml:srsName attribute of gml:AbstractGeometryType. Transformations
+need to a) want to do it, and b) resource it).
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;between CRS may in general be handled through algorithms (e.g. ref
+<br />2) The standard names.  Some of you will know that I think we need to address 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;proj4) using the geodetic parameters of the CRS.&quot;
+splitting CF into (at least) the following three components:
 <br />
-<br />So the OGC community has (at least so far) decided that explicit 
+&nbsp;- vocabularies
 <br />
-translations between coordinate reference systems do not belong inside 
+&nbsp;- netcdf specific things
 <br />
-of their data representations.  CF has already gone one step beyond this 
+&nbsp;- other stuff.
 <br />
-(and adds value in doing so).  But I believe that keeping CF &quot;lean and 
+<br />Having done that, we should separate the development track an possibly version 
 <br />
-mean&quot; will pay off over the long term, so we should carefully consider 
+each separately.  Anyway, limiting ourselves to vocabularies as they apply to 
 <br />
-alternative solutions outside of CF before adding further complexity to 
+variables and axes, as Jonathan and Steve both state, we have an issue with 
 <br />
-the standard. (Sorry if I'm sledge hammering this point.)
+systemising modifiers (factorisation) of the standard names. We also have an 
 <br />
-<br />Bert Jagers wrote:
+issue with name proliferation (not in and of itself a problem, but a problem 
 <br />
-<em class="quotelev1">&gt; Hi Steve,
+when we start to incorporate other namespaces and fixing them in place, e.g. 
+<br />
+selecting part of an external gazetteer, which then is evolves externally at 
+<br />
+a different pace).
+<br />
+<br />This is an area where there is a lot of work on in other communities, and we 
+<br />
+should look at what they are doing, and use it. In particular, GML has a 
+<br />
+dictionary concept. Can we use that as a starting point. Can we then ask how 
+<br />
+we use that in a CF compliant way? I think so, it could be as simple as 
+<br />
+referencing the namespace associated with a particular standard name. That 
+<br />
+would allow people to use externally maintained namespaces. For example:  the 
+<br />
+CF community are not the right people to maintain an atmospheric chemistry 
+<br />
+namespace, but we do want atmospheric chemistry in our CF compliant files ...
+<br />
+(Is this going to be a big change from CF-1.0? No, not if we do it right, it 
+<br />
+could even be backward compatible).
+<br />
+<br />3)  What about the modifiers issue? We need to come up with a method of 
+<br />
+dealing with modifiers of any sort in an abstract way, rather than creating 
+<br />
+epicycles every time we think of something new. OK, well, we're not going to 
+<br />
+do that today, so this should be something we put on our CF development 
+<br />
+track ...
+<br />
+&nbsp;
+<br />
+On this specific proposal, if I quote 7.3 of CF-1.0:
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;Some methods (e.g., variance) imply a change of units of the variable, and 
+<br />
+this also is specified by Appendix D. &quot;
+<br />
+<br />Was anyone else aware that where we don't have a cell method we have to know a 
+<br />
+priori whether a quantity is extensive (depends on the size of the cell) or 
+<br />
+intensive (doesn't) to know what to with it. This makes perfect sense, except 
+<br />
+that this implies that all standard names need to have this as an attribute 
+<br />
+(or it is compulsory as an attribute of a variable, better but maybe even 
+<br />
+better to imply that things are intensive except when they have an attribute 
+<br />
+which says they're not). (Or do I have this all wrong?)
+<br />
+<br />Meanwhile, this will be a nightmare to *use*. 
+<br />
+<br />So, what do I think we should do? Clearly we need to keep the separation 
+<br />
+between vocabulary and usage (ie standard names and modifiers like cell 
+<br />
+methods). As Steve points out, this is broken already with cell methods, 
+<br />
+which can change the (implied/explicit) units of a standard name. I think we 
+<br />
+need to take a step back and ask ourselves how we can do this in a cleaner 
+<br />
+way. So this is another item of work we need for our CF development track ... 
+<br />
+<br />At that point, we probably should think about the structures of our standard 
+<br />
+names. My personal point of view would be that we should try and identify the 
+<br />
+semantic things we care about, and join them together into standard names.  
+<br />
+For example, we have x_sea_water_velocity as an alias of 
+<br />
+sea_water_x_velocity. I'd have to code every one of these up (but if we 
+<br />
+really do expand, then take for example the BODC parameter dictionary which 
+<br />
+has 10,000 entries, no way I'm going to do that manually)! Surely we can 
+<br />
+divide this into two or three semantic parts, and the order is irrelevant. 
+<br />
+Doing this could be as simple as stating that semantic content is separated 
+<br />
+by _ and order is irrelevant (but it wont be that simple :-). Roy Lowry has 
+<br />
+the wonderful example of how this can get out of hand: the advent of green 
+<br />
+dogs (if we allow colour modifiers to be completely independent of animals). 
+<br />
+I suppose our example could be orography velocity ... 
+<br />
+<br />I've got more thoughts on the standard names, but will save them for now, but 
+<br />
+by way of summary of this post, I think this email has raised three things we 
+<br />
+need to identify as needing more work, and for which we need someone to make 
+<br />
+a proposal about how to proceed.
+<br />
+<br />1) Versioning
+<br />
+2) Dealing with variable modifiers, units and standard names
+<br />
+3) Dealing with dictionaries of names, and relationship with external 
+<br />
+namespaces.
+<br />
+<br />We may need to decouple units and standard names to resolve these issues! 
+<br />
+Clearly we can't do that in CF 1.x, but we might in a future CF ...
+<br />
+<br />I'm deliberately not raising specific proposed solutions now, because what I 
+<br />
+would like us to do is identify that these are structural problems that need 
+<br />
+resolution in a future version of CF, not to be hacked into CF-1.0. Of course 
+<br />
+folk (including me) can come up with ways of dealing with it for now, but 
+<br />
+they wont be CF (standard). 
+<br />
+<br />Bryan
+<br />
+<br />On Tuesday 08 February 2005 08:54, Jonathan Gregory wrote:
+<br />
+<em class="quotelev1">&gt; Dear Steve
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;     I'd like to open another outlook for this entire discussion -- an
+<em class="quotelev2">&gt; &gt; They
 </em><br />
-<em class="quotelev1">&gt;     approach that might meet your goals _with no changes to CF at all_.
+<em class="quotelev2">&gt; &gt; are now creating files which have &quot;standard_name&quot; attributes.  In most
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev2">&gt; &gt; cases they lack cell_methods attributes.  They believe that they are
 </em><br />
-<em class="quotelev1">&gt;     In the detailed use cases that you presented yesterday you
+<em class="quotelev2">&gt; &gt; creating CF 1.0 compliant files.  Does your proposal  &quot;(2)&quot; imply that
 </em><br />
-<em class="quotelev1">&gt;     motivated the CF changes under discussion by pointing out that it
+<em class="quotelev2">&gt; &gt; valid CF 1.0 files which use &quot;standard_name&quot; will become invalid CF 2.0
 </em><br />
-<em class="quotelev1">&gt;     would not be desirable to create multiple files to contain the
-</em><br />
-<em class="quotelev1">&gt;     same data, specifically  &quot;... one could of course generate
-</em><br />
-<em class="quotelev1">&gt;     multiple copies of the output file with one auxiliary coordinate
-</em><br />
-<em class="quotelev1">&gt;     system each, but I do not like this approach&quot;  What your use case
-</em><br />
-<em class="quotelev1">&gt;     has presented to us (I think) is a case of multiple &quot;views&quot; of the
-</em><br />
-<em class="quotelev1">&gt;     same data:  The data variables and their coordinates in absolute
-</em><br />
-<em class="quotelev1">&gt;     lat/lon are immutable.  But you also want to support two or three
-</em><br />
-<em class="quotelev1">&gt;     community-specific outlooks, each requiring specialized coordinate
-</em><br />
-<em class="quotelev1">&gt;     system information.
+<em class="quotelev2">&gt; &gt; files?  If so isn't this a serious backwards compatibility concern?
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;     This statement of the problem practically shouts out &quot;service
+<em class="quotelev1">&gt; Yes, it would. Karl has also made that point. Strangely, Karl's posting
 </em><br />
-<em class="quotelev1">&gt;     oriented&quot; -- providing different flavors of the same data through
-</em><br />
-<em class="quotelev1">&gt;     multiple interfaces.  I think we can achieve that today with
-</em><br />
-<em class="quotelev1">&gt;     existing tools -- OPeNDAP and TDS.  Standard netCDF clients can
-</em><br />
-<em class="quotelev1">&gt;     &quot;simply&quot; (in quotes) be relinked to utilize the OPeNDAP service.
+<em class="quotelev1">&gt; doesn't appear on the news archive.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Hm, a quite different approach indeed. I have no experience yet with 
+<em class="quotelev1">&gt; I agree, we can only make cell_methods strongly recommended, rather than
 </em><br />
-<em class="quotelev1">&gt; OPeNDAP, my approach so far has been first to get netCDF CF support 
+<em class="quotelev1">&gt; mandatory, in order that previous CF files remain valid. I think that such
 </em><br />
-<em class="quotelev1">&gt; implemented correctly and take the next step to OPeNDAP. I associate 
+<em class="quotelev1">&gt; a recommendation is needed, because really people ought to record what they
 </em><br />
-<em class="quotelev1">&gt; OPeNDAP mostly with data access through the internet. An OPeNDAP 
+<em class="quotelev1">&gt; intend a quantity to be, and when there is subgrid variation of surface
 </em><br />
-<em class="quotelev1">&gt; compliant reader will allow you also to access local data files, but 
+<em class="quotelev1">&gt; types, for instance, there is a real ambiguity. The standard name alone is
 </em><br />
-<em class="quotelev1">&gt; whether all features are available I am not sure. I know that it is 
-</em><br />
-<em class="quotelev1">&gt; possible in some way to serve multiple files as one big virtual file 
-</em><br />
-<em class="quotelev1">&gt; using OPeNDAP; however, I don't know whether that works also locally 
-</em><br />
-<em class="quotelev1">&gt; and what the requirements are for combining multiple files to one 
-</em><br />
-<em class="quotelev1">&gt; virtual file. I am looking for a local option because
-</em><br />
-<em class="quotelev1">&gt;  
-</em><br />
-<em class="quotelev1">&gt; 1) model runs may be carried out by different project partners.
-</em><br />
-<em class="quotelev1">&gt; 2) data files may be big and not easily transferred via internet.
-</em><br />
-<em class="quotelev1">&gt;  
-</em><br />
-This could get to be quite a long discussion -- the details of and 
-<br />
-values from using TDS.  Bullet form seems like it might get to the heart 
-<br />
-of matters faster
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;* There is a sysadmin task to setting up the TDS server.  For a
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;first-timer it is non-trivial, though I hesitate to make an
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;estimate.  Say (??) 1/2 day to get the basics working and another
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1/2 day to learn to configure this particular problem.  That's
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;guessing.  Say 1-2 hours from scratch for someone already familiar
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with the software.
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;* Once the server is running if you are on the same machine as the
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;server the distinction between local and remote access is not
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;terribly important.  The filename path becomes longer -- starts
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with &quot;http://...&quot;.  NetCDF through OPeNDAP still looks just like
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;netCDF (there are a couple of glitches at the detail level -- more
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;issues for developers than users..)
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;* There will be a performance penalty, even on local access. 
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OPeNDAP performance is generally &quot;good&quot;, but there are too many
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unknowns to characterize it in greater detail.   Hard to say
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a-priori whether the penalty would be an irritating factor. 
-<br />
-<br /><em class="quotelev1">&gt; One thing that I am not sure about is what you exactly propose. After 
-</em><br />
-<em class="quotelev1">&gt; some text regarding the immutabel part and special attributes and 
-</em><br />
-<em class="quotelev1">&gt; variables for the two separate communities, you propose:
+<em class="quotelev1">&gt; not sufficient metadata.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;     You can arrange for these views to show up neatly organized in a
+<em class="quotelev2">&gt; &gt; Before we introduce further complexity to the sub-grid cell_methods
 </em><br />
-<em class="quotelev1">&gt;     directory tree
+<em class="quotelev2">&gt; &gt; machinery (which is not one of the more &quot;transparent&quot; aspects of CF
 </em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;         <a href="http://my_institution_server/">http://my_institution_server/</a>
-</em><br />
-<em class="quotelev1">&gt;                     Germany/
-</em><br />
-<em class="quotelev1">&gt;                              ...files...nc
-</em><br />
-<em class="quotelev1">&gt;                     Netherlands/
-</em><br />
-<em class="quotelev1">&gt;                              ...files...nc
+<em class="quotelev2">&gt; &gt; already), has there been a serious exploration of alternatives?
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Would all data be stored in both the Germany and the Netherlands 
-</em><br />
-<em class="quotelev1">&gt; directories (only different with respect to the local grids stored in 
-</em><br />
-<em class="quotelev1">&gt; the files)? If so, that approach would be quite redundant.
-</em><br />
-Using TDS there would be only single instances of the &quot;immutable&quot; 
-<br />
-(geo-referenced) data files.  There would be separate files that 
-<br />
-contained only the coordinate representations needed by German, Dutch, 
-<br />
-etc user groups.  These would not change unless you changed the model 
-<br />
-grid.  And there would be an XML file (NcML) to tie them together.  The 
-<br />
-TDS software would act very much like the &quot;small conversion programs&quot; 
-<br />
-you hypothesize in the next paragraph, except that it performs its work 
-<br />
-on-the-fly.  You might find that there were other useful tasks that you 
-<br />
-could do with the TDS, too -- most obvious example being to aggregate 
-<br />
-time series of files into a single (virtual) dataset.
-<br />
-<em class="quotelev1">&gt; I don't need OPeNDAP for that and I can just generate both files and 
-</em><br />
-<em class="quotelev1">&gt; distribute them individually, or I could probably write a small 
-</em><br />
-<em class="quotelev1">&gt; conversion program to convert one file into the other using some 
-</em><br />
-<em class="quotelev1">&gt; separate grid files, or use separate grid files in addition to the 
-</em><br />
-<em class="quotelev1">&gt; data file. If the main data is stored in a central directory while 
-</em><br />
-<em class="quotelev1">&gt; community specific extensions are stored in the two subdirectories 
-</em><br />
-<em class="quotelev1">&gt; then I'm not sure how its going to work (only through internet 
-</em><br />
-<em class="quotelev1">&gt; access?, what about the variable specific grid_mapping attributes?).
-</em><br />
-If it is local files that your community really needs, and the 
-<br />
-service-oriented aspects of TDS do not add any value, then (as you have 
-<br />
-said) you don't need OPeNDAP.  In fact, there is plenty of richness in 
-<br />
-the netCDF utilities that already exist (e.g. nco), so that you can 
-<br />
-create German and Dutch flavors of your files using nothing but simple 
-<br />
-scripts to do the same things that are described from TDS above.   No 
-<br />
-changes to CF are required.  And it would not be a particularly messy 
-<br />
-data management task.
-<br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;     P.S. (footnote) On the initial point about redundant &quot;grid object&quot;
-</em><br />
-<em class="quotelev1">&gt;     contents:  I was referring to situations where variables like
-</em><br />
-<em class="quotelev1">&gt;     velocities (XYZ), share the same horizontal coordinates as
-</em><br />
-<em class="quotelev1">&gt;     variables like streamFunction (XY).  The grid_mapping info for the
-</em><br />
-<em class="quotelev1">&gt;     horizontal has to be repeated in both grids ... or alternatively,
-</em><br />
-<em class="quotelev1">&gt;     complexity has to be introduced to represent parent (XY) and child
-</em><br />
-<em class="quotelev1">&gt;     (XYZ) grid objects.
+<em class="quotelev1">&gt; ...
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; As long as the grid_mapping data sets do not refer to variables, there 
+<em class="quotelev2">&gt; &gt; I'm tempted to think that a thoughtful discussion on how to systematize
 </em><br />
-<em class="quotelev1">&gt; is no need to duplicate the grid_mapping data. I only see the need to 
-</em><br />
-<em class="quotelev1">&gt; specify for every variable in the file the grid_mapping attribute 
-</em><br />
-<em class="quotelev1">&gt; (current situation) or coordinate_system (one of the alternatives). So 
-</em><br />
-<em class="quotelev1">&gt; far, grid_mapping is a purely horizontal transformation, so, if the 
-</em><br />
-<em class="quotelev1">&gt; velocities are stored at the same grid locations as the streamfunction 
-</em><br />
-<em class="quotelev1">&gt; and the Z dimension is a separate dimension, there is no need to 
-</em><br />
-<em class="quotelev1">&gt; duplicate the horizontal grid variables either. If the velocities are 
-</em><br />
-<em class="quotelev1">&gt; stored at different X,Y locations than the streamFunction then we need 
-</em><br />
-<em class="quotelev1">&gt; of course two grid specifications.
-</em><br />
-In the footnote I was assuming that the theoretical discussion was of 
-<br />
-grid objects that described both horizontal and vertical and files that 
-<br />
-mixed 2D and 3D spatial grids.  There are plenty of subtleties in the 
-<br />
-vertical, too, particularly for hybrid coordinate models.  Sorry for 
-<br />
-opening up this distracting point.
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;Thanks for your patience with this process - Steve
-<br />
-<em class="quotelev1">&gt;  
-</em><br />
-<em class="quotelev1">&gt; Best regards,
-</em><br />
-<em class="quotelev1">&gt;  
-</em><br />
-<em class="quotelev1">&gt; Bert
-</em><br />
-<em class="quotelev1">&gt; ------------------------------------------------------------------------
+<em class="quotelev2">&gt; &gt; these modifiers is in order.
 </em><br />
 <em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; So far, I have not managed to think of better ways myself, and believe me,
+</em><br />
+<em class="quotelev1">&gt; I have spent hours thinking about it! But anyone's welcome to make
+</em><br />
+<em class="quotelev1">&gt; proposals, of course. Yes, the standard_name and its modifiers and the
+</em><br />
+<em class="quotelev1">&gt; cell_methods together specify the quantity. This is a step towards some
+</em><br />
+<em class="quotelev1">&gt; &quot;factorisation&quot; of the description, in order to limit the expansion of the
+</em><br />
+<em class="quotelev1">&gt; standard name table, and I think it's quite systematic. We are following a
+</em><br />
+<em class="quotelev1">&gt; path between the extremes of putting all the definition in one attribute,
+</em><br />
+<em class="quotelev1">&gt; and breaking it down into many attributes.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; Listening
+</em><br />
+<em class="quotelev2">&gt; &gt; to the general community chatter there's no doubt that plenty of groups
+</em><br />
+<em class="quotelev2">&gt; &gt; have picked up the &quot;standard_name&quot; attribute and are thrilled to have
+</em><br />
+<em class="quotelev2">&gt; &gt; found it.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; That is encouraging. Of course, it means we need to arrange ways of making
+</em><br />
+<em class="quotelev1">&gt; it easier to add and modify standard names. That's something I hope we can
+</em><br />
+<em class="quotelev1">&gt; discuss at the meeting at the GO-ESSP meeting at the BADC in June.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Best wishes
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Jonathan
 </em><br />
 <em class="quotelev1">&gt; _______________________________________________
 </em><br />
@@ -389,19 +361,13 @@ opening up this distracting point.
 </em><br />
 <em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
-<em class="quotelev1">&gt;   
-</em><br />
 <br /><pre>
 -- 
---
-Steve Hankin, NOAA/PMEL -- Steven.C.Hankin at noaa.gov
-7600 Sand Point Way NE, Seattle, WA 98115-0070
-ph. (206) 526-6080, FAX (206) 526-6744
--------------- next part --------------
-An HTML attachment was scrubbed...
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20061206/65864216/attachment-0002.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20061206/65864216/attachment-0002.html</a>&gt;
+Bryan Lawrence,        Head NCAS/British Atmospheric Data Centre
+Web: badc.nerc.ac.uk                      Phone: +44 1235 445012
+CCLRC: Rutherford Appleton Laboratory, Chilton, Didcot, OX11 0QX
 </pre>
-<span id="received"><dfn>Received on</dfn> Wed Dec 06 2006 - 10:07:58 GMT</span>
+<span id="received"><dfn>Received on</dfn> Thu Feb 24 2005 - 03:55:10 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -409,9 +375,9 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start565">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0566.html" title="Next message in the list">Bert Jagers: "[CF-metadata] curvilinear cartesian coordinates case (service-oriented approach)"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0564.html" title="Previous message in the list">Godin, Michael: "[CF-metadata] Proposed standard names for biological model outputs"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0563.html" title="Message to which this message replies">Bert Jagers: "[CF-metadata] curvilinear cartesian coordinates case (service-oriented approach)"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0566.html" title="Next message in the list">Bryan Lawrence: "[CF-metadata] GIS issues"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0564.html" title="Previous message in the list">Bryan Lawrence: "[CF-metadata] cf futures (long)"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0552.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] subgrid variation"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -423,7 +389,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:52 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0564.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0566.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] fixed sensors, depth, datum from Philip Bentley on 2008-09-29 (mailing-list-archive)</title>
-<meta name="Author" content="Philip Bentley (philip.bentley)" />
-<meta name="Subject" content="[CF-metadata] fixed sensors, depth, datum" />
-<meta name="Date" content="2008-09-29" />
+<title>[CF-metadata]  some concerns about the &quot;ensemble axis&quot; proposal from Jonathan Gregory on 2007-03-22 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata]  some concerns about the &quot;ensemble axis&quot; proposal" />
+<meta name="Date" content="2007-03-22" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1574.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1576.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] fixed sensors, depth, datum</h1>
-<!-- received="Mon Sep 29 08:18:09 2008" -->
-<!-- isoreceived="20080929071809" -->
-<!-- sent="Mon, 29 Sep 2008 15:18:09 +0100" -->
-<!-- isosent="20080929141809" -->
-<!-- name="Philip Bentley" -->
-<!-- email="philip.bentley" -->
-<!-- subject="[CF-metadata] fixed sensors, depth, datum" -->
-<!-- id="1222697890.6637.122.camel_at_eld414.desktop.frd.metoffice.com" -->
+<a style="text-decoration:none" href="./1574.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1576.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  some concerns about the &quot;ensemble axis&quot; proposal</h1>
+<!-- received="Thu Mar 22 16:51:03 2007" -->
+<!-- isoreceived="20070322165103" -->
+<!-- sent="Thu, 22 Mar 2007 22:51:03 +0000" -->
+<!-- isosent="20070322225103" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata]  some concerns about the &quot;ensemble axis&quot; proposal" -->
+<!-- id="20070322225103.GB19256_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20080929081036.GA9646_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1576.html" accesskey="d" title="Ethan Davis: &quot;[CF-metadata] fixed sensors, depth, datum&quot;">Next message</a> ]
-[ <a href="./1574.html" title="Jon Blower: &quot;[CF-metadata] fixed sensors, depth, datum&quot;">Previous message</a> ]
-[ <a href="./1571.html" title="Jonathan Gregory: &quot;[CF-metadata] fixed sensors, depth, datum&quot;">In reply to</a> ]
+[ <a href="./1576.html" accesskey="d" title="John Graybeal: &quot;[CF-metadata] unique identifiers&quot;">Next message</a> ]
+[ <a href="./1574.html" title="Luis Bermudez: &quot;[CF-metadata] unique identifiers&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./1578.html" accesskey="t" title="Ethan Davis: &quot;[CF-metadata] fixed sensors, depth, datum&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,164 +68,94 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Philip Bentley &lt;<a href="mailto:philip.bentley?Subject=Re%3A%20%5BCF-metadata%5D%20fixed%20sensors%2C%20depth%2C%20datum">philip.bentley</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20some%20concerns%20about%20the%20%22ensemble%20axis%22%20proposal">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 29 Sep 2008 15:18:09 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 22 Mar 2007 22:51:03 +0000</span><br />
 </address>
 <br />
-Hi,
+Dear Steve
 <br />
-<br />Since I'm name-checked in this thread I thought I ought to chip in with
+<br />You make a specific suggestion that we could use a mandatory axis attribute to
 <br />
-my 2 cents worth.
+identify ensemble axes. I think that's a useful idea. Although it should not be
 <br />
-<br />FWIW, I'd make the following observations (some of which reiterate other
+difficult to use such an axis when you know which one it is, I agree that
 <br />
-contributions):
+identifying it could be tricky.
 <br />
-<br />* I don't think that the 'grid_mapping' attribute (and its associated
+<br />You express many other concerns about the CF standard and its development. My
 <br />
-variable) is the right place to encode this information. In the case of
+perception is quite different from yours. I think we have been rather careful
 <br />
-in situ observations/measurements, for example, presumably it would be
+about the additions we make. It is not my impression that the standard has
 <br />
-quite normal to want to provide geoid and/or reference datum metadata
+suffered from &quot;instability and snow-balling complexity&quot;. We only add things
 <br />
-that has little or no relevance to grids or grid mappings (i.e. in the
+that people need. In doing that, we should try to anticipate obvious next steps
 <br />
-map projection sense).
+and generalisations which are very likely to be needed, but I do not think we
 <br />
-<br />* We could encode geoid metadata in an attribute called, say,
+should hold up development because we cannot see the way to an all-encompassing
 <br />
-'geoid_name' or 'geoid_id', at either the global or variable level. As
+solution. Also, I don't understand the problem about unintelligibility by
 <br />
-already discussed this would identify a well-known geoid, the details of
+existing applications. Pretty much all of CF is optional; only the COARDS core
 <br />
-which would need to be determined from external sources.
+is not. Old applications should simply be able to ignore new parts. They won't
 <br />
-<br />* We could encode vertical datum metadata in an attribute called, say,
+be able to understand them, but they should not be broken by them. I think the
 <br />
-'vertical_datum_name' or 'vertical_datum_id', again at either the global
+only significant departure from COARDS is the one which perhaps worries you
 <br />
-or variable level, the latter overriding the former. As before, this
+viz. in CF 2.4:
 <br />
-attribute would identify a well-known datum, defined externally to CF.
+<br />&quot;A variable may have any number of dimensions, including zero, and the
 <br />
-<br />* Where appropriate, we might consider encoding a local datum offset to
+dimensions must all have different names. COARDS strongly recommends limiting
 <br />
-an agreed reference datum (the WGS 1984 datum perhaps?) in the same way
+the number of dimensions to four, but we wish to allow greater flexibility.&quot;
 <br />
-as is currently done for WGS 84-related lat-long coords. This we could
+<br />Even COARDS does not forbid more than four dimensions. CF has had this
 <br />
-do using an attribute called, say, 'vertical_offset_from_wgs1984_datum'.
+statement allowing more than four from its early drafts, whenever that was -
 <br />
-Of course, this would only make sense in the simple case of a constant
+probably more then seven years ago - so suggesting a possible fifth dimension
 <br />
-offset (I have no feeling for how common or rare this scenario is -
+for ensembles is hardly an innovation now.
 <br />
-presumably the relationship between different vertical datums is
+<br />I agree with you that it is difficult to know we are making the best decisions
 <br />
-decidedly non-trivial).
+if few people express a view. On this particular thread (about the ensemble
 <br />
-<br />* If we don't like the idea of attaching the above attributes to
+axis) an unusually large number of people have expressed views, and that's
 <br />
-individual variables then we could collect them together in a
+good. I would say there is a majority in favour of the proposal among those
 <br />
-'container' CRS attribute &amp; variable as per the 'grid_mapping' attribute
+who have contributed, but unanimity would be better than a majority. This is
 <br />
-&amp; variable. This was my preferred approach when compiling my original
+not a new problem. We have convened the committees partly to engage more
 <br />
-Trac ticket (#9). However, in order to reach agreement on the core
+people in the process. It could be that the silent majority sees no particular
 <br />
-aspects of that ticket, it was decided to keep them within the existing
+problem with the proposal.
 <br />
-grid mapping container.
+<br />My concern is that our decision-making presently is terribly slow. We have not
 <br />
-<br />* If the 'grid_mapping' attribute is intended to encapsulate all things
+definitely enacted any change for more than three years, although we have in
 <br />
-CRS then we should consider renaming it (e.g. 'crs_definition').
+effect agreed several on the email list. I don't think that's satisfactory. I
 <br />
-<br />* IMO, pulling together a coherent proposal covering the desired facets
+will try to find time to repropose the apparently agreed versions of some of
 <br />
-of horizontal and vertical coordinate reference systems will likely take
+them through the Trac system, so that we have them clearly visible. But we do
 <br />
-a suitably-knowledgeable person 3 months work, possibly more. Does
+need to agree reasonable timescales for making decisions, I think.
 <br />
-anyone have that kind of time to spare?
+<br />Best wishes
 <br />
-<br />* As mentioned in a previous posting, I believe that these (and some
+<br />Jonathan
 <br />
-other key) updates might best be addressed by a small team of technical
-<br />
-experts producing a draft CF 2.0 specification. I'm not convinced that
-<br />
-the current Trac discussion mechanism would work successfully for such a
-<br />
-large proposal (the fragmentation of the 'common concept' proposal
-<br />
-illustrates the problem here).
-<br />
-<br />* The suggestions above run counter to current 'CF philosophy' in that
-<br />
-(i) CF/netCDF files would not necessarily be self-describing; (ii) we
-<br />
-would be introducing changes to the CF conventions which anticipate
-<br />
-future rather than immediate requirements. As a community are we willing
-<br />
-to go down this route?
-<br />
-<br />Regards
-<br />
-Phil
-<br />
-<br />On Mon, 2008-09-29 at 09:10 +0100, Jonathan Gregory wrote:
-<br />
-<br /><em class="quotelev1">&gt; Dear Ethan
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I agree that different definitions of the reference ellipsoid do not constitute
-</em><br />
-<em class="quotelev1">&gt; different geophysical quantities. Likewise different definitions of the geoid
-</em><br />
-<em class="quotelev1">&gt; all give the same geophysical quantity. Therefore I agree that the geoid should
-</em><br />
-<em class="quotelev1">&gt; be identified as part of the CRS (naming it in the grid_mapping would be
-</em><br />
-<em class="quotelev1">&gt; convenient), just as the ellipsoid is identified as part of the CRS (we added
-</em><br />
-<em class="quotelev1">&gt; the parameters specifying the ellipsoid to the grid_mapping as part of Phil
-</em><br />
-<em class="quotelev1">&gt; Bentley's change to the conventions). I agree too that the definition of the
-</em><br />
-<em class="quotelev1">&gt; vertical CRS is relevant both to coordinate variables and data variables. That
-</em><br />
-<em class="quotelev1">&gt; is another reason why it would make sense to put it in the grid_mapping.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<br />&lt;snip&gt;
-<br />
-<br /><em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Jonathan
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
--------------- next part --------------
-<br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20080929/a925e4ef/attachment-0002.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20080929/a925e4ef/attachment-0002.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Mon Sep 29 2008 - 08:18:09 BST</span>
+<span id="received"><dfn>Received on</dfn> Thu Mar 22 2007 - 16:51:03 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -237,13 +163,9 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1575">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1576.html" title="Next message in the list">Ethan Davis: "[CF-metadata] fixed sensors, depth, datum"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1574.html" title="Previous message in the list">Jon Blower: "[CF-metadata] fixed sensors, depth, datum"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./1571.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] fixed sensors, depth, datum"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1576.html" title="Next message in the list">John Graybeal: "[CF-metadata] unique identifiers"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1574.html" title="Previous message in the list">Luis Bermudez: "[CF-metadata] unique identifiers"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./1578.html" title="Next message in this discussion thread">Ethan Davis: "[CF-metadata] fixed sensors, depth, datum"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./1578.html" title="Message sent in reply to this message">Ethan Davis: "[CF-metadata] fixed sensors, depth, datum"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -254,7 +176,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:09 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1574.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1576.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

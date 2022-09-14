@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] proposed new vertical coordinate from Ben Foster on 2006-03-08 (mailing-list-archive)</title>
-<meta name="Author" content="Ben Foster (foster)" />
-<meta name="Subject" content="[CF-metadata] proposed new vertical coordinate" />
-<meta name="Date" content="2006-03-08" />
+<title>[Fwd: Re: [Fwd: [CF-metadata] CF compatibility with NetCDF version 2.4?]] from John Caron on 2002-12-04 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[Fwd: Re: [Fwd: [CF-metadata] CF compatibility with NetCDF version 2.4?]]" />
+<meta name="Date" content="2002-12-04" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0055.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0057.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] proposed new vertical coordinate</h1>
-<!-- received="Wed Mar  8 14:42:29 2006" -->
-<!-- isoreceived="20060308144229" -->
-<!-- sent="Wed, 8 Mar 2006 14:42:29 -0700 (MST)" -->
-<!-- isosent="20060308214229" -->
-<!-- name="Ben Foster" -->
-<!-- email="foster" -->
-<!-- subject="[CF-metadata] proposed new vertical coordinate" -->
-<!-- id="200603082142.k28LgTU19925_at_jabba.hao.ucar.edu" -->
+<a style="text-decoration:none" href="./0055.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0057.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[Fwd: Re: [Fwd: [CF-metadata] CF compatibility with NetCDF version 2.4?]]</h1>
+<!-- received="Wed Dec  4 09:31:00 2002" -->
+<!-- isoreceived="20021204093100" -->
+<!-- sent="Wed, 04 Dec 2002 09:31:00 -0700" -->
+<!-- isosent="20021204163100" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[Fwd: Re: [Fwd: [CF-metadata] CF compatibility with NetCDF version 2.4?]]" -->
+<!-- id="3DEE2DC4.7050006_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0057.html" accesskey="d" title="Karl Taylor: &quot;[CF-metadata] proposed new vertical coordinate&quot;">Next message</a> ]
-[ <a href="./0055.html" title="Julien Demaria: &quot;[CF-metadata] Integerized Sinusoidal Grid&quot;">Previous message</a> ]
+[ <a href="./0057.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] New standard name table for the CF netCDF convention&quot;">Next message</a> ]
+[ <a href="./0055.html" title="Brian Eaton: &quot;[CF-metadata] CF compatibility with NetCDF version 2.4?&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0057.html" accesskey="t" title="Karl Taylor: &quot;[CF-metadata] proposed new vertical coordinate&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,92 +68,60 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Ben Foster &lt;<a href="mailto:foster?Subject=Re%3A%20%5BCF-metadata%5D%20proposed%20new%20vertical%20coordinate">foster</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BFwd%3A%20Re%3A%20%5BFwd%3A%20%5BCF-metadata%5D%20CF%20compatibility%20with%20NetCDF%20version%202.4%3F%5D%5D">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 8 Mar 2006 14:42:29 -0700 (MST)</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 04 Dec 2002 09:31:00 -0700</span><br />
 </address>
 <br />
-To the CF conventions community:
+-------- Original Message --------
 <br />
-<br />Over the past 25 years or so the High Altitude Observatory at NCAR 
+Subject: Re: [Fwd: [CF-metadata] CF compatibility with NetCDF version 2.4?]
 <br />
-has developed a series of Thermospheric GCM's for use in upper atmosphere 
+Date: Wed, 04 Dec 2002 08:37:23 -0700
 <br />
-research. We save simulation results in netCDF history files, which are
+From: Russ Rew &lt;russ at unidata.ucar.edu&gt;
 <br />
-read by post-processors and visualization software. 
+Organization: UCAR Unidata Program
 <br />
-<br />We would like to conform to CF conventions, but are currently unable
+To: John Caron &lt;caron at unidata.ucar.edu&gt;
 <br />
-to do so because our vertical dimension coordinate is not recognized.
+<br /><em class="quotelev1"> &gt; do you know any reason why netcdf 2.4 might cause problems with CF-1.0?
+</em><br />
+<br />No, I think it should work fine, except possibly for the use of the
 <br />
-The vertical coordinate is a log pressure scale, ln(p0/p), where p0 is
+NC_BYTE data type.  In netCDF-2, whether the external NC_BYTE type
 <br />
-a standard reference pressure. The resulting coordinate array &quot;lev&quot;
+represented signed or unsigned values was left up to the user. In
 <br />
-is typically -17 at the lower boundary to +7 at the top in increments
+netcdf-3, we treat NC_BYTE as signed for the purposes of conversion to
 <br />
-of 0.5 or 0.25, corresponding to about 30 to 500 km. Pressure in mb can 
+short, int, long, float, or double.  So if the CF conventions call for
 <br />
-be calculated with p(k)=p0*exp(-lev(k)).
+representing any data as NC_BYTE type, the netCDF-2 interfaces on some
 <br />
-<br />We would therefore like to propose a new dimensionless vertical coordinate
+platforms would treat it as signed and on others as unsigned, but
 <br />
-for the CF convention as follows:
+netCDF-3 utilities would treat it as signed.
 <br />
-<br />double lev(lev) ;
+<br />Another minor point is characters allowed in names.  In netCDF-2,
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lev:long_name = &quot;midpoint levels&quot; ;
+there was no checking that the characters used in the name of a netCDF
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lev:units = &quot;&quot; ;
+object were compatible with CDL restrictions.  The ncdump and ncgen
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lev:positive = &quot;up&quot; ;
+utilities that use CDL permit only alphanumeric characters, &quot;_&quot;, &quot;-&quot;,
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lev:standard_name = &quot;atmosphere_log_pressure_coordinate&quot; ;
+and &quot;.&quot; in names.  With netCDF-3, this restriction is also enforced by
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lev:formula_terms = &quot;p0: p0 lev: lev&quot; ;
+the library for *creation* of new dimensions, variables, and
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lev:formula = &quot;p(k) = p0 * exp(-lev(k))&quot; ;
+attributes, but previously existing components with less restrictive
 <br />
-<br />If this acceptable, a new definition would be added to the atmosphere 
+names work OK in netCDF-3.
 <br />
-dimensionless vertical coordinate definitions in Appendix D, as follows:
+<br />--Russ
 <br />
-<br />=========================================================================
-<br />
-Atmosphere log pressure coordinate
-<br />
-<br />standard_name = &quot;atmosphere_log_pressure_coordinate&quot;
-<br />
-<br />Definition:
-<br />
-<br />p(k) = p0 * exp(-lev(k))
-<br />
-<br />where p(k) is the pressure at gridpoint (k), p0 is a reference pressure,
-<br />
-and lev(k) is the dimensionless coordinate at vertical gridpoint (k).
-<br />
-<br />The format for the formula_terms attribute is
-<br />
-<br />formula_terms = &quot;p0: var1 lev: var2&quot;
-<br />
-=========================================================================
-<br />
-<br />Thanks for your consideration,
-<br />
-<br />--Ben Foster
-<br />
-<br /><br /><br />-----------------------------------------------------------------------
-<br />
-Ben Foster		      	High Altitude Observatory (HAO)
-<br />
-foster at ucar.edu			phone: 303-497-1595  fax: 303-497-1589  
-<br />
-Nat. Center for Atmos. Res.     P.O. Box 3000 Boulder CO 80307 USA
-<br />
------------------------------------------------------------------------
-<br />
-<span id="received"><dfn>Received on</dfn> Wed Mar 08 2006 - 14:42:29 GMT</span>
+<span id="received"><dfn>Received on</dfn> Wed Dec 04 2002 - 09:31:00 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -163,12 +129,9 @@ Nat. Center for Atmos. Res.     P.O. Box 3000 Boulder CO 80307 USA
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start56">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0057.html" title="Next message in the list">Karl Taylor: "[CF-metadata] proposed new vertical coordinate"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0055.html" title="Previous message in the list">Julien Demaria: "[CF-metadata] Integerized Sinusoidal Grid"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0057.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] New standard name table for the CF netCDF convention"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0055.html" title="Previous message in the list">Brian Eaton: "[CF-metadata] CF compatibility with NetCDF version 2.4?"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0057.html" title="Next message in this discussion thread">Karl Taylor: "[CF-metadata] proposed new vertical coordinate"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0057.html" title="Message sent in reply to this message">Karl Taylor: "[CF-metadata] proposed new vertical coordinate"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -179,7 +142,7 @@ Nat. Center for Atmos. Res.     P.O. Box 3000 Boulder CO 80307 USA
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:43 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0055.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0057.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

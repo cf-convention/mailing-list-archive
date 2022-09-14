@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Re: GDAL NetCDF driver and projection. from Denis Nadeau on 2006-04-27 (mailing-list-archive)</title>
-<meta name="Author" content="Denis Nadeau (denis.nadeau)" />
-<meta name="Subject" content="[CF-metadata] Re: GDAL NetCDF driver and projection." />
-<meta name="Date" content="2006-04-27" />
+<title>[CF-metadata] Encoding Errors on variables in CF from Brian Eaton on 2003-04-04 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Brian Eaton (eaton)" />
+<meta name="Subject" content="[CF-metadata] Encoding Errors on variables in CF" />
+<meta name="Date" content="2003-04-04" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0129.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0131.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Re: GDAL NetCDF driver and projection.</h1>
-<!-- received="Thu Apr 27 07:50:43 2006" -->
-<!-- isoreceived="20060427065043" -->
-<!-- sent="Thu, 27 Apr 2006 09:50:43 -0400" -->
-<!-- isosent="20060427135043" -->
-<!-- name="Denis Nadeau" -->
-<!-- email="denis.nadeau" -->
-<!-- subject="[CF-metadata] Re: GDAL NetCDF driver and projection." -->
-<!-- id="304163b00604270650p5df4e6ctbf7ef05f7fdc4904_at_mail.gmail.com" -->
+<a style="text-decoration:none" href="./0129.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0131.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Encoding Errors on variables in CF</h1>
+<!-- received="Thu Apr  3 16:24:16 2003" -->
+<!-- isoreceived="20030403152416" -->
+<!-- sent="Thu, 3 Apr 2003 16:24:16 -0700" -->
+<!-- isosent="20030403232416" -->
+<!-- name="Brian Eaton" -->
+<!-- email="eaton" -->
+<!-- subject="[CF-metadata] Encoding Errors on variables in CF" -->
+<!-- id="20030403232416.GE24893_at_ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="444FE2E7.8050404_at_unidata.ucar.edu" -->
+<!-- inreplyto="49F73BEED865D3119F8700902773C9F901B3D1DD_at_exchange09.rl.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,10 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0131.html" accesskey="d" title="Denis Nadeau: &quot;[CF-metadata] Re: GDAL NetCDF driver and projection.&quot;">Next message</a> ]
-[ <a href="./0129.html" title="John Caron: &quot;[CF-metadata] Re: GDAL NetCDF driver and projection.&quot;">Previous message</a> ]
-[ <a href="./0129.html" title="John Caron: &quot;[CF-metadata] Re: GDAL NetCDF driver and projection.&quot;">In reply to</a> ]
+[ <a href="./0131.html" accesskey="d" title="Bryan Lawrence: &quot;[CF-metadata] Encoding Errors on variables in CF&quot;">Next message</a> ]
+[ <a href="./0129.html" title="Stephens, A: &quot;[CF-metadata] Encoding Errors on variables in CF&quot;">Previous message</a> ]
+[ <a href="./0129.html" title="Stephens, A: &quot;[CF-metadata] Encoding Errors on variables in CF&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0131.html" accesskey="t" title="Bryan Lawrence: &quot;[CF-metadata] Encoding Errors on variables in CF&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,324 +72,196 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Denis Nadeau &lt;<a href="mailto:denis.nadeau?Subject=Re%3A%20%5BCF-metadata%5D%20Re%3A%20GDAL%20NetCDF%20driver%20and%20projection.">denis.nadeau</a>&gt;
+<dfn>From</dfn>: Brian Eaton &lt;<a href="mailto:eaton?Subject=Re%3A%20%5BCF-metadata%5D%20Encoding%20Errors%20on%20variables%20in%20CF">eaton</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 27 Apr 2006 09:50:43 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 3 Apr 2003 16:24:16 -0700</span><br />
 </address>
 <br />
-Hi John,
+All,
 <br />
-<br />Thank you for taking the time to write this email.  Your points are very
+<br />On Sun, Mar 30, 2003 at 10:58:01PM +0100, Jonathan Gregory wrote:
 <br />
-clear, and they are very helpful.  I must tell you that you give me
+<em class="quotelev1">&gt; The idea of making links between variables depends on the assumption that the
+</em><br />
+<em class="quotelev1">&gt; error variable can only exist in the company of the data variable it belongs
+</em><br />
+<em class="quotelev1">&gt; to, because the links are the identification of its role. This idea is like
+</em><br />
+<em class="quotelev1">&gt; bounds on coordinate variables, which are subsidiary to the coordinate
+</em><br />
+<em class="quotelev1">&gt; variables and have no attributes of their own. A problem with this, in my view,
+</em><br />
+<em class="quotelev1">&gt; is that we might choose to store the error variables apart from the variables
+</em><br />
+<em class="quotelev1">&gt; they belong to.
+</em><br />
+<br />I don't think CF needs to address all possible ways that someone might
 <br />
-information and that you sure taught me about CF-1 convention community .  I
+choose to distribute data between files.  For example, we don't provide
 <br />
-will keep your email as a reference when coding the GDAL  NetCDF driver.
+conventions to store coordinates in a separate file from the data
 <br />
-<br />I have decided to use WKT to encode projections and if I see a new
+variables.
 <br />
-governance structure from CF checked in, I will update the driver.  As well,
+<br />Error measures are used to interpret the data they are associated with, so
 <br />
-I think for this time being I will relax the lat,lon array requirements.  If
+data and error variables must be associated in some manner.  I think that
 <br />
-needed by the community, it would be very easy to compute, but I do not want
+directly linking them via an attribute is the simplest way of doing this.
 <br />
-the driver to be expensive in CPU and space.
+Consider the situation where some quantity is being measured by multiple
 <br />
-<br />Thanks again,
+instruments in a field program.  Following Jonathan's recent suggestion I
 <br />
-<br />Regards,
+might have:
 <br />
-Denis
+<br />float no2_i1(time);
 <br />
-<br />2006/4/26, John Caron &lt;caron at unidata.ucar.edu&gt;:
+&nbsp;&nbsp;no2_i1:long_name = &quot;no2 from instrument 1&quot;
 <br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Hi Denis:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; 1) CF has unfortunately not yet dealt with datum and spheroid encoding
-</em><br />
-<em class="quotelev1">&gt; (not sure what &quot;authority&quot; is), but its on our list to tackle. CF does
-</em><br />
-<em class="quotelev1">&gt; specify a list of known projections and how to encode those (Appendix F).
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; 2) You can, of course, add any metadata you want, eg GeoTransform values,
-</em><br />
-<em class="quotelev1">&gt; from the CF POV, which CF readers are likely to ignore.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; 3) Frank Warmerdam and I talked a while ago about using WKT to encode
-</em><br />
-<em class="quotelev1">&gt; projection info. At the moment, it seems as good as any, with the proviso
-</em><br />
-<em class="quotelev1">&gt; that the CF group may decide to do it another way (when we eventually
-</em><br />
-<em class="quotelev1">&gt; decide).
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; 4) Calculating the lat,lon arrays for projections is currently required
-</em><br />
-<em class="quotelev1">&gt; under CF. I have proposed that this requirement be relaxed, perhaps as a CF
-</em><br />
-<em class="quotelev1">&gt; profile, for the case where this is unneeded and burdonsome. Issues like
-</em><br />
-<em class="quotelev1">&gt; this are awaiting a new CF governence structure.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; 5) Unidata's software maps OPeNDAP datasets into the NetCDF data model
-</em><br />
-<em class="quotelev1">&gt; (aka &quot;Common Data Model&quot;), so we strongly encourage everyone to use the
-</em><br />
-<em class="quotelev1">&gt; NetCDF metadata conventions such as CF in their OPeNDAP Servers. We think of
-</em><br />
-<em class="quotelev1">&gt; OPeNDAP datasets as remote NetCDF datasets, and make access to them as
-</em><br />
-<em class="quotelev1">&gt; transparent as possible.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; 6) BTW, CF is an organization independent of Unidata. It grew out of
-</em><br />
-<em class="quotelev1">&gt; &quot;climate and forecasting&quot; modelers using NetCDF files, but is now broader
-</em><br />
-<em class="quotelev1">&gt; than that, and is an exemplar &quot;community of practice&quot; around scientific
-</em><br />
-<em class="quotelev1">&gt; metadata.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; I am cc'ing to the CF list in case anyone there wants to add more, and so
-</em><br />
-<em class="quotelev1">&gt; the list can hear about what you are trying to do. In case anyone doenst
-</em><br />
-<em class="quotelev1">&gt; know, GDAL is an excellent C library for geospatial work, kind of a &quot;Common
-</em><br />
-<em class="quotelev1">&gt; Data Model&quot; for C .
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Denis Nadeau wrote:
-</em><br />
-<em class="quotelev2">&gt; &gt; Hi,
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; I have looked at the DODS OpeNDAP site and I could use the same metadata
-</em><br />
-<em class="quotelev2">&gt; &gt; structure to store NetCDF projection information.  This way if somebody
-</em><br />
-<em class="quotelev2">&gt; &gt; needs to convert from GTIFF to NetCDF, all projecton information could
-</em><br />
-<em class="quotelev2">&gt; &gt; be used by GRADS, Openev or other applications. I guess my main problem
-</em><br />
-<em class="quotelev2">&gt; &gt; is related on how the CF-1 convention from Unidata handle projections.
-</em><br />
-<em class="quotelev2">&gt; &gt; This bring me to a main question:
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; What are the needs for projections in the GALEON projects?
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; I am the current GDAL NetCDF driver programmer, and would like to make
-</em><br />
-<em class="quotelev2">&gt; &gt; the driver as useful as it can be to the community.
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; Thanks,
-</em><br />
-<em class="quotelev2">&gt; &gt; Denis
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt;     Here are some notes on what was planned for storing projection, etc
-</em><br />
-<em class="quotelev1">&gt; in
-</em><br />
-<em class="quotelev2">&gt; &gt;     other parts of GDAL drivers.  To my knowledge, the never really
-</em><br />
-<em class="quotelev2">&gt; &gt;     propogated
-</em><br />
-<em class="quotelev2">&gt; &gt;     through to the OPeNDAP driver.  If the NetCDF or HDF direct access
-</em><br />
-<em class="quotelev1">&gt; GDAL
-</em><br />
-<em class="quotelev2">&gt; &gt;     driver is updated that those changes propogate through to the
-</em><br />
-<em class="quotelev1">&gt; OPeNDAP
-</em><br />
-<em class="quotelev2">&gt; &gt;     driver so that the same NetCDF/HDF datasets are accessible via
-</em><br />
-<em class="quotelev1">&gt; native
-</em><br />
-<em class="quotelev2">&gt; &gt;     OPeNDAP server, Grads GDS and THREDDS.
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt;     At this point, a lot more support is there for local NetCDF/HDF
-</em><br />
-<em class="quotelev2">&gt; &gt;     files than
-</em><br />
-<em class="quotelev2">&gt; &gt;     for support of those files through OPeNDAP.   Its on my rather large
-</em><br />
-<em class="quotelev2">&gt; &gt;     to do
-</em><br />
-<em class="quotelev2">&gt; &gt;     list, but somewhere in the 2 year timeframe.
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt;     <a href="http://home.gdal.org/~warmerda/gdal_opendap_design.html">http://home.gdal.org/~warmerda/gdal_opendap_design.html</a> (GeoTiff)
-</em><br />
-<em class="quotelev2">&gt; &gt;     <a href="http://gdal.maptools.org/frmt_dods.html">http://gdal.maptools.org/frmt_dods.html</a>
-</em><br />
-<em class="quotelev2">&gt; &gt;     &lt;<a href="http://gdal.maptools.org/frmt_dods.html">http://gdal.maptools.org/frmt_dods.html</a>&gt; (DODS/OPeNDAP)
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt;     Thanks!
-</em><br />
-<em class="quotelev2">&gt; &gt;     Rob
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt;     On Wed, April 26, 2006 5:32 am, Denis Nadeau wrote:
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt; Hi All,
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt;
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt; I would like to have suggestions from the community on the
-</em><br />
-<em class="quotelev2">&gt; &gt;     current needs
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt; for the GDAL NetCDF driver.  I am currently writing the
-</em><br />
-<em class="quotelev1">&gt; CreateCopy
-</em><br />
-<em class="quotelev2">&gt; &gt;     method to
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt; allow people to convert from any GDAL supported format to NetCDF
-</em><br />
-<em class="quotelev1">&gt; CF-1
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt; convention format.
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt;
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt; At this point I am stuck with projection issues.  How should I
-</em><br />
-<em class="quotelev1">&gt; handle
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt; DATUM,
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt; SPHEROID and AUTHORITY?  I can produce a lat lon arrays to
-</em><br />
-<em class="quotelev2">&gt; &gt;     reproject the
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt; projected coordinates to lat/lon space but that may be expensive
-</em><br />
-<em class="quotelev2">&gt; &gt;     in cpu
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt; and
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt; space.
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt;
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt; I am thinking as well to create an array containning the
-</em><br />
-<em class="quotelev2">&gt; &gt;     GeoTransform
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt; values
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt; if found in the source file.
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt;
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt;      adfGeoTransform[0] /* top left x */
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt;      adfGeoTransform[1] /* w-e pixel resolution */
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt;      adfGeoTransform[2] /* rotation, 0 if image is &quot;north up&quot; */
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt;      adfGeoTransform[3] /* top left y */
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt;      adfGeoTransform[4] /* rotation, 0 if image is &quot;north up&quot; */
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt;      adfGeoTransform[5] /* n-s pixel resolution */
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt;
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt;
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt; Thanks for your suggestion,
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt;
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt; Best Regards,
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt; Denis Nadeau
-</em><br />
-<em class="quotelev3">&gt; &gt;      &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt;     --
-</em><br />
-<em class="quotelev2">&gt; &gt;     Alaska Ocean Observing System
-</em><br />
-<em class="quotelev2">&gt; &gt;     Database Manager
-</em><br />
-<em class="quotelev2">&gt; &gt;     907-474-7948
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev1">&gt; ===============================================================================
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt;     To unsubscribe galeon, visit:
-</em><br />
-<em class="quotelev2">&gt; &gt;     <a href="http://www.unidata.ucar.edu/mailing-list-delete-form.html">http://www.unidata.ucar.edu/mailing-list-delete-form.html</a>
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev1">&gt; ===============================================================================
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
--------------- next part --------------
+&nbsp;&nbsp;no2_i1:standard_name = &quot;nitrogen_dioxide_volume_mixing_ratio&quot; ;
 <br />
-An HTML attachment was scrubbed...
+&nbsp;&nbsp;no2_i1:units = &quot;1-e9&quot; ;
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20060427/d26f4057/attachment-0002.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20060427/d26f4057/attachment-0002.html</a>&gt;
+float no2_i1_error_limit(time) ;
 <br />
-<span id="received"><dfn>Received on</dfn> Thu Apr 27 2006 - 07:50:43 BST</span>
+&nbsp;&nbsp;no2_i1_error_limit:standard_name = &quot;nitrogen_dioxide_volume_mixing_ratio&quot;;
+<br />
+&nbsp;&nbsp;no2_i1_error_limit:units = &quot;1-e9&quot; ;
+<br />
+&nbsp;&nbsp;no2_i1_error_limit:intent = &quot;standard_error&quot; ;
+<br />
+float no2_i2(time);
+<br />
+&nbsp;&nbsp;no2_i2:long_name = &quot;no2 from instrument 2&quot;
+<br />
+&nbsp;&nbsp;no2_i2:standard_name = &quot;nitrogen_dioxide_volume_mixing_ratio&quot; ;
+<br />
+&nbsp;&nbsp;no2_i2:units = &quot;1-e9&quot; ;
+<br />
+float no2_i2_error_limit(time) ;
+<br />
+&nbsp;&nbsp;no2_i2_error_limit:standard_name = &quot;nitrogen_dioxide_volume_mixing_ratio&quot;;
+<br />
+&nbsp;&nbsp;no2_i2_error_limit:units = &quot;1-e9&quot; ;
+<br />
+&nbsp;&nbsp;no2_i2_error_limit:intent = &quot;standard_error&quot; ;
+<br />
+<br />In this example the error variables can't be unambiguously associated with
+<br />
+the corresponding data via the standard_name, so additional metadata would
+<br />
+be required to make the connection.  On the other hand a linking attribute
+<br />
+makes this simple (I have pluralized the &quot;error_variable&quot; suggestion from
+<br />
+Bryan):
+<br />
+<br />float no2_i1(time);
+<br />
+&nbsp;&nbsp;no2_i1:long_name = &quot;no2 from instrument 1&quot;
+<br />
+&nbsp;&nbsp;no2_i1:standard_name = &quot;nitrogen_dioxide_volume_mixing_ratio&quot; ;
+<br />
+&nbsp;&nbsp;no2_i1:units = &quot;1-e9&quot; ;
+<br />
+&nbsp;&nbsp;no2_i1:error_variables = &quot;no2_i1_error_limit&quot; ;
+<br />
+float no2_i1_error_limit(time) ;
+<br />
+&nbsp;&nbsp;no2_i1_error_limit:units = &quot;1-e9&quot; ;
+<br />
+float no2_i2(time);
+<br />
+&nbsp;&nbsp;no2_i2:long_name = &quot;no2 from instrument 2&quot;
+<br />
+&nbsp;&nbsp;no2_i2:standard_name = &quot;nitrogen_dioxide_volume_mixing_ratio&quot; ;
+<br />
+&nbsp;&nbsp;no2_i2:units = &quot;1-e9&quot; ;
+<br />
+&nbsp;&nbsp;no2_i2:error_variables = &quot;no2_i2_error_limit&quot; ;
+<br />
+float no2_i2_error_limit(time) ;
+<br />
+&nbsp;&nbsp;no2_i2_error_limit:units = &quot;1-e9&quot; ;
+<br />
+<br />The attribute &quot;error_variables&quot; can take multiple names.  This deals with
+<br />
+the following example from Ag:
+<br />
+<br />float no2(time) ;
+<br />
+&nbsp;&nbsp;no2:standard_name = &quot;no2_mixing_ratio&quot; ;
+<br />
+&nbsp;&nbsp;no2:long_name = &quot;Nitrogen Dioxide Mass Mixing Ratio&quot; ;
+<br />
+&nbsp;&nbsp;no2:units = &quot;1-e9&quot; ;
+<br />
+&nbsp;&nbsp;no2:error_variables = &quot;no2_error_limit no2_detection_limit&quot; ;
+<br />
+float no2_error_limit(time) ;
+<br />
+&nbsp;&nbsp;no2_error_limit:long_name = &quot;Nitrogen Dioxide Error Limit&quot; ;
+<br />
+&nbsp;&nbsp;no2_error_limit:units = &quot;1-e9&quot; ;
+<br />
+&nbsp;&nbsp;no2_error_limit:comment = &quot;Units are given in parts per
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;billion by volume. The error limit is quoted for 2 sigma random errors plus
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;systematic uncertainties derived from cross-sectional fits.&quot; ;
+<br />
+float no2_detection_limit(time) ;
+<br />
+&nbsp;&nbsp;no2_detection_limit:long_name = &quot;Nitrogen Dioxide Detection Limit&quot; ;
+<br />
+&nbsp;&nbsp;no2_detection_limit:units = &quot;1-e9&quot; ;
+<br />
+&nbsp;&nbsp;no2_detection_limit:comment = &quot;Units are given in parts per
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;billion by volume. The detection limit is quoted for 2 standard deviations.&quot; ;
+<br />
+<br />The example sent by John Evans can also be dealt with using the linking
+<br />
+attribute.
+<br />
+<br />The other issue besides linking is to actually describe the error measures.
+<br />
+Ag's suggestion of using the comment field to describe the error is a
+<br />
+solution that's already accomodated by CF (i.e., the comment attribute is
+<br />
+allowed on any variable).  Jonathan has begun to standardize the
+<br />
+description with his &quot;intent&quot; attribute.  But, if we don't use the
+<br />
+standard_name as a linking method, then it is available for its intended
+<br />
+use, i.e., describing the quantities contained in variables.  In that case
+<br />
+the values being suggested as intents could instead be new standard names.
+<br />
+<br />The use of flag variables is common and I think Jonathan's proposed
+<br />
+attributes &quot;flag_values&quot; and &quot;flag_meanings&quot; are a good idea.  It seems
+<br />
+that if a variable has these attributes then further description via a
+<br />
+standard name, such as &quot;data_quality&quot;, is unnecessary.
+<br />
+<br />Summary of proposed changes to CF:
+<br />
+. Add the &quot;error_varibles&quot; attribute to link data and error variables.
+<br />
+. Add new standard_name values to provide descriptions of the error types. 
+<br />
+. Add the &quot;flag_values&quot; and &quot;flag_meanings&quot; attributes to describe flag
+<br />
+&nbsp;&nbsp;variables. 
+<br />
+<br />Brian
+<br />
+<span id="received"><dfn>Received on</dfn> Thu Apr 03 2003 - 16:24:16 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -395,10 +269,13 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start130">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0131.html" title="Next message in the list">Denis Nadeau: "[CF-metadata] Re: GDAL NetCDF driver and projection."</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0129.html" title="Previous message in the list">John Caron: "[CF-metadata] Re: GDAL NetCDF driver and projection."</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0129.html" title="Message to which this message replies">John Caron: "[CF-metadata] Re: GDAL NetCDF driver and projection."</a></li>
+<li><dfn>Next message</dfn>: <a href="./0131.html" title="Next message in the list">Bryan Lawrence: "[CF-metadata] Encoding Errors on variables in CF"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0129.html" title="Previous message in the list">Stephens, A: "[CF-metadata] Encoding Errors on variables in CF"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0129.html" title="Message to which this message replies">Stephens, A: "[CF-metadata] Encoding Errors on variables in CF"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0131.html" title="Next message in this discussion thread">Bryan Lawrence: "[CF-metadata] Encoding Errors on variables in CF"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0131.html" title="Message sent in reply to this message">Bryan Lawrence: "[CF-metadata] Encoding Errors on variables in CF"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -409,7 +286,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:44 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0129.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0131.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

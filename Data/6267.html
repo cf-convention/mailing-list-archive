@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] sigma_naught from Niedfeldt, John C on 2014-05-19 (mailing-list-archive)</title>
-<meta name="Author" content="Niedfeldt, John C (John.C.Niedfeldt)" />
-<meta name="Subject" content="[CF-metadata] sigma_naught" />
-<meta name="Date" content="2014-05-19" />
+<title>[CF-metadata] atmosphere stability indices from Jonathan Gregory on 2013-06-04 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] atmosphere stability indices" />
+<meta name="Date" content="2013-06-04" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./6266.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6268.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] sigma_naught</h1>
-<!-- received="Mon May 19 09:11:14 2014" -->
-<!-- isoreceived="20140519081114" -->
-<!-- sent="Mon, 19 May 2014 15:11:14 +0000" -->
-<!-- isosent="20140519151114" -->
-<!-- name="Niedfeldt, John C" -->
-<!-- email="John.C.Niedfeldt" -->
-<!-- subject="[CF-metadata] sigma_naught" -->
-<!-- id="CF9F6D21.458%John.C.Niedfeldt_at_jpl.nasa.gov" -->
+<a style="text-decoration:none" href="./6266.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6268.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] atmosphere stability indices</h1>
+<!-- received="Tue Jun  4 03:28:50 2013" -->
+<!-- isoreceived="20130604022850" -->
+<!-- sent="Tue, 4 Jun 2013 10:28:50 +0100" -->
+<!-- isosent="20130604092850" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] atmosphere stability indices" -->
+<!-- id="20130604092850.GA28566_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,10 +53,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./6268.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  sigma_naught&quot;">Next message</a> ]
-[ <a href="./6266.html" title="Ajay Krishnan - NOAA Affiliate: &quot;[CF-metadata] cf_role attribute&quot;">Previous message</a> ]
+[ <a href="./6268.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  new standard name: atmosphere_stability_k_index&quot;">Next message</a> ]
+[ <a href="./6266.html" title="Cameron-smith, Philip: &quot;[CF-metadata] new standard name: lifted_index&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./6269.html" accesskey="t" title="Lauret Olivier: &quot;[CF-metadata] sigma_naught&quot;">Next in thread</a> ]
+[ <a href="./6274.html" accesskey="t" title="Jonathan Wrotny: &quot;[CF-metadata] atmosphere stability indices&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,38 +70,66 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Niedfeldt, John C &lt;<a href="mailto:John.C.Niedfeldt?Subject=Re%3A%20%5BCF-metadata%5D%20sigma_naught">John.C.Niedfeldt</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20atmosphere%20stability%20indices">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 19 May 2014 15:11:14 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 4 Jun 2013 10:28:50 +0100</span><br />
 </address>
 <br />
-Dear all,
+Dear all
 <br />
-Radar Scatterometers, such as QuikSCAT, are used to measure the winds over the oceans, Arctic and Antarctic ice age, track icebergs, among other things by measuring a value called sigma naught, also known in the radar community as the normalized radar cross-section or backscatter coefficient. Due to a significant effort to reprocess multiple sigma naught datasets to netCDF format, which shall be hosted at the Physical Oceanography Distributed Active Archive Center (<a href="http://podaac.jpl.nasa.gov">http://podaac.jpl.nasa.gov</a>&lt;<a href="http://podaac.jpl.nasa.gov/">http://podaac.jpl.nasa.gov/</a>&gt;) for public distribution, I propose the following standard_name definition be added to the CF standard name:
+<br />I chose a new subject because these threads about lifted_index, total_totals_
 <br />
-<br />standard_name:
+index and Seth's new standard names for CIN etc. are closely related.
 <br />
-sigma_naught
+<br />I agree with the suggestion from Philip to include _from_the_surface on names
 <br />
-<br />Definition:
+referring to surface parcels (it was previously clarified that really means
 <br />
-sigma_naught refers to the normalized radar cross section, also known in the microwave remote sensing community as the backscatter coefficient.
+from the surface, not &quot;surface air&quot; i.e. screen height), and omit it when the
 <br />
-<br />Canonical Units:
+parcel comes from a different level that is identified by a numeric coordinate.
 <br />
-dB
+That is consistent with the general pattern that special physical surfaces
 <br />
-<br /><br />Sincerely,
+(such as the surface i.e. bottom of atmos) appear by name in standard_names
 <br />
-John Niedfeldt
+when relevant, whereas levels specified by coordinates do not.
 <br />
--------------- next part --------------
+<br />Excuse my making a late suggestion on another matter. I think &quot;start&quot; and
 <br />
-An HTML attachment was scrubbed...
+&quot;finish&quot; are OK but they make it sound like a real trajectory, whereas these
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140519/e5b711a3/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140519/e5b711a3/attachment.html</a>&gt;
+are just calculations from the state of the atmos. I would therefore like to
 <br />
-<span id="received"><dfn>Received on</dfn> Mon May 19 2014 - 09:11:14 BST</span>
+suggest &quot;source&quot; (for &quot;start&quot;), which has the same sense of &quot;where the parcel
+<br />
+came from&quot; that &quot;origin&quot; has, but doesn't have the potential confusion. E.g.
+<br />
+air_pressure_of_lifted_parcel_at_source. What do you think?
+<br />
+<br />As for &quot;finish&quot;, which names require this? I wonder about using &quot;ambient&quot; for
+<br />
+&quot;finish&quot;, in cases where the idea is to compare the parcel with the environment
+<br />
+at the end of its notional journey. Again, what do you think?
+<br />
+<br />Going back to Seth's proposal, I wonder if
+<br />
+atmosphere_specific_convective_inhibition
+<br />
+atmosphere_specific_convective_available_potential_energy
+<br />
+are really best regarded as a trajectory. They are integral quantities. In
+<br />
+those two cases, I suggest it would be fairly natural to give them bounds in
+<br />
+a vertical coordinate to indicate the limits of integration.
+<br />
+<br />Best wishes
+<br />
+<br />Jonathan
+<br />
+<span id="received"><dfn>Received on</dfn> Tue Jun 04 2013 - 03:28:50 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -109,12 +137,14 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start6267">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./6268.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  sigma_naught"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./6266.html" title="Previous message in the list">Ajay Krishnan - NOAA Affiliate: "[CF-metadata] cf_role attribute"</a></li>
+<li><dfn>Next message</dfn>: <a href="./6268.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  new standard name: atmosphere_stability_k_index"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./6266.html" title="Previous message in the list">Cameron-smith, Philip: "[CF-metadata] new standard name: lifted_index"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./6269.html" title="Next message in this discussion thread">Lauret Olivier: "[CF-metadata] sigma_naught"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./6274.html" title="Next message in this discussion thread">Jonathan Wrotny: "[CF-metadata] atmosphere stability indices"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./6269.html" title="Message sent in reply to this message">Lauret Olivier: "[CF-metadata] sigma_naught"</a></li>
+<dfn>Reply</dfn>: <a href="./6274.html" title="Message sent in reply to this message">Jonathan Wrotny: "[CF-metadata] atmosphere stability indices"</a></li>
+<li><dfn>Reply</dfn>: <a href="./6276.html" title="Message sent in reply to this message">Seth McGinnis: "[CF-metadata] atmosphere stability indices"</a></li>
+<li><dfn>Reply</dfn>: <a href="./6279.html" title="Message sent in reply to this message">Cameron-smith, Philip: "[CF-metadata] atmosphere stability indices"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -125,7 +155,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:41 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./6266.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6268.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

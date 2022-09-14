@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] atmosphere stability indices from Jonathan Gregory on 2013-06-04 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] atmosphere stability indices" />
-<meta name="Date" content="2013-06-04" />
+<title>[CF-metadata] standard names for vector components from Hedley, Mark on 2012-08-15 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Hedley, Mark (mark.hedley)" />
+<meta name="Subject" content="[CF-metadata] standard names for vector components" />
+<meta name="Date" content="2012-08-15" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5455.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5457.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] atmosphere stability indices</h1>
-<!-- received="Tue Jun  4 03:28:50 2013" -->
-<!-- isoreceived="20130604022850" -->
-<!-- sent="Tue, 4 Jun 2013 10:28:50 +0100" -->
-<!-- isosent="20130604092850" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] atmosphere stability indices" -->
-<!-- id="20130604092850.GA28566_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./5455.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5457.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard names for vector components</h1>
+<!-- received="Wed Aug 15 04:54:41 2012" -->
+<!-- isoreceived="20120815035441" -->
+<!-- sent="Wed, 15 Aug 2012 11:54:41 +0100" -->
+<!-- isosent="20120815105441" -->
+<!-- name="Hedley, Mark" -->
+<!-- email="mark.hedley" -->
+<!-- subject="[CF-metadata] standard names for vector components" -->
+<!-- id="8AC4893FB411FA4AA8CFECD9C8913B660CB47F67_at_EXXMAIL01.desktop.frd.metoffice.com" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="014539AC4976BE4490A360410A8C20174B931D2F&#64;EXCHMBX03.fed.cclrc.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,11 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5457.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  new standard name: atmosphere_stability_k_index&quot;">Next message</a> ]
-[ <a href="./5455.html" title="Cameron-smith, Philip: &quot;[CF-metadata] new standard name: lifted_index&quot;">Previous message</a> ]
+[ <a href="./5457.html" accesskey="d" title="Hattersley, Richard: &quot;[CF-metadata] Dimensionless vertical coordinate values&quot;">Next message</a> ]
+[ <a href="./5455.html" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] emission names?&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./5463.html" accesskey="t" title="Jonathan Wrotny: &quot;[CF-metadata] atmosphere stability indices&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,66 +69,36 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20atmosphere%20stability%20indices">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Hedley, Mark &lt;<a href="mailto:mark.hedley?Subject=Re%3A%20%5BCF-metadata%5D%20standard%20names%20for%20vector%20components">mark.hedley</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 4 Jun 2013 10:28:50 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 15 Aug 2012 11:54:41 +0100</span><br />
 </address>
 <br />
-Dear all
+Dear Alison
 <br />
-<br />I chose a new subject because these threads about lifted_index, total_totals_
+<br />I note from your previous post that:
 <br />
-index and Seth's new standard names for CIN etc. are closely related.
+<br /><em class="quotelev1">&gt; &quot;I plan to make the next update of the standard name table on 30th August&quot;
+</em><br />
+<br />As ticket 89 (<a href="https://cf-pcmdi.llnl.gov/trac/ticket/89">https://cf-pcmdi.llnl.gov/trac/ticket/89</a>) has passed it's 3 week objection window without further comment I believe this change is approved by the community.
 <br />
-<br />I agree with the suggestion from Philip to include _from_the_surface on names
+<br />Is it feasible to include these changes in the next standard names update?
 <br />
-referring to surface parcels (it was previously clarified that really means
+<br />There are no new standard names, but the descriptive text for a number of current standard names needs altering to meet the altered definitions as described in the ticket:
 <br />
-from the surface, not &quot;surface air&quot; i.e. screen height), and omit it when the
+<br />&nbsp;&nbsp;All standard names which are x or y components need to have the text
 <br />
-parcel comes from a different level that is identified by a numeric coordinate.
+&nbsp;&nbsp;&nbsp;&quot;when this is not true &lt;longitude/latitude&gt;,&quot;
 <br />
-That is consistent with the general pattern that special physical surfaces
+&nbsp;&nbsp;removed.
 <br />
-(such as the surface i.e. bottom of atmos) appear by name in standard_names
+<br />Is there something useful I can do to assist this process?
 <br />
-when relevant, whereas levels specified by coordinates do not.
+<br />thank you
 <br />
-<br />Excuse my making a late suggestion on another matter. I think &quot;start&quot; and
+mark
 <br />
-&quot;finish&quot; are OK but they make it sound like a real trajectory, whereas these
-<br />
-are just calculations from the state of the atmos. I would therefore like to
-<br />
-suggest &quot;source&quot; (for &quot;start&quot;), which has the same sense of &quot;where the parcel
-<br />
-came from&quot; that &quot;origin&quot; has, but doesn't have the potential confusion. E.g.
-<br />
-air_pressure_of_lifted_parcel_at_source. What do you think?
-<br />
-<br />As for &quot;finish&quot;, which names require this? I wonder about using &quot;ambient&quot; for
-<br />
-&quot;finish&quot;, in cases where the idea is to compare the parcel with the environment
-<br />
-at the end of its notional journey. Again, what do you think?
-<br />
-<br />Going back to Seth's proposal, I wonder if
-<br />
-atmosphere_specific_convective_inhibition
-<br />
-atmosphere_specific_convective_available_potential_energy
-<br />
-are really best regarded as a trajectory. They are integral quantities. In
-<br />
-those two cases, I suggest it would be fairly natural to give them bounds in
-<br />
-a vertical coordinate to indicate the limits of integration.
-<br />
-<br />Best wishes
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Tue Jun 04 2013 - 03:28:50 BST</span>
+<span id="received"><dfn>Received on</dfn> Wed Aug 15 2012 - 04:54:41 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -137,14 +106,9 @@ a vertical coordinate to indicate the limits of integration.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5456">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5457.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  new standard name: atmosphere_stability_k_index"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5455.html" title="Previous message in the list">Cameron-smith, Philip: "[CF-metadata] new standard name: lifted_index"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5457.html" title="Next message in the list">Hattersley, Richard: "[CF-metadata] Dimensionless vertical coordinate values"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5455.html" title="Previous message in the list">alison.pamment at stfc.ac.uk: "[CF-metadata] emission names?"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./5463.html" title="Next message in this discussion thread">Jonathan Wrotny: "[CF-metadata] atmosphere stability indices"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./5463.html" title="Message sent in reply to this message">Jonathan Wrotny: "[CF-metadata] atmosphere stability indices"</a></li>
-<li><dfn>Reply</dfn>: <a href="./5465.html" title="Message sent in reply to this message">Seth McGinnis: "[CF-metadata] atmosphere stability indices"</a></li>
-<li><dfn>Reply</dfn>: <a href="./5468.html" title="Message sent in reply to this message">Cameron-smith, Philip: "[CF-metadata] atmosphere stability indices"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -155,7 +119,7 @@ a vertical coordinate to indicate the limits of integration.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:23 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5455.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5457.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

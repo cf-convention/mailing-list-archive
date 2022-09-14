@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Description of Map Projection Grid from David Fanning on 2010-01-22 (mailing-list-archive)</title>
-<meta name="Author" content="David Fanning (davidf)" />
-<meta name="Subject" content="[CF-metadata] Description of Map Projection Grid" />
-<meta name="Date" content="2010-01-22" />
+<title>[CF-metadata] fixed sensors, depth, datum from Jonathan Gregory on 2008-10-03 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] fixed sensors, depth, datum" />
+<meta name="Date" content="2008-10-03" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2390.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2392.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Description of Map Projection Grid</h1>
-<!-- received="Fri Jan 22 10:49:53 2010" -->
-<!-- isoreceived="20100122104953" -->
-<!-- sent="Fri, 22 Jan 2010 10:49:53 -0700" -->
-<!-- isosent="20100122174953" -->
-<!-- name="David Fanning" -->
-<!-- email="davidf" -->
-<!-- subject="[CF-metadata] Description of Map Projection Grid" -->
-<!-- id="20100122175027.CEF9ED90C6_at_smtp02.frii.com" -->
+<a style="text-decoration:none" href="./2390.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2392.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] fixed sensors, depth, datum</h1>
+<!-- received="Fri Oct  3 10:14:09 2008" -->
+<!-- isoreceived="20081003091409" -->
+<!-- sent="Fri, 3 Oct 2008 17:14:09 +0100" -->
+<!-- isosent="20081003161409" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] fixed sensors, depth, datum" -->
+<!-- id="20081003161409.GA19888_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2392.html" accesskey="d" title="Bentley, Philip: &quot;[CF-metadata] Description of Map Projection Grid&quot;">Next message</a> ]
-[ <a href="./2390.html" title="Jonathan Gregory: &quot;[CF-metadata] CF conventions and metadata conventions&quot;">Previous message</a> ]
+[ <a href="./2392.html" accesskey="d" title="Heinke Hoeck: &quot;[CF-metadata] CF standard names for chemical constituents and aerosols (resulting from a GRIB2 proposal)&quot;">Next message</a> ]
+[ <a href="./2390.html" title="olivier lauret: &quot;[CF-metadata] fixed sensors, depth, datum&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./2392.html" accesskey="t" title="Bentley, Philip: &quot;[CF-metadata] Description of Map Projection Grid&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,90 +68,74 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: David Fanning &lt;<a href="mailto:davidf?Subject=Re%3A%20%5BCF-metadata%5D%20Description%20of%20Map%20Projection%20Grid">davidf</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20fixed%20sensors%2C%20depth%2C%20datum">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 22 Jan 2010 10:49:53 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 3 Oct 2008 17:14:09 +0100</span><br />
 </address>
 <br />
-Folks,
+Dear Ethan
 <br />
-<br />I have searched the list archives, but have not found a solution to my problem.
+<br />Ah good - I am glad we agree now about the geophysical distinction. I agree
 <br />
-<br />I have map projected images I wish to package in a netCDF file. Along with
+with this too:
 <br />
-other map projection information, I would like to describe the extent of the
+<br /><em class="quotelev1">&gt; It seems there are two important characteristics that need capturing:
+</em><br />
+<em class="quotelev1">&gt; 1) the geophysical significance of a vertical CRS (height, altitude, 
+</em><br />
+<em class="quotelev1">&gt; pressure, sigma, etc), and
+</em><br />
+<em class="quotelev1">&gt; 2) the details of a vertical CRS, possibly enough to enable 
+</em><br />
+<em class="quotelev1">&gt; intercomparison with data on a different vertical CRS.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; The first seems appropriate to capture in the standard name attribute.
+</em><br />
+<br />I too am unsure about how station vertical datums should be dealt with, because
 <br />
-map projection grid that is associated with the image. This is an XY grid,
+I remain in the dark about what they mean. I suspect (as I've said before)
 <br />
-normally expressed in meters. Knowing the extent of this grid is important
+that it may mean that a given physical location (a benchmark) is assigned a
 <br />
-for navigating the image, adding image annotations, and other things.
+particular height above a specified definition of the geoid, and hence fixes
 <br />
-<br />In GDAL the grid extent is sometimes expressed as the Northernmost_Northing,
+the altitude of all other locations - but I would be very grateful to be
 <br />
-the Southernmost_Northing, the Easternmost_Easting, and the 
+corrected or enlightened.
 <br />
-Westernmost_Easting.
+<br />I think that the tidal datums, which Dale raised when he started this thread,
 <br />
-These names would mean something if my map projection was, for example,
+are distinct geophysical quantities. They again are things which have to be
 <br />
-a Mercator projection of the entire Earth. But my map projections are 
+measured and distinguished and might coexist in one dataset. There are several
 <br />
-polar projections,
+of them, as you say, but not as many as there are of chemical species, for
 <br />
-and so this terminology is misleading, to say the least. If the image in is the
+instance, so I don't think they pose a serious problem.
 <br />
-southern hemisphere, the terminology is bizarre.
+<br />You have pointed out before that the definition of the ellipsoid affects the
 <br />
-<br />What I am looking for are standard names to define the extent of this
+definition of lat and lon. Hence it relates to both vertical and horizontal
 <br />
-XY grid. I have found in the CF 1.4 standard the names 
+CRS. To avoid repetition, it seems to me that it would be better to keep them
 <br />
-&quot;projection_x_coordinate&quot;
+in the same place. I agree with Phil that we could rename the grid_mapping
 <br />
-and &quot;projection_y_coordinate&quot;. This is getting to what I am looking
+attribute e.g. to crs (keeping the old name as an alternative for existing
 <br />
-for, but there is no supporting documentation to tell me exactly which point
+datasets). However, I understand that you don't like repeating the horizontal
 <br />
-on my projection grid these names are describing. (I would guess this could
+CRS if you combine it with several vertical ones in the same dataset. When you
 <br />
-describe the upper-left corner of the grid, or what would be called 
+do this, what differs among the vertical CRSs?
 <br />
-the &quot;tie-point&quot;
+<br />Best wishes
 <br />
-in a GeoTIFF file, for example, but I am not sure.)
+<br />Jonathan
 <br />
-<br />Does anyone have any experience describing this XY grid? Or can anyone
-<br />
-suggest a standard name I have overlooked?
-<br />
-<br />I think these names could be possibilities:
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;projection_x_coordinate_minimum
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;projection_x_coordinate_maximum
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;projection_y_coordinate_minimum
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;projection_y_coordinate_maximum
-<br />
-<br />Thank you for your help.
-<br />
-<br />Cheers,
-<br />
-<br />David
-<br />
-<br />--------
-<br />
-David W. Fanning
-<br />
-Scientific Programmer
-<br />
-NSIDC/CIRES, Univ. of Colorado
-<br />
-E-Mail: fanning at nsidc.org 
-<br />
-<span id="received"><dfn>Received on</dfn> Fri Jan 22 2010 - 10:49:53 GMT</span>
+<span id="received"><dfn>Received on</dfn> Fri Oct 03 2008 - 10:14:09 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -161,12 +143,9 @@ E-Mail: fanning at nsidc.org
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2391">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2392.html" title="Next message in the list">Bentley, Philip: "[CF-metadata] Description of Map Projection Grid"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2390.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] CF conventions and metadata conventions"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2392.html" title="Next message in the list">Heinke Hoeck: "[CF-metadata] CF standard names for chemical constituents and aerosols (resulting from a GRIB2 proposal)"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2390.html" title="Previous message in the list">olivier lauret: "[CF-metadata] fixed sensors, depth, datum"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./2392.html" title="Next message in this discussion thread">Bentley, Philip: "[CF-metadata] Description of Map Projection Grid"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./2392.html" title="Message sent in reply to this message">Bentley, Philip: "[CF-metadata] Description of Map Projection Grid"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -177,7 +156,7 @@ E-Mail: fanning at nsidc.org
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:25 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2390.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2392.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

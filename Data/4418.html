@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Comment in coordinate variables (and CF checker) from r.s.hatcher at reading.ac.uk on 2012-04-23 (mailing-list-archive)</title>
-<meta name="Author" content="r.s.hatcher at reading.ac.uk (r.s.hatcher)" />
-<meta name="Subject" content="[CF-metadata] Comment in coordinate variables (and CF checker)" />
-<meta name="Date" content="2012-04-23" />
+<title>[CF-metadata] the need to store lat/lon coordinates in a CF-compliant netCDF file from Heiko Klein on 2011-08-04 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Heiko Klein (Heiko.Klein)" />
+<meta name="Subject" content="[CF-metadata] the need to store lat/lon coordinates in a CF-compliant netCDF file" />
+<meta name="Date" content="2011-08-04" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4417.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4419.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Comment in coordinate variables (and CF checker)</h1>
-<!-- received="Mon Apr 23 08:51:11 2012" -->
-<!-- isoreceived="20120423075111" -->
-<!-- sent="23 Apr 2012 15:51:11 +0100" -->
-<!-- isosent="20120423145111" -->
-<!-- name="r.s.hatcher at reading.ac.uk" -->
-<!-- email="r.s.hatcher" -->
-<!-- subject="[CF-metadata] Comment in coordinate variables (and CF checker)" -->
-<!-- id="Prayer.1.3.3.1204231551110.23231_at_vimb1.rdg.ac.uk" -->
+<a style="text-decoration:none" href="./4417.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4419.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] the need to store lat/lon coordinates in a CF-compliant netCDF file</h1>
+<!-- received="Thu Aug  4 00:55:28 2011" -->
+<!-- isoreceived="20110803235528" -->
+<!-- sent="Thu, 04 Aug 2011 08:55:28 +0200" -->
+<!-- isosent="20110804065528" -->
+<!-- name="Heiko Klein" -->
+<!-- email="Heiko.Klein" -->
+<!-- subject="[CF-metadata] the need to store lat/lon coordinates in a CF-compliant netCDF file" -->
+<!-- id="4E3A4260.4090400_at_met.no" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4F95682A.6030408_at_whoi.edu" -->
+<!-- inreplyto="E51EDFEBF10BE44BB4BDAF5FC2F024B9036368FA_at_EXXMAIL02.desktop.frd.metoffice.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4419.html" accesskey="d" title="Nan Galbraith: &quot;[CF-metadata] Comment in coordinate variables (and CF checker)&quot;">Next message</a> ]
-[ <a href="./4417.html" title="Nan Galbraith: &quot;[CF-metadata] Comment in coordinate variables (and CF checker)&quot;">Previous message</a> ]
-[ <a href="./4417.html" title="Nan Galbraith: &quot;[CF-metadata] Comment in coordinate variables (and CF checker)&quot;">In reply to</a> ]
+[ <a href="./4419.html" accesskey="d" title="Heiko Klein: &quot;[CF-metadata] the need to store lat/lon coordinates in a CF-compliant netCDF file&quot;">Next message</a> ]
+[ <a href="./4417.html" title="Upendra.Dadi at noaa.gov: &quot;[CF-metadata] the need to store lat/lon coordinates in a CF-compliant netCDF file&quot;">Previous message</a> ]
+[ <a href="./4402.html" title="Bentley, Philip: &quot;[CF-metadata] the need to store lat/lon coordinates in a CF-compliant netCDF file&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./4419.html" accesskey="t" title="Nan Galbraith: &quot;[CF-metadata] Comment in coordinate variables (and CF checker)&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
+[ <a href="./4389.html" accesskey="t" title="Jonathan Gregory: &quot;[CF-metadata] the need to store lat/lon coordinates in a CF metadata compliant netCDF file&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,96 +71,148 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: r.s.hatcher at reading.ac.uk &lt;<a href="mailto:r.s.hatcher?Subject=Re%3A%20%5BCF-metadata%5D%20Comment%20in%20coordinate%20variables%20(and%20CF%20checker)">r.s.hatcher</a>&gt;
+<dfn>From</dfn>: Heiko Klein &lt;<a href="mailto:Heiko.Klein?Subject=Re%3A%20%5BCF-metadata%5D%20the%20need%20to%20store%20lat%2Flon%20coordinates%20in%20a%20CF-compliant%20netCDF%20file">Heiko.Klein</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: 23 Apr 2012 15:51:11 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 04 Aug 2011 08:55:28 +0200</span><br />
 </address>
 <br />
-Hi Nan,
+Dear Phil,
 <br />
-<br />The CF checker is producing the INFO message because according to Appendix 
+<br />a programmer has usually to decide if he accepts 'minor' problems with 
 <br />
-A the &quot;comment&quot; attribute can be attached to either a (G)lobal variable or 
+the input or not. A program-user usually selects the program which 
 <br />
-a (D)ata variable containing non-coordinate data.
+accepts most input. So a CF-processing program not accepting a dataset 
 <br />
-<br />This is just an informational message alerting you to the fact that you may 
+without datum won't get very popular. Of course, a program allowing the 
 <br />
-be using the attribute incorrectly. As far as I am aware there is nothing 
+user to modify/correct the datum is even more popular.
 <br />
-to stop you using the comment attribute on a coordinate variable (hence the 
+<br />The climate and forecast modellers used for a very long time a spherical 
 <br />
-INFO message not WARNING or ERROR) - it just isn't a standard use of it.
+earth with a radius around 3671km (= GRS1980 Authalic Sphere, not the 
 <br />
-<br />Regards,
+GRS1980 ellipsoid). Therefore, all CF-processing programs I know assume 
 <br />
-Ros.
+that spherical earth radius of that size (i.e. netcdf-java, ncview, 
 <br />
-<br /><br />On Apr 23 2012, Nan Galbraith wrote:
+fimex). So, the proposed default is the de facto standard and I believe, 
 <br />
-<br /><em class="quotelev1">&gt;Hi all -
+it is better to write it down than to keep it informal.
+<br />
+<br />If datum information is merely an extension to CF, it will take very 
+<br />
+long until it is accepted. If CF always comes with a datum, 
+<br />
+data-providers will adapt more quickly, since a missing datum might be 
+<br />
+an obvious error (high priority) rather than a missing extension (low 
+<br />
+priority).
+<br />
+<br /><br />Setting a default for something previously undefined is very common. A 
+<br />
+precedence which was the same amount of work (update of attributes) for 
+<br />
+all non-english data-providers was the definition of UTF-8 as 
+<br />
+character-encoding in netcdf-3.6.3 in ~2008.
+<br />
+<br />Best regards,
+<br />
+<br />Heiko
+<br />
+<br />On 2011-08-03 15:48, Bentley, Philip wrote:
+<br />
+<em class="quotelev1">&gt; Dear Heiko,
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;I've got a question about the correct use of comments in CF.
+<em class="quotelev2">&gt;&gt; I hope CF could define a default datum, e.g. the GRS1980
+</em><br />
+<em class="quotelev2">&gt;&gt; Authalic Sphere, since this matches most closely with
+</em><br />
+<em class="quotelev2">&gt;&gt; existing software (netcdf-java). This would make live easier
+</em><br />
+<em class="quotelev2">&gt;&gt; for the software-developers who have to use something if
+</em><br />
+<em class="quotelev2">&gt;&gt; nothing is given.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;In chapter 2 of the spec (actually,  2.6.2. Description of file
+<em class="quotelev1">&gt; I'm not sure that defining a default datum for CF is the right way to go
 </em><br />
-<em class="quotelev1">&gt;contents) the term comment is defined this way: &quot;Miscellaneous
+<em class="quotelev1">&gt; in this instance. I would have thought that if a particular piece of
 </em><br />
-<em class="quotelev1">&gt;information about the data or methods used to produce it.&quot;
+<em class="quotelev1">&gt; data analysis is at a resolution that requires a geodetic datum to be
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; specified then, in absentia the actual one being defined in metadata,
 </em><br />
-<em class="quotelev1">&gt;I'm using comments to describe some of my coordinate variables:
+<em class="quotelev1">&gt; it's not clear to me that using some semi-arbitrary, and potentially
 </em><br />
-<em class="quotelev1">&gt;         DEPTH:comment = &quot;approximate instrument depth&quot; ;
+<em class="quotelev1">&gt; invalid, default datum is any better than giving the user the
 </em><br />
-<em class="quotelev1">&gt;         LATITUDE:comment = &quot;surveyed anchor position&quot; ;
+<em class="quotelev1">&gt; opportunity to select the one s/he believes to be the most appropriate
 </em><br />
-<em class="quotelev1">&gt;         LONGITUDE:comment = &quot;surveyed anchor position&quot; ;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;This SEEMS like what this attribute is meant to do; it gives an idea
-</em><br />
-<em class="quotelev1">&gt;of the coordinates' accuracy, or lack thereof, which can't really
-</em><br />
-<em class="quotelev1">&gt;be quantified.
+<em class="quotelev1">&gt; for the task in hand.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;These produce a warning from the NCAS-CMS (NERC) CF checker:
+<em class="quotelev1">&gt; The current CF conventions include a (fairly minimal) set of metadata
 </em><br />
-<em class="quotelev1">&gt;' INFO: attribute 'comment' is being used in a non-standard way.'
+<em class="quotelev1">&gt; attributes which can be used to describe the basic properties of the
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; coordinate reference system associated with a given dataset. The onus
 </em><br />
-<em class="quotelev1">&gt;Isn't this the correct use of the comment field? Is there some prohibition
+<em class="quotelev1">&gt; then is on data producers to utilise those metadata attributes to
 </em><br />
-<em class="quotelev1">&gt;against this, or is there another use of the comment attribute, that
+<em class="quotelev1">&gt; describe their data to the fullest extent possible. Furthermore, other
 </em><br />
-<em class="quotelev1">&gt;restricts its 'normal' use? I've pored over the spec, and can't figure
+<em class="quotelev1">&gt; non-CF attributes may be used to augment the standard set - over time
 </em><br />
-<em class="quotelev1">&gt;out why this could be considered 'non-standard'.  Any ideas? Am
+<em class="quotelev1">&gt; some of these additional attributes would no doubt find their way into
 </em><br />
-<em class="quotelev1">&gt;I missing something?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;Thanks -
+<em class="quotelev1">&gt; the CF specification.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;Nan
+<em class="quotelev1">&gt; Ultimately, if end-users consider that a given dataset has insufficient
+</em><br />
+<em class="quotelev1">&gt; metadata to justify its use within a particular context, then they can
+</em><br />
+<em class="quotelev1">&gt; always choose to ignore that dataset. With the passage of time - and in
+</em><br />
+<em class="quotelev1">&gt; true Darwinian fashion - such datasets (and their producers) will find
+</em><br />
+<em class="quotelev1">&gt; that they are increasingly disregarded/overlooked in analyses. Hopefully
+</em><br />
+<em class="quotelev1">&gt; this would galvanise such data producers into improving the quality of
+</em><br />
+<em class="quotelev1">&gt; their spatial metadata!
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Regards,
+</em><br />
+<em class="quotelev1">&gt; Phil
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<span id="received"><dfn>Received on</dfn> Mon Apr 23 2012 - 08:51:11 BST</span>
+<em class="quotelev1">&gt; PS: if a default datum were to be encoded into the CF conventions, I'd
+</em><br />
+<em class="quotelev1">&gt; imagine that the WGS84 datum would be the way to go rather than GRS80
+</em><br />
+<em class="quotelev1">&gt; which, if I understand correctly, has somewhat more of a bias towards
+</em><br />
+<em class="quotelev1">&gt; use over the North American continent. That said, I suspect the
+</em><br />
+<em class="quotelev1">&gt; differences between the 2 datums are sufficiently small as to get lost
+</em><br />
+<em class="quotelev1">&gt; in the underflow for many metocean research applications.
+</em><br />
+<span id="received"><dfn>Received on</dfn> Thu Aug 04 2011 - 00:55:28 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -169,13 +220,11 @@ Ros.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4418">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4419.html" title="Next message in the list">Nan Galbraith: "[CF-metadata] Comment in coordinate variables (and CF checker)"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4417.html" title="Previous message in the list">Nan Galbraith: "[CF-metadata] Comment in coordinate variables (and CF checker)"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./4417.html" title="Message to which this message replies">Nan Galbraith: "[CF-metadata] Comment in coordinate variables (and CF checker)"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4419.html" title="Next message in the list">Heiko Klein: "[CF-metadata] the need to store lat/lon coordinates in a CF-compliant netCDF file"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4417.html" title="Previous message in the list">Upendra.Dadi at noaa.gov: "[CF-metadata] the need to store lat/lon coordinates in a CF-compliant netCDF file"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./4402.html" title="Message to which this message replies">Bentley, Philip: "[CF-metadata] the need to store lat/lon coordinates in a CF-compliant netCDF file"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./4419.html" title="Next message in this discussion thread">Nan Galbraith: "[CF-metadata] Comment in coordinate variables (and CF checker)"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./4419.html" title="Message sent in reply to this message">Nan Galbraith: "[CF-metadata] Comment in coordinate variables (and CF checker)"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./4389.html" title="Next message in this discussion thread">Jonathan Gregory: "[CF-metadata] the need to store lat/lon coordinates in a CF metadata compliant netCDF file"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -186,7 +235,7 @@ Ros.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:02 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4417.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4419.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

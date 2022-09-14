@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Request for new standard-name: apparent_oxygen_utilization from Lowry, Roy K. on 2015-02-27 (mailing-list-archive)</title>
-<meta name="Author" content="Lowry, Roy K. (rkl)" />
-<meta name="Subject" content="[CF-metadata] Request for new standard-name: apparent_oxygen_utilization" />
-<meta name="Date" content="2015-02-27" />
+<title>[CF-metadata] vertical coordinates and positive attributes from Steve Hankin on 2014-01-29 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Steve Hankin (steven.c.hankin)" />
+<meta name="Subject" content="[CF-metadata] vertical coordinates and positive attributes" />
+<meta name="Date" content="2014-01-29" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./6826.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6828.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Request for new standard-name: apparent_oxygen_utilization</h1>
-<!-- received="Fri Feb 27 01:47:58 2015" -->
-<!-- isoreceived="20150227014758" -->
-<!-- sent="Fri, 27 Feb 2015 08:47:58 +0000" -->
-<!-- isosent="20150227084758" -->
-<!-- name="Lowry, Roy K." -->
-<!-- email="rkl" -->
-<!-- subject="[CF-metadata] Request for new standard-name: apparent_oxygen_utilization" -->
-<!-- id="40829B0E077C1145A6DE44D39B3830A924B3A92924_at_nerckwmb1.ad.nerc.ac.uk" -->
+<a style="text-decoration:none" href="./6826.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6828.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] vertical coordinates and positive attributes</h1>
+<!-- received="Wed Jan 29 09:41:03 2014" -->
+<!-- isoreceived="20140129094103" -->
+<!-- sent="Wed, 29 Jan 2014 08:41:03 -0800" -->
+<!-- isosent="20140129164103" -->
+<!-- name="Steve Hankin" -->
+<!-- email="steven.c.hankin" -->
+<!-- subject="[CF-metadata] vertical coordinates and positive attributes" -->
+<!-- id="52E92F1F.5080708_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="014539AC4976BE4490A360410A8C20178A2D6119_at_EXCHMBX01.fed.cclrc.ac.uk" -->
+<!-- inreplyto="20140129122614.GA29146_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./6828.html" accesskey="d" title="Lowry, Roy K.: &quot;[CF-metadata] Request for new standard-name:	apparent_oxygen_utilization&quot;">Next message</a> ]
-[ <a href="./6826.html" title="Nan Galbraith: &quot;[CF-metadata] Request for new standard-name: apparent_oxygen_utilization&quot;">Previous message</a> ]
-[ <a href="./6825.html" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] Request for new standard-name: apparent_oxygen_utilization&quot;">In reply to</a> ]
+[ <a href="./6828.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] vertical coordinates and positive attributes&quot;">Next message</a> ]
+[ <a href="./6826.html" title="Jonathan Gregory: &quot;[CF-metadata] vertical coordinates and positive attributes&quot;">Previous message</a> ]
+[ <a href="./6820.html" title="Jonathan Gregory: &quot;[CF-metadata] vertical coordinates and positive attributes&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./6829.html" accesskey="t" title="Ajay Krishnan - NOAA Affiliate: &quot;[CF-metadata] Request for new standard-name: apparent_oxygen_utilization&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,110 +70,148 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Lowry, Roy K. &lt;<a href="mailto:rkl?Subject=Re%3A%20%5BCF-metadata%5D%20Request%20for%20new%20standard-name%3A%20apparent_oxygen_utilization">rkl</a>&gt;
+<dfn>From</dfn>: Steve Hankin &lt;<a href="mailto:steven.c.hankin?Subject=Re%3A%20%5BCF-metadata%5D%20vertical%20coordinates%20and%20positive%20attributes">steven.c.hankin</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 27 Feb 2015 08:47:58 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 29 Jan 2014 08:41:03 -0800</span><br />
 </address>
 <br />
-Hello Alison,
+John, Jonathan,
 <br />
-<br />Looks good to me.
+<br />One detail I would differ on:  In practice I do not think that 
 <br />
-<br />Cheers, Roy.
+standard_name=depth and positive=up are necessarily in conflict (see 
 <br />
-________________________________________
+bold text below).  We fairly commonly encounter ocean model outputs in 
 <br />
-From: alison.pamment at stfc.ac.uk [alison.pamment at stfc.ac.uk]
+which the depths are encoded as negatives:
 <br />
-Sent: 26 February 2015 18:11
+<br />&nbsp;&nbsp;&nbsp;&nbsp;0
 <br />
-To: Lowry, Roy K.; ajay.krishnan at noaa.gov; cf-metadata at cgd.ucar.edu
+&nbsp;&nbsp;&nbsp;&nbsp;-10
 <br />
-Subject: RE: [CF-metadata] Request for new standard-name: apparent_oxygen_utilization
+&nbsp;&nbsp;&nbsp;&nbsp;-20
 <br />
-<br />Dear Ajay, Roy, All,
+&nbsp;&nbsp;&nbsp;&nbsp;...
 <br />
-<br />Thank you for the clarification regarding units.
+<br />There are merits to this encoding -- especially apparent in coupled 
 <br />
-<br />We are now settled on
+ocean/atmosphere situations.  (Also it preserves the right-handed 
 <br />
-apparent_oxygen_utilization (mol kg-1).
+coordinate system.)  It would be quite peculiar (and a frequent source 
 <br />
-<br />We do already have a couple of ocean biogeochemistry names referring to ?nitrate utilization? so I think this new name is in keeping with those.
+of error) to insist that an ocean model output file name its Z axis as 
 <br />
-<br />Based on the definition provided by Ajay and John Graybeal?s suggested wording, I have currently written the definition as:
+&quot;altitude&quot;, simply because it has encoded the depth values as 
 <br />
-?Apparent Oxygen Utilization (often abbreviated as AOU) is the difference between the saturation concentration of oxygen in sea water at a pressure of 1 atmosphere (101325 Pa) and the observed oxygen concentration. It is used to estimate the change in oxygen concentration due to biological and chemical processes. Reference: Broecker, W. S. and T. H. Peng (1982), Tracers in the Sea, Lamont-Doherty Earth Observatory, Palisades, N. Y.? I have deliberately included ?in sea water? in the first sentence of the definition to make it clear that this is an oceanographic quantity.
+negatives.  The purpose of the 'positive' attribute is to inform the 
 <br />
-<br />Does this all look OK? If so, then I think the name can be accepted for inclusion in the standard name table.
+application when the encoding of values and the physical interpretation 
 <br />
-<br />Best wishes,
+of the Z axis are reversed from one another.
 <br />
-Alison
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Steve
 <br />
-<br />------
+===================================
 <br />
-Alison Pamment                                 Tel: +44 1235 778065
+<br />On 1/29/2014 4:26 AM, Jonathan Gregory wrote:
 <br />
-NCAS/Centre for Environmental Data Archival    Email: alison.pamment at stfc.ac.uk&lt;mailto:J.A.Pamment at rl.ac.uk&gt;
+<em class="quotelev1">&gt; Dear John
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I think your interpretation of the standard is correct. It would be useful to
+</em><br />
+<em class="quotelev1">&gt; record this is a FAQ - what do you think? Maybe it isn't frequently asked,
+</em><br />
+<em class="quotelev1">&gt; but it could be asked again. I am sure there are plenty of other questions
+</em><br />
+<em class="quotelev1">&gt; which have come up and been answered on this email list that would likewise
+</em><br />
+<em class="quotelev1">&gt; be worth recording for reference. I add some comments below.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; The positive attribute was inherited from COARDS, which depended on it and
+</em><br />
+<em class="quotelev1">&gt; units to identify the vertical coordinate variable. COARDS did not have aux
+</em><br />
+<em class="quotelev1">&gt; coord vars, standard names or the axis attribute.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; 1) What are the exact conditions that _require_ the positive attribute?
+</em><br />
+<em class="quotelev2">&gt;&gt;      I believe they are: a) variable is a coordinate variable =&gt; '1-dimensional netCDF variables whose dimension names are identical to their variable names', OR is an auxiliary coordinate variable; b) the variable represents a vertical axis in the real world; c) units are not pressure.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; 2) What is appropriate application behavior if standard_name conflicts with the positive attribute? For example,*standard_name=depth, but positive=up -- this is a conflict, since depth for example is defined as &quot;Depth is the vertical distance below the surface.&quot;*  
+</em><br />
+<em class="quotelev2">&gt;&gt;     I think this situation is undefined, but given the ambiguity of the definition with respect to sign, perhaps the positive attribute should be treated as definitive.
+</em><br />
+<em class="quotelev1">&gt; I would favour the standard name if there is one, because standard names are
+</em><br />
+<em class="quotelev1">&gt; always defined to include a sign convention if relevant. In this case, depth
+</em><br />
+<em class="quotelev1">&gt; and height are distinct standard names, and the only difference between their
+</em><br />
+<em class="quotelev1">&gt; definitions is the sign. The positive attribute would be wrong in this example,
+</em><br />
+<em class="quotelev1">&gt; I think.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; 3) Can positive attribute be applied to a variable that is not a (auxiliary) coordinate variable?  The existing language says &quot;This attribute may be applied to either coordinate variables or auxillary coordinate variables that contain vertical coordinate data.&quot;, which is silent about just regular data, and the attributes list says it only applies to Coordinate variables.
+</em><br />
+<em class="quotelev2">&gt;&gt;     It should be OK; I see nothing expressly prohibiting this, either in the spec or in undesirable side effects.  Often depth (for example) is just a measured value, and is not used in the file as a coordinate axis. And I think it is common to use positive for any vertically-oriented variable; as long as that variable is not a coordinate variable already (1D name(name)), the system will not promote it to one just based on the positive attribute. And, everyone does it.
+</em><br />
+<em class="quotelev1">&gt; It is allowed because CF in general allows any attributes that it does not
+</em><br />
+<em class="quotelev1">&gt; standardise to be used in any way the user likes. The use of this attribute
+</em><br />
+<em class="quotelev1">&gt; on data variable is not standardised so CF does not say what it would mean.
+</em><br />
+<em class="quotelev1">&gt; If there is a standard name, the positive attribute isn't necessary, because
+</em><br />
+<em class="quotelev1">&gt; the standard name itself implies the sign convention (as above).
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; 4) Can an application infer a vertical axis entirely from the existence of axis=Z or standard_name=depth or altitude?  Or does it have to check the units/positive to confirm?
+</em><br />
+<em class="quotelev2">&gt;&gt;     If I understand correctly, while conformance with CF requires the units/positive attributes as described above, the intent of the axis and standard_name options is to make it possible for an application to confirm a vertical coordinate as soon as it finds either of those indications.
+</em><br />
+<em class="quotelev1">&gt; That's right, but the units and positive attribute are mandatory, for backward
+</em><br />
+<em class="quotelev1">&gt; conformance with COARDS, whereas the standard_name and axis are optional. So it
+</em><br />
+<em class="quotelev1">&gt; is more reliable to use the units and positive attribute to identify the
+</em><br />
+<em class="quotelev1">&gt; vertical axis, although less convenient than axis='Z'.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Best wishes
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Jonathan
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<br />-------------- next part --------------
 <br />
-STFC Rutherford Appleton Laboratory
+An HTML attachment was scrubbed...
 <br />
-R25, 2.22
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140129/deb20974/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140129/deb20974/attachment.html</a>&gt;
 <br />
-Harwell Oxford, Didcot, OX11 0QX, U.K.
-<br />
-<br /><br />From: CF-metadata [mailto:cf-metadata-bounces at cgd.ucar.edu] On Behalf Of Lowry, Roy K.
-<br />
-Sent: 26 February 2015 15:29
-<br />
-To: Ajay Krishnan - NOAA Affiliate; cf-metadata at cgd.ucar.edu
-<br />
-Subject: Re: [CF-metadata] Request for new standard-name: apparent_oxygen_utilization
-<br />
-<br />Hi Alison,
-<br />
-<br />Just to clarify that I am in total agreement with this and had a bit of a senior moment in a previous message.
-<br />
-<br />Cheers, Roy.
-<br />
-<br />________________________________
-<br />
-From: Ajay Krishnan - NOAA Affiliate [ajay.krishnan at noaa.gov]
-<br />
-Sent: 26 February 2015 14:56
-<br />
-To: cf-metadata at cgd.ucar.edu&lt;mailto:cf-metadata at cgd.ucar.edu&gt;
-<br />
-Subject: Re: [CF-metadata] Request for new standard-name: apparent_oxygen_utilization
-<br />
-<br />Hi Alison,
-<br />
-<br />Yes, please use mol kg-1 as the canonical unit.
-<br />
-<br />Thanks,
-<br />
-<br />Ajay
-<br />
-<br />alison.pamment at stfc.ac.uk&lt;<a href="http://stfc.ac.uk">http://stfc.ac.uk</a>&gt; alison.pamment at stfc.ac.uk &lt;mailto:cf-metadata%40cgd.ucar.edu?Subject=Re%3A%20%5BCF-metadata%5D%20Request%20for%20new%0A%09standard-name%3A%09apparent_oxygen_utilization&amp;In-Reply-To=%3C014539AC4976BE4490A360410A8C20178A2D6062%40EXCHMBX01.fed.cclrc.ac.uk%3E&gt;
-<br />
-Thu Feb 26 03:56:32 MST 2015
-<br />
-<br />Dear All,
-<br />
-<br /><br /><br />Thank you for the constructive discussion of this proposal - it seems that agreement has been reached on apparent_oxygen_utilisation with canonical units of mol kg-1. (Just to double check: is this the correct unit for use with the World Ocean Database, which I believe is the reason for requesting the name in the first place. Units of mol m-3 have also been mentioned in this discussion, but this could be a misunderstanding.
-<br />
-<br /><br /><br />Best wishes,
-<br />
-<br />Alison
-<br />
-<br /><br /><br /><br /><br />________________________________
-<br />
-This message (and any attachments) is for the recipient only. NERC is subject to the Freedom of Information Act 2000 and the contents of this email and any reply you make may be disclosed by NERC unless it is exempt from release under the Act. Any material supplied to NERC may be stored in an electronic records management system.
-<br />
-<br />This message (and any attachments) is for the recipient only. NERC is subject to the Freedom of Information Act 2000 and the contents of this email and any reply you make may be disclosed by NERC unless it is exempt from release under the Act. Any material supplied to NERC may be stored in an electronic records management system.
-<br />
-<span id="received"><dfn>Received on</dfn> Fri Feb 27 2015 - 01:47:58 GMT</span>
+<span id="received"><dfn>Received on</dfn> Wed Jan 29 2014 - 09:41:03 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -183,13 +219,10 @@ This message (and any attachments) is for the recipient only. NERC is subject to
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start6827">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./6828.html" title="Next message in the list">Lowry, Roy K.: "[CF-metadata] Request for new standard-name:	apparent_oxygen_utilization"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./6826.html" title="Previous message in the list">Nan Galbraith: "[CF-metadata] Request for new standard-name: apparent_oxygen_utilization"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./6825.html" title="Message to which this message replies">alison.pamment at stfc.ac.uk: "[CF-metadata] Request for new standard-name: apparent_oxygen_utilization"</a></li>
+<li><dfn>Next message</dfn>: <a href="./6828.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] vertical coordinates and positive attributes"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./6826.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] vertical coordinates and positive attributes"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./6820.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] vertical coordinates and positive attributes"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./6829.html" title="Next message in this discussion thread">Ajay Krishnan - NOAA Affiliate: "[CF-metadata] Request for new standard-name: apparent_oxygen_utilization"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./6829.html" title="Message sent in reply to this message">Ajay Krishnan - NOAA Affiliate: "[CF-metadata] Request for new standard-name: apparent_oxygen_utilization"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -200,7 +233,7 @@ This message (and any attachments) is for the recipient only. NERC is subject to
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:52 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./6826.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6828.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF complexity and CF compliance from Joe Sirott on 2008-05-22 (mailing-list-archive)</title>
-<meta name="Author" content="Joe Sirott (Joe.Sirott)" />
-<meta name="Subject" content="[CF-metadata] CF complexity and CF compliance" />
-<meta name="Date" content="2008-05-22" />
+<title>[CF-metadata] curvilinear cartesian coordinates case from Bert Jagers on 2006-12-05 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Bert Jagers (Bert.Jagers)" />
+<meta name="Subject" content="[CF-metadata] curvilinear cartesian coordinates case" />
+<meta name="Date" content="2006-12-05" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1368.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1370.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF complexity and CF compliance</h1>
-<!-- received="Thu May 22 16:14:33 2008" -->
-<!-- isoreceived="20080522151433" -->
-<!-- sent="Thu, 22 May 2008 15:14:33 -0700" -->
-<!-- isosent="20080522221433" -->
-<!-- name="Joe Sirott" -->
-<!-- email="Joe.Sirott" -->
-<!-- subject="[CF-metadata] CF complexity and CF compliance" -->
-<!-- id="4835F049.3000603_at_noaa.gov" -->
+<a style="text-decoration:none" href="./1368.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1370.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] curvilinear cartesian coordinates case</h1>
+<!-- received="Tue Dec  5 00:57:14 2006" -->
+<!-- isoreceived="20061205005714" -->
+<!-- sent="Tue, 5 Dec 2006 08:57:14 +0100" -->
+<!-- isosent="20061205075714" -->
+<!-- name="Bert Jagers" -->
+<!-- email="Bert.Jagers" -->
+<!-- subject="[CF-metadata] curvilinear cartesian coordinates case" -->
+<!-- id="044601c71842$fa8b2680$22e40991_at_wl06377" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="4574AED3.9040304&#64;noaa.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,10 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1370.html" accesskey="d" title="Ethan Davis: &quot;[CF-metadata] Additional projections for CF&quot;">Next message</a> ]
-[ <a href="./1368.html" title="Ethan Davis: &quot;[CF-metadata] Additional projections for CF&quot;">Previous message</a> ]
+[ <a href="./1370.html" accesskey="d" title="Kettleborough, Jamie: &quot;[CF-metadata] Getting back to ensembles&quot;">Next message</a> ]
+[ <a href="./1368.html" title="Steve Hankin: &quot;[CF-metadata] curvilinear cartesian coordinates case&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./1371.html" accesskey="t" title="Karl Taylor: &quot;[CF-metadata] CF complexity and CF compliance&quot;">Next in thread</a> ]
+[ <a href="./1371.html" accesskey="t" title="Steve Hankin: &quot;[CF-metadata] curvilinear cartesian coordinates case (service-oriented approach)&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,82 +71,166 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Joe Sirott &lt;<a href="mailto:Joe.Sirott?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20complexity%20and%20CF%20compliance">Joe.Sirott</a>&gt;
+<dfn>From</dfn>: Bert Jagers &lt;<a href="mailto:Bert.Jagers?Subject=Re%3A%20%5BCF-metadata%5D%20curvilinear%20cartesian%20coordinates%20case">Bert.Jagers</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 22 May 2008 15:14:33 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 5 Dec 2006 08:57:14 +0100</span><br />
 </address>
 <br />
-Hi all,
+Hi Steve,
 <br />
-<br />I was wondering if anyone involved in the CF process knows of any 
+<br /><em class="quotelev1">&gt; From: Steve Hankin
+</em><br />
+<em class="quotelev1">&gt; To: Bert Jagers
+</em><br />
+<em class="quotelev1">&gt; Cc: cf-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; Sent: Tuesday, December 05, 2006 12:27 AM
+</em><br />
+<em class="quotelev1">&gt; Subject: Re: [CF-metadata] curvilinear cartesian coordinates case
+</em><br />
+<br />The above message contained the following:
 <br />
-software libraries that are completely CF 1.2 compliant. I know that 
+<br /><em class="quotelev1">&gt; When we look at files that mix variables in XY with variables in XYZ
+</em><br />
+<em class="quotelev1">&gt; we'll see some redundancy in the grid objects (or else complexity), so
+</em><br />
+<em class="quotelev1">&gt; we may see the weight of the arguments shift back slightly.
+</em><br />
+<br />Can you give an example? Are you referring to generic XYZ datasets without 
 <br />
-from my point of view -- as a software developer who develops software 
+independent horizontal and vertical dimensions or also XY variables like 
 <br />
-that must be able to read a wide variety of geophysical data formats -- 
+water levels and XYZ variables like 3D velocity fields?
 <br />
-it has been impossible to keep up with the increasingly complex 
+<br /><em class="quotelev1">&gt; To my eye John Caron's suggestion is the most elegant and natural of
+</em><br />
+<em class="quotelev1">&gt; the three proposed.  But as part of the cost/benefit discussion one
+</em><br />
+<em class="quotelev1">&gt; needs to consider that as-is it is a departure from the CF 1.0
+</em><br />
+<em class="quotelev1">&gt; specification -- the &quot;grid_mapping&quot; attribute has changed its meaning
+</em><br />
+<em class="quotelev1">&gt; and is no longer attached to the dependent variables.  Is this a big cost?
+</em><br />
+<em class="quotelev1">&gt; There's little cost if no files have actually been created that use the
+</em><br />
+<em class="quotelev1">&gt; current grid_mapping.
+</em><br />
+<br />I think that shifting grid_mapping away from the dependent variables is a 
 <br />
-conventions in the specification. It would be very helpful if I had 
+good step. How to deal with legacy files is indeed an issue.
 <br />
-access to a library that fully supported the semantics in the CF 
+<br /><em class="quotelev1">&gt; However,  John, isn't much of the apparent difference is just in the
+</em><br />
+<em class="quotelev1">&gt; changing interpretation of names?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;    CF 1.0             John's proposed
+</em><br />
+<em class="quotelev1">&gt; grid_mapping      ==&gt; coordinateSystems
+</em><br />
+<em class="quotelev1">&gt; grid_mapping_name ==&gt; grid_mapping
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Doesn't John's proposal using the current CF 1.0 attribute names become:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  int Dutch_CoordSystem;
+</em><br />
+<em class="quotelev1">&gt;    Dutch_CoordSystem:coordinates = &quot;dutch_x dutch_y&quot;;
+</em><br />
+<em class="quotelev1">&gt;    Dutch_CoordSystem:grid_mapping_name = &quot;EPSG19914&quot;;
+</em><br />
+<em class="quotelev1">&gt;  int German_CoordSystem;
+</em><br />
+<em class="quotelev1">&gt;    German_CoordSystem:coordinates = &quot;german_x german_y&quot;;
+</em><br />
+<em class="quotelev1">&gt;    Dutch_CoordSystem:grid_mapping_name = &quot;EPSG16362&quot;;
+</em><br />
+<em class="quotelev1">&gt;  float velocity(time,layer,m,n);
+</em><br />
+<em class="quotelev1">&gt;    velocity:grid_mapping = &quot;Dutch_CoordSystem German_CoordSystem&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    velocity:coordinates=&quot;lat lon&quot;; // can also list 1D coordinate 
+</em><br />
+<em class="quotelev1">&gt; variables
+</em><br />
+<em class="quotelev1">&gt;  float dutch_x(m,n);
+</em><br />
+<em class="quotelev1">&gt;  float dutch_y(m,n);
+</em><br />
+<em class="quotelev1">&gt;  float german_x(m,n);
+</em><br />
+<em class="quotelev1">&gt;  float german_y(m,n);
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; which is a relatively small extension of CF1.0 (and still elegant).
+</em><br />
+<br />I think there are two fundamental differences here:
 <br />
-conventions (such as projections from CF allowed coordinate system to 
+<br />1) Now, the grid mapping refers to the coordinates. If there multiple grids 
 <br />
-lat/lon space).
+are included in the file (e.g. in case of grids of staggered grid points, or 
 <br />
-<br />I'm guessing (and hoping that I'm wrong) that this software doesn't 
+multiple grid mosaics), this approach would require multiple grid mappings 
 <br />
-exist. In fact, it seems that the main focus of the CF conventions 
+whereas John's original approach would define multiple coordinate systems* 
 <br />
-process has been on  the needs of data /providers/ rather than data 
+and one grid mapping. I agree with Jonathan's point of view that a grid 
 <br />
-/consumers/. There is an inherent conflict between the two groups -- a 
+mapping should not refer to coordinate variables.
 <br />
-modeler wants to write data using the coordinate system of his model 
+<br />* In my previous mail, I distinguished: grids, coordinate systems and 
 <br />
-while a data consumer would prefer that the data be in a standard 
+coordinate transformations. I don't like the way in which the term 
 <br />
-lat/lon coordinate system. The CF conventions clearly are biased in 
+&quot;coordinate system&quot; is used in John's mail and on the coordinate system 
 <br />
-favor of the provider, and while the full conventions might be suitable 
+object model web page that he refers to. I think that the proper name should 
 <br />
-for data sharing in a small, specialized modeling group they don't work 
+be a grid or mesh object: it refers to specific points of a more general 
 <br />
-well for interdisciplinary data sharing.
+coordinate system as I see it.
 <br />
-<br />So, I'm wondering if it would be possible to come up with a subset of CF 
+<br />A coordinate system (in my definition) refers to the general coordinate 
 <br />
-conventions that would suit the needs of consumers rather than providers 
+space (e.g. spherical coordinates as opposed to cylindrical or cartesian 
 <br />
--- a set of conventions where it would be practical for programmers to 
+coordinates) and can be easily extended to include local coordinate spaces 
 <br />
-develop (and share) code to interpret data formatted according to the 
+in use for geography such as Mercator projections. Although coordinate 
 <br />
-conventions and that would establish guidelines for data providers who 
+systems and coordinate transformations are fundamentally different from my 
 <br />
-wanted their data to be widely accessible. A model (no pun intended!) 
+point of view, it may be difficult to effectively seperate one from the 
 <br />
-for this would be the data submission standards 
+other since most coordinate systems are defined by their coordinate 
 <br />
-&lt;<a href="http://www-pcmdi.llnl.gov/ipcc/IPCC_output_requirements.htm">http://www-pcmdi.llnl.gov/ipcc/IPCC_output_requirements.htm</a>&gt;established 
+transformation to/from spherical coordinates.
 <br />
-for submission of data to the CMIP3 archive of IPCC AR4 model data. For 
+<br />2) The usage of EPSG19914 as a grid_mapping_name suggests that it is an 
 <br />
-example, that archive required that modelers interpolate their data to a 
+accepted grid_mapping_name. Although the European Petroleum Survey Group 
 <br />
-lat/lon grid before the data would be accepted.
+maintains a comprehensive list of coordinate systems. There is as yet no 
 <br />
-<br />- Joe S.
+association with grid_mapping_names and CF.
 <br />
-<br /><br />-------------- next part --------------
+<br />Note: If we continue the discussion on this proposal we might want to add it 
 <br />
-An HTML attachment was scrubbed...
+to the wiki page that Jonathan created: 
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20080522/dc654a61/attachment-0002.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20080522/dc654a61/attachment-0002.html</a>&gt;
+<a href="http://cf-pcmdi.llnl.gov/trac/wiki/MultipleProjections">http://cf-pcmdi.llnl.gov/trac/wiki/MultipleProjections</a>
 <br />
-<span id="received"><dfn>Received on</dfn> Thu May 22 2008 - 16:14:33 BST</span>
+<br />Best regards,
+<br />
+<br />Bert 
+<br />
+<span id="received"><dfn>Received on</dfn> Tue Dec 05 2006 - 00:57:14 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -153,13 +238,12 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1369">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1370.html" title="Next message in the list">Ethan Davis: "[CF-metadata] Additional projections for CF"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1368.html" title="Previous message in the list">Ethan Davis: "[CF-metadata] Additional projections for CF"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1370.html" title="Next message in the list">Kettleborough, Jamie: "[CF-metadata] Getting back to ensembles"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1368.html" title="Previous message in the list">Steve Hankin: "[CF-metadata] curvilinear cartesian coordinates case"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./1371.html" title="Next message in this discussion thread">Karl Taylor: "[CF-metadata] CF complexity and CF compliance"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./1371.html" title="Next message in this discussion thread">Steve Hankin: "[CF-metadata] curvilinear cartesian coordinates case (service-oriented approach)"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./1371.html" title="Message sent in reply to this message">Karl Taylor: "[CF-metadata] CF complexity and CF compliance"</a></li>
-<li><dfn>Reply</dfn>: <a href="./1374.html" title="Message sent in reply to this message">Heinke Hoeck: "[CF-metadata] CF complexity and CF compliance"</a></li>
+<dfn>Reply</dfn>: <a href="./1371.html" title="Message sent in reply to this message">Steve Hankin: "[CF-metadata] curvilinear cartesian coordinates case (service-oriented approach)"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -170,7 +254,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:05 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1368.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1370.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

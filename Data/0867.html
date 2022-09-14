@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] proposed rules for changes to CF conventions from Steve Hankin on 2007-06-27 (mailing-list-archive)</title>
-<meta name="Author" content="Steve Hankin (Steven.C.Hankin)" />
-<meta name="Subject" content="[CF-metadata] proposed rules for changes to CF conventions" />
-<meta name="Date" content="2007-06-27" />
+<title>[CF-metadata] proposed new vertical coordinate from Ben Foster on 2006-03-08 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Ben Foster (foster)" />
+<meta name="Subject" content="[CF-metadata] proposed new vertical coordinate" />
+<meta name="Date" content="2006-03-08" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0866.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0868.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] proposed rules for changes to CF conventions</h1>
-<!-- received="Wed Jun 27 15:58:53 2007" -->
-<!-- isoreceived="20070627145853" -->
-<!-- sent="Wed, 27 Jun 2007 14:58:53 -0700" -->
-<!-- isosent="20070627215853" -->
-<!-- name="Steve Hankin" -->
-<!-- email="Steven.C.Hankin" -->
-<!-- subject="[CF-metadata] proposed rules for changes to CF conventions" -->
-<!-- id="4682DD9D.6000003_at_noaa.gov" -->
+<a style="text-decoration:none" href="./0866.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0868.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] proposed new vertical coordinate</h1>
+<!-- received="Wed Mar  8 14:42:29 2006" -->
+<!-- isoreceived="20060308144229" -->
+<!-- sent="Wed, 8 Mar 2006 14:42:29 -0700 (MST)" -->
+<!-- isosent="20060308214229" -->
+<!-- name="Ben Foster" -->
+<!-- email="foster" -->
+<!-- subject="[CF-metadata] proposed new vertical coordinate" -->
+<!-- id="200603082142.k28LgTU19925_at_jabba.hao.ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20070627185459.GA3335_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +53,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0868.html" accesskey="d" title="John Caron: &quot;[CF-metadata] proposed rules for changes to CF conventions&quot;">Next message</a> ]
-[ <a href="./0866.html" title="Russ Rew: &quot;[CF-metadata] proposed rules for changes to CF conventions&quot;">Previous message</a> ]
-[ <a href="./0865.html" title="Jonathan Gregory: &quot;[CF-metadata] proposed rules for changes to CF conventions&quot;">In reply to</a> ]
+[ <a href="./0868.html" accesskey="d" title="Karl Taylor: &quot;[CF-metadata] proposed new vertical coordinate&quot;">Next message</a> ]
+[ <a href="./0866.html" title="Julien Demaria: &quot;[CF-metadata] Integerized Sinusoidal Grid&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0870.html" accesskey="t" title="Bryan Lawrence: &quot;[CF-metadata] proposed rules for changes to CF conventions&quot;">Next in thread</a> ]
+[ <a href="./0868.html" accesskey="t" title="Karl Taylor: &quot;[CF-metadata] proposed new vertical coordinate&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,271 +70,92 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Steve Hankin &lt;<a href="mailto:Steven.C.Hankin?Subject=Re%3A%20%5BCF-metadata%5D%20proposed%20rules%20for%20changes%20to%20CF%20conventions">Steven.C.Hankin</a>&gt;
+<dfn>From</dfn>: Ben Foster &lt;<a href="mailto:foster?Subject=Re%3A%20%5BCF-metadata%5D%20proposed%20new%20vertical%20coordinate">foster</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 27 Jun 2007 14:58:53 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 8 Mar 2006 14:42:29 -0700 (MST)</span><br />
 </address>
 <br />
-Hi Jonathan,
+To the CF conventions community:
 <br />
-<br />A concern that does not seem to have been captured in these procedures 
+<br />Over the past 25 years or so the High Altitude Observatory at NCAR 
 <br />
-is the possibility that the proposal receives insufficient attention of 
+has developed a series of Thermospheric GCM's for use in upper atmosphere 
 <br />
-any kind -- pro or con.  The proposed text says, &quot;It is expected that 
+research. We save simulation results in netCDF history files, which are
 <br />
-everyone with an interest will contribute ...&quot;.  But if they do not 
+read by post-processors and visualization software. 
 <br />
-contribute, what then?  In its most extreme scenario the proposed 
+<br />We would like to conform to CF conventions, but are currently unable
 <br />
-process would be satisfied if a single conventions committee member made 
+to do so because our vertical dimension coordinate is not recognized.
 <br />
-a proposal; got no response; announced an intent to close at 4 weeks; 
+The vertical coordinate is a log pressure scale, ln(p0/p), where p0 is
 <br />
-and proclaimed the proposal accepted 2 weeks later.
+a standard reference pressure. The resulting coordinate array &quot;lev&quot;
 <br />
-<br />I've tried to address this concern with the mark-up below -- offset by 
+is typically -17 at the lower boundary to +7 at the top in increments
 <br />
-&quot;**&quot; delimiters.  The numbers &quot;[n]&quot; are just my own first best estimate ...
+of 0.5 or 0.25, corresponding to about 30 to 500 km. Pressure in mb can 
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;- Steve
+be calculated with p(k)=p0*exp(-lev(k)).
 <br />
-<br />============
+<br />We would therefore like to propose a new dimensionless vertical coordinate
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;New proposals to be made on trac using the template, including verbatim changes
+for the CF convention as follows:
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;proposed to the text of standard document and the conformance document.
+<br />double lev(lev) ;
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;A member of the conventions committee, or another suitably qualified person,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lev:long_name = &quot;midpoint levels&quot; ;
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;volunteers to moderate the discussion. If no-one volunteers, the chairman of
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lev:units = &quot;&quot; ;
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;the committee will ask someone to do it.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lev:positive = &quot;up&quot; ;
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;The discussion takes place on trac.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lev:standard_name = &quot;atmosphere_log_pressure_coordinate&quot; ;
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;The moderator periodically summarises discussion on trac, keeps it moving
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lev:formula_terms = &quot;p0: p0 lev: lev&quot; ;
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;forward and tries to achieve a consensus. It is ***required that at least [3] individuals, including the moderator be active in the process of finding consensus*** during this stage.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lev:formula = &quot;p(k) = p0 * exp(-lev(k))&quot; ;
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;After four weeks from the proposal, or two weeks of no contributions,
+<br />If this acceptable, a new definition would be added to the atmosphere 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;whichever is longer, the moderator attempts to wind up the discussion by
+dimensionless vertical coordinate definitions in Appendix D, as follows:
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;summarising the outcome. The summary should make clear which version of the
+<br />=========================================================================
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;proposal would be adopted, since several may have been discussed. 
+Atmosphere log pressure coordinate
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;*** If fewer than [5] individuals, the minimum number required, have actively participated in the consensus process and the moderator wishes to move the issue to closure he/she may ask the chair to recruit members of the conventions committee into active participation in the discussion in order to bring the number of participants in the consensus process up to the required minimum.***
+<br />standard_name = &quot;atmosphere_log_pressure_coordinate&quot;
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;After a
+<br />Definition:
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;further two weeks of no contributions,the discussion is concluded and the
+<br />p(k) = p0 * exp(-lev(k))
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;trac ticket closed by the moderator stating the outcome, which should follow
+<br />where p(k) is the pressure at gridpoint (k), p0 is a reference pressure,
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;these rules:
+and lev(k) is the dimensionless coordinate at vertical gridpoint (k).
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;No outstanding objection     Accept proposal
+<br />The format for the formula_terms attribute is
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;Near consensus               Accept proposal if all, or all but one, of the
+<br />formula_terms = &quot;p0: var1 lev: var2&quot;
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;conventions committee vote in favour of it.
+=========================================================================
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;Not near consensus           No change to standard
+<br />Thanks for your consideration,
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;(NB These rules are different from the ToRs in the white paper, which allowed
+<br />--Ben Foster
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;a simple majority to decide. The discussion in Paris indicated that all
+<br /><br /><br />-----------------------------------------------------------------------
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;members should vote, but should be guided by other members where they don't
+Ben Foster		      	High Altitude Observatory (HAO)
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;consider themselves to have the right expertise.)
+foster at ucar.edu			phone: 303-497-1595  fax: 303-497-1589  
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;If a change is accepted, the standard document should be updated, the CF
+Nat. Center for Atmos. Res.     P.O. Box 3000 Boulder CO 80307 USA
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;convention version number incremented, and the conformance document updated.
+-----------------------------------------------------------------------
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;The author of the proposal should be added to the list of contributing authors
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;of the CF convention.
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;At this point, the change is shown in the document as provisional, but it will
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;not be revoked unless subsequent testing shows it to be flawed. Provisional
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;status lasts until the Unidata ***libcf*** and the NCAS CF checker have both
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;successfully interpreted some data following the new convention.
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;Once this has been done, the document should again be updated to remove the
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;provisional status, and the version number incremented again.
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;All versions of the standard and conformance document should be kept available
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;online, with their trac tickets and a history of changes.
-<br />
-<br />Jonathan Gregory wrote:
-<br />
-<em class="quotelev1">&gt; Dear all
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; At the CF day in Paris this month there was a discussion of the rules to be
-</em><br />
-<em class="quotelev1">&gt; used to agree changes to the CF conventions. (The standard names are a
-</em><br />
-<em class="quotelev1">&gt; separate process.) I think we all feel that we need a more clearly stated
-</em><br />
-<em class="quotelev1">&gt; procedure to expedite decisions. I presented a proposed set of rules; various
-</em><br />
-<em class="quotelev1">&gt; changes were discussed and appeared to be agreed by those present. Here is
-</em><br />
-<em class="quotelev1">&gt; the current proposal. Please could the members of the conventions committee
-</em><br />
-<em class="quotelev1">&gt; state their view, even if just Yes/No. My vote for this is Yes. :-) All are
-</em><br />
-<em class="quotelev1">&gt; welcome to comment, of course. Once we have a procedure in place, various
-</em><br />
-<em class="quotelev1">&gt; proposals which have already been discussed on this email list will be
-</em><br />
-<em class="quotelev1">&gt; reproposed formally on the new trac system.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Committee members: Karl Taylor (chair), Kyle Halliday (secretary), Balaji,
-</em><br />
-<em class="quotelev1">&gt; John Caron, Tom Gross, Steve Hankin, Russ Rew, Rich Signell, Jonathan Gregory.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Thanks. Best wishes
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Jonathan
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; New proposals to be made on trac using the template, including verbatim changes
-</em><br />
-<em class="quotelev1">&gt; proposed to the text of standard document and the conformance document.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; A member of the conventions committee, or another suitably qualified person,
-</em><br />
-<em class="quotelev1">&gt; volunteers to moderate the discussion. If no-one volunteers, the chairman of
-</em><br />
-<em class="quotelev1">&gt; the committee will ask someone to do it.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; The discussion takes place on trac.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; The moderator periodically summarises discussion on trac, keeps it moving
-</em><br />
-<em class="quotelev1">&gt; forward and tries to achieve a consensus. It is expected that everyone with an
-</em><br />
-<em class="quotelev1">&gt; interest will contribute to the discussion and consensus during this stage.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; After four weeks from the proposal, or two weeks of no contributions,
-</em><br />
-<em class="quotelev1">&gt; whichever is longer, the moderator attempts to wind up the discussion by
-</em><br />
-<em class="quotelev1">&gt; summarising the outcome. The summary should make clear which version of the
-</em><br />
-<em class="quotelev1">&gt; proposal would be adopted, since several may have been discussed. After a
-</em><br />
-<em class="quotelev1">&gt; further two weeks of no contributions, the discussion is concluded and the
-</em><br />
-<em class="quotelev1">&gt; trac ticket closed by the moderator stating the outcome, which should follow
-</em><br />
-<em class="quotelev1">&gt; these rules:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; No outstanding objection     Accept proposal
-</em><br />
-<em class="quotelev1">&gt; Near consensus               Accept proposal if all, or all but one, of the
-</em><br />
-<em class="quotelev1">&gt;                              conventions committe vote in favour of it.
-</em><br />
-<em class="quotelev1">&gt; Not near consensus           No change to standard
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; (NB These rules are different from the ToRs in the white paper, which allowed
-</em><br />
-<em class="quotelev1">&gt; a simple majority to decide. The discussion in Paris indicated that all
-</em><br />
-<em class="quotelev1">&gt; members should vote, but should be guided by other members where they don't
-</em><br />
-<em class="quotelev1">&gt; consider themselves to have the right expertise.)
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; If a change is accepted, the standard document should be updated, the CF
-</em><br />
-<em class="quotelev1">&gt; convention version number incremented, and the conformance document updated.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; The author of the proposal should be added to the list of contributing authors
-</em><br />
-<em class="quotelev1">&gt; of the CF convention.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; At this point, the change is shown in the document as provisional, but it will
-</em><br />
-<em class="quotelev1">&gt; not be revoked unless subsequent testing shows it to be flawed. Provisional
-</em><br />
-<em class="quotelev1">&gt; status lasts until the Unidata cflib and the NCAS CF checker have both
-</em><br />
-<em class="quotelev1">&gt; successfully interpreted some data following the new convention.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Once this has been done, the document should again be updated to remove the
-</em><br />
-<em class="quotelev1">&gt; provisional status, and the version number incremented again.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; All versions of the standard and conformance document should be kept available
-</em><br />
-<em class="quotelev1">&gt; online, with their trac tickets and a history of changes.
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt;   
-</em><br />
-<br /><pre>
--- 
-Steve Hankin, NOAA/PMEL -- Steven.C.Hankin at noaa.gov
-7600 Sand Point Way NE, Seattle, WA 98115-0070
-ph. (206) 526-6080, FAX (206) 526-6744
-&quot;The only thing necessary for the triumph of evil is for good men
-to do nothing.&quot; -- Edmund Burke
--------------- next part --------------
-An HTML attachment was scrubbed...
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20070627/fe95ef80/attachment-0002.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20070627/fe95ef80/attachment-0002.html</a>&gt;
-</pre>
-<span id="received"><dfn>Received on</dfn> Wed Jun 27 2007 - 15:58:53 BST</span>
+<span id="received"><dfn>Received on</dfn> Wed Mar 08 2006 - 14:42:29 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -344,13 +163,12 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start867">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0868.html" title="Next message in the list">John Caron: "[CF-metadata] proposed rules for changes to CF conventions"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0866.html" title="Previous message in the list">Russ Rew: "[CF-metadata] proposed rules for changes to CF conventions"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0865.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] proposed rules for changes to CF conventions"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0868.html" title="Next message in the list">Karl Taylor: "[CF-metadata] proposed new vertical coordinate"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0866.html" title="Previous message in the list">Julien Demaria: "[CF-metadata] Integerized Sinusoidal Grid"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0870.html" title="Next message in this discussion thread">Bryan Lawrence: "[CF-metadata] proposed rules for changes to CF conventions"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./0868.html" title="Next message in this discussion thread">Karl Taylor: "[CF-metadata] proposed new vertical coordinate"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0870.html" title="Message sent in reply to this message">Bryan Lawrence: "[CF-metadata] proposed rules for changes to CF conventions"</a></li>
+<dfn>Reply</dfn>: <a href="./0868.html" title="Message sent in reply to this message">Karl Taylor: "[CF-metadata] proposed new vertical coordinate"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -361,7 +179,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:57 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0866.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0868.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

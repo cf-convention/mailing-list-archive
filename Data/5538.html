@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]  new standard name: land_surface_skin_temperature from Jonathan Gregory on 2013-06-14 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata]  new standard name: land_surface_skin_temperature" />
-<meta name="Date" content="2013-06-14" />
+<title>[CF-metadata] request for new standard name from Cameron-smith, Philip on 2012-09-19 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Cameron-smith, Philip (cameronsmith1)" />
+<meta name="Subject" content="[CF-metadata] request for new standard name" />
+<meta name="Date" content="2012-09-19" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5537.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5539.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  new standard name: land_surface_skin_temperature</h1>
-<!-- received="Fri Jun 14 11:22:47 2013" -->
-<!-- isoreceived="20130614102247" -->
-<!-- sent="Fri, 14 Jun 2013 18:22:47 +0100" -->
-<!-- isosent="20130614172247" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata]  new standard name: land_surface_skin_temperature" -->
-<!-- id="20130614172247.GA18057_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./5537.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5539.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] request for new standard name</h1>
+<!-- received="Tue Sep 18 17:06:33 2012" -->
+<!-- isoreceived="20120918160633" -->
+<!-- sent="Tue, 18 Sep 2012 16:06:33 -0700" -->
+<!-- isosent="20120918230633" -->
+<!-- name="Cameron-smith, Philip" -->
+<!-- email="cameronsmith1" -->
+<!-- subject="[CF-metadata] request for new standard name" -->
+<!-- id="DDB20D8288D53E4D811673C30FAB857D01C97D655166_at_NSPEXMBX-B.the-lab.llnl.gov" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="5051C877.8060705_at_aeronomie.be" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5539.html" accesskey="d" title="Jonathan Wrotny: &quot;[CF-metadata] new standard name: land_surface_skin_temperature&quot;">Next message</a> ]
-[ <a href="./5537.html" title="Randy Horne: &quot;[CF-metadata] percent coverage by GOES-R geophysical variables&quot;">Previous message</a> ]
+[ <a href="./5539.html" accesskey="d" title="Christophe Lerot: &quot;[CF-metadata] request for new standard name&quot;">Next message</a> ]
+[ <a href="./5537.html" title="Ben Domenico: &quot;[CF-metadata] Data Model Development | types&quot;">Previous message</a> ]
+[ <a href="./5529.html" title="Christophe Lerot: &quot;[CF-metadata] request for new standard name&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./5540.html" accesskey="t" title="Jonathan Wrotny: &quot;[CF-metadata] new standard name: land_surface_skin_temperature&quot;">Next in thread</a> ]
+[ <a href="./5539.html" accesskey="t" title="Christophe Lerot: &quot;[CF-metadata] request for new standard name&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,38 +72,112 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20new%20standard%20name%3A%20land_surface_skin_temperature">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Cameron-smith, Philip &lt;<a href="mailto:cameronsmith1?Subject=Re%3A%20%5BCF-metadata%5D%20request%20for%20new%20standard%20name">cameronsmith1</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 14 Jun 2013 18:22:47 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 18 Sep 2012 16:06:33 -0700</span><br />
 </address>
 <br />
-Dear Jonathan
+Hi Christophe,
 <br />
-<br />I defer to Roy about the various sea water temperature names.
+<br />I think what you want is equivalent_thickness_at_stp_of_atmosphere_ozone_content, which has units of meters, and a definition of:
 <br />
-<br />It is physically meaningful to have a temperature which doesn't relate to any
+<br />&quot;stp&quot; means standard temperature (0 degC) and pressure (101325 Pa). &quot;Content&quot; indicates a quantity per unit area. The &quot;atmosphere content&quot; of a quantity refers to the vertical integral from the surface to the top of the atmosphere. For the content between specified levels in the atmosphere, standard names including content_of_atmosphere_layer are used. The equivalent thickness at STP of a particular constituent of the atmosphere is the thickness of the layer that the gas would occupy if it was separated from the other constituents and gathered together at STP.
 <br />
-material layer. If there is no matter associated with it, it must have zero
+<br />It is not what one would naturally think of as an atmospheric chemist, but it is intended to be understandable by a general audience and consistent with other CF terms.  
 <br />
-heat capacity, so the temperature is determined by requiring an exact balance
+<br />Alison, could we add &quot;Dobson Unit&quot; to the description to make it easier to find?
 <br />
-of heat fluxes. For this to be possible, the heat fluxes concerned must depend
+<br />Best wishes,
 <br />
-on the temperature, which of course they generally do. Obviously this is an
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Philip
 <br />
-idealisation, but a surface interface temperature of this kind really can
+<br />-----------------------------------------------------------------------
 <br />
-exist in a model, although it's not an observational quantity. A model can
+Dr Philip Cameron-Smith, pjc at llnl.gov, Lawrence Livermore National Lab.
 <br />
-obtain such a temperature by solving simultaneously for the heat fluxes that
+-----------------------------------------------------------------------
 <br />
-are balanced at the interface.
-<br />
-<br />Best wishes
-<br />
-<br />Jonathan G
-<br />
-<span id="received"><dfn>Received on</dfn> Fri Jun 14 2013 - 11:22:47 BST</span>
+<br /><br /><br /><em class="quotelev1">&gt; -----Original Message-----
+</em><br />
+<em class="quotelev1">&gt; From: CF-metadata [mailto:cf-metadata-bounces at cgd.ucar.edu] On Behalf Of
+</em><br />
+<em class="quotelev1">&gt; Christophe Lerot
+</em><br />
+<em class="quotelev1">&gt; Sent: Thursday, September 13, 2012 4:50 AM
+</em><br />
+<em class="quotelev1">&gt; To: cf-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; Subject: [CF-metadata] request for new standard name
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Dear all,
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; We are in the process to create NetCDF files for satellite observations of vertical
+</em><br />
+<em class="quotelev1">&gt; ozone columns. This quantity represents the atmosphere vertically-integrated
+</em><br />
+<em class="quotelev1">&gt; concentration of ozone and is generally expressed in Dobson Units (1 DU=2.69
+</em><br />
+<em class="quotelev1">&gt; molec/cm?). I didn't find any suitable standard name for this.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; I'd like to propose to add this quantity as a standard name within the CF
+</em><br />
+<em class="quotelev1">&gt; convention.  Is it possible?
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Thanks in advance for considering this.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Best regards,
+</em><br />
+<em class="quotelev1">&gt; Christophe
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; --
+</em><br />
+<em class="quotelev1">&gt; -----------------------------------------------------
+</em><br />
+<em class="quotelev1">&gt; Dr. Christophe LEROT
+</em><br />
+<em class="quotelev1">&gt; Belgian Institute for Space Aeronomy
+</em><br />
+<em class="quotelev1">&gt; Chemistry &amp; Physics of Atmospheres
+</em><br />
+<em class="quotelev1">&gt; Avenue circulaire, 3
+</em><br />
+<em class="quotelev1">&gt; 1180 Brussels
+</em><br />
+<em class="quotelev1">&gt; Belgium
+</em><br />
+<em class="quotelev1">&gt; phone:  +32/(0)2-3730-407
+</em><br />
+<em class="quotelev1">&gt; mobile: +32/(0)472-81.87.00
+</em><br />
+<em class="quotelev1">&gt; mail:   christophe.lerot at aeronomie.be
+</em><br />
+<em class="quotelev1">&gt; url:    <a href="http://uv-vis.aeronomie.be/">http://uv-vis.aeronomie.be/</a>
+</em><br />
+<em class="quotelev1">&gt; -----------------------------------------------------
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<span id="received"><dfn>Received on</dfn> Tue Sep 18 2012 - 17:06:33 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -109,12 +185,13 @@ are balanced at the interface.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5538">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5539.html" title="Next message in the list">Jonathan Wrotny: "[CF-metadata] new standard name: land_surface_skin_temperature"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5537.html" title="Previous message in the list">Randy Horne: "[CF-metadata] percent coverage by GOES-R geophysical variables"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5539.html" title="Next message in the list">Christophe Lerot: "[CF-metadata] request for new standard name"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5537.html" title="Previous message in the list">Ben Domenico: "[CF-metadata] Data Model Development | types"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./5529.html" title="Message to which this message replies">Christophe Lerot: "[CF-metadata] request for new standard name"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./5540.html" title="Next message in this discussion thread">Jonathan Wrotny: "[CF-metadata] new standard name: land_surface_skin_temperature"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./5539.html" title="Next message in this discussion thread">Christophe Lerot: "[CF-metadata] request for new standard name"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./5540.html" title="Message sent in reply to this message">Jonathan Wrotny: "[CF-metadata] new standard name: land_surface_skin_temperature"</a></li>
+<dfn>Reply</dfn>: <a href="./5539.html" title="Message sent in reply to this message">Christophe Lerot: "[CF-metadata] request for new standard name"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -125,7 +202,7 @@ are balanced at the interface.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:25 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5537.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5539.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

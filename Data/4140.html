@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Sea surface height from Cameron-smith, Philip on 2012-01-26 (mailing-list-archive)</title>
-<meta name="Author" content="Cameron-smith, Philip (cameronsmith1)" />
-<meta name="Subject" content="[CF-metadata] Sea surface height" />
-<meta name="Date" content="2012-01-26" />
+<title>[CF-metadata] udunits handling of fuzzy time units from Steve Hankin on 2011-03-16 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Steve Hankin (Steven.C.Hankin)" />
+<meta name="Subject" content="[CF-metadata] udunits handling of fuzzy time units" />
+<meta name="Date" content="2011-03-16" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4139.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4141.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Sea surface height</h1>
-<!-- received="Thu Jan 26 13:03:22 2012" -->
-<!-- isoreceived="20120126130322" -->
-<!-- sent="Thu, 26 Jan 2012 12:03:22 -0800" -->
-<!-- isosent="20120126200322" -->
-<!-- name="Cameron-smith, Philip" -->
-<!-- email="cameronsmith1" -->
-<!-- subject="[CF-metadata] Sea surface height" -->
-<!-- id="DDB20D8288D53E4D811673C30FAB857D01B5F37DEFC6_at_NSPEXMBX-B.the-lab.llnl.gov" -->
+<a style="text-decoration:none" href="./4139.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4141.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] udunits handling of fuzzy time units</h1>
+<!-- received="Wed Mar 16 15:06:36 2011" -->
+<!-- isoreceived="20110316150636" -->
+<!-- sent="Wed, 16 Mar 2011 14:06:36 -0700" -->
+<!-- isosent="20110316210636" -->
+<!-- name="Steve Hankin" -->
+<!-- email="Steven.C.Hankin" -->
+<!-- subject="[CF-metadata] udunits handling of fuzzy time units" -->
+<!-- id="4D81265C.60302_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4F219656.1090403_at_deltares.nl" -->
+<!-- inreplyto="4D80DB82.3030703_at_unidata.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,10 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4141.html" accesskey="d" title="Schultz, Martin: &quot;[CF-metadata] mailing list and trac tickets&quot;">Next message</a> ]
-[ <a href="./4139.html" title="Dave Allured: &quot;[CF-metadata] mailing list and trac tickets&quot;">Previous message</a> ]
-[ <a href="./4138.html" title="Bert Jagers: &quot;[CF-metadata] Sea surface height&quot;">In reply to</a> ]
+[ <a href="./4141.html" accesskey="d" title="Benno Blumenthal: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">Next message</a> ]
+[ <a href="./4139.html" title="Steve Emmerson: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">Previous message</a> ]
+[ <a href="./4128.html" title="John Caron: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./4141.html" accesskey="t" title="Benno Blumenthal: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,129 +72,254 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Cameron-smith, Philip &lt;<a href="mailto:cameronsmith1?Subject=Re%3A%20%5BCF-metadata%5D%20Sea%20surface%20height">cameronsmith1</a>&gt;
+<dfn>From</dfn>: Steve Hankin &lt;<a href="mailto:Steven.C.Hankin?Subject=Re%3A%20%5BCF-metadata%5D%20udunits%20handling%20of%20fuzzy%20time%20units">Steven.C.Hankin</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 26 Jan 2012 12:03:22 -0800</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 16 Mar 2011 14:06:36 -0700</span><br />
 </address>
 <br />
-Hi All,
+On 3/16/2011 8:47 AM, John Caron wrote:
 <br />
-<br />'Anomaly' is one of those words, like 'coupled', that is widely used but means totally different things to different people, depending on their field and their current interest.  Hence, I would prefer we avoided it for CF.  However, there are already four std_names that use it, and in all four cases 'anomaly' is defined to mean 'difference from climatology'.   Hence, our options are 1) stick with 'anomaly' meaning difference from climatology, 2) change the existing std_names to get rid of 'anomaly', or 3) use 'anomaly' to refer to multiple different types of anomaly.
+<em class="quotelev1">&gt; On 3/16/2011 3:57 AM, Jon Blower wrote:
+</em><br />
+<em class="quotelev2">&gt;&gt; Hi all,
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; There have been multiple interesting sub-threads of this 
+</em><br />
+<em class="quotelev2">&gt;&gt; conversation, and I'm getting them a bit tangled, not helped by my 
+</em><br />
+<em class="quotelev2">&gt;&gt; email client apparently not distinguishing clearly between quotes and 
+</em><br />
+<em class="quotelev2">&gt;&gt; new material.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; John C. - are you in a position to make a summary and/or concrete 
+</em><br />
+<em class="quotelev2">&gt;&gt; proposal to CF, based on all this?
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Cheers,
+</em><br />
+<em class="quotelev2">&gt;&gt; Jon
+</em><br />
+<em class="quotelev2">&gt;&gt; _______________________________________________
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Heres the issues as I see them, and my proposed resolutions. Im being 
+</em><br />
+<em class="quotelev1">&gt; very brief, and not summarizing others' POV.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; 1. time instants vs time duration
+</em><br />
+<em class="quotelev1">&gt; - *one must distinguish between dimensional time (&quot;time duration&quot;, 
+</em><br />
+<em class="quotelev1">&gt; units=&quot;secs&quot;), and calendar time (&quot;time instant&quot;, or &quot;point on the 
+</em><br />
+<em class="quotelev1">&gt; time continium&quot;) which is not dimensional. *
+</em><br />
+<br />Hi John,
 <br />
-<br />I really dislike (3) because it will mess up the CF vocabulary that has been developing, since it would mean different things in different std_names.  The only way I can see to go with option (3) is that 'anomaly' would require definition of both the reference and altered state in the std_name, which I think would open up a can of worms.
+<br />I hope there is still an opportunity to discuss and debate the 
 <br />
-<br />This means we have to choose between (1) and (2).   If we could go back in a time-machine, then I would recommend option (2).   But since that isn't possible I think the best option is (1).
+fundamentals here.  In the end there are many ways of thinking through 
 <br />
-<br />Yours truly,
+the problem that will all lead to usable software.  So this is not a 
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Philip
+question of a &quot;right or wrong&quot; way to look at the problem.  The question 
 <br />
-<br /><br />-----------------------------------------------------------------------
+is, for which purposes should the software be optimized.  Since the 
 <br />
-Dr Philip Cameron-Smith, pjc at llnl.gov, Lawrence Livermore National Lab.
+target in question is CF -- climate and forecast -- I'd argue that*the 
 <br />
------------------------------------------------------------------------
+software design should be optimized for quantitative earth science*, by 
 <br />
-<br /><br />From: cf-metadata-bounces at cgd.ucar.edu [mailto:cf-metadata-bounces at cgd.ucar.edu] On Behalf Of Bert Jagers
+which I mean we expect to be doing calculations on the data on all four 
 <br />
-Sent: Thursday, January 26, 2012 10:07 AM
+axes.  In many cases similar calculations across all axes -- 
 <br />
-To: CF metadata list
+derivatives, integrals, smoothers and other convolution filters, Fourier 
 <br />
-Subject: Re: [CF-metadata] Sea surface height
+transforms, gap-fillers, interpolations, regridding, ....  Displaying 
 <br />
-<br />Hi all,
+pictures and labeling coordinates is only the tip of the iceberg.
 <br />
-<br />The term &quot;sea level anomaly&quot; is indeed used in the context given by St?phane; I know my colleagues are using it in exactly the same way. So, I don't agree with Jonathan that the term &quot;anomaly&quot; wouldn't be correct, however, he's probably equally right when indicating that it's in other contexts used to refer to the difference from a multi-year climatology. Since in climate research the sun is the most important celestial body besides the earth, I can imagine that it's sufficient to compare a value with the average value for the same date/time in multiple years. However, in tidal analysis the sun is not the only gravitational force with significant influence, the attraction of the moon is also very important and the moon's orbit is not perfectly periodic over the period of a year. In this context an sea level anomaly is the deviation of the water level from the level that could have been foreseen by means of a proper tidal analysis (either based on long-term local measurement series or a good hydrodynamic mode<br />
-l). Tidal analysis may show periodic behavior with frequencies up to 18.6 years which in the absence of storms enables you to predict rare but deterministic flooding events of low cities like Jakarta many years ahead. Storms cause local and remote &quot;random&quot; deviations from this tidal signal and that's what St?phane is referring to.
+<br />Here's where I differ on the foundation concept: _*All*_ units of 
 <br />
-<br />The two variables suggested by Phil could indeed be used to store both the reference tidal signal (water_surface_reference_datum_altitude) and the deviation thereof (water_surface_height_above_reference_datum). However:
+space-time measure have the same basic properties: _the units of measure 
 <br />
-a) this will make the water_surface_reference_datum_altitude time dependent which is unusual for reference levels, and
+represent intervals, not positions._ _To define a position requires both 
 <br />
-b) nobody will recognize the physical interpretation of the two variables without further metadata, and
+a unit of measure and a &quot;zero reference point&quot;. _ Longitude units, in 
 <br />
-c) would one be allowed to store only the &quot;sea level anomaly&quot; variable (water_surface_reference_datum_altitude) without the corresponding water_surface_height_above_reference_datum variable?
+particular, share the very same complexities that time has.  Namely, 
 <br />
-<br />Best regards,
+encodings of longitude may differ in their zero reference point 
 <br />
-<br />Bert
+(Greenwhich meridian or dateline); and the human-friendly formatting of 
 <br />
-----------------------
+longitudes (e.g. 140W) are not friendly to numerical software.  The 
 <br />
-<br />Bentley, Philip wrote:
+formatting of longitudes is helpful to humans because it translates the 
 <br />
-Hi Stephane,
+encoding unambiguously onto the modulo-360 coordinate system.   There is 
 <br />
-<br />Would one or both of the following two standard names cover your use-case? The first is in effect your residual, I think.
+an exact analog to each of these issues when handling time.  The 
 <br />
-<br />--------------
+difference between handling time and handling longitude is the degree of 
 <br />
-standard name: water_surface_height_above_reference_datum
+complexity in the formatting.  Whereas formatted longitudes communicate 
 <br />
-&nbsp;&nbsp;canon units: m
+position on just one 360-degree cycle,  date-time formatting is designed 
 <br />
-&nbsp;&nbsp;description: 'Water surface height above reference datum' means the height of the upper surface of a body of liquid water, such as sea, lake or river, above an arbitrary reference datum. The altitude of the datum should be provided in a variable with standard name water_surface_reference_datum_altitude. The surface called &quot;surface&quot; means the lower boundary of the atmosphere.
+to communicate the coordinates on two cycles -- a daily cycle and a 
 <br />
---------------
+yearly cycle -- which (inconveniently) are not in synchronization with 
 <br />
-standard name: water_surface_reference_datum_altitude
+each other.
 <br />
-&nbsp;&nbsp;canon units: m
+<br />Where does this lead?  It leads to saying that the tools and procedure 
 <br />
-&nbsp;&nbsp;description: Altitude is the (geometric) height above the geoid, which is the reference geopotential surface. The geoid is similar to mean sea level. 'Water surface reference datum altitude' means the altitude of the arbitrary datum referred to by a quantity with standard name 'water_surface_height_above_reference_datum'. The surface called &quot;surface&quot; means the lower boundary of the atmosphere.
+for handling times should fall back on these solid, foundation concepts 
 <br />
---------------
+of interval and position that are needed by quantitative earth science. 
 <br />
-Regards,
+_This is what udunits already does and is one reason that it has been so 
 <br />
-Phil
+very successful._   This is an alternative viewpoint to saying that time 
 <br />
-________________________________
+position and time interval are distinct concepts not found on other 
 <br />
-From: cf-metadata-bounces at cgd.ucar.edu&lt;mailto:cf-metadata-bounces at cgd.ucar.edu&gt; [mailto:cf-metadata-bounces at cgd.ucar.edu] On Behalf Of Stephane TAROT
+axes, that must be handled by a separate framework.
 <br />
-Sent: 26 January 2012 13:58
+<br /><em class="quotelev1">&gt; - calendar time always references a calendar, default calendar is 
+</em><br />
+<em class="quotelev1">&gt; gregorian, aka standard
+</em><br />
+<br />agree.  Each calendar represents a distinct way of formatting the dates 
 <br />
-To: cf-metadata at cgd.ucar.edu&lt;mailto:cf-metadata at cgd.ucar.edu&gt;
+(and positioning the time values), despite having the same encodings.
 <br />
-Subject: [CF-metadata] Sea surface height
+<br /><em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; - udunits is a good reference library for dimensional time,*but not 
+</em><br />
+<em class="quotelev1">&gt; for calendar time *
+</em><br />
+<br />Disagree.  Can we translate this statement into &quot;udunits as-is lacks the 
 <br />
-Hi,
+functions needed to input and output formatted times&quot;?  Or in more 
 <br />
-<br />In the MyOcean european project, we are using sea_surface_height_above_sea_level for the insitu data mesured by tide gauges.
+detail:  udunits lacks the specific functionality needed to translate 
 <br />
-<br />By substracting these measures and the predicted tide sea level, we calculate the residual due to atmospheric (pressure and wind) conditions.
+between encoded time values and calendar-sensitive, formatted date-time 
 <br />
-<br />Is there an existing standard name for the residual ?
+strings.  That functionality, however, can be added in an incremental 
 <br />
-Should we consider that the predicted tide sea level is a sort of climatology and therefore use &quot;sea_surface_height_above_sea_level_anomaly&quot; for the residual ?
+fashion. _A fundamental rethinking of concepts is not needed._
 <br />
-<br /><br />Thanks for your help
+<br />I will stop comments at this point, because the difference in viewpoint 
 <br />
-<br />St?phane Tarot (Ifremer)
+effects all of the conclusions below.
 <br />
-<br /><br /><br /><br />________________________________
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Steve
 <br />
-<br /><br /><br />_______________________________________________
+<br />P.S.   Together with enhancing udunits to handle the formatting of 
 <br />
-<br />CF-metadata mailing list
+date-time strings,it would be natural to add the same functionality for 
 <br />
-<br />CF-metadata at cgd.ucar.edu&lt;mailto:CF-metadata at cgd.ucar.edu&gt;
+longitudes, too.  Ditto  degrees of temperature -- degrees F, C and K.   
 <br />
-<br /><a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+Again -- the challenges of handling times are found in the other units, 
 <br />
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />DISCLAIMER: This message is intended exclusively for the addressee(s) and may contain confidential and privileged information. If you are not the intended recipient please notify the sender immediately and destroy this message. Unauthorized use, disclosure or copying of this message is strictly prohibited.
+too (admittedly with less complexity and MUCH less baggage attached).
 <br />
-<br />The foundation 'Stichting Deltares', which has its seat at Delft, The Netherlands, Commercial Registration Number 41146461, is not liable in any way whatsoever for consequences and/or damages resulting from the improper, incomplete and untimely dispatch, receipt and/or content of this e-mail.
+<br />------------------------------------------------------------------------
 <br />
-<br /><br /><br /><br />-------------- next part --------------
+<br /><em class="quotelev1">&gt; 2. calendar time
+</em><br />
+<em class="quotelev1">&gt; - time coordinates (CF section 4.4) are calendar times
+</em><br />
+<em class="quotelev1">&gt; - time coordinate variables are instants in time. A bounds coordinate 
+</em><br />
+<em class="quotelev1">&gt; (CF section 7.1) should be used to clarify the actual time range of 
+</em><br />
+<em class="quotelev1">&gt; each coordinate. This is especially important when using cell measures 
+</em><br />
+<em class="quotelev1">&gt; (CF section 7.2) like mean, min, max, etc.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; - calendar time representation needs to be clarified
+</em><br />
+<em class="quotelev1">&gt;   - udunits should no longer be the reference library for calendar 
+</em><br />
+<em class="quotelev1">&gt; time. a new reference library is needed, which handles non-standard 
+</em><br />
+<em class="quotelev1">&gt; calendars.
+</em><br />
+<em class="quotelev1">&gt;   - udunit date representation (&quot;n timeUnit since ISO_date&quot;) must be 
+</em><br />
+<em class="quotelev1">&gt; retained for backwards compatibility. &quot;month&quot; and &quot;year&quot; timeUnit 
+</em><br />
+<em class="quotelev1">&gt; should be redefined in CF version 1.x to refer to calendar fields, not 
+</em><br />
+<em class="quotelev1">&gt; fixed length time durations. For files using versions previous to CF 
+</em><br />
+<em class="quotelev1">&gt; 1.x, udunit fixed length semantics should be used.
+</em><br />
+<em class="quotelev1">&gt;   - the grammar for udunit date representations should be defined, so 
+</em><br />
+<em class="quotelev1">&gt; that multiple libraries can implement it
+</em><br />
+<em class="quotelev1">&gt;   - ISO date strings should be allowed
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; 3. time resolution
+</em><br />
+<em class="quotelev1">&gt;   - any calendar fields not specified must be set to 0
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; 4. time calculations
+</em><br />
+<em class="quotelev1">&gt;   - standard library functions for calculating time durations from 
+</em><br />
+<em class="quotelev1">&gt; time ranges (start, end) are needed. these are calendar dependent.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+-------------- next part --------------
 <br />
 An HTML attachment was scrubbed...
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120126/87585afb/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120126/87585afb/attachment-0001.html</a>&gt;
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20110316/3c248372/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20110316/3c248372/attachment-0001.html</a>&gt;
 <br />
-<span id="received"><dfn>Received on</dfn> Thu Jan 26 2012 - 13:03:22 GMT</span>
+<span id="received"><dfn>Received on</dfn> Wed Mar 16 2011 - 15:06:36 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -200,10 +327,13 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4140">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4141.html" title="Next message in the list">Schultz, Martin: "[CF-metadata] mailing list and trac tickets"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4139.html" title="Previous message in the list">Dave Allured: "[CF-metadata] mailing list and trac tickets"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./4138.html" title="Message to which this message replies">Bert Jagers: "[CF-metadata] Sea surface height"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4141.html" title="Next message in the list">Benno Blumenthal: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4139.html" title="Previous message in the list">Steve Emmerson: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./4128.html" title="Message to which this message replies">John Caron: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./4141.html" title="Next message in this discussion thread">Benno Blumenthal: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./4141.html" title="Message sent in reply to this message">Benno Blumenthal: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -214,7 +344,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:57 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4139.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4141.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

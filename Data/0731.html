@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Proposed standard names for biological model outputs from Jonathan Gregory on 2007-03-04 (mailing-list-archive)</title>
+<title>[CF-metadata] GIS versus CF conventions from Jonathan Gregory on 2005-08-30 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] Proposed standard names for biological model outputs" />
-<meta name="Date" content="2007-03-04" />
+<meta name="Subject" content="[CF-metadata] GIS versus CF conventions" />
+<meta name="Date" content="2005-08-30" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0730.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0732.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Proposed standard names for biological model outputs</h1>
-<!-- received="Sun Mar  4 09:41:16 2007" -->
-<!-- isoreceived="20070304094116" -->
-<!-- sent="Sun, 4 Mar 2007 16:41:16 +0000" -->
-<!-- isosent="20070304164116" -->
+<a style="text-decoration:none" href="./0730.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0732.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] GIS versus CF conventions</h1>
+<!-- received="Tue Aug 30 01:15:31 2005" -->
+<!-- isoreceived="20050830001531" -->
+<!-- sent="Tue, 30 Aug 2005 08:15:31 +0100" -->
+<!-- isosent="20050830071531" -->
 <!-- name="Jonathan Gregory" -->
 <!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] Proposed standard names for biological model outputs" -->
-<!-- id="20070304164116.GC28713_at_met.reading.ac.uk" -->
+<!-- subject="[CF-metadata] GIS versus CF conventions" -->
+<!-- id="20050830071531.GA15224_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0732.html" accesskey="d" title="Bryan Lawrence: &quot;[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal&quot;">Next message</a> ]
-[ <a href="./0730.html" title="Jonathan Gregory: &quot;[CF-metadata] Question about Coordinate System&quot;">Previous message</a> ]
+[ <a href="./0732.html" accesskey="d" title="Magnus Hagdorn: &quot;[CF-metadata] GIS versus CF conventions&quot;">Next message</a> ]
+[ <a href="./0730.html" title="Jonathan Gregory: &quot;[CF-metadata] GIS versus CF conventions&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0732.html" accesskey="t" title="Magnus Hagdorn: &quot;[CF-metadata] GIS versus CF conventions&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,24 +70,56 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Proposed%20standard%20names%20for%20biological%20model%20outputs">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20GIS%20versus%20CF%20conventions">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Sun, 4 Mar 2007 16:41:16 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 30 Aug 2005 08:15:31 +0100</span><br />
 </address>
 <br />
-Dear Michael
+Dear John
 <br />
-<br />Your new names and definitions all make sense to me. I suppose that one day
+<br />If I was someone whose coordinate metadata took 15/16 of the file, I would
 <br />
-it might be necessary to define size classes for micro/mesozooplankton, but
+certainly want to leave it out! Therefore I think it's inevitable that we
 <br />
-if so that will be quite straightforward to do with an appropriate coordinate.
+should do something like this:
+<br />
+<br /><em class="quotelev1">&gt; I would propose some standardized &quot;CF variants&quot;, or profiles, to be worked 
+</em><br />
+<em class="quotelev1">&gt; out by subgroups that need variations from the standard, rather than 
+</em><br />
+<em class="quotelev1">&gt; modifying the base standard. The groups should have a clearly stated target 
+</em><br />
+<em class="quotelev1">&gt; or purpose, perhaps as narrow as &quot;WCS&quot; or as broad as &quot;GIS&quot;.
+</em><br />
+<br />one such variant being the omission of auxiliary coordinate variables if
+<br />
+appropriate map projections or grid descriptions have been provided so that
+<br />
+the coordinate variables can be calculated from the indices. However it would
+<br />
+be good to:
+<br />
+<br />* Maximise interoperability by providing the coordinate variable information
+<br />
+in some other file. Could that be done in the case you're talking about?
+<br />
+<br />* Emphasise that this route should only be taken when the coordinate metadata
+<br />
+really takes an intolerable amount of space. We shouldn't make auxiliary
+<br />
+coordinates generally optional. I'm not sure how we can do this, but as you
+<br />
+say there has to be some clearly stated purpose. &quot;GIS&quot; sounds a bit vague to
+<br />
+me even. Could we relate these provisions to the needs of specific projects
+<br />
+or software?
 <br />
 <br />Best wishes
 <br />
 <br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Sun Mar 04 2007 - 09:41:16 GMT</span>
+<span id="received"><dfn>Received on</dfn> Tue Aug 30 2005 - 01:15:31 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -93,9 +127,12 @@ if so that will be quite straightforward to do with an appropriate coordinate.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start731">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0732.html" title="Next message in the list">Bryan Lawrence: "[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0730.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Question about Coordinate System"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0732.html" title="Next message in the list">Magnus Hagdorn: "[CF-metadata] GIS versus CF conventions"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0730.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] GIS versus CF conventions"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0732.html" title="Next message in this discussion thread">Magnus Hagdorn: "[CF-metadata] GIS versus CF conventions"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0732.html" title="Message sent in reply to this message">Magnus Hagdorn: "[CF-metadata] GIS versus CF conventions"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -106,7 +143,7 @@ if so that will be quite straightforward to do with an appropriate coordinate.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:54 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0730.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0732.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

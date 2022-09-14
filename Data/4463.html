@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Response to [lc-cci] proposal for new CF standard names for land cover observation and classification from Jonathan Gregory on 2012-05-01 (mailing-list-archive)</title>
+<title>[CF-metadata] CF data model and reference implementation in Python from Jonathan Gregory on 2011-08-16 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] Response to [lc-cci] proposal for new CF standard names for land cover observation and classification" />
-<meta name="Date" content="2012-05-01" />
+<meta name="Subject" content="[CF-metadata] CF data model and reference implementation in Python" />
+<meta name="Date" content="2011-08-16" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4462.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4464.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Response to [lc-cci] proposal for new CF standard names for land cover observation and classification</h1>
-<!-- received="Tue May  1 09:11:37 2012" -->
-<!-- isoreceived="20120501081137" -->
-<!-- sent="Tue, 1 May 2012 16:11:37 +0100" -->
-<!-- isosent="20120501151137" -->
+<a style="text-decoration:none" href="./4462.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4464.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF data model and reference implementation in Python</h1>
+<!-- received="Tue Aug 16 07:41:31 2011" -->
+<!-- isoreceived="20110816064131" -->
+<!-- sent="Tue, 16 Aug 2011 14:41:31 +0100" -->
+<!-- isosent="20110816134131" -->
 <!-- name="Jonathan Gregory" -->
 <!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] Response to [lc-cci] proposal for new CF standard names for land cover observation and classification" -->
-<!-- id="20120501151137.GB28546_at_met.reading.ac.uk" -->
+<!-- subject="[CF-metadata] CF data model and reference implementation in Python" -->
+<!-- id="20110816134131.GB10939_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4464.html" accesskey="d" title="John Caron: &quot;[CF-metadata] Ocean CTD data following CF Conventions v1.6&quot;">Next message</a> ]
-[ <a href="./4462.html" title="Jonathan Gregory: &quot;[CF-metadata]  Reverse-time trajectory&quot;">Previous message</a> ]
+[ <a href="./4464.html" accesskey="d" title="Bert Jagers: &quot;[CF-metadata] Is there a convention defining day offsets to use for monthly average time series?&quot;">Next message</a> ]
+[ <a href="./4462.html" title="Jonathan Gregory: &quot;[CF-metadata] Is there a convention defining day offsets to use for monthly average time series?&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,36 +68,54 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Response%20to%20%5Blc-cci%5D%20proposal%20for%20new%20CF%20standard%20names%20for%20land%20cover%20observation%20and%20classification">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20data%20model%20and%20reference%20implementation%20in%20Python">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 1 May 2012 16:11:37 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 16 Aug 2011 14:41:31 +0100</span><br />
 </address>
 <br />
-Dear Dr Winsemius
+Dear all
 <br />
-<br /><em class="quotelev1">&gt; I would like to acknowledge that we also are interested in similar
-</em><br />
-<em class="quotelev1">&gt; variable names as posted by mr. Martin Boettcher. The subject of the
-</em><br />
-<em class="quotelev1">&gt; previous post was:
-</em><br />
-<em class="quotelev1">&gt; [CF-metadata] [lc-cci] proposal for new CF standard names for land
-</em><br />
-<em class="quotelev1">&gt; cover observation and classification
-</em><br />
-<br />I wonder if you could have a look at my comment on this from 28 Mar
+<br />In case anyone doesn't get trac postings automatically by email, I'd like to
 <br />
-<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2012/027874.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2012/027874.html</a>
+point out trac ticket #68
 <br />
-In this comment, I wondered if we could have greater precision in the
+<a href="https://cf-pcmdi.llnl.gov/trac/ticket/68">https://cf-pcmdi.llnl.gov/trac/ticket/68</a>
 <br />
-definition of &quot;occurrence&quot;.
+on a proposed CF data model. We have drafted a description of the abstract
 <br />
-<br />Best wishes
+data model that implicitly underlies the CF convention. We propose to include
 <br />
-<br />Jonathan Gregory
+such a description as part of the CF standard, to be kept up-to-date with the
 <br />
-<span id="received"><dfn>Received on</dfn> Tue May 01 2012 - 09:11:37 BST</span>
+CF-netCDF convention. A previous draft was discussed earlier this year on this
+<br />
+email list, and also at the GO-ESSP meeting.
+<br />
+<br />We would really welcome comments on this proposal, preferably on the trac
+<br />
+ticket. The description is not a long document, only 3-4 screensful of plain
+<br />
+text, and the accompanying UML diagram is one page and quite straightforward!
+<br />
+The central questions are:
+<br />
+<br />* Is it a good idea to have an explicit description of the CF data model?
+<br />
+<br />* Is this description correct and sufficient?
+<br />
+<br />The trac ticket also points to some Python code which implements the data
+<br />
+model i.e. equivalent memory structures, netCDF I/O and some basic operations.
+<br />
+The purpose of the code is to illustrate the model, and to provide a possible
+<br />
+foundation for higher-level processing and graphical operations.
+<br />
+<br />Best wishes and thanks
+<br />
+<br />Jonathan
+<br />
+<span id="received"><dfn>Received on</dfn> Tue Aug 16 2011 - 07:41:31 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -105,8 +123,8 @@ definition of &quot;occurrence&quot;.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4463">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4464.html" title="Next message in the list">John Caron: "[CF-metadata] Ocean CTD data following CF Conventions v1.6"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4462.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]  Reverse-time trajectory"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4464.html" title="Next message in the list">Bert Jagers: "[CF-metadata] Is there a convention defining day offsets to use for monthly average time series?"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4462.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Is there a convention defining day offsets to use for monthly average time series?"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -118,7 +136,7 @@ definition of &quot;occurrence&quot;.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:03 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4462.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4464.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

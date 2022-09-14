@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] time from Russ Rew on 2006-12-02 (mailing-list-archive)</title>
-<meta name="Author" content="Russ Rew (russ)" />
-<meta name="Subject" content="[CF-metadata] time" />
-<meta name="Date" content="2006-12-02" />
+<title>[CF-metadata] variable missing &quot;coordinates&quot; attribute from Richard P Signell on 2005-01-26 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Richard P Signell (rsignell)" />
+<meta name="Subject" content="[CF-metadata] variable missing &quot;coordinates&quot; attribute" />
+<meta name="Date" content="2005-01-26" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0539.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0541.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] time</h1>
-<!-- received="Sat Dec  2 11:16:20 2006" -->
-<!-- isoreceived="20061202111620" -->
-<!-- sent="Sat, 02 Dec 2006 11:16:20 -0700" -->
-<!-- isosent="20061202181620" -->
-<!-- name="Russ Rew" -->
-<!-- email="russ" -->
-<!-- subject="[CF-metadata] time" -->
-<!-- id="200612021816.kB2IGKXX007260_at_unidata.ucar.edu" -->
+<a style="text-decoration:none" href="./0539.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0541.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] variable missing &quot;coordinates&quot; attribute</h1>
+<!-- received="Wed Jan 26 14:01:23 2005" -->
+<!-- isoreceived="20050126140123" -->
+<!-- sent="Wed, 26 Jan 2005 16:01:23 -0500" -->
+<!-- isosent="20050126210123" -->
+<!-- name="Richard P Signell" -->
+<!-- email="rsignell" -->
+<!-- subject="[CF-metadata] variable missing &quot;coordinates&quot; attribute" -->
+<!-- id="OFFD0168B0.DD13852E-ON85256F95.00737BD2-85256F95.00737BDA_at_usgs.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="j.m.gregory_at_reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0541.html" accesskey="d" title="Hill, Julian: &quot;[CF-metadata] NMAT&quot;">Next message</a> ]
-[ <a href="./0539.html" title="Steve Emmerson: &quot;[CF-metadata] Proposed standard names for biological model outputs&quot;">Previous message</a> ]
+[ <a href="./0541.html" accesskey="d" title="John Caron: &quot;[CF-metadata] variable missing &#0034;coordinates&#0034; attribute&quot;">Next message</a> ]
+[ <a href="./0539.html" title="John Caron: &quot;[CF-metadata] variable missing &#0034;coordinates&#0034; attribute&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0541.html" accesskey="t" title="John Caron: &quot;[CF-metadata] variable missing &#0034;coordinates&#0034; attribute&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -69,42 +70,194 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Russ Rew &lt;<a href="mailto:russ?Subject=Re%3A%20%5BCF-metadata%5D%20time">russ</a>&gt;
+<dfn>From</dfn>: Richard P Signell &lt;<a href="mailto:rsignell?Subject=Re%3A%20%5BCF-metadata%5D%20variable%20missing%20%22coordinates%22%20attribute">rsignell</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Sat, 02 Dec 2006 11:16:20 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 26 Jan 2005 16:01:23 -0500</span><br />
 </address>
 <br />
-Jonathan,
+John,
 <br />
-<br /><em class="quotelev1">&gt; Yes, I agree, ragged arrays (in netCDF-4) would be a good solution to some
-</em><br />
-<em class="quotelev1">&gt; 2D time problems.
-</em><br />
-<br />That's what I used to think also, but details of how the underlying
+<br />I happen to know this user ;-) and yes, he was just sloppy on this one.  It
 <br />
-HDF5 variable-length types work make me less convinced that we can use
+might be he didn't notice that &quot;topo&quot; was lacking the coordinates attribute
 <br />
-ragged arrays in this context.
+because he was using IDV.   IDV is smart enough that if it finds the
 <br />
-<br />The limitation is that a row of a ragged array must be accessed
+&quot;coordinates&quot; attribute specified for one variable, it uses those for other
 <br />
-atomically: the entire row is returned in allocated memory space,
+variables that have the same dimensions (in this case &quot;j&quot; and &quot;i&quot;) yet
 <br />
-along with its actual length.  This is fine if the granularity of the
+don't have the &quot;coordinates&quot; attribute specified.   So it sort of cleans up
 <br />
-elements is small, such as for a row of floating-point values or small
+after sloppy people.
 <br />
-data structures, but may be impractical for a ragged array of larger
+<br />-Rich
 <br />
-elements such as time slices of model forecasts.  This is a
+<br />Dr. Richard P. Signell              rsignell at usgs.gov
 <br />
-characteristic of the underlying HDF5 variable-length types, so may
+U.S. Geological Survey           (508) 457-2229
 <br />
-not be easy to work-around short of using lots of memory.
+384 Woods Hole Road            Fax: (508) 457-2310
 <br />
-<br />--Russ
+Woods Hole, MA  02543-1598
 <br />
-<span id="received"><dfn>Received on</dfn> Sat Dec 02 2006 - 11:16:20 GMT</span>
+<br /><br /><br />-----cf-metadata-bounces at cgd.ucar.edu wrote: -----
+<br />
+<br />To: CF-metadata &lt;cf-metadata at cgd.ucar.edu&gt;
+<br />
+From: John Caron &lt;caron at unidata.ucar.edu&gt;
+<br />
+Sent by: cf-metadata-bounces at cgd.ucar.edu
+<br />
+Date: 01/26/2005 02:37PM
+<br />
+Subject: [CF-metadata] variable missing &quot;coordinates&quot; attribute
+<br />
+<br />the folllowing file has a variable &quot;topo&quot; that is missing the
+<br />
+&quot;coordinates = lat,lon&quot; that would assign the 2D lat, lon coordinates to
+<br />
+it.
+<br />
+<br />i have been interpreting this strictly, namely that the user is choosing
+<br />
+not to assign, but in fact its more likely that they simply forgot, or
+<br />
+they dont think of topo as a data variable.
+<br />
+<br />note that the time coordinate is assigned automatically because it is a
+<br />
+coordinate variable. thus the set of coordinates are either 1)
+<br />
+implicitly assigned coordinate variables or2) explicitly assigned via
+<br />
+the &quot;coordinates&quot; attribute.
+<br />
+<br />i am adding some heuristics to deal with common errors like below, but i
+<br />
+thought maybe someone might have some thoughts or comments.
+<br />
+<br />netcdf
+<br />
+dods://www.satlab.hawaii.edu/cgi-bin/nph-dods/adria/models/coamps/coamps_wind.nc
+<br />
+<br />{
+<br />
+dimensions:
+<br />
+&nbsp;time = UNLIMITED;   // (5808 currently)   // (has coord.var)
+<br />
+&nbsp;j = 205;
+<br />
+&nbsp;i = 187;
+<br />
+variables:
+<br />
+&nbsp;double time(time);
+<br />
+&nbsp;&nbsp;&nbsp;:units = &quot;days since 1968-5-23&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;:long_name = &quot;modified julian day (ROMS-style)&quot;;
+<br />
+&nbsp;float lon(j, i);
+<br />
+&nbsp;&nbsp;&nbsp;:units = &quot;degrees_east&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;:long_name = &quot;longitude&quot;;
+<br />
+&nbsp;float lat(j, i);
+<br />
+&nbsp;&nbsp;&nbsp;:units = &quot;degrees_north&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;:long_name = &quot;latitude&quot;;
+<br />
+&nbsp;float topo(j, i);
+<br />
+&nbsp;&nbsp;&nbsp;:units = &quot;m&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;:long_name = &quot;land elevation&quot;;
+<br />
+&nbsp;float U10(time, j, i);
+<br />
+&nbsp;&nbsp;&nbsp;:long_name = &quot;Eastward wind component&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;:units = &quot;m/s&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;:scale_factor = 0.001525925; // float
+<br />
+&nbsp;&nbsp;&nbsp;:add_offset = 0.0; // float
+<br />
+&nbsp;&nbsp;&nbsp;:coordinates = &quot;lon lat&quot;;
+<br />
+&nbsp;float V10(time, j, i);
+<br />
+&nbsp;&nbsp;&nbsp;:long_name = &quot;Northward wind component&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;:units = &quot;m/s&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;:scale_factor = 0.001525925; // float
+<br />
+&nbsp;&nbsp;&nbsp;:add_offset = 0.0; // float
+<br />
+&nbsp;&nbsp;&nbsp;:coordinates = &quot;lon lat&quot;;
+<br />
+<br />:Conventions = &quot;CF-1.0&quot;;
+<br />
+:title = &quot;COAMPS(TM) output from Jim Doyle, NRL/MRY&quot;;
+<br />
+:institution = &quot;NATO/SACLANT Undersea Research Centre&quot;;
+<br />
+:source = &quot;COAMPS V3.0&quot;;
+<br />
+:contact = &quot;Rich Signell (rsignell at usgs.gov), Jim Doyle
+<br />
+(doyle at nrlmry.navy.mil)&quot;;
+<br />
+:comment = &quot;Hourly COAMPS reanalysis fields were obtained from Jim
+<br />
+Doyle. Continuous hourly fields were constructed by extracting hours
+<br />
+02-13 from the
+<br />
+twice daily hindcast initializations at 0000 UTC and 1200 UTC.  Thus no
+<br />
+analysis time data
+<br />
+was used, the rationale being that some spin-up time is desirable.   The
+<br />
+data were then
+<br />
+compacted from float to short integers to save space (for those
+<br />
+parameters that do not require
+<br />
+a large dynamic range).&quot;;
+<br />
+:history = &quot;Fri Feb 13 06:27:51 2004: ncrcat -O coamps_wind.200209.nc
+<br />
+coamps_wind.200210.nc coamps_wind.200211.nc coamps_wind.200212.nc
+<br />
+coamps_wind.200301.nc coamps_wind.200302.nc coamps_wind.200303.nc
+<br />
+coamps_wind.200304.nc coamps_wind.nc
+<br />
+Fri Feb 13 05:51:54 2004: ncatted -O -a contact,global,o,c,Rich Signell
+<br />
+(rsignell at usgs.gov), Jim Doyle (doyle at nrlmry.navy.mil)
+<br />
+coamps_wind.200209.nc&quot;;
+<br />
+}
+<br />
+<br />_______________________________________________
+<br />
+CF-metadata mailing list
+<br />
+&nbsp;CF-metadata at cgd.ucar.edu
+<br />
+<a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+<br />
+<span id="received"><dfn>Received on</dfn> Wed Jan 26 2005 - 14:01:23 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -112,9 +265,12 @@ not be easy to work-around short of using lots of memory.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start540">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0541.html" title="Next message in the list">Hill, Julian: "[CF-metadata] NMAT"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0539.html" title="Previous message in the list">Steve Emmerson: "[CF-metadata] Proposed standard names for biological model outputs"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0541.html" title="Next message in the list">John Caron: "[CF-metadata] variable missing &#0034;coordinates&#0034; attribute"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0539.html" title="Previous message in the list">John Caron: "[CF-metadata] variable missing &#0034;coordinates&#0034; attribute"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0541.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] variable missing &#0034;coordinates&#0034; attribute"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0541.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] variable missing &#0034;coordinates&#0034; attribute"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -125,7 +281,7 @@ not be easy to work-around short of using lots of memory.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:52 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0539.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0541.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

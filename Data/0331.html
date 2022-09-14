@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] website update from Kyle Halliday on 2006-10-13 (mailing-list-archive)</title>
-<meta name="Author" content="Kyle Halliday (halliday1)" />
-<meta name="Subject" content="[CF-metadata] website update" />
-<meta name="Date" content="2006-10-13" />
+<title>[CF-metadata] WRF staggered grids and vertical coordinates from Jonathan Gregory on 2003-12-10 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] WRF staggered grids and vertical coordinates" />
+<meta name="Date" content="2003-12-10" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0330.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0332.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] website update</h1>
-<!-- received="Fri Oct 13 16:19:56 2006" -->
-<!-- isoreceived="20061013151956" -->
-<!-- sent="Fri, 13 Oct 2006 15:19:56 -0700" -->
-<!-- isosent="20061013221956" -->
-<!-- name="Kyle Halliday" -->
-<!-- email="halliday1" -->
-<!-- subject="[CF-metadata] website update" -->
-<!-- id="4530110C.7020205_at_llnl.gov" -->
+<a style="text-decoration:none" href="./0330.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0332.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] WRF staggered grids and vertical coordinates</h1>
+<!-- received="Wed Dec 10 08:28:09 2003" -->
+<!-- isoreceived="20031210082809" -->
+<!-- sent="Wed, 10 Dec 2003 15:28:09 +0000" -->
+<!-- isosent="20031210152809" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] WRF staggered grids and vertical coordinates" -->
+<!-- id="20031210152809.GA15489_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0332.html" accesskey="d" title="Steve Emmerson: &quot;[CF-metadata] Re: units in cf standard names&quot;">Next message</a> ]
-[ <a href="./0330.html" title="Christiane Textor: &quot;[CF-metadata] Standard Names Status Update&quot;">Previous message</a> ]
+[ <a href="./0332.html" accesskey="d" title="Bryan Lawrence: &quot;[CF-metadata] Use of &#0039;omega&#0039; in standard name list&quot;">Next message</a> ]
+[ <a href="./0330.html" title="John Caron: &quot;[CF-metadata] WRF staggered grids and vertical coordinates&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,52 +68,48 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Kyle Halliday &lt;<a href="mailto:halliday1?Subject=Re%3A%20%5BCF-metadata%5D%20website%20update">halliday1</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20WRF%20staggered%20grids%20and%20vertical%20coordinates">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 13 Oct 2006 15:19:56 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 10 Dec 2003 15:28:09 +0000</span><br />
 </address>
 <br />
-CF Community -
+Dear John
 <br />
-<br />As you're likely aware, we have been developing a new CF Website, 
+<br />I have to admit I don't understand your proposal. Could you explain it more
 <br />
-located at:
+explicitly, with some examples of what the coordinate values are and where the
 <br />
-<a href="http://cf-pcmdi.llnl.gov/">http://cf-pcmdi.llnl.gov/</a>
+data values are actually located?
 <br />
-(Note the new URL - it will likely change again once the 
+<br />My main question is, can the grids you want to include already be described
 <br />
-institution-neutral domain name cfconventions.org, is functioning).
+with the conventions we have in CF? If so, is this proposal for an extra,
 <br />
-<br />Phase 1 of the transition, the transfer of static content is now 
+higher-level, description of the relationship of grids? Is it really necessary
 <br />
-complete, and Brian and I will be updating our respective versions of 
+- can these relationships be deduced by inspecting the coordinates?
 <br />
-the website shortly to reflect this.
+<br /><em class="quotelev1">&gt; (we uses &quot;coordinate axis&quot; as a generalization of 1D &quot;coordinate 
+</em><br />
+<em class="quotelev1">&gt; variable&quot; that can have any number of dimensions).
+</em><br />
+<br />CF calls this an auxiliary coordinate variable. I think that it is counter-
 <br />
-Phase 2 of the transition, preparation for the migration of CF 
+intuitive to use the word &quot;axis&quot; for a multidimensional variable. To me, an
 <br />
-discussions from the mailing list to the new Trac system, is well underway.
+&quot;axis&quot; is something definitely one-dimensional.
 <br />
-The following page describes how the new &quot;ticket&quot; system will handle CF 
+<br />Your standard name and formula terms for the vertical coordinate aren't
 <br />
-discussions - please read it and respond with any feedback or questions:
+standard. Is this a new kind of dimensionless vertical coordinate, or a new
 <br />
-<a href="http://cf-pcmdi.llnl.gov/discussion/about-the-cf-trac-ticket-system/">http://cf-pcmdi.llnl.gov/discussion/about-the-cf-trac-ticket-system/</a>
+formula terms definition for an existing one?
 <br />
-<br />I anticipate that the official transition will take place next week - 
+<br />Thanks. Best wishes
 <br />
-the cf-metadata mailing list will be deactivated, the mailing list 
+<br />Jonathan
 <br />
-archives will be transferred to the new website, and discussion can then 
-<br />
-continue within the new system.
-<br />
-<br />Thanks!
-<br />
-Kyle
-<br />
-<span id="received"><dfn>Received on</dfn> Fri Oct 13 2006 - 16:19:56 BST</span>
+<span id="received"><dfn>Received on</dfn> Wed Dec 10 2003 - 08:28:09 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -121,8 +117,8 @@ Kyle
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start331">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0332.html" title="Next message in the list">Steve Emmerson: "[CF-metadata] Re: units in cf standard names"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0330.html" title="Previous message in the list">Christiane Textor: "[CF-metadata] Standard Names Status Update"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0332.html" title="Next message in the list">Bryan Lawrence: "[CF-metadata] Use of &#0039;omega&#0039; in standard name list"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0330.html" title="Previous message in the list">John Caron: "[CF-metadata] WRF staggered grids and vertical coordinates"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -134,7 +130,7 @@ Kyle
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:48 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0330.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0332.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

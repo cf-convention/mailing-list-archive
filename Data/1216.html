@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] errata NetCDF Climate and Forecast (CF) Metadata Conventions 1.1 [SEC=UNCLASSIFIED] from Lawson Hanson on 2008-03-05 (mailing-list-archive)</title>
-<meta name="Author" content="Lawson Hanson (L.Hanson)" />
-<meta name="Subject" content="[CF-metadata] errata NetCDF Climate and Forecast (CF) Metadata Conventions 1.1 [SEC=UNCLASSIFIED]" />
-<meta name="Date" content="2008-03-05" />
+<title>[CF-metadata] Is it possible to associate different attribute values with different array elements? from Simon Wood on 2006-11-10 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Simon Wood (simon.wood)" />
+<meta name="Subject" content="[CF-metadata] Is it possible to associate different attribute values with different array elements?" />
+<meta name="Date" content="2006-11-10" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1215.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1217.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] errata NetCDF Climate and Forecast (CF) Metadata Conventions 1.1 [SEC=UNCLASSIFIED]</h1>
-<!-- received="Tue Mar  4 18:00:01 2008" -->
-<!-- isoreceived="20080304180001" -->
-<!-- sent="Wed, 5 Mar 2008 12:00:01 +1100" -->
-<!-- isosent="20080305010001" -->
-<!-- name="Lawson Hanson" -->
-<!-- email="L.Hanson" -->
-<!-- subject="[CF-metadata] errata NetCDF Climate and Forecast (CF) Metadata Conventions 1.1 [SEC=UNCLASSIFIED]" -->
-<!-- id="A638730E91FBA941969A262738288BFD015279B5_at_officeho2.bom.gov.au" -->
+<a style="text-decoration:none" href="./1215.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1217.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Is it possible to associate different attribute values with different array elements?</h1>
+<!-- received="Thu Nov  9 20:46:16 2006" -->
+<!-- isoreceived="20061109204616" -->
+<!-- sent="Fri, 10 Nov 2006 16:46:16 +1300" -->
+<!-- isosent="20061110034616" -->
+<!-- name="Simon Wood" -->
+<!-- email="simon.wood" -->
+<!-- subject="[CF-metadata] Is it possible to associate different attribute values with different array elements?" -->
+<!-- id="4553F608.4040406_at_niwa.co.nz" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1217.html" accesskey="d" title="Pamment, JA: &quot;[CF-metadata] standard name proposal for CCMVal&quot;">Next message</a> ]
-[ <a href="./1215.html" title="Martin Juckes: &quot;[CF-metadata]   standard name proposal for CCMVal&quot;">Previous message</a> ]
+[ <a href="./1217.html" accesskey="d" title="Steve Hankin: &quot;[CF-metadata] CF and multi-forecast system ensemble data&quot;">Next message</a> ]
+[ <a href="./1215.html" title="Ed Armstrong: &quot;[CF-metadata] Satellite community use of netCDF CF (GHRSST-PP)&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,46 +68,90 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Lawson Hanson &lt;<a href="mailto:L.Hanson?Subject=Re%3A%20%5BCF-metadata%5D%20errata%20NetCDF%20Climate%20and%20Forecast%20(CF)%20Metadata%20Conventions%201.1%20%5BSEC%3DUNCLASSIFIED%5D">L.Hanson</a>&gt;
+<dfn>From</dfn>: Simon Wood &lt;<a href="mailto:simon.wood?Subject=Re%3A%20%5BCF-metadata%5D%20Is%20it%20possible%20to%20associate%20different%20attribute%20values%20with%20different%20array%20elements%3F">simon.wood</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 5 Mar 2008 12:00:01 +1100</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 10 Nov 2006 16:46:16 +1300</span><br />
 </address>
 <br />
-Dear cf-conventions/1.1 authors,
+Hi all,
 <br />
-<br />The document located at URL:
+<br />We are in the process of designing new file formats for our earth 
 <br />
-<br /><a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.1/cf-conventions.htm">http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.1/cf-conventions.htm</a>
+observation satellite datasets (raw satellite data through to derived 
 <br />
-l
+products eg SST, Chlorophyll etc).  Since many of the satellite 
 <br />
-<br />has an error, I believe, in an entry in the right-hand sub-table
+instruments have multiple channels (ie different wavelength bands) it 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;of Table 3.1, in section &quot;3.1 Units&quot;:
+seems sensible, at least for lower levels of processing, to use a 
 <br />
-<br />The entry:
+3-dimensional array with the outer dimension being the 'channel' number, eg:
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;1e-2  deci   c
+<br />dimensions:
 <br />
-<br />should read:
+&nbsp;&nbsp;&nbsp;channel = 6;
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;1e-2  centi  c
+&nbsp;&nbsp;&nbsp;x, y;
 <br />
-<br /><br />Regards,
+variables:
 <br />
-<br />Lawson Hanson
+&nbsp;&nbsp;&nbsp;float avhrr_raw_counts(channel, y, x);
 <br />
-------
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;avhrr_raw_counts:log_name=&quot;raw sensor counts for each channel&quot;;
 <br />
-Climate Change Group,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;avhrr_raw_counts:units=&quot;1&quot;;
 <br />
-Centre for Australian Weather and Climate Research,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;avhrr_raw_counts:coordinates = &quot;lon lat channel&quot;;
 <br />
-(A joint initiative between the Bureau of Meteorology and CSIRO),
+<br />&nbsp;&nbsp;&nbsp;float channel(channel);
 <br />
-Melbourne, Victoria, Australia
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;channel:standard_name=&quot;radiation_wavelength&quot;;
 <br />
-<span id="received"><dfn>Received on</dfn> Tue Mar 04 2008 - 18:00:01 GMT</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;channel:units=&quot;m&quot;;
+<br />
+<br />or even just:
+<br />
+&nbsp;&nbsp;&nbsp;int 	channel(channel);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;channel:long_name=&quot;channel identifier&quot;;  // 1, 2, ..., 6
+<br />
+<br /><br />However we seem to run in to problems when we move up to even low levels 
+<br />
+of processing (eg calibrated radiances/reflectances) and start to want 
+<br />
+different attribute values associated with each channel -- particularly 
+<br />
+different 'standard_name', 'long_name' and 'units' values.
+<br />
+<br />There is quite strong feeling here that we want to do it this way rather 
+<br />
+than separating out each channel into its own variable, however I cannot 
+<br />
+see how to associate such attributes *in a CF compliant way*.  Is this 
+<br />
+possible?  How could/should such a dataset be structured?
+<br />
+<br />[BTW one motivator for this preference is anticipation of some new 
+<br />
+satellite instruments which will have vastly more channels than the 6 
+<br />
+I've suggested above (eg AIRS ~2000 channels).]
+<br />
+<br />Any thoughts?
+<br />
+<br />Thanks
+<br />
+<br />Simon Wood
+<br />
+<br /><pre>
+-- 
+Simon Wood
+Scientific Programmer
+Meteorology &amp; Remote Sensing, NIWA, NZ
+simon.wood at niwa.co.nz
+<a href="http://www.niwa.co.nz">http://www.niwa.co.nz</a>
+</pre>
+<span id="received"><dfn>Received on</dfn> Thu Nov 09 2006 - 20:46:16 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -115,8 +159,8 @@ Melbourne, Victoria, Australia
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1216">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1217.html" title="Next message in the list">Pamment, JA: "[CF-metadata] standard name proposal for CCMVal"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1215.html" title="Previous message in the list">Martin Juckes: "[CF-metadata]   standard name proposal for CCMVal"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1217.html" title="Next message in the list">Steve Hankin: "[CF-metadata] CF and multi-forecast system ensemble data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1215.html" title="Previous message in the list">Ed Armstrong: "[CF-metadata] Satellite community use of netCDF CF (GHRSST-PP)"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -128,7 +172,7 @@ Melbourne, Victoria, Australia
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:02 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1215.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1217.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml version="1.0" encoding="US-ASCII"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] climatological statistics --- climate indices from Bärring Lars on 2016-05-12 (mailing-list-archive)</title>
-<meta name="Author" content="Bärring Lars (Lars.Barring)" />
-<meta name="Subject" content="[CF-metadata] climatological statistics --- climate indices" />
-<meta name="Date" content="2016-05-12" />
+<title>[CF-metadata] Attributes to describe precision resulting from lossy compression? from Charlie Zender on 2015-02-18 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Charlie Zender (zender)" />
+<meta name="Subject" content="[CF-metadata] Attributes to describe precision resulting from lossy compression?" />
+<meta name="Date" content="2015-02-18" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./7611.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7613.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] climatological statistics --- climate indices</h1>
-<!-- received="Thu May 12 09:13:34 2016" -->
-<!-- isoreceived="20160512081334" -->
-<!-- sent="Thu, 12 May 2016 15:13:34 +0000" -->
-<!-- isosent="20160512151334" -->
-<!-- name="Bärring Lars" -->
-<!-- email="Lars.Barring" -->
-<!-- subject="[CF&ndash;metadata] climatological statistics &ndash;&ndash;&ndash; climate indices" -->
-<!-- id="02047865DE893F45802A039AA761834E010B43C7C5_at_WINVMSERV463.ad.smhi.se" -->
-<!-- charset="iso-8859-1" -->
+<a style="text-decoration:none" href="./7611.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7613.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Attributes to describe precision resulting from lossy compression?</h1>
+<!-- received="Wed Feb 18 11:27:42 2015" -->
+<!-- isoreceived="20150218112742" -->
+<!-- sent="Wed, 18 Feb 2015 10:27:42 -0800" -->
+<!-- isosent="20150218182742" -->
+<!-- name="Charlie Zender" -->
+<!-- email="zender" -->
+<!-- subject="[CF-metadata] Attributes to describe precision resulting from lossy compression?" -->
+<!-- id="54E4D99E.3070305_at_uci.edu" -->
+<!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./7613.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  climatological statistics --- climate indices&quot;">Next message</a> ]
-[ <a href="./7611.html" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] new standard names for flood simulation&quot;">Previous message</a> ]
+[ <a href="./7613.html" accesskey="d" title="Hattersley, Richard: &quot;[CF-metadata] Editing/publishing workflow update&quot;">Next message</a> ]
+[ <a href="./7611.html" title="Jonathan Gregory: &quot;[CF-metadata]  Editing/publishing workflow update&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,44 +68,203 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Bärring Lars &lt;<a href="mailto:Lars.Barring?Subject=Re%3A%20%5BCF-metadata%5D%20climatological%20statistics%20---%20climate%20indices">Lars.Barring</a>&gt;
+<dfn>From</dfn>: Charlie Zender &lt;<a href="mailto:zender?Subject=Re%3A%20%5BCF-metadata%5D%20Attributes%20to%20describe%20precision%20resulting%20from%20lossy%20compression%3F">zender</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 12 May 2016 15:13:34 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 18 Feb 2015 10:27:42 -0800</span><br />
 </address>
 <br />
 Dear All,
 <br />
-<br />In a project we are trying to come up with CF compliant description of a range of climate indices (aka indices of climate extremes, ...), of which most I would believe fall under the heading &quot;7.4 Climatological statistics&quot;. This is not a new topic for this email list; there was an extensive email exchange back in 2007 on &quot;[CF-metadata] statistic indices&quot;, and related questions and requests have popped up both before and after. CF standard and the variety of climate indices has evolved quite a bit since 2007.
+<br />The latest version (4.4.8) of NCO contains a Precision-Preserving
 <br />
-<br />As this is an extensive and diverse topic, and I am a newcomer to this list , I will start with a couple of specific and possibly simple questions:
+Compression (PPC) feature that might benefit from wider discussion
 <br />
-<br />1. Is there a standard name for &quot;diurnal temperature range&quot;, or a combined standard name/cell method representation? Cf. the 2010 mail archive thread <a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2010/054016.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2010/054016.html</a> that added &quot;range&quot; to Appendix E.
+before its associated metadata are finalized. If you are interested
 <br />
-<br />2. 'Heating Degree Days' and similar: I take it this was resolved/decided to have standard name &quot;integral_of_air_temperature_deficit_wrt_time&quot; (or ..._excess_...), with canonical units K s  in this post <a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2005/051014.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2005/051014.html</a> . However, as the threshold is not explicitly referred to in the standard name, how is this linkage formally established? A practical example would be helpful. 
+in precision, compression, or just procrastination, please join a
 <br />
-<br />3. Several of the standard names directly targeted at climate indices (e.g. &quot;spell_length_.....&quot;, &quot;number_of_days_...&quot;) are dimensionless because the unit is already included in the standard name. This is of course consistent and parsimonious in terms of describing the data. But with respect of a software package producing a plot that needs a legend with units attached, it is not very enlightening to have the unit &quot;1&quot;. For example, in a map of Frost Days the title drawn from the long name or the comment may be something like &quot;Number of Frost Days (Tmin &lt; 0 degC)&quot; but the color scale should preferably have units &quot;days&quot; rather than &quot;1&quot;.  As this is not specific to climate indices, what is the CF accepted advice or solution to this?
+discussion on changes or improvements to the scheme I've devised.
 <br />
-<br />4. In Example 7.13 I believe the unit for monthly max daily precip should be &quot;kg m-2&quot; and not &quot;kg&quot;?
+<br />More documentation on PPC algorithms and performance details is at
 <br />
-<br /><br />Best regards,
+<a href="http://nco.sf.net/nco.html#ppc">http://nco.sf.net/nco.html#ppc</a>
 <br />
-Lars
+However, I think any changes to CF would focus on definitions (of
 <br />
-<br /><pre>
---
-Lars B?rring
-FDr,Forskare         / G?stprofessor,CEC/Lunds universitet
-PhD,Senior Scientist / Guest professor,CEC/Lund University
-SMHI  /  Swedish Meteorological and Hydrological Institute 
-Rossby Centre 
-SE - 601 76 NORRK?PING 
-<a href="http://www.smhi.se">http://www.smhi.se</a>
-E-post / Email: lars.barring at smhi.se
-Tel / Phone: +46 (0)11 495 8604  
-Fax: +46 (0)11 495 8001 
-Bes?ksadress / Visiting address: Folkborgsv?gen 17
+precision) and implementation. For data that are rounded (quantized),
+<br />
+users want to know what that means, not necessarily how it was
+<br />
+performed.
+<br />
+<br />The meaning of data precision, and thus what is means for data to
+<br />
+be &quot;rounded&quot; or &quot;quantized&quot; could be clarified in CF with something
+<br />
+like the text drafted below. These changes adequately represent, I
+<br />
+think, an existing metadata annotation for precision used in nc3tonc4
+<br />
+by Jeff Whitaker, which NCO has adopted (called DSD below), as well
+<br />
+as an annotation for a new method of quantization (called NSD below)
+<br />
+introduced in NCO. You will see that it boils down to adding an
+<br />
+attribute that indicates the type and degree of imposed precision.
+<br />
+A possibility that I considered before discarding was to specify the
+<br />
+absolute precision in units of the stored variable (rather than the
+<br />
+number of significant digits). There are arguments both ways...
+<br />
+<br />The suggested CF changes below are a minimal way of specifying how
+<br />
+data have been quantized. A more general metadata framework for
+<br />
+precision might include distinctions for intrinsic precision of
+<br />
+measurement/model (in addition to precision due to post-processing or
+<br />
+rounding), notations helpful for propagating errors, and how to
+<br />
+specify precision lost due to packing/unpacking. None of that is
+<br />
+in the below draft, which simply extends CF to cover precision imposed
+<br />
+by NSD and DSD quantization. If you want or don't want CF to recommend
+<br />
+attributes describing precision and/or lossy compression then please
+<br />
+comment...
+<br />
+<br />Best,
+<br />
+Charlie
+<br />
+<br />Current CF:
+<br />
+<a href="http://cfconventions.org/Data/cf-conventions/cf-conventions-1.7/build/cf-conventions.html#packed-data">http://cfconventions.org/Data/cf-conventions/cf-conventions-1.7/build/cf-conventions.html#packed-data</a>
+<br />
+&quot;Methods for reducing the total volume of data include both packing
+<br />
+and compression. Packing reduces the data volume by reducing the
+<br />
+precision of the stored numbers. It is implemented using the
+<br />
+attributes add_offset and scale_factor which are defined in the
+<br />
+NUG. Compression on the other hand loses no precision, but reduces the
+<br />
+volume by not storing missing data. The attribute compress is defined
+<br />
+for this purpose.&quot;
+<br />
+<br />Proposed CF:
+<br />
+&quot;Methods for reducing the total volume of data include packing,
+<br />
+rounding, and compression. Packing reduces the data volume by reducing
+<br />
+the range and precision of the stored numbers. It is implemented using
+<br />
+the attributes add_offset and scale_factor which are defined in the
+<br />
+NUG. Rounding preserves data values to a specified level of precision,
+<br />
+with no required loss in range. It is implemented using bitmasking or
+<br />
+other quantization techniques. Compression on the other hand loses no
+<br />
+precision, but reduces the volume by not storing missing data. The
+<br />
+attribute compress is defined for this purpose.&quot;
+<br />
+<br />...
+<br />
+<br />&quot;Packing quantizes data from a floating point representation into an
+<br />
+integer representation within a limited range that requires only
+<br />
+one-half or one-quarter of the number of floating-point bytes.
+<br />
+For values that occupy a limited range, typically about five orders of
+<br />
+magnitude, packing yields an efficient tradeoff between precision and
+<br />
+size because all bits are dedicated to precision, not to exponents.
+<br />
+A limitation of packing is that unpacking data stored as integers
+<br />
+into the linear range defined by scale_factor and add_offset rapidly
+<br />
+loses precision outside of a narrow range of floating point values.
+<br />
+Variables packed as NC_SHORT, for example, can represent only about
+<br />
+64000 discrete values in the range -32768*scale_factor+add_offset to
+<br />
+32767*scale_factor+add_offset. The precision of packed data equals the
+<br />
+value of scale_factor, and scale_factor must be chosen to span the
+<br />
+range of valid data, not to represent the intrinsic or desired
+<br />
+precision of the values. Values that were packed and then unpacked
+<br />
+have lost precision, although there is no standard way of recording
+<br />
+this other than recording the history of the data processing. [One
+<br />
+solution to this would be to record the former scale_factor of
+<br />
+unpacked data in a precision attribute, e.g., &quot;maximum_precision&quot;.
+<br />
+Any champions for this?]
+<br />
+<br />Rounding allows per-variable specification of precision in terms
+<br />
+of significant digits valid across the entire range of the floating
+<br />
+point representation. The precision specification may take one of
+<br />
+two forms, either the total number of significant digits (NSD), or
+<br />
+the number of decimal significant digits (DSD), i.e., digits following
+<br />
+(positive) or preceding (negative) the decimal point. The attributes
+<br />
+&quot;number_of_significant_digits&quot; and &quot;least_significant_digit&quot; indicate
+<br />
+that the variable has been rounded to the specifed precision using NSD
+<br />
+or DSD definitions, respectively. The quantized values stored with
+<br />
+these attributes are guaranteed to be within one-half of a unit
+<br />
+increment in the value of the least significant digit. Consider, for
+<br />
+example, a true value of 1776.0704. Approximations valid to a
+<br />
+precision of NSD=2 (or DSD=-2) include 1800.0 and 1750.123, both of
+<br />
+which are within 50 (one-half a unit increment in the hundreds digit)
+<br />
+of the true value.  Approximations valid to a precision of NSD=5 (or
+<br />
+DSD=1) include 1776.1 and 1776.03, both of which are within 0.05
+<br />
+(one-half a unit increment in the tenths digit) of the true value.
+<br />
+<br />8.2 ...
+<br />
+<pre>
+-- 
+Charlie Zender, Earth System Sci. &amp; Computer Sci.
+University of California, Irvine 949-891-2429 )'(
 </pre>
-<span id="received"><dfn>Received on</dfn> Thu May 12 2016 - 09:13:34 BST</span>
+<span id="received"><dfn>Received on</dfn> Wed Feb 18 2015 - 11:27:42 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -113,8 +272,8 @@ Bes?ksadress / Visiting address: Folkborgsv?gen 17
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start7612">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./7613.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  climatological statistics --- climate indices"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./7611.html" title="Previous message in the list">alison.pamment at stfc.ac.uk: "[CF-metadata] new standard names for flood simulation"</a></li>
+<li><dfn>Next message</dfn>: <a href="./7613.html" title="Next message in the list">Hattersley, Richard: "[CF-metadata] Editing/publishing workflow update"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./7611.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]  Editing/publishing workflow update"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -126,7 +285,7 @@ Bes?ksadress / Visiting address: Folkborgsv?gen 17
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:04 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./7611.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7613.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

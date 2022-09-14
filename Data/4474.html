@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]  X_to_direction in grid or true direction? from Jonathan Gregory on 2012-05-02 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata]  X_to_direction in grid or true direction?" />
-<meta name="Date" content="2012-05-02" />
+<title>[CF-metadata] CDM calendar date handling from John Caron on 2011-08-18 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] CDM calendar date handling" />
+<meta name="Date" content="2011-08-18" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4473.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4475.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  X_to_direction in grid or true direction?</h1>
-<!-- received="Wed May  2 07:27:40 2012" -->
-<!-- isoreceived="20120502062740" -->
-<!-- sent="Wed, 2 May 2012 14:27:40 +0100" -->
-<!-- isosent="20120502132740" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata]  X_to_direction in grid or true direction?" -->
-<!-- id="20120502132740.GB12064_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./4473.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4475.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CDM calendar date handling</h1>
+<!-- received="Thu Aug 18 15:49:04 2011" -->
+<!-- isoreceived="20110818144904" -->
+<!-- sent="Thu, 18 Aug 2011 15:49:04 -0600" -->
+<!-- isosent="20110818214904" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] CDM calendar date handling" -->
+<!-- id="4E4D88D0.8060200_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="4E4D0B7B.304_at_noaa.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4475.html" accesskey="d" title="Daniel Gilmore: &quot;[CF-metadata] NCEP to CF Mapping for Layers&quot;">Next message</a> ]
-[ <a href="./4473.html" title="Heiko Klein: &quot;[CF-metadata] X_to_direction in grid or true direction?&quot;">Previous message</a> ]
+[ <a href="./4475.html" accesskey="d" title="John Caron: &quot;[CF-metadata] CDM calendar date handling&quot;">Next message</a> ]
+[ <a href="./4473.html" title="Jon Blower: &quot;[CF-metadata] CDM calendar date handling&quot;">Previous message</a> ]
+[ <a href="./4470.html" title="Don Murray: &quot;[CF-metadata] CDM calendar date handling&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./4476.html" accesskey="t" title="Heiko Klein: &quot;[CF-metadata] X_to_direction in grid or true direction?&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
+[ <a href="./4471.html" accesskey="t" title="Upendra Dadi: &quot;[CF-metadata] CDM calendar date handling&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,24 +71,86 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20X_to_direction%20in%20grid%20or%20true%20direction%3F">j.m.gregory</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20CDM%20calendar%20date%20handling">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 2 May 2012 14:27:40 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 18 Aug 2011 15:49:04 -0600</span><br />
 </address>
 <br />
-Dear Heiko
+On 8/18/2011 6:54 AM, Don Murray wrote:
 <br />
-<br />In the standard name guidelines, direction_to is said to indicate a bearing.
+<em class="quotelev1">&gt; Hi John-
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; On 8/17/11 5:50 PM, John Caron wrote:
+</em><br />
+<em class="quotelev2">&gt;&gt; In March I promised to do something with the &quot;udunits handling of fuzzy
+</em><br />
+<em class="quotelev2">&gt;&gt; time units&quot; email conversation. I now have a preliminary implementation
+</em><br />
+<em class="quotelev2">&gt;&gt; of extended date coordinates. docs are here:
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; <a href="http://www.unidata.ucar.edu/software/netcdf-java/CDM/DateTime.html">http://www.unidata.ucar.edu/software/netcdf-java/CDM/DateTime.html</a>
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; If there's interest, I can propose as a CF convention. Otherwise it can
+</em><br />
+<em class="quotelev2">&gt;&gt; remain a CDM extension.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<br />Hi Don:
 <br />
-My understand and memory is that this intends to mean a bearing in the usual
+<br /><em class="quotelev1">&gt; Thanks for tackling this. I'm just starting a project with 
+</em><br />
+<em class="quotelev1">&gt; non-standard calendars and this will help tremendously.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; A couple of comment/questions:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; - Why is the calendar field limited to integer types?  It seems like 
+</em><br />
+<em class="quotelev1">&gt; one could use NcML to change the unit of an existing double time 
+</em><br />
+<em class="quotelev1">&gt; coordinate variable to be a calendar unit so it can be handled 
+</em><br />
+<em class="quotelev1">&gt; correctly, but then you'd have a scope mismatch.
+</em><br />
+<br />A calendar field is inherently an integer: what does 1.5 months mean? If 
 <br />
-geographical sense, 0 degrees for due north.
+you want to use fractions, you really want to use udunits, which are a 
 <br />
-<br />Best wishes
+fixed amount of time, and then fractions make sense.
 <br />
-<br />Jonathan
+<br />Note that support for non-standard calendars should work for both udunit 
 <br />
-<span id="received"><dfn>Received on</dfn> Wed May 02 2012 - 07:27:40 BST</span>
+and calendar units.
+<br />
+<br /><em class="quotelev1">&gt; - Some geophysical datasets use units of millions of years before a 
+</em><br />
+<em class="quotelev1">&gt; date, e.g. Myr before 1950-01-01.   It would be good to support the 
+</em><br />
+<em class="quotelev1">&gt; &quot;before&quot; syntax and also support &quot;yr&quot; as an abbreviation for year.
+</em><br />
+<br />Ive added &quot;mon&quot; and &quot;yr&quot;.
+<br />
+<br />I have to say that &quot;Myr before 1950-01-01&quot; doesnt make much sense to me. 
+<br />
+There must be something better to do.
+<br />
+<br /><em class="quotelev1">&gt; - perhaps you could support &quot;mon&quot; and &quot;mo&quot; for month as well.
+</em><br />
+<em class="quotelev1">&gt; - &quot;grammer&quot; should be &quot;grammar&quot; ;-)
+</em><br />
+<br />thakns!
+<br />
+<span id="received"><dfn>Received on</dfn> Thu Aug 18 2011 - 15:49:04 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -95,12 +158,11 @@ geographical sense, 0 degrees for due north.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4474">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4475.html" title="Next message in the list">Daniel Gilmore: "[CF-metadata] NCEP to CF Mapping for Layers"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4473.html" title="Previous message in the list">Heiko Klein: "[CF-metadata] X_to_direction in grid or true direction?"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4475.html" title="Next message in the list">John Caron: "[CF-metadata] CDM calendar date handling"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4473.html" title="Previous message in the list">Jon Blower: "[CF-metadata] CDM calendar date handling"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./4470.html" title="Message to which this message replies">Don Murray: "[CF-metadata] CDM calendar date handling"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./4476.html" title="Next message in this discussion thread">Heiko Klein: "[CF-metadata] X_to_direction in grid or true direction?"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./4476.html" title="Message sent in reply to this message">Heiko Klein: "[CF-metadata] X_to_direction in grid or true direction?"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./4471.html" title="Next message in this discussion thread">Upendra Dadi: "[CF-metadata] CDM calendar date handling"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -111,7 +173,7 @@ geographical sense, 0 degrees for due north.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:03 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4473.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4475.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

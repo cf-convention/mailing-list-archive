@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]   Standard name for ultraviolet radiation from Jonathan Gregory on 2013-03-19 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata]   Standard name for ultraviolet radiation" />
-<meta name="Date" content="2013-03-19" />
+<title>[CF-metadata] CF-1.6 Conformance Requirements/Recommendations from John Caron on 2012-03-28 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] CF-1.6 Conformance Requirements/Recommendations" />
+<meta name="Date" content="2012-03-28" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5103.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5105.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]   Standard name for ultraviolet radiation</h1>
-<!-- received="Tue Mar 19 10:24:09 2013" -->
-<!-- isoreceived="20130319102409" -->
-<!-- sent="Tue, 19 Mar 2013 16:24:09 +0000" -->
-<!-- isosent="20130319162409" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata]   Standard name for ultraviolet radiation" -->
-<!-- id="20130319162409.GD16101_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./5103.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5105.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF-1.6 Conformance Requirements/Recommendations</h1>
+<!-- received="Wed Mar 28 11:07:14 2012" -->
+<!-- isoreceived="20120328100714" -->
+<!-- sent="Wed, 28 Mar 2012 11:07:14 -0600" -->
+<!-- isosent="20120328170714" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] CF-1.6 Conformance Requirements/Recommendations" -->
+<!-- id="4F734542.8060803_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="4F734101.3070503_at_unidata.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,9 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5105.html" accesskey="d" title="Aleksandar Jelenak - NOAA Affiliate: &quot;[CF-metadata] New standard name: datetime_iso8601&quot;">Next message</a> ]
-[ <a href="./5103.html" title="Aleksandar Jelenak - NOAA Affiliate: &quot;[CF-metadata] New Standard Names for Satellite Data&quot;">Previous message</a> ]
+[ <a href="./5105.html" accesskey="d" title="John Graybeal: &quot;[CF-metadata] CF-1.6 Conformance Requirements/Recommendations&quot;">Next message</a> ]
+[ <a href="./5103.html" title="John Caron: &quot;[CF-metadata] CF-1.6 Conformance Requirements/Recommendations&quot;">Previous message</a> ]
+[ <a href="./5103.html" title="John Caron: &quot;[CF-metadata] CF-1.6 Conformance Requirements/Recommendations&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./5105.html" accesskey="t" title="John Graybeal: &quot;[CF-metadata] CF-1.6 Conformance Requirements/Recommendations&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,108 +72,32 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20%20Standard%20name%20for%20ultraviolet%20radiation">j.m.gregory</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20CF-1.6%20Conformance%20Requirements%2FRecommendations">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 19 Mar 2013 16:24:09 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 28 Mar 2012 11:07:14 -0600</span><br />
 </address>
 <br />
-Dear Gisbert
+On 3/28/2012 10:49 AM, John Caron wrote:
 <br />
-<br />You don't need to define a new standard name. This can be described by using
+<em class="quotelev1">&gt; I think we have a number of valid use cases for missing data in aux 
+</em><br />
+<em class="quotelev1">&gt; coordinates, and i would vote to allow that. 
+</em><br />
+<br />sorry i didnt really answer jonathan's concern. I would suggest this 
 <br />
-a coordinate variable of radiation_wavelength. If there is a single band of
+wording:
 <br />
-radiation, the dimension will have size 1 for the coordinate variable, and
+<br />Auxiliary coordinates do not have to be monotonic or have unique values, 
 <br />
-you would put 100 and 400 nm as the bounds. The coordinate value is nominal
+and may contain missing values. Data providers may choose to put valid 
 <br />
-and arbitrary; the mid-point (250 nm) would probably be a good choice.
+data where the auxiliary coordinates are missing, but applications are 
 <br />
-<br />Best wishes
+free to assume that data is missing where the auxiliary coordinates are 
 <br />
-<br />Jonathan
+missing.
 <br />
-<br /><br />----- Forwarded message from gisbert.breitbach at hzg.de -----
-<br />
-<br /><em class="quotelev1">&gt; To: cf-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; From: gisbert.breitbach at hzg.de
-</em><br />
-<em class="quotelev1">&gt; Date: Tue, 19 Mar 2013 16:08:39 +0100
-</em><br />
-<em class="quotelev1">&gt; X-Mailer: Lotus Notes Release 8.5.2 August 10, 2010
-</em><br />
-<em class="quotelev1">&gt; Subject: [CF-metadata]  Standard name for ultraviolet radiation
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Hello,
-</em><br />
-<em class="quotelev1">&gt; we are measuring global radiation and photosynthetic active radiation 
-</em><br />
-<em class="quotelev1">&gt; using the standard names surface_downwelling_shortwave_flux_in_air and 
-</em><br />
-<em class="quotelev1">&gt; surface_downwelling_photosynthetic_photon_spherical_irradiance_in_air.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Now we added a sensor for ultraviolet radiation from 100-400nm. I couldn't 
-</em><br />
-<em class="quotelev1">&gt; find a standard name for this kind of radiation. Is there a way of 
-</em><br />
-<em class="quotelev1">&gt; construction a standard name from existing standard names (something like 
-</em><br />
-<em class="quotelev1">&gt; downwelling_spectral_radiative_flux_in_air_integrated_from_100_to_400nm) 
-</em><br />
-<em class="quotelev1">&gt; or should a new standard name get defined?
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Best regards,
-</em><br />
-<em class="quotelev1">&gt; Gisbert
-</em><br />
-<em class="quotelev1">&gt; ____________________________________________________
-</em><br />
-<em class="quotelev1">&gt; Dr. Gisbert Breitbach
-</em><br />
-<em class="quotelev1">&gt; Institute of Coastal Research
-</em><br />
-<em class="quotelev1">&gt; Helmholtz-Zentrum Geesthacht
-</em><br />
-<em class="quotelev1">&gt; Tel.: +49 4152 87 1563
-</em><br />
-<em class="quotelev1">&gt; Fax: +49 4152 87 4 1563
-</em><br />
-<em class="quotelev1">&gt; E-Mail: Gisbert.Breitbach at hzg.de
-</em><br />
-<em class="quotelev1">&gt; Helmholtz-Zentrum Geesthacht 
-</em><br />
-<em class="quotelev1">&gt; Zentrum f??r Material- und K??stenforschung GmbH 
-</em><br />
-<em class="quotelev1">&gt; Max-Planck-Stra??e 1 I 21502 Geesthacht I Deutschland/Germany 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Gesch??ftsf??hrer/Board of Management: Prof. Dr. Wolfgang Kaysser, Dipl.-Ing. Michael Gan?? 
-</em><br />
-<em class="quotelev1">&gt; Vorsitzender des Aufsichtsrates/Chairman of the Supervisory Board: MinDirig Wilfried Kraus 
-</em><br />
-<em class="quotelev1">&gt; Amtsgericht L??beck HRB 285 GE (Register Court) 
-</em><br />
-<em class="quotelev1">&gt; Internet: <a href="http://www.hzg.de">http://www.hzg.de</a>  
-</em><br />
-<br /><em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<br /><br />----- End forwarded message -----
-<br />
-<span id="received"><dfn>Received on</dfn> Tue Mar 19 2013 - 10:24:09 GMT</span>
+<span id="received"><dfn>Received on</dfn> Wed Mar 28 2012 - 11:07:14 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -177,9 +105,13 @@ and arbitrary; the mid-point (250 nm) would probably be a good choice.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5104">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5105.html" title="Next message in the list">Aleksandar Jelenak - NOAA Affiliate: "[CF-metadata] New standard name: datetime_iso8601"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5103.html" title="Previous message in the list">Aleksandar Jelenak - NOAA Affiliate: "[CF-metadata] New Standard Names for Satellite Data"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5105.html" title="Next message in the list">John Graybeal: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5103.html" title="Previous message in the list">John Caron: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./5103.html" title="Message to which this message replies">John Caron: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./5105.html" title="Next message in this discussion thread">John Graybeal: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./5105.html" title="Message sent in reply to this message">John Graybeal: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -190,7 +122,7 @@ and arbitrary; the mid-point (250 nm) would probably be a good choice.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:16 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5103.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5105.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

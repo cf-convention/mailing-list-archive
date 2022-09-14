@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] grid cells with a varying number of cell bounds from Jim Biard on 2017-12-21 (mailing-list-archive)</title>
-<meta name="Author" content="Jim Biard (jbiard)" />
-<meta name="Subject" content="[CF-metadata] grid cells with a varying number of cell bounds" />
-<meta name="Date" content="2017-12-21" />
+<title>[CF-metadata] Feedback requested on proposed CF Simple Geometries from Jonathan Gregory on 2016-09-22 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] Feedback requested on proposed CF Simple Geometries" />
+<meta name="Date" content="2016-09-22" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./8596.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8598.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] grid cells with a varying number of cell bounds</h1>
-<!-- received="Thu Dec 21 08:06:23 2017" -->
-<!-- isoreceived="20171221080623" -->
-<!-- sent="Thu, 21 Dec 2017 10:06:23 -0500" -->
-<!-- isosent="20171221150623" -->
-<!-- name="Jim Biard" -->
-<!-- email="jbiard" -->
-<!-- subject="[CF-metadata] grid cells with a varying number of cell bounds" -->
-<!-- id="8545f345-c873-ff0d-656e-9b360d89f853_at_cicsnc.org" -->
+<a style="text-decoration:none" href="./8596.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8598.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Feedback requested on proposed CF Simple Geometries</h1>
+<!-- received="Thu Sep 22 10:26:26 2016" -->
+<!-- isoreceived="20160922092626" -->
+<!-- sent="Thu, 22 Sep 2016 17:26:26 +0100" -->
+<!-- isosent="20160922162626" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] Feedback requested on proposed CF Simple Geometries" -->
+<!-- id="20160922162626.GA7133_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="D119554B-EE72-4087-968E-B9ECC5F8791F_at_jpl.nasa.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,10 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./8598.html" accesskey="d" title="Heiko Klein: &quot;[CF-metadata] Standard_name proposal for volcanic ash and radioactive particles&quot;">Next message</a> ]
-[ <a href="./8596.html" title="Jonathan Gregory: &quot;[CF-metadata]  grid cells with a varying number of cell bounds&quot;">Previous message</a> ]
-[ <a href="./8593.html" title="Hausman, Jessica: &quot;[CF-metadata] grid cells with a varying number of cell bounds&quot;">In reply to</a> ]
+[ <a href="./8598.html" accesskey="d" title="Chris Barker: &quot;[CF-metadata] Feedback requested on proposed CF Simple Geometries&quot;">Next message</a> ]
+[ <a href="./8596.html" title="Steve Emmerson: &quot;[CF-metadata] Temporal nitpicks. Was: CF-metadata Digest, Vol 161, Issue 3&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./8598.html" accesskey="t" title="Chris Barker: &quot;[CF-metadata] Feedback requested on proposed CF Simple Geometries&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,163 +70,160 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jim Biard &lt;<a href="mailto:jbiard?Subject=Re%3A%20%5BCF-metadata%5D%20grid%20cells%20with%20a%20varying%20number%20of%20cell%20bounds">jbiard</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Feedback%20requested%20on%20proposed%20CF%20Simple%20Geometries">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 21 Dec 2017 10:06:23 -0500</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 22 Sep 2016 17:26:26 +0100</span><br />
 </address>
 <br />
-Hi.
+Dear Chris
 <br />
-<br />I agree with Charlie and Jessica that _FillValue is the better approach. 
+<br /><em class="quotelev2">&gt; &gt; If the regions were irregular
+</em><br />
+<em class="quotelev2">&gt; &gt; polygons in latitude and longitude, nv would be the number of vertices and
+</em><br />
+<em class="quotelev2">&gt; &gt; the
+</em><br />
+<em class="quotelev2">&gt; &gt; lat and lon bounds would trace the outline of the polygon e.g. nv=3,
+</em><br />
+<em class="quotelev2">&gt; &gt; lat=0,90,0
+</em><br />
+<em class="quotelev2">&gt; &gt; and lon=0,0,90 describes the eighth of the sphere which is bounded by the
+</em><br />
+<em class="quotelev2">&gt; &gt; meridians at 0E and 90E and the Equator. I think, therefore, we do not
+</em><br />
+<em class="quotelev2">&gt; &gt; need an
+</em><br />
+<em class="quotelev2">&gt; &gt; additional convention for points or polygonal regions.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; this seems fine for this simple example, but burying a bunch of coordinates
+</em><br />
+<em class="quotelev1">&gt; of a complex polygon in a text string in an attribute is really not a good
+</em><br />
+<em class="quotelev1">&gt; idea -- the coordinates of a polygon should be in the array data one way or
+</em><br />
+<em class="quotelev1">&gt; another, rather than having to parse out attribute strings.
+</em><br />
+<br />To avoid confusion:
 <br />
-According to the NUG, &quot;The fill value is returned when reading values 
+<br />I didn't suggest parsing attribute strings. The same numbers that Ben would put
 <br />
-that were never written.&quot; This contrasts slightly with the missing_value 
+in his x and y auxiliary coordinate variables for a single polygon can appear
 <br />
-definition which is (per NUG) &quot;The missing_value attribute can be a 
+in coordinate bounds variables according to the existing convention.
 <br />
-scalar or vector containing values indicating missing data.&quot; 
+<br /><em class="quotelev1">&gt; * I suspect that geometries of this kind can be described by the ugrid
+</em><br />
+<em class="quotelev2">&gt; &gt; convention <a href="http://ugrid-conventions.github.io/ugrid-conventions">http://ugrid-conventions.github.io/ugrid-conventions</a>, which is
+</em><br />
+<em class="quotelev2">&gt; &gt; compliant with CF. Their purpose is to describe a set of connected points,
+</em><br />
+<em class="quotelev2">&gt; &gt; edges or faces at which values are given,
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; I'm not so sure -- UGRID is about defining a bunch of polygons that all
+</em><br />
+<em class="quotelev1">&gt; share vertices, and are all of the same order (usually all triangles, or
+</em><br />
+<em class="quotelev1">&gt; quads, or maybe hexes). if they are a mixture, you still store the full set
+</em><br />
+<em class="quotelev1">&gt; (say, six vertices), while marking some as unused. But it's not that well
+</em><br />
+<em class="quotelev1">&gt; set up for a bunch of polygons of different order.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Not too bad if there are only one or two complex polygons, but it would be
+</em><br />
+<em class="quotelev1">&gt; a bit weird -- you'd have vertices and boundaries, but no faces. And you'd
+</em><br />
+<em class="quotelev1">&gt; lose t order of the vertices (thought that could probably be added to the
+</em><br />
+<em class="quotelev1">&gt; UGRID standard)
+</em><br />
+<br />OK. I didn't investigate this, but it would be good to know about it. If
 <br />
-Missing_value has more of the sense of &quot;Our acquisition system couldn't 
+ugrid can do something like this, but not all of it, maybe ugrid could be
 <br />
-get a value for this measurement at this time/place.&quot;
+extended. If ugrid seems too complicated for these cases, maybe a &quot;light&quot;
 <br />
-<br />In the case at hand, there never were values to potentially have. The 
+version of ugrid could be proposed for them. I think we should avoid having
 <br />
-difference between not existing and potentially existing but unavailable.
+two partially overlapping conventions.
 <br />
-<br />Grace and peace,
+<br /><em class="quotelev1">&gt; * So far CF does not say anything about the use of netCDF-4 features (i.e.
+</em><br />
+<em class="quotelev2">&gt; &gt; not
+</em><br />
+<em class="quotelev2">&gt; &gt; the classic model). We have often discussed allowing them but the general
+</em><br />
+<em class="quotelev2">&gt; &gt; argument is also made that there has to be a compelling case for providing
+</em><br />
+<em class="quotelev2">&gt; &gt; a
+</em><br />
+<em class="quotelev2">&gt; &gt; new way to do something which can already be done. (Steve Hankin often made
+</em><br />
+<em class="quotelev2">&gt; &gt; this argument, but since he's mostly retired I'll make it now in his name
+</em><br />
+<em class="quotelev2">&gt; &gt; :-)
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Maybe it's time to embrace netcdf4? It's been a while! Though maybe for CF
+</em><br />
+<em class="quotelev1">&gt; 2.* -- any movement on that?
+</em><br />
+<br />I think, as we generally do, that we should adopt netCDF-4 features if there
 <br />
-<br />Jim
+is a definite need to do so. I mean something you can't do with an existing
 <br />
-<br />On 12/20/17 6:49 PM, Hausman, Jessica (398G) wrote:
+mechanism, or which is done so much more easily with a new mechanism that it
 <br />
-<em class="quotelev1">&gt;
+justifies the extra effort of requiring alternatives to be programmed in
+<br />
+software. I'm not arguing against it in general, but I think it has to be
+<br />
+argued for each specific need within the convention.
+<br />
+<br />CF2 is not well-defined. I have to admit to being nervous about that. I am
+<br />
+very much opposed to an idea of &quot;starting all over again&quot; and maintaining
+<br />
+two conventions in parallel (since old data would continue to exist for a long
+<br />
+time and so the old CF would have to be supported), and I also think backwards-
+<br />
+incompability has to be strongly justified. So I favour step-by-step evolution.
+<br />
+Another idea we've discussed, which I'm comfortable with, is of defining
+<br />
+&quot;strict&quot; compliance to the convention, which a data-writer could optionally
+<br />
+adhere to. This could exclude older features we wanted to deprecate. However
+<br />
+this is really not the subject of the discussion - it's another thread.
+<br />
+<br /><em class="quotelev1">&gt; I think the ragged array option ins fine -- though I haven't looked at vlen
 </em><br />
-<em class="quotelev1">&gt; Matlab, Panoploy and other software know what to do with _/FillValue, 
+<em class="quotelev1">&gt; arrays enough to know if they offer a compelling alternative. One issue is
 </em><br />
-<em class="quotelev1">&gt; I don?t know if the same can be said about missing/_value
+<em class="quotelev1">&gt; that the programming environments that we use to work with the data may not
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; have an equivalent of vlen arrays.
 </em><br />
-<em class="quotelev1">&gt; --
-</em><br />
-<em class="quotelev1">&gt; Jessica Hausman
-</em><br />
-<em class="quotelev1">&gt; Jet Propulsion Lab
-</em><br />
-<em class="quotelev1">&gt; 4800 Oak Grove Dr.
-</em><br />
-<em class="quotelev1">&gt; MS 158-242
-</em><br />
-<em class="quotelev1">&gt; Pasadena, CA 91109
-</em><br />
-<em class="quotelev1">&gt; Tel: +1 818-354-4588
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; *From: *CF-metadata &lt;cf-metadata-bounces at cgd.ucar.edu&gt; on behalf of 
-</em><br />
-<em class="quotelev1">&gt; Charlie Zender &lt;zender at uci.edu&gt;
-</em><br />
-<em class="quotelev1">&gt; *Organization: *University of California, Irvine
-</em><br />
-<em class="quotelev1">&gt; *Date: *Wednesday, December 20, 2017 at 2:35 PM
-</em><br />
-<em class="quotelev1">&gt; *To: *&quot;cf-metadata at cgd.ucar.edu&quot; &lt;cf-metadata at cgd.ucar.edu&gt;
-</em><br />
-<em class="quotelev1">&gt; *Cc: *Karl Taylor &lt;taylor13 at llnl.gov&gt;
-</em><br />
-<em class="quotelev1">&gt; *Subject: *Re: [CF-metadata] grid cells with a varying number of cell 
-</em><br />
-<em class="quotelev1">&gt; bounds
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; I prefer _FillValue to missing_value.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; On 12/20/17 14:22, cf-metadata-request at cgd.ucar.edu 
-</em><br />
-<em class="quotelev1">&gt; &lt;mailto:cf-metadata-request at cgd.ucar.edu&gt; wrote:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; My sense is that no one violently opposes the use of missing_value to
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; fill unused vertices for grid cells with fewer than the maximum number
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; of vertices.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; -- 
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Charlie Zender, Earth System Sci. &amp; Computer Sci.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; University of California, Irvine 949-891-2429 )'(
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu &lt;mailto:CF-metadata at cgd.ucar.edu&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<br /><pre>
--- 
-CICS-NC &lt;<a href="http://www.cicsnc.org/">http://www.cicsnc.org/</a>&gt; Visit us on
-Facebook &lt;<a href="http://www.facebook.com/cicsnc">http://www.facebook.com/cicsnc</a>&gt; 	*Jim Biard*
-*Research Scholar*
-Cooperative Institute for Climate and Satellites NC &lt;<a href="http://cicsnc.org/">http://cicsnc.org/</a>&gt;
-North Carolina State University &lt;<a href="http://ncsu.edu/">http://ncsu.edu/</a>&gt;
-NOAA National Centers for Environmental Information &lt;<a href="http://ncdc.noaa.gov/">http://ncdc.noaa.gov/</a>&gt;
-/formerly NOAA?s National Climatic Data Center/
-151 Patton Ave, Asheville, NC 28801
-e: jbiard at cicsnc.org &lt;mailto:jbiard at cicsnc.org&gt;
-o: +1 828 271 4900
-/Connect with us on Facebook for climate 
-&lt;<a href="https://www.facebook.com/NOAANCEIclimate">https://www.facebook.com/NOAANCEIclimate</a>&gt; and ocean and geophysics 
-&lt;<a href="https://www.facebook.com/NOAANCEIoceangeo">https://www.facebook.com/NOAANCEIoceangeo</a>&gt; information, and follow us 
-on Twitter at _at_NOAANCEIclimate &lt;<a href="https://twitter.com/NOAANCEIclimate">https://twitter.com/NOAANCEIclimate</a>&gt; and 
-_at_NOAANCEIocngeo &lt;<a href="https://twitter.com/NOAANCEIocngeo">https://twitter.com/NOAANCEIocngeo</a>&gt;. /
--------------- next part --------------
-An HTML attachment was scrubbed...
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20171221/9f694f0b/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20171221/9f694f0b/attachment.html</a>&gt;
-</pre>
-<span id="received"><dfn>Received on</dfn> Thu Dec 21 2017 - 08:06:23 GMT</span>
+<br />That's a good point, and a reason why we have to be cautious in general about
+<br />
+adopting netCDF-4 features.
+<br />
+<br />Best wishes
+<br />
+<br />Jonathan
+<br />
+<span id="received"><dfn>Received on</dfn> Thu Sep 22 2016 - 10:26:26 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -234,10 +231,13 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start8597">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./8598.html" title="Next message in the list">Heiko Klein: "[CF-metadata] Standard_name proposal for volcanic ash and radioactive particles"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./8596.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]  grid cells with a varying number of cell bounds"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./8593.html" title="Message to which this message replies">Hausman, Jessica: "[CF-metadata] grid cells with a varying number of cell bounds"</a></li>
+<li><dfn>Next message</dfn>: <a href="./8598.html" title="Next message in the list">Chris Barker: "[CF-metadata] Feedback requested on proposed CF Simple Geometries"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./8596.html" title="Previous message in the list">Steve Emmerson: "[CF-metadata] Temporal nitpicks. Was: CF-metadata Digest, Vol 161, Issue 3"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./8598.html" title="Next message in this discussion thread">Chris Barker: "[CF-metadata] Feedback requested on proposed CF Simple Geometries"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./8598.html" title="Message sent in reply to this message">Chris Barker: "[CF-metadata] Feedback requested on proposed CF Simple Geometries"</a></li>
+<li><dfn>Reply</dfn>: <a href="./8624.html" title="Message sent in reply to this message">Bert Jagers: "[CF-metadata] Feedback requested on proposed CF Simple	Geometries"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -248,7 +248,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:17 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./8596.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8598.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] cell metrics from Karl Taylor on 2006-10-05 (mailing-list-archive)</title>
-<meta name="Author" content="Karl Taylor (taylor13)" />
-<meta name="Subject" content="[CF-metadata] cell metrics" />
-<meta name="Date" content="2006-10-05" />
+<title>[CF-metadata] UTM projections from John Caron on 2003-10-21 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] UTM projections" />
+<meta name="Date" content="2003-10-21" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0283.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0285.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] cell metrics</h1>
-<!-- received="Thu Oct  5 09:24:40 2006" -->
-<!-- isoreceived="20061005082440" -->
-<!-- sent="Thu, 05 Oct 2006 08:24:40 -0700" -->
-<!-- isosent="20061005152440" -->
-<!-- name="Karl Taylor" -->
-<!-- email="taylor13" -->
-<!-- subject="[CF-metadata] cell metrics" -->
-<!-- id="452523B8.9090406_at_llnl.gov" -->
+<a style="text-decoration:none" href="./0283.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0285.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] UTM projections</h1>
+<!-- received="Tue Oct 21 13:46:22 2003" -->
+<!-- isoreceived="20031021124622" -->
+<!-- sent="Tue, 21 Oct 2003 13:46:22 -0600" -->
+<!-- isosent="20031021194622" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] UTM projections" -->
+<!-- id="3F958D0E.7030808_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20061005071555.GC25071_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0285.html" accesskey="d" title="Jonathan Gregory: &quot;Fwd: Re: [CF-metadata] cell metrics&quot;">Next message</a> ]
-[ <a href="./0283.html" title="Jonathan Gregory: &quot;[CF-metadata] standard names for aerosols and chemistry&quot;">Previous message</a> ]
-[ <a href="./0274.html" title="Jonathan Gregory: &quot;[CF-metadata] cell metrics&quot;">In reply to</a> ]
+[ <a href="./0285.html" accesskey="d" title="John Caron: &quot;[CF-metadata] UTM projections&quot;">Next message</a> ]
+[ <a href="./0283.html" title="John Caron: &quot;[CF-metadata] WRF staggered grids&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,152 +68,50 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Karl Taylor &lt;<a href="mailto:taylor13?Subject=Re%3A%20%5BCF-metadata%5D%20cell%20metrics">taylor13</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20UTM%20projections">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 05 Oct 2006 08:24:40 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 21 Oct 2003 13:46:22 -0600</span><br />
 </address>
 <br />
-Dear all,
+How do people feel about adding Universal Transverse Mercator (UTM) as a 
 <br />
-<br />I agree with Jonathan that since it may not always be possible to 
+Grid Mapping? We are talking to someone who wants to use UTM, and we'd 
 <br />
-determine which cell_areas go with each field stored in a file (when 
+like to steer them to CF.
 <br />
-more than one grid is found in the file), the cell_measures attribute 
+<br />As I understand it, UTM uses the ellipsoidal Transverse Mercator 
 <br />
-should alway be defined.
+projection The earth is divided up into approximately 60 x 24 &quot;zones&quot;, 
 <br />
-<br />CF enabled software should not be expected to determine the 
+each with specific projection parameters. There are a number of 
 <br />
-cell_measures that go with each field by examining the standard names 
+complications, like the fact that the reference ellipsoid may differ 
 <br />
-and grids.
+between zones, and near the poles it in fact switches to a polar 
 <br />
-<br />Furthermore, although I certainly don't object to having standard names 
+stereographic projection.
 <br />
-for the different cell_measures, those names (like all other standard 
+<br />All of this complicates the client that has to implement it, but in 
 <br />
-names) should not be required for compliance with CF.
+terms of CF coding it would be just a matter of specifying the UTM zone, eg:
 <br />
-<br />Karl
+<br />grid_mapping_name = UTM
 <br />
-<br />Jonathan Gregory wrote:
+<br />Map parameters:
 <br />
-<em class="quotelev1">&gt; Dear Simon, Christiane, et al.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; * grid_cell_area and _height. These are metrics for the grid, rather than
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; quantities which need standard names. Grid cell area should be specified 
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; by a
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; cell_measures variable of area (CF 7.2). Grid cell height can be deduced 
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; as the
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; difference between the lower and upper boundary in the vertical 
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; coordinate. If
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; it has to be stored separately we could add a cell_measures for it.
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; Yes, I know that the cell_measures exist, but it is convenient to have 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; the grid information stored in variables. It would be nice if these 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; names could be added.
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Perhaps we could add standard names of area (m2) and thickness (m)?
-</em><br />
-<em class="quotelev2">&gt;&gt; Are you suggesting this as an alternative to the use of cell_measures or 
-</em><br />
-<em class="quotelev2">&gt;&gt; are you just proposing standard names for the measure variables?
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; It is not an alternative to cell measures. The proposal, from Christiane, was
-</em><br />
-<em class="quotelev1">&gt; for a standard name for such quantities as data variables in their own right.
-</em><br />
-<em class="quotelev1">&gt; Such data variables could also be pointed to by cell_measures.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; I'm curious as to the reason for 
-</em><br />
-<em class="quotelev2">&gt;&gt; introducing an alternative method for specifying cell metrics in 
-</em><br />
-<em class="quotelev2">&gt;&gt; addition to the existing cell bounds and cell_measures?  Doesn't this 
-</em><br />
-<em class="quotelev2">&gt;&gt; just complicate things, leading to possible confusion / ambiguity?  Does 
-</em><br />
-<em class="quotelev2">&gt;&gt; this make the use of cell_measures optional? (...obsolete?)
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I also asked whether it was necessary (in the &gt;&gt;&gt;&gt; text at the top). I think
-</em><br />
-<em class="quotelev1">&gt; cell_measures would in any case remain useful as a pointer to locate the
-</em><br />
-<em class="quotelev1">&gt; metrics easily. Sometimes cell_measures is not necessary because you could
-</em><br />
-<em class="quotelev1">&gt; find the metric variable by searching the file for a data variable with the
-</em><br />
-<em class="quotelev1">&gt; appropriate standard name (if we defined these) and the same grid as the data
-</em><br />
-<em class="quotelev1">&gt; variable, but this is more laborious, and as your example shows it could be
-</em><br />
-<em class="quotelev1">&gt; insufficient if the lat-lon coordinates are not defined. We probably had this
-</em><br />
-<em class="quotelev1">&gt; discussion when we introduced cell_measures. It would be interested to know if
-</em><br />
-<em class="quotelev1">&gt; anyone else has views.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; a) a standard name for 'cell_volume'? (since volume is already a 
-</em><br />
-<em class="quotelev2">&gt;&gt; standard cell_measure name), and
-</em><br />
-<em class="quotelev1">&gt; Yes, we could do.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; b) a new cell_measure name of 'thickness' (or height), which would refer 
-</em><br />
-<em class="quotelev2">&gt;&gt; to a measure variable with standard_name = 'cell_thickness'?
-</em><br />
-<em class="quotelev1">&gt; Yes, possibly.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Neither of these has been requested and, as usual, we would not add them unless
-</em><br />
-<em class="quotelev1">&gt; they were specifically asked for.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Best wishes
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Jonathan
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<span id="received"><dfn>Received on</dfn> Thu Oct 05 2006 - 09:24:40 BST</span>
+<br />zone - eg &quot;13T&quot;
+<br />
+<br />A client has to have a table that maps the zone name into the right 
+<br />
+Transverse Mercator (or Polar Stereographic) projection parameters. The 
+<br />
+alternative would be to make the user use the Transverse Mercator (or 
+<br />
+Polar Stereographic) projection directly, and figure out the right 
+<br />
+paramters themselves.
+<br />
+<span id="received"><dfn>Received on</dfn> Tue Oct 21 2003 - 13:46:22 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -223,9 +119,8 @@ names) should not be required for compliance with CF.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start284">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0285.html" title="Next message in the list">Jonathan Gregory: "Fwd: Re: [CF-metadata] cell metrics"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0283.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] standard names for aerosols and chemistry"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0274.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] cell metrics"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0285.html" title="Next message in the list">John Caron: "[CF-metadata] UTM projections"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0283.html" title="Previous message in the list">John Caron: "[CF-metadata] WRF staggered grids"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -237,7 +132,7 @@ names) should not be required for compliance with CF.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:47 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0283.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0285.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

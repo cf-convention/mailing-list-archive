@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] [Fwd: RE: Air Quality/Chemistry Naming Conventions] from Christiane Textor on 2008-01-14 (mailing-list-archive)</title>
-<meta name="Author" content="Christiane Textor (christiane.textor)" />
-<meta name="Subject" content="[CF-metadata] [Fwd: RE: Air Quality/Chemistry Naming Conventions]" />
-<meta name="Date" content="2008-01-14" />
+<title>[CF-metadata] Re: units - PSU from Steve Emmerson on 2006-10-10 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Steve Emmerson (steve)" />
+<meta name="Subject" content="[CF-metadata] Re: units - PSU" />
+<meta name="Date" content="2006-10-10" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1143.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1145.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] [Fwd: RE: Air Quality/Chemistry Naming Conventions]</h1>
-<!-- received="Mon Jan 14 07:00:36 2008" -->
-<!-- isoreceived="20080114070036" -->
-<!-- sent="Mon, 14 Jan 2008 15:00:36 +0100" -->
-<!-- isosent="20080114140036" -->
-<!-- name="Christiane Textor" -->
-<!-- email="christiane.textor" -->
-<!-- subject="[CF-metadata] [Fwd: RE: Air Quality/Chemistry Naming Conventions]" -->
-<!-- id="478B6B04.2020304_at_lsce.ipsl.fr" -->
+<a style="text-decoration:none" href="./1143.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1145.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Re: units - PSU</h1>
+<!-- received="Tue Oct 10 14:42:43 2006" -->
+<!-- isoreceived="20061010134243" -->
+<!-- sent="Tue, 10 Oct 2006 14:42:43 -0600" -->
+<!-- isosent="20061010204243" -->
+<!-- name="Steve Emmerson" -->
+<!-- email="steve" -->
+<!-- subject="[CF-metadata] Re: units - PSU" -->
+<!-- id="200610102042.k9AKghXX026399_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1145.html" accesskey="d" title="Christiane Textor: &quot;[CF-metadata] various new standard names&quot;">Next message</a> ]
-[ <a href="./1143.html" title="Jonathan Gregory: &quot;[CF-metadata]  various new standard names&quot;">Previous message</a> ]
+[ <a href="./1145.html" accesskey="d" title="Steve Emmerson: &quot;[CF-metadata] Re: units in cf standard names&quot;">Next message</a> ]
+[ <a href="./1143.html" title="Steve Emmerson: &quot;[CF-metadata] Re: units in cf standard names&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,154 +68,56 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Christiane Textor &lt;<a href="mailto:christiane.textor?Subject=Re%3A%20%5BCF-metadata%5D%20%5BFwd%3A%20RE%3A%20Air%20Quality%2FChemistry%20Naming%20Conventions%5D">christiane.textor</a>&gt;
+<dfn>From</dfn>: Steve Emmerson &lt;<a href="mailto:steve?Subject=Re%3A%20%5BCF-metadata%5D%20Re%3A%20units%20-%20PSU">steve</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 14 Jan 2008 15:00:36 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 10 Oct 2006 14:42:43 -0600</span><br />
 </address>
 <br />
-Dear CFs,
+Hi,
 <br />
-<br />Below is an email from Bill Sukloff from the NARSTO
+<br />The unit &quot;PSU&quot; could easily be added be added to the UDUNITS package
 <br />
-Quality Systems Science Center. He is interested in the chemistry and 
+if everyone on the list would be willing to edit the installed file 
 <br />
-aerosol activities of CF. See is email below for information, this might 
+&quot;etc/udunits.dat&quot; and add the entry
 <br />
-be an opportunity to follow up on our activities in this area.
+<br />PSU			S 1
 <br />
-<br />Best regards,
+<br />(such a wonderfully brain-damaged syntax :-)
 <br />
-Christiane
+<br />Naturally, anyone who received a netCDF file containing such a unit
 <br />
-<br /><br />-------- Original-Nachricht --------
+would also need to have modified their UDUNITS database file -- so this
 <br />
-Betreff: RE: Air Quality/Chemistry Naming Conventions
+isn't an optimal solution.
 <br />
-Datum: Mon, 14 Jan 2008 08:56:02 -0500
+<br />Oddly enough, I have a master's degree in physical occeanography.  I
 <br />
-Von: Sukloff,Bill [Ontario] &lt;Bill.Sukloff at ec.gc.ca&gt;
+believe that PSU is a dimensionless unit (like angular degrees) because
 <br />
-An: &lt;christiane.textor at lsce.ipsl.fr&gt;
+many of the thermodynamic and equation-of-state formulas require that
 <br />
-Referenzen: 
+the halinity (salinity) quantity be dimensionless -- in order for the
 <br />
-&lt;DDA8F0C2655CB14DA8C7B84CDC6759A6152C449E at dowexch2.ontario.int.ec.gc.ca&gt; 
+equation to make sense.  Personally, I'd have made the coefficients be
 <br />
-&lt;35204.90.46.131.36.1200294573.squirrel at mailhost.lsce.ipsl.fr&gt;
+dimensionful so as to cancel their respective halinity values (which I'd
 <br />
-<br />Hi Christiane:
+make dimensionful as well) -- but those formulas were developed when
 <br />
-&nbsp;&nbsp;Thanks for your reply. Over the years we have worked with the NARSTO
+halinity was measured in grams-per-gram rather than as conductance, so
 <br />
-Quality Systems Science Center (<a href="http://cdiac.ornl.gov/programs/NARSTO/">http://cdiac.ornl.gov/programs/NARSTO/</a>)
+the coeficients had to be dimensionless.  Tradition thus demands that
 <br />
-developing a data standard for environmental measurements. One of the
+PSU be dimensionless.
 <br />
-issues we tackled was chemical nomenclature. The results of our work can
+<br />Regards,
 <br />
-been seen on the page
+Steve Emmerson
 <br />
-<a href="http://cdiac.ornl.gov/programs/NARSTO/epasupersites.html">http://cdiac.ornl.gov/programs/NARSTO/epasupersites.html</a>. We are always
+UDUNITS Developer
 <br />
-interested in feedback from others working in similar areas. Please feel
-<br />
-free to share this with others in your group.
-<br />
-<br />&nbsp;&nbsp;Bill.
-<br />
-<br /><br />-----Original Message-----
-<br />
-From: Christiane.Textor at lsce.ipsl.fr
-<br />
-[mailto:Christiane.Textor at lsce.ipsl.fr]
-<br />
-Sent: January 14, 2008 2:10 AM
-<br />
-To: Sukloff,Bill [Ontario]
-<br />
-Subject: Re: Air Quality/Chemistry Naming Conventions
-<br />
-<br />Dear Bill,
-<br />
-<br />Thank you for your interest. I would say, this page is &quot;sleeping&quot;, but
-<br />
-could be woken up if needed. Most of the conceptual discussions for
-<br />
-these first names for chemicals and aerosols have been settled, the
-<br />
-discussion can be followed at the CF mailing list, see
-<br />
-<a href="http://www.cgd.ucar.edu/pipermail/cf-metadata/">http://www.cgd.ucar.edu/pipermail/cf-metadata/</a> and search for
-<br />
-aerosol/chemistry.
-<br />
-<br />Why are you interested?
-<br />
-<br />Best regards,
-<br />
-Christiane
-<br />
-<br /><br /><br /><br />Sukloff,Bill [Ontario] schrieb:
-<br />
-<em class="quotelev1">&gt; Hello:
-</em><br />
-<em class="quotelev1">&gt;   I came across your wiki page and found it quite interesting. Is this
-</em><br />
-<br /><em class="quotelev1">&gt; wiki still active?
-</em><br />
-<em class="quotelev1">&gt; Thanks.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Bill Sukloff
-</em><br />
-<em class="quotelev1">&gt; Scientific Analysis Developer
-</em><br />
-<em class="quotelev1">&gt; Science and Technology Branch
-</em><br />
-<em class="quotelev1">&gt; Environment Canada
-</em><br />
-<em class="quotelev1">&gt; 4905 Dufferin St.
-</em><br />
-<em class="quotelev1">&gt; Toronto, Ont. M3H 5T4
-</em><br />
-<em class="quotelev1">&gt; ph: 416-739-5722
-</em><br />
-<em class="quotelev1">&gt; Fax: 416-739-4281
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<br /><pre>
---
-======================================================================
-Christiane Textor
-Laboratoire des Sciences du Climat et de l'Environnement Unite Mixte de
-Recherche CEA-CNRS-UVSQ
-LSCE/IPSL, CEA Saclay, Orme des Merisiers, Bat. 701, Piece 3b, Point
-Courrier 129
-F-91191 Gif-sur-Yvette Cedex
-FRANCE
-mailto: christiane.textor at lsce.ipsl.fr
-Tel ++33 1 69 08 34 07 Fax ++33 1 69 08 77 16
-GEOMON scientific project manager <a href="http://www.geomon.eu">http://www.geomon.eu</a>
-======================================================================
--- 
-======================================================================
-Christiane Textor
-Laboratoire des Sciences du Climat et de l'Environnement
-Unite Mixte de Recherche CEA-CNRS-UVSQ
-LSCE/IPSL, CEA Saclay, Orme des Merisiers,
-Bat. 701, Piece 3b, Point Courrier 129
-F-91191 Gif-sur-Yvette Cedex
-FRANCE
-mailto: christiane.textor at lsce.ipsl.fr
-Tel ++33 1 69 08 34 07 Fax ++33 1 69 08 77 16
-GEOMON scientific project manager <a href="http://www.geomon.eu">http://www.geomon.eu</a>
-======================================================================
-</pre>
-<span id="received"><dfn>Received on</dfn> Mon Jan 14 2008 - 07:00:36 GMT</span>
+<span id="received"><dfn>Received on</dfn> Tue Oct 10 2006 - 14:42:43 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -223,8 +125,8 @@ GEOMON scientific project manager <a href="http://www.geomon.eu">http://www.geom
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1144">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1145.html" title="Next message in the list">Christiane Textor: "[CF-metadata] various new standard names"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1143.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]  various new standard names"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1145.html" title="Next message in the list">Steve Emmerson: "[CF-metadata] Re: units in cf standard names"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1143.html" title="Previous message in the list">Steve Emmerson: "[CF-metadata] Re: units in cf standard names"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -236,7 +138,7 @@ GEOMON scientific project manager <a href="http://www.geomon.eu">http://www.geom
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:01 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1143.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1145.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

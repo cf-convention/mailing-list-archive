@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] sea_area from Jonathan Gregory on 2006-04-11 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] sea_area" />
-<meta name="Date" content="2006-04-11" />
+<title>[CF-metadata] CF-1.0-beta5: curvilinear bounds &quot;contiguous&quot;attribute from John Caron on 2003-03-21 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] CF-1.0-beta5: curvilinear bounds &quot;contiguous&quot;attribute" />
+<meta name="Date" content="2003-03-21" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0120.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0122.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] sea_area</h1>
-<!-- received="Tue Apr 11 02:26:32 2006" -->
-<!-- isoreceived="20060411012632" -->
-<!-- sent="Tue, 11 Apr 2006 09:26:32 +0100" -->
-<!-- isosent="20060411082632" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] sea_area" -->
-<!-- id="20060411082632.GC15920_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0120.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0122.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF-1.0-beta5: curvilinear bounds &quot;contiguous&quot;attribute</h1>
+<!-- received="Fri Mar 21 12:56:13 2003" -->
+<!-- isoreceived="20030321125613" -->
+<!-- sent="Fri, 21 Mar 2003 12:56:13 -0700" -->
+<!-- isosent="20030321195613" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] CF-1.0-beta5: curvilinear bounds &quot;contiguous&quot;attribute" -->
+<!-- id="3E7B6E5D.8050401_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20030317225328.B1010_at_linux" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,9 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0122.html" accesskey="d" title="Beate.Geyer at gkss.de: &quot;[CF-metadata] new standard names&quot;">Next message</a> ]
-[ <a href="./0120.html" title="Beate.Geyer at gkss.de: &quot;[CF-metadata] Geyer and Ruane standard names&quot;">Previous message</a> ]
+[ <a href="./0122.html" accesskey="d" title="John Caron: &quot;[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute&quot;">Next message</a> ]
+[ <a href="./0120.html" title="Stephens, A: &quot;[CF-metadata] Encoding Errors on variables in CF&quot;">Previous message</a> ]
+[ <a href="./0106.html" title="jonathan.gregory at metoffice.com: &quot;[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0122.html" accesskey="t" title="John Caron: &quot;[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,34 +72,84 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20sea_area">j.m.gregory</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20CF-1.0-beta5%3A%20curvilinear%20bounds%20%22contiguous%22attribute">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 11 Apr 2006 09:26:32 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 21 Mar 2003 12:56:13 -0700</span><br />
 </address>
 <br />
-Karl, Balaji and I propose a standard name of sea_area (m2), corresponding to
+jonathan.gregory at metoffice.com wrote:
 <br />
-sea_area_fraction (dimensionless). It is the area of sea within the grid cell.
+<br /><em class="quotelev1">&gt;Dear All
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;A further comment re contiguous: Multidimensional coordinate variables must be
+</em><br />
+<em class="quotelev1">&gt;auxiliary coordinate variables. Boundary variables like (m,n,npoly) must be
+</em><br />
+<em class="quotelev1">&gt;boundary variables corresponding to auxiliary coordinate variables.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;Is it not therefore the case that there must also be ordinary 1D coordinate
+</em><br />
+<em class="quotelev1">&gt;variables, which should have boundary variables too? If so, can't
+</em><br />
+<em class="quotelev1">&gt;contiguousness be determined from the 1D variables? This surely must give the
+</em><br />
+<em class="quotelev1">&gt;same answer as working it out from the 2D variables. If two points are
+</em><br />
+<em class="quotelev1">&gt;coincident in one coordinate system, it would be a strange transformation
+</em><br />
+<em class="quotelev1">&gt;that mapped them to different points in another system.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+i think so: the kinds of transformations we are interested in 
 <br />
-<br />Other such area names might be requested. As with the area fractions, to
+(continuous and invertible) preserve connectedness.
 <br />
-prevent proliferation for numerous surface cover types, we might want to
+<br />there are probably cases that violate that, but i feel confident that 
 <br />
-restrict them to those area_fractions which have already been introduced,
+its the common case.
 <br />
-and for others to use a generalised &quot;area&quot; standard name and require a
+<br /><em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;The difficult cases for contiguousness are the ones where the cells aren't
+</em><br />
+<em class="quotelev1">&gt;arranged in a rectilinear array in any coordinate system, I think. Maybe I
+</em><br />
+<em class="quotelev1">&gt;am missing something obvious here. Please help me out of my misunderstanding
+</em><br />
+<em class="quotelev1">&gt;if so.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+it seems like the difficult case is where you want to explicitly add a 
 <br />
-surface_cover coordinate or scalar coordinate with it. This is an instance
+&quot;contiguous&quot; attribute, rather than make the client guess.
 <br />
-of a general issue of how many specific varieties of name to define, the
-<br />
-alternative being to factorise some of the information into a coordinate
-<br />
-variable.
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Tue Apr 11 2006 - 02:26:32 BST</span>
+<br /><em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;Thanks
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;Jonathan
+</em><br />
+<em class="quotelev1">&gt;_______________________________________________
+</em><br />
+<em class="quotelev1">&gt;CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt;CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt;<a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt;  
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<span id="received"><dfn>Received on</dfn> Fri Mar 21 2003 - 12:56:13 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -103,9 +157,13 @@ variable.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start121">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0122.html" title="Next message in the list">Beate.Geyer at gkss.de: "[CF-metadata] new standard names"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0120.html" title="Previous message in the list">Beate.Geyer at gkss.de: "[CF-metadata] Geyer and Ruane standard names"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0122.html" title="Next message in the list">John Caron: "[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0120.html" title="Previous message in the list">Stephens, A: "[CF-metadata] Encoding Errors on variables in CF"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0106.html" title="Message to which this message replies">jonathan.gregory at metoffice.com: "[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0122.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0122.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034;attribute"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -116,7 +174,7 @@ variable.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:44 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0120.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0122.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

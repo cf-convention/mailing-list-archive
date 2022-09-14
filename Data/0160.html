@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] new vertical coordinate from Beate.Geyer at gkss.de on 2006-07-03 (mailing-list-archive)</title>
-<meta name="Author" content="Beate.Geyer at gkss.de (Beate.Geyer)" />
-<meta name="Subject" content="[CF-metadata] new vertical coordinate" />
-<meta name="Date" content="2006-07-03" />
+<title>[CF-metadata] bounds from Brian Eaton on 2003-05-28 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Brian Eaton (eaton)" />
+<meta name="Subject" content="[CF-metadata] bounds" />
+<meta name="Date" content="2003-05-28" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0159.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0161.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new vertical coordinate</h1>
-<!-- received="Mon Jul  3 03:12:40 2006" -->
-<!-- isoreceived="20060703021240" -->
-<!-- sent="Mon, 03 Jul 2006 11:12:40 +0200" -->
-<!-- isosent="20060703091240" -->
-<!-- name="Beate.Geyer at gkss.de" -->
-<!-- email="Beate.Geyer" -->
-<!-- subject="[CF-metadata] new vertical coordinate" -->
-<!-- id="OFD2C63F4E.0FC01624-ONC12571A0.002F74A0-C12571A0.00327AA4_at_dvsun2.gkss.de" -->
+<a style="text-decoration:none" href="./0159.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0161.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] bounds</h1>
+<!-- received="Wed May 28 14:54:42 2003" -->
+<!-- isoreceived="20030528135442" -->
+<!-- sent="Wed, 28 May 2003 14:54:42 -0600" -->
+<!-- isosent="20030528205442" -->
+<!-- name="Brian Eaton" -->
+<!-- email="eaton" -->
+<!-- subject="[CF-metadata] bounds" -->
+<!-- id="20030528205442.GB1780_at_ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20030527083834.GA8907_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0161.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] new vertical coordinate&quot;">Next message</a> ]
-[ <a href="./0159.html" title="Jonathan Gregory: &quot;[CF-metadata] new vertical coordinate&quot;">Previous message</a> ]
+[ <a href="./0161.html" accesskey="d" title="Bob Drach: &quot;[CF-metadata] bounds&quot;">Next message</a> ]
+[ <a href="./0159.html" title="Jonathan Gregory: &quot;[CF-metadata] bounds&quot;">Previous message</a> ]
+[ <a href="./0158.html" title="Jonathan Gregory: &quot;[CF-metadata] bounds&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,64 +70,84 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Beate.Geyer at gkss.de &lt;<a href="mailto:Beate.Geyer?Subject=Re%3A%20%5BCF-metadata%5D%20new%20vertical%20coordinate">Beate.Geyer</a>&gt;
+<dfn>From</dfn>: Brian Eaton &lt;<a href="mailto:eaton?Subject=Re%3A%20%5BCF-metadata%5D%20bounds">eaton</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 03 Jul 2006 11:12:40 +0200</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 28 May 2003 14:54:42 -0600</span><br />
 </address>
 <br />
-Perhaps we can include following lines in the description of hybrid height 
+Hi Jonathan,
 <br />
-coordinate:
+<br />Here are a few comments on the first of your recent posts.
 <br />
-<br />To describe the height coordinate after Gal-Chen and Somerville, 1975, 
+<br />On Tue, May 27, 2003 at 09:38:34AM +0100, Jonathan Gregory wrote:
 <br />
-which is 
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Here's (yet) another idea. I am in effect *defining* 2D rectilinear to mean
+</em><br />
+<em class="quotelev1">&gt; that there exist continuous 1D x and y coordinates, even if they aren't
+</em><br />
+<em class="quotelev1">&gt; recorded in the file.  That excludes the situation where the cells had two
+</em><br />
+<em class="quotelev1">&gt; index dimensions but were not arranged as a 2D rectilinear array in any
+</em><br />
+<em class="quotelev1">&gt; continuous 2D coordinate plane. I would call that non-rectilinear.
+</em><br />
+<br />I find this terminology confusing.  If I understand correctly, the grids
 <br />
-gal-chen(k) = ztop*( z(k,j,i)-zs(j,i) )/( ztop-zs(j,i) )
+you are describing are the ones that require 2D lat/lon coordinate
 <br />
-where gal-chen(k) is the Gal-Chen height of the vertical gridpoint (k), 
+variables in CF lingo (section 5.2 in the doc).  In this case there is
 <br />
-z(k,j,i) is altitude at gridpoint (k,j,i), ztop is the height at the top 
+always an implicit rectilinear coordinate system, i.e., the index
 <br />
-of the model,  and zs(j,i) is the surface altitude at horizontal gridpoint 
+coordinates of the 2D array.  But the fact that the grid requires 2D
 <br />
-(j,i) (topography), 
+lat/lon coordinate variables implies that it is a curvilinear grid in
 <br />
-use
+lat/lon coordinates.
 <br />
-a(k)= gal-chen(k) and b(k)= 1 - gal-chen(k)/ztop
+<br /><em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; * If you know it is rectilinear, you *don't* have to check the entire bounds
+</em><br />
+<em class="quotelev1">&gt; variable for contiguousness. By the same argument as above, you have only to
+</em><br />
+<em class="quotelev1">&gt; check one row and one column. For instance, the slabs (0,*,0,*) and (*,0,*,0)
+</em><br />
+<em class="quotelev1">&gt; have shapes (x,2) and (y,2) respectively, like 1D bounds variables. It would
+</em><br />
+<em class="quotelev1">&gt; be sufficient to check these alone for contiguousness. True?
+</em><br />
+<br />Consider a domain with a hole in it (say an ocean basin that contains an
 <br />
-<br />Regards,
+island which is not part of the computational domain).  I could construct a
 <br />
-Beate
+grid which requires 2D lat/lon coordinate variables, and for which the
 <br />
-<br />====================================================
+associated cells were contiguous around the outer boundary, yet the cells
 <br />
-&nbsp;Dr. Beate Geyer 
+would not be contiguous around the hole (i.e., the cells around the hole
 <br />
-&nbsp;GKSS Research Centre 
+would only have 3 neighboring cells rather than 4).
 <br />
-&nbsp;Institute for Coastal Research 
+<br />Suppose we have a grid defined by lat(ny,nx), lon(ny,nx).  I believe that
 <br />
-&nbsp;Max-Planck-Str. 
+the only way to reduce the contiguity checking to the 1D case is if the
 <br />
-&nbsp;D-21502 Geesthacht, Germany 
+dimensions nx and ny have coordinate variables, and those coordinate
 <br />
-<br />E-Mail:   Beate.Geyer at gkss.de
+variables have associated bounds.  Otherwise, contiguity checking must
 <br />
-Phone:  04152-871871
+occur on the complete boundary variables associated with lat and lon.
 <br />
-www: <a href="http://icts.gkss.de">http://icts.gkss.de</a>
+<br />Brian
 <br />
-====================================================
-<br />
--------------- next part --------------
-<br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20060703/e14fccc8/attachment-0002.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20060703/e14fccc8/attachment-0002.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Mon Jul 03 2006 - 03:12:40 BST</span>
+<span id="received"><dfn>Received on</dfn> Wed May 28 2003 - 14:54:42 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -133,8 +155,9 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start160">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0161.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] new vertical coordinate"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0159.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] new vertical coordinate"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0161.html" title="Next message in the list">Bob Drach: "[CF-metadata] bounds"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0159.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] bounds"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0158.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] bounds"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -146,7 +169,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:45 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0159.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0161.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

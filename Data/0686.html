@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] grid reletive winds from John Caron on 2007-01-30 (mailing-list-archive)</title>
+<title>[CF-metadata] stations and trajectories  (the OTS standard) from John Caron on 2005-06-20 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="John Caron (caron)" />
-<meta name="Subject" content="[CF-metadata] grid reletive winds" />
-<meta name="Date" content="2007-01-30" />
+<meta name="Subject" content="[CF-metadata] stations and trajectories  (the OTS standard)" />
+<meta name="Date" content="2005-06-20" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0685.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0687.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] grid reletive winds</h1>
-<!-- received="Tue Jan 30 16:40:50 2007" -->
-<!-- isoreceived="20070130164050" -->
-<!-- sent="Tue, 30 Jan 2007 16:40:50 -0700" -->
-<!-- isosent="20070130234050" -->
+<a style="text-decoration:none" href="./0685.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0687.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] stations and trajectories  (the OTS standard)</h1>
+<!-- received="Mon Jun 20 14:39:28 2005" -->
+<!-- isoreceived="20050620133928" -->
+<!-- sent="Mon, 20 Jun 2005 14:39:28 -0600" -->
+<!-- isosent="20050620203928" -->
 <!-- name="John Caron" -->
 <!-- email="caron" -->
-<!-- subject="[CF-metadata] grid reletive winds" -->
-<!-- id="45BFD782.5030700_at_unidata.ucar.edu" -->
+<!-- subject="[CF-metadata] stations and trajectories  (the OTS standard)" -->
+<!-- id="42B72980.6030607_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="EB861CD59F6DAA4BBC25EAE9987C5BC938D374_at_EXCHANGE29.fed.cclrc.ac.uk" -->
+<!-- inreplyto="20050619201517.GA27440_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,8 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0687.html" accesskey="d" title="Shawn Chen: &quot;[CF-metadata] Question about Coordinate System&quot;">Next message</a> ]
-[ <a href="./0685.html" title="Pamment, JA: &quot;[CF-metadata] Standard names status update&quot;">Previous message</a> ]
+[ <a href="./0687.html" accesskey="d" title="Ethan Davis: &quot;[CF-metadata] Added table mapping between CF and proposed data discovery attributes&quot;">Next message</a> ]
+[ <a href="./0685.html" title="John Caron: &quot;[CF-metadata] stations and trajectories&quot;">Previous message</a> ]
+[ <a href="./0681.html" title="Jonathan Gregory: &quot;[CF-metadata] stations and trajectories  (the OTS standard)&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -69,106 +70,90 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20grid%20reletive%20winds">caron</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20stations%20and%20trajectories%20%20(the%20OTS%20standard)">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 30 Jan 2007 16:40:50 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 20 Jun 2005 14:39:28 -0600</span><br />
 </address>
 <br />
-Jonathon, Alison:
+Jonathan Gregory wrote:
 <br />
-<br />Thanks very much, I dont know why I didnt see these!
-<br />
-<br />Pamment, JA (Alison) wrote:
-<br />
-<em class="quotelev1">&gt; Hi John,
+<br /><em class="quotelev1">&gt;Dear Nan
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; If you are specifying wind components then the names x_wind and y_wind
+<em class="quotelev1">&gt;  
 </em><br />
-<em class="quotelev1">&gt; indicate that the variables are relative to the grid rather than true
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; longitude and latitude.  The corresponding components relative to true
+<em class="quotelev3">&gt;&gt;&gt;But instead they could be CF-compliant by dimensioning
 </em><br />
-<em class="quotelev1">&gt; lon and lat have the names eastward_wind and northward_wind.
+<em class="quotelev3">&gt;&gt;&gt;the data variable as (time,depth) and giving it a coordinates
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev3">&gt;&gt;&gt;attribute to point to auxiliary coordinate variables of lat(time)
 </em><br />
-<em class="quotelev1">&gt; There are also the names wind_from_direction and wind_to_direction for
+<em class="quotelev3">&gt;&gt;&gt;and lon(time).... These are what CF calls &quot;scalar coordinate
 </em><br />
-<em class="quotelev1">&gt; velocities relative to lat and lon, but I don't think equivalent grid
+<em class="quotelev3">&gt;&gt;&gt;variables&quot; and they avoid introducing a size-one dimension
 </em><br />
-<em class="quotelev1">&gt; relative names exist at the moment.  (I'm sure Jonathan will correct me
+<em class="quotelev3">&gt;&gt;&gt;just to attach coordinate info.
 </em><br />
-<em class="quotelev1">&gt; if I am wrong!)
+<em class="quotelev3">&gt;&gt;&gt;      
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev3">&gt;&gt;&gt;
 </em><br />
-<em class="quotelev1">&gt; Alison
+<em class="quotelev2">&gt;&gt;Maybe I didn't think this through well enough, or I completely missed one of
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev2">&gt;&gt;the basic CF concepts. I somehow missed that CF files should &quot;avoid 
 </em><br />
-<em class="quotelev1">&gt; ------
+<em class="quotelev2">&gt;&gt;introducing a size-one dimension just to attach coordinate info&quot; and thought
 </em><br />
-<em class="quotelev1">&gt; Alison Pamment                            Tel: +44 1235 778065
+<em class="quotelev2">&gt;&gt;that 4 dimensions was a reasonable way to go, as it gives you the overall
 </em><br />
-<em class="quotelev1">&gt; NCAS/British Atmospheric Data Centre      Fax: +44 1235 445858
+<em class="quotelev2">&gt;&gt;size of the dataset in one query.
 </em><br />
-<em class="quotelev1">&gt; Rutherford Appleton Laboratory            Email: J.A.Pamment at rl.ac.uk
+<em class="quotelev2">&gt;&gt;For mooring data, this seems to make perfect sense.
 </em><br />
-<em class="quotelev1">&gt; Chilton, Didcot, OX11 0QX, U.K.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt;-----Original Message-----
-</em><br />
-<em class="quotelev2">&gt;&gt;From: cf-metadata-bounces at cgd.ucar.edu [mailto:cf-metadata-
-</em><br />
-<em class="quotelev2">&gt;&gt;bounces at cgd.ucar.edu] On Behalf Of John Caron
-</em><br />
-<em class="quotelev2">&gt;&gt;Sent: 23 January 2007 21:42
-</em><br />
-<em class="quotelev2">&gt;&gt;To: CF
-</em><br />
-<em class="quotelev2">&gt;&gt;Subject: [CF-metadata] grid reletive winds
+<em class="quotelev2">&gt;&gt;    
 </em><br />
 <em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt;Is there a way to specify if wind variable is &quot;grid reletive&quot; or &quot;true
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt;direction&quot; ?? Perhaps a standard name ??
+<em class="quotelev1">&gt;Yes, I agree. I am not saying that there's anything wrong with (time,lat,lon)
 </em><br />
-<em class="quotelev2">&gt;&gt;
+<em class="quotelev1">&gt;with lat=lon=1. It does make sense for a timeseries at a fixed point. Scalar
 </em><br />
-<em class="quotelev2">&gt;&gt;eg, encoding GRIB2 table 3.3, bit 5:
+<em class="quotelev1">&gt;coordinate variables are offered as an alternative &quot;convenience feature&quot;, not
 </em><br />
-<em class="quotelev2">&gt;&gt;
+<em class="quotelev1">&gt;as a recommendation, and actually you might be cautious of using them if your
 </em><br />
-<em class="quotelev2">&gt;&gt;<a href="http://www.nco.ncep.noaa.gov/pmb/docs/grib2/grib2_table3-3.shtml">http://www.nco.ncep.noaa.gov/pmb/docs/grib2/grib2_table3-3.shtml</a>
+<em class="quotelev1">&gt;analysis software doesn't recognise them.
 </em><br />
-<em class="quotelev2">&gt;&gt;_______________________________________________
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt;CF-metadata mailing list
+<em class="quotelev1">&gt;My point was that if auxiliary coordinate variables lat(time) and lon(time)
 </em><br />
-<em class="quotelev2">&gt;&gt;CF-metadata at cgd.ucar.edu
+<em class="quotelev1">&gt;are used for drifters, your software must be able to process the coordinates
 </em><br />
-<em class="quotelev2">&gt;&gt;<a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+<em class="quotelev1">&gt;attribute; hence in that case you *could* use scalar coordinate variables for
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;lat and lon if you wanted too, as they are auxiliary coordinate variables too.
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;If you did that, the two kinds of timeseries (fixed and floating) would have
 </em><br />
-<em class="quotelev1">&gt; _______________________________________________
+<em class="quotelev1">&gt;the same kind of dimensions.
 </em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
+<em class="quotelev1">&gt;  
 </em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<span id="received"><dfn>Received on</dfn> Tue Jan 30 2007 - 16:40:50 GMT</span>
+I agree with Jonathon about the use of the coordinates attribute for 
+<br />
+your datasets, especially if you need to store multiple buoys in the 
+<br />
+same file, or if you had drifting buoys.
+<br />
+<span id="received"><dfn>Received on</dfn> Mon Jun 20 2005 - 14:39:28 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -176,8 +161,9 @@ Jonathon, Alison:
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start686">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0687.html" title="Next message in the list">Shawn Chen: "[CF-metadata] Question about Coordinate System"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0685.html" title="Previous message in the list">Pamment, JA: "[CF-metadata] Standard names status update"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0687.html" title="Next message in the list">Ethan Davis: "[CF-metadata] Added table mapping between CF and proposed data discovery attributes"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0685.html" title="Previous message in the list">John Caron: "[CF-metadata] stations and trajectories"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0681.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] stations and trajectories  (the OTS standard)"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -189,7 +175,7 @@ Jonathon, Alison:
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:54 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0685.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0687.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

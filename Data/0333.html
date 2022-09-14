@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Re: units - PSU from Steve Emmerson on 2006-10-10 (mailing-list-archive)</title>
-<meta name="Author" content="Steve Emmerson (steve)" />
-<meta name="Subject" content="[CF-metadata] Re: units - PSU" />
-<meta name="Date" content="2006-10-10" />
+<title>[CF-metadata] Use of 'omega' in standard name list from Jonathan Gregory on 2003-12-14 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] Use of 'omega' in standard name list" />
+<meta name="Date" content="2003-12-14" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0332.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0334.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Re: units - PSU</h1>
-<!-- received="Tue Oct 10 14:42:43 2006" -->
-<!-- isoreceived="20061010134243" -->
-<!-- sent="Tue, 10 Oct 2006 14:42:43 -0600" -->
-<!-- isosent="20061010204243" -->
-<!-- name="Steve Emmerson" -->
-<!-- email="steve" -->
-<!-- subject="[CF-metadata] Re: units - PSU" -->
-<!-- id="200610102042.k9AKghXX026399_at_unidata.ucar.edu" -->
+<a style="text-decoration:none" href="./0332.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0334.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Use of 'omega' in standard name list</h1>
+<!-- received="Sun Dec 14 16:08:39 2003" -->
+<!-- isoreceived="20031214160839" -->
+<!-- sent="Sun, 14 Dec 2003 23:08:39 +0000" -->
+<!-- isosent="20031214230839" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] Use of 'omega' in standard name list" -->
+<!-- id="20031214230838.GA27400_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0334.html" accesskey="d" title="Steve Emmerson: &quot;[CF-metadata] Re: units in cf standard names&quot;">Next message</a> ]
-[ <a href="./0332.html" title="Steve Emmerson: &quot;[CF-metadata] Re: units in cf standard names&quot;">Previous message</a> ]
+[ <a href="./0334.html" accesskey="d" title="Tom Gross: &quot;[CF-metadata] Array Subscript Convention&quot;">Next message</a> ]
+[ <a href="./0332.html" title="Bryan Lawrence: &quot;[CF-metadata] Use of &#0039;omega&#0039; in standard name list&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,56 +68,58 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Steve Emmerson &lt;<a href="mailto:steve?Subject=Re%3A%20%5BCF-metadata%5D%20Re%3A%20units%20-%20PSU">steve</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Use%20of%20'omega'%20in%20standard%20name%20list">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 10 Oct 2006 14:42:43 -0600</span><br />
+<span id="date"><dfn>Date</dfn>: Sun, 14 Dec 2003 23:08:39 +0000</span><br />
 </address>
 <br />
-Hi,
+Dear Bryan
 <br />
-<br />The unit &quot;PSU&quot; could easily be added be added to the UDUNITS package
+<br /><em class="quotelev1">&gt; For years I taught GFD where I defined omega as &quot;vertical velocity in pressure 
+</em><br />
+<em class="quotelev1">&gt; coordinates&quot;
+</em><br />
+<br />Thanks for this suggestion.
 <br />
-if everyone on the list would be willing to edit the installed file 
+<br /><em class="quotelev1">&gt; I don't believe there is any ambiguity in sign ... velocity in pressure 
+</em><br />
+<em class="quotelev1">&gt; coordinates can only mean dp/dt ... 
+</em><br />
+<br />I'm not sure about that. It's obvious to you, but someone who hadn't used it
 <br />
-&quot;etc/udunits.dat&quot; and add the entry
+before might be worried about positive meaning downwards, unless it is stated
 <br />
-<br />PSU			S 1
+somehow in the name.
 <br />
-<br />(such a wonderfully brain-damaged syntax :-)
+<br />Also, &quot;velocity&quot; means m s-1 everywhere else the word is used. &quot;in pressure
 <br />
-<br />Naturally, anyone who received a netCDF file containing such a unit
+coordinates&quot; might be interpreted as indicating just that it is a function of
 <br />
-would also need to have modified their UDUNITS database file -- so this
+pressure as the vertical coordinate rather than height, like saying &quot;temperature
 <br />
-isn't an optimal solution.
+on pressure levels&quot;. Of course, the vertical velocity in m s-1 is actually
 <br />
-<br />Oddly enough, I have a master's degree in physical occeanography.  I
+called upward_air_velocity regardless of the vertical coordinate, but I guess
 <br />
-believe that PSU is a dimensionless unit (like angular degrees) because
+the possibility of misinterpretation exists. That's why I chose &quot;expressed_as&quot;.
 <br />
-many of the thermodynamic and equation-of-state formulas require that
+<br /><em class="quotelev1">&gt; I find &quot;expressed...tendency of pressure&quot; to be clumsy ... and I wouldn't want 
+</em><br />
+<em class="quotelev1">&gt; it  on any plots where I used the standard name ...
+</em><br />
+<br />Many of the standard names are clumsy, because they aim to be explicit. The
 <br />
-the halinity (salinity) quantity be dimensionless -- in order for the
+long_name can be used to give a title you'd prefer to appear on a plot.
 <br />
-equation to make sense.  Personally, I'd have made the coefficients be
+<br />However, I agree that your phrase is neater and more familiar. Maybe my
 <br />
-dimensionful so as to cancel their respective halinity values (which I'd
+concerns are unfounded. I wonder what other people think.
 <br />
-make dimensionful as well) -- but those formulas were developed when
+<br />Cheers
 <br />
-halinity was measured in grams-per-gram rather than as conductance, so
+<br />Jonathan
 <br />
-the coeficients had to be dimensionless.  Tradition thus demands that
-<br />
-PSU be dimensionless.
-<br />
-<br />Regards,
-<br />
-Steve Emmerson
-<br />
-UDUNITS Developer
-<br />
-<span id="received"><dfn>Received on</dfn> Tue Oct 10 2006 - 14:42:43 BST</span>
+<span id="received"><dfn>Received on</dfn> Sun Dec 14 2003 - 16:08:39 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -125,8 +127,8 @@ UDUNITS Developer
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start333">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0334.html" title="Next message in the list">Steve Emmerson: "[CF-metadata] Re: units in cf standard names"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0332.html" title="Previous message in the list">Steve Emmerson: "[CF-metadata] Re: units in cf standard names"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0334.html" title="Next message in the list">Tom Gross: "[CF-metadata] Array Subscript Convention"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0332.html" title="Previous message in the list">Bryan Lawrence: "[CF-metadata] Use of &#0039;omega&#0039; in standard name list"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -138,7 +140,7 @@ UDUNITS Developer
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:48 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0332.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0334.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

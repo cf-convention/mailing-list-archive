@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] equivalent of TOWGS84 in CF from Upendra Dadi on 2010-03-03 (mailing-list-archive)</title>
-<meta name="Author" content="Upendra Dadi (Upendra.Dadi)" />
-<meta name="Subject" content="[CF-metadata] equivalent of TOWGS84 in CF" />
-<meta name="Date" content="2010-03-03" />
+<title>[CF-metadata]  standard names for chemistry from Jonathan Gregory on 2008-10-24 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata]  standard names for chemistry" />
+<meta name="Date" content="2008-10-24" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2476.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2478.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] equivalent of TOWGS84 in CF</h1>
-<!-- received="Wed Mar  3 13:41:38 2010" -->
-<!-- isoreceived="20100303134138" -->
-<!-- sent="Wed, 03 Mar 2010 15:41:38 -0500" -->
-<!-- isosent="20100303204138" -->
-<!-- name="Upendra Dadi" -->
-<!-- email="Upendra.Dadi" -->
-<!-- subject="[CF-metadata] equivalent of TOWGS84 in CF" -->
-<!-- id="4B8EC982.9030900_at_noaa.gov" -->
+<a style="text-decoration:none" href="./2476.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2478.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  standard names for chemistry</h1>
+<!-- received="Fri Oct 24 01:50:52 2008" -->
+<!-- isoreceived="20081024005052" -->
+<!-- sent="Fri, 24 Oct 2008 08:50:52 +0100" -->
+<!-- isosent="20081024075052" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata]  standard names for chemistry" -->
+<!-- id="20081024075052.GG25822_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="c28f2e141003031155l2a8240e4pea26267aa3195aa3_at_mail.gmail.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2478.html" accesskey="d" title="andrea antonello: &quot;[CF-metadata] equivalent of TOWGS84 in CF&quot;">Next message</a> ]
-[ <a href="./2476.html" title="Steve Emmerson: &quot;[CF-metadata] &#0034;Andrew Clegg&#0034;:  udunits 1 or 2 for CF?&quot;">Previous message</a> ]
-[ <a href="./2475.html" title="Kyle Shannon: &quot;[CF-metadata] equivalent of TOWGS84 in CF&quot;">In reply to</a> ]
+[ <a href="./2478.html" accesskey="d" title="Schultz, Martin: &quot;[CF-metadata] CF standard names for chemical constituents and aerosols&quot;">Next message</a> ]
+[ <a href="./2476.html" title="Jonathan Gregory: &quot;[CF-metadata] CF standard names for chemical constituents and aerosols&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./2478.html" accesskey="t" title="andrea antonello: &quot;[CF-metadata] equivalent of TOWGS84 in CF&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,120 +68,34 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Upendra Dadi &lt;<a href="mailto:Upendra.Dadi?Subject=Re%3A%20%5BCF-metadata%5D%20equivalent%20of%20TOWGS84%20in%20CF">Upendra.Dadi</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20standard%20names%20for%20chemistry">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 03 Mar 2010 15:41:38 -0500</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 24 Oct 2008 08:50:52 +0100</span><br />
 </address>
 <br />
-&nbsp;&nbsp;As I understand, scientists often use reference systems more complex 
+Dear Martin and Philip
 <br />
-than can be represented using the WKT. So it might not be good to fully 
+<br />I am not quite sure I understand options (i) and (ii). I think that the
 <br />
-depend on WKT, but having an optional attribute which can be used 
+standard name (mole concentration, mass concentration, etc.) defines the
 <br />
-whenever possible might be a good idea.
+physical units. The species does not; it just fills the gaps in the standard
 <br />
-<br />Upendra
+name where species are allowed. If any species could be inserted in the gap,
 <br />
-<br />Kyle Shannon wrote:
+that might not make chemical sense, but it would have the right units!
 <br />
-<em class="quotelev1">&gt; I don't believe there are any such tags for TOWGS84.  I would like to 
+<br />I agree that
+<br />
+<em class="quotelev1">&gt;        &quot;mass_fraction_of_water_vapour_in_moist_air&quot;
 </em><br />
-<em class="quotelev1">&gt; see a more conformance or integration with OGC WKT as well.  This 
-</em><br />
-<em class="quotelev1">&gt; could take the form of spatial reference well known text or proj4 
-</em><br />
-<em class="quotelev1">&gt; definitions.  For the spheroid in cf, you have to specify earth_radius 
-</em><br />
-<em class="quotelev1">&gt; and inverse_flattening or semi_major_axis and semi_minor_axis.  I 
-</em><br />
-<em class="quotelev1">&gt; think longitude_of_prime_meridian is in there too.  The other 
-</em><br />
-<em class="quotelev1">&gt; grid_mapping tags are for projected coordinate systems.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; -Kyle
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; On Wed, Mar 3, 2010 at 12:21 PM, Upendra Dadi &lt;Upendra.Dadi at noaa.gov 
-</em><br />
-<em class="quotelev1">&gt; &lt;mailto:Upendra.Dadi at noaa.gov&gt;&gt; wrote:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;     Hi,
-</em><br />
-<em class="quotelev1">&gt;      I am new to CF convention. I am looking at how to incorporate
-</em><br />
-<em class="quotelev1">&gt;     coordinate system information in the netcdf file. Referring to the
-</em><br />
-<em class="quotelev1">&gt;     CF documentation, I found that there are parameters like
-</em><br />
-<em class="quotelev1">&gt;     grid_mapping_name, semi_major_axis, longitude_of_prime_meridian,
-</em><br />
-<em class="quotelev1">&gt;     etc to describe the coordinate system.But I haven't found any
-</em><br />
-<em class="quotelev1">&gt;     attributes for specifying Bursa Wolf transformation parameters
-</em><br />
-<em class="quotelev1">&gt;     (equivalent of TOWGS84 in WKT). Or am I missing something? These
-</em><br />
-<em class="quotelev1">&gt;     parameters may be required when I am using data which is not based
-</em><br />
-<em class="quotelev1">&gt;     on WGS 84 datum in order to be able to apply proper
-</em><br />
-<em class="quotelev1">&gt;     transformation. Thanks.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;     Upendra
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;     _______________________________________________
-</em><br />
-<em class="quotelev1">&gt;     CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt;     CF-metadata at cgd.ucar.edu &lt;mailto:CF-metadata at cgd.ucar.edu&gt;
-</em><br />
-<em class="quotelev1">&gt;     <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; ------------------------------------------------------------------------
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt;   
-</em><br />
-<span id="received"><dfn>Received on</dfn> Wed Mar 03 2010 - 13:41:38 GMT</span>
+would be clear - isn't this what specific_humidity means?
+<br />
+<br />Cheers
+<br />
+<br />Jonathan
+<br />
+<span id="received"><dfn>Received on</dfn> Fri Oct 24 2008 - 01:50:52 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -193,14 +103,9 @@ whenever possible might be a good idea.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2477">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2478.html" title="Next message in the list">andrea antonello: "[CF-metadata] equivalent of TOWGS84 in CF"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2476.html" title="Previous message in the list">Steve Emmerson: "[CF-metadata] &#0034;Andrew Clegg&#0034;:  udunits 1 or 2 for CF?"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./2475.html" title="Message to which this message replies">Kyle Shannon: "[CF-metadata] equivalent of TOWGS84 in CF"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2478.html" title="Next message in the list">Schultz, Martin: "[CF-metadata] CF standard names for chemical constituents and aerosols"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2476.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] CF standard names for chemical constituents and aerosols"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./2478.html" title="Next message in this discussion thread">andrea antonello: "[CF-metadata] equivalent of TOWGS84 in CF"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./2478.html" title="Message sent in reply to this message">andrea antonello: "[CF-metadata] equivalent of TOWGS84 in CF"</a></li>
-<li><dfn>Reply</dfn>: <a href="./2480.html" title="Message sent in reply to this message">Bentley, Philip: "[CF-metadata] equivalent of TOWGS84 in CF"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -211,7 +116,7 @@ whenever possible might be a good idea.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:26 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2476.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2478.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] bounds variable &amp; closed-open intervals from Karl Taylor on 2018-03-27 (mailing-list-archive)</title>
-<meta name="Author" content="Karl Taylor (taylor13)" />
-<meta name="Subject" content="[CF-metadata] bounds variable &amp; closed-open intervals" />
-<meta name="Date" content="2018-03-27" />
+<title>[CF-metadata] standard name for CDOM from Matthias Lankhorst on 2016-12-20 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Matthias Lankhorst (mlankhorst)" />
+<meta name="Subject" content="[CF-metadata] standard name for CDOM" />
+<meta name="Date" content="2016-12-20" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./8759.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8761.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] bounds variable &amp; closed-open intervals</h1>
-<!-- received="Tue Mar 27 11:08:08 2018" -->
-<!-- isoreceived="20180327100808" -->
-<!-- sent="Tue, 27 Mar 2018 10:08:08 -0700" -->
-<!-- isosent="20180327170808" -->
-<!-- name="Karl Taylor" -->
-<!-- email="taylor13" -->
-<!-- subject="[CF-metadata] bounds variable &amp; closed-open intervals" -->
-<!-- id="41fa3f7f-ab71-e036-577e-119d6540c634_at_llnl.gov" -->
+<a style="text-decoration:none" href="./8759.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8761.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard name for CDOM</h1>
+<!-- received="Mon Dec 19 17:03:56 2016" -->
+<!-- isoreceived="20161219170356" -->
+<!-- sent="Mon, 19 Dec 2016 16:03:56 -0800" -->
+<!-- isosent="20161220000356" -->
+<!-- name="Matthias Lankhorst" -->
+<!-- email="mlankhorst" -->
+<!-- subject="[CF-metadata] standard name for CDOM" -->
+<!-- id="1482192236.2745.38.camel_at_sendlab01" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="9d644dbc-09aa-b6b4-3ec7-17d6a3f1f546_at_llnl.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +53,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./8761.html" accesskey="d" title="Charlie Zender: &quot;[CF-metadata] CF conventions and netCDF4 groups&quot;">Next message</a> ]
-[ <a href="./8759.html" title="Jim Biard: &quot;[CF-metadata] CF conventions and netCDF4 groups&quot;">Previous message</a> ]
-[ <a href="./8752.html" title="Karl Taylor: &quot;[CF-metadata] bounds variable &#0038; closed-open intervals&quot;">In reply to</a> ]
+[ <a href="./8761.html" accesskey="d" title="Lowry, Roy K.: &quot;[CF-metadata] standard name for CDOM&quot;">Next message</a> ]
+[ <a href="./8759.html" title="Jonathan Gregory: &quot;[CF-metadata]  RFMIP new variable request&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./8762.html" accesskey="t" title="Jim Biard: &quot;[CF-metadata] bounds variable &#0038; closed-open intervals&quot;">Next in thread</a> ]
+[ <a href="./8761.html" accesskey="t" title="Lowry, Roy K.: &quot;[CF-metadata] standard name for CDOM&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,256 +70,67 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Karl Taylor &lt;<a href="mailto:taylor13?Subject=Re%3A%20%5BCF-metadata%5D%20bounds%20variable%20%26%20closed-open%20intervals">taylor13</a>&gt;
+<dfn>From</dfn>: Matthias Lankhorst &lt;<a href="mailto:mlankhorst?Subject=Re%3A%20%5BCF-metadata%5D%20standard%20name%20for%20CDOM">mlankhorst</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 27 Mar 2018 10:08:08 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 19 Dec 2016 16:03:56 -0800</span><br />
 </address>
 <br />
-Hi again,
+Hi,
 <br />
-<br />I think we've been thinking about this wrong.? You apparently want to 
+<br />I am looking to publish CDOM (colored dissolved organic matter) data
 <br />
-report the mean for the period 23:10:00 - 23:20:00 from 1-second samples 
+from CTD casts, and cannot find a suitable standard name. The
 <br />
-(sampled on the second).? This amounts to integrating over the 10-minute 
+measurement is similar to that of chlorophyll fluorescence, but the
 <br />
-period (multiply each sample by the time interval it represents) and 
+wavelengths are tuned to detect this other material rather than
 <br />
-dividing by 10 minutes..? For a case like this, elementary approaches to 
+chlorophyll. The sensor in question is a WETLabs ECO fluorometer.
 <br />
-estimating the integral make use of *both* end points.? The Trapezoid 
+<br />Existing names are as follows:
 <br />
-Rule, for example, weights each of the samples equally except the two 
+<br />concentration_of_colored_dissolved_organic_matter_in_sea_water_expressed_as_equivalent_mass_fraction_of_quinine_sulfate_dihydrate
 <br />
-end points, which get half the weight.
+<br />mass_concentration_of_chlorophyll_in_sea_water
 <br />
-<br />So,? your bounds should define the interval represented by the mean you 
+<br />I understand that the property CDOM is vaguely defined. It is not one
 <br />
-are reporting (23:10:00 - 23:20:00), and you should estimate that mean 
+specific substance, but rather a mix of many. Should I somehow find a
 <br />
-using 601 samples, but weighting the first and last sample half as much 
+way to express my data in that first standard name? I have no idea what
 <br />
-as the others.
+that quinine stuff is though, or how I could convert my bulk
 <br />
-<br />best regards,
+measurements to that equivalent.
 <br />
-Karl
+<br />Or else, should we create one of the following new names (either one
 <br />
-<br />On 3/26/18 9:00 AM, Karl Taylor wrote:
+will work for me):
 <br />
-<em class="quotelev1">&gt; Dear Erik,
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; I think one could argue that a &quot;sample&quot; taken *on* the second is most 
-</em><br />
-<em class="quotelev1">&gt; representative of an interval extending from half a second prior to 
-</em><br />
-<em class="quotelev1">&gt; the sample time and half a second following the sample time, so, for 
-</em><br />
-<em class="quotelev1">&gt; example, a sample at 1 sec represents the interval from 0.5 to 1.5 
-</em><br />
-<em class="quotelev1">&gt; seconds.? In that case if your 1st sample is at 23:10:00 and last 
-</em><br />
-<em class="quotelev1">&gt; sample is at 23:19:59, you might want to set the bounds on your 
-</em><br />
-<em class="quotelev1">&gt; 10-minute mean as 23:09:59.5 and 23:19:59.5.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; On the other hand, if there is some finite response response time of 
-</em><br />
-<em class="quotelev1">&gt; your instrument (say, of order 1 sec), you could argue that a sample 
-</em><br />
-<em class="quotelev1">&gt; taken at time t really represents an average over some preceding 
-</em><br />
-<em class="quotelev1">&gt; interval, and then you might say your 10-minute mean extends from 
-</em><br />
-<em class="quotelev1">&gt; 23:09:59 to 23:19:59.? In this case I would be tempted to compute 
-</em><br />
-<em class="quotelev1">&gt; 10-minute means from samples starting with 23:10:01and ending with 
-</em><br />
-<em class="quotelev1">&gt; 23:20:00, so the bounds would be 23:10:00 and 23:20:00.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; In any case the bounds should span exactly 10 minutes, I think.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; These suggestions come from someone? unfamiliar with observational 
-</em><br />
-<em class="quotelev1">&gt; protocols, so take them for what they're worth.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; regards,
-</em><br />
-<em class="quotelev1">&gt; Karl
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; On 3/26/18 7:26 AM, Jim Biard wrote:
-</em><br />
-<em class="quotelev2">&gt;&gt; Erik,
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Bounds are always inclusive lower / exclusive upper. That's [low, 
-</em><br />
-<em class="quotelev2">&gt;&gt; high) in common notation. If the cells abut one another, the upper 
-</em><br />
-<em class="quotelev2">&gt;&gt; bound for one should be identical to the lower bound for then next.
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Grace and peace,
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Jim
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; CICS-NC &lt;<a href="http://www.cicsnc.org/">http://www.cicsnc.org/</a>&gt;Visit us on
-</em><br />
-<em class="quotelev2">&gt;&gt; Facebook &lt;<a href="http://www.facebook.com/cicsnc">http://www.facebook.com/cicsnc</a>&gt; 	*Jim Biard*
-</em><br />
-<em class="quotelev2">&gt;&gt; *Research Scholar*
-</em><br />
-<em class="quotelev2">&gt;&gt; Cooperative Institute for Climate and Satellites NC &lt;<a href="http://cicsnc.org/">http://cicsnc.org/</a>&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; North Carolina State University &lt;<a href="http://ncsu.edu/">http://ncsu.edu/</a>&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; NOAA National Centers for Environmental Information 
-</em><br />
-<em class="quotelev2">&gt;&gt; &lt;<a href="http://ncdc.noaa.gov/">http://ncdc.noaa.gov/</a>&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; /formerly NOAA?s National Climatic Data Center/
-</em><br />
-<em class="quotelev2">&gt;&gt; 151 Patton Ave, Asheville, NC 28801
-</em><br />
-<em class="quotelev2">&gt;&gt; e: jbiard at cicsnc.org &lt;mailto:jbiard at cicsnc.org&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; o: +1 828 271 4900 &lt;tel:%28828%29%20271-4900&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; /Connect with us on Facebook for climate 
-</em><br />
-<em class="quotelev2">&gt;&gt; &lt;<a href="http://www.facebook.com/NOAANCEIclimate">http://www.facebook.com/NOAANCEIclimate</a>&gt;?and ocean and geophysics 
-</em><br />
-<em class="quotelev2">&gt;&gt; &lt;<a href="http://www.facebook.com/NOAANCEIoceangeo">http://www.facebook.com/NOAANCEIoceangeo</a>&gt;?information, and follow us 
-</em><br />
-<em class="quotelev2">&gt;&gt; on Twitter at _at_NOAANCEIclimate 
-</em><br />
-<em class="quotelev2">&gt;&gt; &lt;<a href="http://www.twitter.com/NOAANCEIclimate">http://www.twitter.com/NOAANCEIclimate</a>&gt;and _at_NOAANCEIocngeo 
-</em><br />
-<em class="quotelev2">&gt;&gt; &lt;<a href="http://www.twitter.com/NOAANCEIocngeo">http://www.twitter.com/NOAANCEIocngeo</a>&gt;.//
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; /
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; On Mon, Mar 26, 2018 at 4:29 AM, Erik Quaeghebeur 
-</em><br />
-<em class="quotelev2">&gt;&gt; &lt;E.R.G.Quaeghebeur at tudelft.nl &lt;mailto:E.R.G.Quaeghebeur at tudelft.nl&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; wrote:
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;     Dear list,
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;     Is there a standard way to indicate which bounds are included in
-</em><br />
-<em class="quotelev2">&gt;&gt;     a bounds variable?
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;     Context: I have 10-min. statistics, e.g., the mean of 600
-</em><br />
-<em class="quotelev2">&gt;&gt;     per-second samples from 23:10:00 to 23:19:59. Currently, in my
-</em><br />
-<em class="quotelev2">&gt;&gt;     bounds variable for time, I have, essentially, [23:10:00,
-</em><br />
-<em class="quotelev2">&gt;&gt;     23:20:00]. I list my time in seconds since 1970-01-01. Should I
-</em><br />
-<em class="quotelev2">&gt;&gt;     use [23:10:00, 23:19:59] instead?
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;     Best,
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;     Erik
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;     -- 
-</em><br />
-<em class="quotelev2">&gt;&gt;     <a href="https://ac.erikquaeghebeur.name">https://ac.erikquaeghebeur.name</a> &lt;<a href="https://ac.erikquaeghebeur.name">https://ac.erikquaeghebeur.name</a>&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;     _______________________________________________
-</em><br />
-<em class="quotelev2">&gt;&gt;     CF-metadata mailing list
-</em><br />
-<em class="quotelev2">&gt;&gt;     CF-metadata at cgd.ucar.edu &lt;mailto:CF-metadata at cgd.ucar.edu&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;     <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev2">&gt;&gt;     &lt;<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; _______________________________________________
-</em><br />
-<em class="quotelev2">&gt;&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev2">&gt;&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev2">&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<br />-------------- next part --------------
+<br />mass_concentration_of_colored_dissolved_organic_matter_in_sea_water
 <br />
-An HTML attachment was scrubbed...
+(canonical units would be kg / m3)
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20180327/3ea125c0/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20180327/3ea125c0/attachment.html</a>&gt;
+<br />mass_fraction_of_colored_dissolved_organic_matter_in_sea_water
 <br />
-<span id="received"><dfn>Received on</dfn> Tue Mar 27 2018 - 11:08:08 BST</span>
+(canonical units would be 1)
+<br />
+<br />Regards, Matthias
+<br />
+<br /><pre>
+-- 
+_______________________________________
+ Dr. Matthias Lankhorst
+ Scripps Institution of Oceanography
+ 9500 Gilman Drive, Mail Code 0230
+ La Jolla, CA 92093-0230
+ USA
+ Phone:  +1 858 822 5013
+ Fax:    +1 858 534 9820
+ E-Mail: mlankhorst at ucsd.edu
+ <a href="http://pordlabs.ucsd.edu/mlankhorst/">http://pordlabs.ucsd.edu/mlankhorst/</a>
+</pre>
+<span id="received"><dfn>Received on</dfn> Mon Dec 19 2016 - 17:03:56 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -329,14 +138,12 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start8760">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./8761.html" title="Next message in the list">Charlie Zender: "[CF-metadata] CF conventions and netCDF4 groups"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./8759.html" title="Previous message in the list">Jim Biard: "[CF-metadata] CF conventions and netCDF4 groups"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./8752.html" title="Message to which this message replies">Karl Taylor: "[CF-metadata] bounds variable &#0038; closed-open intervals"</a></li>
+<li><dfn>Next message</dfn>: <a href="./8761.html" title="Next message in the list">Lowry, Roy K.: "[CF-metadata] standard name for CDOM"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./8759.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]  RFMIP new variable request"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./8762.html" title="Next message in this discussion thread">Jim Biard: "[CF-metadata] bounds variable &#0038; closed-open intervals"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./8761.html" title="Next message in this discussion thread">Lowry, Roy K.: "[CF-metadata] standard name for CDOM"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./8762.html" title="Message sent in reply to this message">Jim Biard: "[CF-metadata] bounds variable &#0038; closed-open intervals"</a></li>
-<li><dfn>Reply</dfn>: <a href="./8763.html" title="Message sent in reply to this message">Erik Quaeghebeur: "[CF-metadata] bounds variable &#0038; closed-open intervals"</a></li>
+<dfn>Reply</dfn>: <a href="./8761.html" title="Message sent in reply to this message">Lowry, Roy K.: "[CF-metadata] standard name for CDOM"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -347,7 +154,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:20 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./8759.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8761.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

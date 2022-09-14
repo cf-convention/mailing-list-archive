@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] same attribute name in variable and in global from Andrew Barna on 2019-03-15 (mailing-list-archive)</title>
-<meta name="Author" content="Andrew Barna (abarna)" />
-<meta name="Subject" content="[CF-metadata] same attribute name in variable and in global" />
-<meta name="Date" content="2019-03-15" />
+<title>[CF-metadata] proposed new standard name for storm surge residual from Jonathan Gregory on 2018-04-06 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] proposed new standard name for storm surge residual" />
+<meta name="Date" content="2018-04-06" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./9621.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./9623.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] same attribute name in variable and in global</h1>
-<!-- received="Fri Mar 15 08:50:56 2019" -->
-<!-- isoreceived="20190315085056" -->
-<!-- sent="Fri, 15 Mar 2019 07:50:56 -0700" -->
-<!-- isosent="20190315145056" -->
-<!-- name="Andrew Barna" -->
-<!-- email="abarna" -->
-<!-- subject="[CF-metadata] same attribute name in variable and in global" -->
-<!-- id="CAGPbRPa+a5LEOfa8M2CEW=M4B2uF11nGP9ELNHSiT9efv+0Y7Q_at_mail.gmail.com" -->
+<a style="text-decoration:none" href="./9621.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./9623.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] proposed new standard name for storm surge residual</h1>
+<!-- received="Fri Apr  6 06:42:42 2018" -->
+<!-- isoreceived="20180406054242" -->
+<!-- sent="Fri, 6 Apr 2018 13:42:42 +0100" -->
+<!-- isosent="20180406124242" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] proposed new standard name for storm surge residual" -->
+<!-- id="20180406124242.GA9575_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="d1782b75-d2ca-1a48-1324-81e7bd24d787_at_cicsnc.org" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./9623.html" accesskey="d" title="Kehoe, Kenneth E.: &quot;[CF-metadata] Adding sensor_elevation_angle to standard_name&quot;">Next message</a> ]
-[ <a href="./9621.html" title="Klaus Zimmermann: &quot;[CF-metadata] same attribute name in variable and in global&quot;">Previous message</a> ]
-[ <a href="./9619.html" title="Jim Biard: &quot;[CF-metadata] same attribute name in variable and in global&quot;">In reply to</a> ]
+[ <a href="./9623.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] how to	use ocean_mixed_layer_thickness_defined_by_*&quot;">Next message</a> ]
+[ <a href="./9621.html" title="Maarten Sneep: &quot;[CF-metadata] Standard name proposal related to methane, water vapor, carbon monoxide, semi-heavy water, and nitrogen dioxide.&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./9632.html" accesskey="t" title="David Hassell: &quot;[CF-metadata] same attribute name in variable and in global&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -71,236 +68,136 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Andrew Barna &lt;<a href="mailto:abarna?Subject=Re%3A%20%5BCF-metadata%5D%20same%20attribute%20name%20in%20variable%20and%20in%20global">abarna</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20proposed%20new%20standard%20name%20for%20storm%20surge%20residual">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 15 Mar 2019 07:50:56 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 6 Apr 2018 13:42:42 +0100</span><br />
 </address>
 <br />
-HI CF Folks,
+Dear Andy
 <br />
-<br />This question comes at at interesting time for the group I work in (
+<br />Thanks for your posting. You're doing it just right!
 <br />
-<a href="https://cchdo.ucsd.edu">https://cchdo.ucsd.edu</a>). We are in the process of converting our data
+<br />Both of your proposals have the form
 <br />
-holdings form WOCE and more recent hydrophobic programs into a CF compliant
+&nbsp;&nbsp;sea_surface_height_above_mean_sea_level_due_to_X
 <br />
-netcdf. We are also taking the opportunity to add the ACDD type attributes
+and I wonder, do you really mean above MSL in *both* cases? Storm surge is
 <br />
-for knowing the &quot;who&quot; of our various data. However, we have the problem of
+usually measured wrt the current tidal level - isn't it? Also, it seems to me
 <br />
-almost all the variables in our files being being almost totally
+that &quot;due to&quot; isn't quite right in this case. To quote from the definitions:
 <br />
-independent, different PI, different funding, etc.. this even applies to
+<br />&quot;due_to_process&quot; means that the quantity named is a single term in a sum of
 <br />
-different instruments placed on the CTD. Often the only commonality is the
+terms which together compose the general quantity named by omitting the phrase.
 <br />
-specific niskin the sample came from.
+<br />Most &quot;due_to&quot; names go with things which are processes that change the state,
 <br />
-<br />To cover our use case, the plan is to push many of the &quot;global&quot; ACDD
+or they are rates of change. SSH is a state, I would say. For example, my mass
 <br />
-attributes to the variable level and then have various combinatoric rules
+*itself* isn't due to my eating too many biscuits, or due to my running a
 <br />
-for making the global level attribute of the same name, e.g. all the
+half-marathon - it's an aspect of my state. It's the *changes* in my mass which
 <br />
-variable level creator_name values would be concatenated for the
+are due to those separate things, that can be added up.
 <br />
-global level creator_name attribute.
+<br />I wonder whether, at least in the case of storm surge, you mean the difference
 <br />
-<br />I don't really has a specific request or recommendation, but want the list
+between SSH with and without the storm surge. Although &quot;sea surface elevation&quot;
 <br />
-to be aware that this is a problem that others encounter, especially in
+is often used as a synonym for SSH, maybe we could make use of it in the sense
 <br />
-collaborative work.
+of &quot;how much *higher* the sea surface is&quot; due to the storm surge, which is the
 <br />
-<br />-Andrew Barna
+concept sometimes called &quot;setup&quot;, but that's jargon, and I wouldn't advocate it
 <br />
-<br />On Fri, Mar 15, 2019 at 7:20 AM Jim Biard &lt;jbiard at cicsnc.org&gt; wrote:
+for a CF standard name. Would
 <br />
-<br /><em class="quotelev1">&gt; Lars,
+&nbsp;&nbsp;sea_surface_elevation_due_to_storm_surge
+<br />
+be OK, I wonder? That quantity isn't wrt MSL or geoid or any other fixed
+<br />
+surface; it's the difference between two values of SSH. Another possibility is
+<br />
+&nbsp;&nbsp;change_in_sea_surface_height_due_to_storm_surge
+<br />
+which could be better because it's more explicit, but I'm not sure it's quite
+<br />
+right, because it sounds like watching the SSH going up over a certain time
+<br />
+interval, rather than comparing two situations with and without surge. Is this
+<br />
+what you mean?
+<br />
+<br />For the tide, do you definitely mean the current tidal elevation wrt MSL?
+<br />
+<br />I hope I haven't missed the point.
+<br />
+<br />Best wishes
+<br />
+<br />Jonathan
+<br />
+<br />----- Forwarded message from &quot;Saulter, Andrew&quot; &lt;andrew.saulter at metoffice.gov.uk&gt; -----
+<br />
+<br /><em class="quotelev1">&gt; Date: Wed, 4 Apr 2018 16:13:18 +0000
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; From: &quot;Saulter, Andrew&quot; &lt;andrew.saulter at metoffice.gov.uk&gt;
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; To: &quot;cf-metadata at cgd.ucar.edu&quot; &lt;cf-metadata at cgd.ucar.edu&gt;
 </em><br />
-<em class="quotelev1">&gt; Good catch! It seems that history may need to be an exception to such a
+<em class="quotelev1">&gt; Subject: [CF-metadata] proposed new standard name for storm surge residual
 </em><br />
-<em class="quotelev1">&gt; rule. A comment attribute should also probably be considered to be an
-</em><br />
-<em class="quotelev1">&gt; exception as well. Or the concept needs refinement.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Jim
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; On 3/15/19 8:48 AM, B?rring Lars wrote:
-</em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; 
 </em><br />
 <em class="quotelev1">&gt; Dear all,
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; I have come across many CMIP5 files that have the same attribute [name]
+<em class="quotelev1">&gt; First posting to this list, so please forgive me if I'm doing it wrong...
 </em><br />
-<em class="quotelev1">&gt; attached to the data variable as found in the globals.
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; I'd like to request an addition to the standard name list to include storm surge residual and tide. These variables are generated for the purpose of coastal flood prediction and will be available in future, netCDF based, operational products from the Met Office.
 </em><br />
-<em class="quotelev1">&gt; In particular it seems that CMOR was writing variable processing history
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; attached to the variable, and more general file processing in the global
+<em class="quotelev1">&gt; Proposed standard name: sea_surface_height_above_mean_sea_level_due_to_storm_surge
 </em><br />
-<em class="quotelev1">&gt; history.
+<em class="quotelev1">&gt; Units: m
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; &quot;Sea surface height&quot; is a time-varying quantity. &quot;Height_above_X&quot; means the vertical distance above the named surface X. &quot;Mean sea level&quot; means the time mean of sea surface elevation at a given location over an arbitrary period sufficient to eliminate the tidal signals. The specification of a physical process by the phrase &quot;due_to_process&quot; means that the quantity named is a single term in a sum of terms which together compose the general quantity named by omitting the phrase. Storm surge effects, due to meteorological forcing of the ocean and interaction between the generated surge and tides, are a significant contributor to the observed sea surface height.
 </em><br />
-<em class="quotelev1">&gt; I have also seen that &quot;comment&quot; sometimes occur both as global and as
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; variable attribute.
+<em class="quotelev1">&gt; Proposed standard name: sea_surface_height_above_mean_sea_level_due_to_tide
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; Units: m
 </em><br />
-<em class="quotelev1">&gt; If such a duplication occurs, CF writes:
+<em class="quotelev1">&gt; &quot;Sea surface height&quot; is a time-varying quantity. &quot;Height_above_X&quot; means the vertical distance above the named surface X. &quot;Mean sea level&quot; means the time mean of sea surface elevation at a given location over an arbitrary period sufficient to eliminate the tidal signals. The specification of a physical process by the phrase &quot;due_to_process&quot; means that the quantity named is a single term in a sum of terms which together compose the general quantity named by omitting the phrase. Tides are a significant contributor to the observed sea surface height; here &quot;tide&quot; denotes a generic variable describing the time varying tidal signal, for example as generated based on a summation of harmonically analysed components, or resulting from the application of such components as boundary conditions to a numerical tidal model.
 </em><br />
-<em class="quotelev1">&gt; &quot;When an attribute appears both globally and as a variable attribute, the
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; variable?s version has precedence.&quot;
+<em class="quotelev1">&gt; Many thanks
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; Andy
 </em><br />
-<em class="quotelev1">&gt; My interpretation of this is that if there are contradictory information
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; then the variable's attribute has precedence, but otherwise it does not
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; invalidate or overshadows what is in the global attribute.
+<em class="quotelev1">&gt; Andy Saulter
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; Surge, Waves and Metocean Projects Manager
 </em><br />
-<em class="quotelev1">&gt; However, the data model presented in the GMD paper (
+<em class="quotelev1">&gt; Met Office  FitzRoy Road  Exeter  Devon EX1 3PB
 </em><br />
-<em class="quotelev1">&gt; <a href="https://www.geosci-model-dev.net/10/4619/2017/">https://www.geosci-model-dev.net/10/4619/2017/</a> page 4629, [page 11],
+<em class="quotelev1">&gt; Tel: +44 (0)1392 884703  Fax: +44 (0)1392 885681
 </em><br />
-<em class="quotelev1">&gt; under &quot;4.1 The field construct&quot;) presents a more restrictive
+<em class="quotelev1">&gt; andrew.saulter at metoffice.gov.uk <a href="http://www.metoffice.gov.uk">http://www.metoffice.gov.uk</a>
 </em><br />
-<em class="quotelev1">&gt; interpretation:
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; &quot;In the data model, we consider that netCDF global file attributes apply
-</em><br />
-<em class="quotelev1">&gt; to every data variable in the file, except where they are superseded by
-</em><br />
-<em class="quotelev1">&gt; netCDF data variable attributes with the same name.&quot;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; I understand this to mean that if the same attributes (e.g. comment or
-</em><br />
-<em class="quotelev1">&gt; history) is present both as global and variable attribute, then the global
-</em><br />
-<em class="quotelev1">&gt; attribute is overshadowed (as if it did not exist at all)?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Is this correct? If so, is this the best solution?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Would not concatenating the information contained in each (putting the
-</em><br />
-<em class="quotelev1">&gt; variable text first) be a more appropriate way to resolve the situation
-</em><br />
-<em class="quotelev1">&gt; (and thus specify in the data model)?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Kind regards,
-</em><br />
-<em class="quotelev1">&gt; Lars
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; --
-</em><br />
-<em class="quotelev1">&gt; Lars B?rring
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; FDr, Forskare
-</em><br />
-<em class="quotelev1">&gt; PhD, Research Scientist
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; SMHI  /  Swedish Meteorological and Hydrological Institute
-</em><br />
-<em class="quotelev1">&gt; Rossby Centre
-</em><br />
-<em class="quotelev1">&gt; SE - 601 76 NORRK?PING
-</em><br />
-<em class="quotelev1">&gt; <a href="http://www.smhi.se">http://www.smhi.se</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; E-post / Email: lars.barring at smhi.se
-</em><br />
-<em class="quotelev1">&gt; Tel / Phone: +46 (0)11 495 8604
-</em><br />
-<em class="quotelev1">&gt; Fax: +46 (0)11 495 8001
-</em><br />
-<em class="quotelev1">&gt; Bes?ksadress / Visiting address: Folkborgsv?gen 17
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing listCF-metadata at cgd.ucar.edu<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; --
-</em><br />
-<em class="quotelev1">&gt; [image: CICS-NC] &lt;<a href="http://www.cicsnc.org/">http://www.cicsnc.org/</a>&gt; Visit us on
-</em><br />
-<em class="quotelev1">&gt; Facebook &lt;<a href="http://www.facebook.com/cicsnc">http://www.facebook.com/cicsnc</a>&gt; *Jim Biard*
-</em><br />
-<em class="quotelev1">&gt; *Research Scholar*
-</em><br />
-<em class="quotelev1">&gt; Cooperative Institute for Climate and Satellites NC &lt;<a href="http://cicsnc.org/">http://cicsnc.org/</a>&gt;
-</em><br />
-<em class="quotelev1">&gt; North Carolina State University &lt;<a href="http://ncsu.edu/">http://ncsu.edu/</a>&gt;
-</em><br />
-<em class="quotelev1">&gt; NOAA National Centers for Environmental Information
-</em><br />
-<em class="quotelev1">&gt; &lt;<a href="http://ncdc.noaa.gov/">http://ncdc.noaa.gov/</a>&gt;
-</em><br />
-<em class="quotelev1">&gt; *formerly NOAA?s National Climatic Data Center*
-</em><br />
-<em class="quotelev1">&gt; 151 Patton Ave, Asheville, NC 28801
-</em><br />
-<em class="quotelev1">&gt; e: jbiard at cicsnc.org
-</em><br />
-<em class="quotelev1">&gt; o: +1 828 271 4900
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; *Connect with us on Facebook for climate
-</em><br />
-<em class="quotelev1">&gt; &lt;<a href="https://www.facebook.com/NOAANCEIclimate">https://www.facebook.com/NOAANCEIclimate</a>&gt; and ocean and geophysics
-</em><br />
-<em class="quotelev1">&gt; &lt;<a href="https://www.facebook.com/NOAANCEIoceangeo">https://www.facebook.com/NOAANCEIoceangeo</a>&gt; information, and follow us on
-</em><br />
-<em class="quotelev1">&gt; Twitter at _at_NOAANCEIclimate &lt;<a href="https://twitter.com/NOAANCEIclimate">https://twitter.com/NOAANCEIclimate</a>&gt; and
-</em><br />
-<em class="quotelev1">&gt; _at_NOAANCEIocngeo &lt;<a href="https://twitter.com/NOAANCEIocngeo">https://twitter.com/NOAANCEIocngeo</a>&gt;. *
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
+<br /><em class="quotelev1">&gt; _______________________________________________
 </em><br />
 <em class="quotelev1">&gt; CF-metadata mailing list
 </em><br />
@@ -308,15 +205,9 @@ collaborative work.
 </em><br />
 <em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
-<em class="quotelev1">&gt;
-</em><br />
--------------- next part --------------
+<br /><br />----- End forwarded message -----
 <br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20190315/53755ad2/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20190315/53755ad2/attachment-0001.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Fri Mar 15 2019 - 08:50:56 GMT</span>
+<span id="received"><dfn>Received on</dfn> Fri Apr 06 2018 - 06:42:42 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -324,11 +215,9 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start9622">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./9623.html" title="Next message in the list">Kehoe, Kenneth E.: "[CF-metadata] Adding sensor_elevation_angle to standard_name"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./9621.html" title="Previous message in the list">Klaus Zimmermann: "[CF-metadata] same attribute name in variable and in global"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./9619.html" title="Message to which this message replies">Jim Biard: "[CF-metadata] same attribute name in variable and in global"</a></li>
+<li><dfn>Next message</dfn>: <a href="./9623.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] how to	use ocean_mixed_layer_thickness_defined_by_*"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./9621.html" title="Previous message in the list">Maarten Sneep: "[CF-metadata] Standard name proposal related to methane, water vapor, carbon monoxide, semi-heavy water, and nitrogen dioxide."</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./9632.html" title="Next message in this discussion thread">David Hassell: "[CF-metadata] same attribute name in variable and in global"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -339,7 +228,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:34 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./9621.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./9623.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

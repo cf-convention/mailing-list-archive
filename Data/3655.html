@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] ancillary variables and coordinates from Jonathan Gregory on 2011-08-16 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] ancillary variables and coordinates" />
-<meta name="Date" content="2011-08-16" />
+<title>[CF-metadata] proposed change to calendar definitions from Tony Craig on 2010-10-08 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Tony Craig (tcraig)" />
+<meta name="Subject" content="[CF-metadata] proposed change to calendar definitions" />
+<meta name="Date" content="2010-10-08" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./3654.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3656.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] ancillary variables and coordinates</h1>
-<!-- received="Tue Aug 16 10:12:20 2011" -->
-<!-- isoreceived="20110816091220" -->
-<!-- sent="Tue, 16 Aug 2011 17:12:20 +0100" -->
-<!-- isosent="20110816161220" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] ancillary variables and coordinates" -->
-<!-- id="20110816161220.GA21685_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./3654.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3656.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] proposed change to calendar definitions</h1>
+<!-- received="Fri Oct  8 12:00:57 2010" -->
+<!-- isoreceived="20101008110057" -->
+<!-- sent="Fri, 08 Oct 2010 11:00:57 -0700" -->
+<!-- isosent="20101008180057" -->
+<!-- name="Tony Craig" -->
+<!-- email="tcraig" -->
+<!-- subject="[CF-metadata] proposed change to calendar definitions" -->
+<!-- id="4CAF5C59.8050105_at_ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4E4A9544.3050908_at_noaa.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./3656.html" accesskey="d" title="Upendra Dadi: &quot;[CF-metadata] ancillary variables and coordinates&quot;">Next message</a> ]
-[ <a href="./3654.html" title="Upendra Dadi: &quot;[CF-metadata] ancillary variables and coordinates&quot;">Previous message</a> ]
-[ <a href="./3654.html" title="Upendra Dadi: &quot;[CF-metadata] ancillary variables and coordinates&quot;">In reply to</a> ]
+[ <a href="./3656.html" accesskey="d" title="Aleksandar Jelenak: &quot;[CF-metadata] Multidimensional variables as discrete sampling geometry data?&quot;">Next message</a> ]
+[ <a href="./3654.html" title="Rich Signell: &quot;[CF-metadata] point observation data in CF 1.4&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./3656.html" accesskey="t" title="Upendra Dadi: &quot;[CF-metadata] ancillary variables and coordinates&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,32 +68,90 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20ancillary%20variables%20and%20coordinates">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Tony Craig &lt;<a href="mailto:tcraig?Subject=Re%3A%20%5BCF-metadata%5D%20proposed%20change%20to%20calendar%20definitions">tcraig</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 16 Aug 2011 17:12:20 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 08 Oct 2010 11:00:57 -0700</span><br />
 </address>
 <br />
-Dear Upendra
+The NCAR CCSM climate model tries to follow the CF standard
 <br />
-<br /><em class="quotelev1">&gt;   Does the spatio temporal coordinates specified for a variable
-</em><br />
-<em class="quotelev1">&gt; apply automatically to all the ancillary variables as well or do
-</em><br />
-<em class="quotelev1">&gt; they need to be specified explicitly for each ancillary variable? Or
-</em><br />
-<em class="quotelev1">&gt; is it left to the software to decide? Is there any recommendation
-</em><br />
-<em class="quotelev1">&gt; here?
-</em><br />
-<br />Ancillary variables are data variables, and need the coordinates and
+as much as possible with regard to input and output datasets.
 <br />
-grid_mapping attributes if applicable.
+However, we are finding it nearly impossible to adhere to the
 <br />
-<br />Cheers
+calendaring standard.  We do not have access to time managers
 <br />
-<br />Jonathan
+either internally or through external sources, such as ESMF, to
 <br />
-<span id="received"><dfn>Received on</dfn> Tue Aug 16 2011 - 10:12:20 BST</span>
+support the default CF &quot;gregorian/standard&quot; calendar as documented here,
+<br />
+<br /><a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.4/cf-conventions.html#calendar">http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.4/cf-conventions.html#calendar</a>
+<br />
+<br />And at the end of that section, the CF convention notes in particular
+<br />
+the challenges associated with &quot;the discontinuity&quot; in the mixed
+<br />
+gregorian/julian calendar.  We have discussed calendaring issues with the
+<br />
+ESMF developers, and they also have no immediate plans to support
+<br />
+the mixed gregorian/julian calendar.  ESMF is one of our primary tools
+<br />
+for supporting infrastructure in climate models, especially time managers.
+<br />
+<br />As a result, in our implementation, we treat the calendar naming
+<br />
+conventions differently.
+<br />
+<br />gregorian == proleptic_gregorian
+<br />
+<br />and mixed gregorian/julian is not supported.
+<br />
+<br />We would like to propose a change to the CF calendar conventions to
+<br />
+reflect what we believe the community is already doing.  We propose
+<br />
+<br />1. continued support of the name proleptic_calendar for backwards
+<br />
+&nbsp;&nbsp;&nbsp;compatability.
+<br />
+2. changing the definition of gregorian and standard to be the proleptic
+<br />
+&nbsp;&nbsp;&nbsp;gregorian calendar instead of the mixed gregorian/julian.
+<br />
+3. make the proleptic gregorian the default calendar
+<br />
+4. add a new calendar name, such a gregorian_julian to provide the
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ability to define a mixed calendar in CF conventions.
+<br />
+<br />that would change the definition in the above CF standards document to the
+<br />
+following
+<br />
+<br />gregorian or proleptic_gregorian or standard
+<br />
+&nbsp;&nbsp;&nbsp;A gregorian calendar extended to dates before 1582...
+<br />
+&nbsp;&nbsp;&nbsp;This is the default.
+<br />
+<br />gregorian_julian
+<br />
+&nbsp;&nbsp;&nbsp;Mixed Gregorian/Julian calendar as defined by Udunits.
+<br />
+<br />We've had discussions about this with ESMF and they are supportive
+<br />
+of this proposal.  Their gregorian calendar is also proleptic and this
+<br />
+proposed change would make both their and our implementation more
+<br />
+closely aligned with the CF convention.
+<br />
+<br />If you have any questions, please feel free to contact me.  thanks,
+<br />
+<br />tony..........
+<br />
+<span id="received"><dfn>Received on</dfn> Fri Oct 08 2010 - 12:00:57 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -105,14 +159,9 @@ grid_mapping attributes if applicable.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start3655">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./3656.html" title="Next message in the list">Upendra Dadi: "[CF-metadata] ancillary variables and coordinates"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./3654.html" title="Previous message in the list">Upendra Dadi: "[CF-metadata] ancillary variables and coordinates"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./3654.html" title="Message to which this message replies">Upendra Dadi: "[CF-metadata] ancillary variables and coordinates"</a></li>
+<li><dfn>Next message</dfn>: <a href="./3656.html" title="Next message in the list">Aleksandar Jelenak: "[CF-metadata] Multidimensional variables as discrete sampling geometry data?"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./3654.html" title="Previous message in the list">Rich Signell: "[CF-metadata] point observation data in CF 1.4"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./3656.html" title="Next message in this discussion thread">Upendra Dadi: "[CF-metadata] ancillary variables and coordinates"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./3656.html" title="Message sent in reply to this message">Upendra Dadi: "[CF-metadata] ancillary variables and coordinates"</a></li>
-<li><dfn>Reply</dfn>: <a href="./3657.html" title="Message sent in reply to this message">Upendra Dadi: "[CF-metadata] ancillary variables and coordinates"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -123,7 +172,7 @@ grid_mapping attributes if applicable.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:49 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./3654.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3656.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

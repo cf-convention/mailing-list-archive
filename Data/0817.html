@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] new standard names proposal for CEOP-II model ouput from Jonathan Gregory on 2007-04-27 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] new standard names proposal for CEOP-II model ouput" />
-<meta name="Date" content="2007-04-27" />
+<title>[CF-metadata] cell methods: interval differs from interval given by time bounds from Beate.Geyer at gkss.de on 2006-01-17 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Beate.Geyer at gkss.de (Beate.Geyer)" />
+<meta name="Subject" content="[CF-metadata] cell methods: interval differs from interval given by time bounds" />
+<meta name="Date" content="2006-01-17" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0816.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0818.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new standard names proposal for CEOP-II model ouput</h1>
-<!-- received="Fri Apr 27 11:09:09 2007" -->
-<!-- isoreceived="20070427100909" -->
-<!-- sent="Fri, 27 Apr 2007 18:09:09 +0100" -->
-<!-- isosent="20070427170909" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] new standard names proposal for CEOP-II model ouput" -->
-<!-- id="20070427170909.GA10779_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0816.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0818.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] cell methods: interval differs from interval given by time bounds</h1>
+<!-- received="Tue Jan 17 01:17:47 2006" -->
+<!-- isoreceived="20060117011747" -->
+<!-- sent="Tue, 17 Jan 2006 09:17:47 +0100" -->
+<!-- isosent="20060117081747" -->
+<!-- name="Beate.Geyer at gkss.de" -->
+<!-- email="Beate.Geyer" -->
+<!-- subject="[CF-metadata] cell methods: interval differs from interval given by time bounds" -->
+<!-- id="OFA3D480A1.396C7D72-ONC12570F9.002CEDD2-C12570F9.002D4241_at_dvsun2.gkss.de" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0818.html" accesskey="d" title="Bryan Lawrence: &quot;[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF&quot;">Next message</a> ]
-[ <a href="./0816.html" title="Jonathan Gregory: &quot;[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF&quot;">Previous message</a> ]
+[ <a href="./0818.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] cell methods: interval differs from interval given by time bounds&quot;">Next message</a> ]
+[ <a href="./0816.html" title="Jonathan Gregory: &quot;[CF-metadata] New standard names proposal for ECPC CEOP data&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0827.html" accesskey="t" title="Pamment, JA: &quot;[CF-metadata] new standard names proposal for CEOP-II model ouput&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,54 +68,50 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20new%20standard%20names%20proposal%20for%20CEOP-II%20model%20ouput">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Beate.Geyer at gkss.de &lt;<a href="mailto:Beate.Geyer?Subject=Re%3A%20%5BCF-metadata%5D%20cell%20methods%3A%20interval%20differs%20from%20interval%20given%20by%20time%20bounds">Beate.Geyer</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 27 Apr 2007 18:09:09 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 17 Jan 2006 09:17:47 +0100</span><br />
 </address>
 <br />
-Dear Dr Hirai
+Dear cf-community,
 <br />
-<br /><em class="quotelev1">&gt; In general, there are two kinds of definitions for the volume ratio of
-</em><br />
-<em class="quotelev1">&gt; water in soil.
-</em><br />
-<em class="quotelev1">&gt; * the volume ratio of soil water in soil (mass), which includes soil
-</em><br />
-<em class="quotelev1">&gt; particles and soil pore.  This value must be from 0 to soil porosity (about
-</em><br />
-<em class="quotelev1">&gt; 0.4).
-</em><br />
-<em class="quotelev1">&gt; * the volume ratio of soil water in soil pore.  This value must be from 0
-</em><br />
-<em class="quotelev1">&gt; to 1.
-</em><br />
-<br />OK, thanks for explaining. In that case I would suggest
+<br />I want to write 2m Maximum Temperature which is given hourly into 
 <br />
-volume_fraction_of_condensed_water_in_soil_pores
+cf-standard. The maximum is calculated taking the last 3 hours into 
 <br />
-That is, I would propose &quot;pores&quot; instead of &quot;pore&quot;.
+account.
 <br />
-<br />For consistency, I would propose we rename (by aliasing) the following
+'cell_methods' time: 3h maximum 
 <br />
-volume_fraction_of_water_in_soil
+is not accepted by the compliance checker - what would be the correct way?
 <br />
-volume_fraction_of_water_in_soil_at_critical_point
+<br />Thanks for your help,
 <br />
-volume_fraction_of_water_in_soil_at_field_capacity
+Beat Geyer
 <br />
-volume_fraction_of_water_in_soil_at_wilting_point
+====================================================
 <br />
-to have condensed_water instead of water. That seems more accurate, doesn't it.
+&nbsp;Dr. Beate Geyer 
 <br />
-It's not very meaningful to speak of a volume fraction if you include water
+&nbsp;GKSS Research Centre 
 <br />
-vapour in it.
+&nbsp;Institute for Coastal Research 
 <br />
-<br />Cheers
+&nbsp;Max-Planck-Str. 
 <br />
-<br />Jonathan Gregory
+&nbsp;D-21502 Geesthacht, Germany 
 <br />
-<span id="received"><dfn>Received on</dfn> Fri Apr 27 2007 - 11:09:09 BST</span>
+<br />E-Mail:   Beate.Geyer at gkss.de
+<br />
+====================================================
+<br />
+-------------- next part --------------
+<br />
+An HTML attachment was scrubbed...
+<br />
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20060117/061b998c/attachment-0002.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20060117/061b998c/attachment-0002.html</a>&gt;
+<br />
+<span id="received"><dfn>Received on</dfn> Tue Jan 17 2006 - 01:17:47 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -125,12 +119,9 @@ vapour in it.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start817">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0818.html" title="Next message in the list">Bryan Lawrence: "[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0816.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0818.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] cell methods: interval differs from interval given by time bounds"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0816.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] New standard names proposal for ECPC CEOP data"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0827.html" title="Next message in this discussion thread">Pamment, JA: "[CF-metadata] new standard names proposal for CEOP-II model ouput"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0827.html" title="Message sent in reply to this message">Pamment, JA: "[CF-metadata] new standard names proposal for CEOP-II model ouput"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -141,7 +132,7 @@ vapour in it.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:56 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0816.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0818.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

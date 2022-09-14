@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Using a standard_name more than once in a file from Lynnes, Christopher S. on 2015-03-31 (mailing-list-archive)</title>
-<meta name="Author" content="Lynnes, Christopher S. (christopher.s.lynnes)" />
-<meta name="Subject" content="[CF-metadata] Using a standard_name more than once in a file" />
-<meta name="Date" content="2015-03-31" />
+<title>[CF-metadata] Vertical datums (again) from Jim Biard on 2014-02-07 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jim Biard (jbiard)" />
+<meta name="Subject" content="[CF-metadata] Vertical datums (again)" />
+<meta name="Date" content="2014-02-07" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./6857.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6859.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Using a standard_name more than once in a file</h1>
-<!-- received="Tue Mar 31 08:40:23 2015" -->
-<!-- isoreceived="20150331074023" -->
-<!-- sent="Tue, 31 Mar 2015 14:40:23 +0000" -->
-<!-- isosent="20150331144023" -->
-<!-- name="Lynnes, Christopher S." -->
-<!-- email="christopher.s.lynnes" -->
-<!-- subject="[CF-metadata] Using a standard_name more than once in a file" -->
-<!-- id="F2BA9106-925F-4222-9F75-CB700D13AB07_at_nasa.gov" -->
+<a style="text-decoration:none" href="./6857.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6859.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Vertical datums (again)</h1>
+<!-- received="Fri Feb  7 08:19:16 2014" -->
+<!-- isoreceived="20140207081916" -->
+<!-- sent="Fri, 7 Feb 2014 10:19:16 -0500" -->
+<!-- isosent="20140207151916" -->
+<!-- name="Jim Biard" -->
+<!-- email="jbiard" -->
+<!-- subject="[CF-metadata] Vertical datums (again)" -->
+<!-- id="99F0F66F-D7F0-4386-A2D5-0243AD7BA9F1_at_cicsnc.org" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="DC6567808739F54EAE9CCE07BD3AABB5022C72CB_at_ap-embx-sp30.RES.AD.JPL" -->
+<!-- inreplyto="20140206164726.GA15318_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./6859.html" accesskey="d" title="Andreas Hilboll: &quot;[CF-metadata] How to call dimension variables which are a function of an actual dimension?&quot;">Next message</a> ]
-[ <a href="./6857.html" title="Nan Galbraith: &quot;[CF-metadata] Using a standard_name more than once in a file&quot;">Previous message</a> ]
-[ <a href="./6855.html" title="Manning, Evan M: &quot;[CF-metadata] Using a standard_name more than once in a file&quot;">In reply to</a> ]
+[ <a href="./6859.html" accesskey="d" title="Hedley, Mark: &quot;[CF-metadata] Vertical datums (again)&quot;">Next message</a> ]
+[ <a href="./6857.html" title="Randy Horne: &quot;[CF-metadata] new standard names: day, night, and day/night terminator area_fractions&quot;">Previous message</a> ]
+[ <a href="./6853.html" title="Jonathan Gregory: &quot;[CF-metadata] Vertical datums (again)&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,62 +70,118 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Lynnes, Christopher S. &lt;<a href="mailto:christopher.s.lynnes?Subject=Re%3A%20%5BCF-metadata%5D%20Using%20a%20standard_name%20more%20than%20once%20in%20a%20file">christopher.s.lynnes</a>&gt;
+<dfn>From</dfn>: Jim Biard &lt;<a href="mailto:jbiard?Subject=Re%3A%20%5BCF-metadata%5D%20Vertical%20datums%20(again)">jbiard</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 31 Mar 2015 14:40:23 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 7 Feb 2014 10:19:16 -0500</span><br />
 </address>
 <br />
-Insofar as usability by software (and the scientists or developers who write it), the software should be locating a dependent variable's appropriate latitude variable by matching up the coordinate?s variable name with the dependent variable?s dimension name, in the case of 1-d lat/long.  Alternatively, the developer should look in the dependent variable?s :coordinates attribute, esp. for auxilliary coordinates such as the ones we use for swath data.  Also, latitude and longitude variables are supposed to be recognizable via their units attribute (e.g. ?degrees_north?).
+Hi.
 <br />
-<br />So cf-savvy software should be OK whichever way you go.  However, I think it?s good to use the standard_name for all of the latitudes in this case, if only to set a good example for the other variables in the file.
+<br />NAVD88 is a geoid adjusted to geodetic leveling measurements taken all over North America and fixed to the ?mean sea level? height at Rimouski, Quebec, Canada. (<a href="http://en.wikipedia.org/wiki/North_American_Vertical_Datum_of_1988">http://en.wikipedia.org/wiki/North_American_Vertical_Datum_of_1988</a>)
 <br />
-<br />On Mar 29, 2015, at 7:33 PM, Manning, Evan M (398B) &lt;Evan.M.Manning at jpl.nasa.gov&lt;mailto:Evan.M.Manning at jpl.nasa.gov&gt;&gt; wrote:
+<br />Jim
 <br />
-<br />I'm defining a data set, and I have a question about reusing standard_names in a file.
+<br />Visit us on
 <br />
-<br />For example this a swath, so there a lat/lon/time for each observed spot.  There is also a subsatellite lat/lon and mid-scan time.  And in some cases I have separate lat/lon by MW band.
+Facebook	Jim Biard
 <br />
-<br />So, does every lat get standard_name set to latitude, or just the primary one?
+Research Scholar
 <br />
-<br />On the one hand, I can see that users of each field could benefit from having
+Cooperative Institute for Climate and Satellites NC
 <br />
-the standard_name set so that users of that field know what it is.  But on the
+North Carolina State University
 <br />
-other hand, if a user or program wants to come in and see what is &quot;the&quot; latitude,
+NOAA's National Climatic Data Center
 <br />
-maybe things work better if the standard_name latitude is only used once?
+151 Patton Ave, Asheville, NC 28801
 <br />
-<br />(Latitude is a key geolocation parameter.  Does the answer to the above question
+e: jbiard at cicsnc.org
 <br />
-change if we're talking about something less foundational, like land_area_fraction
+o: +1 828 271 4900
 <br />
-or sensor_view_angle?)
+<br /><br /><br /><br />On Feb 6, 2014, at 11:47 AM, Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt; wrote:
 <br />
-<br /><br />On a related topic, I see that adding standard_names platform_latitude, etc.
+<br /><em class="quotelev1">&gt; Dear Rich
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Yes, I think your answer before is the answer now, but I'm just clear
+</em><br />
+<em class="quotelev2">&gt;&gt; on the details.  Would you specify sea_surface_height above NAVD88
+</em><br />
+<em class="quotelev2">&gt;&gt; like this?
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt;    float zeta(y=1534, x=2122);
+</em><br />
+<em class="quotelev2">&gt;&gt;      :standard_name = &quot;sea_surface_height_above_reference_datum&quot;;
+</em><br />
+<em class="quotelev2">&gt;&gt;      :grid_mapping = &quot;Albers_Projection&quot;;
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt;    int Albers_Projection;
+</em><br />
+<em class="quotelev2">&gt;&gt;      :grid_mapping_name = &quot;albers_conical_equal_area&quot;;
+</em><br />
+<em class="quotelev2">&gt;&gt;      :standard_parallel = 20.5, 27.5; // double
+</em><br />
+<em class="quotelev2">&gt;&gt;      :longitude_of_central_meridian = -89.0; // double
+</em><br />
+<em class="quotelev2">&gt;&gt;      :latitude_of_projection_origin = 24.0; // double
+</em><br />
+<em class="quotelev2">&gt;&gt;      :false_easting = 0.0; // double
+</em><br />
+<em class="quotelev2">&gt;&gt;      :false_north = 0.0; // double
+</em><br />
+<em class="quotelev2">&gt;&gt;      :vertical_datum = 'urn:ogc:def:datum:epsg::5103'
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; I'm not clear still what NAVD88 is though. SSH must be above some surface. Is
+</em><br />
+<em class="quotelev1">&gt; this surface a reference ellipsoid or a geoid? These are two different standard
+</em><br />
+<em class="quotelev1">&gt; names:
+</em><br />
+<em class="quotelev1">&gt;  sea_surface_height_above_geoid
+</em><br />
+<em class="quotelev1">&gt;  sea_surface_height_above_reference_ellipsoid
+</em><br />
+<em class="quotelev1">&gt; whereas sea_surface_height_above_reference_datum is not an existing stdname.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; If it's a reference ellipsoid, it can be described already by grid_mapping
+</em><br />
+<em class="quotelev1">&gt; parameters. To name a geoid, we'd need a new attribute of grid_mapping, but
+</em><br />
+<em class="quotelev1">&gt; I don't think that would be problematic.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Best wishes
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Jonathan
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<br />-------------- next part --------------
 <br />
-has been discussed but the discussion seems to be stalled.  What are the prospects?
-<br />
-<br /><br />Thanks!
-<br />
-<br /><br />&nbsp;&nbsp;-- Evan
-<br />
-_______________________________________________
-<br />
-CF-metadata mailing list
-<br />
-CF-metadata at cgd.ucar.edu&lt;mailto:CF-metadata at cgd.ucar.edu&gt;
-<br />
-<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-<br />
-<br /><pre>
---
-Christopher Lynnes
-&quot;The future is already here ? it's just not very evenly distributed.&quot; - Wm. Gibson
--------------- next part --------------
 An HTML attachment was scrubbed...
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150331/7976cb18/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150331/7976cb18/attachment.html</a>&gt;
-</pre>
-<span id="received"><dfn>Received on</dfn> Tue Mar 31 2015 - 08:40:23 BST</span>
+<br />
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140207/025b15da/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140207/025b15da/attachment.html</a>&gt;
+<br />
+<span id="received"><dfn>Received on</dfn> Fri Feb 07 2014 - 08:19:16 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -133,9 +189,9 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start6858">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./6859.html" title="Next message in the list">Andreas Hilboll: "[CF-metadata] How to call dimension variables which are a function of an actual dimension?"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./6857.html" title="Previous message in the list">Nan Galbraith: "[CF-metadata] Using a standard_name more than once in a file"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./6855.html" title="Message to which this message replies">Manning, Evan M: "[CF-metadata] Using a standard_name more than once in a file"</a></li>
+<li><dfn>Next message</dfn>: <a href="./6859.html" title="Next message in the list">Hedley, Mark: "[CF-metadata] Vertical datums (again)"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./6857.html" title="Previous message in the list">Randy Horne: "[CF-metadata] new standard names: day, night, and day/night terminator area_fractions"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./6853.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] Vertical datums (again)"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -147,7 +203,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:53 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./6857.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6859.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Geometries in NetCDF Update from David Blodgett on 2017-03-14 (mailing-list-archive)</title>
-<meta name="Author" content="David Blodgett (dblodgett)" />
-<meta name="Subject" content="[CF-metadata] Geometries in NetCDF Update" />
-<meta name="Date" content="2017-03-14" />
+<title>[CF-metadata] New standard name: angle between solar and sensor azimuth from Andreas Hilboll on 2015-08-17 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Andreas Hilboll (lists)" />
+<meta name="Subject" content="[CF-metadata] New standard name: angle between solar and sensor azimuth" />
+<meta name="Date" content="2015-08-17" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./8092.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8094.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Geometries in NetCDF Update</h1>
-<!-- received="Mon Mar 13 19:54:29 2017" -->
-<!-- isoreceived="20170313195429" -->
-<!-- sent="Mon, 13 Mar 2017 20:54:29 -0500" -->
-<!-- isosent="20170314015429" -->
-<!-- name="David Blodgett" -->
-<!-- email="dblodgett" -->
-<!-- subject="[CF-metadata] Geometries in NetCDF Update" -->
-<!-- id="2830C52C-29A9-44D8-B2C5-0D8A1F722AC0_at_usgs.gov" -->
+<a style="text-decoration:none" href="./8092.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8094.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] New standard name: angle between solar and sensor azimuth</h1>
+<!-- received="Mon Aug 17 08:11:27 2015" -->
+<!-- isoreceived="20150817071127" -->
+<!-- sent="Mon, 17 Aug 2015 16:11:27 +0200" -->
+<!-- isosent="20150817141127" -->
+<!-- name="Andreas Hilboll" -->
+<!-- email="lists" -->
+<!-- subject="[CF-metadata] New standard name: angle between solar and sensor azimuth" -->
+<!-- id="55D1EB8F.6080007_at_hilboll.de" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./8094.html" accesskey="d" title="Stephane TAROT: &quot;[CF-metadata] Wave periods sub-proposal&quot;">Next message</a> ]
-[ <a href="./8092.html" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] Wave periods sub-proposal&quot;">Previous message</a> ]
+[ <a href="./8094.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] New standard name: angle between solar and sensor azimuth&quot;">Next message</a> ]
+[ <a href="./8092.html" title="Hedley, Mark: &quot;[CF-metadata] original_ensemble_size&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./8095.html" accesskey="t" title="Hollis, Dan: &quot;[CF-metadata] Geometries in NetCDF Update&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,30 +68,54 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: David Blodgett &lt;<a href="mailto:dblodgett?Subject=Re%3A%20%5BCF-metadata%5D%20Geometries%20in%20NetCDF%20Update">dblodgett</a>&gt;
+<dfn>From</dfn>: Andreas Hilboll &lt;<a href="mailto:lists?Subject=Re%3A%20%5BCF-metadata%5D%20New%20standard%20name%3A%20angle%20between%20solar%20and%20sensor%20azimuth">lists</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 13 Mar 2017 20:54:29 -0500</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 17 Aug 2015 16:11:27 +0200</span><br />
 </address>
 <br />
-Dear CF,
+Hi all,
 <br />
-<br />Based on feedback we?ve received and the phone call we held last week, Time Whiteaker and I have worked up a mostly complete new draft of how to store geometries in NetCDF. We?d greatly appreciate more eyes on it if you have time or interest.
+<br />a common quantity in satellite remote sensing of atmospheric composition
 <br />
-<br />It?s been written up in some detail here: <a href="https://github.com/twhiteaker/netCDF-CF-simple-geometry/blob/master/README.md">https://github.com/twhiteaker/netCDF-CF-simple-geometry/blob/master/README.md</a> &lt;<a href="https://github.com/twhiteaker/netCDF-CF-simple-geometry/blob/master/README.md">https://github.com/twhiteaker/netCDF-CF-simple-geometry/blob/master/README.md</a>&gt;
+is the so-called 'relative azimuth angle', which in that community
 <br />
-<br />Feel free to open issues in that GitHub repository to track further conversation or follow up on list.
+refers to the difference of solar azimuth and sensor azimuth.  However,
 <br />
-<br />Best,
+relevant for the radiative transfer simulations is not the actual
 <br />
-<br />- Dave
+difference solar_azim - sensor_azim, but rather
 <br />
--------------- next part --------------
+<br />&nbsp;&nbsp;&nbsp;raa = abs(solar_azim - sensor_azim) [where abs(solar_azim -
 <br />
-An HTML attachment was scrubbed...
+sensor_azim) &lt; 180]
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20170313/8a945adc/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20170313/8a945adc/attachment.html</a>&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;360 - abs(solar_azim - sensor_azim) [otherwise]
 <br />
-<span id="received"><dfn>Received on</dfn> Mon Mar 13 2017 - 19:54:29 GMT</span>
+<br />I would like to propose this quantity to be included in the CF standard
+<br />
+names, but am unsure how to a) name it [*] and b) describe it [**].
+<br />
+<br />Any ideas?
+<br />
+<br />Cheers,
+<br />
+&nbsp;&nbsp;Andreas.
+<br />
+<br /><br />[*] the 'relative_...' commonly used in satellite remote sensing of
+<br />
+trace gases seems to be un-fit for CF, because there
+<br />
+<br />&nbsp;&nbsp;&nbsp;relative_sensor_azimuth_angle is the difference between the viewing
+<br />
+&nbsp;&nbsp;&nbsp;geometries from two different sensors over the same observation
+<br />
+&nbsp;&nbsp;&nbsp;target. It is the difference between the values of two quantities
+<br />
+&nbsp;&nbsp;&nbsp;with standard name sensor_azimuth_angle.
+<br />
+<br />[**] I haven't yet seen formulas in the CF standard name definitions ...
+<br />
+<span id="received"><dfn>Received on</dfn> Mon Aug 17 2015 - 08:11:27 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -101,12 +123,9 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start8093">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./8094.html" title="Next message in the list">Stephane TAROT: "[CF-metadata] Wave periods sub-proposal"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./8092.html" title="Previous message in the list">alison.pamment at stfc.ac.uk: "[CF-metadata] Wave periods sub-proposal"</a></li>
+<li><dfn>Next message</dfn>: <a href="./8094.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] New standard name: angle between solar and sensor azimuth"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./8092.html" title="Previous message in the list">Hedley, Mark: "[CF-metadata] original_ensemble_size"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./8095.html" title="Next message in this discussion thread">Hollis, Dan: "[CF-metadata] Geometries in NetCDF Update"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./8095.html" title="Message sent in reply to this message">Hollis, Dan: "[CF-metadata] Geometries in NetCDF Update"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -117,7 +136,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:10 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./8092.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8094.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

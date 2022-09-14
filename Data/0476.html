@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] axis attribute from Jonathan Gregory on 2006-11-22 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] axis attribute" />
-<meta name="Date" content="2006-11-22" />
+<title>[CF-metadata] Ocean S-coordinate respecification from Rich Signell on 2004-10-25 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Rich Signell (rsignell)" />
+<meta name="Subject" content="[CF-metadata] Ocean S-coordinate respecification" />
+<meta name="Date" content="2004-10-25" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0475.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0477.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] axis attribute</h1>
-<!-- received="Wed Nov 22 04:27:51 2006" -->
-<!-- isoreceived="20061122042751" -->
-<!-- sent="Wed, 22 Nov 2006 11:27:51 +0000" -->
-<!-- isosent="20061122112751" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] axis attribute" -->
-<!-- id="20061122112751.GA8728_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0475.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0477.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Ocean S-coordinate respecification</h1>
+<!-- received="Mon Oct 25 14:56:19 2004" -->
+<!-- isoreceived="20041025135619" -->
+<!-- sent="Mon, 25 Oct 2004 16:56:19 -0400" -->
+<!-- isosent="20041025205619" -->
+<!-- name="Rich Signell" -->
+<!-- email="rsignell" -->
+<!-- subject="[CF-metadata] Ocean S-coordinate respecification" -->
+<!-- id="417D6873.9070303_at_usgs.gov" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0477.html" accesskey="d" title="Ed Hartnett: &quot;[CF-metadata] libcf alpha 4 released on Unidata web site...&quot;">Next message</a> ]
-[ <a href="./0475.html" title="Jonathan Gregory: &quot;[CF-metadata] axis attribute&quot;">Previous message</a> ]
+[ <a href="./0477.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Ocean S-coordinate respecification&quot;">Next message</a> ]
+[ <a href="./0475.html" title="Jonathan Gregory: &quot;[CF-metadata] CF compliance&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0480.html" accesskey="t" title="Simon Wood: &quot;[CF-metadata] axis attribute&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,64 +68,109 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20axis%20attribute">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Rich Signell &lt;<a href="mailto:rsignell?Subject=Re%3A%20%5BCF-metadata%5D%20Ocean%20S-coordinate%20respecification">rsignell</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 22 Nov 2006 11:27:51 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 25 Oct 2004 16:56:19 -0400</span><br />
 </address>
 <br />
-Dear All
+CF folk:
 <br />
-<br />I've argued so far in favour of restricting axis X and Y to 1D lon and lat
+<br />To my chagrin, I just recently realized two things that should be
 <br />
-coord variables. Now I'd like to argue the alternative of generalising them
+fixed with the CF 1.0 convention with regard to the handling of
 <br />
-to be used with any 1D horizontal coord variables i.e. removing the exclusion
+dimentionless vertical coordinates in ocean models.  
 <br />
-that they can't be used for rotated lon and lat.
+<br />1.  I discovered that &quot;ocean s-coordinate&quot; transformation I supplied is 
 <br />
-<br />For 1D lon and lat, the axis attribute is still redundant while we adhere to
+overly
 <br />
-COARDS, because such coord vars must be identifiable by units (and can
+restrictive.  Here is what exists in the CF 1.0 standard:
 <br />
-optionally also be identified by standard name). However for other horizontal
+<br />standard_name = &quot;ocean_s_coordinate&quot;
 <br />
-coordinates the axis attribute is not redundant if generalised. It tells you
+<br />/Definition:/
 <br />
-that this axis is a horizontal axis. If you had some non-spatiotemporal
+<br />z(n,k,j,i) = eta(n,j,i)*(1+s(k)) + depth_c*s(k) +
 <br />
-axes e.g. realization or land cover type, it might be useful to be told which
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(depth(j,i)-depth_c)*C(k)
 <br />
-of the axes are the horizontal coordinates, since this is not easy to deduce
+<br />&nbsp;C(k) = (1-b)*sinh(a*s(k))/sinh(a) +   
 <br />
-from the standard names without some intelligence. Is it useful to know?
+b*[tanh(a*(s(k)+0.5))/(2*tanh(0.5*a)) - 0.5]
 <br />
-<br />I think the choice of X and Y is arbitrary. Both of them indicate horizontal,
+<br />with
 <br />
-and the only difference is a preferred choice for plotting, I imagine. Rotated
+formula_terms = &quot;s: var1    eta: var2    depth: var3    a: var4    b: 
 <br />
-lon is not necessarily X, for instance, if the pole is tipped over a long way.
+var5    depth_c: var6&quot;
 <br />
-<br />I would not favour allowing X and Y on 2D aux coord variables. I think that
+<br /><br />------------------------------------------------------------------------------------------------------------
 <br />
-in cases where there are 2D horizontal aux coord variables, the X and Y
+But C(k) can be any monotonic function from 0 to 1, not just this 
 <br />
-designations still properly belong to the 1D axes e.g. the projection coords.
+function with
 <br />
-Because these axes are thus designated, you can tell which 2D coord vars are
+specific sinh and tanh functions.   The C(k) should be input, not  a, b 
 <br />
-horizontal; they have dimensions belonging to axes which are labelled with
+and the function.
 <br />
-X and Y. Perhaps we should make it mandatory to attach standard_names of
+<br />I would therefore like to replace the existing CF1.0 definition with this:
 <br />
-longitude and latitude to 2D auxiliary lon and lat variables so that they can
+<br />standard_name = &quot;ocean_s_coordinate&quot;
 <br />
-be easily identified as such.
+<br />/Definition:/
 <br />
-<br />Cheers
+<br />z(n,k,j,i) = eta(n,j,i)*(1+s(k)) + depth_c*s(k) +
 <br />
-<br />Jonathan
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(depth(j,i)-depth_c)*C(k)
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Nov 22 2006 - 04:27:51 GMT</span>
+<br />&nbsp;&nbsp;with
+<br />
+formula_terms = &quot;s: var1    eta: var2    depth: var3      C: var4     
+<br />
+depth_c: var5&quot;
+<br />
+<br /><br />How best to go about this?   I would bet that the IDV is the only 
+<br />
+application
+<br />
+that has used the &quot;ocean s-coordinate&quot;, so one option would be to just 
+<br />
+switch it
+<br />
+immediately and tell the IDV folk, no? (treat it like a bug, even though 
+<br />
+is really isn't a bug).
+<br />
+<br />Alternatively, we could come up with a new name like &quot;ocean 
+<br />
+s2-coordinate&quot;, but
+<br />
+this seems silly since &quot;ocean s-coordinate&quot; would be a subset of the new 
+<br />
+one.
+<br />
+<br /><br />2) I realized that &quot;ocean sigma-coordinate&quot; is just a subset of &quot;ocean 
+<br />
+s-coordinate&quot;
+<br />
+(If C(k) is specified to be the same as s(k)).   Should we therefore 
+<br />
+eliminate ocean s-coordinate?
+<br />
+<br />Thanks,
+<br />
+Rich
+<br />
+<br /><br /><br /><br /><pre>
+-- 
+Richard P. Signell           rsignell at usgs.gov
+U.S. Geological Survey       Phone: (508) 457-2229
+384 Woods Hole Road          Fax:   (508) 457-2310
+Woods Hole, MA  02543-1598  
+</pre>
+<span id="received"><dfn>Received on</dfn> Mon Oct 25 2004 - 14:56:19 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -135,13 +178,9 @@ be easily identified as such.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start476">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0477.html" title="Next message in the list">Ed Hartnett: "[CF-metadata] libcf alpha 4 released on Unidata web site..."</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0475.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] axis attribute"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0477.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Ocean S-coordinate respecification"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0475.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] CF compliance"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0480.html" title="Next message in this discussion thread">Simon Wood: "[CF-metadata] axis attribute"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0480.html" title="Message sent in reply to this message">Simon Wood: "[CF-metadata] axis attribute"</a></li>
-<li><dfn>Reply</dfn>: <a href="./0487.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] axis attribute"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -152,7 +191,7 @@ be easily identified as such.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:51 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0475.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0477.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

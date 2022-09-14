@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] new standard names from Beate.Geyer at gkss.de on 2006-04-13 (mailing-list-archive)</title>
-<meta name="Author" content="Beate.Geyer at gkss.de (Beate.Geyer)" />
-<meta name="Subject" content="[CF-metadata] new standard names" />
-<meta name="Date" content="2006-04-13" />
+<title>[CF-metadata] staggered grids from Brian Eaton on 2003-04-02 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Brian Eaton (eaton)" />
+<meta name="Subject" content="[CF-metadata] staggered grids" />
+<meta name="Date" content="2003-04-02" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0126.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0128.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new standard names</h1>
-<!-- received="Thu Apr 13 01:09:53 2006" -->
-<!-- isoreceived="20060413000953" -->
-<!-- sent="Thu, 13 Apr 2006 09:09:53 +0200" -->
-<!-- isosent="20060413070953" -->
-<!-- name="Beate.Geyer at gkss.de" -->
-<!-- email="Beate.Geyer" -->
-<!-- subject="[CF-metadata] new standard names" -->
-<!-- id="OF01D5414B.318D804A-ONC125714F.0023178A-C125714F.00275A7D_at_dvsun2.gkss.de" -->
+<a style="text-decoration:none" href="./0126.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0128.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] staggered grids</h1>
+<!-- received="Wed Apr  2 08:09:13 2003" -->
+<!-- isoreceived="20030402070913" -->
+<!-- sent="Wed, 2 Apr 2003 08:09:13 -0700" -->
+<!-- isosent="20030402150913" -->
+<!-- name="Brian Eaton" -->
+<!-- email="eaton" -->
+<!-- subject="[CF-metadata] staggered grids" -->
+<!-- id="20030402150913.GA14318_at_ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="3E8A135B.6070205_at_unidata.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0128.html" accesskey="d" title="Beate.Geyer at gkss.de: &quot;[CF-metadata] new standard names&quot;">Next message</a> ]
-[ <a href="./0126.html" title="Roy Lowry: &quot;[CF-metadata] Standard names manager&quot;">Previous message</a> ]
+[ <a href="./0128.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] staggered grids&quot;">Next message</a> ]
+[ <a href="./0126.html" title="John Caron: &quot;[CF-metadata] staggered grids&quot;">Previous message</a> ]
+[ <a href="./0126.html" title="John Caron: &quot;[CF-metadata] staggered grids&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,58 +70,46 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Beate.Geyer at gkss.de &lt;<a href="mailto:Beate.Geyer?Subject=Re%3A%20%5BCF-metadata%5D%20new%20standard%20names">Beate.Geyer</a>&gt;
+<dfn>From</dfn>: Brian Eaton &lt;<a href="mailto:eaton?Subject=Re%3A%20%5BCF-metadata%5D%20staggered%20grids">eaton</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 13 Apr 2006 09:09:53 +0200</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 2 Apr 2003 08:09:13 -0700</span><br />
 </address>
 <br />
-Dear cf-metadata,
+Hi John,
 <br />
-<br />&nbsp;I propose additional standard names.
+<br />On Tue, Apr 01, 2003 at 03:31:55PM -0700, John Caron wrote:
 <br />
-To separate them from my previous proposals I continue the numbering from 
+<em class="quotelev1">&gt; Is there a special way in CF to describe staggered grids, ie certain 
+</em><br />
+<em class="quotelev1">&gt; variables in the dataset are defined at midpoints and others on the 
+</em><br />
+<em class="quotelev1">&gt; edges of the same grid? I know thats a common situation in models, and 
+</em><br />
+<em class="quotelev1">&gt; specifically we are looking at the WRF model with this feature.
+</em><br />
+<br />CF doesn't currently have any special provisions for staggered grids.  The
 <br />
-my last emails.
+grid of a variable in CF can be inferred by its dimensions, coordinate
 <br />
-<br />20. tendency_of_dry_energy_of_atmosphere_layer, W m-2
+variables, and possibly auxilliary coordinate variables.  But there is no
 <br />
-21. tendency_of_atmosphere_water_vapor_content_due_to_convection, kg m-2 
+metadata that gives a grid special status as an independent object.  A
 <br />
-s-1
+staggered grid might be represented with metadata that expresses the
 <br />
-22. tendency_of_atmosphere_water_vapor_content, kg m-2 s-1
+logical connections between multiple independent subgrids that are the
 <br />
-23. snow_thermal_energy, J m-2
+actually grids of variables.  The fact that the grid of one variable may
 <br />
-<br />Best regards,
+well serve as the cell vertices of another is one of the reasons I think we
 <br />
-Beate Geyer
+should have the ability to represent the cell bounds of an (N,M) grid in an
 <br />
-====================================================
+(N+1,M+1) array.  But that's another thread...
 <br />
-&nbsp;Dr. Beate Geyer 
+<br />Brian
 <br />
-&nbsp;GKSS Research Centre 
-<br />
-&nbsp;Institute for Coastal Research 
-<br />
-&nbsp;Max-Planck-Str. 
-<br />
-&nbsp;D-21502 Geesthacht, Germany 
-<br />
-<br />E-Mail:   Beate.Geyer at gkss.de
-<br />
-www: <a href="http://icts.gkss.de">http://icts.gkss.de</a>
-<br />
-====================================================
-<br />
--------------- next part --------------
-<br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20060413/a2a80fe3/attachment-0002.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20060413/a2a80fe3/attachment-0002.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Thu Apr 13 2006 - 01:09:53 BST</span>
+<span id="received"><dfn>Received on</dfn> Wed Apr 02 2003 - 08:09:13 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -127,8 +117,9 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start127">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0128.html" title="Next message in the list">Beate.Geyer at gkss.de: "[CF-metadata] new standard names"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0126.html" title="Previous message in the list">Roy Lowry: "[CF-metadata] Standard names manager"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0128.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] staggered grids"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0126.html" title="Previous message in the list">John Caron: "[CF-metadata] staggered grids"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0126.html" title="Message to which this message replies">John Caron: "[CF-metadata] staggered grids"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -140,7 +131,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:44 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0126.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0128.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

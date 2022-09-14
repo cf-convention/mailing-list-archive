@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]  proposed rules for changes to CF conventions from Jonathan Gregory on 2007-07-06 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata]  proposed rules for changes to CF conventions" />
-<meta name="Date" content="2007-07-06" />
+<title>[CF-metadata] standard_name.xml from Roy Lowry on 2006-04-06 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Roy Lowry (rkl)" />
+<meta name="Subject" content="[CF-metadata] standard_name.xml" />
+<meta name="Date" content="2006-04-06" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0922.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0924.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  proposed rules for changes to CF conventions</h1>
-<!-- received="Fri Jul  6 11:47:32 2007" -->
-<!-- isoreceived="20070706104732" -->
-<!-- sent="Fri, 6 Jul 2007 18:47:32 +0100" -->
-<!-- isosent="20070706174732" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata]  proposed rules for changes to CF conventions" -->
-<!-- id="20070706174732.GA27842_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0922.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0924.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard_name.xml</h1>
+<!-- received="Thu Apr  6 10:27:05 2006" -->
+<!-- isoreceived="20060406092705" -->
+<!-- sent="Thu, 06 Apr 2006 17:27:05 +0100" -->
+<!-- isosent="20060406162705" -->
+<!-- name="Roy Lowry" -->
+<!-- email="rkl" -->
+<!-- subject="[CF-metadata] standard_name.xml" -->
+<!-- id="s4354f7b.094_at_wpo.nerc.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0924.html" accesskey="d" title="taylor13 at llnl.gov: &quot;[CF-metadata] proposed rules for changes to CF conventions&quot;">Next message</a> ]
-[ <a href="./0922.html" title="Jonathan Gregory: &quot;[CF-metadata]  Using &#0034;axis&#0034; with curvilinear coordinates&quot;">Previous message</a> ]
+[ <a href="./0924.html" accesskey="d" title="carl wolfteich: &quot;[CF-metadata] REASoN CAN Data Portal Project&quot;">Next message</a> ]
+[ <a href="./0922.html" title="Jonathan Gregory: &quot;[CF-metadata] Fwd: REASoN CAN Data Portal Project&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0924.html" accesskey="t" title="taylor13 at llnl.gov: &quot;[CF-metadata] proposed rules for changes to CF conventions&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,160 +68,222 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20proposed%20rules%20for%20changes%20to%20CF%20conventions">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Roy Lowry &lt;<a href="mailto:rkl?Subject=Re%3A%20%5BCF-metadata%5D%20standard_name.xml">rkl</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 6 Jul 2007 18:47:32 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 06 Apr 2006 17:27:05 +0100</span><br />
 </address>
 <br />
-Dear Karl and John
+Hi Luis,
 <br />
-<br />Thanks for your comments. I append a revised version, accepting Karl's
+<br />I am certainly in favour of using the MMI approach to address this problem it was how I was going to approach the problem.   I now have a fully automated versioning vocab server backend in place - Michael is currently coding the web service interface - holding the BODC vocabs and a copy of GCMD (the management of which is something I need to take up with GCMD) and will try and persuade Bryan to adopt similar practices when BADC takes on the CF list. Armed with this, the ontology maintenance issue becomes tractable.
 <br />
-suggestions, except I think all members must vote in a near-consensus
+<br />Cheers, Roy.
 <br />
-decision.
-<br />
-<br /><em class="quotelev1">&gt; 6) Do we have any guarantees that those expected to test proposed 
+<br /><em class="quotelev3">&gt;&gt;&gt; Luis Bermudez &lt;bermudez at mbari.org&gt; 4/6/2006 4:53:14 pm &gt;&gt;&gt;
 </em><br />
-<em class="quotelev1">&gt; changes using the CF checker and libcf will have the resources (i.e., 
+Dear Roy and John,
+<br />
+<br />There are a lot of issues when we want to perform mappings between  
+<br />
+vocabularies that are continuously evolving, for example GCMD, CF and  
+<br />
+BODC.
+<br />
+<br />OWL is a very good mechanism to express mappings, but the  
+<br />
+vocabularies are not originally in OWL. This is the reason that we  
+<br />
+have some tools at MMI to do an automatic conversion of this  
+<br />
+vocabularies to OWL. That way we have them all harmonized (expressed  
+<br />
+in the same language/format) and we can resolve semantic  
+<br />
+heterogeneities in a better fashion.
+<br />
+<br />I just make publicly available the plan of a  strategy we have in  
+<br />
+mind at MMI. It is here:
+<br />
+<a href="http://marinemetadata.org/examples/mmihostedwork/ontologieswork/">http://marinemetadata.org/examples/mmihostedwork/ontologieswork/</a> 
+<br />
+watchdogstrategy/strategyt
+<br />
+<br />I have made some tests and look at a more concrete framework to allow  
+<br />
+the representation and mapping of these terms by using SKOS : http:// 
+<br />
+www.w3.org/2004/02/skos/.
+<br />
+<br />John and Roy, maybe we can talk in more detail what are your ideas  
+<br />
+and make a plan to move this forward. I'll be glad to know if the MMI  
+<br />
+strategy sounds reasonable and if more people are interested in  
+<br />
+participating.
+<br />
+<br />Best Regards,
+<br />
+<br />Luis
+<br />
+<br /><br /><br />On Apr 6, 2006, at 12:14 AM, Roy Lowry wrote:
+<br />
+<br /><em class="quotelev1">&gt; Hello John,
 </em><br />
-<em class="quotelev1">&gt; time) to do this in a reasonable time frame?
+<em class="quotelev1">&gt;
 </em><br />
-<br />We don't. From a data-writer's point of view, achieving provisional status
-<br />
-ought to be very helpful, since it means there is an agreed and published
-<br />
-convention to use. We will have to monitor what happens subsequently and
-<br />
-discuss what to do if the testing does not proceed, I suppose.
-<br />
-<br />Best wishes
-<br />
-<br />Jonathan
-<br />
-<br /><br />New proposals are to be made on trac using the template, including verbatim
-<br />
-changes proposed to the text of standard document and the conformance
-<br />
-document.
-<br />
-<br />A member of the conventions committee, or another suitably qualified person,
-<br />
-volunteers to moderate the discussion. If no-one volunteers, the chairman of
-<br />
-the committee will ask someone to do it.
-<br />
-<br />The discussion takes place on trac.
-<br />
-<br />The moderator periodically summarises discussion on trac, keeps it moving
-<br />
-forward and tries to achieve a consensus. It is expected that everyone with an
-<br />
-interest will contribute to the discussion and to achieving a consensus during
-<br />
-this stage. During the discussion, if an objection is raised, answered and not
-<br />
-reasserted, the moderator will assume the objection has been dropped. However,
-<br />
-since consensus is the best outcome, it will be helpful if anyone who
-<br />
-expresses an objection explicitly withdraws it on changing their mind or
-<br />
-deciding to accept the majority view.
-<br />
-<br />It will be helpful if a test netCDF file is provided as early as possible
-<br />
-during the discussion. However, several variants of the proposal may be
-<br />
-discussed, and the proposer may not be able to provide test netCDF files for
-<br />
-all of them.
-<br />
-<br />When three weeks have passed with no contributions being made, the moderator
-<br />
-attempts to move toward a decision on the proposal by summarising the outcome,
-<br />
-indicating the outcome as consensus, near consensus, or not near consensus (as
-<br />
-below) on making the proposed change. Since several versions of the proposal
-<br />
-might have been discussed, the summary should make clear which one, if any,
-<br />
-would be adopted. The moderator will then invite further comment on the
-<br />
-proposal, as summarised.  If futher comments are made i.e. the discussion
-<br />
-restarts, this step is repeated.
-<br />
-<br />Once the summary has been made, if the test netCDF file does not yet exist, it
-<br />
-must be created (unless the summary suggests the proposal should be rejected).
-<br />
-When three weeks have passed with no contributions following a summary, and
-<br />
-providing a test file exists (if appropriate), a decision is reached in one of
-<br />
-the following ways:
-<br />
-<br />Consensus: Accept the proposal if there is no outstanding objection, and at
-<br />
-least three contributors have expressed support for it, including at least two
-<br />
-members of the conventions committee. If the moderator personally expresses
-<br />
-support, he or she can be counted among the supporters.
-<br />
-<br />Near consensus: If the conditions for consensus are not met but the
-<br />
-moderator's summary is that consensus has nearly been achieved, accept the
-<br />
-proposal if all, or all but one, of the conventions committee vote in favour
-<br />
-of it. The moderator will call for votes and all members must vote.
-<br />
-<br />Not near consensus: No change to standard.
-<br />
-<br />The trac ticket is then closed by the moderator stating the outcome.
-<br />
-<br />If the change is accepted, the standard document should be updated, the CF
-<br />
-convention version number incremented, and the conformance document updated.
-<br />
-<br />The author of the proposal should be added to the list of contributing authors
-<br />
-of the CF convention.
-<br />
-<br />At this point, the change is shown in the CF documents as provisional, but it
-<br />
-will not be revoked unless subsequent testing shows it to be flawed.  In rare
-<br />
-circumstances, unforeseen issues may arise during testing that could lead the
-<br />
-standards committee to decide by unanimous opinion to revoke the provisional
-<br />
-change.
-<br />
-<br />Provisional status lasts until at least two applications have successfully
-<br />
-interpreted the data in the test or some other netCDF file following the new
-<br />
-convention. The Unidata libcf and the NCAS CF checker would be sufficient to
-<br />
-meet this requirement. If other applications are to be used, the conventions
-<br />
-committee must be satisfied that they are suitable.
-<br />
-<br />Once the testing is successful, the CF documents should again be updated to
-<br />
-remove the provisional status, and the version number incremented again.  If
-<br />
-the testing is not successful, the change is revoked.
-<br />
-<br />All versions of the standard and conformance document should be kept available
-<br />
-online, with their trac tickets and a history of changes.
-<br />
-<span id="received"><dfn>Received on</dfn> Fri Jul 06 2007 - 11:47:32 BST</span>
+<em class="quotelev1">&gt; Mapping CF Standard names to GCMD Parameter Valids to the public  
+</em><br />
+<em class="quotelev1">&gt; domain 'variable' level shouldn't be a problem as the GCMD  
+</em><br />
+<em class="quotelev1">&gt; vocabulary is clearly a discovery vocabulary.  The issues Bryan is  
+</em><br />
+<em class="quotelev1">&gt; eluding to result from trying to map a usage vocabulary (one  
+</em><br />
+<em class="quotelev1">&gt; containing terms that fully describe a data value) because vital  
+</em><br />
+<em class="quotelev1">&gt; information for the mapping (e.g. whether a value is a mean or a  
+</em><br />
+<em class="quotelev1">&gt; standard deviation) are held in CF fields other than the Standard  
+</em><br />
+<em class="quotelev1">&gt; Name.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Are you aware of the MMI vocabulary mapping workshop that was held  
+</em><br />
+<em class="quotelev1">&gt; in Boulder last August?  CF was one of the vocabs used, but the  
+</em><br />
+<em class="quotelev1">&gt; work really only scratched the surface looking at maybe half a  
+</em><br />
+<em class="quotelev1">&gt; dozen terms.  There should still be an OWL version of CF on the MMI  
+</em><br />
+<em class="quotelev1">&gt; site (as well as GCMD), but this will a snapshot that is now well  
+</em><br />
+<em class="quotelev1">&gt; out of date.  There is however an open source tool to convert the  
+</em><br />
+<em class="quotelev1">&gt; XML to OWL (voc2OWL) and a very neat mapping tool (VINE).  The  
+</em><br />
+<em class="quotelev1">&gt; resulting map is an OWL file that can be used with web services  
+</em><br />
+<em class="quotelev1">&gt; also provided by MMI to build a thesaurus server.  I would strongly  
+</em><br />
+<em class="quotelev1">&gt; recommend their approach.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; The one issue with the GCMD parameter valids that was never  
+</em><br />
+<em class="quotelev1">&gt; properly sorted at Boulder is that the mapping was done to GCMD  
+</em><br />
+<em class="quotelev1">&gt; variable terms without their overlying term hierarchy, which took  
+</em><br />
+<em class="quotelev1">&gt; no account of the fact that EARTH SCIENCE &gt; Biosphere &gt; Animal  
+</em><br />
+<em class="quotelev1">&gt; Taxonomy &gt; Fish and EARTH SCIENCE &gt;  Oceans &gt; Marine Biology &gt; Fish  
+</em><br />
+<em class="quotelev1">&gt; are different.  I know Luis Bermudez of MMI was looking at this  
+</em><br />
+<em class="quotelev1">&gt; issue, but don't know how far he got.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Building an ontology mapping between CF and GCMD was on my agenda  
+</em><br />
+<em class="quotelev1">&gt; for later this year to provide the capability to NDG for entering a  
+</em><br />
+<em class="quotelev1">&gt; CF Standard Name into a discovery portal and finding DIFs marked up  
+</em><br />
+<em class="quotelev1">&gt; using GCMD parameter valids.  But I'm more than happy for someone  
+</em><br />
+<em class="quotelev1">&gt; else to make a start and would of course be happy to help once the  
+</em><br />
+<em class="quotelev1">&gt; time slot I've allocated for later this year comes around.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Cheers, Roy.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; John Caron &lt;caron at unidata.ucar.edu&gt; 4/5/2006 8:51:15 pm &gt;&gt;&gt;
+</em><br />
+<em class="quotelev1">&gt; Is the standard name table in XML at:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;   <a href="http://www.cgd.ucar.edu/cms/eaton/cf-metadata/standard_name.xml">http://www.cgd.ucar.edu/cms/eaton/cf-metadata/standard_name.xml</a> 
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; being kept resonably up-to-date?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I'm thinking about using it to map to, eg DIF vocabulary. Has  
+</em><br />
+<em class="quotelev1">&gt; anyone else done any mappings like that?
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu 
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a> 
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; -- 
+</em><br />
+<em class="quotelev1">&gt; This message (and any attachments) is for the recipient only. NERC
+</em><br />
+<em class="quotelev1">&gt; is subject to the Freedom of Information Act 2000 and the contents
+</em><br />
+<em class="quotelev1">&gt; of this email and any reply you make may be disclosed by NERC unless
+</em><br />
+<em class="quotelev1">&gt; it is exempt from release under the Act. Any material supplied to
+</em><br />
+<em class="quotelev1">&gt; NERC may be stored in an electronic records management system.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu 
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a> 
+</em><br />
+<br />---------------------------------------
+<br />
+Luis Bermudez Ph.D.
+<br />
+Software Engineer
+<br />
+MMI Liaison - <a href="http://marinemetadata.org">http://marinemetadata.org</a> 
+<br />
+bermudez at mbari.org 
+<br />
+Tel:  (831) 775-1929
+<br />
+Monterey Bay Aquarium Research Institute
+<br />
+<br /><br /><br /><br /><pre>
+-- 
+This message (and any attachments) is for the recipient only. NERC
+is subject to the Freedom of Information Act 2000 and the contents
+of this email and any reply you make may be disclosed by NERC unless
+it is exempt from release under the Act. Any material supplied to
+NERC may be stored in an electronic records management system.
+</pre>
+<span id="received"><dfn>Received on</dfn> Thu Apr 06 2006 - 10:27:05 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -231,12 +291,9 @@ online, with their trac tickets and a history of changes.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start923">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0924.html" title="Next message in the list">taylor13 at llnl.gov: "[CF-metadata] proposed rules for changes to CF conventions"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0922.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]  Using &#0034;axis&#0034; with curvilinear coordinates"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0924.html" title="Next message in the list">carl wolfteich: "[CF-metadata] REASoN CAN Data Portal Project"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0922.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Fwd: REASoN CAN Data Portal Project"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0924.html" title="Next message in this discussion thread">taylor13 at llnl.gov: "[CF-metadata] proposed rules for changes to CF conventions"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0924.html" title="Message sent in reply to this message">taylor13 at llnl.gov: "[CF-metadata] proposed rules for changes to CF conventions"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -247,7 +304,7 @@ online, with their trac tickets and a history of changes.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:58 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0922.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0924.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

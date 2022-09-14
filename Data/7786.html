@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Feedback requested on proposed CF Simple Geometries from Jonathan Gregory on 2016-09-22 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] Feedback requested on proposed CF Simple Geometries" />
-<meta name="Date" content="2016-09-22" />
+<title>[CF-metadata] How to define time coordinate in GPS? from Jim Biard on 2015-05-13 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jim Biard (jbiard)" />
+<meta name="Subject" content="[CF-metadata] How to define time coordinate in GPS?" />
+<meta name="Date" content="2015-05-13" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./7785.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7787.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Feedback requested on proposed CF Simple Geometries</h1>
-<!-- received="Thu Sep 22 10:26:26 2016" -->
-<!-- isoreceived="20160922092626" -->
-<!-- sent="Thu, 22 Sep 2016 17:26:26 +0100" -->
-<!-- isosent="20160922162626" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] Feedback requested on proposed CF Simple Geometries" -->
-<!-- id="20160922162626.GA7133_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./7785.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7787.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] How to define time coordinate in GPS?</h1>
+<!-- received="Wed May 13 11:35:17 2015" -->
+<!-- isoreceived="20150513103517" -->
+<!-- sent="Wed, 13 May 2015 13:35:17 -0400" -->
+<!-- isosent="20150513173517" -->
+<!-- name="Jim Biard" -->
+<!-- email="jbiard" -->
+<!-- subject="[CF-metadata] How to define time coordinate in GPS?" -->
+<!-- id="55538B55.1010507_at_cicsnc.org" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20150513165426.GA4396_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,11 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./7787.html" accesskey="d" title="Chris Barker: &quot;[CF-metadata] Feedback requested on proposed CF Simple Geometries&quot;">Next message</a> ]
-[ <a href="./7785.html" title="Steve Emmerson: &quot;[CF-metadata] Temporal nitpicks. Was: CF-metadata Digest, Vol 161, Issue 3&quot;">Previous message</a> ]
+[ <a href="./7787.html" accesskey="d" title="Lowry, Roy K.: &quot;[CF-metadata] New standard name request for FAPAR&quot;">Next message</a> ]
+[ <a href="./7785.html" title="Jonathan Gregory: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">Previous message</a> ]
+[ <a href="./7785.html" title="Jonathan Gregory: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./7787.html" accesskey="t" title="Chris Barker: &quot;[CF-metadata] Feedback requested on proposed CF Simple Geometries&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,160 +70,205 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Feedback%20requested%20on%20proposed%20CF%20Simple%20Geometries">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jim Biard &lt;<a href="mailto:jbiard?Subject=Re%3A%20%5BCF-metadata%5D%20How%20to%20define%20time%20coordinate%20in%20GPS%3F">jbiard</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 22 Sep 2016 17:26:26 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 13 May 2015 13:35:17 -0400</span><br />
 </address>
 <br />
-Dear Chris
+Jonathan,
 <br />
-<br /><em class="quotelev2">&gt; &gt; If the regions were irregular
-</em><br />
-<em class="quotelev2">&gt; &gt; polygons in latitude and longitude, nv would be the number of vertices and
-</em><br />
-<em class="quotelev2">&gt; &gt; the
-</em><br />
-<em class="quotelev2">&gt; &gt; lat and lon bounds would trace the outline of the polygon e.g. nv=3,
-</em><br />
-<em class="quotelev2">&gt; &gt; lat=0,90,0
-</em><br />
-<em class="quotelev2">&gt; &gt; and lon=0,0,90 describes the eighth of the sphere which is bounded by the
-</em><br />
-<em class="quotelev2">&gt; &gt; meridians at 0E and 90E and the Equator. I think, therefore, we do not
-</em><br />
-<em class="quotelev2">&gt; &gt; need an
-</em><br />
-<em class="quotelev2">&gt; &gt; additional convention for points or polygonal regions.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; this seems fine for this simple example, but burying a bunch of coordinates
-</em><br />
-<em class="quotelev1">&gt; of a complex polygon in a text string in an attribute is really not a good
-</em><br />
-<em class="quotelev1">&gt; idea -- the coordinates of a polygon should be in the array data one way or
-</em><br />
-<em class="quotelev1">&gt; another, rather than having to parse out attribute strings.
-</em><br />
-<br />To avoid confusion:
+<br />I'd say this is a lot of where the misunderstanding lies.
 <br />
-<br />I didn't suggest parsing attribute strings. The same numbers that Ben would put
+<br />I agree that if the calendar and time system are specified as 
 <br />
-in his x and y auxiliary coordinate variables for a single polygon can appear
+Gregorian/NLS, then you should not involve leap seconds in your 
 <br />
-in coordinate bounds variables according to the existing convention.
+calculations going between times represented as HH:MM:SS and elapsed 
 <br />
-<br /><em class="quotelev1">&gt; * I suspect that geometries of this kind can be described by the ugrid
-</em><br />
-<em class="quotelev2">&gt; &gt; convention <a href="http://ugrid-conventions.github.io/ugrid-conventions">http://ugrid-conventions.github.io/ugrid-conventions</a>, which is
-</em><br />
-<em class="quotelev2">&gt; &gt; compliant with CF. Their purpose is to describe a set of connected points,
-</em><br />
-<em class="quotelev2">&gt; &gt; edges or faces at which values are given,
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I'm not so sure -- UGRID is about defining a bunch of polygons that all
-</em><br />
-<em class="quotelev1">&gt; share vertices, and are all of the same order (usually all triangles, or
-</em><br />
-<em class="quotelev1">&gt; quads, or maybe hexes). if they are a mixture, you still store the full set
-</em><br />
-<em class="quotelev1">&gt; (say, six vertices), while marking some as unused. But it's not that well
-</em><br />
-<em class="quotelev1">&gt; set up for a bunch of polygons of different order.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Not too bad if there are only one or two complex polygons, but it would be
-</em><br />
-<em class="quotelev1">&gt; a bit weird -- you'd have vertices and boundaries, but no faces. And you'd
-</em><br />
-<em class="quotelev1">&gt; lose t order of the vertices (thought that could probably be added to the
-</em><br />
-<em class="quotelev1">&gt; UGRID standard)
-</em><br />
-<br />OK. I didn't investigate this, but it would be good to know about it. If
+times since your epoch. But if the calendar and time system are 
 <br />
-ugrid can do something like this, but not all of it, maybe ugrid could be
+specified as Gregorian/UTC, then you should involve leap seconds in 
 <br />
-extended. If ugrid seems too complicated for these cases, maybe a &quot;light&quot;
+those same calculations. But in either case you *should* end up with a 
 <br />
-version of ugrid could be proposed for them. I think we should avoid having
+set of elapsed times in your time variable that don't have any leap 
 <br />
-two partially overlapping conventions.
+second offsets or discontinuities.
 <br />
-<br /><em class="quotelev1">&gt; * So far CF does not say anything about the use of netCDF-4 features (i.e.
+<br />Let's say I have a machine that counts the number of total seconds and 
+<br />
+86,400 second periods (standard days) that have gone by since I started 
+<br />
+it, which was on Jan 1, 1970. (A UNIX system with a super-accurate CPU 
+<br />
+clock.) When I have a leap day, I don't add or subtract anything from 
+<br />
+the counts the machine has. What I do is use the algorithms specified by 
+<br />
+the Gregorian calendar to represent February as having one more day than 
+<br />
+usual so that my YYYY-MM-DD calendar date stays more closely aligned 
+<br />
+with Earth's position in its orbit. Leap seconds are just like that. I 
+<br />
+don't add or subtract anything from the counts my machine has. I use the 
+<br />
+algorithms specified by the UTC time system to represent June 30 (in a 
+<br />
+year when I have a leap second) as having one more second in the last 
+<br />
+minute of the last hour so that my HH:MM:SS clock time stays more 
+<br />
+closely aligned with Earth's position in its rotation.
+<br />
+<br />In the particular case of *nix systems using the Network Time Protocol, 
+<br />
+getting the system to display the correct UTC time actually is 
+<br />
+accomplished by subtracting a second from the elapsed time being counted 
+<br />
+by the system, thus ensuring that any long term recording of elapsed 
+<br />
+times since the computer was started does, in fact, include leap second 
+<br />
+discontinuities. This can add a whole other facet to the general problem 
+<br />
+of how to get all of this right as a data producer if I'm getting my 
+<br />
+time from my *nix machine. I don't know for sure how Windows boxes 
+<br />
+handle it, but I don't think it's actually any better.
+<br />
+<br />Grace and peace,
+<br />
+<br />Jim
+<br />
+<br />On 5/13/15 12:54 PM, Jonathan Gregory wrote:
+<br />
+<em class="quotelev1">&gt; Dear Jim
 </em><br />
-<em class="quotelev2">&gt; &gt; not
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt; &gt; the classic model). We have often discussed allowing them but the general
+<em class="quotelev1">&gt; I think your last email (which didn't go to the email list) explains why we
 </em><br />
-<em class="quotelev2">&gt; &gt; argument is also made that there has to be a compelling case for providing
+<em class="quotelev1">&gt; have not been understanding each other about your points 2 and 3:
 </em><br />
-<em class="quotelev2">&gt; &gt; a
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt; &gt; new way to do something which can already be done. (Steve Hankin often made
+<em class="quotelev2">&gt;&gt; There shouldn't be (or there is no) good reason to use a different
 </em><br />
-<em class="quotelev2">&gt; &gt; this argument, but since he's mostly retired I'll make it now in his name
+<em class="quotelev2">&gt;&gt; calendar to encode and decode, but this is exactly what has been
 </em><br />
-<em class="quotelev2">&gt; &gt; :-)
+<em class="quotelev2">&gt;&gt; done with regard to times. As a netCDF file producer, if you have a
 </em><br />
-<em class="quotelev2">&gt; &gt;
+<em class="quotelev2">&gt;&gt; set of observations that have attached correct Gregorian/UTC date &amp;
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev2">&gt;&gt; time strings and you use a POSIX calculator to encode your times
 </em><br />
-<em class="quotelev1">&gt; Maybe it's time to embrace netcdf4? It's been a while! Though maybe for CF
+<em class="quotelev2">&gt;&gt; since your correct Gregorian/UTC reference date &amp; time string, then
 </em><br />
-<em class="quotelev1">&gt; 2.* -- any movement on that?
+<em class="quotelev2">&gt;&gt; you are at risk of producing incorrect elapsed time values. (Whether
 </em><br />
-<br />I think, as we generally do, that we should adopt netCDF-4 features if there
-<br />
-is a definite need to do so. I mean something you can't do with an existing
-<br />
-mechanism, or which is done so much more easily with a new mechanism that it
-<br />
-justifies the extra effort of requiring alternatives to be programmed in
-<br />
-software. I'm not arguing against it in general, but I think it has to be
-<br />
-argued for each specific need within the convention.
-<br />
-<br />CF2 is not well-defined. I have to admit to being nervous about that. I am
-<br />
-very much opposed to an idea of &quot;starting all over again&quot; and maintaining
-<br />
-two conventions in parallel (since old data would continue to exist for a long
-<br />
-time and so the old CF would have to be supported), and I also think backwards-
-<br />
-incompability has to be strongly justified. So I favour step-by-step evolution.
-<br />
-Another idea we've discussed, which I'm comfortable with, is of defining
-<br />
-&quot;strict&quot; compliance to the convention, which a data-writer could optionally
-<br />
-adhere to. This could exclude older features we wanted to deprecate. However
-<br />
-this is really not the subject of the discussion - it's another thread.
-<br />
-<br /><em class="quotelev1">&gt; I think the ragged array option ins fine -- though I haven't looked at vlen
+<em class="quotelev2">&gt;&gt; you actually do or not depends on factors mentioned in previous
 </em><br />
-<em class="quotelev1">&gt; arrays enough to know if they offer a compelling alternative. One issue is
+<em class="quotelev2">&gt;&gt; emails.) The contents of time variables *should* always be true
 </em><br />
-<em class="quotelev1">&gt; that the programming environments that we use to work with the data may not
+<em class="quotelev2">&gt;&gt; counts of time that has elapsed since the reference epoch and
 </em><br />
-<em class="quotelev1">&gt; have an equivalent of vlen arrays.
+<em class="quotelev2">&gt;&gt; *should* never, ever encode leap second induced discontinuities or
 </em><br />
-<br />That's a good point, and a reason why we have to be cautious in general about
-<br />
-adopting netCDF-4 features.
-<br />
-<br />Best wishes
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Thu Sep 22 2016 - 10:26:26 BST</span>
+<em class="quotelev2">&gt;&gt; offsets.
+</em><br />
+<em class="quotelev1">&gt; That's not how I understand what we've been discussing. I think that if
+</em><br />
+<em class="quotelev1">&gt; calendar=&quot;gregorian[_nls]&quot; then the encoding/decoding should be done without
+</em><br />
+<em class="quotelev1">&gt; leap seconds (86400 s per day), but if calendar=&quot;gregorian_utc&quot; the encoding/
+</em><br />
+<em class="quotelev1">&gt; decoding should be done with leap seconds according to UTC. This why I see
+</em><br />
+<em class="quotelev1">&gt; the issue as being one that relates to the calendar, and not to the units
+</em><br />
+<em class="quotelev1">&gt; or the reference time, which are calendar-neutral. Is this what we disagree on?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I can see there's a difficulty with the UTC calendar that if a second is taken
+</em><br />
+<em class="quotelev1">&gt; out there will be two consecutive seconds with the same timestamp. This is
+</em><br />
+<em class="quotelev1">&gt; a problem for encoding - the data-writer would have to be careful that he
+</em><br />
+<em class="quotelev1">&gt; chose the right one. It's not a problem for using the encoded time coords,
+</em><br />
+<em class="quotelev1">&gt; which will be monotonic and run forward at 1 second per second, nor for
+</em><br />
+<em class="quotelev1">&gt; decoding, which will correctly produce the repeated timestamp. Inserting a
+</em><br />
+<em class="quotelev1">&gt; leap second is the same kind of discontinuity as the change from Julian to
+</em><br />
+<em class="quotelev1">&gt; Gregorian calendar. It means that there is a range of date-times which cannot
+</em><br />
+<em class="quotelev1">&gt; be encoded because they are not valid, but decoding is no problem. Similarly
+</em><br />
+<em class="quotelev1">&gt; there are dates which are valid in some calendars but not others, such as
+</em><br />
+<em class="quotelev1">&gt; 30 Feb being valid in the 360_day calendar.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I think my view is consistent with the general treatment of calendars by CF.
+</em><br />
+<em class="quotelev1">&gt; The encoding/decoding algorithm differs, but the same units string could
+</em><br />
+<em class="quotelev1">&gt; always be used.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Best wishes
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Jonathan
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<br /><pre>
+-- 
+CICS-NC &lt;<a href="http://www.cicsnc.org/">http://www.cicsnc.org/</a>&gt; Visit us on
+Facebook &lt;<a href="http://www.facebook.com/cicsnc">http://www.facebook.com/cicsnc</a>&gt; 	*Jim Biard*
+*Research Scholar*
+Cooperative Institute for Climate and Satellites NC &lt;<a href="http://cicsnc.org/">http://cicsnc.org/</a>&gt;
+North Carolina State University &lt;<a href="http://ncsu.edu/">http://ncsu.edu/</a>&gt;
+NOAA National Centers for Environmental Information &lt;<a href="http://ncdc.noaa.gov/">http://ncdc.noaa.gov/</a>&gt;
+/formerly NOAA?s National Climatic Data Center/
+151 Patton Ave, Asheville, NC 28801
+e: jbiard at cicsnc.org &lt;mailto:jbiard at cicsnc.org&gt;
+o: +1 828 271 4900
+/We will be updating our social media soon. Follow our current Facebook 
+(NOAA National Climatic Data Center 
+&lt;<a href="https://www.facebook.com/NOAANationalClimaticDataCenter">https://www.facebook.com/NOAANationalClimaticDataCenter</a>&gt; and NOAA 
+National Oceanographic Data Center &lt;<a href="https://www.facebook.com/noaa.nodc">https://www.facebook.com/noaa.nodc</a>&gt;) 
+and Twitter (_at_NOAANCDC &lt;<a href="https://twitter.com/NOAANCDC">https://twitter.com/NOAANCDC</a>&gt; and @NOAAOceanData 
+&lt;<a href="https://twitter.com/NOAAOceanData">https://twitter.com/NOAAOceanData</a>&gt;) accounts for the latest information./
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150513/b6bc90a5/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150513/b6bc90a5/attachment-0001.html</a>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: CicsLogoTiny.png
+Type: image/png
+Size: 15784 bytes
+Desc: not available
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150513/b6bc90a5/attachment-0001.png">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150513/b6bc90a5/attachment-0001.png</a>&gt;
+</pre>
+<span id="received"><dfn>Received on</dfn> Wed May 13 2015 - 11:35:17 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -231,13 +276,10 @@ adopting netCDF-4 features.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start7786">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./7787.html" title="Next message in the list">Chris Barker: "[CF-metadata] Feedback requested on proposed CF Simple Geometries"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./7785.html" title="Previous message in the list">Steve Emmerson: "[CF-metadata] Temporal nitpicks. Was: CF-metadata Digest, Vol 161, Issue 3"</a></li>
+<li><dfn>Next message</dfn>: <a href="./7787.html" title="Next message in the list">Lowry, Roy K.: "[CF-metadata] New standard name request for FAPAR"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./7785.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./7785.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./7787.html" title="Next message in this discussion thread">Chris Barker: "[CF-metadata] Feedback requested on proposed CF Simple Geometries"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./7787.html" title="Message sent in reply to this message">Chris Barker: "[CF-metadata] Feedback requested on proposed CF Simple Geometries"</a></li>
-<li><dfn>Reply</dfn>: <a href="./7813.html" title="Message sent in reply to this message">Bert Jagers: "[CF-metadata] Feedback requested on proposed CF Simple	Geometries"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -248,7 +290,7 @@ adopting netCDF-4 features.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:06 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./7785.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7787.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

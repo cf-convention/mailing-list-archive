@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CMIP6 Sea Ice MIP: General variables from Jonathan Gregory on 2016-07-21 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] CMIP6 Sea Ice MIP: General variables" />
-<meta name="Date" content="2016-07-21" />
+<title>[CF-metadata] How to define time coordinate in GPS? from Maarten Sneep on 2015-04-28 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Maarten Sneep (maarten.sneep)" />
+<meta name="Subject" content="[CF-metadata] How to define time coordinate in GPS?" />
+<meta name="Date" content="2015-04-28" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./7711.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7713.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CMIP6 Sea Ice MIP: General variables</h1>
-<!-- received="Thu Jul 21 07:27:33 2016" -->
-<!-- isoreceived="20160721062733" -->
-<!-- sent="Thu, 21 Jul 2016 14:27:33 +0100" -->
-<!-- isosent="20160721132733" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] CMIP6 Sea Ice MIP: General variables" -->
-<!-- id="20160721132611.GA2350_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./7711.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7713.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] How to define time coordinate in GPS?</h1>
+<!-- received="Tue Apr 28 11:37:22 2015" -->
+<!-- isoreceived="20150428103722" -->
+<!-- sent="Tue, 28 Apr 2015 19:37:22 +0200" -->
+<!-- isosent="20150428173722" -->
+<!-- name="Maarten Sneep" -->
+<!-- email="maarten.sneep" -->
+<!-- subject="[CF-metadata] How to define time coordinate in GPS?" -->
+<!-- id="553FC552.1050405_at_knmi.nl" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20150428165253.GA7872_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./7713.html" accesskey="d" title="Dirk Notz: &quot;[CF-metadata] CMIP6 Sea Ice MIP: Ice thickness&quot;">Next message</a> ]
-[ <a href="./7711.html" title="Jonathan Gregory: &quot;[CF-metadata] CMIP6 Sea Ice MIP: Ice thickness&quot;">Previous message</a> ]
+[ <a href="./7713.html" accesskey="d" title="Little, Chris: &quot;[CF-metadata] How to define time coordinate in GPS Was: CF-metadata Digest, Vol 144, Issue 15&quot;">Next message</a> ]
+[ <a href="./7711.html" title="Jonathan Gregory: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">Previous message</a> ]
+[ <a href="./7711.html" title="Jonathan Gregory: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./7714.html" accesskey="t" title="Dirk Notz: &quot;[CF-metadata] CMIP6 Sea Ice MIP: General variables&quot;">Next in thread</a> ]
+[ <a href="./7714.html" accesskey="t" title="Jim Biard: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,130 +72,181 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20CMIP6%20Sea%20Ice%20MIP%3A%20General%20variables">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Maarten Sneep &lt;<a href="mailto:maarten.sneep?Subject=Re%3A%20%5BCF-metadata%5D%20How%20to%20define%20time%20coordinate%20in%20GPS%3F">maarten.sneep</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 21 Jul 2016 14:27:33 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 28 Apr 2015 19:37:22 +0200</span><br />
 </address>
 <br />
-Dear Dirk
+On 28-04-15 18:52, Jonathan Gregory wrote:
 <br />
-<br /><em class="quotelev3">&gt; &gt;&gt; 5. sea_ice_melt_pond_thickness [m]
+<em class="quotelev1">&gt; Dear Jim
 </em><br />
-<em class="quotelev3">&gt; &gt;&gt; the volume of water in meltponds divided by meltpond covered area
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt; &gt; 
+<em class="quotelev1">&gt; I agree that TAI and GPS aren't distinct CF calendars if they differ only
 </em><br />
-<em class="quotelev2">&gt; &gt; OK, with a similar cell_methods issue: I think by default this would be
+<em class="quotelev1">&gt; because of the epoch. In CF and udunits, the reference time is part of the
 </em><br />
-<em class="quotelev2">&gt; &gt; a local thickness, but it could be described as an area-mean.
+<em class="quotelev1">&gt; the units, as you know; it's not a property of the calendar. I referred to
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; GPS calendar just to contrast it with UTC.
 </em><br />
-<em class="quotelev1">&gt; Our definition was simply based on the usual way of representing
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; melt-pond water in model simulations. However, as this is meant to be a
+<em class="quotelev1">&gt; Unlike you, I don't live only in the real world. :-) Many models use the
 </em><br />
-<em class="quotelev1">&gt; local thickness, we'd be happy to change the definition to simplyread
+<em class="quotelev1">&gt; default CF calendar (called standard or gregorian) as an approximation to
 </em><br />
-<em class="quotelev1">&gt; &quot;Local thickness of melt ponds&quot;
+<em class="quotelev1">&gt; the real world. In these models there are no leap seconds, and it would not
 </em><br />
-<br />Perhaps to be clear we could say something like &quot;Thickness of melt pond.
+<em class="quotelev1">&gt; be correct to call this UTC, or to include the leap seconds in the encoding
+</em><br />
+<em class="quotelev1">&gt; and decoding of time cooordinates. In any case, as we understand, most software
+</em><br />
+<em class="quotelev1">&gt; doesn't allow for leap seconds. For those two reasons, I propose that we
+</em><br />
+<em class="quotelev1">&gt; more precisely define the default (standard, gregorian) calendar to say
+</em><br />
+<em class="quotelev1">&gt; explicitly that it does not include leap seconds i.e. every day is 86400 s
+</em><br />
+<em class="quotelev1">&gt; long exactly. This is probably correct for most of the data which has been
+</em><br />
+<em class="quotelev1">&gt; written with this calendar.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I call UTC a calendar because it affects the encoding, since it implies leap
+</em><br />
+<em class="quotelev1">&gt; seconds.  You suggest, I think, that the treatment of leap seconds should be
+</em><br />
+<em class="quotelev1">&gt; indicated in the reference time in the units string. This doesn't seem quite
+</em><br />
+<em class="quotelev1">&gt; right to me because the units doesn't say anything about the encoding. We
+</em><br />
+<em class="quotelev1">&gt; use the same format of units string for all calendars. udunits does mention
+</em><br />
+<em class="quotelev1">&gt; UTC in respect of the format of this string because of wanting to talk about
+</em><br />
+<em class="quotelev1">&gt; time zones, not because of leap seconds. Time zones could be used in models
+</em><br />
+<em class="quotelev1">&gt; too (though I don't know of a case). Hence I still propose that we should
+</em><br />
+<em class="quotelev1">&gt; regard UTC as a calendar, if it's correct that the leap seconds in use in the
+</em><br />
+<em class="quotelev1">&gt; real world are part of the definition of UTC. This means we should define a
+</em><br />
+<em class="quotelev1">&gt; a new calendar, which is not the default, in which time units have just the
+</em><br />
+<em class="quotelev1">&gt; same format as usual i.e. udunits, but the encoding and decoding of values
+</em><br />
+<em class="quotelev1">&gt; is done including leap seconds according to UTC. The same value, with the
+</em><br />
+<em class="quotelev1">&gt; same units string, may translate into a different date-time (by a number of
+</em><br />
+<em class="quotelev1">&gt; seconds) according to whether the calendar is default (standard, gregorian)
+</em><br />
+<em class="quotelev1">&gt; or utc. It wouldn't make sense to use this calendar for dates before the
+</em><br />
+<em class="quotelev1">&gt; introduction of UTC, so it should be illegal to do so. We could do this by
+</em><br />
+<em class="quotelev1">&gt; prohibiting reference times earlier than the start of UTC and negative values
+</em><br />
+<em class="quotelev1">&gt; of time in this calendar.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Maybe I haven't grasped your point properly?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Best wishes
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Jonathan
+</em><br />
+<br />This is an interesting topic. When dealing with a low-earth orbit and a 
 <br />
-The cell_methods indicates whether it is a local thickness, an area-mean
+satellite that moves at 7 km/s, you need to be careful with coordinates, 
 <br />
-thickness or some other statistic.&quot;
+both in space &amp; time, ignoring leap seconds will ensure our geolocation 
 <br />
-<br /><em class="quotelev3">&gt; &gt;&gt; 6. thickness_of_sea_ice_melt_pond_refrozen_ice [m]
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; the volume of refrozen ice in meltponds divided by meltpond covered area
-</em><br />
-<em class="quotelev2">&gt; &gt; 
-</em><br />
-<em class="quotelev2">&gt; &gt; Is this ice floating on top of the meltpond?
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Yes, it is. Do you believe that the definition should be changed?
-</em><br />
-<br />I wasn't clear what the quantity is. We already have a standard name of
+is off by 10 times the requirements for each second we miss.
 <br />
-floating_ice_thickness, of which this is a special case. So we could use the
+<br />Fortunately I deal with the data only at level 2, the coordinate 
 <br />
-existing name and distinguish this case in cell_methods with
+transforms (TAI, UT0, UT1 and UTC for time, many more for solar system 
 <br />
-&quot;area: mean where sea_ice_melt_pond&quot;.  Would that be acceptable?
+references) are part of Level 1B. There all leap seconds are dealt with. 
 <br />
-<br /><em class="quotelev3">&gt; &gt;&gt; 22. sea_ice_specific_x_force_due_to_sea_surface_tilt [N m-2]
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; 23. sea_ice_specific_y_force_due_to_sea_surface_tilt [N m-2]
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; 24. sea_ice_specific_x_force_due_to_coriolis_term [N m-2]
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; 25. sea_ice_spcecific_y_force_due_to_coriolis_term [N m-2]
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; 26. sea_ice_specific_x_force_due_to_internal_forces [N m-2]
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; 27. sea_ice_specific_y_force_due_to_internal_forces [N m-2]
-</em><br />
-<em class="quotelev2">&gt; &gt; 
-</em><br />
-<em class="quotelev2">&gt; &gt; In other N m-2 = Pa names, we use &quot;stress&quot; rather than &quot;specific force&quot; but
-</em><br />
-<em class="quotelev2">&gt; &gt; I suppose this is different because they are not fluxes of momentum, but
-</em><br />
-<em class="quotelev2">&gt; &gt; divergences of momentum i.e. force per unit mass. Is &quot;specific force&quot; a
-</em><br />
-<em class="quotelev2">&gt; &gt; usual term for this? Could we say &quot;coriolis_effect&quot; rather than &quot;term&quot;,
-</em><br />
-<em class="quotelev2">&gt; &gt; which sounds more algorithmic than geophysical?
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; In trying to follow CF_conventions, we adopted &quot;specific&quot; to point out
-</em><br />
-<em class="quotelev1">&gt; that these forces are calculated per unit area. We'd be very happy to
-</em><br />
-<em class="quotelev1">&gt; drop &quot;specific&quot;:
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 26+27 could then simply be referred to as &quot;sea_ice_internal_stress_x&quot;
-</em><br />
-<em class="quotelev1">&gt; and &quot;sea_ice_internal_stress_y&quot;.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; For 22-25, it would be non-standard in the sea-ice community to call
-</em><br />
-<em class="quotelev1">&gt; those &quot;stress&quot;, as both coriolis and surface tilt act as body forces.
-</em><br />
-<em class="quotelev1">&gt; Standard terminology would be to simply refer to them as
-</em><br />
-<em class="quotelev1">&gt; &quot;coriolis_force_on_sea_ice&quot; and &quot;sea_surface_tilt_force&quot;, but this is
-</em><br />
-<em class="quotelev1">&gt; probably not consistent with CF-conventions as units are force per area.
-</em><br />
-<em class="quotelev1">&gt; Do you have any other suggestion of how we could call these &quot;forces per
-</em><br />
-<em class="quotelev1">&gt; sea-ice area&quot;?
-</em><br />
-<br />Thanks for explaining. We do already have some standard names with the longer
+(The topic is very interesting, surprisingly complex, especially when 
 <br />
-phrase per_unit_area in them, so maybe that would be the best pattern to
+using geoid calculations, and I'm glad someone else figured it all out).
 <br />
-follow:
+<br />For Sentinel 5 precursor we use a moving epoch, which allows us to 
 <br />
-&nbsp;&nbsp;sea_ice_[xy]_force_per_unit_area_due_to_X
+ignore leap seconds, at least: mostly.
 <br />
-where X is sea_surface_tilt, coriolis_effect or internal_stress. Would
+<br />We have defined that the epoch we use is UTC midnight before the start 
 <br />
-that be correct and make sense?
+of the orbit, with the start of the orbit at spacecraft midnight. We 
 <br />
-<br />Best wishes
+count milliseconds in each day. Leapseconds are absorbed into the epoch, 
 <br />
-<br />Jonathan
+as they occur (by definition) only at the end of a day. The only case 
 <br />
-<span id="received"><dfn>Received on</dfn> Thu Jul 21 2016 - 07:27:33 BST</span>
+where we will be 'wrong' for users that do not take leapseconds into 
+<br />
+account, is for part of an orbit that started before UTC midnight and 
+<br />
+ends after it, on a day that adds a leapsecond. This will at most affect 
+<br />
+50 minutes of observations for eac hadded leap second during the 
+<br />
+mission. Since we provide the geolocation, this may appear to the 
+<br />
+careful observer as an inconsistency. However, if you are that careful, 
+<br />
+you will include leap seconds yourself. In our processing this single 
+<br />
+second will not matter. Because we only observe on the sun-lit part of 
+<br />
+the orbit, the dark side will absorb the leap seconds, there is no 
+<br />
+continuous datastream that will cause trouble later on (pun fully intended).
+<br />
+<br />Of course, for this to work, the epoch definition in the time coordinate 
+<br />
+must be UTC and include leap seconds, i.e. &quot;milliseconds since 
+<br />
+2016-10-24 00:00:00&quot; should really refer to that moment in UTC, leap 
+<br />
+seconds and all (fully ISO-8601). If you really mean time without leap 
+<br />
+seconds, then you are talking about TAI as a baseline, not UTC, but also 
+<br />
+do you at that moment start to talk about a time coordinate, not a 
+<br />
+calendar).
+<br />
+<br />The daily offset then allows users to work out when the observation was 
+<br />
+taken with the detail they require.
+<br />
+<br />Oh, funny reference for the discussion: <a href="http://xkcd.com/1514/">http://xkcd.com/1514/</a>
+<br />
+<br />Best,
+<br />
+<br />Maarten Sneep
+<br />
+<pre>
+-- 
+KNMI
+T: 030 2206747
+E: maarten.sneep at knmi.nl
+R: A2.14
+</pre>
+<span id="received"><dfn>Received on</dfn> Tue Apr 28 2015 - 11:37:22 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -201,12 +254,13 @@ that be correct and make sense?
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start7712">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./7713.html" title="Next message in the list">Dirk Notz: "[CF-metadata] CMIP6 Sea Ice MIP: Ice thickness"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./7711.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] CMIP6 Sea Ice MIP: Ice thickness"</a></li>
+<li><dfn>Next message</dfn>: <a href="./7713.html" title="Next message in the list">Little, Chris: "[CF-metadata] How to define time coordinate in GPS Was: CF-metadata Digest, Vol 144, Issue 15"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./7711.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./7711.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./7714.html" title="Next message in this discussion thread">Dirk Notz: "[CF-metadata] CMIP6 Sea Ice MIP: General variables"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./7714.html" title="Next message in this discussion thread">Jim Biard: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./7714.html" title="Message sent in reply to this message">Dirk Notz: "[CF-metadata] CMIP6 Sea Ice MIP: General variables"</a></li>
+<dfn>Reply</dfn>: <a href="./7714.html" title="Message sent in reply to this message">Jim Biard: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -217,7 +271,7 @@ that be correct and make sense?
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:05 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./7711.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7713.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

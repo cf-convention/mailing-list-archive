@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Question on metadata for coordinate reference systems from Bentley, Philip on 2011-09-26 (mailing-list-archive)</title>
-<meta name="Author" content="Bentley, Philip (philip.bentley)" />
-<meta name="Subject" content="[CF-metadata] Question on metadata for coordinate reference systems" />
-<meta name="Date" content="2011-09-26" />
+<title>[CF-metadata] data integrity and semantics from Adam Pease on 2010-10-28 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Adam Pease (adampease)" />
+<meta name="Subject" content="[CF-metadata] data integrity and semantics" />
+<meta name="Date" content="2010-10-28" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./3763.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3765.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Question on metadata for coordinate reference systems</h1>
-<!-- received="Mon Sep 26 06:22:28 2011" -->
-<!-- isoreceived="20110926052228" -->
-<!-- sent="Mon, 26 Sep 2011 13:22:28 +0100" -->
-<!-- isosent="20110926122228" -->
-<!-- name="Bentley, Philip" -->
-<!-- email="philip.bentley" -->
-<!-- subject="[CF-metadata] Question on metadata for coordinate reference systems" -->
-<!-- id="E51EDFEBF10BE44BB4BDAF5FC2F024B90363696B_at_EXXMAIL02.desktop.frd.metoffice.com" -->
+<a style="text-decoration:none" href="./3763.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3765.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] data integrity and semantics</h1>
+<!-- received="Thu Oct 28 10:55:59 2010" -->
+<!-- isoreceived="20101028095559" -->
+<!-- sent="Thu, 28 Oct 2010 09:55:59 -0700" -->
+<!-- isosent="20101028165559" -->
+<!-- name="Adam Pease" -->
+<!-- email="adampease" -->
+<!-- subject="[CF-metadata] data integrity and semantics" -->
+<!-- id="1288284959.2032.74.camel_at_apease-15inToshiba" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="082899B024C30D459BA9ACD1C5E581190242A660_at_msd9.MSD.local" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./3765.html" accesskey="d" title="Kennedy, Paul: &quot;[CF-metadata] Question on metadata for coordinate referencesystems&quot;">Next message</a> ]
-[ <a href="./3763.html" title="Jonathan Gregory: &quot;[CF-metadata] Help needed with area_type and &#0034;surface type classification&#0034; datasets&quot;">Previous message</a> ]
-[ <a href="./3760.html" title="Kennedy, Paul: &quot;[CF-metadata] Question on metadata for coordinate reference systems&quot;">In reply to</a> ]
+[ <a href="./3765.html" accesskey="d" title="Ramsey Harcourt: &quot;[CF-metadata] Seeking new CF standard names (waves and biogeochem)&quot;">Next message</a> ]
+[ <a href="./3763.html" title="Jonathan Gregory: &quot;[CF-metadata]  ocean_volume or cell_volume?&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,174 +68,51 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Bentley, Philip &lt;<a href="mailto:philip.bentley?Subject=Re%3A%20%5BCF-metadata%5D%20Question%20on%20metadata%20for%20coordinate%20reference%20systems">philip.bentley</a>&gt;
+<dfn>From</dfn>: Adam Pease &lt;<a href="mailto:adampease?Subject=Re%3A%20%5BCF-metadata%5D%20data%20integrity%20and%20semantics">adampease</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 26 Sep 2011 13:22:28 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 28 Oct 2010 09:55:59 -0700</span><br />
 </address>
 <br />
-Hi Paul,
+I'm interested in developing additional support for semantic
 <br />
-&nbsp;
+definitions and checking in NetCDF.  I've looked at the information
 <br />
-<br /><br /><br />________________________________
+about metadata definitions and had some questions:
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;From: cf-metadata-bounces at cgd.ucar.edu
+<br />- It appears that there is no existing capability to define constraints
 <br />
-[mailto:cf-metadata-bounces at cgd.ucar.edu] On Behalf Of Kennedy, Paul
+or restrictions between data series.  As a contrived example, we might
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sent: 24 September 2011 11:38
+define that readings of pressure and temperature have a direct
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To: cf-metadata at cgd.ucar.edu
+relationship, and absent any change in volume, that they must change in
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subject: [CF-metadata] Question on metadata for coordinate
+sync, at least within a given sensor error bound.  Do people have better
 <br />
-reference systems
+examples of where such a constraint definition facility would be
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+helpful?
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hi,
+<br />- Are there cases or anecdotes of data integrity issues you have seen
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I have been trying to figure out the correct mechanism for the
+with real-world NetCDF data that the existing meta-data facilities were
 <br />
-representation of coordinate reference system (CRS) metadata. 
+incapable of catching?  Stories of this sort might help me direct my
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I guess that the meaning of 'correct' depends on what end uses
+attention to the right area, and evaluate if additional semantic checks
 <br />
-you envisaged for your particular dataset(s). In the most trivial case
+could add significant value.
 <br />
-you might only need to indicate the radius of the sphere that was used
+<br />many thanks,
 <br />
-to approximate the shape of the Earth. And for that one can use the
+Adam
 <br />
-existing 'earth_radius' attribute (attached to an appropriate grid
-<br />
-mapping variable).
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For more complex coordinate systems, however, 'correct' may be
-<br />
-harder to attain. In principle, though, one should endeavour to specify
-<br />
-as many of the CRS-related CF attributes as possible that are applicable
-<br />
-to your data. It is recognised that the current list of such attributes
-<br />
-is a fairly limited subset of the complete set that would be required to
-<br />
-fully define any particular CRS (from the infinity of possibilities!).
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I read the online documents for CF conventions. It talks about
-<br />
-the definition of a few CRS's but there are many and some are highlt
-<br />
-complex (eg NZ MapGrid). While we could attempt to define attributes for
-<br />
-all parameters in a given CRS this is a complex matter and is probably
-<br />
-better handled by existing standards such as those in EPSG or PROJ
-<br />
-(wkt).
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Can anyone provide guidance on this? 
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As you say, definition of coordinate reference systems is a
-<br />
-complex topic (beyond the obvious trivial cases, that is). IMHO, it
-<br />
-seems unlikely - and probably undesirable - that the CF specification
-<br />
-will ever support a full implementation of the OGC/EPSG data model for
-<br />
-CRS's. Consequently I agree that a better approach is to adopt an
-<br />
-existing CRS encoding standard, and the CRS Well Known Text (CRS WKT)
-<br />
-format is the obvious candidate in this respect. (I'm aware also that
-<br />
-this method is being used informally by some data producers and software
-<br />
-vendors.)
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Originally devised by POSC (Petrotechnical Open Software
-<br />
-Consortium), my current understanding is that the CRS WKT specification
-<br />
-now falls under the custodianship of the OGC. Which I reckon is a
-<br />
-positive development.
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As part of my earlier CF trac ticket submissions (9 and 18) I
-<br />
-proposed that an optional 'crs_wkt' attribute may be attached to a
-<br />
-grid_mapping variable in order to provide additional details about the
-<br />
-corresponding CRS. At the time use of this particular attribute didn't
-<br />
-get endorsed. However, the recent spike in posts regarding CRS's on the
-<br />
-CF mailing list suggests that this proposal may now have broader
-<br />
-support.
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If that is the case, and if someone from the CF community is
-<br />
-willing to act as ticket moderator, then I'd be happy to compose a trac
-<br />
-ticket proposing the addition of an optional 'crs_wkt' grid mapping
-<br />
-attribute.
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In my perfect world we could simply drop in a 5 digit EPSG code
-<br />
-and we are done. 
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This idea was also discussed in my earlier trac ticket
-<br />
-proposals. However, the use of attributes to record EPSG codes was also
-<br />
-rejected at the time on the basis that they infringe the
-<br />
-'self-describing files' rule imposed upon CF metadata. Personally I'd
-<br />
-have no objection to the use of such optional attributes. However, there
-<br />
-are numeric codes for many different types of entity in the OGC/EPSG
-<br />
-data model, so it would be necessary to agree which of these should be
-<br />
-included.
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The attraction of the CRS WKT route is that that method is, for
-<br />
-the most part, self-describing. It merely enables the compact definition
-<br />
-of multiple CRS properties in a single netCDF text attribute, rather
-<br />
-than several separate ones.
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As always, you (or your organisation) are free to use any or all
-<br />
-of these techniques without breaking CF compliance... assuming that your
-<br />
-files are indeed CF-compliant in other respects!
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Regards,
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Phil 
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<br />
-<br />-------------- next part --------------
-<br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20110926/0cbca23f/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20110926/0cbca23f/attachment-0001.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Mon Sep 26 2011 - 06:22:28 BST</span>
+<br /><br /><pre>
+-- 
+----------------------
+www.ontologyportal.org - free ontologies and tools
+</pre>
+<span id="received"><dfn>Received on</dfn> Thu Oct 28 2010 - 10:55:59 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -245,9 +120,8 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start3764">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./3765.html" title="Next message in the list">Kennedy, Paul: "[CF-metadata] Question on metadata for coordinate referencesystems"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./3763.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Help needed with area_type and &#0034;surface type classification&#0034; datasets"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./3760.html" title="Message to which this message replies">Kennedy, Paul: "[CF-metadata] Question on metadata for coordinate reference systems"</a></li>
+<li><dfn>Next message</dfn>: <a href="./3765.html" title="Next message in the list">Ramsey Harcourt: "[CF-metadata] Seeking new CF standard names (waves and biogeochem)"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./3763.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]  ocean_volume or cell_volume?"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -259,7 +133,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:51 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./3763.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3765.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

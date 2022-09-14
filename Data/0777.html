@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] attributes for min/max data values for visualization from Jon Blower on 2007-03-28 (mailing-list-archive)</title>
-<meta name="Author" content="Jon Blower (jdb)" />
-<meta name="Subject" content="[CF-metadata] attributes for min/max data values for visualization" />
-<meta name="Date" content="2007-03-28" />
+<title>[CF-metadata] extended use of flag_values and flag_meanings from Jonathan Gregory on 2005-11-11 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] extended use of flag_values and flag_meanings" />
+<meta name="Date" content="2005-11-11" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0776.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0778.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] attributes for min/max data values for visualization</h1>
-<!-- received="Wed Mar 28 07:49:28 2007" -->
-<!-- isoreceived="20070328064928" -->
-<!-- sent="Wed, 28 Mar 2007 14:49:28 +0100" -->
-<!-- isosent="20070328134928" -->
-<!-- name="Jon Blower" -->
-<!-- email="jdb" -->
-<!-- subject="[CF-metadata] attributes for min/max data values for visualization" -->
-<!-- id="2bb6ee950703280649y4d7a54fmb1d06483f601ccb8_at_mail.gmail.com" -->
+<a style="text-decoration:none" href="./0776.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0778.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] extended use of flag_values and flag_meanings</h1>
+<!-- received="Fri Nov 11 01:02:22 2005" -->
+<!-- isoreceived="20051111010222" -->
+<!-- sent="Fri, 11 Nov 2005 08:02:22 +0000" -->
+<!-- isosent="20051111080222" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] extended use of flag_values and flag_meanings" -->
+<!-- id="20051111080222.GA14026_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="1175089415.9035.169.camel_at_eld414.desktop.frd.metoffice.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,10 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0778.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] attributes for min/max data values for visualization&quot;">Next message</a> ]
-[ <a href="./0776.html" title="Philip Bentley: &quot;[CF-metadata] attributes for min/max data values for	visualization&quot;">Previous message</a> ]
-[ <a href="./0776.html" title="Philip Bentley: &quot;[CF-metadata] attributes for min/max data values for	visualization&quot;">In reply to</a> ]
+[ <a href="./0778.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] lake standard names&quot;">Next message</a> ]
+[ <a href="./0776.html" title="Jonathan Gregory: &quot;[CF-metadata] new standard_names&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0781.html" accesskey="t" title="Bryan Lawrence: &quot;[CF-metadata] extended use of flag_values and flag_meanings&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,136 +70,64 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jon Blower &lt;<a href="mailto:jdb?Subject=Re%3A%20%5BCF-metadata%5D%20attributes%20for%20min%2Fmax%20data%20values%20for%20visualization">jdb</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20extended%20use%20of%20flag_values%20and%20flag_meanings">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 28 Mar 2007 14:49:28 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 11 Nov 2005 08:02:22 +0000</span><br />
 </address>
 <br />
-Hi Phil,
+Dear all
 <br />
-<br /><em class="quotelev1">&gt;  { minimum_data_value, maximum_data_value }, or
-</em><br />
-<em class="quotelev1">&gt;  { minimum_variable_value, maximum_variable_value }
-</em><br />
-<br />Thanks for this suggestion - both of these look sensible to me.  Are
+<br />Burkhardt Rockel asked whether it is possible to use flag_values and
 <br />
-there any other analogous features of CF that might give guidance
+flag_meanings (CF 3.5) for string-valued data variables. These two attributes
 <br />
-here?
+were introduced with ancillary data (CF 3.4) in mind e.g. data quality flags.
 <br />
-<br />Cheers, Jon
+Burkhardt's suggestion would be to use them to encode a data variable. For
 <br />
-<br />On 3/28/07, Philip Bentley &lt;philip.bentley at metoffice.gov.uk&gt; wrote:
+instance, we could encode this
 <br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  Hi Jon et al,
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  IMO, this idea seems commendable for actual min/max data values. However,
-</em><br />
-<em class="quotelev1">&gt; is there merit in adopting somewhat more specific, albeit longer, attribute
-</em><br />
-<em class="quotelev1">&gt; names? I'm thinking of the situation - contrived perhaps - wherein a
-</em><br />
-<em class="quotelev1">&gt; non-CF-savvy end-user of a netCDF file sees a metadata attribute called
-</em><br />
-<em class="quotelev1">&gt; &quot;value_min&quot; and asks the question &quot;Minimum value of what?&quot;.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  Perhaps the answer is self-evident from context; that is, since the
-</em><br />
-<em class="quotelev1">&gt; attribute is attached (in the netCDF header) to the variable it describes
-</em><br />
-<em class="quotelev1">&gt; then the association is clear. But in a client software application that
-</em><br />
-<em class="quotelev1">&gt; association might not be so obvious.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  In which case is it worth considering more verbose, but more descriptive
-</em><br />
-<em class="quotelev1">&gt; attribute names, e.g.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  { minimum_data_value, maximum_data_value }, or
-</em><br />
-<em class="quotelev1">&gt;  { minimum_variable_value, maximum_variable_value }
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  Just a suggestion!
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  Regards,
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  Phil
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  On Wed, 2007-03-28 at 14:00 +0100, Jon Blower wrote:
-</em><br />
-<em class="quotelev1">&gt;  Dear Jonathan and list,
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Just to re-start this debate. The original question was whether there
-</em><br />
-<em class="quotelev1">&gt; was (or could be) a pair of CF attributes to identify the min and max
-</em><br />
-<em class="quotelev1">&gt; data values in a CF dataset for the purposes of aiding visualization
-</em><br />
-<em class="quotelev1">&gt; tools to choose sensible colour scales.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  &lt;snip&gt;
-</em><br />
-<em class="quotelev1">&gt;  These attributes would be optional, but easy to add to existing
-</em><br />
-<em class="quotelev1">&gt; datasets, either through editing the NetCDF files or through other
-</em><br />
-<em class="quotelev1">&gt; decorators such as NcML, CDML etc.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; I propose calling these attributes value_min and value_max.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; What do others think? Is this a sensible addition to CF?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Jon
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<br /><br /><pre>
--- 
---------------------------------------------------------------
-Dr Jon Blower              Tel: +44 118 378 5213 (direct line)
-Technical Director         Tel: +44 118 378 8741 (ESSC)
-Reading e-Science Centre   Fax: +44 118 378 6413
-ESSC                       Email: jdb at mail.nerc-essc.ac.uk
-University of Reading
-3 Earley Gate
-Reading RG6 6AL, UK
---------------------------------------------------------------
-</pre>
-<span id="received"><dfn>Received on</dfn> Wed Mar 28 2007 - 07:49:28 BST</span>
+<br />&nbsp;&nbsp;variables:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;char land_cover(lat,max_string_length)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;land_cover:standard_name=&quot;land_cover&quot;;
+<br />
+&nbsp;&nbsp;data:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;land_cover=&quot;needleleaf_tree&quot;,&quot;needleleaf_tree&quot;,&quot;shrub&quot;,&quot;ice&quot;,&quot;ice&quot;, ...;
+<br />
+<br />like this
+<br />
+<br />&nbsp;&nbsp;variables:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;byte land_cover(lat)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;land_cover:standard_name=&quot;land_cover&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;land_cover:flag_values=0, 1, 2;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;land_cover:flag_meanings=&quot;needleleaf_tree shrub ice&quot;;
+<br />
+&nbsp;&nbsp;data:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;land_cover=0,0,1,2,2,...;
+<br />
+<br />This doesn't require any new machinery, the file is no less self-describing,
+<br />
+it saves space and it might be more convenient for plotting. The string values
+<br />
+could be standardised but their numerical encoding would not have to be.
+<br />
+However this scheme requires a bit more work to get the meaning out of it.
+<br />
+<br />Any views?
+<br />
+<br />Cheers
+<br />
+<br />Jonathan
+<br />
+<span id="received"><dfn>Received on</dfn> Fri Nov 11 2005 - 01:02:22 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -207,10 +135,12 @@ Reading RG6 6AL, UK
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start777">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0778.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] attributes for min/max data values for visualization"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0776.html" title="Previous message in the list">Philip Bentley: "[CF-metadata] attributes for min/max data values for	visualization"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0776.html" title="Message to which this message replies">Philip Bentley: "[CF-metadata] attributes for min/max data values for	visualization"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0778.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] lake standard names"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0776.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] new standard_names"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0781.html" title="Next message in this discussion thread">Bryan Lawrence: "[CF-metadata] extended use of flag_values and flag_meanings"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0781.html" title="Message sent in reply to this message">Bryan Lawrence: "[CF-metadata] extended use of flag_values and flag_meanings"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -221,7 +151,7 @@ Reading RG6 6AL, UK
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:55 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0776.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0778.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

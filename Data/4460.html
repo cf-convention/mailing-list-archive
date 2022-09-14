@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Response to [lc-cci] proposal for new CF standard names for land cover observation and classification from Hessel Winsemius on 2012-05-01 (mailing-list-archive)</title>
-<meta name="Author" content="Hessel Winsemius (Hessel.Winsemius)" />
-<meta name="Subject" content="[CF-metadata] Response to [lc-cci] proposal for new CF standard names for land cover observation and classification" />
-<meta name="Date" content="2012-05-01" />
+<title>[CF-metadata] Is there a convention defining day offsets to use for monthly average time series? from Jonathan Gregory on 2011-08-15 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] Is there a convention defining day offsets to use for monthly average time series?" />
+<meta name="Date" content="2011-08-15" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4459.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4461.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Response to [lc-cci] proposal for new CF standard names for land cover observation and classification</h1>
-<!-- received="Tue May  1 06:07:00 2012" -->
-<!-- isoreceived="20120501050700" -->
-<!-- sent="Tue, 01 May 2012 14:07:00 +0200" -->
-<!-- isosent="20120501120700" -->
-<!-- name="Hessel Winsemius" -->
-<!-- email="Hessel.Winsemius" -->
-<!-- subject="[CF-metadata] Response to [lc-cci] proposal for new CF standard names for land cover observation and classification" -->
-<!-- id="4F9FD1E4.7060900_at_deltares.nl" -->
+<a style="text-decoration:none" href="./4459.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4461.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Is there a convention defining day offsets to use for monthly average time series?</h1>
+<!-- received="Mon Aug 15 09:09:11 2011" -->
+<!-- isoreceived="20110815080911" -->
+<!-- sent="Mon, 15 Aug 2011 16:09:11 +0100" -->
+<!-- isosent="20110815150911" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] Is there a convention defining day offsets to use for monthly average time series?" -->
+<!-- id="20110815150911.GF18666_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4461.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Ocean CTD data following CF Conventions v1.6&quot;">Next message</a> ]
-[ <a href="./4459.html" title="andrew walsh: &quot;[CF-metadata] Ocean CTD data following CF Conventions v1.6&quot;">Previous message</a> ]
+[ <a href="./4461.html" accesskey="d" title="Bert Jagers: &quot;[CF-metadata] Is there a convention defining day offsets to use for monthly average time series?&quot;">Next message</a> ]
+[ <a href="./4459.html" title="Bert Jagers: &quot;[CF-metadata] Is there a convention defining day offsets to use for monthly average time series?&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./4461.html" accesskey="t" title="Bert Jagers: &quot;[CF-metadata] Is there a convention defining day offsets to use for monthly average time series?&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,84 +70,32 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Hessel Winsemius &lt;<a href="mailto:Hessel.Winsemius?Subject=Re%3A%20%5BCF-metadata%5D%20Response%20to%20%5Blc-cci%5D%20proposal%20for%20new%20CF%20standard%20names%20for%20land%20cover%20observation%20and%20classification">Hessel.Winsemius</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Is%20there%20a%20convention%20defining%20day%20offsets%20to%20use%20for%20monthly%20average%20time%20series%3F">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 01 May 2012 14:07:00 +0200</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 15 Aug 2011 16:09:11 +0100</span><br />
 </address>
 <br />
-Dear CF maintainers,
+Dear Bert
 <br />
-<br />I would like to acknowledge that we also are interested in similar 
+<br />I agree that it is important to distinguish whether values are points or
 <br />
-variable names as posted by mr. Martin Boettcher. The subject of the 
+averages. This distinction is made in CF by cell_methods, which indicates
 <br />
-previous post was:
+the interpretation for each axis. We already recommend that cell_methods be
 <br />
-[CF-metadata] [lc-cci] proposal for new CF standard names for land cover 
+included for all spatiotemporal axes, so I suppose the checker should warn
 <br />
-observation and classification
+if this is not so. Furthermore, we already have a recommendation that bounds
 <br />
-<br />In particular we are interested (and I quote) in:
+should be included unless cell_methods says the data applies to grid-points;
 <br />
-<br /><em class="quotelev1">&gt;/  standard name: probability_of_water_occurrence
-</em><br />
-/&gt;/  definition: probability that the observed pixel shows water
+that answers Karl's comment, I think. (I'd forgotten this recommendation.)
 <br />
-/&gt;/  unit: none (a value between 0 and 1)/
+<br />Best wishes
 <br />
-<br />and  along with this a standard name, which defines the quality of this 
+<br />Jonathan
 <br />
-estimate, using a modifier. The suggestion by mr. Boettcher was:
-<br />
-<br /><em class="quotelev1">&gt;/  standard name modifier: confidence_level
-</em><br />
-/&gt;/  definition: applied to some discrete variable, denotes the probability that the assignment of the value to the variable is correct
-<br />
-/
-<br />
-<br />Our variable name for the quality would then become:
-<br />
-standard_name: probability_of_water_occurrence_confidence_level
-<br />
-<br />There was some inclarity as to what 'probability of water occurrence' 
-<br />
-means. In our case, we are preparing an operational automated service 
-<br />
-for flood mapping from EnviSAT ASAR satellite data (in the future, we'll 
-<br />
-use Sentinel-1). In our algorithms, each pixel is given a probability 
-<br />
-that it contains open water. We are never 100% sure that a pixel is land 
-<br />
-or water. Therefore, we need a 'probability' instead. The ability of our 
-<br />
-algorithm to distinguish between land or water is sometimes good and 
-<br />
-sometimes not. Therefore we need the 'confidence_level'.
-<br />
-<br />Does this clarify our case? Please let me know if any clarifications are 
-<br />
-required.
-<br />
-<br />Kind regards,
-<br />
-Hessel Winsemius
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<br />
-<br /><br />&nbsp;
-<br />
-<br />DISCLAIMER: This message is intended exclusively for the addressee(s) and may contain confidential and privileged information. If you are not the intended recipient please notify the sender immediately and destroy this message. Unauthorized use, disclosure or copying of this message is strictly prohibited.
-<br />
-The foundation 'Stichting Deltares', which has its seat at Delft, The Netherlands, Commercial Registration Number 41146461, is not liable in any way whatsoever for consequences and/or damages resulting from the improper, incomplete and untimely dispatch, receipt and/or content of this e-mail.
-<br />
-<br /><br />-------------- next part --------------
-<br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120501/58841d69/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120501/58841d69/attachment.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Tue May 01 2012 - 06:07:00 BST</span>
+<span id="received"><dfn>Received on</dfn> Mon Aug 15 2011 - 09:09:11 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -153,9 +103,12 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4460">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4461.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Ocean CTD data following CF Conventions v1.6"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4459.html" title="Previous message in the list">andrew walsh: "[CF-metadata] Ocean CTD data following CF Conventions v1.6"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4461.html" title="Next message in the list">Bert Jagers: "[CF-metadata] Is there a convention defining day offsets to use for monthly average time series?"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4459.html" title="Previous message in the list">Bert Jagers: "[CF-metadata] Is there a convention defining day offsets to use for monthly average time series?"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./4461.html" title="Next message in this discussion thread">Bert Jagers: "[CF-metadata] Is there a convention defining day offsets to use for monthly average time series?"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./4461.html" title="Message sent in reply to this message">Bert Jagers: "[CF-metadata] Is there a convention defining day offsets to use for monthly average time series?"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -166,7 +119,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:03 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4459.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4461.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

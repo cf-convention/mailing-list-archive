@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF and multi-forecast system ensemble data from Jonathan Gregory on 2006-10-27 (mailing-list-archive)</title>
+<title>[CF-metadata] Standard name for radial velocity from Jonathan Gregory on 2004-03-17 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] CF and multi-forecast system ensemble data" />
-<meta name="Date" content="2006-10-27" />
+<meta name="Subject" content="[CF-metadata] Standard name for radial velocity" />
+<meta name="Date" content="2004-03-17" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0375.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0377.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF and multi-forecast system ensemble data</h1>
-<!-- received="Fri Oct 27 10:59:47 2006" -->
-<!-- isoreceived="20061027095947" -->
-<!-- sent="Fri, 27 Oct 2006 17:59:47 +0100" -->
-<!-- isosent="20061027165947" -->
+<a style="text-decoration:none" href="./0375.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0377.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Standard name for radial velocity</h1>
+<!-- received="Wed Mar 17 08:39:29 2004" -->
+<!-- isoreceived="20040317083929" -->
+<!-- sent="Wed, 17 Mar 2004 15:39:29 +0000" -->
+<!-- isosent="20040317153929" -->
 <!-- name="Jonathan Gregory" -->
 <!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] CF and multi-forecast system ensemble data" -->
-<!-- id="20061027165947.GA12280_at_met.reading.ac.uk" -->
+<!-- subject="[CF-metadata] Standard name for radial velocity" -->
+<!-- id="20040317153929.GA3744_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0377.html" accesskey="d" title="Kettleborough, Jamie: &quot;[CF-metadata] CF and multi-forecast system ensemble data&quot;">Next message</a> ]
-[ <a href="./0375.html" title="Kyle Halliday: &quot;[CF-metadata] CF discussion board beta test&quot;">Previous message</a> ]
+[ <a href="./0377.html" accesskey="d" title="Karl Taylor: &quot;[CF-metadata] regions&quot;">Next message</a> ]
+[ <a href="./0375.html" title="Stephens, A: &quot;[CF-metadata] Standard name for radial velocity&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0381.html" accesskey="t" title="Bryan Lawrence: &quot;[CF-metadata] CF and multi-forecast system ensemble data&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,88 +68,30 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20and%20multi-forecast%20system%20ensemble%20data">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Standard%20name%20for%20radial%20velocity">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 27 Oct 2006 17:59:47 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 17 Mar 2004 15:39:29 +0000</span><br />
 </address>
 <br />
-Dear Bryan
+Dear Ag
 <br />
-<br /><em class="quotelev1">&gt; a) we should create some standard names which exactly correspond to
+<br /><em class="quotelev1">&gt; After much discussion the best agreement we can come up with for a standard
 </em><br />
-<em class="quotelev1">&gt; some recommended global variables, and model integrations should use
+<em class="quotelev1">&gt; name for the instrument-measured quantity of radial velocity is:
 </em><br />
-<em class="quotelev1">&gt; global variables where they contain exactly one realization to indicate
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; these.
+<em class="quotelev1">&gt;   'radial_velocity_of_scatterers_away_from_instrument'  (m s^-1)
 </em><br />
-<br />In netCDF terms that should be &quot;global attributes&quot; rather than &quot;global
+<br />Thanks for coordinating that discussion, which was useful. I certainly think
 <br />
-variables&quot;. I think that if a file contains data variables which have come
+we should add this to the standard name table.
 <br />
-from various sources, but the variables are not aggregated across sources,
-<br />
-the global attributes could simply be converted into data variable attributes.
-<br />
-There is no need to make them into scalar or size-one coordinate variables.
-<br />
-<br /><em class="quotelev1">&gt; Issue C: should we have a standard name modifier associated with a
-</em><br />
-<em class="quotelev1">&gt; variable on the aggregation dimension to show that it was produced by
-</em><br />
-<em class="quotelev1">&gt; aggregating file attributes?
-</em><br />
-<br />Maybe I have misunderstood, but I don't see a need for a standard name
-<br />
-modifier here. Ancillary data, labelled by standard name modifiers, supplies
-<br />
-metadata about the *individual* values of another data variable (CF 3.4), not
-<br />
-about a particular dimension. If you wish to supply extra information along
-<br />
-a particular dimension, this can be done by including another auxiliary
-<br />
-coordinate variable (CF 6.1), as you also mention.
-<br />
-<br /><em class="quotelev1">&gt; Issue-D: how far should CF go into providing standard names for
-</em><br />
-<em class="quotelev1">&gt; describing variable metadata?
-</em><br />
-<br />This is an important issue. In some cases I think we should do this i.e.
-<br />
-standardise the values of quantities with particular standard names. But in
-<br />
-general it would be better to hand this off to another authority, I agree,
-<br />
-if there is one that provides (or can be persuaded to provide) an appropriate
-<br />
-list of values. If that happens, your idea of using an attribute to point to
-<br />
-the dictionary by its URL strikes me as a good suggestion.
-<br />
-<br /><em class="quotelev1">&gt; it would be helpful for
-</em><br />
-<em class="quotelev1">&gt; CF to mandate this stuff at least for the numerical model community. 
-</em><br />
-<em class="quotelev1">&gt; Now we can do that ... but ...
-</em><br />
-<br />I'd say what is currently being considered is quite a modest expansion of
-<br />
-the kind of approach we already have with global attributes. Paco did not
-<br />
-ask for the values to be standardised, just for named containers, as the global
-<br />
-attributes currently are. That does not close the door on experts in this
-<br />
-domain making specific proposals for standardisation of these or other
-<br />
-attributes.
-<br />
-<br />Best wishes
+<br />Cheers
 <br />
 <br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Fri Oct 27 2006 - 10:59:47 BST</span>
+<span id="received"><dfn>Received on</dfn> Wed Mar 17 2004 - 08:39:29 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -159,12 +99,9 @@ attributes.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start376">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0377.html" title="Next message in the list">Kettleborough, Jamie: "[CF-metadata] CF and multi-forecast system ensemble data"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0375.html" title="Previous message in the list">Kyle Halliday: "[CF-metadata] CF discussion board beta test"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0377.html" title="Next message in the list">Karl Taylor: "[CF-metadata] regions"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0375.html" title="Previous message in the list">Stephens, A: "[CF-metadata] Standard name for radial velocity"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0381.html" title="Next message in this discussion thread">Bryan Lawrence: "[CF-metadata] CF and multi-forecast system ensemble data"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0381.html" title="Message sent in reply to this message">Bryan Lawrence: "[CF-metadata] CF and multi-forecast system ensemble data"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -175,7 +112,7 @@ attributes.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:49 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0375.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0377.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

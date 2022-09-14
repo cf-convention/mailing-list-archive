@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Convention attribute from Hedley, Mark on 2011-12-29 (mailing-list-archive)</title>
-<meta name="Author" content="Hedley, Mark (mark.hedley)" />
-<meta name="Subject" content="[CF-metadata] Convention attribute" />
-<meta name="Date" content="2011-12-29" />
+<title>[CF-metadata] standard_name modifiers -- units problem from cristina.tronconi at artov.isac.cnr.it on 2011-03-01 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="cristina.tronconi at artov.isac.cnr.it (cristina.tronconi)" />
+<meta name="Subject" content="[CF-metadata] standard_name modifiers -- units problem" />
+<meta name="Date" content="2011-03-01" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4071.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4073.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Convention attribute</h1>
-<!-- received="Thu Dec 29 06:27:05 2011" -->
-<!-- isoreceived="20111229062705" -->
-<!-- sent="Thu, 29 Dec 2011 13:27:05 -0000" -->
-<!-- isosent="20111229132705" -->
-<!-- name="Hedley, Mark" -->
-<!-- email="mark.hedley" -->
-<!-- subject="[CF-metadata] Convention attribute" -->
-<!-- id="8AC4893FB411FA4AA8CFECD9C8913B660B095344_at_EXXMAIL01.desktop.frd.metoffice.com" -->
+<a style="text-decoration:none" href="./4071.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4073.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard_name modifiers -- units problem</h1>
+<!-- received="Tue Mar  1 10:43:40 2011" -->
+<!-- isoreceived="20110301104340" -->
+<!-- sent="Tue,  1 Mar 2011 18:43:40 +0100" -->
+<!-- isosent="20110301174340" -->
+<!-- name="cristina.tronconi at artov.isac.cnr.it" -->
+<!-- email="cristina.tronconi" -->
+<!-- subject="[CF&ndash;metadata] standard_name modifiers &ndash;&ndash; units problem" -->
+<!-- id="20110301184340.i726qq9qf400cw80_at_webmail.sic.rm.cnr.it" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="4D6D2750.7080203_at_unidata.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4073.html" accesskey="d" title="Hedley, Mark: &quot;[CF-metadata] Convention attribute&quot;">Next message</a> ]
-[ <a href="./4071.html" title="Lowry, Roy K.: &quot;[CF-metadata] Convention attribute&quot;">Previous message</a> ]
+[ <a href="./4073.html" accesskey="d" title="Karl Taylor: &quot;[CF-metadata] standard_name modifiers -- units problem&quot;">Next message</a> ]
+[ <a href="./4071.html" title="Steven Emmerson: &quot;[CF-metadata] standard_name modifiers -- units problem&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,148 +69,208 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Hedley, Mark &lt;<a href="mailto:mark.hedley?Subject=Re%3A%20%5BCF-metadata%5D%20Convention%20attribute">mark.hedley</a>&gt;
+<dfn>From</dfn>: cristina.tronconi at artov.isac.cnr.it &lt;<a href="mailto:cristina.tronconi?Subject=Re%3A%20%5BCF-metadata%5D%20standard_name%20modifiers%20--%20units%20problem">cristina.tronconi</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 29 Dec 2011 13:27:05 -0000</span><br />
+<span id="date"><dfn>Date</dfn>: Tue,  1 Mar 2011 18:43:40 +0100</span><br />
 </address>
 <br />
-I think this represents a sensible approach.  I think that the name_spacing is implicit and will have to remain so.
+Dear Steven......ups.....yes.....it was a typing mistaken! sorry for  
 <br />
-<br />I think a strong statement detailing the responsibility placed on the data provider to have checked that the metadata is unambiguously consistent with all standards stated in the 'Conventions' global attribute would be useful alongside any statement that multiple conventions may be defined for a data file
+this error!
 <br />
-<br />cheers
+Best regards
 <br />
-<br />mark
+<br />cristina
 <br />
-<br /><br />Dear Mark and Dave
+<br /><br />Citando Steven Emmerson &lt;steve at unidata.ucar.edu&gt;:
 <br />
-<br />I agree with Dave's answers. If two conventions are used together, it is the
-<br />
-responsibility of the data-writer to guarantee that the metadata supplied is
-<br />
-consistent if there are any overlaps in meaning. A particular case of that is
-<br />
-if the two conventions define attributes with the same names. It has been
-<br />
-suggested that conventions could signal their own name-spaces e.g. CF
-<br />
-attributes could all be prefixed with &quot;cf_&quot; (like the cf_role attribute, which
-<br />
-has been introduced in the new CF section 9). That could help with preventing
-<br />
-collisions of namespaces, but
-<br />
-<br />* it would be cumbersome for writers of files that adhere to only one
-<br />
-convention, which is the usual case, and awkward for programs that read files,
-<br />
-since they would have to check for every attribute by two different names
-<br />
-(with and without the prefix, considering all the data that already exists
-<br />
-without prefixes).
-<br />
-<br />* it doesn't help if the two conventions are inconsistent in their metadata,
-<br />
-whether or not they use similarly named attributes, and this is the more
-<br />
-serious problem, I would argue.
-<br />
-<br />Therefore I don't think this is really a magic solution to get rid of the
-<br />
-potential difficulty. Rather, the writers of conventions have to be aware of
-<br />
-other netCDF conventions that might be used with theirs, and try to use ones
-<br />
-that already exist instead of defining new ones for a given purpose.
-<br />
-<br />Best wishes
-<br />
-<br />Jonathan
-<br />
-_______________________________________________
-<br />
-CF-metadata mailing list
-<br />
-CF-metadata at cgd.ucar.edu
-<br />
-<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-<br />
-Mark,
-<br />
-<br />That is an important question.  I suggest that there is only one
-<br />
-practical interpretation for multiple conventions: 100 percent
-<br />
-compiance with the requirements of each listed convention.  This leads
-<br />
-to immediate answers for your questions, as follows.
-<br />
-<br />On Wed, Dec 28, 2011 at 9:59 AM, Hedley, Mark
-<br />
-&lt;mark.hedley at metoffice.gov.uk&gt; wrote:
-<br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; I am interested in the implications for defining multiple conventions in the same file.  As a data creator, what am I asserting by defining my file with multiple conventions?
+<br /><em class="quotelev1">&gt; Christina,
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; It could be said that the conventions attribute provides an implicit name space for the controlled terms it defines.  This enables a data consumer to assign meaning to the terms defined by the convention which exist within a particular file.
+<em class="quotelev1">&gt; I assume you meant &quot;1&quot; for the unit specification rather than &quot;!&quot;.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; If I have one convention, I can pattern match all the attributes and explicitly link them to a convention.  All the ones that don't match are user defined, and not part of the convention.  Does this scale to having multiple conventions defined?
+<em class="quotelev1">&gt; --Steve
 </em><br />
-<br />Yes, assuming that there are no incompatibilities between attributes
-<br />
-in use in any given file.
-<br />
-<br /><em class="quotelev1">&gt; Do conventions maintain mutually exclusive vocabularies? I don't think they do.
+<em class="quotelev1">&gt;
 </em><br />
-<br />Agreed.  Each shared term must be used in a mutually compatible way,
-<br />
-or else it must not be used in the context of two incompatible
-<br />
-definitions.
-<br />
-<br /><em class="quotelev1">&gt; Where vocabularies share terms, is there oversight that ensures that shared terms are defined the same way?
+<em class="quotelev1">&gt; On 2/28/2011 5:25 AM, cristina.tronconi at artov.isac.cnr.it wrote:
 </em><br />
-<br />Only good judgement on the part of convention designers.  In my
-<br />
-limited experience, there are a few popular conventions that have had
-<br />
-considerable influence on the development of other conventions.  This
-<br />
-helps to engender conforming usage of attributes.  Such conventions
-<br />
-include Unidata's attribute recommendations (mainly User's Guide
-<br />
-appendix B), COARDS, and CF; perhaps others.
-<br />
-<br /><em class="quotelev1">&gt; If I assert that two conventions are being used, does that mean that I have checked that my file contains no attributes which are ambiguously defined?
+<em class="quotelev2">&gt;&gt; Dear Steve,
 </em><br />
-<br />Not necessarily that checks were actually performed, but only that you
-<br />
-are asserting full compliance with each convention.
-<br />
-<br /><em class="quotelev1">&gt; If I want to use a term which is ambiguously defined, can I do this effectively?
+<em class="quotelev2">&gt;&gt; thanks for your recommandation. It is important to me to be sure I can
 </em><br />
-<br />By &quot;ambiguously defined&quot; do you mean defined incompatibly between two
-<br />
-conventions?  I would say No, this would not be allowed if your goal
-<br />
-is to have the term interpreted unambiguously by all possible readers.
-<br />
-<br /><em class="quotelev1">&gt; There seems to be significant potential for confusion here; I think care is required.
+<em class="quotelev2">&gt;&gt; use &quot;!&quot; as unit, as my data are produced within MYOCEAN (european)
 </em><br />
-<br />Requiring independent conformance with each listed convention should
+<em class="quotelev2">&gt;&gt; project and thay are going to test my data! so it is important my data
+</em><br />
+<em class="quotelev2">&gt;&gt; does not failed the CF checker test.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Best regards
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; cristina
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Citando Steven Emmerson &lt;steve at unidata.ucar.edu&gt;:
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Cristina,
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; I recommend the unit &quot;1&quot; for that use.
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; If the CF checker doesn't like that unit, then it should be fixed, IMO,
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; because that unit is supported by both the US NIST and the BIPM.
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Regards,
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Steve Emmerson
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; UDUNITS developer
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; On 2/26/2011 12:30 PM, cristina.tronconi at artov.isac.cnr.it wrote:
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; Dear Roy,
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; Our variable &quot;chlorophyll count&quot; as is understandable by CF is the
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; number of individual measurements used to determine a chlorophyll value.
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; I do need to know what to put at &quot;units&quot; attribute for that variable.
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; I undestood by the CF convention 1.4 (appendix C) that I have to put
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; &quot;units=&quot;1&quot; as the chlorophyll count is a dimensionless variable...but
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; the CF checker found it as an error.
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; I try not to put the Unit attribute ...but again i get an error by che
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; cf chcker.......so.....
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; my question is: what unit shoudl I set for my chlorophyll count
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; variable?
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; thanks for your help.
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; cristina
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; -------------------------------------------------------------------
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; Cristina Tronconi
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; Istituto di Scienze dell'Atmosfera e del Clima - sezione di Roma
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; Consiglio Nazionale delle Ricerche
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; Via Fosso del Cavaliere 100
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; 00133 Roma, Italy
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; Tel: +39 06 49934342
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; cell: '39 349 1242954
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; Fax: +39 06 20660291
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; e-mail: cristina.tronconi at artov.isac.cnr.it
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; _______________________________________________
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; -------------------------------------------------------------------
+</em><br />
+<em class="quotelev2">&gt;&gt; Cristina Tronconi
+</em><br />
+<em class="quotelev2">&gt;&gt; Istituto di Scienze dell'Atmosfera e del Clima - sezione di Roma
+</em><br />
+<em class="quotelev2">&gt;&gt; Consiglio Nazionale delle Ricerche
+</em><br />
+<em class="quotelev2">&gt;&gt; Via Fosso del Cavaliere 100
+</em><br />
+<em class="quotelev2">&gt;&gt; 00133 Roma, Italy
+</em><br />
+<em class="quotelev2">&gt;&gt; Tel: +39 06 49934342
+</em><br />
+<em class="quotelev2">&gt;&gt; cell: '39 349 1242954
+</em><br />
+<em class="quotelev2">&gt;&gt; Fax: +39 06 20660291
+</em><br />
+<em class="quotelev2">&gt;&gt; e-mail: cristina.tronconi at artov.isac.cnr.it
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<br /><br /><br />-------------------------------------------------------------------
 <br />
-alleviate confusion.
+Cristina Tronconi
 <br />
-<br />--Dave
+Istituto di Scienze dell'Atmosfera e del Clima - sezione di Roma
 <br />
-<span id="received"><dfn>Received on</dfn> Thu Dec 29 2011 - 06:27:05 GMT</span>
+Consiglio Nazionale delle Ricerche
+<br />
+Via Fosso del Cavaliere 100
+<br />
+00133 Roma, Italy
+<br />
+Tel:      +39  06  49934342
+<br />
+cell:     '39 349 1242954
+<br />
+Fax:      +39  06  20660291
+<br />
+e-mail:   cristina.tronconi at artov.isac.cnr.it
+<br />
+<span id="received"><dfn>Received on</dfn> Tue Mar 01 2011 - 10:43:40 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -217,8 +278,8 @@ alleviate confusion.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4072">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4073.html" title="Next message in the list">Hedley, Mark: "[CF-metadata] Convention attribute"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4071.html" title="Previous message in the list">Lowry, Roy K.: "[CF-metadata] Convention attribute"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4073.html" title="Next message in the list">Karl Taylor: "[CF-metadata] standard_name modifiers -- units problem"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4071.html" title="Previous message in the list">Steven Emmerson: "[CF-metadata] standard_name modifiers -- units problem"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -230,7 +291,7 @@ alleviate confusion.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:56 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4071.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4073.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

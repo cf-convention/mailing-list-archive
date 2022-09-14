@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] how to capture horizontal spatial resolution of imagery in a standard way from rhorne at excaliburlabs.com on 2013-05-09 (mailing-list-archive)</title>
-<meta name="Author" content="rhorne at excaliburlabs.com (rhorne)" />
-<meta name="Subject" content="[CF-metadata] how to capture horizontal spatial resolution of imagery in a standard way" />
-<meta name="Date" content="2013-05-09" />
+<title>[CF-metadata] Standard_name for cloud-cover by phenomenon from Jonathan Gregory on 2012-05-15 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] Standard_name for cloud-cover by phenomenon" />
+<meta name="Date" content="2012-05-15" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5326.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5328.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] how to capture horizontal spatial resolution of imagery in a standard way</h1>
-<!-- received="Thu May  9 07:56:20 2013" -->
-<!-- isoreceived="20130509065620" -->
-<!-- sent="Thu, 9 May 2013 09:56:20 -0400" -->
-<!-- isosent="20130509135620" -->
-<!-- name="rhorne at excaliburlabs.com" -->
-<!-- email="rhorne" -->
-<!-- subject="[CF-metadata] how to capture horizontal spatial resolution of imagery in a standard way" -->
-<!-- id="7d670e4c$4b7f37dd$743d6903$_at_excaliburlabs.com" -->
+<a style="text-decoration:none" href="./5326.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5328.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Standard_name for cloud-cover by phenomenon</h1>
+<!-- received="Tue May 15 09:12:43 2012" -->
+<!-- isoreceived="20120515081243" -->
+<!-- sent="Tue, 15 May 2012 16:12:43 +0100" -->
+<!-- isosent="20120515151243" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] Standard_name for cloud-cover by phenomenon" -->
+<!-- id="20120515151242.GC14266_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5328.html" accesskey="d" title="Karl Taylor: &quot;[CF-metadata] Shortwave Downward Radiation&quot;">Next message</a> ]
-[ <a href="./5326.html" title="rhorne at excaliburlabs.com: &quot;[CF-metadata] using cell_methods with observation data&quot;">Previous message</a> ]
+[ <a href="./5328.html" accesskey="d" title="Cameron-smith, Philip: &quot;[CF-metadata] FW:  Standard_name for cloud-cover by phenomenon&quot;">Next message</a> ]
+[ <a href="./5326.html" title="Wright, Bruce: &quot;[CF-metadata] FW:  Standard_name for cloud-cover by phenomenon&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,56 +68,44 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: rhorne at excaliburlabs.com &lt;<a href="mailto:rhorne?Subject=Re%3A%20%5BCF-metadata%5D%20how%20to%20capture%20horizontal%20spatial%20resolution%20of%20imagery%20in%20a%20standard%20way">rhorne</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Standard_name%20for%20cloud-cover%20by%20phenomenon">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 9 May 2013 09:56:20 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 15 May 2012 16:12:43 +0100</span><br />
 </address>
 <br />
-Folks: 
+Dear Bruce, Heiko et al.
 <br />
-<br />We have done some more thinking about how to capture the resolution of gridded observation data (this is a more accurate term than used in previous posts - imagery) using a to-be-determined CF convention.  Note that a key underlying assumption here is that the gridded data has a homogeneous sampling interval. 
+<br /><em class="quotelev1">&gt; 1. Cloud Height Classification Based on Cloud Types
+</em><br />
+<br /><em class="quotelev1">&gt; low_type_cloud_area_fraction
+</em><br />
+<em class="quotelev1">&gt; medium_type_cloud_area_fraction
+</em><br />
+<em class="quotelev1">&gt; high_type_cloud_area_fraction
+</em><br />
+<br />I continue to think these are fine. They are names of cloud genera, as earlier
 <br />
-<br />Originally, I thought a cell_method related approach made sense, but the resolution of elements in a data variable is not pertinent to the functional intent of cell methods. 
+discussed.
 <br />
-<br />A suggestion from the board thought that a new coordinate type could be defined to provide this capability.  The problem with this is that data resolution is not a coordinate, but, rather, a size characteristic of each element in the data variable containing the gridded observation data. 
+<br />I think the problem with names based on height ranges is that they are not
 <br />
-<br />&nbsp;&nbsp;
+well-defined, as you and Heiko say, so it would be necessary to include a
 <br />
-<br />This brings you back to cells (1st sentence of chapter 7 - When gridded data does not represent the point values of a field but instead represents some characteristic of the field within cells of finite &quot;volume,&quot; a complete description of the variable should include metadata that describes the domain or extent of each cell, and ....) 
+coordinate to define the range. But if you do that, the low/medium/high is
 <br />
-<br />&nbsp;&nbsp;
+not needed, and in fact unhelpful because it is restrictive. You only need the
 <br />
-<br />There are a variety of options available to support this including an additional syntax for cell boundaries or cell measures, or a new &quot;cell resolution&quot; that may only be associated with observation data. 
+one (existing) standard_name of cloud_area_fraction if you give a height range,
 <br />
-<br />&nbsp;&nbsp;
+and it should be possible to give a height range if the quantities come from
 <br />
-<br />The core of any of these approaches would be the specification of a numeric resolution with its units.  Using the existing cell &quot;(interval: value unit)&quot; as a model, a GOES-R 2 km at nadir gridded product would have an attribute component that looks like: 
+analysis of numerical datasets.
 <br />
-<br />&nbsp;&quot;(resolution: y = 0.000056 rad  x = 0.000056 rad)&quot; if it were part of a broader category (i.e. &quot;bounds:&quot; or &quot;cell_measures&quot;), or 
+<br />Best wishes
 <br />
-<br />&nbsp;&nbsp;
+<br />Jonathan
 <br />
-<br />&quot;resolution: y = 0.000056 rad  x = 0.000056 rad&quot;, if it was not associated with cell bounds or measures.  Note that the syntax to capture the resolution would need to be flexible to handle the different cell shapes for observation data.  &quot;y&quot; and &quot;x&quot; in these examples are intended to represent the spatial coordinate variables. 
-<br />
-<br />&nbsp;&nbsp;
-<br />
-<br />Comments appreciated ! 
-<br />
-<br />&nbsp;&nbsp;
-<br />
-<br />very respectfully, 
-<br />
-<br />&nbsp;&nbsp;
-<br />
-<br />randy
-<br />
-<br />-------------- next part --------------
-<br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130509/03cb96ad/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130509/03cb96ad/attachment-0001.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Thu May 09 2013 - 07:56:20 BST</span>
+<span id="received"><dfn>Received on</dfn> Tue May 15 2012 - 09:12:43 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -125,8 +113,8 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5327">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5328.html" title="Next message in the list">Karl Taylor: "[CF-metadata] Shortwave Downward Radiation"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5326.html" title="Previous message in the list">rhorne at excaliburlabs.com: "[CF-metadata] using cell_methods with observation data"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5328.html" title="Next message in the list">Cameron-smith, Philip: "[CF-metadata] FW:  Standard_name for cloud-cover by phenomenon"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5326.html" title="Previous message in the list">Wright, Bruce: "[CF-metadata] FW:  Standard_name for cloud-cover by phenomenon"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -138,7 +126,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:21 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5326.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5328.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

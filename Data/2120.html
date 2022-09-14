@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]  example 7.8 from Jonathan Gregory on 2009-07-03 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata]  example 7.8" />
-<meta name="Date" content="2009-07-03" />
+<title>[CF-metadata] what standard names are for from Bryan Lawrence on 2008-04-09 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Bryan Lawrence (b.n.lawrence)" />
+<meta name="Subject" content="[CF-metadata] what standard names are for" />
+<meta name="Date" content="2008-04-09" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2119.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2121.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  example 7.8</h1>
-<!-- received="Fri Jul  3 02:42:30 2009" -->
-<!-- isoreceived="20090703014230" -->
-<!-- sent="Fri, 3 Jul 2009 09:42:30 +0100" -->
-<!-- isosent="20090703084230" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata]  example 7.8" -->
-<!-- id="20090703084230.GB159_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./2119.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2121.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] what standard names are for</h1>
+<!-- received="Wed Apr  9 13:58:57 2008" -->
+<!-- isoreceived="20080409125857" -->
+<!-- sent="Wed, 9 Apr 2008 20:58:57 +0100" -->
+<!-- isosent="20080409195857" -->
+<!-- name="Bryan Lawrence" -->
+<!-- email="b.n.lawrence" -->
+<!-- subject="[CF-metadata] what standard names are for" -->
+<!-- id="200804092058.57674.b.n.lawrence_at_rl.ac.uk" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="2E9C45494F78A3498A77616E7C2DBB4C01792793_at_icg217.icg-ii-w2k.kfa-juelich.de" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,9 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2121.html" accesskey="d" title="Bert Jagers: &quot;[CF-metadata] definition of direction in direction_of_sea_water_velocity?&quot;">Next message</a> ]
-[ <a href="./2119.html" title="Heinke Hoeck: &quot;[CF-metadata] example 7.8&quot;">Previous message</a> ]
+[ <a href="./2121.html" accesskey="d" title="Schultz, Martin: &quot;[CF-metadata] what standard names are for&quot;">Next message</a> ]
+[ <a href="./2119.html" title="Roy Lowry: &quot;[CF-metadata] what standard names are for&quot;">Previous message</a> ]
+[ <a href="./2116.html" title="Schultz, Martin: &quot;[CF-metadata] what standard names are for&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./2121.html" accesskey="t" title="Schultz, Martin: &quot;[CF-metadata] what standard names are for&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,38 +72,90 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20example%207.8">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Bryan Lawrence &lt;<a href="mailto:b.n.lawrence?Subject=Re%3A%20%5BCF-metadata%5D%20what%20standard%20names%20are%20for">b.n.lawrence</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 3 Jul 2009 09:42:30 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 9 Apr 2008 20:58:57 +0100</span><br />
 </address>
 <br />
-Dear Heinke
+Hi Martin
 <br />
-<br />The presence of climatology_bounds indicate it's a climatological mean,
-<br />
-and cell_methods indicates how to interpret it:
-<br />
-<br /><em class="quotelev1">&gt;     temperature:cell_methods=&quot;time: minimum within years time: mean over
+<br /><em class="quotelev1">&gt;    although the subject has been changed I feel that this discussion has
 </em><br />
-<em class="quotelev1">&gt; years&quot;;
+<em class="quotelev1">&gt; been closely related to my recent question about adding extra tags in
 </em><br />
-<br />This is described in sect 7.4 of the standard, where it explains
+<em class="quotelev1">&gt; the XML file and mdefining a way how these can survive. To ask again
+</em><br />
+<em class="quotelev1">&gt; much more specifically this time:
+</em><br />
+<em class="quotelev1">&gt; (1) who is maintaining the xml file (and the asociated syntax definiiton
+</em><br />
+<em class="quotelev1">&gt; file which I could not locate on the web)?
+</em><br />
+<br />We (BADC) and specificaly Alison Pamment maintain the CF standard names. We 
 <br />
-<br />time: method1 within years   time: method2 over years
+maintain the authorative version at cfconventions.org, and the 
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;method1 is applied to the time intervals (mdHMS0-mdHMS1) within individual years and method2 is applied over the range of years (y0-y1).
+non-authorative (but version controlled) list via vocab.ndg.nerc.ac.uk.
 <br />
-<br />You have method1=minimum and method2=mean.
+<br />There is no associated syntax definition file, if I have understood what you 
 <br />
-So climatology bounds of 1960-3-1 to 1990-6-1 indicate the minimum from
+mean by that.
 <br />
-1 March to 1 June in each year, then meaned over the means 1960 to 1990.
+<br /><em class="quotelev1">&gt; (2) if I would send an edited XML file which included &lt;htap&gt; tags to
+</em><br />
+<em class="quotelev1">&gt; contain the TFHTAP multi-model assessment variable names (just like it
+</em><br />
+<em class="quotelev1">&gt; is the case for &lt;amip&gt; at present) to the person named in (1): would
+</em><br />
+<em class="quotelev1">&gt; this xml file be further maintained and future updates would keep this
+</em><br />
+<em class="quotelev1">&gt; additional tag?
+</em><br />
+<br />I don't think we're currently in the business of maintaining other folks 
 <br />
-<br />Cheers
+namespaces. and particularly not by locking into any specific xml syntax. I 
 <br />
-<br />Jonathan
+think the earlier response to your message from John Graybeal is a better way 
 <br />
-<span id="received"><dfn>Received on</dfn> Fri Jul 03 2009 - 02:42:30 BST</span>
+forward for you ...
+<br />
+<br />That said, the cf common concept (a current proposal thread) could also 
+<br />
+provide a useful mechanism which we (CF) could maintain. However, that 
+<br />
+doesn't exist now!
+<br />
+<br /><em class="quotelev1">&gt;    If these two points can be satisfied, it would constitute a great
+</em><br />
+<em class="quotelev1">&gt; step forward for me to actually make use of the cf standard names and
+</em><br />
+<em class="quotelev1">&gt; other standards around it. And I believe that this will also proliferate
+</em><br />
+<em class="quotelev1">&gt; into many other international (atmospheric chemistry) modelling
+</em><br />
+<em class="quotelev1">&gt; initiatives, because many groups are involved in HTAP. If not, then I
+</em><br />
+<em class="quotelev1">&gt; fear that the HTAP community for example will quickly loose interest to
+</em><br />
+<em class="quotelev1">&gt; follow standard names as there will for a long time be no &quot;super
+</em><br />
+<em class="quotelev1">&gt; software&quot; that eliminates the need to know the actual variable names in
+</em><br />
+<em class="quotelev1">&gt; order to process the data.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Sorry for being somewhat pushy on this, but I need to get some work done
+</em><br />
+<em class="quotelev1">&gt; here.
+</em><br />
+<br />As do we all :-)
+<br />
+<br />best wishes,
+<br />
+Bryan
+<br />
+<span id="received"><dfn>Received on</dfn> Wed Apr 09 2008 - 13:58:57 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -107,9 +163,13 @@ So climatology bounds of 1960-3-1 to 1990-6-1 indicate the minimum from
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2120">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2121.html" title="Next message in the list">Bert Jagers: "[CF-metadata] definition of direction in direction_of_sea_water_velocity?"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2119.html" title="Previous message in the list">Heinke Hoeck: "[CF-metadata] example 7.8"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2121.html" title="Next message in the list">Schultz, Martin: "[CF-metadata] what standard names are for"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2119.html" title="Previous message in the list">Roy Lowry: "[CF-metadata] what standard names are for"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./2116.html" title="Message to which this message replies">Schultz, Martin: "[CF-metadata] what standard names are for"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./2121.html" title="Next message in this discussion thread">Schultz, Martin: "[CF-metadata] what standard names are for"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./2121.html" title="Message sent in reply to this message">Schultz, Martin: "[CF-metadata] what standard names are for"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -120,7 +180,7 @@ So climatology bounds of 1960-3-1 to 1990-6-1 indicate the minimum from
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:19 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2119.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2121.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

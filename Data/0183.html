@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] standard names for aerosols and chemistry from Christiane Textor on 2006-08-18 (mailing-list-archive)</title>
-<meta name="Author" content="Christiane Textor (christiane.textor)" />
-<meta name="Subject" content="[CF-metadata] standard names for aerosols and chemistry" />
-<meta name="Date" content="2006-08-18" />
+<title>[CF-metadata] Example of forecast data from Jonathan Gregory on 2003-06-13 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] Example of forecast data" />
+<meta name="Date" content="2003-06-13" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0182.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0184.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard names for aerosols and chemistry</h1>
-<!-- received="Fri Aug 18 10:53:22 2006" -->
-<!-- isoreceived="20060818095322" -->
-<!-- sent="Fri, 18 Aug 2006 18:53:22 +0200" -->
-<!-- isosent="20060818165322" -->
-<!-- name="Christiane Textor" -->
-<!-- email="christiane.textor" -->
-<!-- subject="[CF-metadata] standard names for aerosols and chemistry" -->
-<!-- id="44E5F082.5040303_at_aero.jussieu.fr" -->
+<a style="text-decoration:none" href="./0182.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0184.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Example of forecast data</h1>
+<!-- received="Fri Jun 13 05:28:00 2003" -->
+<!-- isoreceived="20030613042800" -->
+<!-- sent="Fri, 13 Jun 2003 12:28:00 +0100" -->
+<!-- isosent="20030613112800" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] Example of forecast data" -->
+<!-- id="20030613112800.GA19994_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0184.html" accesskey="d" title="Olivier Lauret: &quot;[CF-metadata] Standard names for altimeter data&quot;">Next message</a> ]
-[ <a href="./0182.html" title="Gross, Tom: &quot;[CF-metadata] Standard names for altimeter data&quot;">Previous message</a> ]
+[ <a href="./0184.html" accesskey="d" title="Christopher Kerr: &quot;[CF-metadata] Proposed CF standard name&quot;">Next message</a> ]
+[ <a href="./0182.html" title="Stephens, A: &quot;[CF-metadata] Example of forecast data&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0185.html" accesskey="t" title="Brian Eaton: &quot;[CF-metadata] Example of forecast data&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,74 +70,52 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Christiane Textor &lt;<a href="mailto:christiane.textor?Subject=Re%3A%20%5BCF-metadata%5D%20standard%20names%20for%20aerosols%20and%20chemistry">christiane.textor</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Example%20of%20forecast%20data">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 18 Aug 2006 18:53:22 +0200</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 13 Jun 2003 12:28:00 +0100</span><br />
 </address>
 <br />
-Dear all,
+Dear Ag and all
 <br />
-<br />I would like to propose you new_standard names for aerosols and chemical 
+<br />Yes, I agree, the scheme with an index dimension (Ag's option 2, Russ's case
 <br />
-variables. These names will be used in the model intercomparisons in the 
+illustrated by Brian, (iv) in our earlier list) should be included in CF for
 <br />
-framework of the Task Force on Hemispheric Transport of Air Pollution
+use when there is a set of forecasts from various analysis times. I would like
 <br />
-(<a href="http://www.htap.org/">http://www.htap.org/</a>, <a href="http://aqm.jrc.it/HTAP/">http://aqm.jrc.it/HTAP/</a>) and the European 
+to propose a new standard name of forecast_validity_time to use instead of
 <br />
-Integrated Project GEMS (<a href="http://www.ecmwf.int/research/EU_projects/GEMS/">http://www.ecmwf.int/research/EU_projects/GEMS/</a>).
+plain time in this scheme.
 <br />
-<br />The proposed names have been extensively discussed by a 'virtual 
+<br />It seems excessively complicated to me to use this scheme when there are a set
 <br />
-workgroup' activity through a wiki page
+of forecasts from a single analysis or a set of analyses with the same validity
 <br />
-<a href="http://wiki.esipfed.org/index.php/Air_Quality/Chemistry_Naming_Conventions">http://wiki.esipfed.org/index.php/Air_Quality/Chemistry_Naming_Conventions</a>
+time. Can't we use simpler schemes?
 <br />
-with the aid of some CF experts to whom we are very grateful for their 
+<br />(a) Single analysis time, multiple forecast periods. Two options have been
 <br />
-support.
+proposed. I suggested having a size-one analysis (forecast reference) time axis
 <br />
-<br />Many other people who contributed to discussion:
+and a separate validity time axis. Brian suggested having just the latter axis
 <br />
-Olivier Boucher, Frank Dentener, Rudy Husar, Jonathan Gregory, 
+and encoding its units with analysis time as the time units reference time.
 <br />
-KyleHalliday, BryanLawrence, Vincent-Henri Peuch, Sebastian Rast, Martin 
+<br />(b) Single validity time, multiple analyses. I would propose the reverse of (a)
 <br />
-Schultz, Michael Schulz, Ranjeet Sokhi, David Stevenson, Karl Taylor, 
+i.e. a size-one validity time axis with a separate analysis time axis. I can't
 <br />
-Christiane Textor, Peter van Velthoven.
+see a nice analogue to Brian's suggestion.
 <br />
-<br />Please find attached a file with the proposed standard names.
+<br />For Ag's case of a set of analyses I think I would use a single time axis with
 <br />
-More information on how these names are constructed can be found at 
+standard name forecast_reference_time instead of time, as it's more informative.
 <br />
-<a href="http://wiki.esipfed.org/index.php/CF_Standard_Names_-_Future_Atmospheric_Chemistry_and_Aerosol_Terms">http://wiki.esipfed.org/index.php/CF_Standard_Names_-_Future_Atmospheric_Chemistry_and_Aerosol_Terms</a>
+<br />Cheers
 <br />
-<br />I am looking forward to your comments.
+<br />Jonathan
 <br />
-<br />Best regards,
-<br />
-Christiane Textor
-<br />
-<br />(on vacation until September 11)
-<br />
-<br /><pre>
--- 
-Christiane Textor
-GMES France Atmosph?re - GEMS France
-Service d'A?ronomie INSU CNRS, Tour 46, RDC # 2
-Universit? Pierre et Marie Curie, Boite 102
-4 place Jussieu
-75252 Paris C?dex 05
-France
-Tel: ++33 1.44.27.21.82
-Fax: ++33 1.44.27.21.81
-Email: christiane.textor at aero.jussieu.fr
--------------- next part --------------
-An HTML attachment was scrubbed...
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20060818/ce970d8e/attachment.htm">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20060818/ce970d8e/attachment.htm</a>&gt;
-</pre>
-<span id="received"><dfn>Received on</dfn> Fri Aug 18 2006 - 10:53:22 BST</span>
+<span id="received"><dfn>Received on</dfn> Fri Jun 13 2003 - 05:28:00 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -143,9 +123,12 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start183">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0184.html" title="Next message in the list">Olivier Lauret: "[CF-metadata] Standard names for altimeter data"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0182.html" title="Previous message in the list">Gross, Tom: "[CF-metadata] Standard names for altimeter data"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0184.html" title="Next message in the list">Christopher Kerr: "[CF-metadata] Proposed CF standard name"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0182.html" title="Previous message in the list">Stephens, A: "[CF-metadata] Example of forecast data"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0185.html" title="Next message in this discussion thread">Brian Eaton: "[CF-metadata] Example of forecast data"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0185.html" title="Message sent in reply to this message">Brian Eaton: "[CF-metadata] Example of forecast data"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -156,7 +139,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:45 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0182.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0184.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

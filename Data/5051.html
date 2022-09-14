@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Rotated Pole projection possibly wrong from Heiko Klein on 2013-03-06 (mailing-list-archive)</title>
-<meta name="Author" content="Heiko Klein (Heiko.Klein)" />
-<meta name="Subject" content="[CF-metadata] Rotated Pole projection possibly wrong" />
-<meta name="Date" content="2013-03-06" />
+<title>[CF-metadata] surface_air_pressure vs air_pressure_at_sea_level from Karl Taylor on 2012-03-14 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Karl Taylor (taylor13)" />
+<meta name="Subject" content="[CF-metadata] surface_air_pressure vs air_pressure_at_sea_level" />
+<meta name="Date" content="2012-03-14" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5050.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5052.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Rotated Pole projection possibly wrong</h1>
-<!-- received="Wed Mar  6 08:03:43 2013" -->
-<!-- isoreceived="20130306080343" -->
-<!-- sent="Wed, 06 Mar 2013 16:03:43 +0100" -->
-<!-- isosent="20130306150343" -->
-<!-- name="Heiko Klein" -->
-<!-- email="Heiko.Klein" -->
-<!-- subject="[CF-metadata] Rotated Pole projection possibly wrong" -->
-<!-- id="51375ACF.9010100_at_met.no" -->
+<a style="text-decoration:none" href="./5050.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5052.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] surface_air_pressure vs air_pressure_at_sea_level</h1>
+<!-- received="Wed Mar 14 17:46:15 2012" -->
+<!-- isoreceived="20120314174615" -->
+<!-- sent="Wed, 14 Mar 2012 16:46:15 -0700" -->
+<!-- isosent="20120314234615" -->
+<!-- name="Karl Taylor" -->
+<!-- email="taylor13" -->
+<!-- subject="[CF-metadata] surface_air_pressure vs air_pressure_at_sea_level" -->
+<!-- id="4F612DC7.30303_at_llnl.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="51375036.4020903_at_unidata.ucar.edu" -->
+<!-- inreplyto="4F60B71F.2080308_at_whoi.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5052.html" accesskey="d" title="John Caron: &quot;[CF-metadata] Rotated Pole projection possibly wrong&quot;">Next message</a> ]
-[ <a href="./5050.html" title="John Caron: &quot;[CF-metadata] Rotated Pole projection possibly wrong&quot;">Previous message</a> ]
-[ <a href="./5050.html" title="John Caron: &quot;[CF-metadata] Rotated Pole projection possibly wrong&quot;">In reply to</a> ]
+[ <a href="./5052.html" accesskey="d" title="John Caron: &quot;[CF-metadata] Example 5.10. British National Grid has wrong parameter names&quot;">Next message</a> ]
+[ <a href="./5050.html" title="Nan Galbraith: &quot;[CF-metadata] surface_air_pressure vs air_pressure_at_sea_level&quot;">Previous message</a> ]
+[ <a href="./5050.html" title="Nan Galbraith: &quot;[CF-metadata] surface_air_pressure vs air_pressure_at_sea_level&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./5052.html" accesskey="t" title="John Caron: &quot;[CF-metadata] Rotated Pole projection possibly wrong&quot;">Next in thread</a> ]
+[ <a href="./5055.html" accesskey="t" title="Lowry, Roy K.: &quot;[CF-metadata] surface_air_pressure vs air_pressure_at_sea_level&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,114 +72,108 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Heiko Klein &lt;<a href="mailto:Heiko.Klein?Subject=Re%3A%20%5BCF-metadata%5D%20Rotated%20Pole%20projection%20possibly%20wrong">Heiko.Klein</a>&gt;
+<dfn>From</dfn>: Karl Taylor &lt;<a href="mailto:taylor13?Subject=Re%3A%20%5BCF-metadata%5D%20surface_air_pressure%20vs%20air_pressure_at_sea_level">taylor13</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 06 Mar 2013 16:03:43 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 14 Mar 2012 16:46:15 -0700</span><br />
 </address>
 <br />
-Hi John,
+Hi Nan,
 <br />
-<br />all our models use rotated_latitute_longitude. And we have a consistent 
+<br />&quot;surface_air_pressure&quot; could be measured anywhere on the earth by 
 <br />
-way of translating it between grib, proj and netcdf-java, i.e. publicly 
+measuring the air pressure with a sensor placed on the ground.  You will 
 <br />
-available at:
+find that a map of surface air pressure looks a lot like the 
 <br />
-<a href="http://thredds.met.no/thredds/catalog/metno/proff4km/default/catalog.html">http://thredds.met.no/thredds/catalog/metno/proff4km/default/catalog.html</a>
+topographical height field but with opposite sign (so that the pressure 
 <br />
-<br /><br />grid_mapping_name: rotated_latitude_longitude
+at the top of mountains is low and at sea level, relatively high).
 <br />
-grid_north_pole_longitude: 156.0
+<br />air_pressure at sea_level can only be directly measured over the oceans 
 <br />
-grid_north_pole_latitude: 23.5
+(or land surface at the same altitude as sea level).  Elsewhere, sea 
 <br />
-earth_radius: 6367470.0
+level pressure must be calculated, primarily accounting for the 
 <br />
-<br />to proj:
+difference in altitude between the earth's surface and sea level.
 <br />
-proj4: +proj=ob_tran +o_proj=longlat +lon_0=-24 +o_lat_p=23.5 
+<br />Over the oceans, surface air pressure and sea level pressure are the 
 <br />
-+a=6367470.0 +no_defs
+same, at least for the real Earth.  In spectral models the elevation of 
 <br />
-<br />from grib:
+the ocean surface undulates (&quot;rings&quot;) a bit, especially near coasts with 
 <br />
-lonRot = longitudeOfSouthernPoleInDegrees
+high mountains (like the Andes).  Since the elevation in these models is 
 <br />
-latRot = latitudeOfSouthernPoleInDegrees
+not uniform over the ocean, the surface pressure isn't the same as sea 
 <br />
-<br />+proj=ob_tran +o_proj=longlat +lon_0=&quot; &lt;&lt; normalizeLongitude180(lonRot) 
+level pressure anywhere and you have to again calculate the sea level 
 <br />
-&lt;&lt; &quot; +o_lat_p=&quot; &lt;&lt; (-1 * latRot);
+pressure.
 <br />
-<br /><br /><br />This is the set of parameters which have been useful. I'm not sure if 
+<br />The sea level pressure is important because on a weather map, you can 
 <br />
-they are named in a useful way. proj4's ob_tran even allows for a 
+infer much about the weather (unless you are close to the equator).  The 
 <br />
-o_lon_p parameter, but this doesn't seem to be used by grib or CF.
+sea level pressure mostly shows you where the mountains are and is less 
 <br />
-<br />Best regards,
+interesting dynamically.  The surface pressure, however, is usually one 
 <br />
-<br />Heiko
+of the prognostic variables in models (maybe not for z-coordinate model 
 <br />
-<br /><br /><br />On 2013-03-06 15:18, John Caron wrote:
+though), and is needed for solving the model equations.
 <br />
-<em class="quotelev1">&gt; The &quot;Rotated Pole&quot; projection here:
+<br />regards,
+<br />
+Karl
+<br />
+<br /><br />On 3/14/12 8:19 AM, Nan Galbraith wrote:
+<br />
+<em class="quotelev1">&gt; Hi all -
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; <a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.6/cf-conventions.html#appendix-grid-mappings">http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.6/cf-conventions.html#appendix-grid-mappings</a>
+<em class="quotelev1">&gt; I have a question about the use of the terms 'sea_level' and
+</em><br />
+<em class="quotelev1">&gt; 'surface' in the following definitions:
+</em><br />
+<em class="quotelev2">&gt;&gt; air_pressure_at_sea_level: sea_level means mean sea level, which
+</em><br />
+<em class="quotelev2">&gt;&gt; is close to the geoid in sea areas. Air pressure at sea level is the
+</em><br />
+<em class="quotelev2">&gt;&gt; quantity often abbreviated as MSLP or PMSL.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; surface_air_pressure: The surface called &quot;surface&quot; means the
+</em><br />
+<em class="quotelev2">&gt;&gt; lower boundary of the atmosphere.
+</em><br />
+<em class="quotelev1">&gt; The question is, does 'at_sea_level' imply a Z axis value of 0?  And,
+</em><br />
+<em class="quotelev1">&gt; is the term 'surface' the equivalent of sea_level, except that it includes
+</em><br />
+<em class="quotelev1">&gt; areas over land? Or, is it somehow ... less exact?
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; If we're measuring BPR at around 2 meters,  would we need to correct
 </em><br />
-<em class="quotelev1">&gt;     Rotated pole
+<em class="quotelev1">&gt; the values to what the measurement would have been if the sensor
 </em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; grid_mapping_name = rotated_latitude_longitude
+<em class="quotelev1">&gt; was at the actual sea surface, to use the term air_pressure_at_sea_level?
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; Or, is it acceptable to provide a Z axis coordinate and use the term
 </em><br />
-<em class="quotelev1">&gt; Map parameters:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;       *
+<em class="quotelev1">&gt; at_sea_level?
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;         grid_north_pole_latitude
+<em class="quotelev1">&gt; Thanks -
 </em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;       *
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;         grid_north_pole_longitude
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;       *
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;         north_pole_grid_longitude - This parameter is option (default is 0).
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Map coordinates:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;     The rotated latitude and longitude coordinates are identified by
-</em><br />
-<em class="quotelev1">&gt;     the standard_name attribute values
-</em><br />
-<em class="quotelev1">&gt;     grid_latitude and grid_longitude respectively.
+<em class="quotelev1">&gt; Nan
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
@@ -187,136 +181,13 @@ o_lon_p parameter, but this doesn't seem to be used by grib or CF.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; is problematic. It has no reference to Proj.4, and is not in Snyder.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Its likely the same as the GRIB-2 GDS Template 3.1:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Grid Definition Template 3.1:     Rotated Latitude/longitude (or
-</em><br />
-<em class="quotelev1">&gt; equidistant cylindrical, or Plate Carr?e)
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Octet No. Contents
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;        15-72 Same as Grid Definition Template 3.0 (see Note 1)
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;        73-76 Latitude of the southern pole of projection
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; 77-80                             Longitude of the southern pole of
-</em><br />
-<em class="quotelev1">&gt; projection
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;        81-84 Angle of rotation of projection
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;        85-nn                            List of number of points along
-</em><br />
-<em class="quotelev1">&gt; each meridian or parallel (These octets are only present for
-</em><br />
-<em class="quotelev1">&gt; quasi-regular grids as described in Note 3)
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Notes:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; (2)         Three parameters define a general latitude/longitude
-</em><br />
-<em class="quotelev1">&gt; coordinate system, formed by a general rotation of the sphere. One
-</em><br />
-<em class="quotelev1">&gt; choice for these parameters is:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; (a)         The geographic latitude in degrees of the southern pole of
-</em><br />
-<em class="quotelev1">&gt; the coordinate system, ?p for example.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; (b)         The geographic longitude in degrees of the southern pole of
-</em><br />
-<em class="quotelev1">&gt; the coordinate system, ?p for example.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; (c)         The angle of rotation in degrees about the new polar axis
-</em><br />
-<em class="quotelev1">&gt; (measured clockwise when looking from the southern to the northern pole)
-</em><br />
-<em class="quotelev1">&gt; of the coordinate system, assuming the new axis to have been obtained by
-</em><br />
-<em class="quotelev1">&gt; first rotating the sphere through ?p degrees about the geographic polar
-</em><br />
-<em class="quotelev1">&gt; axis, and then rotating through (90 + ?p) degrees so that the southern
-</em><br />
-<em class="quotelev1">&gt; pole moved along the (previously rotated) Greenwich meridian.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Except note that GRIB-2 uses &quot;southern pole of projection&quot;. Not sure how
-</em><br />
-<em class="quotelev1">&gt; that affects the algorithm.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; The CF parameter &quot;north_pole_grid_longitude&quot; likely should be &quot;Angle of
-</em><br />
-<em class="quotelev1">&gt; rotation&quot;.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Anyone using this or have some insight on it ??
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<br /><pre>
--- 
-Dr. Heiko Klein                              Tel. + 47 22 96 32 58
-Development Section / IT Department          Fax. + 47 22 69 63 55
-Norwegian Meteorological Institute           <a href="http://www.met.no">http://www.met.no</a>
-P.O. Box 43 Blindern  0313 Oslo NORWAY
-</pre>
-<span id="received"><dfn>Received on</dfn> Wed Mar 06 2013 - 08:03:43 GMT</span>
+-------------- next part --------------
+<br />
+An HTML attachment was scrubbed...
+<br />
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120314/12d3dd5f/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120314/12d3dd5f/attachment.html</a>&gt;
+<br />
+<span id="received"><dfn>Received on</dfn> Wed Mar 14 2012 - 17:46:15 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -324,13 +195,13 @@ P.O. Box 43 Blindern  0313 Oslo NORWAY
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5051">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5052.html" title="Next message in the list">John Caron: "[CF-metadata] Rotated Pole projection possibly wrong"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5050.html" title="Previous message in the list">John Caron: "[CF-metadata] Rotated Pole projection possibly wrong"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./5050.html" title="Message to which this message replies">John Caron: "[CF-metadata] Rotated Pole projection possibly wrong"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5052.html" title="Next message in the list">John Caron: "[CF-metadata] Example 5.10. British National Grid has wrong parameter names"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5050.html" title="Previous message in the list">Nan Galbraith: "[CF-metadata] surface_air_pressure vs air_pressure_at_sea_level"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./5050.html" title="Message to which this message replies">Nan Galbraith: "[CF-metadata] surface_air_pressure vs air_pressure_at_sea_level"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./5052.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] Rotated Pole projection possibly wrong"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./5055.html" title="Next message in this discussion thread">Lowry, Roy K.: "[CF-metadata] surface_air_pressure vs air_pressure_at_sea_level"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./5052.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] Rotated Pole projection possibly wrong"</a></li>
+<dfn>Reply</dfn>: <a href="./5055.html" title="Message sent in reply to this message">Lowry, Roy K.: "[CF-metadata] surface_air_pressure vs air_pressure_at_sea_level"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -341,7 +212,7 @@ P.O. Box 43 Blindern  0313 Oslo NORWAY
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:14 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5050.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5052.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

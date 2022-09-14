@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Proposal for better handling vector quantities in CF from Thomas Lavergne on 2011-11-24 (mailing-list-archive)</title>
-<meta name="Author" content="Thomas Lavergne (t.lavergne)" />
-<meta name="Subject" content="[CF-metadata] Proposal for better handling vector quantities in CF" />
-<meta name="Date" content="2011-11-24" />
+<title>[CF-metadata] MSG Cloud physical properties codification from alison.pamment at stfc.ac.uk on 2011-01-24 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="alison.pamment at stfc.ac.uk (alison.pamment)" />
+<meta name="Subject" content="[CF-metadata] MSG Cloud physical properties codification" />
+<meta name="Date" content="2011-01-24" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./3941.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3943.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Proposal for better handling vector quantities in CF</h1>
-<!-- received="Thu Nov 24 14:53:52 2011" -->
-<!-- isoreceived="20111124145352" -->
-<!-- sent="Thu, 24 Nov 2011 21:53:52 +0000 (UTC)" -->
-<!-- isosent="20111124215352" -->
-<!-- name="Thomas Lavergne" -->
-<!-- email="t.lavergne" -->
-<!-- subject="[CF-metadata] Proposal for better handling vector quantities in CF" -->
-<!-- id="176657102.362565.1322171632994.JavaMail.root_at_imap1a" -->
+<a style="text-decoration:none" href="./3941.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3943.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] MSG Cloud physical properties codification</h1>
+<!-- received="Mon Jan 24 07:03:04 2011" -->
+<!-- isoreceived="20110124070304" -->
+<!-- sent="Mon, 24 Jan 2011 14:03:04 +0000" -->
+<!-- isosent="20110124140304" -->
+<!-- name="alison.pamment at stfc.ac.uk" -->
+<!-- email="alison.pamment" -->
+<!-- subject="[CF-metadata] MSG Cloud physical properties codification" -->
+<!-- id="014539AC4976BE4490A360410A8C201701CE16_at_EXCHMBX03.fed.cclrc.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="81690375.362479.1322169497667.JavaMail.root_at_imap1a" -->
+<!-- inreplyto="4CF52B00.4060407_at_knmi.nl" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./3943.html" accesskey="d" title="Christian Wetzel: &quot;[CF-metadata] New standard names: upward_sensible_heat_flux, upward_latent_heat_flux&quot;">Next message</a> ]
-[ <a href="./3941.html" title="Randy Horne: &quot;[CF-metadata] Ang.: Making a proposal for the addition of the geosprojection&quot;">Previous message</a> ]
+[ <a href="./3943.html" accesskey="d" title="Alexander Pletzer: &quot;[CF-metadata] staggered data&quot;">Next message</a> ]
+[ <a href="./3941.html" title="plieger: &quot;[CF-metadata] MSG CPP standard name for time_offset_of_observation / pixel_delta_time&quot;">Previous message</a> ]
+[ <a href="./3829.html" title="Maarten Plieger: &quot;[CF-metadata] MSG Cloud physical properties codification&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./3945.html" accesskey="t" title="Jonathan Gregory: &quot;[CF-metadata] Proposal for better handling vector quantities in CF&quot;">Next in thread</a> ]
+[ <a href="./3944.html" accesskey="t" title="plieger: &quot;[CF-metadata] MSG Cloud physical properties codification&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -71,122 +72,110 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Thomas Lavergne &lt;<a href="mailto:t.lavergne?Subject=Re%3A%20%5BCF-metadata%5D%20Proposal%20for%20better%20handling%20vector%20quantities%20in%20CF">t.lavergne</a>&gt;
+<dfn>From</dfn>: alison.pamment at stfc.ac.uk &lt;<a href="mailto:alison.pamment?Subject=Re%3A%20%5BCF-metadata%5D%20MSG%20Cloud%20physical%20properties%20codification">alison.pamment</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 24 Nov 2011 21:53:52 +0000 (UTC)</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 24 Jan 2011 14:03:04 +0000</span><br />
 </address>
 <br />
-Dear all,
+Dear Maarten and Jonathan,
 <br />
-<br />This email is a proposal to strenghthen the storage and exploitation of vector/tensor data in CF. Thanks to Jonathan for commenting an early version of this note.
+<br />Maarten has reminded me that the following names were discussed a few weeks ago:
 <br />
-<br />As far as I can tell, vectors are not handled as such by CF, only their components (via the standard names defining them, e.g. sea_ice_x_velocity, northward_sea_ice_velocity, eastern_wind, etc...). Life and some applications (e.g. plotting) would be easier if it was possible to group all components of a vector field into a single &quot;vector&quot; object. 
+<br />- platform_zenith_angle (degree): &quot;Platform zenith angle is the the angle between the line of sight to the platform and the local vertical&quot;;
 <br />
-<br />Here is my use case: I have an ice drift product, thus two datasets to define my vectors: sea_ice_x_displacement, and sea_ice_y_displacement. Note that it could be any combination of x/y, north/east, module/direction. It is moreover not limited to ice drift, but rather applies to any 2D (3D as well) variables such as vectors. As far as I know, the current CF does not provide me a way to &quot;group&quot; these two components an re-unite them into a vector. Two consequences: 1) I cannot define a third variable (say status_flag) that would apply to the vector object (thus to both its components). And 2) computer programmes (that for example want to draw vectors instead of colour contours) have to &quot;guess&quot; that my CF file contains a vector. The software has to skim through my variables, check that any two pairs of standard names define a vector, and propose a &quot;vector plot&quot; option to the user. This might work in simple files, but will fail if my CF files contains 2 sets of vectors, say one from model, the other from satell<br />
-ite: X_model, Y_model, X_sat, Y_sat. Will a software be smart enough to avoid proposing a (X_model,Y_sat) vector plots when all the 4 share the same standard_names: sea_ice_(x|y)_displacements? 
+- angle_of_rotation_from_solar_azimuth_to_platform_azimuth (degree):
 <br />
-<br />Here, an approach could be that the X dataset defines its corresponding Y dataset as an &quot;auxiliary variable&quot; (and the Y dataset would do the same with X). This would probably work, but does not solve my concern number 1 to share a 3rd variable with both X and Y.
+&quot;The angle of rotation between the solar azimuth angle and the platform azimuth angle&quot;;
 <br />
-<br />The solution I propose for discussion is to allow an umbrella &quot;dummy&quot; dataset (like the proj/mapping ones: no dimension, no data, just attributes). This umbrella variable would have a valid standard name &quot;sea_ice_displacement_vector&quot; (definition of &quot;vector&quot;). We would then define a new standard attribute pattern: components = &lt;space separated list of components&gt;, e.g. &quot;dX dY dir&quot;. The string values in  the list are the name of the datasets containing the components of the vector. Note that even for a 2D vector, I could choose to have both x/y and speed/dir in the same CF file, hence the need to allow more than just 2 &quot;components&quot;, even for a 2D vector. We must have at least 2.
+- thickness_of_liquid_water_cloud (m): &quot;Cloud thickness (cloud top height minus cloud base)&quot;;
 <br />
-<br />So in my case:
+- effective_radius_of_cloud_condensed_water_particles_at_cloud_top (m):
 <br />
-<br />The two X and Y datasets and the direction:
+&quot;Particle effective radius for both liquid and ice water particles&quot;;
 <br />
-<br />float dX(time, yc, xc) ;
+- thermodynamic_phase_of_cloud_water_particles_at_cloud_top (status_flag liquid, ice and mixed): &quot;The thermodynamic phase of particles at the top of the cloud&quot;;
 <br />
-&nbsp;dX:long_name = &quot;component of the displacement along the x axis of the grid&quot; ;
+- thermodynamic_phase_of_cloud_water_particles_at_cloud_top_defined_by_infrared_radiance
 <br />
-&nbsp;dX:standard_name = &quot;sea_ice_x_displacement&quot; ;
+(status_flag liquid, ice and mixed): &quot;The thermodynamic phase of particles at the top of the cloud derived by using infrared radiances&quot;;
 <br />
-&nbsp;dX:units = &quot;km&quot; ;
+- thermodynamic_phase_of_cloud_water_particles_at_cloud_top_defined_by_near_infrared_radiance
 <br />
-&nbsp;dX:_FillValue = -1.e+10f ;
+(status_flag liquid, ice and mixed):&quot; The thermodynamic phase of particles at the top of the cloud derived by using near-infrared radiances&quot;.
 <br />
-&nbsp;dX:coordinates = &quot;lat lon&quot; ;
+<br />I think these names all follow the pattern of existing names and their meanings are generally clear.  One question - in your products, are 'infrared' and 'near_infrared' separate ranges of wavelengths/frequencies? Please could you tell me the ranges so that I can include at least indicative values in the explanations of the names.  For the three status flag names, I suggest that the units should be '1',  i.e. a dimensionless value, assuming that the variables will be accompanied by flag_values and flag_meanings attributes. If we can clarify these points then I think the names can be accepted for inclusion in the standard name table.
 <br />
-&nbsp;dX:grid_mapping = &quot;Polar_Stereographic_Grid&quot; ;
+<br />Best wishes,
 <br />
-<br />float dY(time, yc, xc) ;
+Alison
 <br />
-&nbsp;dY:long_name = &quot;component of the displacement along the y axis of the grid&quot; ;
+<br />------
 <br />
-&nbsp;dY:standard_name = &quot;sea_ice_y_displacement&quot; ;
+Alison Pamment                          Tel: +44 1235 778065
 <br />
-&nbsp;dY:units = &quot;km&quot; ;
+NCAS/British Atmospheric Data Centre    Fax: +44 1235 446314
 <br />
-&nbsp;dY:_FillValue = -1.e+10f ;
+STFC Rutherford Appleton Laboratory     Email: alison.pamment at stfc.ac.uk
 <br />
-&nbsp;dX:coordinates = &quot;lat lon&quot; ;
+R25, 2.22
 <br />
-&nbsp;dX:grid_mapping = &quot;Polar_Stereographic_Grid&quot; ;
+Harwell Oxford, Didcot, OX11 0QX, U.K.
 <br />
-<br />float dir(time, yc, xc) ;
+<br /><br />From: cf-metadata-bounces at cgd.ucar.edu [mailto:cf-metadata-bounces at cgd.ucar.edu] On Behalf Of Maarten Plieger
 <br />
-&nbsp;dY:long_name = &quot;direction of the displacement&quot; ;
+Sent: 30 November 2010 16:49
 <br />
-&nbsp;dY:standard_name = &quot;direction_of_sea_ice_displacement&quot; ;
+To: Jonathan Gregory
 <br />
-&nbsp;dY:units = &quot;degrees&quot; ;
+Cc: cf-metadata at cgd.ucar.edu
 <br />
-&nbsp;dY:_FillValue = -1.e+10f ;
+Subject: Re: [CF-metadata] MSG Cloud physical properties codification
 <br />
-&nbsp;dX:coordinates = &quot;lat lon&quot; ;
+<br />Dear Jonathan,
 <br />
-&nbsp;dX:grid_mapping = &quot;Polar_Stereographic_Grid&quot; ;
+<br />Good point. That is OK with us, off course. Thanks again!
 <br />
-<br /><br />The new dummy umbrella:
+<br />Regards, Maarten 
 <br />
-<br />int ice_drift_vector;
+<br />Jonathan Gregory schreef: 
 <br />
-&nbsp;drift_vector:standard_name = &quot;sea_ice_displacement&quot; ;
+Dear Maarten
 <br />
-&nbsp;drift_vector:long_name = &quot;sea ice drift vector&quot; ;
+<br />Yesterday I didn't notice that these don't have _radiance on the end. I think
 <br />
-&nbsp;drift_vector:components = &quot;dX dY dir&quot; ;
+that would make them clearer, if OK with you.
 <br />
-<br />A status flag for the vector:
+<br />&nbsp;&nbsp;
 <br />
-<br />byte status_flag(time, yc, xc) ;
+thermodynamic_phase_of_cloud_water_particles_at_cloud_top_defined_by_infrared 
 <br />
-&nbsp;status_flag:standard_name = &quot;sea_ice_displacement status_flag&quot; ;
+thermodynamic_phase_of_cloud_water_particles_at_cloud_top_defined_by_near_infrared 
 <br />
-&nbsp;status_flag:long_name = &quot;rejection and quality level flag&quot; ;
+<br />When everybody agrees with these standard names, units and descriptions: 
 <br />
-&nbsp;status_flag:valid_min = 0b ;
+what would be the next step?
 <br />
-&nbsp;status_flag:valid_max = 30b ;
+&nbsp;&nbsp;&nbsp;&nbsp;
 <br />
-&nbsp;status_flag:grid_mapping = &quot;Polar_Stereographic_Grid&quot; ;
+Alison will consider them. She is responsible for moderating discussions and
 <br />
-&nbsp;status_flag:coordinates = &quot;lat lon&quot; ;
+updating the standard name table with agreed additions.
 <br />
-&nbsp;status_flag:flag_values = 0b, 1b,..., 22b, 30b ;
+<br />Best wishes
 <br />
-&nbsp;status_flag:flag_meanings = &quot;missing_input_data over_land ... interpolated nominal_quality&quot; ;
+<br />Jonathan
 <br />
-<br />When browsing through the file, a software would immediately see that there are vectors available (e.g. for display) and which datasets hold the components. It still have to read the component datasets to know how to use them (by reading the standard_name). We could even imagine that tools are able to automatically compute (for display or comparison)the vector length although only the x/y components are available. 
+&nbsp;&nbsp;
 <br />
-<br />Some new standard names would be needed, of course. As well as the &quot;components&quot; attribute. A revisit/cleanup of many definitions of existing standard names of component variables could also be envisaged.
-<br />
-<br />This proposal needs to be more thouroughly discussed. Those CF users handling vector quantities could check against their file if this approach breaks anything. Even if it does not break anything: what is the added value that this change would bring? Do you see other applications that would benefit from this? There is little point in implementing it if it does not help others...
-<br />
-<br />Regards,
-<br />
-Thomas
-<br />
-<br /><pre>
+<br /><br /><br /><pre>
 -- 
-========================================== 
-Thomas Lavergne 
-Norwegian Meteorological Institute 
-P.O.BOX 43, Blindern, NO-0313 OSLO, Norway 
-Phone: (+47) 22963364  Fax: (+47) 22963380 
-Email: t.lavergne at met.no 
-OSISAF HL Portal:     <a href="http://osisaf.met.no">http://osisaf.met.no</a> 
-========================================== 
+Maarten Plieger
+KNMI, R&amp;D Information and Observation Technology, De Bilt
+(t) +31 30 2206330
+-- 
+Scanned by iCritical.
 </pre>
-<span id="received"><dfn>Received on</dfn> Thu Nov 24 2011 - 14:53:52 GMT</span>
+<span id="received"><dfn>Received on</dfn> Mon Jan 24 2011 - 07:03:04 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -194,13 +183,14 @@ OSISAF HL Portal:     <a href="http://osisaf.met.no">http://osisaf.met.no</a>
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start3942">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./3943.html" title="Next message in the list">Christian Wetzel: "[CF-metadata] New standard names: upward_sensible_heat_flux, upward_latent_heat_flux"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./3941.html" title="Previous message in the list">Randy Horne: "[CF-metadata] Ang.: Making a proposal for the addition of the geosprojection"</a></li>
+<li><dfn>Next message</dfn>: <a href="./3943.html" title="Next message in the list">Alexander Pletzer: "[CF-metadata] staggered data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./3941.html" title="Previous message in the list">plieger: "[CF-metadata] MSG CPP standard name for time_offset_of_observation / pixel_delta_time"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./3829.html" title="Message to which this message replies">Maarten Plieger: "[CF-metadata] MSG Cloud physical properties codification"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./3945.html" title="Next message in this discussion thread">Jonathan Gregory: "[CF-metadata] Proposal for better handling vector quantities in CF"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./3944.html" title="Next message in this discussion thread">plieger: "[CF-metadata] MSG Cloud physical properties codification"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./3945.html" title="Message sent in reply to this message">Jonathan Gregory: "[CF-metadata] Proposal for better handling vector quantities in CF"</a></li>
-<li><dfn>Reply</dfn>: <a href="./4004.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] Proposal for better handling vector quantities in CF"</a></li>
+<dfn>Reply</dfn>: <a href="./3944.html" title="Message sent in reply to this message">plieger: "[CF-metadata] MSG Cloud physical properties codification"</a></li>
+<li><dfn>Reply</dfn>: <a href="./3949.html" title="Message sent in reply to this message">Cameron-smith, Philip: "[CF-metadata] MSG Cloud physical properties codification"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -211,7 +201,7 @@ OSISAF HL Portal:     <a href="http://osisaf.met.no">http://osisaf.met.no</a>
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:54 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./3941.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3943.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

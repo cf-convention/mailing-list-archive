@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] How to define time coordinate in GPS? from Jonathan Gregory on 2015-06-11 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] How to define time coordinate in GPS?" />
-<meta name="Date" content="2015-06-11" />
+<title>[CF-metadata] Clarifications on latitude_longitude from Maik Riechert on 2014-05-30 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Maik Riechert (maik.riechert)" />
+<meta name="Subject" content="[CF-metadata] Clarifications on latitude_longitude" />
+<meta name="Date" content="2014-05-30" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./7106.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7108.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] How to define time coordinate in GPS?</h1>
-<!-- received="Thu Jun 11 09:09:01 2015" -->
-<!-- isoreceived="20150611080901" -->
-<!-- sent="Thu, 11 Jun 2015 17:09:01 +0200" -->
-<!-- isosent="20150611150901" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] How to define time coordinate in GPS?" -->
-<!-- id="20150611150901.GA7411_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./7106.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7108.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Clarifications on latitude_longitude</h1>
+<!-- received="Fri May 30 09:37:04 2014" -->
+<!-- isoreceived="20140530083704" -->
+<!-- sent="Fri, 30 May 2014 17:37:04 +0200" -->
+<!-- isosent="20140530153704" -->
+<!-- name="Maik Riechert" -->
+<!-- email="maik.riechert" -->
+<!-- subject="[CF-metadata] Clarifications on latitude_longitude" -->
+<!-- id="5388A5A0.4090904_at_arcor.de" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="538893A8.70904_at_cicsnc.org" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./7108.html" accesskey="d" title="Heiko Klein: &quot;[CF-metadata] Roms: ocean_s_coordinate_g1 and g2?&quot;">Next message</a> ]
-[ <a href="./7106.html" title="Jim Biard: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">Previous message</a> ]
+[ <a href="./7108.html" accesskey="d" title="Jim Biard: &quot;[CF-metadata] Clarifications on latitude_longitude&quot;">Next message</a> ]
+[ <a href="./7106.html" title="Lauret Olivier: &quot;[CF-metadata] TR: normalized_radar_backscatter_coefficient&quot;">Previous message</a> ]
+[ <a href="./7105.html" title="Jim Biard: &quot;[CF-metadata] Clarifications on latitude_longitude&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./7110.html" accesskey="t" title="Jim Biard: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">Next in thread</a> ]
+[ <a href="./7108.html" accesskey="t" title="Jim Biard: &quot;[CF-metadata] Clarifications on latitude_longitude&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,128 +72,300 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20How%20to%20define%20time%20coordinate%20in%20GPS%3F">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Maik Riechert &lt;<a href="mailto:maik.riechert?Subject=Re%3A%20%5BCF-metadata%5D%20Clarifications%20on%20latitude_longitude">maik.riechert</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 11 Jun 2015 17:09:01 +0200</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 30 May 2014 17:37:04 +0200</span><br />
 </address>
 <br />
-Dear Jim
+Hi Jim
 <br />
-<br /><em class="quotelev1">&gt; I appreciate your willingness to continue this attempt to find a
+<br />Thanks for the detailed explanations.
+<br />
+<br />If a spherical earth (of a certain radius) is the default, shouldn't it
+<br />
+be defined as such? Otherwise, having latitude and longitude coordinates
+<br />
+without a datum, as in example 5.2, would represent (partially) useless
+<br />
+data, quoting ISO: &quot;without the full specification of the coordinate
+<br />
+reference system, coordinates (that is latitude and longitude) are
+<br />
+ambiguous at best and meaningless at worst&quot;.
+<br />
+<br />As for the coordinate variables, just to be sure, let's visualize it a bit:
+<br />
+<a href="http://eol.jsc.nasa.gov/sseop/images/ESC/large/ISS030/ISS030-E-84614.JPG">http://eol.jsc.nasa.gov/sseop/images/ESC/large/ISS030/ISS030-E-84614.JPG</a>
+<br />
+<br />Let's assume for each pixel center I know the latitude and longitude --
+<br />
+for those pixels covering the earth. That gives me each an auxiliary 2D
+<br />
+coordinate array for latitude and longitude. It is an irregular grid of
+<br />
+course. I would model this data as:
+<br />
+<br />dimensions:
+<br />
+xc = 4256 ;
+<br />
+yc = 2832 ;
+<br />
+band = 3 ; // red, green, blue
+<br />
+variables:
+<br />
+byte img(yc,xc,band) ;
+<br />
+img:long_name = &quot;color intensity&quot; ;
+<br />
+img:units = &quot;unitless&quot; ;
+<br />
+img:valid_min = 0 ;
+<br />
+img:valid_max = 255 ;
+<br />
+img:coordinates = &quot;lon lat&quot; ;
+<br />
+img:grid_mapping = &quot;crs&quot;;
+<br />
+float lon(yc,xc) ;
+<br />
+lon:standard_name = &quot;longitude&quot; ;
+<br />
+lon:long_name = &quot;longitude&quot; ;
+<br />
+lon:units = &quot;degrees_east&quot; ;
+<br />
+float lat(yc,xc) ;
+<br />
+lat:standard_name = &quot;latitude&quot; ;
+<br />
+lat:long_name = &quot;latitude&quot; ;
+<br />
+lat:units = &quot;degrees_north&quot; ;
+<br />
+int crs ;
+<br />
+crs:grid_mapping_name = &quot;latitude_longitude&quot;;
+<br />
+crs:semi_major_axis = 6378137.0 ;
+<br />
+crs:inverse_flattening = 298.257223563 ;
+<br />
+<br />Is that correct? I am new to the field so please don't hesitate to give
+<br />
+any kind of suggestion :)
+<br />
+<br />Cheers
+<br />
+Maik
+<br />
+<br />Am 30.05.2014 16:20, schrieb Jim Biard:
+<br />
+<em class="quotelev1">&gt; Maik,
 </em><br />
-<em class="quotelev1">&gt; meeting of the minds about all of this. I hope you will forgive me
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; if I am not always completely clear in my attempts to express myself
+<em class="quotelev1">&gt; You have wandered into an area that has a few hot-button topics
 </em><br />
-<em class="quotelev1">&gt; or fail to understand you.
+<em class="quotelev1">&gt; associated with it. I'll see if I can help clarify without riling anyone
 </em><br />
-<br />I would say exactly the same to you! Thanks. Actually I'm struggling to
-<br />
-understand what we are disagreeing about.
-<br />
-<br /><em class="quotelev1">&gt; As a data consumer, all I have to do is convert the reference time
+<em class="quotelev1">&gt; else. :)
 </em><br />
-<em class="quotelev1">&gt; from the stated calendar to my desired calender, then use that as
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; the basis for producing timestamps from the elapsed times in the
+<em class="quotelev1">&gt; Here we go, in order of your questions:
 </em><br />
-<em class="quotelev1">&gt; variable (using the correct set of time functions, of course).
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; Expressing the elapsed times as timestamps in one calendar and then
+<em class="quotelev1">&gt; The spherical Earth is a default. It harkens back to CF's origins in the
 </em><br />
-<em class="quotelev1">&gt; converting those timestamps to another is another way that you could
+<em class="quotelev1">&gt; modeling community, where they often use a spherical Earth.
 </em><br />
-<em class="quotelev1">&gt; do it, but one which adds unneeded steps.
+<em class="quotelev1">&gt; 
 </em><br />
-<br />In both our views, decoding the time coord (into components of time, which
-<br />
-I will refer to as &quot;timestamps&quot; for convenience although we would probably not
-<br />
-use strings for this purpose, since usually we want numbers) according to the
-<br />
-calendar stated by the attribute requires using the algorithm appropriate for
-<br />
-the calendar. This algorithm is one which can add an offset to the reference
-<br />
-timestamp using the rules of the calendar to produce new timestamps, and the
-<br />
-reverse. Hence the calendar attribute implies particular rules for encoding and
-<br />
-decoding. But that is the statement of mine which you disagree with, I think -
-<br />
-isn't it?
-<br />
-<br />I agree that the calendar attribute also states the calendar in which the ref
-<br />
-time is expressed - this second function is one I have recognised because of
-<br />
-our discussion (it is obvious in the case of model calendars, so I didn't see
-<br />
-it as a distinct function). Since the att states the calendar of the ref time,
-<br />
-and implies the rules for encoding and decoding, it therefore also inevitably
-<br />
-implies the calendar of the decoded timestamps, doesn't it?
-<br />
-<br />I agree that you could change to a new calendar in the real world by
-<br />
-calculating the difference in seconds between the ref time if it's interpreted
-<br />
-in the old calendar and if it's interpreted in the new calendar (or a new
-<br />
-ref time if you want to change the ref time as well as the calendar) and then
-<br />
-adjusting the time coordinates by this amount (and the ref time in the units
-<br />
-string if you want to change that as well). I think that will be the same as
-<br />
-what I suggested, which is to decode the coords using the old calendar and
-<br />
-ref time, then encode them using the new calendar and ref time. Perhaps my
-<br />
-method sounds like more calculation, but it might be easier to carry out (just
-<br />
-two subroutine calls). I think these methods are equivalent, aren't they?
-<br />
-<br />They work because, as we agree, the encoded time coord is also an elapsed time,
-<br />
-and is useful as such. The only situation in which it might have small dis-
-<br />
-continuities is if the no-leap-second algorithm is used to encode and decode
-<br />
-UTC and, as we have agreed, there should be a clear warning against not doing
-<br />
-that if precision &lt;1 min is required.
-<br />
-<br />The reason that I regard timestamps as primary, and therefore suggest that one
-<br />
-would go via timestamps to change the calendar, is because of the non-real-
-<br />
-world calendars that are the subject of other emails. Although, as you rightly
-<br />
-say, there is no exact way to draw an equivalence between the real-world
-<br />
-and the various non-real-world calendars (360_day, no_leap, etc.), we have to
-<br />
-draw such an equivalence for model-model and model-obs comparisons. The main
-<br />
-purpose of CF is to clarify when and how data is to be regarded as comparable,
-<br />
-and it's a common need to compare climate data in different calendars. When
-<br />
-this is done, it's the timestamps which are comparable. DJF (season) is DJF
-<br />
-(including all of Dec, Jan and Feb) whichever calendar is used, even though it
-<br />
-has different lengths in those calendars. Therefore it is the timestamps which
-<br />
-truly define the ranges of time, not the relative time coordinates.
-<br />
-<br />Best wishes
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Thu Jun 11 2015 - 09:09:01 BST</span>
+<em class="quotelev1">&gt; The latitude and longitude coordinates variables, if they are true
+</em><br />
+<em class="quotelev1">&gt; coordinate variables (and not auxiliary coordinate variables) must each
+</em><br />
+<em class="quotelev1">&gt; be monotonic. If they are auxiliary coordinate variables, I don't think
+</em><br />
+<em class="quotelev1">&gt; there is any constraint.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; The naming &quot;grid_mapping&quot; is (personally) a less-than-perfect choice.
+</em><br />
+<em class="quotelev1">&gt; The variable named by the grid_mapping attribute contains Coordinate
+</em><br />
+<em class="quotelev1">&gt; Reference System (CRS) information. Even a latitude-longitude CRS needs
+</em><br />
+<em class="quotelev1">&gt; to be declared, as there are a number of these. (Their differences are
+</em><br />
+<em class="quotelev1">&gt; largely ignorable if you are working on 2.5 degree centers, but that is
+</em><br />
+<em class="quotelev1">&gt; an assumption that may not be warranted with observation data.) The
+</em><br />
+<em class="quotelev1">&gt; variable named by the grid_mapping attribute contains the declaration of
+</em><br />
+<em class="quotelev1">&gt; the horizontal datum, whether it is for a projected CRS or a
+</em><br />
+<em class="quotelev1">&gt; latitude-longitude CRS. Declarations of the vertical datum are still
+</em><br />
+<em class="quotelev1">&gt; being ironed out.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Depending on what you were wanting to do, you should be able to use the
+</em><br />
+<em class="quotelev1">&gt; contents of the variable named by the grid_mapping attribute, along with
+</em><br />
+<em class="quotelev1">&gt; a geographic coordinate system package, to convert the values in
+</em><br />
+<em class="quotelev1">&gt; variables containing X-Y coordinates or latitude-longitude coordinates
+</em><br />
+<em class="quotelev1">&gt; into any other reachable CRS. (Not all CRSs are reachable from all other
+</em><br />
+<em class="quotelev1">&gt; CRSs, but that's a different problem.) If you have both X-Y and
+</em><br />
+<em class="quotelev1">&gt; latitude-longitude coordinates in your file, the software can use
+</em><br />
+<em class="quotelev1">&gt; whichever it chooses, and can convert to another CRS however it choses.
+</em><br />
+<em class="quotelev1">&gt; If you only have latitude-longitude coordinates in your file, the
+</em><br />
+<em class="quotelev1">&gt; software can use those straight, or can convert to another CRS, but for
+</em><br />
+<em class="quotelev1">&gt; precise conversion you need to know which ellipsoid to use (and where
+</em><br />
+<em class="quotelev1">&gt; the origin is located, etc) for the latitudes and longitudes in the file.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Does that help?
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Grace and peace,
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Jim
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; On 5/29/14, 6:30 PM, Maik Riechert wrote:
+</em><br />
+<em class="quotelev2">&gt;&gt; Hi,
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; I am confused about the following sentence in CF 1.6 under the
+</em><br />
+<em class="quotelev2">&gt;&gt; Latitude-Longitude heading in appendix F:
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; &quot;This grid mapping defines the canonical 2D geographical coordinate
+</em><br />
+<em class="quotelev2">&gt;&gt; system based upon latitude and longitude coordinates on a spherical Earth.&quot;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; First, why &quot;spherical&quot;? In example 5.9 it is used with WGS84.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Then, does the first sentence refer to a grid which must be regular? Can
+</em><br />
+<em class="quotelev2">&gt;&gt; it also be rectilinear? Or even irregular?
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; I think my main confusion is that latitude_longitude and
+</em><br />
+<em class="quotelev2">&gt;&gt; rotated_latitude_longitude are probably not projections but the rest of
+</em><br />
+<em class="quotelev2">&gt;&gt; the grid mappings is. Yet there is no clear differentiation between the
+</em><br />
+<em class="quotelev2">&gt;&gt; two types in appendix F.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; I think the term &quot;grid mapping&quot; also adds to my confusion. To me, it
+</em><br />
+<em class="quotelev2">&gt;&gt; means that I define a mapping from my data array (the grid) to
+</em><br />
+<em class="quotelev2">&gt;&gt; latitude/longitude coordinates in a descriptive way, that is, as an
+</em><br />
+<em class="quotelev2">&gt;&gt; implicit transformation operation described by the parameters of the
+</em><br />
+<em class="quotelev2">&gt;&gt; grid mapping variable. In the case of the projections it makes sense.
+</em><br />
+<em class="quotelev2">&gt;&gt; You can completely ignore the latitude/longitude arrays and just use the
+</em><br />
+<em class="quotelev2">&gt;&gt; grid mapping to recompute the latitudes/longitudes (if you were a
+</em><br />
+<em class="quotelev2">&gt;&gt; software that draws the data on a map). Right? But for
+</em><br />
+<em class="quotelev2">&gt;&gt; latitude_longitude and rotated_latitude_longitude, this is not the case.
+</em><br />
+<em class="quotelev2">&gt;&gt; Here the software would be required to use the latitude/longitude
+</em><br />
+<em class="quotelev2">&gt;&gt; arrays. Is this right? If yes, then should I consider latitude_longitude
+</em><br />
+<em class="quotelev2">&gt;&gt; as a datum definition with an unknown projection?
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; I hope I could explain my confusion while not confusing you too.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Thanks for your time,
+</em><br />
+<em class="quotelev2">&gt;&gt; Maik
+</em><br />
+<em class="quotelev2">&gt;&gt; _______________________________________________
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; -- 
+</em><br />
+<em class="quotelev1">&gt; CICS-NC &lt;<a href="http://www.cicsnc.org/">http://www.cicsnc.org/</a>&gt; Visit us on
+</em><br />
+<em class="quotelev1">&gt; Facebook &lt;<a href="http://www.facebook.com/cicsnc">http://www.facebook.com/cicsnc</a>&gt; 	*Jim Biard*
+</em><br />
+<em class="quotelev1">&gt; *Research Scholar*
+</em><br />
+<em class="quotelev1">&gt; Cooperative Institute for Climate and Satellites NC &lt;<a href="http://cicsnc.org/">http://cicsnc.org/</a>&gt;
+</em><br />
+<em class="quotelev1">&gt; North Carolina State University &lt;<a href="http://ncsu.edu/">http://ncsu.edu/</a>&gt;
+</em><br />
+<em class="quotelev1">&gt; NOAA's National Climatic Data Center &lt;<a href="http://ncdc.noaa.gov/">http://ncdc.noaa.gov/</a>&gt;
+</em><br />
+<em class="quotelev1">&gt; 151 Patton Ave, Asheville, NC 28801
+</em><br />
+<em class="quotelev1">&gt; e: jbiard at cicsnc.org
+</em><br />
+<em class="quotelev1">&gt; o: +1 828 271 4900
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<span id="received"><dfn>Received on</dfn> Fri May 30 2014 - 09:37:04 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -199,12 +373,13 @@ truly define the ranges of time, not the relative time coordinates.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start7107">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./7108.html" title="Next message in the list">Heiko Klein: "[CF-metadata] Roms: ocean_s_coordinate_g1 and g2?"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./7106.html" title="Previous message in the list">Jim Biard: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
+<li><dfn>Next message</dfn>: <a href="./7108.html" title="Next message in the list">Jim Biard: "[CF-metadata] Clarifications on latitude_longitude"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./7106.html" title="Previous message in the list">Lauret Olivier: "[CF-metadata] TR: normalized_radar_backscatter_coefficient"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./7105.html" title="Message to which this message replies">Jim Biard: "[CF-metadata] Clarifications on latitude_longitude"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./7110.html" title="Next message in this discussion thread">Jim Biard: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./7108.html" title="Next message in this discussion thread">Jim Biard: "[CF-metadata] Clarifications on latitude_longitude"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./7110.html" title="Message sent in reply to this message">Jim Biard: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
+<dfn>Reply</dfn>: <a href="./7108.html" title="Message sent in reply to this message">Jim Biard: "[CF-metadata] Clarifications on latitude_longitude"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -215,7 +390,7 @@ truly define the ranges of time, not the relative time coordinates.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:56 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./7106.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7108.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

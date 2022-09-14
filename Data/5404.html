@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] use of _FillValue vs valid_range, and minimum and maximum variable attributes from Signell, Richard on 2013-05-23 (mailing-list-archive)</title>
-<meta name="Author" content="Signell, Richard (rsignell)" />
-<meta name="Subject" content="[CF-metadata] use of _FillValue vs valid_range, and minimum and maximum variable attributes" />
-<meta name="Date" content="2013-05-23" />
+<title>[CF-metadata] Standard names for sea level change from Cameron-smith, Philip on 2012-07-06 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Cameron-smith, Philip (cameronsmith1)" />
+<meta name="Subject" content="[CF-metadata] Standard names for sea level change" />
+<meta name="Date" content="2012-07-06" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5403.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5405.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] use of _FillValue vs valid_range, and minimum and maximum variable attributes</h1>
-<!-- received="Thu May 23 08:00:36 2013" -->
-<!-- isoreceived="20130523070036" -->
-<!-- sent="Thu, 23 May 2013 10:00:36 -0400" -->
-<!-- isosent="20130523140036" -->
-<!-- name="Signell, Richard" -->
-<!-- email="rsignell" -->
-<!-- subject="[CF-metadata] use of _FillValue vs valid_range, and minimum and maximum variable attributes" -->
-<!-- id="CAFhraUx6c+Fz99mA81B3=LRr3dXF_SyzEnE-02aPTOV98VfVMw_at_mail.gmail.com" -->
+<a style="text-decoration:none" href="./5403.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5405.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Standard names for sea level change</h1>
+<!-- received="Fri Jul  6 11:25:15 2012" -->
+<!-- isoreceived="20120706102515" -->
+<!-- sent="Fri, 6 Jul 2012 10:25:15 -0700" -->
+<!-- isosent="20120706172515" -->
+<!-- name="Cameron-smith, Philip" -->
+<!-- email="cameronsmith1" -->
+<!-- subject="[CF-metadata] Standard names for sea level change" -->
+<!-- id="DDB20D8288D53E4D811673C30FAB857D01C8FB80E6D7_at_NSPEXMBX-B.the-lab.llnl.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="web-46129132_at_mail.ucar.edu" -->
+<!-- inreplyto="20120706114936.GB18675_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5405.html" accesskey="d" title="Ellyn Montgomery: &quot;[CF-metadata] use of _FillValue vs valid_range, and minimum and maximum variable attributes&quot;">Next message</a> ]
-[ <a href="./5403.html" title="Seth McGinnis: &quot;[CF-metadata] use of _FillValue vs valid_range, and minimum and maximum variable attributes&quot;">Previous message</a> ]
-[ <a href="./5403.html" title="Seth McGinnis: &quot;[CF-metadata] use of _FillValue vs valid_range, and minimum and maximum variable attributes&quot;">In reply to</a> ]
+[ <a href="./5405.html" accesskey="d" title="Cameron-smith, Philip: &quot;[CF-metadata] Standard names for sea level change&quot;">Next message</a> ]
+[ <a href="./5403.html" title="Cameron-smith, Philip: &quot;[CF-metadata] Warming up old stuff - 4 (emissions)&quot;">Previous message</a> ]
+[ <a href="./5399.html" title="Jonathan Gregory: &quot;[CF-metadata] Standard names for sea level change&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./5400.html" accesskey="t" title="Ellyn Montgomery: &quot;[CF-metadata] use of _FillValue vs valid_range, and minimum and maximum variable attributes&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -71,70 +70,112 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Signell, Richard &lt;<a href="mailto:rsignell?Subject=Re%3A%20%5BCF-metadata%5D%20use%20of%20_FillValue%20vs%20valid_range%2C%20and%20minimum%20and%20maximum%20variable%20attributes">rsignell</a>&gt;
+<dfn>From</dfn>: Cameron-smith, Philip &lt;<a href="mailto:cameronsmith1?Subject=Re%3A%20%5BCF-metadata%5D%20Standard%20names%20for%20sea%20level%20change">cameronsmith1</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 23 May 2013 10:00:36 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 6 Jul 2012 10:25:15 -0700</span><br />
 </address>
 <br />
-Seth,
+Hi Jonathan, et al.,
 <br />
-<br />On Thu, May 23, 2013 at 9:51 AM, Seth McGinnis &lt;mcginnis at ucar.edu&gt; wrote:
+<br />We do have a number of other cases where we effectively specify integrals/averages within std_names.  For example, we have atmosphere_moles_of_X as a global integral.  We also have atmosphere_mass_content_of_X as a column integral.
 <br />
-<em class="quotelev3">&gt;&gt;&gt;  Computing the min &amp; max on the fly is cheap, and approximating it is even
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; cheaper, so why introduce the uncertainty?
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;...  but computing min &amp; max on the fly can also be very expensive.
-</em><br />
-<em class="quotelev2">&gt;&gt;We have aggregated model output datasets where each variable is more
-</em><br />
-<em class="quotelev2">&gt;&gt;than 1TB!
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Sure, I can see that that's useful metadata about the dataset, and that
-</em><br />
-<em class="quotelev1">&gt; there's value in caching it somewhere.  I just don't think it belongs with
-</em><br />
-<em class="quotelev1">&gt; the metadata inside the netcdf file. What's the use case for storing it
-</em><br />
-<em class="quotelev1">&gt; there?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Because the problem remains that, unless you're storing and serving
-</em><br />
-<em class="quotelev1">&gt; that dataset as a single 1 TB file that never gets modified or subset,
-</em><br />
-<em class="quotelev1">&gt; as soon as anything at all happens to the file, those min and max
-</em><br />
-<em class="quotelev1">&gt; values become tainted and unreliable, and ought to be recomputed.
-</em><br />
-<br />That's a great point.  Funny, because I've been making the same
+<br />I know there are advantages and disadvantages.  Personally, I believe the bar should be high to be included as a separate standard name, but there are cases such as these which pass over the bar.  I am personally happy to leave these global_average_sea_level names as they are.
 <br />
-arguments against storing time and space extents in the netcdf file,
+<br />Best wishes,
 <br />
-which was first suggested here:
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Philip
 <br />
-<a href="http://www.unidata.ucar.edu/software/netcdf-java/formats/DataDiscoveryAttConvention.html">http://www.unidata.ucar.edu/software/netcdf-java/formats/DataDiscoveryAttConvention.html</a>
+<br />-----------------------------------------------------------------------
 <br />
-and now being revisited here:
+Dr Philip Cameron-Smith, pjc at llnl.gov, Lawrence Livermore National Lab.
 <br />
-<a href="http://wiki.esipfed.org/index.php/Attribute_Convention_for_Data_Discovery_%28ACDD%29_Working">http://wiki.esipfed.org/index.php/Attribute_Convention_for_Data_Discovery_%28ACDD%29_Working</a>
+-----------------------------------------------------------------------
 <br />
-<br />Thanks for snapping me back to reality!
-<br />
-<br />-Rich
-<br />
-<pre>
---
-Dr. Richard P. Signell   (508) 457-2229
-USGS, 384 Woods Hole Rd.
-Woods Hole, MA 02543-1598
-</pre>
-<span id="received"><dfn>Received on</dfn> Thu May 23 2013 - 08:00:36 BST</span>
+<br /><br /><br /><em class="quotelev1">&gt; -----Original Message-----
+</em><br />
+<em class="quotelev1">&gt; From: CF-metadata [mailto:cf-metadata-bounces at cgd.ucar.edu] On Behalf
+</em><br />
+<em class="quotelev1">&gt; Of Jonathan Gregory
+</em><br />
+<em class="quotelev1">&gt; Sent: Friday, July 06, 2012 4:50 AM
+</em><br />
+<em class="quotelev1">&gt; To: cf-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; Subject: Re: [CF-metadata] Standard names for sea level change
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Dear all
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Regarding the existing standard_name global_average_sea_level_change
+</em><br />
+<em class="quotelev1">&gt; and the corresponding ones for steric and thermosteric:
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; It is anomalous to have &quot;global&quot; and &quot;average&quot; in a standard name because,
+</em><br />
+<em class="quotelev1">&gt; as Philip says, we usually put these kinds of thing in cell_methods. The
+</em><br />
+<em class="quotelev1">&gt; reason for having them in the standard name in these cases is that these
+</em><br />
+<em class="quotelev1">&gt; global quantities are commonly referred to without being regarded as the
+</em><br />
+<em class="quotelev1">&gt; global average of something. You can imagine other quantities which refer to
+</em><br />
+<em class="quotelev1">&gt; the whole world; for example we might have a standard name for the age of
+</em><br />
+<em class="quotelev1">&gt; the Earth.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Although it's a fuzzy distinction, it's not quite like global average air
+</em><br />
+<em class="quotelev1">&gt; temperature change, for example. We do not have a standard name for that,
+</em><br />
+<em class="quotelev1">&gt; because people do regard it as the global average of local air temperature
+</em><br />
+<em class="quotelev1">&gt; change. That is how it is computed. Global average sea level change, before
+</em><br />
+<em class="quotelev1">&gt; satellite altimetry began, is estimated from sparse measurements by various
+</em><br />
+<em class="quotelev1">&gt; methods.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; However, we could change to using more systematic names, although it
+</em><br />
+<em class="quotelev1">&gt; would be a bit more obscure. global_average_sea_level_change could be
+</em><br />
+<em class="quotelev1">&gt; described by a standard_name of change_in_ocean_thickness with
+</em><br />
+<em class="quotelev1">&gt; cell_methods of &quot;area: mean over sea&quot; for the whole world.
+</em><br />
+<em class="quotelev1">&gt; global_average_thermosteric_sea_level_change
+</em><br />
+<em class="quotelev1">&gt; could be change_in_ocean_thickness_due_to_thermosteric_change. Should
+</em><br />
+<em class="quotelev1">&gt; we make that change (with aliases)?
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Cheers
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Jonathan
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<span id="received"><dfn>Received on</dfn> Fri Jul 06 2012 - 11:25:15 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -142,11 +183,10 @@ Woods Hole, MA 02543-1598
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5404">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5405.html" title="Next message in the list">Ellyn Montgomery: "[CF-metadata] use of _FillValue vs valid_range, and minimum and maximum variable attributes"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5403.html" title="Previous message in the list">Seth McGinnis: "[CF-metadata] use of _FillValue vs valid_range, and minimum and maximum variable attributes"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./5403.html" title="Message to which this message replies">Seth McGinnis: "[CF-metadata] use of _FillValue vs valid_range, and minimum and maximum variable attributes"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5405.html" title="Next message in the list">Cameron-smith, Philip: "[CF-metadata] Standard names for sea level change"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5403.html" title="Previous message in the list">Cameron-smith, Philip: "[CF-metadata] Warming up old stuff - 4 (emissions)"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./5399.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] Standard names for sea level change"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./5400.html" title="Next message in this discussion thread">Ellyn Montgomery: "[CF-metadata] use of _FillValue vs valid_range, and minimum and maximum variable attributes"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -157,7 +197,7 @@ Woods Hole, MA 02543-1598
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:22 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5403.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5405.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

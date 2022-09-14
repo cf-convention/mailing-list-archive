@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] proposals for new standard names for soil and vegetation parameters from Beate.Geyer at gkss.de on 2006-01-19 (mailing-list-archive)</title>
-<meta name="Author" content="Beate.Geyer at gkss.de (Beate.Geyer)" />
-<meta name="Subject" content="[CF-metadata] proposals for new standard names for soil and vegetation parameters" />
-<meta name="Date" content="2006-01-19" />
+<title>[CF-metadata] projections/default cell_methods from Brian Eaton on 2002-06-07 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Brian Eaton (eaton)" />
+<meta name="Subject" content="[CF-metadata] projections/default cell_methods" />
+<meta name="Date" content="2002-06-07" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0008.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0010.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] proposals for new standard names for soil and vegetation parameters</h1>
-<!-- received="Thu Jan 19 02:59:55 2006" -->
-<!-- isoreceived="20060119025955" -->
-<!-- sent="Thu, 19 Jan 2006 10:59:55 +0100" -->
-<!-- isosent="20060119095955" -->
-<!-- name="Beate.Geyer at gkss.de" -->
-<!-- email="Beate.Geyer" -->
-<!-- subject="[CF-metadata] proposals for new standard names for soil and vegetation parameters" -->
-<!-- id="OF8A730891.8ABA33E0-ONC12570FB.0030774F-C12570FB.00369A7A_at_dvsun2.gkss.de" -->
+<a style="text-decoration:none" href="./0008.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0010.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] projections/default cell_methods</h1>
+<!-- received="Thu Jun  6 18:52:00 2002" -->
+<!-- isoreceived="20020606175200" -->
+<!-- sent="Thu, 6 Jun 2002 18:52:00 -0600 (MDT)" -->
+<!-- isosent="20020607005200" -->
+<!-- name="Brian Eaton" -->
+<!-- email="eaton" -->
+<!-- subject="[CF-metadata] projections/default cell_methods" -->
+<!-- id="Pine.GSO.4.30.0206061831180.11651-100000_at_siskiyou.cgd.ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20020605093457.B13666_at_hc1600.meto.gov.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0010.html" accesskey="d" title="Jonathan Gregory: &quot;Fwd: [CF-metadata] proposals for new standard names for soil and vegetation parameters&quot;">Next message</a> ]
-[ <a href="./0008.html" title="Bryan Lawrence: &quot;[CF-metadata] cf2 progress&quot;">Previous message</a> ]
+[ <a href="./0010.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] projections/default cell_methods&quot;">Next message</a> ]
+[ <a href="./0008.html" title="Jonathan Gregory: &quot;[CF-metadata] projections/default cell_methods&quot;">Previous message</a> ]
+[ <a href="./0008.html" title="Jonathan Gregory: &quot;[CF-metadata] projections/default cell_methods&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,60 +70,252 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Beate.Geyer at gkss.de &lt;<a href="mailto:Beate.Geyer?Subject=Re%3A%20%5BCF-metadata%5D%20proposals%20for%20new%20standard%20names%20for%20soil%20and%20vegetation%20parameters">Beate.Geyer</a>&gt;
+<dfn>From</dfn>: Brian Eaton &lt;<a href="mailto:eaton?Subject=Re%3A%20%5BCF-metadata%5D%20projections%2Fdefault%20cell_methods">eaton</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 19 Jan 2006 10:59:55 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 6 Jun 2002 18:52:00 -0600 (MDT)</span><br />
 </address>
 <br />
-Dear cf-metadata,
+Hi Jonathan,
 <br />
-<br />I propose following new standard names  for soil and vegetation parameters 
+<br />On Wed, 5 Jun 2002, Jonathan Gregory wrote:
 <br />
-(standard_name; long_name; unit):
+<br /><em class="quotelev1">&gt; Dear Burkhardt et al.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I would be in favour of including information like this:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;     :projection = &quot;&lt;projection name&gt;&quot;;
+</em><br />
+<em class="quotelev2">&gt; &gt;      :projection_params = &lt;projection parameters&gt;;
+</em><br />
+<em class="quotelev2">&gt; &gt; (except that I have used float instead of string value for
+</em><br />
+<em class="quotelev2">&gt; &gt; projection_params)
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I think it might be a little neater to use just one attribute, reminiscent of
+</em><br />
+<em class="quotelev1">&gt; the cell_methods and formula_terms attributes, for instance:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;   projection=&quot;rotated_latitude_longitude north_pole_latitude: 32.5 &quot;,
+</em><br />
+<em class="quotelev1">&gt;     &quot;north_pole_longitude: 170.&quot;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; This would be more work to parse, but a utility could be written to parse it.
+</em><br />
+<em class="quotelev1">&gt; The advantages I see are
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; * More self-describing.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; * Less error-prone, because keyword parameters are more likely to be correctly
+</em><br />
+<em class="quotelev1">&gt; identified than positional parameters.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; * More flexible, because it allows the projection parameters to have any
+</em><br />
+<em class="quotelev1">&gt; data type.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; What do you think?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; For the choice of keyword names to use, we should do some research into what
+</em><br />
+<em class="quotelev1">&gt; already exists. When we discussed this before, Brian Eaton identified an
+</em><br />
+<em class="quotelev1">&gt; existing software package supporting projections which might suggest some
+</em><br />
+<em class="quotelev1">&gt; standard keywords to use.
+</em><br />
+<br />I agree that a format which uses key/value pairs is more robust than one
 <br />
-<br />soil_suction_at_saturation; Saturation soil suction; m
+that assumes unlabelled values will occur in a pre-determined order.
 <br />
-soil_hydraulic_conductivity_at_saturation; Saturation hydraulic 
+<br />I'm not convinced that an attribute called &quot;projection&quot; should be used to
 <br />
-conductivity; m s-1
+describe the rotated pole transformation (which is not a projection).  A
 <br />
-soil_texture; fraction of sand, clay and silt; 1
+projection commonly means a mapping from the surface of a sphere to a
 <br />
-<br />stomatal resistance depends on vegetation type, it is not clear to me, how 
+plane.  Something more generic like &quot;grid_mapping&quot; might be preferable.
 <br />
-to include min and max into standard name:
+<br />The discussion so far has not considered how to identify the coordinates in
 <br />
-stomatal_resistance; Maximum stomatal resistance; s m-1
+the transformed system.  As you pointed out in an email from last December:
 <br />
-stomatal_resistance; Minimum stomatal resistance; s m-1
+<br />&nbsp;&nbsp;&nbsp;Returning to the use of latitude and longitude for things which aren't really.
 <br />
-<br />Thanks for your help,
+&nbsp;&nbsp;&nbsp;I am happy with what we decided, but another possible pitfall has occurred to
 <br />
-Beate
+&nbsp;&nbsp;&nbsp;me. In the case of a rotated pole, it would be very natural for a data-writer
 <br />
-====================================================
+&nbsp;&nbsp;&nbsp;to use standard-looking lat and lon axes for the *rotated* lat and lon. If we
 <br />
-&nbsp;Dr. Beate Geyer 
+&nbsp;&nbsp;&nbsp;don't want this, we ought to specifically forbid it, I would suggest, by
 <br />
-&nbsp;GKSS Research Centre 
+&nbsp;&nbsp;&nbsp;adding notes in 4.1 and 4.2 e.g.
 <br />
-&nbsp;Institute for Coastal Research 
+<br />&nbsp;&nbsp;&nbsp;Coordinates of latitude with respect to a rotated pole should be given units
 <br />
-&nbsp;Max-Planck-Str. 
+&nbsp;&nbsp;&nbsp;of &quot;degrees&quot;, not &quot;degrees_north&quot; or equivalents, because applications which
 <br />
-&nbsp;D-21502 Geesthacht, Germany 
+&nbsp;&nbsp;&nbsp;use the units to identify axes would have no means of distinguishing such an
 <br />
-<br />E-Mail:   Beate.Geyer at gkss.de
+&nbsp;&nbsp;&nbsp;axis from real latitude, and might draw incorrect coastlines, for instance.
 <br />
-====================================================
+&nbsp;&nbsp;&nbsp;It would also not generally be appropriate to attach an axis attribute to a
 <br />
--------------- next part --------------
+&nbsp;&nbsp;&nbsp;rotated-latitude coordinate variable. Such a variable can be identified by
 <br />
-An HTML attachment was scrubbed...
+&nbsp;&nbsp;&nbsp;a standard_name of &quot;grid_latitude&quot;.
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20060119/5cbc5547/attachment-0002.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20060119/5cbc5547/attachment-0002.html</a>&gt;
+<br />I like the idea of using the standard_name to identify the type of a
 <br />
-<span id="received"><dfn>Received on</dfn> Thu Jan 19 2006 - 02:59:55 GMT</span>
+transformed coordinate.  Presumably the transformed coordinates will be
+<br />
+rectangular and hence representable by coordinate variables.
+<br />
+<br />We've been moving away from the use of global attributes in favor of
+<br />
+attributes attached to specific variables due to difficulties of properly
+<br />
+handling global attributes, for example, when combining variables from
+<br />
+different source files into a common destination file.  I think any new
+<br />
+attributes for grid mappings should be attributes on variables.
+<br />
+<br />So here's a fairly complete example of a variable on a rotated pole grid:
+<br />
+<br />dimensions:
+<br />
+&nbsp;&nbsp;rlon = 128 ;
+<br />
+&nbsp;&nbsp;rlat = 64 ;
+<br />
+&nbsp;&nbsp;lev = 18 ;
+<br />
+variables:
+<br />
+&nbsp;&nbsp;float T(lev,rlat,rlon) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;T:long_name = &quot;temperature&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;T:units = &quot;K&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;T:coordinates = &quot;lon lat&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;T:grid_mapping=&quot;rotated_latitude_longitude north_pole_latitude: 32.5 north_pole_longitude: 170.&quot;
+<br />
+&nbsp;&nbsp;float rlon(rlon) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;rlon:long_name = &quot;longitude in rotated pole grid&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;rlon:units = &quot;degrees&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;rlon:standard_name = &quot;rotated_longitude&quot;;
+<br />
+&nbsp;&nbsp;float rlat(rlat) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;rlat:long_name = &quot;latitude in rotated pole grid&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;rlat:units = &quot;degrees&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;rlon:standard_name = &quot;rotated_latitude&quot;;
+<br />
+&nbsp;&nbsp;float lev(lev) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lev:long_name = &quot;pressure level&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lev:units = &quot;hPa&quot; ;
+<br />
+&nbsp;&nbsp;float lon(rlat,rlon) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lon:long_name = &quot;longitude&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lon:units = &quot;degrees_east&quot; ;
+<br />
+&nbsp;&nbsp;float lat(rlat,rlon) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lat:long_name = &quot;latitude&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lat:units = &quot;degrees_north&quot; ;
+<br />
+<br />To move forward on this we need, as you said, to decide on the set of
+<br />
+keywords for describing the transformations, and decide on the standard
+<br />
+names to identify the transformed coordinates.  This will take a serious
+<br />
+effort.  Maybe this summer...
+<br />
+<br /><br /><em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; However, I would prefer to have at least the opportunity to set &quot;sum&quot;
+</em><br />
+<em class="quotelev2">&gt; &gt; optionally also
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I think I agree with this too. It should be allowed to set &quot;sum&quot; or &quot;point&quot;
+</em><br />
+<em class="quotelev1">&gt; (for extensive and intensive). What do others think?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; It would be rather complicated and laborious to specify in the standard name
+</em><br />
+<em class="quotelev1">&gt; table whether each quantity for each possible dimension is intensive or
+</em><br />
+<em class="quotelev1">&gt; extensive. And anyway, the file might not be using standard names. It is
+</em><br />
+<em class="quotelev1">&gt; therefore better, I think, for the data writer to indicate what is intended.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; This is not just cosmetic; an application's behaviour is affected by the
+</em><br />
+<em class="quotelev1">&gt; choice. For instance,
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; * If labelling a plot, &quot;point&quot; means the quantity should be labelled &quot;at
+</em><br />
+<em class="quotelev1">&gt; such-and-such time&quot;, while &quot;sum&quot; means &quot;from earliest_time to latest_time&quot;.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; * When constructing a time mean of point quantities, the unit does not change.
+</em><br />
+<em class="quotelev1">&gt; But for a time mean of accumulated quantities, it does. For instance,
+</em><br />
+<em class="quotelev1">&gt; accumulated hourly precipitation has units of kg m-2 or mm. If these values
+</em><br />
+<em class="quotelev1">&gt; are meaned, with cell_method of &quot;mean&quot;, the units become kg m-2 h-1, and
+</em><br />
+<em class="quotelev1">&gt; the standard name has to be changed to indicate a flux or rate.
+</em><br />
+<br /><br />This sounds fine to me.  Happily this is an easy change.
+<br />
+<br />Brian
+<br />
+<span id="received"><dfn>Received on</dfn> Thu Jun 06 2002 - 18:52:00 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -129,8 +323,9 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start9">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0010.html" title="Next message in the list">Jonathan Gregory: "Fwd: [CF-metadata] proposals for new standard names for soil and vegetation parameters"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0008.html" title="Previous message in the list">Bryan Lawrence: "[CF-metadata] cf2 progress"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0010.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] projections/default cell_methods"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0008.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] projections/default cell_methods"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0008.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] projections/default cell_methods"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -142,7 +337,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:42 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0008.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0010.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF convention for vector quantities from Bryan Lawrence on 2006-03-21 (mailing-list-archive)</title>
-<meta name="Author" content="Bryan Lawrence (b.n.lawrence)" />
-<meta name="Subject" content="[CF-metadata] CF convention for vector quantities" />
-<meta name="Date" content="2006-03-21" />
+<title>[CF-metadata] Future development of CF from Jonathan Gregory on 2003-03-11 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (jonathan.gregory)" />
+<meta name="Subject" content="[CF-metadata] Future development of CF" />
+<meta name="Date" content="2003-03-11" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0088.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0090.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF convention for vector quantities</h1>
-<!-- received="Tue Mar 21 00:57:33 2006" -->
-<!-- isoreceived="20060321005733" -->
-<!-- sent="Tue, 21 Mar 2006 07:57:33 +0000" -->
-<!-- isosent="20060321075733" -->
-<!-- name="Bryan Lawrence" -->
-<!-- email="b.n.lawrence" -->
-<!-- subject="[CF-metadata] CF convention for vector quantities" -->
-<!-- id="200603210757.34118.b.n.lawrence_at_rl.ac.uk" -->
+<a style="text-decoration:none" href="./0088.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0090.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Future development of CF</h1>
+<!-- received="Tue Mar 11 12:55:26 2003" -->
+<!-- isoreceived="20030311125526" -->
+<!-- sent="Tue, 11 Mar 2003 19:55:26 +0000" -->
+<!-- isosent="20030311195526" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="jonathan.gregory" -->
+<!-- subject="[CF-metadata] Future development of CF" -->
+<!-- id="20030311195526.A27205_at_hc1600.meto.gov.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="441F24A1.9010208_at_unidata.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,10 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0090.html" accesskey="d" title="Bert Jagers: &quot;[CF-metadata] CF convention for vector quantities&quot;">Next message</a> ]
-[ <a href="./0088.html" title="Brian Eaton: &quot;[CF-metadata] Integerized Sinusoidal Grid&quot;">Previous message</a> ]
-[ <a href="./0087.html" title="John Caron: &quot;[CF-metadata] CF convention for vector quantities&quot;">In reply to</a> ]
+[ <a href="./0090.html" accesskey="d" title="Bryan Lawrence: &quot;[CF-metadata] Future development of CF&quot;">Next message</a> ]
+[ <a href="./0088.html" title="Jonathan Gregory: &quot;[CF-metadata] Future development of CF&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0090.html" accesskey="t" title="Bryan Lawrence: &quot;[CF-metadata] Future development of CF&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,70 +70,34 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Bryan Lawrence &lt;<a href="mailto:b.n.lawrence?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20convention%20for%20vector%20quantities">b.n.lawrence</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:jonathan.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Future%20development%20of%20CF">jonathan.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 21 Mar 2006 07:57:33 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 11 Mar 2003 19:55:26 +0000</span><br />
 </address>
 <br />
-Hi Jonathan et al.
+One further point. I don't think we should try to limit the scope of the
 <br />
-<br />Jonathan said: 
+standard at this point. In the abstract it says
 <br />
-<em class="quotelev2">&gt; &gt; I remain unconvinced about introducing this kind of information into the
-</em><br />
-<em class="quotelev2">&gt; &gt; file, as it cannot be depended upon if it is optional, so it doesn't help
-</em><br />
-<em class="quotelev2">&gt; &gt; simplify programs, and it is redundant because it can be deduced on the
-</em><br />
-<em class="quotelev2">&gt; &gt; fly (I think). However I know I have a general preference for clever
-</em><br />
-<em class="quotelev2">&gt; &gt; programs and stupid (though complete, correct and clear) files.
-</em><br />
-<br />John said:
+&quot;This standard is intended for use with climate and forecast data, for
 <br />
-<em class="quotelev1">&gt; I appreciate your advocacy of that POV throughout the years, its very
-</em><br />
-<em class="quotelev1">&gt; important that we maintain CF files to be as simple amd clear as possible.
-</em><br />
-<em class="quotelev1">&gt; I also observe the tension between data providers and consumers, and it
-</em><br />
-<em class="quotelev1">&gt; seems likely we will always be looking for the right balance between
-</em><br />
-<em class="quotelev1">&gt; program writers and file writers.
-</em><br />
-<br />and despite the disagreements that Jonathan and I have , I'd like to echo 
+atmosphere, surface and ocean, and was designed with model-generated data
 <br />
-this. I think it's healthy to have a tension, so we can seek the right 
+particularly in mind.&quot;
 <br />
-balance, and that depends on consistent well argued positions from all 
+This is rather general. We could consider removing the last part. It is true,
 <br />
-sides :-)
+but any observed data which could be compared with such model-generated data
 <br />
-<br />Which brings us back to &quot;can we come up with a simple yet useful proposition&quot; 
+probably ought to be describable also by CF.
 <br />
-that doesn't overload the standard names (in any way, I totally agree that 
+<br />We can wait to see what potential users there are before deciding whether CF
 <br />
-this concept should not touch them) ...
+can be developed to meet their needs.
 <br />
-<br />... if no one else does so before then, I've allocated some time in a couple 
+<br />Jonathan
 <br />
-of weeks  to come up with a proposal and an example file, and a decent 
-<br />
-justification  ... (Bert, I hope you get to it before me :-)
-<br />
-<br />Thanks
-<br />
-Bryan
-<br />
-<br /><pre>
--- 
-Bryan Lawrence
-Director of Environmental Archival and Associated Research
-Head of the NCAS/British Atmospheric Data Centre
-CCLRC, Rutherford Appleton Laboratory
-Phone +44 1235 445012; Fax ... 5848; Web: home.badc.rl.ac.uk/lawrence
-</pre>
-<span id="received"><dfn>Received on</dfn> Tue Mar 21 2006 - 00:57:33 GMT</span>
+<span id="received"><dfn>Received on</dfn> Tue Mar 11 2003 - 12:55:26 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -141,10 +105,12 @@ Phone +44 1235 445012; Fax ... 5848; Web: home.badc.rl.ac.uk/lawrence
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start89">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0090.html" title="Next message in the list">Bert Jagers: "[CF-metadata] CF convention for vector quantities"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0088.html" title="Previous message in the list">Brian Eaton: "[CF-metadata] Integerized Sinusoidal Grid"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0087.html" title="Message to which this message replies">John Caron: "[CF-metadata] CF convention for vector quantities"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0090.html" title="Next message in the list">Bryan Lawrence: "[CF-metadata] Future development of CF"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0088.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Future development of CF"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0090.html" title="Next message in this discussion thread">Bryan Lawrence: "[CF-metadata] Future development of CF"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0090.html" title="Message sent in reply to this message">Bryan Lawrence: "[CF-metadata] Future development of CF"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -155,7 +121,7 @@ Phone +44 1235 445012; Fax ... 5848; Web: home.badc.rl.ac.uk/lawrence
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:44 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0088.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0090.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

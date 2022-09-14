@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Editing/publishing workflow from Jeffrey F. Painter on 2014-03-11 (mailing-list-archive)</title>
-<meta name="Author" content="Jeffrey F. Painter (painter1)" />
-<meta name="Subject" content="[CF-metadata] Editing/publishing workflow" />
-<meta name="Date" content="2014-03-11" />
+<title>[CF-metadata] GOES-R generated binary mask products under proposal from Charles Paxson on 2013-05-15 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Charles Paxson (cpaxson)" />
+<meta name="Subject" content="[CF-metadata] GOES-R generated binary mask products under proposal" />
+<meta name="Date" content="2013-05-15" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./6150.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6152.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Editing/publishing workflow</h1>
-<!-- received="Tue Mar 11 14:28:48 2014" -->
-<!-- isoreceived="20140311142848" -->
-<!-- sent="Tue, 11 Mar 2014 13:28:48 -0700" -->
-<!-- isosent="20140311202848" -->
-<!-- name="Jeffrey F. Painter" -->
-<!-- email="painter1" -->
-<!-- subject="[CF-metadata] Editing/publishing workflow" -->
-<!-- id="531F7200.7020906_at_llnl.gov" -->
+<a style="text-decoration:none" href="./6150.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6152.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] GOES-R generated binary mask products under proposal</h1>
+<!-- received="Wed May 15 13:34:02 2013" -->
+<!-- isoreceived="20130515123402" -->
+<!-- sent="Wed, 15 May 2013 15:34:02 -0400" -->
+<!-- isosent="20130515193402" -->
+<!-- name="Charles Paxson" -->
+<!-- email="cpaxson" -->
+<!-- subject="[CF-metadata] GOES-R generated binary mask products under proposal" -->
+<!-- id="5193E32A.101_at_aer.com" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="CALGmxEK762RwoGuAY=37YJyYCLZg4GVye2wDBgDRR0uuR=os=w_at_mail.gmail.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +53,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./6152.html" accesskey="d" title="stephen.pascoe at stfc.ac.uk: &quot;[CF-metadata] Editing/publishing workflow&quot;">Next message</a> ]
-[ <a href="./6150.html" title="Chris Barker: &quot;[CF-metadata] Editing/publishing workflow&quot;">Previous message</a> ]
-[ <a href="./6150.html" title="Chris Barker: &quot;[CF-metadata] Editing/publishing workflow&quot;">In reply to</a> ]
+[ <a href="./6152.html" accesskey="d" title="H&#0246;rnquist Sara: &quot;[CF-metadata] GOES-R generated binary mask products under proposal&quot;">Next message</a> ]
+[ <a href="./6150.html" title="Jonathan Wrotny: &quot;[CF-metadata] new standard_name: lwe_thickness_of_water_vapor&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./6152.html" accesskey="t" title="stephen.pascoe at stfc.ac.uk: &quot;[CF-metadata] Editing/publishing workflow&quot;">Next in thread</a> ]
+[ <a href="./6152.html" accesskey="t" title="H&#0246;rnquist Sara: &quot;[CF-metadata] GOES-R generated binary mask products under proposal&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,16 +70,60 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jeffrey F. Painter &lt;<a href="mailto:painter1?Subject=Re%3A%20%5BCF-metadata%5D%20Editing%2Fpublishing%20workflow">painter1</a>&gt;
+<dfn>From</dfn>: Charles Paxson &lt;<a href="mailto:cpaxson?Subject=Re%3A%20%5BCF-metadata%5D%20GOES-R%20generated%20binary%20mask%20products%20under%20proposal">cpaxson</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 11 Mar 2014 13:28:48 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 15 May 2013 15:34:02 -0400</span><br />
 </address>
+<br />
+Dear CF Metadata Users Group,
+<br />
+<br />Through observations and analysis, GOES-R weather products produce 
+<br />
+binary masks for: aerosols, smoke, dust and clouds.   No coordinate 
+<br />
+value is warranted (i.e. CF Metadata standard surface_snow_binary_mask) 
+<br />
+for any of these four proposed quantities, since a complex set of tests 
+<br />
+for each case, such as using brightness temperatures, are used to derive 
+<br />
+signatures of the four atmospheric constituents.  The proposed masks are 
+<br />
+analogous and defined in a similar way as the CF Metadata standard 
+<br />
+names: land_binary_mask and sunlit_binary_mask.
+<br />
+<br />aerosol_binary_mask: X_binary_mask has 1 where condition X is met, 0 
+<br />
+elsewhere. 1 = aerosols present, 0 = aerosolsabsent
+<br />
+smoke_binary_mask: X_binary_mask has 1 where condition X is met, 0 
+<br />
+elsewhere.  1 = smoke present, 0 = smoke absent
+<br />
+dust_binary_mask: X_binary_mask has 1 where condition X is met, 0 
+<br />
+elsewhere.     1 = dust present, 0 = dust absent
+<br />
+cloud_binary_mask: X_binary_mask has 1 where condition X is met, 0 
+<br />
+elsewhere.    1 = cloud present, 0 = cloud absent (clear)
+<br />
+<br />Please accept these four mask names for inclusion into the CF Metadata 
+<br />
+standard.
+<br />
+<br />Sincerely,
+<br />
+<br />Charles Paxson
+<br />
+<br /><br />-------------- next part --------------
 <br />
 An HTML attachment was scrubbed...
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140311/9036fb61/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140311/9036fb61/attachment-0001.html</a>&gt;
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130515/bc2897ef/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130515/bc2897ef/attachment.html</a>&gt;
 <br />
-<span id="received"><dfn>Received on</dfn> Tue Mar 11 2014 - 14:28:48 GMT</span>
+<span id="received"><dfn>Received on</dfn> Wed May 15 2013 - 13:34:02 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -89,13 +131,13 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start6151">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./6152.html" title="Next message in the list">stephen.pascoe at stfc.ac.uk: "[CF-metadata] Editing/publishing workflow"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./6150.html" title="Previous message in the list">Chris Barker: "[CF-metadata] Editing/publishing workflow"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./6150.html" title="Message to which this message replies">Chris Barker: "[CF-metadata] Editing/publishing workflow"</a></li>
+<li><dfn>Next message</dfn>: <a href="./6152.html" title="Next message in the list">H&#0246;rnquist Sara: "[CF-metadata] GOES-R generated binary mask products under proposal"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./6150.html" title="Previous message in the list">Jonathan Wrotny: "[CF-metadata] new standard_name: lwe_thickness_of_water_vapor"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./6152.html" title="Next message in this discussion thread">stephen.pascoe at stfc.ac.uk: "[CF-metadata] Editing/publishing workflow"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./6152.html" title="Next message in this discussion thread">H&#0246;rnquist Sara: "[CF-metadata] GOES-R generated binary mask products under proposal"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./6152.html" title="Message sent in reply to this message">stephen.pascoe at stfc.ac.uk: "[CF-metadata] Editing/publishing workflow"</a></li>
+<dfn>Reply</dfn>: <a href="./6152.html" title="Message sent in reply to this message">H&#0246;rnquist Sara: "[CF-metadata] GOES-R generated binary mask products under proposal"</a></li>
+<li><dfn>Reply</dfn>: <a href="./6153.html" title="Message sent in reply to this message">Jim Biard: "[CF-metadata] GOES-R generated binary mask products under proposal"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -106,7 +148,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:38 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./6150.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6152.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

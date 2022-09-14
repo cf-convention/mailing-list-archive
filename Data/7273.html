@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] new standard names for flood simulation from Eizi TOYODA on 2015-08-11 (mailing-list-archive)</title>
-<meta name="Author" content="Eizi TOYODA (toyoda)" />
-<meta name="Subject" content="[CF-metadata] new standard names for flood simulation" />
-<meta name="Date" content="2015-08-11" />
+<title>[CF-metadata] CF Conventions and netCDF-4 enhanced model from Timothy Patterson on 2014-09-11 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Timothy Patterson (Timothy.Patterson)" />
+<meta name="Subject" content="[CF-metadata] CF Conventions and netCDF-4 enhanced model" />
+<meta name="Date" content="2014-09-11" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./7272.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7274.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new standard names for flood simulation</h1>
-<!-- received="Tue Aug 11 03:08:15 2015" -->
-<!-- isoreceived="20150811020815" -->
-<!-- sent="Tue, 11 Aug 2015 18:08:15 +0900" -->
-<!-- isosent="20150811090815" -->
-<!-- name="Eizi TOYODA" -->
-<!-- email="toyoda" -->
-<!-- subject="[CF-metadata] new standard names for flood simulation" -->
-<!-- id="CAEDreLmRkH8OpEHuDyLN5WZ77Hz+NpnKEo5kpKeETT-BH0OYcg_at_mail.gmail.com" -->
+<a style="text-decoration:none" href="./7272.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7274.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF Conventions and netCDF-4 enhanced model</h1>
+<!-- received="Thu Sep 11 04:27:53 2014" -->
+<!-- isoreceived="20140911032753" -->
+<!-- sent="Thu, 11 Sep 2014 12:27:53 +0200" -->
+<!-- isosent="20140911102753" -->
+<!-- name="Timothy Patterson" -->
+<!-- email="Timothy.Patterson" -->
+<!-- subject="[CF-metadata] CF Conventions and netCDF-4 enhanced model" -->
+<!-- id="B293F9025AB9DF4BBD3BC3403F25DA450179A1A95B25_at_EXW10.eum.root.eumetsat.int" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="CALGmxELi+Prv9CucBDm4j8eZK2dvUm_+f3+BqHcTQ7gBQVcJKQ_at_mail.gmail.com" -->
+<!-- inreplyto="5410A67F.8060405_at_cicsnc.org" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./7274.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  new standard names for flood simulation&quot;">Next message</a> ]
-[ <a href="./7272.html" title="Maarten Sneep: &quot;[CF-metadata] albedo, air pressure definitions&quot;">Previous message</a> ]
-[ <a href="./7271.html" title="Chris Barker: &quot;[CF-metadata] new standard names for flood simulation&quot;">In reply to</a> ]
+[ <a href="./7274.html" accesskey="d" title="David Hassell: &quot;[CF-metadata] CF trac ticket summary update&quot;">Next message</a> ]
+[ <a href="./7272.html" title="Karl Taylor: &quot;[CF-metadata] Daily mean temperature&quot;">Previous message</a> ]
+[ <a href="./7270.html" title="Jim Biard: &quot;[CF-metadata] CF Conventions and netCDF-4 enhanced model&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./7276.html" accesskey="t" title="Chris Barker: &quot;[CF-metadata] new standard names for flood simulation&quot;">Next in thread</a> ]
+[ <a href="./7275.html" accesskey="t" title="John Caron: &quot;[CF-metadata] CF Conventions and netCDF-4 enhanced model&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,127 +72,44 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Eizi TOYODA &lt;<a href="mailto:toyoda?Subject=Re%3A%20%5BCF-metadata%5D%20new%20standard%20names%20for%20flood%20simulation">toyoda</a>&gt;
+<dfn>From</dfn>: Timothy Patterson &lt;<a href="mailto:Timothy.Patterson?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20Conventions%20and%20netCDF-4%20enhanced%20model">Timothy.Patterson</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 11 Aug 2015 18:08:15 +0900</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 11 Sep 2014 12:27:53 +0200</span><br />
 </address>
 <br />
-Hi Chris and all,
+I spent an instructive evening reading through the previous discussions (thanks for the links, Corey) and the arguments for and against using hierarchal structures. I also re-read the CF conventions documents again (1.6 and 1.7 draft) and it seems the standard currently ignores groups rather than explicitly forbidding their use. It seems to me that a netCDF dataset with groups could still conform to the CF conventions as they are currently written, even with all the other restrictions that the standard imposes. I'd be interested in seeing and possibly helping with CF conventions for supporting the enhanced model.
 <br />
-<br />Now I think the word &quot;flood_water&quot; can refer to temporary water body on the
+<br />After reading the previous discussions, I thought it might be interesting to the list to explain our use of groups in netCDF products as it is somewhat different from the other cases that were discussed. 
 <br />
-land surface, regardless the cause is river overflow, storm surge, or
+<br />Our netCDF datasets have to cope with a number of different needs from various parties - archive, end-users, higher-level processing, reprocessing, monitoring, etc. To keep things simple, we wanted a single format per instrument/processing level that is flexible enough to contain all the data or a subset of the data depending upon the consumer needs. To do this, we created a hierarchal data structure that encapsulates data in related, but independent groups. These groups can be present in or missing from the dataset as required by the needs of the consumer. So a level 2 processing function might receive a product containing 20 instrument channels at 2 different resolutions, whereas the dissemination function might receive a product with just 5 of these channels at the lowest resolution. Both of these products are described by a single format specification.
 <br />
-tsunami.  I've talked with a storm surge expert in JMA.  He says it is okay
+<br />This model of including or omitting independent groups also supports other needs, for example being able to add data that is produced at irregular intervals but needs to be in the product when it is available. Also, by tagging groups with a specific attribute, we should also be able to have a single, generic method for end-users to be able to subset data retrieved from the archive without requiring specific knowledge of each netCDF product. They should be able to select only the tagged groups (which might correspond to instrument channels for instance) that they want in their retrieved datasets. 
 <br />
-for him, and probably for tsunami expert.
+<br />This gives us a single, easily understood format definition that encompasses a wide variety of possible variations.
 <br />
-<br />That may not be perfect but (I hope) is a meaningful effort to combat with
+<br />Any feedback on the idiocy or genius of this (ab)use of the netCDF format is welcome.
 <br />
-creeping proliferation of names.
+<br />Thanks,
 <br />
-<br />&nbsp;- River water simulation is often done on tree-like network, not in
+<br />Tim 
 <br />
-grids.  That's probably the reason we (CF community) didn't talk much about
+<br />---------------------
 <br />
-river water (in non-flooding state) more than runoff, which also belongs to
+<br />Dr. Timothy Patterson
 <br />
-the land surface model.
+Instrument Data Simulation
 <br />
-&nbsp;- I hope people (if any) are not so uncomfortable with using &quot;sea_water&quot;
+Product Format Specification
 <br />
-for estuary water....
+<br />EUMETSAT
 <br />
-<br /><pre>
--- 
-Best Regards,
-Eizi TOYODA, Japan Meteorological Agency
-Assoc Member, WMO/CBS/IPET-DRMM
-Best Regards,
---
-Eiji (aka Eizi) TOYODA
-<a href="http://www.google.com/profiles/toyoda.eizi">http://www.google.com/profiles/toyoda.eizi</a>
-On Tue, Aug 11, 2015 at 1:10 AM, Chris Barker &lt;chris.barker at noaa.gov&gt; wrote:
-&gt; On Mon, Aug 10, 2015 at 1:50 AM, Eizi TOYODA &lt;toyoda at npd.kishou.go.jp&gt;
-&gt; wrote:
-&gt;
-&gt;&gt; 1. Flood water and seawater are both liquid water on top of solid earth
-&gt;&gt; surface.  Some properties are common in terms of physics as you suggest.
-&gt;&gt;
-&gt;
-&gt; indeed -- I somehow never notes that the standard names use &quot;sea_water&quot;
-&gt; rather than just &quot;water&quot;. So yes, you wouldn't want to use that for
-&gt; flooding in river, etc, where it is indeed, not seawater.
-&gt;
-&gt; though may it's time to introduce &quot;water&quot; names, rather than adding
-&gt; &quot;flood+water&quot;, then &quot;river_water&quot;, then &quot;estuary_water&quot;, etc...
-&gt;
-&gt; But there is difference in nature:
-&gt;&gt;
-&gt;&gt;  - The sea has always seawater in the normal state.
-&gt;&gt;     Few people think about when a basin or a bay dries up.
-&gt;&gt;
-&gt;
-&gt; actually, wetting-=drying in tidal areas is often a big deal, as is storm
-&gt; surge, so it's not out of the question to use the same names for these.
-&gt;
-&gt; I don't see any names with &quot;storm&quot; or &quot;surge&quot; in them -- I wonder what the
-&gt; storm surge modelers use?
-&gt;
-&gt; So there are concepts only used in flood simulation, not in oceanography.
-&gt;&gt; It might look awkward or weird if we use sea_water instead of flood_water:
-&gt;&gt;
-&gt;
-&gt; yes, because it's not, in fact sea water generally...
-&gt;
-&gt;
-&gt;&gt; 6) sea_water_arrival_time
-&gt;&gt; 7) time_at_maximum_sea_water_depth
-&gt;&gt; 8) time_when_sea_water_goes_below_threshold
-&gt;&gt; 9) time_span_with_sea_water_depth_above_threshold
-&gt;&gt;
-&gt;&gt; 2. Current standard name table includes names including land_ice,
-&gt;&gt; surface_snow, surface_snow_and_ice, all are layer made of H2O temporarily
-&gt;&gt; on top of solid earth.  For me it is not unnatural to see flood water in
-&gt;&gt; line with them.
-&gt;&gt;
-&gt;
-&gt; well, trying to keep name proliferation down, but yes, clearly the
-&gt; sea_water names are not appropriate.
-&gt;
-&gt;
-&gt;&gt; 3. Current standard name table also includes quantities related to
-&gt;&gt; runoff, which could be substituted by sea water velocity.  It looks like
-&gt;&gt; the CF community in the past did not try to convert the terminology of
-&gt;&gt; hydrologists into that of oceanography.
-&gt;&gt;
-&gt;
-&gt; Indeed -- it started with climate modeling, and extended to general
-&gt; oceanographic and meteorological modeling, but hydrology is new.
-&gt;
-&gt; I'd rather see some more cross-discipline names, but adding a set for
-&gt; hydrological modeling is a fine idea as well.
-&gt;
-&gt; -Chris
-&gt;
-&gt;
-&gt; --
-&gt;
-&gt; Christopher Barker, Ph.D.
-&gt; Oceanographer
-&gt;
-&gt; Emergency Response Division
-&gt; NOAA/NOS/OR&amp;R            (206) 526-6959   voice
-&gt; 7600 Sand Point Way NE   (206) 526-6329   fax
-&gt; Seattle, WA  98115       (206) 526-6317   main reception
-&gt;
-&gt; Chris.Barker at noaa.gov
-&gt;
--------------- next part --------------
-An HTML attachment was scrubbed...
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150811/474cd535/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150811/474cd535/attachment.html</a>&gt;
-</pre>
-<span id="received"><dfn>Received on</dfn> Tue Aug 11 2015 - 03:08:15 BST</span>
+Eumetsat-Allee 1
+<br />
+64295 Darmstadt
+<br />
+Germany
+<br />
+<span id="received"><dfn>Received on</dfn> Thu Sep 11 2014 - 04:27:53 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -200,13 +117,13 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start7273">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./7274.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  new standard names for flood simulation"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./7272.html" title="Previous message in the list">Maarten Sneep: "[CF-metadata] albedo, air pressure definitions"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./7271.html" title="Message to which this message replies">Chris Barker: "[CF-metadata] new standard names for flood simulation"</a></li>
+<li><dfn>Next message</dfn>: <a href="./7274.html" title="Next message in the list">David Hassell: "[CF-metadata] CF trac ticket summary update"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./7272.html" title="Previous message in the list">Karl Taylor: "[CF-metadata] Daily mean temperature"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./7270.html" title="Message to which this message replies">Jim Biard: "[CF-metadata] CF Conventions and netCDF-4 enhanced model"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./7276.html" title="Next message in this discussion thread">Chris Barker: "[CF-metadata] new standard names for flood simulation"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./7275.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] CF Conventions and netCDF-4 enhanced model"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./7276.html" title="Message sent in reply to this message">Chris Barker: "[CF-metadata] new standard names for flood simulation"</a></li>
+<dfn>Reply</dfn>: <a href="./7275.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] CF Conventions and netCDF-4 enhanced model"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -217,7 +134,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:59 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./7272.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7274.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

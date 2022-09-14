@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] udunits handling of fuzzy time units from Steve Hankin on 2011-03-15 (mailing-list-archive)</title>
-<meta name="Author" content="Steve Hankin (Steven.C.Hankin)" />
-<meta name="Subject" content="[CF-metadata] udunits handling of fuzzy time units" />
-<meta name="Date" content="2011-03-15" />
+<title>[CF-metadata] udunits 1 or 2 for CF? from Andrew Clegg on 2010-03-04 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Andrew Clegg (ancl)" />
+<meta name="Subject" content="[CF-metadata] udunits 1 or 2 for CF?" />
+<meta name="Date" content="2010-03-04" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./3293.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3295.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] udunits handling of fuzzy time units</h1>
-<!-- received="Tue Mar 15 10:13:51 2011" -->
-<!-- isoreceived="20110315101351" -->
-<!-- sent="Tue, 15 Mar 2011 09:13:51 -0700" -->
-<!-- isosent="20110315161351" -->
-<!-- name="Steve Hankin" -->
-<!-- email="Steven.C.Hankin" -->
-<!-- subject="[CF-metadata] udunits handling of fuzzy time units" -->
-<!-- id="4D7F903F.7020809_at_noaa.gov" -->
+<a style="text-decoration:none" href="./3293.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3295.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] udunits 1 or 2 for CF?</h1>
+<!-- received="Thu Mar  4 08:06:01 2010" -->
+<!-- isoreceived="20100304080601" -->
+<!-- sent="Thu, 04 Mar 2010 15:06:01 +0000" -->
+<!-- isosent="20100304150601" -->
+<!-- name="Andrew Clegg" -->
+<!-- email="ancl" -->
+<!-- subject="[CF-metadata] udunits 1 or 2 for CF?" -->
+<!-- id="4B8FCC59.7070705_at_pml.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4D7F609A.4080208_at_unidata.ucar.edu" -->
+<!-- inreplyto="1267714728.11050.28.camel_at_lxtramm2" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./3295.html" accesskey="d" title="John Caron: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">Next message</a> ]
-[ <a href="./3293.html" title="Benno Blumenthal: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">Previous message</a> ]
-[ <a href="./3289.html" title="John Caron: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">In reply to</a> ]
+[ <a href="./3295.html" accesskey="d" title="Nan Galbraith: &quot;[CF-metadata] &#0034;Andrew Clegg&#0034;:  udunits 1 or 2 for CF?&quot;">Next message</a> ]
+[ <a href="./3293.html" title="Bruno PIGUET: &quot;[CF-metadata] udunits 1 or 2 for CF?&quot;">Previous message</a> ]
+[ <a href="./3293.html" title="Bruno PIGUET: &quot;[CF-metadata] udunits 1 or 2 for CF?&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./3304.html" accesskey="t" title="John Caron: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,76 +70,114 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Steve Hankin &lt;<a href="mailto:Steven.C.Hankin?Subject=Re%3A%20%5BCF-metadata%5D%20udunits%20handling%20of%20fuzzy%20time%20units">Steven.C.Hankin</a>&gt;
+<dfn>From</dfn>: Andrew Clegg &lt;<a href="mailto:ancl?Subject=Re%3A%20%5BCF-metadata%5D%20udunits%201%20or%202%20for%20CF%3F">ancl</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 15 Mar 2011 09:13:51 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 04 Mar 2010 15:06:01 +0000</span><br />
 </address>
 <br />
-John et. al.,
+Bruno PIGUET wrote:
 <br />
-<br />It looks like this thread has reached reasonable conclusions:
-<br />
-<br />&nbsp;&nbsp;&nbsp;1. units of days (or secs or mins) can provide an accurate encoding
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for months (&quot;days since 1930-01-01&quot;)
-<br />
-&nbsp;&nbsp;&nbsp;2. &quot;units of measure&quot; should not be quantities that vary
-<br />
-&nbsp;&nbsp;&nbsp;3. udunits could in principle offer calendar type-sensitive support
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for units of &quot;months&quot; or &quot;years&quot;, but doing so would likely break
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;backwards compatibility and would get nasty-complicated as a
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result of bullet #2
-<br />
-<br />I'd like to add a response to this concern:
-<br />
-<br /><em class="quotelev1">&gt; option 1 is suboptimal because one has to calculate the days 
+<em class="quotelev1">&gt; Le mercredi 03 mars 2010 ? 15:10 +0000, Andrew Clegg a ?crit :
 </em><br />
-<em class="quotelev1">&gt; correctly. Also it makes the time coordinates not human readable, eg:
+<em class="quotelev1">&gt;   
 </em><br />
-<br />Here I think concerns of human-readable formatting and convenience are 
+<em class="quotelev2">&gt;&gt; [...] In udunits1, I used 'ukg m^-3', which 
+</em><br />
+<em class="quotelev2">&gt;&gt; udunits2 rejects as invalid. udunits2 accepts 'mg m^-3' (which is much 
+</em><br />
+<em class="quotelev2">&gt;&gt; better!), but udunits1 interprets this as to do with gravity. Because of 
+</em><br />
+<em class="quotelev2">&gt;&gt; this, I can't include a unit string which is generally compatible with 
+</em><br />
+<em class="quotelev2">&gt;&gt; udunits...
+</em><br />
+<em class="quotelev2">&gt;&gt;     
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; As a personal choice, to deal with this problem, I use the full word
+</em><br />
+<em class="quotelev1">&gt; &quot;gram&quot; with udunits-1. And &quot;mgram&quot; is accepted as milligram, which I
+</em><br />
+<em class="quotelev1">&gt; find better than ukg, which i would never have thought of by myself.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  I guess (can't test it by now) that &quot;mgram&quot; should also be accepted by
+</em><br />
+<em class="quotelev1">&gt; udunits-2. Is it an option for you ?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Bruno.
+</em><br />
+<em class="quotelev1">&gt;   
+</em><br />
+I never thought of using the full word 'gram' - I've just checked and 
 <br />
-sliding into issues of accurate encoding.    ncdump already offers an 
+'gram' and 'mgram' work on udunits-2 as well. Thanks.
 <br />
-option to format these values as dates.  Ncgen could in principle offer 
+<br />However, I'm still concerned that there are differences between the 2 
 <br />
-conversions to encode various human-friendly formatting options.
+versions, and that this should be at least noted in the conventions. 
 <br />
-<br />The larger question of &quot;months&quot; used as units of time measure is an 
+Other people in the future will probably have the same problem, and it 
 <br />
-ingrained problem of sloppy earth science. =-O &gt;:o (heresy!)  Regarding 
+would be nice to have a definitive answer. My (strong) personal 
 <br />
-Gregorian months (unequal length) as a simple numbered sequence, 1, 2, 
+preference is to say that all unit strings should be correct when 
 <br />
-3, 4 .... continues to promote countless sloppy (wrong) calculations -- 
+interpreted with udunits-2, rather than relying on a set of 'hacks' to 
 <br />
-erroneous derivatives, integrals, variance, ... any calculation that 
+ensure compatibility between the 2.
 <br />
-attempts to use the month number as encoded as a unit of time measure.  
+<br />Cheers,
 <br />
-Glossing over these errors seems often to be the norm, rather than the 
+Andrew
 <br />
-exception.  This is one of those rare areas where our responsibility as 
+<br />--------------------------------------------------------------------------------
 <br />
-software developers should be to push back against sloppy science, by 
+Plymouth Marine Laboratory
 <br />
-offering software that makes it easy to do the calculations correctly, 
+&nbsp;
 <br />
-and help to end these sloppy practices.  I'd welcome seeing this 
+Registered Office:
 <br />
-discussion elevate to our science colleagues.
+Prospect Place 
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Steve
+The Hoe
 <br />
-<br />-------------- next part --------------
+Plymouth  PL1 3DH
 <br />
-An HTML attachment was scrubbed...
+&nbsp;
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20110315/8ddddd51/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20110315/8ddddd51/attachment-0001.html</a>&gt;
+Website: www.pml.ac.uk
 <br />
-<span id="received"><dfn>Received on</dfn> Tue Mar 15 2011 - 10:13:51 GMT</span>
+Registered Charity No. 1091222
+<br />
+PML is a company limited by guarantee
+<br />
+registered in England &amp; Wales
+<br />
+company number 4178503
+<br />
+<br />PML is a member of the Plymouth Marine Sciences Partnership
+<br />
+Website: www.pmsp.org.uk 
+<br />
+--------------------------------------------------------------------------------
+<br />
+This e-mail, its content and any file attachments are confidential.
+<br />
+<br />If you have received this e-mail in error please do not copy, disclose it to any third party or use the contents or attachments in any way. Please notify the sender by replying to this e-mail or e-mail forinfo at pml.ac.uk and then delete the email without making any copies or using it in any other way.
+<br />
+<br />The content of this message may contain personal views which are not the views of Plymouth Marine Laboratory unless specifically stated.
+<br />
+<br />You are reminded that e-mail communications are not secure and may contain viruses. Plymouth Marine Laboratory accepts no liability for any loss or damage which may be caused by viruses.
+<br />
+--------------------------------------------------------------------------------
+<br />
+<span id="received"><dfn>Received on</dfn> Thu Mar 04 2010 - 08:06:01 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -149,13 +185,10 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start3294">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./3295.html" title="Next message in the list">John Caron: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./3293.html" title="Previous message in the list">Benno Blumenthal: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./3289.html" title="Message to which this message replies">John Caron: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
+<li><dfn>Next message</dfn>: <a href="./3295.html" title="Next message in the list">Nan Galbraith: "[CF-metadata] &#0034;Andrew Clegg&#0034;:  udunits 1 or 2 for CF?"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./3293.html" title="Previous message in the list">Bruno PIGUET: "[CF-metadata] udunits 1 or 2 for CF?"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./3293.html" title="Message to which this message replies">Bruno PIGUET: "[CF-metadata] udunits 1 or 2 for CF?"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./3304.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./3304.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -166,7 +199,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:42 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./3293.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3295.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

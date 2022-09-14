@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Standard name table update : from alison.pamment at stfc.ac.uk on 2010-03-08 (mailing-list-archive)</title>
-<meta name="Author" content="alison.pamment at stfc.ac.uk (alison.pamment)" />
-<meta name="Subject" content="[CF-metadata] Standard name table update :" />
-<meta name="Date" content="2010-03-08" />
+<title>[CF-metadata] date and time from Roy Lowry on 2008-10-28 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Roy Lowry (rkl)" />
+<meta name="Subject" content="[CF-metadata] date and time" />
+<meta name="Date" content="2008-10-28" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2502.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2504.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Standard name table update :</h1>
-<!-- received="Mon Mar  8 05:40:48 2010" -->
-<!-- isoreceived="20100308054048" -->
-<!-- sent="Mon, 8 Mar 2010 12:40:48 -0000" -->
-<!-- isosent="20100308124048" -->
-<!-- name="alison.pamment at stfc.ac.uk" -->
-<!-- email="alison.pamment" -->
-<!-- subject="[CF-metadata] Standard name table update :" -->
-<!-- id="EB1E7CB92F5B35459E0B926D2A614DB604454835_at_EXCHANGE19.fed.cclrc.ac.uk" -->
+<a style="text-decoration:none" href="./2502.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2504.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] date and time</h1>
+<!-- received="Tue Oct 28 05:44:32 2008" -->
+<!-- isoreceived="20081028054432" -->
+<!-- sent="Tue, 28 Oct 2008 11:44:32 +0000" -->
+<!-- isosent="20081028114432" -->
+<!-- name="Roy Lowry" -->
+<!-- email="rkl" -->
+<!-- subject="[CF-metadata] date and time" -->
+<!-- id="s906fb37.069_at_wpo.nerc.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="D67F09DE06404ED58900315D31CBD9C4_at_gvm.ies.jrc.it" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2504.html" accesskey="d" title="H. Joe Lee: &quot;[CF-metadata] CF-convention for three-dimensional lat/long coordinate variables?&quot;">Next message</a> ]
-[ <a href="./2502.html" title="Frederic MELIN: &quot;[CF-metadata] Standard name table update :&quot;">Previous message</a> ]
-[ <a href="./2502.html" title="Frederic MELIN: &quot;[CF-metadata] Standard name table update :&quot;">In reply to</a> ]
+[ <a href="./2504.html" accesskey="d" title="Thomas Lavergne: &quot;[CF-metadata] Question about the &#0039;time&#0039; coordinate&quot;">Next message</a> ]
+[ <a href="./2502.html" title="Roy Lowry: &quot;[CF-metadata] new standard names for ECHAM5/CLM/ERA&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./2511.html" accesskey="t" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] Standard name table update&quot;">Next in thread</a> ]
+[ <a href="./2507.html" accesskey="t" title="John Graybeal: &quot;[CF-metadata] date and time&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -71,652 +70,162 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: alison.pamment at stfc.ac.uk &lt;<a href="mailto:alison.pamment?Subject=Re%3A%20%5BCF-metadata%5D%20Standard%20name%20table%20update%20%3A">alison.pamment</a>&gt;
+<dfn>From</dfn>: Roy Lowry &lt;<a href="mailto:rkl?Subject=Re%3A%20%5BCF-metadata%5D%20date%20and%20time">rkl</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 8 Mar 2010 12:40:48 -0000</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 28 Oct 2008 11:44:32 +0000</span><br />
 </address>
 <br />
-Dear Frederic,
+Dear All,
 <br />
-<br />Thank you for checking the list and pointing out this clarification.  I will amend the name to include 'surface' as you suggest.
+<br />I think the nature of Standard Names is changing as CF moves from the model domain into the observational domain.  OceanSites made the Standard Name mandatory and from there it is a short step to the Standard Name taking on significance in the discrimination between parameters. Whether this change is good or bad is a moot point, but it has built up considerable momentum.
 <br />
-<br />Best wishes,
+<br />The discomfort with multiple parameters having the same standard name in a CF file only arises when there is no other attribute available that may be used as a discriminator in combination with the Standard Name. 
 <br />
-Alison
+<br />In the case of John G's family of time channels there seems to be no suitable discriminatory attribute in base CF, hence the desire to address discrimination through Standard Name development.  It's possible a suitable attribute exists in one of the observational extensions or could be included into a development of one of these extensions.  However, some formalisation mapping concept labels like name for each 'time' to the combination of attributes in the file is needed, which is exactly what Common Concepts is aimed at addressing.  If we don't do something only community-cogniscent applications will know what to do with the duplicate Standard Names, which screams 'stovepipe under construction' to me. 
 <br />
-<br />------
+<br />One other point concerning this thread is that I'm a little worried about the confusion developing between a 'sensor' and a 'sampler' - to me the latter collects something physical for subsequent laboratory analysis.
 <br />
-Alison Pamment                          Tel: +44 1235 778065
+<br />Cheers, Roy.
 <br />
-NCAS/British Atmospheric Data Centre    Fax: +44 1235 446314
+<br /><em class="quotelev3">&gt;&gt;&gt; Steve Hankin &lt;Steven.C.Hankin at noaa.gov&gt; 10/27/2008 3:44:32 pm &gt;&gt;&gt;
+</em><br />
+Hi all,
 <br />
-Rutherford Appleton Laboratory          Email: alison.pamment at stfc.ac.uk
+<br />Please forgive me for butting in late in a discussion.  As an listener, 
 <br />
-Chilton, Didcot, OX11 0QX, U.K.
+but not a participant, I find that I am not clear on the ground rules 
 <br />
-<br /><em class="quotelev1">&gt; -----Original Message-----
+for making decisions.  Should CF standard names convey:
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;* how a measurement was made?
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;* for what purpose a parameter was measured?
+<br />
+<br />Underlying this discussion is a discomfort with the notion that there 
+<br />
+could be more than one variable in a CF file bearing the standard_name 
+<br />
+&quot;time&quot;.  Is this a valid discomfort?
+<br />
+<br />I'd note that observation communities such as OceanSites, Argo and GOSUD 
+<br />
+that have adopted CF have regarded CF only as the basis for their 
+<br />
+community standard.  CF is not presumed to be sufficient as-is.  They 
+<br />
+have extended CF with many additional attributes and variables that 
+<br />
+convey the subtler levels of semantics their community requires to 
+<br />
+capture all of the details of a measurement type.
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;- Steve
+<br />
+<br />P.S. Regarding the question below -- &quot;which is the true time?&quot; -- can 
+<br />
+this be addressed through the use of the CF &quot;coordinate = &quot; attribute?
+<br />
+<br />================================================================
+<br />
+<br />Jonathan Gregory wrote:
+<br />
+<em class="quotelev1">&gt; Dear John
 </em><br />
-<em class="quotelev1">&gt; From: Frederic MELIN [mailto:frederic.melin at jrc.ec.europa.eu]
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Sent: 08 March 2010 10:39
+<em class="quotelev1">&gt;   
 </em><br />
-<em class="quotelev1">&gt; To: Pamment, Alison (STFC,RAL,SSTD)
+<em class="quotelev2">&gt;&gt; Uh, to an observing systems/cyberinfrastructure person, ALL time  
 </em><br />
-<em class="quotelev1">&gt; Cc: cf-metadata at cgd.ucar.edu; 'olivier lauret'
+<em class="quotelev2">&gt;&gt; values have errors, _especially_ those from devices.
 </em><br />
-<em class="quotelev1">&gt; Subject: RE: [CF-metadata] Standard name table update :
+<em class="quotelev2">&gt;&gt;     
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Dear Alison,
+<em class="quotelev1">&gt; I think the point is, as Nan says, that the data user will want there to be one
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; &quot;time&quot; which is to be regarded as coordinated, as the &quot;true&quot; time, in the sense
 </em><br />
-<em class="quotelev1">&gt; I've participated in the definition of:
+<em class="quotelev1">&gt; that data values with the same coordinate of time are to be regarded as truly
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; simultaneous. It is up to the data-writer to provide this coordinate if
 </em><br />
-<em class="quotelev1">&gt; ratio_of_upwelling_radiance_emerging_from_sea_water_to_downwelling_radi
+<em class="quotelev1">&gt; possible as they are typically better able to do it than the user. This one has
 </em><br />
-<em class="quotelev1">&gt; ative
+<em class="quotelev1">&gt; the standard_name of &quot;time&quot;.
 </em><br />
-<em class="quotelev1">&gt; _flux_in_air
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; Regarding time_from_device, I would say that is not clear to me, because *all*
 </em><br />
-<em class="quotelev1">&gt; to indicate the so-called remote-sensing reflectance, that more
+<em class="quotelev1">&gt; times come from some device, even if it is an atomic clock determining the UTC
 </em><br />
-<em class="quotelev1">&gt; specifically
+<em class="quotelev1">&gt; standard! What about time_from_instrument. Would that be clearer than sensor?
 </em><br />
-<em class="quotelev1">&gt; is the ratio of:
+<em class="quotelev1">&gt; I think a sensor is a sampler in the existing name
 </em><br />
-<em class="quotelev1">&gt; surface_upwelling_spectral_radiance_in_air_emerging_from_sea_water
+<em class="quotelev1">&gt;   temperature_of_sensor_for_oxygen_in_sea_water
 </em><br />
-<em class="quotelev1">&gt; and
+<em class="quotelev1">&gt; but perhaps Nan or Roy could comment.
 </em><br />
-<em class="quotelev1">&gt; surface_downwelling_spectral_radiative_flux_in_air
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;   
 </em><br />
-<em class="quotelev1">&gt; I've realized that the term 'surface' has been dropped off in this
+<em class="quotelev2">&gt;&gt; mission_elapsed_time is fine.
 </em><br />
-<em class="quotelev1">&gt; operation. As far as I am aware, the only context where this quantity
+<em class="quotelev2">&gt;&gt;     
 </em><br />
-<em class="quotelev1">&gt; is
+<em class="quotelev1">&gt; OK.
 </em><br />
-<em class="quotelev1">&gt; used is to describe its surface value (associated with a remote sensing
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; context).
+<em class="quotelev1">&gt; My point about redundancy refers particularly to the time within year and day.
 </em><br />
-<em class="quotelev1">&gt; I think it would be appropriate to add &quot;surface_&quot; in front for
+<em class="quotelev1">&gt; Do you mean the device is giving you both the time (elapsed since some
 </em><br />
-<em class="quotelev1">&gt; completeness:
+<em class="quotelev1">&gt; reference) and its components (time within year and day etc.). The time and
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; its components are related by well-defined arithmetic. Do you want to record
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; them all separately? If so, why? Perhaps for completeness, to be on the safe
 </em><br />
-<em class="quotelev1">&gt; surface_ratio_of_upwelling_radiance_emerging_from_sea_water_to_downwell
+<em class="quotelev1">&gt; side?
 </em><br />
-<em class="quotelev1">&gt; ing_r
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; adiative_flux_in_air
+<em class="quotelev1">&gt; Thanks for the discussion. Best wishes
 </em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I 'm sorry for the lateness of this input.
-</em><br />
-<em class="quotelev1">&gt; Best regards,
-</em><br />
-<em class="quotelev1">&gt; F. M?lin
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; -----Original Message-----
-</em><br />
-<em class="quotelev1">&gt; From: cf-metadata-bounces at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; [mailto:cf-metadata-bounces at cgd.ucar.edu] On Behalf Of
-</em><br />
-<em class="quotelev1">&gt; alison.pamment at stfc.ac.uk
-</em><br />
-<em class="quotelev1">&gt; Sent: Friday, 05 March, 2010 14:11
-</em><br />
-<em class="quotelev1">&gt; To: cf-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; Subject: [CF-metadata] Standard name table update
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Dear All,
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I am planning to update the standard name table on Tuesday 9th March to
-</em><br />
-<em class="quotelev1">&gt; add a number of new names and aliases and to
-</em><br />
-<em class="quotelev1">&gt; make other changes that have been agreed in recent weeks. The Standard
-</em><br />
-<em class="quotelev1">&gt; Names Guidelines document will also be updated.
-</em><br />
-<em class="quotelev1">&gt; Please see below for a full list of the planned changes. If anyone
-</em><br />
-<em class="quotelev1">&gt; spots
-</em><br />
-<em class="quotelev1">&gt; any errors in the list please contact
-</em><br />
-<em class="quotelev1">&gt; me as soon as possible.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Best wishes,
-</em><br />
-<em class="quotelev1">&gt; Alison
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 1. New aliases for existing names
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; a. Cloud and precipitation variables for CMIP5.  Proposed by Mark Webb.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; tendency_of_air_temperature_due_to_large_scale_precipitation will
-</em><br />
-<em class="quotelev1">&gt; become
-</em><br />
-<em class="quotelev1">&gt; tendency_of_air_temperature_due_to_stratiform_precipitation; K s-1
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; tendency_of_specific_humidity_due_to_large_scale_precipitation will
-</em><br />
-<em class="quotelev1">&gt; become tendency_of_specific_humidity_due_to_stratiform_precipitation;
-</em><br />
-<em class="quotelev1">&gt; s-1
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; b. Clarification of direction for convective mass flux.  Proposed by
-</em><br />
-<em class="quotelev1">&gt; Karl Taylor.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; atmosphere_convective_mass_flux will become
-</em><br />
-<em class="quotelev1">&gt; atmosphere_net_upward_convective_mass_flux; kg m-2 s-1
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; c. Spelling and syntax corrections for three names. Reported by
+<em class="quotelev1">&gt;
 </em><br />
 <em class="quotelev1">&gt; Jonathan
-</em><br />
-<em class="quotelev1">&gt; Gregory.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; product_of_northward_wind_and_specific_humdity will become
-</em><br />
-<em class="quotelev1">&gt; product_of_northward_wind_and_specific_humidity; m s-1 (adding an extra
-</em><br />
-<em class="quotelev1">&gt; &quot;i&quot; in humidity).
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; moles_per_unit_mass_of_cfc11_in_sea_water will become
-</em><br />
-<em class="quotelev1">&gt; moles_of_cfc11_per_unit_mass_in_sea_water; mol kg-1
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; change_over_time_in_atmospheric_water_content_due_to_advection will
-</em><br />
-<em class="quotelev1">&gt; become change_over_time_in_atmosphere_water_content_due_to_advection;
-</em><br />
-<em class="quotelev1">&gt; kg
-</em><br />
-<em class="quotelev1">&gt; m-2
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; d. Cloud liquid water names.  Proposed by Jonathan Gregory.
-</em><br />
-<em class="quotelev1">&gt; The phrase &quot;cloud_liquid&quot; will be changed to &quot;cloud_liquid_water&quot; in
-</em><br />
-<em class="quotelev1">&gt; three names.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; tendency_of_mass_fraction_of_stratiform_cloud_ice_in_air_due_to_heterog
-</em><br />
-<em class="quotelev1">&gt; e
-</em><br />
-<em class="quotelev1">&gt; neous_nucleation_from_cloud_liquid will become
-</em><br />
-<em class="quotelev1">&gt; tendency_of_mass_fraction_of_stratiform_cloud_ice_in_air_due_to_heterog
-</em><br />
-<em class="quotelev1">&gt; e
-</em><br />
-<em class="quotelev1">&gt; neous_nucleation_from_cloud_liquid_water
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; tendency_of_mass_fraction_of_stratiform_cloud_ice_in_air_due_to_melting
-</em><br />
-<em class="quotelev1">&gt; _
-</em><br />
-<em class="quotelev1">&gt; to_cloud_liquid will become
-</em><br />
-<em class="quotelev1">&gt; tendency_of_mass_fraction_of_stratiform_cloud_ice_in_air_due_to_melting
-</em><br />
-<em class="quotelev1">&gt; _
-</em><br />
-<em class="quotelev1">&gt; to_cloud_liquid_water
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; tendency_of_mass_fraction_of_stratiform_cloud_ice_in_air_due_to_riming_
-</em><br />
-<em class="quotelev1">&gt; f
-</em><br />
-<em class="quotelev1">&gt; rom_cloud_liquid will become
-</em><br />
-<em class="quotelev1">&gt; tendency_of_mass_fraction_of_stratiform_cloud_ice_in_air_due_to_riming_
-</em><br />
-<em class="quotelev1">&gt; f
-</em><br />
-<em class="quotelev1">&gt; rom_cloud_liquid_water
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; e. Atmosphere optical thickness names.  Arising from a 2008 mailing
-</em><br />
-<em class="quotelev1">&gt; list
-</em><br />
-<em class="quotelev1">&gt; thread 'Modification of some existing CF standard names for chemical
-</em><br />
-<em class="quotelev1">&gt; constituents'.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; atmosphere_optical_thickness_due_to_aerosol will become
-</em><br />
-<em class="quotelev1">&gt; atmosphere_optical_thickness_due_to_ambient_aerosol
-</em><br />
-<em class="quotelev1">&gt; + defn update
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; optical_thickness_of_atmosphere_layer_due_to_aerosol will become
-</em><br />
-<em class="quotelev1">&gt; optical_thickness_of_atmosphere_layer_due_to_ambient_aerosol + defn
-</em><br />
-<em class="quotelev1">&gt; update
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 2. New names
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; a. Cloud and radiation variables for CMIP5.  Proposed by Mark Webb.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; tendency_of_mass_fraction_of_stratiform_cloud_liquid_water_in_air_due_t
-</em><br />
-<em class="quotelev1">&gt; o
-</em><br />
-<em class="quotelev1">&gt; _convective_detrainment; s-1
-</em><br />
-<em class="quotelev1">&gt; tendency_of_mass_fraction_of_stratiform_cloud_ice_in_air_due_to_convect
-</em><br />
-<em class="quotelev1">&gt; i
-</em><br />
-<em class="quotelev1">&gt; ve_detrainment; s-1
-</em><br />
-<em class="quotelev1">&gt; tendency_of_air_temperature_due_to_model_physics; K s-1
-</em><br />
-<em class="quotelev1">&gt; tendency_of_air_temperature_due_to_convection; K s-1
-</em><br />
-<em class="quotelev1">&gt; atmosphere_updraft_convective_mass_flux;	kg m-2 s-1
-</em><br />
-<em class="quotelev1">&gt; atmosphere_downdraft_convective_mass_flux; kg m-2 s-1
-</em><br />
-<em class="quotelev1">&gt; atmosphere_net_upward_shallow_convective_mass_flux; kg m-2 s-1
-</em><br />
-<em class="quotelev1">&gt; atmosphere_net_upward_deep_convective_mass_flux; kg m-2 s-1
-</em><br />
-<em class="quotelev1">&gt; tendency_of_air_temperature_due_to_stratiform_cloud_and_precipitation_a
-</em><br />
-<em class="quotelev1">&gt; n
-</em><br />
-<em class="quotelev1">&gt; d_boundary_layer_mixing; K s-1
-</em><br />
-<em class="quotelev1">&gt; tendency_of_specific_humidity_due_to_stratiform_cloud_and_precipitation
-</em><br />
-<em class="quotelev1">&gt; _
-</em><br />
-<em class="quotelev1">&gt; and_boundary_layer_mixing; K s-1
-</em><br />
-<em class="quotelev1">&gt; upwelling_longwave_flux_in_air_assuming_clear_sky; W m-2
-</em><br />
-<em class="quotelev1">&gt; upwelling_shortwave_flux_in_air_assuming_clear_sky; W m-2
-</em><br />
-<em class="quotelev1">&gt; downwelling_longwave_flux_in_air_assuming_clear_sky; W m-2
-</em><br />
-<em class="quotelev1">&gt; downwelling_shortwave_flux_in_air_assuming_clear_sky; W m-2
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; b. Satellite ice-drift names.  Proposed by Thomas Lavergne.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; eastward_sea_ice_displacement; m
-</em><br />
-<em class="quotelev1">&gt; northward_sea_ice_displacement; m
-</em><br />
-<em class="quotelev1">&gt; sea_ice_x_displacement; m
-</em><br />
-<em class="quotelev1">&gt; sea_ice_y_displacement; m
-</em><br />
-<em class="quotelev1">&gt; sea_ice_displacement; m
-</em><br />
-<em class="quotelev1">&gt; direction_of_sea_ice_displacement; degrees
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; c. Climate indexes, resulting from acceptance of trac ticket 33
-</em><br />
-<em class="quotelev1">&gt; proposed
-</em><br />
-<em class="quotelev1">&gt; by Heinke Hock.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; number_of_days_with_air_temperature_below_threshold
-</em><br />
-<em class="quotelev1">&gt; number_of_days_with_air_temperature_above_threshold
-</em><br />
-<em class="quotelev1">&gt; number_of_days_with_lwe_thickness_of_precipitation_amount_above_thresho
-</em><br />
-<em class="quotelev1">&gt; l
-</em><br />
-<em class="quotelev1">&gt; d
-</em><br />
-<em class="quotelev1">&gt; number_of_days_with_wind_speed_above_threshold
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; spell_length_of_days_with_air_temperature_below_threshold
-</em><br />
-<em class="quotelev1">&gt; spell_length_of_days_with_air_temperature_above_threshold
-</em><br />
-<em class="quotelev1">&gt; spell_length_of_days_with_lwe_thickness_of_precipitation_amount_above_t
-</em><br />
-<em class="quotelev1">&gt; h
-</em><br />
-<em class="quotelev1">&gt; reshold
-</em><br />
-<em class="quotelev1">&gt; spell_length_of_days_with_lwe_thickness_of_precipitation_amount_below_t
-</em><br />
-<em class="quotelev1">&gt; h
-</em><br />
-<em class="quotelev1">&gt; reshold
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; d. Peak wave period name.  Proposed by Jennifer Brown.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; sea_surface_wave_period_at_variance_spectral_density_maximum; s
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; e. Sea water transparency and reflectance names. Proposed by Olivier
-</em><br />
-<em class="quotelev1">&gt; Lauret.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; secchi_depth_of_sea_water; m
-</em><br />
-<em class="quotelev1">&gt; ratio_of_upwelling_radiance_emerging_from_sea_water_to_downwelling_radi
-</em><br />
-<em class="quotelev1">&gt; a
-</em><br />
-<em class="quotelev1">&gt; tive_flux_in_air; sr^-1
-</em><br />
-<em class="quotelev1">&gt; angle_of_incidence; degree
-</em><br />
-<em class="quotelev1">&gt; angle_of_emergence; degree
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; f. Sea water velocity names.  Proposed by Stephane Tarot.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; radial_sea_water_velocity_away_from_instrument; m s-1
-</em><br />
-<em class="quotelev1">&gt; direction_of_radial_vector_away_from_instrument; degree
-</em><br />
-<em class="quotelev1">&gt; eastward_sea_water_velocity_assuming_no_tide; m s-1
-</em><br />
-<em class="quotelev1">&gt; northward_sea_water_velocity_assuming_no_tide; m s-1
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; g. Water column name. Proposed by Jeff deLaBeaujardiere.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; sea_floor_depth_below_sea_surface; m
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; h. Aerosol optical thickness names. Proposed by Heinke Hoeck.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; atmosphere_absorption_optical_thickness_due_to_ambient_aerosol; 1
-</em><br />
-<em class="quotelev1">&gt; atmosphere_absorption_optical_thickness_due_to_dust_ambient_aerosol; 1
-</em><br />
-<em class="quotelev1">&gt; atmosphere_absorption_optical_thickness_due_to_particulate_organic_matt
-</em><br />
-<em class="quotelev1">&gt; e
-</em><br />
-<em class="quotelev1">&gt; r_ambient_aerosol; 1
-</em><br />
-<em class="quotelev1">&gt; atmosphere_absorption_optical_thickness_due_to_sulfate_ambient_aerosol;
-</em><br />
-<em class="quotelev1">&gt; 1
-</em><br />
-<em class="quotelev1">&gt; atmosphere_absorption_optical_thickness_due_to_seasalt_ambient_aerosol;
-</em><br />
-<em class="quotelev1">&gt; 1
-</em><br />
-<em class="quotelev1">&gt; atmosphere_absorption_optical_thickness_due_to_black_carbon_ambient_aer
-</em><br />
-<em class="quotelev1">&gt; o
-</em><br />
-<em class="quotelev1">&gt; sol; 1
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 3. Modification to definition of land_ice names following discussion in
-</em><br />
-<em class="quotelev1">&gt; mailing list thread &quot;Standard names for Glaciology and ice-sheet
-</em><br />
-<em class="quotelev1">&gt; modeling:land_ice, sea_ice, floating_ice, ice shelves...&quot;
-</em><br />
-<em class="quotelev1">&gt; (<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2009/002733.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2009/002733.html</a> and
-</em><br />
-<em class="quotelev1">&gt; following).
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; This change affects the following 17 names:
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; land_ice_area_fraction
-</em><br />
-<em class="quotelev1">&gt; land_ice_basal_melt_rate
-</em><br />
-<em class="quotelev1">&gt; land_ice_basal_x_velocity
-</em><br />
-<em class="quotelev1">&gt; land_ice_basal_y_velocity
-</em><br />
-<em class="quotelev1">&gt; land_ice_calving_rate
-</em><br />
-<em class="quotelev1">&gt; land_ice_lwe_basal_melt_rate
-</em><br />
-<em class="quotelev1">&gt; land_ice_lwe_calving_rate
-</em><br />
-<em class="quotelev1">&gt; land_ice_lwe_surface_specific_mass_balance
-</em><br />
-<em class="quotelev1">&gt; land_ice_sigma_coordinate
-</em><br />
-<em class="quotelev1">&gt; land_ice_surface_specific_mass_balance
-</em><br />
-<em class="quotelev1">&gt; land_ice_temperature
-</em><br />
-<em class="quotelev1">&gt; land_ice_thickness
-</em><br />
-<em class="quotelev1">&gt; land_ice_vertical_mean_x_velocity
-</em><br />
-<em class="quotelev1">&gt; land_ice_vertical_mean_y_velocity
-</em><br />
-<em class="quotelev1">&gt; land_ice_x_velocity
-</em><br />
-<em class="quotelev1">&gt; land_ice_y_velocity
-</em><br />
-<em class="quotelev1">&gt; tendency_of_land_ice_thickness.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; In the definitions, the sentence reading ' &quot;Land ice&quot; means glaciers,
-</em><br />
-<em class="quotelev1">&gt; ice-caps and ice-sheets resting on bedrock' will be extended to read '
-</em><br />
-<em class="quotelev1">&gt; &quot;Land ice&quot; means glaciers, ice-caps and ice-sheets resting on bedrock
-</em><br />
-<em class="quotelev1">&gt; and also includes ice-shelves.'
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 4. Other changes to the standard name table.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; a. Remove duplicate entry for
-</em><br />
-<em class="quotelev1">&gt; sea_surface_height_above_reference_ellipsoid. Reported by Heinke Hoeck
-</em><br />
-<em class="quotelev1">&gt; and Phil Bentley.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 5. Modifications to the Standard Name Guidelines document resulting
-</em><br />
-<em class="quotelev1">&gt; from
-</em><br />
-<em class="quotelev1">&gt; the acceptance of trac ticket 33.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; The following wording will be added to the 'Transformations' section of
-</em><br />
-<em class="quotelev1">&gt; the document.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; A variable whose standard name has the form
-</em><br />
-<em class="quotelev1">&gt; number_of_days_with_X_below|above_threshold must have a coordinate
-</em><br />
-<em class="quotelev1">&gt; variable or scalar coordinate variable with the a standard name of X to
-</em><br />
-<em class="quotelev1">&gt; supply the threshold(s). It must have a climatological time variable,
-</em><br />
-<em class="quotelev1">&gt; and a cell_methods entry for within days which describes the processing
-</em><br />
-<em class="quotelev1">&gt; of quantity X before the threshold is applied. A number_of_days is an
-</em><br />
-<em class="quotelev1">&gt; extensive quantity in time, and the cell_methods entry for over days
-</em><br />
-<em class="quotelev1">&gt; should be sum.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; A variable whose standard name has the form
-</em><br />
-<em class="quotelev1">&gt; spell_length_of_days_with_X_below|above_threshold must have a
-</em><br />
-<em class="quotelev1">&gt; coordinate
-</em><br />
-<em class="quotelev1">&gt; variable or scalar coordinate variable with the a standard name of X to
-</em><br />
-<em class="quotelev1">&gt; supply the threshold(s). It must have a climatological time variable,
-</em><br />
-<em class="quotelev1">&gt; and a cell_method entry for within days which describes the processing
-</em><br />
-<em class="quotelev1">&gt; of quantity X before the threshold is applied. A spell_length_of_days
-</em><br />
-<em class="quotelev1">&gt; is
-</em><br />
-<em class="quotelev1">&gt; an intensive quantity in time, and the cell_methods entry for over days
-</em><br />
-<em class="quotelev1">&gt; can be any of the methods listed in Appendix E appropriate for
-</em><br />
-<em class="quotelev1">&gt; intensive
-</em><br />
-<em class="quotelev1">&gt; quantities e.g. maximum, minimum or mean.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; ------
-</em><br />
-<em class="quotelev1">&gt; Alison Pamment                          Tel: +44 1235 778065
-</em><br />
-<em class="quotelev1">&gt; NCAS/British Atmospheric Data Centre    Fax: +44 1235 446314
-</em><br />
-<em class="quotelev1">&gt; Rutherford Appleton Laboratory          Email:
-</em><br />
-<em class="quotelev1">&gt; alison.pamment at stfc.ac.uk
-</em><br />
-<em class="quotelev1">&gt; Chilton, Didcot, OX11 0QX, U.K.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; --
-</em><br />
-<em class="quotelev1">&gt; Scanned by iCritical.
 </em><br />
 <em class="quotelev1">&gt; _______________________________________________
 </em><br />
 <em class="quotelev1">&gt; CF-metadata mailing list
 </em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu 
 </em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a> 
+</em><br />
+<em class="quotelev1">&gt;   
 </em><br />
 <br /><pre>
 -- 
-Scanned by iCritical.
+Steve Hankin, NOAA/PMEL -- Steven.C.Hankin at noaa.gov 
+7600 Sand Point Way NE, Seattle, WA 98115-0070
+ph. (206) 526-6080, FAX (206) 526-6744
+&quot;The only thing necessary for the triumph of evil is for good men
+to do nothing.&quot; -- Edmund Burke
+-- 
+This message (and any attachments) is for the recipient only. NERC
+is subject to the Freedom of Information Act 2000 and the contents
+of this email and any reply you make may be disclosed by NERC unless
+it is exempt from release under the Act. Any material supplied to
+NERC may be stored in an electronic records management system.
 </pre>
-<span id="received"><dfn>Received on</dfn> Mon Mar 08 2010 - 05:40:48 GMT</span>
+<span id="received"><dfn>Received on</dfn> Tue Oct 28 2008 - 05:44:32 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -724,11 +233,12 @@ Scanned by iCritical.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2503">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2504.html" title="Next message in the list">H. Joe Lee: "[CF-metadata] CF-convention for three-dimensional lat/long coordinate variables?"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2502.html" title="Previous message in the list">Frederic MELIN: "[CF-metadata] Standard name table update :"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./2502.html" title="Message to which this message replies">Frederic MELIN: "[CF-metadata] Standard name table update :"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2504.html" title="Next message in the list">Thomas Lavergne: "[CF-metadata] Question about the &#0039;time&#0039; coordinate"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2502.html" title="Previous message in the list">Roy Lowry: "[CF-metadata] new standard names for ECHAM5/CLM/ERA"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./2511.html" title="Next message in this discussion thread">alison.pamment at stfc.ac.uk: "[CF-metadata] Standard name table update"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./2507.html" title="Next message in this discussion thread">John Graybeal: "[CF-metadata] date and time"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./2507.html" title="Message sent in reply to this message">John Graybeal: "[CF-metadata] date and time"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -739,7 +249,7 @@ Scanned by iCritical.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:26 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2502.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2504.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

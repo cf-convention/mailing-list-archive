@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Salinity units from Russ Rew on 2009-06-19 (mailing-list-archive)</title>
-<meta name="Author" content="Russ Rew (russ)" />
-<meta name="Subject" content="[CF-metadata] Salinity units" />
-<meta name="Date" content="2009-06-19" />
+<title>[CF-metadata] what standard names are for from Schultz, Martin on 2008-04-09 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Schultz, Martin (m.schultz)" />
+<meta name="Subject" content="[CF-metadata] what standard names are for" />
+<meta name="Date" content="2008-04-09" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2115.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2117.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Salinity units</h1>
-<!-- received="Fri Jun 19 09:32:34 2009" -->
-<!-- isoreceived="20090619083234" -->
-<!-- sent="Fri, 19 Jun 2009 09:32:34 -0600" -->
-<!-- isosent="20090619153234" -->
-<!-- name="Russ Rew" -->
-<!-- email="russ" -->
-<!-- subject="[CF-metadata] Salinity units" -->
-<!-- id="6253.1245425554_at_buddy.unidata.ucar.edu" -->
+<a style="text-decoration:none" href="./2115.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2117.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] what standard names are for</h1>
+<!-- received="Wed Apr  9 10:25:54 2008" -->
+<!-- isoreceived="20080409092554" -->
+<!-- sent="Wed, 9 Apr 2008 18:25:54 +0200" -->
+<!-- isosent="20080409162554" -->
+<!-- name="Schultz, Martin" -->
+<!-- email="m.schultz" -->
+<!-- subject="[CF-metadata] what standard names are for" -->
+<!-- id="2E9C45494F78A3498A77616E7C2DBB4C01792793_at_icg217.icg-ii-w2k.kfa-juelich.de" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="taylor13_at_llnl.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2117.html" accesskey="d" title="Mark Webb: &quot;[CF-metadata] further cloud variables for cmip5&quot;">Next message</a> ]
-[ <a href="./2115.html" title="Seth McGinnis: &quot;[CF-metadata] Rotated-pole grids&quot;">Previous message</a> ]
+[ <a href="./2117.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] what standard names are for&quot;">Next message</a> ]
+[ <a href="./2115.html" title="John Graybeal: &quot;[CF-metadata] what standard names are for&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./2120.html" accesskey="t" title="Bryan Lawrence: &quot;[CF-metadata] what standard names are for&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -69,34 +70,86 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Russ Rew &lt;<a href="mailto:russ?Subject=Re%3A%20%5BCF-metadata%5D%20Salinity%20units">russ</a>&gt;
+<dfn>From</dfn>: Schultz, Martin &lt;<a href="mailto:m.schultz?Subject=Re%3A%20%5BCF-metadata%5D%20what%20standard%20names%20are%20for">m.schultz</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 19 Jun 2009 09:32:34 -0600</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 9 Apr 2008 18:25:54 +0200</span><br />
 </address>
 <br />
-Karl,
+Dear all,
 <br />
-<br /><em class="quotelev1">&gt; We are using dB for one of the radar reflectivity fields that will be 
-</em><br />
-<em class="quotelev1">&gt; collected as part of CMIP5.  So, I second Jonathan's suggestion to allow 
-</em><br />
-<em class="quotelev1">&gt; &quot;dB&quot; as a unit in udunits.  No one has ever mentioned to me what the 
-</em><br />
-<em class="quotelev1">&gt; &quot;reference level&quot; for this field is, so I'm afraid it won't be part of 
-</em><br />
-<em class="quotelev1">&gt; the units.
-</em><br />
-<br />It's just been pointed out to me that the standard unit for radar
+<br />&nbsp;&nbsp;&nbsp;although the subject has been changed I feel that this discussion has
 <br />
-reflectivity is &quot;dBZ&quot;, which is included in the current release of
+been closely related to my recent question about adding extra tags in
 <br />
-udunits.  It is defined there as equal to &quot;0.1 lg(re (1e-6 m)^3)&quot;, so
+the XML file and mdefining a way how these can survive. To ask again
 <br />
-the reference level is included in the definition.
+much more specifically this time: 
 <br />
-<br />--Russ
+(1) who is maintaining the xml file (and the asociated syntax definiiton
 <br />
-<span id="received"><dfn>Received on</dfn> Fri Jun 19 2009 - 09:32:34 BST</span>
+file which I could not locate on the web)?
+<br />
+(2) if I would send an edited XML file which included &lt;htap&gt; tags to
+<br />
+contain the TFHTAP multi-model assessment variable names (just like it
+<br />
+is the case for &lt;amip&gt; at present) to the person named in (1): would
+<br />
+this xml file be further maintained and future updates would keep this
+<br />
+additional tag?
+<br />
+<br />&nbsp;&nbsp;&nbsp;If these two points can be satisfied, it would constitute a great
+<br />
+step forward for me to actually make use of the cf standard names and
+<br />
+other standards around it. And I believe that this will also proliferate
+<br />
+into many other international (atmospheric chemistry) modelling
+<br />
+initiatives, because many groups are involved in HTAP. If not, then I
+<br />
+fear that the HTAP community for example will quickly loose interest to
+<br />
+follow standard names as there will for a long time be no &quot;super
+<br />
+software&quot; that eliminates the need to know the actual variable names in
+<br />
+order to process the data.
+<br />
+<br />Sorry for being somewhat pushy on this, but I need to get some work done
+<br />
+here.
+<br />
+<br />Thanks and best regards,
+<br />
+<br />Martin
+<br />
+<br /><br />-------------------------------------------------------------------
+<br />
+-------------------------------------------------------------------
+<br />
+Forschungszentrum Juelich GmbH
+<br />
+52425 Juelich
+<br />
+<br />Sitz der Gesellschaft: Juelich
+<br />
+Eingetragen im Handelsregister des Amtsgerichts Dueren Nr. HR B 3498
+<br />
+Vorsitzende des Aufsichtsrats: MinDir'in Baerbel Brumme-Bothe
+<br />
+Geschaeftsfuehrung: Prof. Dr. Achim Bachem (Vorsitzender),
+<br />
+Dr. Ulrich Krafft (stellv. Vorsitzender), Prof. Dr. Harald Bolt,
+<br />
+Dr. Sebastian M. Schmidt
+<br />
+-------------------------------------------------------------------
+<br />
+-------------------------------------------------------------------
+<br />
+<span id="received"><dfn>Received on</dfn> Wed Apr 09 2008 - 10:25:54 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -104,9 +157,12 @@ the reference level is included in the definition.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2116">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2117.html" title="Next message in the list">Mark Webb: "[CF-metadata] further cloud variables for cmip5"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2115.html" title="Previous message in the list">Seth McGinnis: "[CF-metadata] Rotated-pole grids"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2117.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] what standard names are for"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2115.html" title="Previous message in the list">John Graybeal: "[CF-metadata] what standard names are for"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./2120.html" title="Next message in this discussion thread">Bryan Lawrence: "[CF-metadata] what standard names are for"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./2120.html" title="Message sent in reply to this message">Bryan Lawrence: "[CF-metadata] what standard names are for"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -117,7 +173,7 @@ the reference level is included in the definition.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:19 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2115.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2117.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

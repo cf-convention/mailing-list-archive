@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] standard names for ocean model turbulent quantities from Tuomas Karna on 2013-03-05 (mailing-list-archive)</title>
-<meta name="Author" content="Tuomas Karna (karnat)" />
-<meta name="Subject" content="[CF-metadata] standard names for ocean model turbulent quantities" />
-<meta name="Date" content="2013-03-05" />
+<title>[CF-metadata] netcdf4 and CF-1.6 from Corey Bettenhausen on 2012-03-13 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Corey Bettenhausen (corey.bettenhausen)" />
+<meta name="Subject" content="[CF-metadata] netcdf4 and CF-1.6" />
+<meta name="Date" content="2012-03-13" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5045.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5047.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard names for ocean model turbulent quantities</h1>
-<!-- received="Mon Mar  4 17:06:34 2013" -->
-<!-- isoreceived="20130304170634" -->
-<!-- sent="Mon, 04 Mar 2013 16:06:34 -0800" -->
-<!-- isosent="20130305000634" -->
-<!-- name="Tuomas Karna" -->
-<!-- email="karnat" -->
-<!-- subject="[CF-metadata] standard names for ocean model turbulent quantities" -->
-<!-- id="5135370A.3010305_at_stccmop.org" -->
+<a style="text-decoration:none" href="./5045.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5047.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] netcdf4 and CF-1.6</h1>
+<!-- received="Tue Mar 13 07:02:22 2012" -->
+<!-- isoreceived="20120313070222" -->
+<!-- sent="Tue, 13 Mar 2012 09:02:22 -0400" -->
+<!-- isosent="20120313130222" -->
+<!-- name="Corey Bettenhausen" -->
+<!-- email="corey.bettenhausen" -->
+<!-- subject="[CF-metadata] netcdf4 and CF-1.6" -->
+<!-- id="web-13113994_at_ssaihq.com" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="014539AC4976BE4490A360410A8C20175696630B_at_EXCHMBX03.fed.cclrc.ac.uk" -->
+<!-- inreplyto="4F5F1402.8020709_at_pml.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5047.html" accesskey="d" title="John Maurer: &quot;[CF-metadata] sea_water_turbidity&quot;">Next message</a> ]
-[ <a href="./5045.html" title="John Maurer: &quot;[CF-metadata] sea_water_turbidity?&quot;">Previous message</a> ]
-[ <a href="./5040.html" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] standard names for ocean model turbulent quantities&quot;">In reply to</a> ]
+[ <a href="./5047.html" accesskey="d" title="John Graybeal: &quot;[CF-metadata] Request: research papers which cite use of CF standard names&quot;">Next message</a> ]
+[ <a href="./5045.html" title="Mike Grant: &quot;[CF-metadata] netcdf4 and CF-1.6&quot;">Previous message</a> ]
+[ <a href="./5045.html" title="Mike Grant: &quot;[CF-metadata] netcdf4 and CF-1.6&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./5062.html" accesskey="t" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] standard names for ocean model turbulent quantities&quot;">Next in thread</a> ]
+[ <a href="./5059.html" accesskey="t" title="Mike Grant: &quot;[CF-metadata] netcdf4 and CF-1.6&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,196 +72,172 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Tuomas Karna &lt;<a href="mailto:karnat?Subject=Re%3A%20%5BCF-metadata%5D%20standard%20names%20for%20ocean%20model%20turbulent%20quantities">karnat</a>&gt;
+<dfn>From</dfn>: Corey Bettenhausen &lt;<a href="mailto:corey.bettenhausen?Subject=Re%3A%20%5BCF-metadata%5D%20netcdf4%20and%20CF-1.6">corey.bettenhausen</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 04 Mar 2013 16:06:34 -0800</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 13 Mar 2012 09:02:22 -0400</span><br />
 </address>
 <br />
-Dear Alison,
+Mike, Cauquil, list, 
 <br />
-<br />Thank you for your reply.
+I'm interested in this topic of file formats and CF compliance.  I've only used the most basic CF features (CF-required global attributes and variable attributes). To me none of these seem to depend on whether the file is netCDF3/4 or HDF5.  Are there more advanced features of CF that require the netCDF &quot;Classic&quot; model?  Can we expand to at least netCDF4 with data only in the root group? 
 <br />
-<br />I was indeed looking at older version of the standard, thanks for 
+<br />I brought this up late last year, but didn't get any bites:
 <br />
-pointing that out. My comments below.
+<a href="http://www.mail-archive.com/cf-metadata">http://www.mail-archive.com/cf-metadata</a> at cgd.ucar.edu/msg02487.html
 <br />
-<br />1. For the kinetic energy, in contrast to my initial suggestion, it 
+<br />As far as a proof of concept, I do have HDF5 files that will pass a CF-checker, however only data sets in the root group are checked as the CF-checker doesn't descend into sub-groups. So I know that that it's possible to a degree, but the question is whether or not this is &quot;blessed&quot; by the actual conventions.
 <br />
-seems that &quot;turbulent kinetic energy&quot; would be more appropriate name for 
+Regards,
 <br />
-this variable (it's related to 3D fluctuations, so &quot;vertical&quot; attribute 
+-Corey
 <br />
-doesn't seem fit). I agree about the &quot;specific&quot; keyword. Would something 
+<br />On Tue, 13 Mar 2012 09:31:46 +0000
 <br />
-like &quot;specific_turbulent_kinetic_energy_of_sea_water (m2 s-2)&quot; be possible?
+&nbsp;Mike Grant &lt;mggr at pml.ac.uk&gt; wrote:
 <br />
-<br />2. The dissipation rate means the dissipation of the turbulent kinetic 
-<br />
-energy of point 1. Units of (W kg-1) are OK. This is a bulk quantity so 
-<br />
-no &quot;due_to&quot; specifier is needed. Could it be something like 
-<br />
-&quot;specific_turbulent_kinetic_energy_dissipation (W kg-1)&quot;?
-<br />
-<br />3. The mixing length is also related to turbulence in the ocean. To me 
-<br />
-&quot;turbulent_mixing_length (m)&quot; would be a natural starting point. This 
-<br />
-mixing length does not have vertical/horizontal orientation and is not 
-<br />
-specific to temperature/salinity for example, so those specifiers are 
-<br />
-not needed.
-<br />
-<br />On the question about &quot;ocean&quot; or &quot;of_sea_water&quot; specifications, all 
-<br />
-these three variables vary on small scales, so thus &quot;of_sea_water&quot; would 
-<br />
-seem more appropriate. As these variables are related to same processes 
-<br />
-it would seem logical to use the same &quot;of_sea_water&quot; specifier in all of 
-<br />
-them, if that is required.
-<br />
-<br /><br />Best regards,
-<br />
-<br />Tuomas Karna
-<br />
-<br />Post-Doctoral Fellow
-<br />
-Center for Coastal Margin Observation and Prediction (CMOP)
-<br />
-Oregon Health and Science University
-<br />
-karnat at stccmop.org
-<br />
-<br />On 02/27/2013 05:50 AM, alison.pamment at stfc.ac.uk wrote:
-<br />
-<em class="quotelev1">&gt; Dear Tuomas,
+<em class="quotelev1">&gt;Hi Cauquil,
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Thanks for your questions.
+<em class="quotelev1">&gt;On 12/03/12 15:29, Cauquil Pascal (Capgemini) wrote:
+</em><br />
+<em class="quotelev2">&gt;&gt; We intend to use netcdf4 for this new program to use compression and
+</em><br />
+<em class="quotelev2">&gt;&gt; group possibilities but, we want also to be compliant with CF-1.6
+</em><br />
+<em class="quotelev2">&gt;&gt; convention.
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Do you think it is a possible to display &quot;CF-1.6 compliant&quot; using
+</em><br />
+<em class="quotelev2">&gt;&gt; these 2 netCDF4 features too? Is netCDF4 an axis of discussion for
+</em><br />
+<em class="quotelev2">&gt;&gt; the CF group?
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Firstly, I should mention that you appear to be looking at a rather old version of the standard name table (version 16). The table is updated periodically and the most recently published version can always be obtained at
+<em class="quotelev1">&gt;We use netcdf4 with internal compression and are 1.6 compliant (in as
 </em><br />
-<em class="quotelev1">&gt; <a href="http://cf-pcmdi.llnl.gov/documents/cf-standard-names/standard-name-table/current/cf-standard-name-table.html">http://cf-pcmdi.llnl.gov/documents/cf-standard-names/standard-name-table/current/cf-standard-name-table.html</a>.
+<em class="quotelev1">&gt;much as we can say that without having a compliance checker to ensure
 </em><br />
-<em class="quotelev1">&gt; However, it may be that the current version of the table still does not contain all the quantities you need, in which case new names can be proposed on this mailing list.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; You say that you are happy to use the existing names ocean_vertical_momentum_diffusivity (m2 s-1) and ocean_vertical_tracer_diffusivity (m2 s-1) for the first two quantities in your list. I think new names may well be needed for the other quantities. When proposing new names it is always helpful to try to follow as closely as possible the syntax of existing names. This also helps when writing the definitions of the names.
+<em class="quotelev1">&gt;that).  There's no conflict between CF and the compression feature.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; 1. vertical eddy kinetic energy (per unit mass), unit m2 s-2.
+<em class="quotelev1">&gt;I'm not so sure about internal groupings (like HDF5?).  I don't see any
 </em><br />
-<em class="quotelev1">&gt; We already have a name specific_kinetic_energy_of_sea_water (m2 s-2) for which the definition simply says ' &quot;specific&quot; means per unit mass.' We also have existing names that refer to ocean_eddy_kinetic_energy. Based on these, I would suggest adding a new name of specific_vertical_eddy_kinetic_energy_of_sea_water (m2 s-2).  Also, based on the definitions of the existing vertical_X_diffusivity names (where X is &quot;momentum&quot; or &quot;tracer&quot;) I would suggest a definition along the lines of ' &quot;specific&quot; means per unit mass. The construction &quot;vertical_eddy_kinetic_energy&quot; means the kinetic energy of vertical motions which are not resolved on the grid scale of the model.'
+<em class="quotelev1">&gt;reason why it shouldn't be compatible, but I don't think anyone has put
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt;effort into defining exactly the expectations for the &quot;non-classic&quot;
 </em><br />
-<em class="quotelev1">&gt; 2. kinetic energy dissipation rate, unit m2 s-3.
+<em class="quotelev1">&gt;model.  CF may currently be somewhat tied to the netcdf &quot;classic&quot; model,
 </em><br />
-<em class="quotelev1">&gt; There is an existing name ocean_kinetic_energy_dissipation_per_unit_area_due_to_vertical_friction with units of W m-2 and a corresponding name ocean_kinetic_energy_dissipation_per_unit_area_due_to_xy_friction. Your quantity is not &quot;per_unit_area&quot; so at first sight we might give it a unit of W = kg m2 s-3. However, you need m2 s-3 which is  the same as  W kg-1 and this suggests that we need to add &quot;specific&quot; to the name again.  If you want energy dissipation arising from all possible processes then we wouldn't need the &quot;due_to_process&quot; phrase so the name would  be ocean_specific_kinetic_energy_dissipation (m2 s-3). However, if you want to refer specifically to the vertical component of dissipation perhaps you might want to keep the &quot;due_to_vertical_friction&quot; part?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; 3. mixing length, unit m.
-</em><br />
-<em class="quotelev1">&gt; We don't currently have any standard names related to this quantity. I think the name needs to be more specific because, for example, we could have different mixing lengths in atmosphere and ocean. If the mixing length varies on a large scale then we would probably call it ocean_mixing_length, but if there is a lot of variation on a small scale then the appropriate name would be mixing_length_of_sea_water. Also, is the mixing length the same horizontally and vertically or is there a need to distinguish between lateral/vertical mixing? Is the mixing length the same for all properties such as temperature and salinity or do we need to make any distinction? If you could explain a bit more about the context in which the name will be used it will be easier to decide on the precise wording and also to produce a definition.
+<em class="quotelev1">&gt;but perhaps someone wiser can correct me.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Best wishes,
-</em><br />
-<em class="quotelev1">&gt; Alison
+<em class="quotelev1">&gt;Cheers,
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; ------
-</em><br />
-<em class="quotelev1">&gt; Alison Pamment                          Tel: +44 1235 778065
-</em><br />
-<em class="quotelev1">&gt; NCAS/British Atmospheric Data Centre    Email:alison.pamment at stfc.ac.uk
-</em><br />
-<em class="quotelev1">&gt; STFC Rutherford Appleton Laboratory
-</em><br />
-<em class="quotelev1">&gt; R25, 2.22
-</em><br />
-<em class="quotelev1">&gt; Harwell Oxford, Didcot, OX11 0QX, U.K.
+<em class="quotelev1">&gt;Mike.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; From: CF-metadata [mailto:cf-metadata-bounces at cgd.ucar.edu] On Behalf Of Tuomas Karna
+<em class="quotelev1">&gt;&lt;br /&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; Sent: 27 February 2013 00:26
+<em class="quotelev1">&gt;&lt;hr /&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; To:cf-metadata at cgd.ucar.edu
+<em class="quotelev1">&gt;&lt;p&gt;&lt;font face=&quot;Arial&quot; size=&quot;1&quot;&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; Subject: [CF-metadata] standard names for ocean model turbulent quantities
+<em class="quotelev1">&gt;Plymouth Marine Laboratory&lt;br /&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt;
+<em class="quotelev1">&gt;Registered Office: &lt;br /&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; Hi All,
+<em class="quotelev1">&gt;Prospect Place&lt;br /&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt;
+<em class="quotelev1">&gt;The Hoe&lt;br /&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; We are currently in the process of migrating SELFE outputs to CF compliant netcdf, using the UGRID conventions (<a href="http://bit.ly/ugrid_cf">http://bit.ly/ugrid_cf</a>).
+<em class="quotelev1">&gt;Plymouth  PL1 3DH
 </em><br />
-<em class="quotelev2">&gt;&gt;
+<em class="quotelev1">&gt;&lt;/font&gt;&lt;/p&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; I have a question about the standard names for turbulence closures used in ocean models.
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; We have the following fields:
+<em class="quotelev1">&gt;&lt;p&gt;&lt;font face=&quot;Arial&quot; size=&quot;1&quot;&gt;Website: &lt;a href=&quot;<a href="http://www.pml.ac.uk">http://www.pml.ac.uk</a>&quot;&gt;www.pml.ac.uk&lt;/a&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt;
+<em class="quotelev1">&gt;&lt;br /&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; - vertical eddy viscosity (diffusivity of momentum), unit m2 s-1
+<em class="quotelev1">&gt;&lt;a href=&quot;<a href="http://www.pml.ac.uk/pdf/PML%20Annual%20Review%202011_2.pdf">http://www.pml.ac.uk/pdf/PML%20Annual%20Review%202011_2.pdf</a>&quot;&gt;Click here for the latest PML Annual Review&lt;/a&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; - vertical eddy diffusivity of tracers, unit m2 s-1
+<em class="quotelev1">&gt;&lt;br /&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; - vertical eddy kinetic energy (per unit mass), unit m2 s-2
+<em class="quotelev1">&gt;Registered Charity No. 1091222&lt;br /&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; - kinetic energy dissipation rate, unit m2 s-3
+<em class="quotelev1">&gt;PML is a company limited by guarantee&lt;br /&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; - mixing length, unit m
+<em class="quotelev1">&gt;registered in England &amp; Wales&lt;br /&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt;
+<em class="quotelev1">&gt;company number 4178503&lt;/font&gt;&lt;/p&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; Looking at the documentation in [1], I guess for the eddy viscosity and diffusivity we could use ocean_vertical_momentum_diffusivity and
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; ocean_vertical_tracer_diffusivity, respectively. But for the other variables I haven't found a reference.
+<em class="quotelev1">&gt;&lt;p&gt;&lt;font face=&quot;Arial&quot; size=&quot;1&quot; color=&quot;green&quot;&gt;Please think before you print.&lt;/font&gt;&lt;/p&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt;
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; [1]<a href="http://cf-pcmdi.llnl.gov/documents/cf-standard-names/standard-name-table/16/cf-standard-name-table.html/">http://cf-pcmdi.llnl.gov/documents/cf-standard-names/standard-name-table/16/cf-standard-name-table.html/</a>
+<em class="quotelev1">&gt;&lt;hr /&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt;
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; Would anyone know if standard names exists for these quantities, and if so, where they are documented?
+<em class="quotelev1">&gt;&lt;p&gt;&lt;font face=&quot;Arial&quot; size=&quot;1&quot;&gt;This e-mail, its content and any file attachments are confidential.&lt;/font&gt;&lt;/p&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt;
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt;
+<em class="quotelev1">&gt;&lt;p&gt;&lt;font face=&quot;Arial&quot; size=&quot;1&quot;&gt;If you have received this e-mail in error please do not copy, disclose it to any third party or use the contents or attachments in any way. Please notify the sender by replying to this e-mail or e-mail forinfo at pml.ac.uk and then delete the email without making any copies or using it in any other way.&lt;/font&gt;&lt;/p&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; Best Regards,
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt;
+<em class="quotelev1">&gt;&lt;p&gt;&lt;font face=&quot;Arial&quot; size=&quot;1&quot;&gt;The content of this message may contain personal views which are not the views of Plymouth Marine Laboratory unless specifically stated.&lt;/font&gt;&lt;/p&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; Tuomas Karna
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; Post-Doctoral Fellow
+<em class="quotelev1">&gt;&lt;p&gt;&lt;font face=&quot;Arial&quot; size=&quot;1&quot;&gt;You are reminded that e-mail communications are not secure and may contain viruses. Plymouth Marine Laboratory accepts no liability for any loss or damage which may be caused by viruses.&lt;/font&gt;&lt;/p&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; Center for Coastal Margin Observation and Prediction (CMOP)
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; Oregon Health and Science University
+<em class="quotelev1">&gt;&lt;hr /&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; karnat at stccmop.org
+<em class="quotelev1">&gt;&lt;br /&gt;
 </em><br />
-<span id="received"><dfn>Received on</dfn> Mon Mar 04 2013 - 17:06:34 GMT</span>
+<em class="quotelev1">&gt;&lt;br /&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;_______________________________________________
+</em><br />
+<em class="quotelev1">&gt;CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt;CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt;<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<br />*************************************
+<br />
+Corey Bettenhausen
+<br />
+Science System and Applications, Inc
+<br />
+Goddard Space Flight Center
+<br />
+301 614 5383
+<br />
+corey_bettenhausen at ssaihq.com
+<br />
+*************************************
+<br />
+<span id="received"><dfn>Received on</dfn> Tue Mar 13 2012 - 07:02:22 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -269,13 +245,13 @@ karnat at stccmop.org
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5046">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5047.html" title="Next message in the list">John Maurer: "[CF-metadata] sea_water_turbidity"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5045.html" title="Previous message in the list">John Maurer: "[CF-metadata] sea_water_turbidity?"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./5040.html" title="Message to which this message replies">alison.pamment at stfc.ac.uk: "[CF-metadata] standard names for ocean model turbulent quantities"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5047.html" title="Next message in the list">John Graybeal: "[CF-metadata] Request: research papers which cite use of CF standard names"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5045.html" title="Previous message in the list">Mike Grant: "[CF-metadata] netcdf4 and CF-1.6"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./5045.html" title="Message to which this message replies">Mike Grant: "[CF-metadata] netcdf4 and CF-1.6"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./5062.html" title="Next message in this discussion thread">alison.pamment at stfc.ac.uk: "[CF-metadata] standard names for ocean model turbulent quantities"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./5059.html" title="Next message in this discussion thread">Mike Grant: "[CF-metadata] netcdf4 and CF-1.6"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./5062.html" title="Message sent in reply to this message">alison.pamment at stfc.ac.uk: "[CF-metadata] standard names for ocean model turbulent quantities"</a></li>
+<dfn>Reply</dfn>: <a href="./5059.html" title="Message sent in reply to this message">Mike Grant: "[CF-metadata] netcdf4 and CF-1.6"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -286,7 +262,7 @@ karnat at stccmop.org
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:14 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5045.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5047.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

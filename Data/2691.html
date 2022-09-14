@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] bounds/precision for time axis from Jon Blower on 2010-06-03 (mailing-list-archive)</title>
-<meta name="Author" content="Jon Blower (j.d.blower)" />
-<meta name="Subject" content="[CF-metadata] bounds/precision for time axis" />
-<meta name="Date" content="2010-06-03" />
+<title>[CF-metadata]  new named fields for ocean from Jonathan Gregory on 2009-01-12 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata]  new named fields for ocean" />
+<meta name="Date" content="2009-01-12" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2690.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2692.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] bounds/precision for time axis</h1>
-<!-- received="Thu Jun  3 02:53:04 2010" -->
-<!-- isoreceived="20100603015304" -->
-<!-- sent="Thu, 3 Jun 2010 09:53:04 +0100" -->
-<!-- isosent="20100603085304" -->
-<!-- name="Jon Blower" -->
-<!-- email="j.d.blower" -->
-<!-- subject="[CF-metadata] bounds/precision for time axis" -->
-<!-- id="7CD7F00F17085C4EBB045A35177C85FDE9621F_at_VIME-VS1.rdg-home.ad.rdg.ac.uk" -->
+<a style="text-decoration:none" href="./2690.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2692.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  new named fields for ocean</h1>
+<!-- received="Mon Jan 12 11:31:34 2009" -->
+<!-- isoreceived="20090112113134" -->
+<!-- sent="Mon, 12 Jan 2009 18:31:34 +0000" -->
+<!-- isosent="20090112183134" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata]  new named fields for ocean" -->
+<!-- id="20090112183134.GA17165_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4C06D3D1.6010407_at_noaa.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +53,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2692.html" accesskey="d" title="McCann, Mike: &quot;[CF-metadata] bounds/precision for time axis&quot;">Next message</a> ]
-[ <a href="./2690.html" title="Steve Hankin: &quot;[CF-metadata] bounds/precision for time axis&quot;">Previous message</a> ]
-[ <a href="./2690.html" title="Steve Hankin: &quot;[CF-metadata] bounds/precision for time axis&quot;">In reply to</a> ]
+[ <a href="./2692.html" accesskey="d" title="Woolf, A: &quot;[CF-metadata] EGU session ESSI9: &#0034;Data and Metadata Models &#0038; Mark-up Languages&#0034;&quot;">Next message</a> ]
+[ <a href="./2690.html" title="Roy Lowry: &quot;[CF-metadata] Attachment&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./2692.html" accesskey="t" title="McCann, Mike: &quot;[CF-metadata] bounds/precision for time axis&quot;">Next in thread</a> ]
+[ <a href="./2693.html" accesskey="t" title="Karl Taylor: &quot;[CF-metadata] new named fields for ocean&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,194 +70,96 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jon Blower &lt;<a href="mailto:j.d.blower?Subject=Re%3A%20%5BCF-metadata%5D%20bounds%2Fprecision%20for%20time%20axis">j.d.blower</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20new%20named%20fields%20for%20ocean">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 3 Jun 2010 09:53:04 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 12 Jan 2009 18:31:34 +0000</span><br />
 </address>
 <br />
-Thanks Steve, I agree that a &quot;point_spacing:even&quot; attribute would be
+Dear Steve
 <br />
-helpful to clients.
+<br />I would prefer keeping the sea_water in sea_water_pressure:
 <br />
-<br />However, I think that the question of point spacing is separate to that
-<br />
-of nominal precision.  A time axis may be evenly spaced with one point a
-<br />
-day, but the time axis values could be considered instantaneous
-<br />
-(00:00:00.000Z), or each timestep could be considered &quot;representative&quot;
-<br />
-of the whole day.
-<br />
-<br />I guess the combination of &quot;cell_methods=cell&quot; and &quot;point_spacing:even&quot;,
-<br />
-plus the separation between the first two points along the axis might
-<br />
-together give the nominal precision.
-<br />
-<br />Perhaps instead of &quot;point_spacing=even&quot; we could have
-<br />
-&quot;regular_point_spacing=1.0&quot; to make things slightly easier on clients?
-<br />
-(Irregular axes would simply omit the regular_point_spacing attribute.)
-<br />
-<br />(I worry a little that this mechanism wouldn't allow a nominal precision
-<br />
-of a month or year, which might be common for palaeo data, since months
-<br />
-and years are not of exactly equal length.)
-<br />
-<br />Cheers, Jon
-<br />
-<br />-----Original Message-----
-<br />
-From: Steve Hankin [mailto:Steven.C.Hankin at noaa.gov] 
-<br />
-Sent: 02 June 2010 22:58
-<br />
-To: Jon Blower
-<br />
-Cc: Jonathan Gregory; cf-metadata at cgd.ucar.edu
-<br />
-Subject: Re: [CF-metadata] bounds/precision for time axis
-<br />
-<br /><br /><br />Jon Blower wrote:
-<br />
-<em class="quotelev1">&gt; Dear Jonathan,
+<em class="quotelev1">&gt; sea_water_pressure_at_the_sea_water_surface
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; sea_water_pressure_at_sea_floor
 </em><br />
-<em class="quotelev1">&gt; Yes, I take your point.  Another option would be to allow a simple
-</em><br />
-<em class="quotelev1">&gt; attribute on a time axis &quot;nominal_precision&quot; or something similar,
-</em><br />
-which
+It might seem redundant in this context but it corresponds to the standard
 <br />
-<em class="quotelev1">&gt; could take values like &quot;1 day&quot;, &quot;1 month&quot; etc.  This could be in
-</em><br />
-<em class="quotelev1">&gt; addition to the bounds and cell_methods attributes.
-</em><br />
-<br /><em class="quotelev1">&gt; The problem with
-</em><br />
-<em class="quotelev1">&gt; using the bounds/cell_methods approach in isolation is that it
-</em><br />
-requires
+name of sea_water_pressure, analogous to air_pressure. That means the
 <br />
-<em class="quotelev1">&gt; a client to look at the bounds for every point along the time axis to
-</em><br />
-<em class="quotelev1">&gt; verify that the bounds for each point is the same length.
-</em><br />
-<em class="quotelev1">&gt;   
-</em><br />
-Hi Jon,
+pressure that exists in the medium of sea water. It doesn't imply that it is
 <br />
-<br />This comment applies equally to spatial axes; as-is a CF client 
+caused only by overlying sea water.
 <br />
-application must examine the full coordinate axis and its bounds in 
+<br /><em class="quotelev1">&gt; I too find this name unappealing.  I suggest the following alternatives: 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; temperature_flux_due_to_rainfall_expressed_as_heat_flux_into_sea_water   
+</em><br />
+<em class="quotelev1">&gt; --&gt; heat_flux_into_sea_water_due_to_rainfall_mass_flux
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; temperature_flux_due_to_evaporation_expressed_as_heat_flux_out_of_sea_water 
+</em><br />
+<em class="quotelev1">&gt; --&gt; heat_flux_out_of_sea_water_due_to_evaporative_mass_flux
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; temperature_flux_due_to_runoff_expressed_as_heat_flux_into_sea_water --&gt; 
+</em><br />
+<em class="quotelev1">&gt; heat_flux_into_sea_water_due_to_runoff_mass_flux
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; These new names are A/ shorter, B/ more directly what is intended 
+</em><br />
+<em class="quotelev1">&gt; physically; i.e., a heat flux due to a mass flux.
+</em><br />
+<br />When we had the earlier discussion, I proposed temperature flux because I
 <br />
-order to determine if an axis is regularly spaced whether time or 
+think that temperature multiplied by mass flux is a quantity that people
 <br />
-space.  And yes, this is a particularly acute problem for time axes, 
+have to be careful with because of its arbitrary zero. In that respect it
 <br />
-where it is not uncommon to have many thousands of points in a CF 
+is not like a genuine heat flux. You can't tell what heat is being added
 <br />
-dataset.  
+unless you know the temperature and the mass of the water it's being added
 <br />
-<br />There have been discussions in the past of the merits of a 
+to. I thought &quot;temperature flux&quot; would draw attention to the way it was
 <br />
-&quot;point_spacing&quot; attribute:
+evaluated. To be more explicit, it is
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;my_axis:point_spacing = &quot;even&quot;;
+&nbsp;&nbsp;product_of_rainfall_temperature_and_rainfall_flux_expressed_as_heat_flux
 <br />
-<br />I'd be totally supportive of adding this attribute to CF, myself.  It 
+Without expressed_as_heat_flux it would be in K kg m-2 s-1 rather than W m-2.
 <br />
-offers significant efficiencies to clients and it addresses your 
+Maybe it's OK to omit _into_sea_water since rainfall flux is generally assumed
 <br />
-question reasonably well (to quickly infer a nominal spacing from the 
+to be at the surface, and this quantity exists equally over land. We would use
 <br />
-axis coordinates or its bounds).
+cell_methods to restrict it to the sea part of the gridbox. The definition
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;- Steve
+should also state what the zero of temperature is.
 <br />
-<em class="quotelev1">&gt; Best wishes,
-</em><br />
-<em class="quotelev1">&gt; Jon
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; -----Original Message-----
-</em><br />
-<em class="quotelev1">&gt; From: Jonathan Gregory [mailto:jonathan at met.reading.ac.uk] On Behalf
-</em><br />
-Of
+<br />Why do we want these quantities? Would be clearer and easier to ask for the
 <br />
-<em class="quotelev1">&gt; Jonathan Gregory
-</em><br />
-<em class="quotelev1">&gt; Sent: 02 June 2010 19:13
-</em><br />
-<em class="quotelev1">&gt; To: Jon Blower
-</em><br />
-<em class="quotelev1">&gt; Cc: cf-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; Subject: Re: [CF-metadata] bounds/precision for time axis
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Dear Jon
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; If we decide to let cell_methods indicate &quot;vagueness&quot; I don't think
-</em><br />
-it's
+rainfall_temperature and the
 <br />
-<em class="quotelev1">&gt; a
-</em><br />
-<em class="quotelev1">&gt; problem if the bounds themselves are precise. The precision is
-</em><br />
-somewhat
+temperature_of_water_flux_into_sea_water_from_rivers? I'm sorry that I hadn't
 <br />
-<em class="quotelev1">&gt; irrelevant, as you say, but it shouldn't be misleading in view of the
-</em><br />
-<em class="quotelev1">&gt; cell_methods. Changing cell_methods is a small alteration to the CF
-</em><br />
-<em class="quotelev1">&gt; standard,
-</em><br />
-<em class="quotelev1">&gt; whereas introducing alternative ways of representing time is a large
-</em><br />
-and
+thought about the evaporation before. I'm not sure what this means: isn't the
 <br />
-<em class="quotelev1">&gt; complex change, which would require substantial alteration to software
-</em><br />
-<em class="quotelev1">&gt; as well.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Best wishes
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Jonathan
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt;   
-</em><br />
-<br /><pre>
--- 
-Steve Hankin, NOAA/PMEL -- Steven.C.Hankin at noaa.gov
-7600 Sand Point Way NE, Seattle, WA 98115-0070
-ph. (206) 526-6080, FAX (206) 526-6744
-&quot;The only thing necessary for the triumph of evil is for good men
-to do nothing.&quot; -- Edmund Burke
-</pre>
-<span id="received"><dfn>Received on</dfn> Thu Jun 03 2010 - 02:53:04 BST</span>
+evaporating water necessarily at surface temperature? The heat carried away
+<br />
+is just the latent heat.
+<br />
+<br />Best wishes
+<br />
+<br />Jonathan
+<br />
+<span id="received"><dfn>Received on</dfn> Mon Jan 12 2009 - 11:31:34 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -267,13 +167,13 @@ to do nothing.&quot; -- Edmund Burke
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2691">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2692.html" title="Next message in the list">McCann, Mike: "[CF-metadata] bounds/precision for time axis"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2690.html" title="Previous message in the list">Steve Hankin: "[CF-metadata] bounds/precision for time axis"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./2690.html" title="Message to which this message replies">Steve Hankin: "[CF-metadata] bounds/precision for time axis"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2692.html" title="Next message in the list">Woolf, A: "[CF-metadata] EGU session ESSI9: &#0034;Data and Metadata Models &#0038; Mark-up Languages&#0034;"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2690.html" title="Previous message in the list">Roy Lowry: "[CF-metadata] Attachment"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./2692.html" title="Next message in this discussion thread">McCann, Mike: "[CF-metadata] bounds/precision for time axis"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./2693.html" title="Next message in this discussion thread">Karl Taylor: "[CF-metadata] new named fields for ocean"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./2692.html" title="Message sent in reply to this message">McCann, Mike: "[CF-metadata] bounds/precision for time axis"</a></li>
+<dfn>Reply</dfn>: <a href="./2693.html" title="Message sent in reply to this message">Karl Taylor: "[CF-metadata] new named fields for ocean"</a></li>
+<li><dfn>Reply</dfn>: <a href="./2694.html" title="Message sent in reply to this message">Stephen Griffies: "[CF-metadata] new named fields for ocean"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -284,7 +184,7 @@ to do nothing.&quot; -- Edmund Burke
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:29 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2690.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2692.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

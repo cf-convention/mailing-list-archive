@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] COARDS name for a time offset from Jonathan Gregory on 2006-12-19 (mailing-list-archive)</title>
+<title>[CF-metadata] CF standard_names for sea water pressure and sound intensity from Jonathan Gregory on 2005-03-29 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] COARDS name for a time offset" />
-<meta name="Date" content="2006-12-19" />
+<meta name="Subject" content="[CF-metadata] CF standard_names for sea water pressure and sound intensity" />
+<meta name="Date" content="2005-03-29" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0591.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0593.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] COARDS name for a time offset</h1>
-<!-- received="Tue Dec 19 11:24:58 2006" -->
-<!-- isoreceived="20061219112458" -->
-<!-- sent="Tue, 19 Dec 2006 18:24:58 +0000" -->
-<!-- isosent="20061219182458" -->
+<a style="text-decoration:none" href="./0591.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0593.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF standard_names for sea water pressure and sound intensity</h1>
+<!-- received="Tue Mar 29 01:03:26 2005" -->
+<!-- isoreceived="20050329000326" -->
+<!-- sent="Tue, 29 Mar 2005 09:03:26 +0100" -->
+<!-- isosent="20050329080326" -->
 <!-- name="Jonathan Gregory" -->
 <!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] COARDS name for a time offset" -->
-<!-- id="20061219182458.GA453_at_met.reading.ac.uk" -->
+<!-- subject="[CF-metadata] CF standard_names for sea water pressure and sound intensity" -->
+<!-- id="20050329080326.GA29412_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0593.html" accesskey="d" title="Christiane Textor: &quot;[CF-metadata] Standard names status update&quot;">Next message</a> ]
-[ <a href="./0591.html" title="Steve Hankin: &quot;[CF-metadata] Getting back to ensembles&quot;">Previous message</a> ]
+[ <a href="./0593.html" accesskey="d" title="Roy Lowry: &quot;[CF-metadata] CF standard_names for sea water pressure and sound intensity&quot;">Next message</a> ]
+[ <a href="./0591.html" title="&#21608;&#31435;: &quot;[CF-metadata] On Demand Staffing for Information Technology Projects&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0611.html" accesskey="t" title="Steve Hankin: &quot;[CF-metadata] COARDS name for a time offset&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,26 +68,68 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20COARDS%20name%20for%20a%20time%20offset">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20standard_names%20for%20sea%20water%20pressure%20and%20sound%20intensity">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 19 Dec 2006 18:24:58 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 29 Mar 2005 09:03:26 +0100</span><br />
 </address>
 <br />
-Dear Ed
+Dear Mike
 <br />
-<br />I wonder why this you need to store the time-offset. If the time of the wind
+<br /><em class="quotelev1">&gt; 	sea_water_pressure (canonical units dbar)
+</em><br />
+<br />Any dimensionally equivalent unit could be used to specify the canonical
 <br />
-and the time of the SST are different, but both are stored in time units of
+units, so dbar is OK.
 <br />
-seconds since the same reference, it is easy to work out the offset as the
+<br /><em class="quotelev1">&gt; Regarding ADCP measured acoustic echo intensity, my current data
+</em><br />
+<em class="quotelev1">&gt; files have this as a count.  There is an algorithm to convert this
+</em><br />
+<em class="quotelev1">&gt; to a measure of acoustic_echo_intensity in decibels (dB).  Is there a 
+</em><br />
+<em class="quotelev1">&gt; need to distinguish this from acoustic_echo_intensity in other media
+</em><br />
+<em class="quotelev1">&gt; by perhaps calling it sea_water_acoustic_echo_intensity?  
+</em><br />
+<br />Let's call it acoustic_echo_intensity_in_sea_water like other quantities
 <br />
-difference of the two times, isn't it?
+measured in the ocean.
 <br />
-<br />Best wishes
+<br /><em class="quotelev1">&gt; dB is a non-SI unit and not in udunits (we have a lot of these in 
+</em><br />
+<em class="quotelev1">&gt; oceanography).
+</em><br />
+<br />dB is a dimensionless unit for the logarithm of a ratio. The denominator of
+<br />
+the ratio is some standard value. I think it ought to be acceptable to define
+<br />
+a quantity like this, if we state the reference value in the definition of the
+<br />
+standard name, perhaps making it a standard name parameter (an idea which has
+<br />
+been agreed on this email list but not written in the convention yet) with a
+<br />
+default value. What is your reference intensity? The AMS glossary says that
+<br />
+for acoustics it is 1e-10 microwatt per cm2, but perhaps ADCP is different.
+<br />
+<br />It is another problem whether we can use dB as a unit. I think we ought to be
+<br />
+able to, myself. As you say, this isn't the only non-udunit we'd like to use.
+<br />
+PSU is another, also dimensionless, and in CF we would probably prefer Sv to
+<br />
+be sverdrup rather than sievert as udunits has it. This is a question we must
+<br />
+address to Unidata. One way would be to produce a CF version of udunits.dat,
+<br />
+the file which defines the udunits.
+<br />
+<br />Thanks. Cheers
 <br />
 <br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Tue Dec 19 2006 - 11:24:58 GMT</span>
+<span id="received"><dfn>Received on</dfn> Tue Mar 29 2005 - 01:03:26 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -97,12 +137,9 @@ difference of the two times, isn't it?
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start592">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0593.html" title="Next message in the list">Christiane Textor: "[CF-metadata] Standard names status update"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0591.html" title="Previous message in the list">Steve Hankin: "[CF-metadata] Getting back to ensembles"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0593.html" title="Next message in the list">Roy Lowry: "[CF-metadata] CF standard_names for sea water pressure and sound intensity"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0591.html" title="Previous message in the list">&#21608;&#31435;: "[CF-metadata] On Demand Staffing for Information Technology Projects"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0611.html" title="Next message in this discussion thread">Steve Hankin: "[CF-metadata] COARDS name for a time offset"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0611.html" title="Message sent in reply to this message">Steve Hankin: "[CF-metadata] COARDS name for a time offset"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -113,7 +150,7 @@ difference of the two times, isn't it?
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:52 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0591.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0593.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

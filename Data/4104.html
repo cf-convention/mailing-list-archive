@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Request for a region standard_name from John Graybeal on 2012-01-13 (mailing-list-archive)</title>
-<meta name="Author" content="John Graybeal (jbgraybeal)" />
-<meta name="Subject" content="[CF-metadata] Request for a region standard_name" />
-<meta name="Date" content="2012-01-13" />
+<title>[CF-metadata] udunits handling of fuzzy time units from Benno Blumenthal on 2011-03-15 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Benno Blumenthal (benno)" />
+<meta name="Subject" content="[CF-metadata] udunits handling of fuzzy time units" />
+<meta name="Date" content="2011-03-15" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4103.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4105.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Request for a region standard_name</h1>
-<!-- received="Fri Jan 13 11:53:38 2012" -->
-<!-- isoreceived="20120113115338" -->
-<!-- sent="Fri, 13 Jan 2012 10:53:38 -0800" -->
-<!-- isosent="20120113185338" -->
-<!-- name="John Graybeal" -->
-<!-- email="jbgraybeal" -->
-<!-- subject="[CF-metadata] Request for a region standard_name" -->
-<!-- id="920A70FB-0AB7-436A-9525-9A31D9D64B46_at_mindspring.com" -->
+<a style="text-decoration:none" href="./4103.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4105.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] udunits handling of fuzzy time units</h1>
+<!-- received="Tue Mar 15 09:19:31 2011" -->
+<!-- isoreceived="20110315091931" -->
+<!-- sent="Tue, 15 Mar 2011 11:19:31 -0400" -->
+<!-- isosent="20110315151931" -->
+<!-- name="Benno Blumenthal" -->
+<!-- email="benno" -->
+<!-- subject="[CF-metadata] udunits handling of fuzzy time units" -->
+<!-- id="AANLkTik_kO4iT5_R4m7rCwjO11fBbQerxnjWqXE9gXW8_at_mail.gmail.com" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="014539AC4976BE4490A360410A8C201706968CB4_at_EXCHMBX03.fed.cclrc.ac.uk" -->
+<!-- inreplyto="D38DCA8842FECD4585C8DE16D602ABF40F6D40_at_VIME-MBX2.rdg.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,10 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4105.html" accesskey="d" title="Randy Horne: &quot;[CF-metadata] data variable has a start time and an end time&quot;">Next message</a> ]
-[ <a href="./4103.html" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] Request for a region standard_name&quot;">Previous message</a> ]
-[ <a href="./4102.html" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] Request for a region standard_name&quot;">In reply to</a> ]
+[ <a href="./4105.html" accesskey="d" title="Steve Hankin: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">Next message</a> ]
+[ <a href="./4103.html" title="Jon Blower: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">Previous message</a> ]
+[ <a href="./4103.html" title="Jon Blower: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./4108.html" accesskey="t" title="John Caron: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,188 +72,136 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: John Graybeal &lt;<a href="mailto:jbgraybeal?Subject=Re%3A%20%5BCF-metadata%5D%20Request%20for%20a%20region%20standard_name">jbgraybeal</a>&gt;
+<dfn>From</dfn>: Benno Blumenthal &lt;<a href="mailto:benno?Subject=Re%3A%20%5BCF-metadata%5D%20udunits%20handling%20of%20fuzzy%20time%20units">benno</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 13 Jan 2012 10:53:38 -0800</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 15 Mar 2011 11:19:31 -0400</span><br />
 </address>
 <br />
-Thanks Alison, your analysis makes sense to me. 
+I am sorry, but this conversation is more confusing that it needs to be --
 <br />
-<br />I do think having a systematic way to deal with all gazetteers is quite important.
+once calendar 360_day is chosen, there is nothing &quot;fuzzy&quot; about month or
 <br />
-<br />John
+year, and once calendar 365_day or 366_day is chosen, there is nothing
 <br />
-<br />On Jan 13, 2012, at 06:39, &lt;alison.pamment at stfc.ac.uk&gt; &lt;alison.pamment at stfc.ac.uk&gt; wrote:
+&quot;fuzzy&quot; about year.   udunits does not support calendar, so its poor choice
 <br />
-<br /><em class="quotelev1">&gt; Dear John, All,
+of month/year support is not an issue -- if it did support calendar (which
+<br />
+is in the standard), then it would handle year/month correctly for these
+<br />
+choices of calendar.
+<br />
+<br />Benno
+<br />
+<br />On Tue, Mar 15, 2011 at 9:14 AM, Jon Blower &lt;j.d.blower at reading.ac.uk&gt;wrote:
+<br />
+<br /><em class="quotelev1">&gt; I think it's good to remove the dependence on UDUNITS from the CDM for date
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; handling.
 </em><br />
-<em class="quotelev1">&gt; I wasn't involved with CF before 2006, but I suspect the original reason for creating the region list was based on the idea that CF compliant files should be self-describing. I don't think the existing list of regions, or indeed the most recent proposal of contiguous_united_states are tied to any particular project. Participants in any project needing to use CF can propose new region names, just as they can propose standard names, and I don't think we are according any special status to CMIP5 in that regard.
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; However, although &quot;date&quot; is not a unit of measure, &quot;seconds&quot; is, and so is
 </em><br />
-<em class="quotelev1">&gt; Maintaining a list of region names as another controlled vocabulary alongside standard names and area types is not a particularly onerous task and I think it can readily be achieved within the existing standard names process. I agree with Roy's point that there will sometimes be a need to describe geographic regions that are not available in other controlled vocabularies and so I think we should retain the ability to add them within CF. I don't have a strong feeling either way as to whether we need to allow the use of external gazetteers, but if we do then I think it should be in addition to the CF list rather than simply replacing it. The standard name and area type tables are version controlled and dated and the same should be done for the region names.
+<em class="quotelev1">&gt; &quot;month&quot; in the definition of UDUNITS.  Since CF defines that we use the
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; UDUNITS interpretation of month/year, it would seem dangerous to change this
 </em><br />
-<em class="quotelev1">&gt; Best wishes,
+<em class="quotelev1">&gt; assumption for backward compatibility?
 </em><br />
-<em class="quotelev1">&gt; Alison
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; (It's not just that months are of variable lengths within a year, but also
 </em><br />
-<em class="quotelev1">&gt; ------
+<em class="quotelev1">&gt; that there are different definitions of a &quot;month&quot;.  UDUNITS uses a fixed
 </em><br />
-<em class="quotelev1">&gt; Alison Pamment                          Tel: +44 1235 778065
+<em class="quotelev1">&gt; year-length (not a calendar year length) and a month is year/12.)
 </em><br />
-<em class="quotelev1">&gt; NCAS/British Atmospheric Data Centre    Email: alison.pamment at stfc.ac.uk
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; STFC Rutherford Appleton Laboratory     
+<em class="quotelev1">&gt; BTW, the various calendars are implemented in ncWMS at
 </em><br />
-<em class="quotelev1">&gt; R25, 2.22
+<em class="quotelev1">&gt; <a href="http://www.resc.rdg.ac.uk/trac/ncWMS/browser/trunk/src/java/uk/ac/rdg/resc/edal/time">http://www.resc.rdg.ac.uk/trac/ncWMS/browser/trunk/src/java/uk/ac/rdg/resc/edal/time</a>
 </em><br />
-<em class="quotelev1">&gt; Harwell Oxford, Didcot, OX11 0QX, U.K.
+<em class="quotelev1">&gt; .
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; I even wrote half-decent unit tests - aren't I a good boy? ;-)
 </em><br />
-<em class="quotelev2">&gt;&gt; -----Original Message-----
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; From: cf-metadata-bounces at cgd.ucar.edu [mailto:cf-metadata-
+<em class="quotelev1">&gt; Jon
 </em><br />
-<em class="quotelev2">&gt;&gt; bounces at cgd.ucar.edu] On Behalf Of John Graybeal
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; Sent: 12 January 2012 17:40
+<em class="quotelev1">&gt; -----Original Message-----
 </em><br />
-<em class="quotelev2">&gt;&gt; To: Jonathan Gregory
+<em class="quotelev1">&gt; From: cf-metadata-bounces at cgd.ucar.edu [mailto:
 </em><br />
-<em class="quotelev2">&gt;&gt; Cc: cf-metadata at cgd.ucar.edu
+<em class="quotelev1">&gt; cf-metadata-bounces at cgd.ucar.edu] On Behalf Of John Caron
 </em><br />
-<em class="quotelev2">&gt;&gt; Subject: Re: [CF-metadata] Request for a region standard_name
+<em class="quotelev1">&gt; Sent: 15 March 2011 13:02
 </em><br />
-<em class="quotelev2">&gt;&gt; 
+<em class="quotelev1">&gt; To: cf-metadata at cgd.ucar.edu
 </em><br />
-<em class="quotelev2">&gt;&gt; i may be missing a key organizational imperative, but it will be
+<em class="quotelev1">&gt; Subject: Re: [CF-metadata] udunits handling of fuzzy time units
 </em><br />
-<em class="quotelev2">&gt;&gt; helpful for all of us to understand I think.  To review the bidding:
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; 
+<em class="quotelev1">&gt; On 3/15/2011 5:03 AM, Karl Taylor wrote:
 </em><br />
-<em class="quotelev2">&gt;&gt; On Jan 12, 2012, at 07:15, Nan Galbraith wrote:
+<em class="quotelev2">&gt; &gt; I agree with Jon.
 </em><br />
-<em class="quotelev2">&gt;&gt; 
+<em class="quotelev2">&gt; &gt;
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt; Maintaining a gazetteer seems a little outside the scope of CF -
+<em class="quotelev2">&gt; &gt; By definition, I think, a &quot;unit of measure&quot; must not vary; hence month
 </em><br />
-<em class="quotelev2">&gt;&gt; wouldn't it be preferable to require (or at least allow) an attribute
+<em class="quotelev2">&gt; &gt; is not a proper unit and not only depends on month of year, but also
 </em><br />
-<em class="quotelev2">&gt;&gt; for the &quot;region&quot; variable pointing to an external vocabulary?
+<em class="quotelev2">&gt; &gt; on assumed calendar (and similarly for year).  Therefore, I think
 </em><br />
-<em class="quotelev2">&gt;&gt; 
+<em class="quotelev2">&gt; &gt; &quot;months since&quot; and &quot;years since&quot; should not be allowed in CF.
 </em><br />
-<em class="quotelev2">&gt;&gt; 
+<em class="quotelev2">&gt; &gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; On Jan 12, 2012, at 08:45, Lowry, Roy K. wrote:
+<em class="quotelev2">&gt; &gt; Karl
 </em><br />
-<em class="quotelev2">&gt;&gt; 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt; However, in the case of CMIP5 I doubt if any published resource will
+<em class="quotelev1">&gt; Hi Karl:
 </em><br />
-<em class="quotelev2">&gt;&gt; fulfil their requirements because the spatial objects are sections
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; defined by the project, which are unlikely to be included in any
+<em class="quotelev1">&gt; so if currently we cant actually use months and years, because of the
 </em><br />
-<em class="quotelev2">&gt;&gt; resource originating outside the project.  Therefore they need their
+<em class="quotelev1">&gt; way udunits handles them, why not redefine how they should be understood
 </em><br />
-<em class="quotelev2">&gt;&gt; own project-specific resource and I can't see any alternative to this
+<em class="quotelev1">&gt; when you do use them, namely as setting the month or year field in a
 </em><br />
-<em class="quotelev2">&gt;&gt; being governed and served by CF.
+<em class="quotelev1">&gt; date calculation.
 </em><br />
-<em class="quotelev2">&gt;&gt; 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; On Jan 12, 2012, at 09:03, Jonathan Gregory wrote:
+<em class="quotelev1">&gt; this eases the burden on data writers, and makes the metadata human
 </em><br />
-<em class="quotelev2">&gt;&gt; 
+<em class="quotelev1">&gt; readable, at the cost of a small increase in the complexity of libraries
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt; Dear Alison
+<em class="quotelev1">&gt; that read data.
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt; 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; The CMIP5 regions I was thinking of were the names of various sea
+<em class="quotelev1">&gt; one more comment: a date is not a unit of measure, and therein lies all
 </em><br />
-<em class="quotelev2">&gt;&gt; channels and straits.
+<em class="quotelev1">&gt; the trouble. IMO, date handling should be removed from the udunits
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt; 
+<em class="quotelev1">&gt; package, which is what im doing now in the CDM (not removing date
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt; I agree that it makes sense to add the CMIP5 channels and straits to
+<em class="quotelev1">&gt; handling from udunits, just not using udunits anymore to handle dates).
 </em><br />
-<em class="quotelev2">&gt;&gt; the CF region list. Thanks.
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; What is it about the CMIP5 project that makes it (uniquely?) supported
-</em><br />
-<em class="quotelev2">&gt;&gt; by the community resource CF?
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; Generally, if a project that needs a project-specific resource, the
-</em><br />
-<em class="quotelev2">&gt;&gt; project creates that resource, right?  In this day and age, creating a
-</em><br />
-<em class="quotelev2">&gt;&gt; gazzetteer, or equivalent resource of terms, is pretty trivial even
-</em><br />
-<em class="quotelev2">&gt;&gt; without programming expertise.
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; So I go back to Nan's input, and reply &quot;Yes -- it would be preferable
-</em><br />
-<em class="quotelev2">&gt;&gt; to require an attribute for the region variable pointing to the
-</em><br />
-<em class="quotelev2">&gt;&gt; external vocabulary.&quot; Or at least, pointing to the vocabulary.  Even if
-</em><br />
-<em class="quotelev2">&gt;&gt; CF is the one that maintains the vocabulary (for its own purposes, or
-</em><br />
-<em class="quotelev2">&gt;&gt; for this project), including region names as part of the CF conventions
-</em><br />
-<em class="quotelev2">&gt;&gt; seems idiosyncratic rather than systematic.
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; John
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; John Graybeal   &lt;mailto:jgraybeal at ucsd.edu&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; phone: 858-534-2162
-</em><br />
-<em class="quotelev2">&gt;&gt; Product Manager
-</em><br />
-<em class="quotelev2">&gt;&gt; Ocean Observatories Initiative Cyberinfrastructure Project:
-</em><br />
-<em class="quotelev2">&gt;&gt; <a href="http://ci.oceanobservatories.org">http://ci.oceanobservatories.org</a>
-</em><br />
-<em class="quotelev2">&gt;&gt; Marine Metadata Interoperability Project: <a href="http://marinemetadata.org">http://marinemetadata.org</a>
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; _______________________________________________
-</em><br />
-<em class="quotelev2">&gt;&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev2">&gt;&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev2">&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt; -- 
-</em><br />
-<em class="quotelev1">&gt; Scanned by iCritical.
+<em class="quotelev1">&gt; John
 </em><br />
 <em class="quotelev1">&gt; _______________________________________________
 </em><br />
@@ -261,17 +211,27 @@ Thanks Alison, your analysis makes sense to me.
 </em><br />
 <em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
-<br /><br /><br />John Graybeal   &lt;mailto:jgraybeal at ucsd.edu&gt; 
-<br />
-phone: 858-534-2162
-<br />
-Product Manager
-<br />
-Ocean Observatories Initiative Cyberinfrastructure Project: <a href="http://ci.oceanobservatories.org">http://ci.oceanobservatories.org</a>
-<br />
-Marine Metadata Interoperability Project: <a href="http://marinemetadata.org">http://marinemetadata.org</a>   
-<br />
-<span id="received"><dfn>Received on</dfn> Fri Jan 13 2012 - 11:53:38 GMT</span>
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<br /><br /><br /><pre>
+-- 
+Dr. M. Benno Blumenthal          benno at iri.columbia.edu
+International Research Institute for climate and society
+The Earth Institute at Columbia University
+Lamont Campus, Palisades NY 10964-8000   (845) 680-4450
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20110315/b9e46f85/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20110315/b9e46f85/attachment-0001.html</a>&gt;
+</pre>
+<span id="received"><dfn>Received on</dfn> Tue Mar 15 2011 - 09:19:31 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -279,10 +239,14 @@ Marine Metadata Interoperability Project: <a href="http://marinemetadata.org">ht
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4104">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4105.html" title="Next message in the list">Randy Horne: "[CF-metadata] data variable has a start time and an end time"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4103.html" title="Previous message in the list">alison.pamment at stfc.ac.uk: "[CF-metadata] Request for a region standard_name"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./4102.html" title="Message to which this message replies">alison.pamment at stfc.ac.uk: "[CF-metadata] Request for a region standard_name"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4105.html" title="Next message in the list">Steve Hankin: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4103.html" title="Previous message in the list">Jon Blower: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./4103.html" title="Message to which this message replies">Jon Blower: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./4108.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./4108.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
+<li><dfn>Reply</dfn>: <a href="./4116.html" title="Message sent in reply to this message">Jon Blower: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -293,7 +257,7 @@ Marine Metadata Interoperability Project: <a href="http://marinemetadata.org">ht
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:57 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4103.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4105.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

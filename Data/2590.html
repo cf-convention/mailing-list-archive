@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Default datum for latitude and longitude? from Mike Grant on 2010-04-19 (mailing-list-archive)</title>
-<meta name="Author" content="Mike Grant (mggr)" />
-<meta name="Subject" content="[CF-metadata] Default datum for latitude and longitude?" />
-<meta name="Date" content="2010-04-19" />
+<title>[CF-metadata]  mixing ratio from Jonathan Gregory on 2008-11-12 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata]  mixing ratio" />
+<meta name="Date" content="2008-11-12" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2589.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2591.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Default datum for latitude and longitude?</h1>
-<!-- received="Mon Apr 19 09:06:57 2010" -->
-<!-- isoreceived="20100419080657" -->
-<!-- sent="Mon, 19 Apr 2010 16:06:57 +0100" -->
-<!-- isosent="20100419150657" -->
-<!-- name="Mike Grant" -->
-<!-- email="mggr" -->
-<!-- subject="[CF-metadata] Default datum for latitude and longitude?" -->
-<!-- id="4BCC7191.60006_at_pml.ac.uk" -->
+<a style="text-decoration:none" href="./2589.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2591.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  mixing ratio</h1>
+<!-- received="Wed Nov 12 08:31:02 2008" -->
+<!-- isoreceived="20081112083102" -->
+<!-- sent="Wed, 12 Nov 2008 15:31:02 +0000" -->
+<!-- isosent="20081112153102" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata]  mixing ratio" -->
+<!-- id="20081112153102.GB16319_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="7CD7F00F17085C4EBB045A35177C85FDD98684_at_VIME-VS1.rdg-home.ad.rdg.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +53,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2591.html" accesskey="d" title="Jonathan Blower: &quot;[CF-metadata] Default datum for latitude and longitude?&quot;">Next message</a> ]
-[ <a href="./2589.html" title="Jonathan Blower: &quot;[CF-metadata] Default datum for latitude and longitude?&quot;">Previous message</a> ]
-[ <a href="./2589.html" title="Jonathan Blower: &quot;[CF-metadata] Default datum for latitude and longitude?&quot;">In reply to</a> ]
+[ <a href="./2591.html" accesskey="d" title="John Graybeal: &quot;[CF-metadata] a different (but perhaps unoriginal) approach to standard name construction&quot;">Next message</a> ]
+[ <a href="./2589.html" title="Schultz, Martin: &quot;[CF-metadata] CF: surface flux versus emissions&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./2591.html" accesskey="t" title="Jonathan Blower: &quot;[CF-metadata] Default datum for latitude and longitude?&quot;">Next in thread</a> ]
+[ <a href="./2613.html" accesskey="t" title="Christiane Textor: &quot;[CF-metadata] mixing ratio&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,66 +70,56 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Mike Grant &lt;<a href="mailto:mggr?Subject=Re%3A%20%5BCF-metadata%5D%20Default%20datum%20for%20latitude%20and%20longitude%3F">mggr</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20mixing%20ratio">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 19 Apr 2010 16:06:57 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 12 Nov 2008 15:31:02 +0000</span><br />
 </address>
 <br />
-On 19/04/10 15:43, Jonathan Blower wrote:
+Dear Christiane
 <br />
-<em class="quotelev1">&gt; specification, which datum should be assumed?  Spherical Earth?  WGS84?
+<br /><em class="quotelev1">&gt; We do not use CF at the moment in the plume model, so for my specific
 </em><br />
-<br />If you're picking one at random, I'd go for WGS84 - that's a pretty safe
+<em class="quotelev1">&gt; problem our discussion is not relevant. I was just thinking that a vague
+</em><br />
+<em class="quotelev1">&gt; name could lead to problems later, if the variable is used by different
+</em><br />
+<em class="quotelev1">&gt; people in different ways.
+</em><br />
+<br />Yes, I agree, it could, although we could try to explain in the definition.
 <br />
-bet for a lot of remote sensed and GPS related data.
+I think that either we use
 <br />
-<br />Cheers,
+&nbsp;&nbsp;mass_fraction_of_X_in_air
 <br />
-<br />Mike.
+for all X and say that we are deliberately vague about whether air is ambient
 <br />
-<br />--------------------------------------------------------------------------------
+or dry - I think Martin favours this - or we use
 <br />
-Plymouth Marine Laboratory
+&nbsp;&nbsp;mass_fraction_of_X_in_ambient_air
 <br />
-&nbsp;
+&nbsp;&nbsp;mass_fraction_of_X_in_dry_air
 <br />
-Registered Office:
+which I think you favour. That involves aliasing quite a lot of existing
 <br />
-Prospect Place 
+names. I would be happy with either, except that I would say that the latter
 <br />
-The Hoe
+option is unsatisfactory for the particular case of
 <br />
-Plymouth  PL1 3DH
+&nbsp;&nbsp;mass_fraction_of_water_vapor_in_dry_air
 <br />
-&nbsp;
+which appears not to make sense. That problem can be avoided by sticking
 <br />
-Website: www.pml.ac.uk
+with the existing humidity_mixing_ratio, which is a term in general use, for
 <br />
-Registered Charity No. 1091222
+that one case, even though it would be unsystematic.
 <br />
-PML is a company limited by guarantee
+<br />I hope that's a correct summary.
 <br />
-registered in England &amp; Wales
+<br />Best wishes
 <br />
-company number 4178503
+<br />Jonathan
 <br />
-<br />PML is a member of the Plymouth Marine Sciences Partnership
-<br />
-Website: www.pmsp.org.uk 
-<br />
---------------------------------------------------------------------------------
-<br />
-This e-mail, its content and any file attachments are confidential.
-<br />
-<br />If you have received this e-mail in error please do not copy, disclose it to any third party or use the contents or attachments in any way. Please notify the sender by replying to this e-mail or e-mail forinfo at pml.ac.uk and then delete the email without making any copies or using it in any other way.
-<br />
-<br />The content of this message may contain personal views which are not the views of Plymouth Marine Laboratory unless specifically stated.
-<br />
-<br />You are reminded that e-mail communications are not secure and may contain viruses. Plymouth Marine Laboratory accepts no liability for any loss or damage which may be caused by viruses.
-<br />
---------------------------------------------------------------------------------
-<br />
-<span id="received"><dfn>Received on</dfn> Mon Apr 19 2010 - 09:06:57 BST</span>
+<span id="received"><dfn>Received on</dfn> Wed Nov 12 2008 - 08:31:02 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -139,14 +127,13 @@ This e-mail, its content and any file attachments are confidential.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2590">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2591.html" title="Next message in the list">Jonathan Blower: "[CF-metadata] Default datum for latitude and longitude?"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2589.html" title="Previous message in the list">Jonathan Blower: "[CF-metadata] Default datum for latitude and longitude?"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./2589.html" title="Message to which this message replies">Jonathan Blower: "[CF-metadata] Default datum for latitude and longitude?"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2591.html" title="Next message in the list">John Graybeal: "[CF-metadata] a different (but perhaps unoriginal) approach to standard name construction"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2589.html" title="Previous message in the list">Schultz, Martin: "[CF-metadata] CF: surface flux versus emissions"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./2591.html" title="Next message in this discussion thread">Jonathan Blower: "[CF-metadata] Default datum for latitude and longitude?"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./2613.html" title="Next message in this discussion thread">Christiane Textor: "[CF-metadata] mixing ratio"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./2591.html" title="Message sent in reply to this message">Jonathan Blower: "[CF-metadata] Default datum for latitude and longitude?"</a></li>
-<li><dfn>Reply</dfn>: <a href="./2592.html" title="Message sent in reply to this message">Nan Galbraith: "[CF-metadata] Default datum for latitude and longitude?"</a></li>
+<dfn>Reply</dfn>: <a href="./2613.html" title="Message sent in reply to this message">Christiane Textor: "[CF-metadata] mixing ratio"</a></li>
+<li><dfn>Reply</dfn>: <a href="./2630.html" title="Message sent in reply to this message">Pamment, JA: "[CF-metadata] mixing ratio"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -157,7 +144,7 @@ This e-mail, its content and any file attachments are confidential.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:28 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2589.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2591.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

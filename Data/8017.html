@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] WG: proposal for two new standard_names and an additional chemical species from beate.geyer at hzg.de on 2017-02-20 (mailing-list-archive)</title>
-<meta name="Author" content="beate.geyer at hzg.de (beate.geyer)" />
-<meta name="Subject" content="[CF-metadata] WG: proposal for two new standard_names and an additional chemical species" />
-<meta name="Date" content="2017-02-20" />
+<title>[CF-metadata] How to define time coordinate in GPS? from Jonathan Gregory on 2015-07-10 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] How to define time coordinate in GPS?" />
+<meta name="Date" content="2015-07-10" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./8016.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8018.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] WG: proposal for two new standard_names and an additional chemical species</h1>
-<!-- received="Mon Feb 20 01:29:41 2017" -->
-<!-- isoreceived="20170220012941" -->
-<!-- sent="Mon, 20 Feb 2017 09:29:41 +0100" -->
-<!-- isosent="20170220082941" -->
-<!-- name="beate.geyer at hzg.de" -->
-<!-- email="beate.geyer" -->
-<!-- subject="[CF-metadata] WG: proposal for two new standard_names and an additional chemical species" -->
-<!-- id="OFB8B7677D.92DC109F-ONC12580CD.002E9F3D-C12580CD.002EA99E_at_LocalDomain" -->
+<a style="text-decoration:none" href="./8016.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8018.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] How to define time coordinate in GPS?</h1>
+<!-- received="Fri Jul 10 09:31:12 2015" -->
+<!-- isoreceived="20150710083112" -->
+<!-- sent="Fri, 10 Jul 2015 16:31:12 +0100" -->
+<!-- isosent="20150710153112" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] How to define time coordinate in GPS?" -->
+<!-- id="20150710153112.GA7145_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,10 +53,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./8018.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] WG: proposal for two new standard_names and an additional chemical species&quot;">Next message</a> ]
-[ <a href="./8016.html" title="Blodgett, David: &quot;[CF-metadata] Extension of Discrete Sampling Geometries for Simple Features&quot;">Previous message</a> ]
+[ <a href="./8018.html" accesskey="d" title="Jim Biard: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">Next message</a> ]
+[ <a href="./8016.html" title="Maarten Sneep: &quot;[CF-metadata] A few descriptions seem &#0039;off&#0039;&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./8173.html" accesskey="t" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] WG: proposal for two new standard_names and an	additional chemical species&quot;">Next in thread</a> ]
+[ <a href="./8018.html" accesskey="t" title="Jim Biard: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,114 +70,40 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: beate.geyer at hzg.de &lt;<a href="mailto:beate.geyer?Subject=Re%3A%20%5BCF-metadata%5D%20WG%3A%20proposal%20for%20two%20new%20standard_names%20and%20an%20additional%20chemical%20species">beate.geyer</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20How%20to%20define%20time%20coordinate%20in%20GPS%3F">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 20 Feb 2017 09:29:41 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 10 Jul 2015 16:31:12 +0100</span><br />
 </address>
 <br />
-Dear all and especially the cf-metadata crew,
+Dear Jim
 <br />
-<br />My colleagues and I apply for an expansion of the table of chemical 
+<br /><em class="quotelev1">&gt; I think I'm just about completely in agreement with you about
+</em><br />
+<em class="quotelev1">&gt; meanings and such! I think your second bullet (*) point about
+</em><br />
+<em class="quotelev1">&gt; algorithms is not necessary, but you have worded it in such a way
+</em><br />
+<em class="quotelev1">&gt; that I'm OK with it.
+</em><br />
+<br />That's splendid news!
 <br />
-species (
+<br /><em class="quotelev1">&gt; Can you agree to changing gregorian_nls to gregorian_utc_nls?
+</em><br />
+<br />Yes. You are right, it is better to be precise.
 <br />
-<a href="http://cfconventions.org/Data/cf-standard-names/docs/guidelines.html#id2799094">http://cfconventions.org/Data/cf-standard-names/docs/guidelines.html#id2799094</a>
+<br />We must write a ticket soon, before we forget it all again. Probably most
 <br />
-): methane.
+of it is covered by the las email, but there were other points, I think,
 <br />
-<br />We apply to include partial_pressure_of_methane_in_sea_water (units: Pa)
+for instance that &quot;UTC&quot; will not be mentioned where what we actually mean is
 <br />
-with following description:
+the time zone of the Greenwich meridian (without summer time).
 <br />
-The partial pressure of a dissolved gas in sea water is the partial 
+<br />Best wishes and thanks for the collaboration
 <br />
-pressure in air with which it would be in equilibrium. The partial 
+<br />Jonathan
 <br />
-pressure of a gaseous constituent of air is the pressure which it alone 
-<br />
-would exert with unchanged temperature and number of moles per unit 
-<br />
-volume.
-<br />
-<br />The description of 
-<br />
-'surface_partial_pressure_of_carbon_dioxide_in_sea_water' includes the 
-<br />
-sentence
-<br />
-&quot;Water&quot; means water in all phases, including frozen i.e. ice and snow. 
-<br />
-which does not fit in this context ? perhaps is an update possible here.
-<br />
-<br />We apply to include the additional standard_name 
-<br />
-partial_pressure_of_carbon_dioxide_in_sea_water (units: Pa)
-<br />
-with the description
-<br />
-The partial pressure of a dissolved gas in sea water is the partial 
-<br />
-pressure in air with which it would be in equilibrium. The partial 
-<br />
-pressure of a gaseous constituent of air is the pressure which it alone 
-<br />
-would exert with unchanged temperature and number of moles per unit 
-<br />
-volume.
-<br />
-<br />The reason for this applications is the conversion of our measurement data 
-<br />
-to cf-conform netCDF.
-<br />
-<br />Thanks in advance for your help,
-<br />
-Beate Geyer
-<br />
-<br />Institut f?r K?stenforschung 
-<br />
-<br />Dr. Beate Geyer
-<br />
-Regionale Atmosph?ren Modellierung
-<br />
-<br />Telefon :          +49 4152 87-1871
-<br />
-Telefax :          +49 4152 87-41871
-<br />
-<br /><br />Helmholtz-Zentrum Geesthacht 
-<br />
-Zentrum f?r Material- und K?stenforschung GmbH 
-<br />
-Max-Planck-Stra?e 1 I 21502 Geesthacht I Deutschland/Germany 
-<br />
-<br />Gesch?ftsf?hrer/Board of Management: Prof. Dr. Wolfgang Kaysser, Dipl.-Ing. Michael Gan? 
-<br />
-Vorsitzender des Aufsichtsrates/Chairman of the Supervisory Board: Ministerialdirigent Dr. Herbert Zeisel 
-<br />
-Amtsgericht L?beck HRB 285 GE (Register Court) 
-<br />
-Internet: <a href="http://www.hzg.de">http://www.hzg.de</a>  
-<br />
--------------- next part --------------
-<br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20170220/26e9b8b7/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20170220/26e9b8b7/attachment.html</a>&gt;
-<br />
--------------- next part --------------
-<br />
-A non-text attachment was scrubbed...
-<br />
-Name: not available
-<br />
-Type: image/jpeg
-<br />
-Size: 10957 bytes
-<br />
-Desc: not available
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20170220/26e9b8b7/attachment.jpe">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20170220/26e9b8b7/attachment.jpe</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Mon Feb 20 2017 - 01:29:41 GMT</span>
+<span id="received"><dfn>Received on</dfn> Fri Jul 10 2015 - 09:31:12 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -185,12 +111,12 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start8017">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./8018.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] WG: proposal for two new standard_names and an additional chemical species"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./8016.html" title="Previous message in the list">Blodgett, David: "[CF-metadata] Extension of Discrete Sampling Geometries for Simple Features"</a></li>
+<li><dfn>Next message</dfn>: <a href="./8018.html" title="Next message in the list">Jim Biard: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./8016.html" title="Previous message in the list">Maarten Sneep: "[CF-metadata] A few descriptions seem &#0039;off&#0039;"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./8173.html" title="Next message in this discussion thread">alison.pamment at stfc.ac.uk: "[CF-metadata] WG: proposal for two new standard_names and an	additional chemical species"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./8018.html" title="Next message in this discussion thread">Jim Biard: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./8173.html" title="Message sent in reply to this message">alison.pamment at stfc.ac.uk: "[CF-metadata] WG: proposal for two new standard_names and an	additional chemical species"</a></li>
+<dfn>Reply</dfn>: <a href="./8018.html" title="Message sent in reply to this message">Jim Biard: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -201,7 +127,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:09 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./8016.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8018.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

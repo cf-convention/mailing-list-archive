@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Proposal for better handling vector quantities in CF from Thomas Lavergne on 2011-12-05 (mailing-list-archive)</title>
-<meta name="Author" content="Thomas Lavergne (t.lavergne)" />
-<meta name="Subject" content="[CF-metadata] Proposal for better handling vector quantities in CF" />
-<meta name="Date" content="2011-12-05" />
+<title>[CF-metadata] MSG CPP standard name for time_offset_of_observation / pixel_delta_time from John Graybeal on 2011-02-03 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Graybeal (jbgraybeal)" />
+<meta name="Subject" content="[CF-metadata] MSG CPP standard name for time_offset_of_observation / pixel_delta_time" />
+<meta name="Date" content="2011-02-03" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./3981.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3983.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Proposal for better handling vector quantities in CF</h1>
-<!-- received="Mon Dec  5 08:25:40 2011" -->
-<!-- isoreceived="20111205082540" -->
-<!-- sent="Mon, 5 Dec 2011 15:25:40 +0000 (UTC)" -->
-<!-- isosent="20111205152540" -->
-<!-- name="Thomas Lavergne" -->
-<!-- email="t.lavergne" -->
-<!-- subject="[CF-metadata] Proposal for better handling vector quantities in CF" -->
-<!-- id="119319825.422327.1323098740748.JavaMail.root_at_imap1a" -->
+<a style="text-decoration:none" href="./3981.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3983.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] MSG CPP standard name for time_offset_of_observation / pixel_delta_time</h1>
+<!-- received="Thu Feb  3 10:50:36 2011" -->
+<!-- isoreceived="20110203105036" -->
+<!-- sent="Thu, 3 Feb 2011 09:50:36 -0800" -->
+<!-- isosent="20110203175036" -->
+<!-- name="John Graybeal" -->
+<!-- email="jbgraybeal" -->
+<!-- subject="[CF-metadata] MSG CPP standard name for time_offset_of_observation / pixel_delta_time" -->
+<!-- id="3A47EA83-6AE0-4077-8D84-58A7C3607E48_at_mindspring.com" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20111202153213.GA24397_at_met.reading.ac.uk" -->
+<!-- inreplyto="4D4A71DE.3040709_at_knmi.nl" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./3983.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Proposal for better handling vector quantities in CF&quot;">Next message</a> ]
-[ <a href="./3981.html" title="Lorenzo Bigagli: &quot;[CF-metadata] standards for probabilities&quot;">Previous message</a> ]
-[ <a href="./3979.html" title="Jonathan Gregory: &quot;[CF-metadata] Proposal for better handling vector quantities in CF&quot;">In reply to</a> ]
+[ <a href="./3983.html" accesskey="d" title="tim.nightingale at stfc.ac.uk: &quot;[CF-metadata] MSG CPP standard name for time_offset_of_observation / pixel_delta_time&quot;">Next message</a> ]
+[ <a href="./3981.html" title="John Caron: &quot;[CF-metadata] ESRI implementation of ellipsoidal-earth&quot;">Previous message</a> ]
+[ <a href="./3977.html" title="plieger: &quot;[CF-metadata] MSG CPP standard name for time_offset_of_observation / pixel_delta_time&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./3983.html" accesskey="t" title="Jonathan Gregory: &quot;[CF-metadata] Proposal for better handling vector quantities in CF&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,64 +70,108 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Thomas Lavergne &lt;<a href="mailto:t.lavergne?Subject=Re%3A%20%5BCF-metadata%5D%20Proposal%20for%20better%20handling%20vector%20quantities%20in%20CF">t.lavergne</a>&gt;
+<dfn>From</dfn>: John Graybeal &lt;<a href="mailto:jbgraybeal?Subject=Re%3A%20%5BCF-metadata%5D%20MSG%20CPP%20standard%20name%20for%20time_offset_of_observation%20%2F%20pixel_delta_time">jbgraybeal</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 5 Dec 2011 15:25:40 +0000 (UTC)</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 3 Feb 2011 09:50:36 -0800</span><br />
 </address>
 <br />
-Hei Jonathan, and all,
+Can we propose a definition of 'time_offset'?  I might want to suggest something a little narrower than time_offset.  I can anticipate systems that include a time_offset variable that is not at all the same meaning as the time_offset being proposed here.  (Depending, of course, on how generally the definition is worded.)
 <br />
-<br />----- Original Message -----
+<br />John
 <br />
-<br /><em class="quotelev2">&gt; &gt; At the current stage, it would be valid to define an umbrella vector
+<br /><em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev2">&gt; &gt; variable from two component variables, one being dX(time,xc,yc) and
+<em class="quotelev1">&gt; The standard name alone is sufficient for our case. I agree with you
 </em><br />
-<em class="quotelev2">&gt; &gt; dY(time,height,xc,yc). What would be the meaning of such a
+<em class="quotelev1">&gt; that we should not add unnecessary complexity to the CF standard. I
 </em><br />
-<em class="quotelev2">&gt; &gt; construct? And if invalid, how can we enforce that the component
-</em><br />
-<em class="quotelev2">&gt; &gt; variables have to somehow share the same dimensions? Would a
-</em><br />
-<em class="quotelev2">&gt; &gt; sentence in the convention be enough to avoid these constructs?
+<em class="quotelev1">&gt; think we will use the standard name 'time_offset'.
 </em><br />
 <em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; I suppose that you could say that all the data variables named by the
+<em class="quotelev1">&gt; Best regards,
 </em><br />
-<em class="quotelev1">&gt; umbrella must have the same set of coordinate axes, identified by the
+<em class="quotelev1">&gt; Maarten
 </em><br />
-<em class="quotelev1">&gt; standard_names of their coordinate variables, although they do not
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; have
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; to have the same sets of coordinate values. This would exclude, for
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; instance,
+<em class="quotelev1">&gt; On 02/02/2011 05:15 PM, Jonathan Gregory wrote:
 </em><br />
-<em class="quotelev1">&gt; one data variable having time-latitude-longitude and another
+<em class="quotelev2">&gt;&gt; Dear Maarten
 </em><br />
-<em class="quotelev1">&gt; time-altitude-
+<em class="quotelev2">&gt;&gt; 
 </em><br />
-<em class="quotelev1">&gt; latitude-longitude as coordinate variables, but it would permit
+<em class="quotelev2">&gt;&gt; What you write about pixeltime as an aux coord var (y,x) and your ncdump look
 </em><br />
-<em class="quotelev1">&gt; components
+<em class="quotelev2">&gt;&gt; sensible to me. I think that's all fine.
 </em><br />
-<em class="quotelev1">&gt; on an Arakawa C-grid. Would that be sufficient?
+<em class="quotelev2">&gt;&gt; 
 </em><br />
-<br />I think that would do it, indeed. Thank you.
+<em class="quotelev3">&gt;&gt;&gt; The standard_name time_offset (s) seems good to me. In the long name we
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; can add an explanation that this variable deals with the time offset for
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; each pixel.
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; OK. So that is a definite proposal for a new standard name.
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Do you think the standard name alone is sufficient? Proposing a new attribute
+</em><br />
+<em class="quotelev2">&gt;&gt; is more work than proposing a standard_name, since it means amending the CF
+</em><br />
+<em class="quotelev2">&gt;&gt; standard. I can see there could be value in a relative_to attribute, but it
+</em><br />
+<em class="quotelev2">&gt;&gt; might be an unnecessary complexity. I wonder what you and others think.
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Best wishes
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Jonathan
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; -- 
+</em><br />
+<em class="quotelev1">&gt; Maarten Plieger
+</em><br />
+<em class="quotelev1">&gt; KNMI, R&amp;D Information and Observation Technology, De Bilt
+</em><br />
+<em class="quotelev1">&gt; (t) +31 30 2206330
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<br /><br /><br />John Graybeal   &lt;mailto:jgraybeal at ucsd.edu&gt; 
 <br />
-<br />I did not receive further comment on my proposal for handling vectors via the unbrella variable.
+phone: 858-534-2162
 <br />
-<br />Should I thus move forward and open a trac item for adding some text to the convention?
+System Development Manager
 <br />
-<br />Or should we rather first go through the current standard name table and see if all the vector components names can be grouped under higher-level umbrellas (and what these umbrella names would be)?
+Ocean Observatories Initiative Cyberinfrastructure Project: <a href="http://ci.oceanobservatories.org">http://ci.oceanobservatories.org</a>
 <br />
-<br />Cheers,
+Marine Metadata Interoperability Project: <a href="http://marinemetadata.org">http://marinemetadata.org</a>   
 <br />
-Thomas
-<br />
-<span id="received"><dfn>Received on</dfn> Mon Dec 05 2011 - 08:25:40 GMT</span>
+<span id="received"><dfn>Received on</dfn> Thu Feb 03 2011 - 10:50:36 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -137,13 +179,10 @@ Thomas
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start3982">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./3983.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Proposal for better handling vector quantities in CF"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./3981.html" title="Previous message in the list">Lorenzo Bigagli: "[CF-metadata] standards for probabilities"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./3979.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] Proposal for better handling vector quantities in CF"</a></li>
+<li><dfn>Next message</dfn>: <a href="./3983.html" title="Next message in the list">tim.nightingale at stfc.ac.uk: "[CF-metadata] MSG CPP standard name for time_offset_of_observation / pixel_delta_time"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./3981.html" title="Previous message in the list">John Caron: "[CF-metadata] ESRI implementation of ellipsoidal-earth"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./3977.html" title="Message to which this message replies">plieger: "[CF-metadata] MSG CPP standard name for time_offset_of_observation / pixel_delta_time"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./3983.html" title="Next message in this discussion thread">Jonathan Gregory: "[CF-metadata] Proposal for better handling vector quantities in CF"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./3983.html" title="Message sent in reply to this message">Jonathan Gregory: "[CF-metadata] Proposal for better handling vector quantities in CF"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -154,7 +193,7 @@ Thomas
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:55 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./3981.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3983.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

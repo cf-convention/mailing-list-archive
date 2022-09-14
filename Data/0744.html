@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]  some concerns about the &quot;ensemble axis&quot; proposal from Jonathan Gregory on 2007-03-08 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata]  some concerns about the &quot;ensemble axis&quot; proposal" />
-<meta name="Date" content="2007-03-08" />
+<title>[CF-metadata] Proposed Standard Names from Bryan Lawrence on 2005-09-20 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Bryan Lawrence (b.n.lawrence)" />
+<meta name="Subject" content="[CF-metadata] Proposed Standard Names" />
+<meta name="Date" content="2005-09-20" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0743.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0745.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  some concerns about the &quot;ensemble axis&quot; proposal</h1>
-<!-- received="Thu Mar  8 01:15:42 2007" -->
-<!-- isoreceived="20070308011542" -->
-<!-- sent="Thu, 8 Mar 2007 08:15:42 +0000" -->
-<!-- isosent="20070308081542" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata]  some concerns about the &quot;ensemble axis&quot; proposal" -->
-<!-- id="20070308081542.GA25151_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0743.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0745.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Proposed Standard Names</h1>
+<!-- received="Tue Sep 20 01:26:11 2005" -->
+<!-- isoreceived="20050920002611" -->
+<!-- sent="Tue, 20 Sep 2005 08:26:11 +0100" -->
+<!-- isosent="20050920072611" -->
+<!-- name="Bryan Lawrence" -->
+<!-- email="b.n.lawrence" -->
+<!-- subject="[CF-metadata] Proposed Standard Names" -->
+<!-- id="200509200826.11703.b.n.lawrence_at_rl.ac.uk" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20050919223614.GA27287_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0745.html" accesskey="d" title="Steve Hankin: &quot;[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal&quot;">Next message</a> ]
-[ <a href="./0743.html" title="Jennifer Adams: &quot;[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal&quot;">Previous message</a> ]
+[ <a href="./0745.html" accesskey="d" title="Beate.Geyer at gkss.de: &quot;[CF-metadata] vertical coordinate&quot;">Next message</a> ]
+[ <a href="./0743.html" title="Jonathan Gregory: &quot;[CF-metadata] Proposed Standard Names&quot;">Previous message</a> ]
+[ <a href="./0743.html" title="Jonathan Gregory: &quot;[CF-metadata] Proposed Standard Names&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,46 +70,226 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20some%20concerns%20about%20the%20%22ensemble%20axis%22%20proposal">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Bryan Lawrence &lt;<a href="mailto:b.n.lawrence?Subject=Re%3A%20%5BCF-metadata%5D%20Proposed%20Standard%20Names">b.n.lawrence</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 8 Mar 2007 08:15:42 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 20 Sep 2005 08:26:11 +0100</span><br />
 </address>
 <br />
-Dear Jon
+Hi Folks
 <br />
-<br />I agree with you that the ensemble dimension is an &quot;index&quot; dimension which is
+<br />Just as a general point, if we want to maintain as much interoperability 
 <br />
-not ordered. You can subset it, which means extracting particular values of
+between vocabs as possible, then we want to avoid as much pushing off of 
 <br />
-the index e.g. those where the institution is &quot;Met Office&quot;, but it is not
+semantic information to the coordinate variable ... so I would argue for 
 <br />
-meaningful to extract a range, like you do for a continuous coordinate, e.g.
+keeping words like &quot;surface&quot; and &quot;back&quot; available as modifiers of standard 
 <br />
-0--45degN.
+names 
 <br />
-<br />We ought to distinguish between the issues of (a) the metadata model for the
+<br />(I know that currently we don't use them as modifiers per se, but we may have 
 <br />
-ensemble axis and (b) how to aggregate datasets. We can discuss (a) in the
+that option in the future).
 <br />
-framework of netCDF files, as we have been doing, but we recognise that
+<br />Cheers
 <br />
-increasingly the data may not actually be stored in such self-contained files.
+Bryan
 <br />
-So far CF is a standard that deals exclusively with self-contained netCDF
+<br /><br />On Monday 19 September 2005 23:36, Jonathan Gregory wrote:
 <br />
-files. It doesn't have any conventions about how to treat several files as
-<br />
-a single dataset, because this has been done by different applications in
-<br />
-their own ways. I think that we should now try to define conventions for
-<br />
-aggregation, but I would suggest we should do that in a different thread.
-<br />
-<br />Best wishes
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Thu Mar 08 2007 - 01:15:42 GMT</span>
+<em class="quotelev1">&gt; Dear Mike
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Thanks for your reply. I think that clears up pretty much everything. All
+</em><br />
+<em class="quotelev1">&gt; these are agreed:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  * speed_of_sound_in_sea_water:m s-1
+</em><br />
+<em class="quotelev1">&gt;  * height_above_sea_floor:m
+</em><br />
+<em class="quotelev1">&gt;  * volume_absorption_coefficient_of_radiation_in_sea_water:m-1
+</em><br />
+<em class="quotelev1">&gt;  * volume_attenuation_coefficient_of_radiation_in_sea_water:m-1
+</em><br />
+<em class="quotelev1">&gt;  * volume_scattering_function_of_radiation_in_sea_water:m-1 sr-1
+</em><br />
+<em class="quotelev1">&gt;  * omnidirectional_photosynthetic_spherical_irradiance_in_sea_water:W m-2
+</em><br />
+<em class="quotelev1">&gt;  * omnidirectional_spectral_spherical_irradiance_in_sea_water:W m-3 I
+</em><br />
+<em class="quotelev1">&gt;  * moles_of_oxygen_per_unit_mass_in_sea_water:mol kg-1
+</em><br />
+<em class="quotelev1">&gt;  * moles_of_nitrate_per_unit_mass_in_sea_water:mol kg-1
+</em><br />
+<em class="quotelev1">&gt;  * moles_of_phosphate_per_unit_mass_in_sea_water:mol kg-1
+</em><br />
+<em class="quotelev1">&gt;  * moles_of_silicate_per_unit_mass_in_sea_water:mol kg-1
+</em><br />
+<em class="quotelev1">&gt;  * moles_of_nitrite_per_unit_mass_in_sea_water:mol kg-1
+</em><br />
+<em class="quotelev1">&gt;  * moles_of_nitrate_and_nitrite_per_unit_mass_in_sea_water:mol kg-1
+</em><br />
+<em class="quotelev1">&gt;  * bioluminescent_photon_rate_in_sea_water:s-1 m-3
+</em><br />
+<em class="quotelev1">&gt;  * fractional_saturation_of_oxygen_in_sea_water:1
+</em><br />
+<em class="quotelev1">&gt;  * volume_mixing_ratio_of_oxygen_at_stp_in_sea_water:1
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; I would like to propose that absorption, attenuation, AND scattering
+</em><br />
+<em class="quotelev2">&gt; &gt; should be integrals over all wavelengths, unless there is a coordinate
+</em><br />
+<em class="quotelev2">&gt; &gt; variable specifying range(s) of wavelengths.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Yes, I agree.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; On the topic of scattering, I had argued that in addition to a general
+</em><br />
+<em class="quotelev2">&gt; &gt; &quot;scattering&quot; variable, there ought to be a variable called
+</em><br />
+<em class="quotelev2">&gt; &gt; &quot;backscattering&quot;. Your reply was that backscattering is just a special
+</em><br />
+<em class="quotelev2">&gt; &gt; case of scattering, and that a coordinate variable should be used to
+</em><br />
+<em class="quotelev2">&gt; &gt; differentiate the two.  Well, I agree that the coordinate variable is
+</em><br />
+<em class="quotelev2">&gt; &gt; important, because there certainly are many angles around which
+</em><br />
+<em class="quotelev2">&gt; &gt; scattering is measured.  However, I would like to propose once again that
+</em><br />
+<em class="quotelev2">&gt; &gt; &quot;back&quot; be retained as a special case of &quot;scattering&quot; in much the same way
+</em><br />
+<em class="quotelev2">&gt; &gt; that &quot;upwelling&quot; and &quot;downwelling&quot; are used modify &quot;radiation&quot;, conveying
+</em><br />
+<em class="quotelev2">&gt; &gt; concepts that can be expressed concisely with a coordinate variable, but
+</em><br />
+<em class="quotelev2">&gt; &gt; which are conveyed more clearly with a choice of name.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Where there are names containing &quot;upwelling&quot; and &quot;downwelling&quot;, we do not
+</em><br />
+<em class="quotelev1">&gt; also have a &quot;generic&quot; name that could be either, so it's not an exact
+</em><br />
+<em class="quotelev1">&gt; analogy. Are you proposing we should have *both* of
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  * volume_backwards_scattering_coefficient_of_radiation_in_sea_water:m-1
+</em><br />
+<em class="quotelev1">&gt;  * volume_scattering_coefficient_of_radiation_in_sea_water:m-1
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I think this would be OK if the first is defined to apply to the sum of all
+</em><br />
+<em class="quotelev1">&gt; backward scattering angles, and is not allowed to specify scattering angle
+</em><br />
+<em class="quotelev1">&gt; as a coordinate. If that's a common quantity, I agree it would be useful to
+</em><br />
+<em class="quotelev1">&gt; have a name for it, and probably we should have a correspondingly defined
+</em><br />
+<em class="quotelev1">&gt; &quot;forward&quot; one as well. We have also agreed we need to define
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;   * scattering_angle:rad
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; I had used the term &quot;surface&quot; in some of my original proposed variable
+</em><br />
+<em class="quotelev2">&gt; &gt; names... It is probably redundant in the cases I had suggested, since
+</em><br />
+<em class="quotelev2">&gt; &gt; there will often be a coordinate variable that indicates depth or
+</em><br />
+<em class="quotelev2">&gt; &gt; altitude = 0.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Regarding
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  * partial_pressure_of_carbon_dioxide_in_air:Pa
+</em><br />
+<em class="quotelev1">&gt;  * partial_pressure_of_carbon_dioxide_in_sea_water:Pa
+</em><br />
+<em class="quotelev1">&gt;  * carbon_dioxide_partial_pressure_difference_between_air_and_sea_water:Pa
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; If these are surface quantities, I think we should put &quot;surface_&quot; on each
+</em><br />
+<em class="quotelev1">&gt; of them. This is the general rule. The point is that there are many
+</em><br />
+<em class="quotelev1">&gt; coordinates you could equivalently use to indicate &quot;surface&quot;, so it's
+</em><br />
+<em class="quotelev1">&gt; inelegant to introduce a single-valued coordinate variable solely for that
+</em><br />
+<em class="quotelev1">&gt; purpose, and makes things complicated for the data-reading program, which
+</em><br />
+<em class="quotelev1">&gt; would have to check for many possibilities.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; Finally, for sea water flow ... it applies to instruments that have
+</em><br />
+<em class="quotelev2">&gt; &gt; internal measurement elements and require a pump to ensure flow through
+</em><br />
+<em class="quotelev2">&gt; &gt; the measurement elements.  Commonly, the flow rate through these
+</em><br />
+<em class="quotelev2">&gt; &gt; measurement elements is also measured, usually as a quality control
+</em><br />
+<em class="quotelev2">&gt; &gt; check.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Is it appropriate to have a standard name for this? It sounds rather
+</em><br />
+<em class="quotelev1">&gt; specific to the measurement technique and instrument. Would it often be
+</em><br />
+<em class="quotelev1">&gt; useful to label this quantity in such a way that it could be compared in
+</em><br />
+<em class="quotelev1">&gt; datasets from different sources (the main use of standard names)? If not,
+</em><br />
+<em class="quotelev1">&gt; it might be better to use a long_name for it.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Best wishes
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Jonathan
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<br /><pre>
+-- 
+Bryan Lawrence
+Head, NCAS/British Atmospheric Data Centre
+Director, CCLRC/Environmental Data Archival and Associated Research
+badc.nerc.ac.uk, home.badc.rl.ac.uk/lawrence, +44 1235 445012
+(CCLRC, Rutherford Appleton Laboratory, Chilton, Didcot, OX11 0QX)
+</pre>
+<span id="received"><dfn>Received on</dfn> Tue Sep 20 2005 - 01:26:11 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -115,8 +297,9 @@ aggregation, but I would suggest we should do that in a different thread.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start744">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0745.html" title="Next message in the list">Steve Hankin: "[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0743.html" title="Previous message in the list">Jennifer Adams: "[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0745.html" title="Next message in the list">Beate.Geyer at gkss.de: "[CF-metadata] vertical coordinate"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0743.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Proposed Standard Names"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0743.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] Proposed Standard Names"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -128,7 +311,7 @@ aggregation, but I would suggest we should do that in a different thread.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:55 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0743.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0745.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

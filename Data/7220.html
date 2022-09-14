@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] How to define time coordinate in GPS? from Jonathan Gregory on 2015-07-14 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] How to define time coordinate in GPS?" />
-<meta name="Date" content="2015-07-14" />
+<title>[CF-metadata] Is there a 'turnkey' application that displays CF trajectory plots? from Jim Biard on 2014-08-06 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jim Biard (jim.biard)" />
+<meta name="Subject" content="[CF-metadata] Is there a 'turnkey' application that displays CF trajectory plots?" />
+<meta name="Date" content="2014-08-06" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./7219.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7221.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] How to define time coordinate in GPS?</h1>
-<!-- received="Tue Jul 14 11:48:14 2015" -->
-<!-- isoreceived="20150714104814" -->
-<!-- sent="Tue, 14 Jul 2015 18:48:14 +0100" -->
-<!-- isosent="20150714174814" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] How to define time coordinate in GPS?" -->
-<!-- id="20150714174814.GA7814_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./7219.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7221.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Is there a 'turnkey' application that displays CF trajectory plots?</h1>
+<!-- received="Wed Aug  6 08:42:55 2014" -->
+<!-- isoreceived="20140806074255" -->
+<!-- sent="Wed, 06 Aug 2014 10:42:55 -0400" -->
+<!-- isosent="20140806144255" -->
+<!-- name="Jim Biard" -->
+<!-- email="jim.biard" -->
+<!-- subject="[CF-metadata] Is there a 'turnkey' application that displays CF trajectory plots?" -->
+<!-- id="53E23EEF.7000002_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,10 +53,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./7221.html" accesskey="d" title="Nan Galbraith: &quot;[CF-metadata] A few descriptions seem &#0039;off&#0039;&quot;">Next message</a> ]
-[ <a href="./7219.html" title="Maarten Sneep: &quot;[CF-metadata] proposal for new standard names for various trace gas quantities&quot;">Previous message</a> ]
+[ <a href="./7221.html" accesskey="d" title="Cathy Smith: &quot;[CF-metadata] Is there a &#0039;turnkey&#0039; application that displays CF trajectory plots?&quot;">Next message</a> ]
+[ <a href="./7219.html" title="John Graybeal: &quot;[CF-metadata] normalized_radar_backscatter_coefficient&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./7222.html" accesskey="t" title="Karl Taylor: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">Next in thread</a> ]
+[ <a href="./7221.html" accesskey="t" title="Cathy Smith: &quot;[CF-metadata] Is there a &#0039;turnkey&#0039; application that displays CF trajectory plots?&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,92 +70,48 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20How%20to%20define%20time%20coordinate%20in%20GPS%3F">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jim Biard &lt;<a href="mailto:jim.biard?Subject=Re%3A%20%5BCF-metadata%5D%20Is%20there%20a%20'turnkey'%20application%20that%20displays%20CF%20trajectory%20plots%3F">jim.biard</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 14 Jul 2015 18:48:14 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 06 Aug 2014 10:42:55 -0400</span><br />
 </address>
 <br />
-Dear Karl
+Hi.
 <br />
-<br />Thank you for your useful summary, which I think is quite right. That will
+<br />We are working on building a CF-compliant trajectory dataset. I'd like 
 <br />
-provide some good text for the standard document.
+to be able to verify correctness by using an existing application to 
 <br />
-<br />You suggest merging gregorian_nls (for models, exactly 86400-second days)
+plot the trajectories, but I can't seem to find any applications that 
 <br />
-into gregorian (imprecise about which calendar is used and how encoded),
+are &quot;trajectory aware&quot;.  Any suggestions?
 <br />
-distinguishing them according to whether the data is model or observational.
+<br />Grace and peace,
 <br />
-<br />I'm not comfortable with that. I can't think of another case in CF where the
+<br />Jim
 <br />
-metadata is designed to be interpreted differently for models and observations,
-<br />
-and it would not be easy to do, because there's no metadata that is guaranteed
-<br />
-to be present in a standard form to tell you if it's model or observational.
-<br />
-Yet I think this distinction must be made. It would not be satisfactory if
-<br />
-users interpreted the imprecision of &quot;gregorian&quot; to mean they could decode
-<br />
-model data e.g. from CMIP using the UTC calendar, and found days that appear to
-<br />
-start 16 seconds different from midnight. I am sure this would cause problems
-<br />
-e.g. wrong months selected. That's why I think we need gregorian_nls as a model
-<br />
-calendar, to be used instead of gregorian in future where applicable. We need
-<br />
-to be able to assert that the 86400-second day definitely applies.
-<br />
-<br />I agree with Jim that there is a distinction between gregorian_utc_nls and
-<br />
-gregorian too. Some people supplying observational data don't require the
-<br />
-precision of specifying UTC (or GPS), so they don't want to choose gregorian_
-<br />
-utc or gregorian_gps. Nan argued this case. Others however may wish to be
-<br />
-precise about UTC timestamps, but choose to encode it without leap seconds.
-<br />
-So I think we need the meaning of gregorian_utc_nls.
-<br />
-<br />However, on reflection I convinced myself (at least! - but not Jim) that the
-<br />
-distinction between gregorian_nls (for models) and gregorian_utc_nls (for
-<br />
-the real world) is too subtle to make reliably, so I suggested we should use
-<br />
-gregorian_nls for both, and say that *if* it is observational data, it must
-<br />
-be UTC. That's not quite the same as your suggestion, because the timestamps
-<br />
-can be exactly recovered without knowing if it's model or observational, but
-<br />
-you would need to know in order to tell whether the elapsed times are accurate
-<br />
-(as they are for model data) or perhaps not accurate (for real world data).
-<br />
-Whereas I regard timestamps as more important, Jim tends to regard elapsed
-<br />
-times as more important, so I guess this second issue would count more for him.
-<br />
-If it is crucial, then we need both gregorian_nls and gregorian_utc_nls. The
-<br />
-distinction is whether it is model or real-world time. My concern is that when
-<br />
-when models are used to simulate events that happened in real-world time, data-
-<br />
-producers may often find it hard to decide between these alternatives, and it's
-<br />
-unclear whether it's useful to do so anyway.
-<br />
-<br />Best wishes
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Tue Jul 14 2015 - 11:48:14 BST</span>
+<pre>
+-- 
+CICS-NC &lt;<a href="http://www.cicsnc.org/">http://www.cicsnc.org/</a>&gt; Visit us on
+Facebook &lt;<a href="http://www.facebook.com/cicsnc">http://www.facebook.com/cicsnc</a>&gt; 	*Jim Biard*
+*Research Scholar*
+Cooperative Institute for Climate and Satellites NC &lt;<a href="http://cicsnc.org/">http://cicsnc.org/</a>&gt;
+North Carolina State University &lt;<a href="http://ncsu.edu/">http://ncsu.edu/</a>&gt;
+NOAA's National Climatic Data Center &lt;<a href="http://ncdc.noaa.gov/">http://ncdc.noaa.gov/</a>&gt;
+151 Patton Ave, Asheville, NC 28801
+e: jim.biard at noaa.gov
+o: +1 828 271 4900
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140806/8a41be95/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140806/8a41be95/attachment.html</a>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: dajddigd.png
+Type: image/png
+Size: 11847 bytes
+Desc: not available
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140806/8a41be95/attachment.png">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140806/8a41be95/attachment.png</a>&gt;
+</pre>
+<span id="received"><dfn>Received on</dfn> Wed Aug 06 2014 - 08:42:55 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -163,12 +119,13 @@ unclear whether it's useful to do so anyway.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start7220">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./7221.html" title="Next message in the list">Nan Galbraith: "[CF-metadata] A few descriptions seem &#0039;off&#0039;"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./7219.html" title="Previous message in the list">Maarten Sneep: "[CF-metadata] proposal for new standard names for various trace gas quantities"</a></li>
+<li><dfn>Next message</dfn>: <a href="./7221.html" title="Next message in the list">Cathy Smith: "[CF-metadata] Is there a &#0039;turnkey&#0039; application that displays CF trajectory plots?"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./7219.html" title="Previous message in the list">John Graybeal: "[CF-metadata] normalized_radar_backscatter_coefficient"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./7222.html" title="Next message in this discussion thread">Karl Taylor: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./7221.html" title="Next message in this discussion thread">Cathy Smith: "[CF-metadata] Is there a &#0039;turnkey&#0039; application that displays CF trajectory plots?"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./7222.html" title="Message sent in reply to this message">Karl Taylor: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
+<dfn>Reply</dfn>: <a href="./7221.html" title="Message sent in reply to this message">Cathy Smith: "[CF-metadata] Is there a &#0039;turnkey&#0039; application that displays CF trajectory plots?"</a></li>
+<li><dfn>Reply</dfn>: <a href="./7222.html" title="Message sent in reply to this message">Don Murray: "[CF-metadata] Is there a &#0039;turnkey&#0039; application that displays CF trajectory plots?"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -179,7 +136,7 @@ unclear whether it's useful to do so anyway.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:58 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./7219.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7221.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

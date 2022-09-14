@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] per-variable metadata? from Lowry, Roy K. on 2011-08-04 (mailing-list-archive)</title>
-<meta name="Author" content="Lowry, Roy K. (rkl)" />
-<meta name="Subject" content="[CF-metadata] per-variable metadata?" />
-<meta name="Date" content="2011-08-04" />
+<title>[CF-metadata] coordinate bounds with non-unique coordinate values from John Caron on 2010-09-20 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] coordinate bounds with non-unique coordinate values" />
+<meta name="Date" content="2010-09-20" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./3613.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3615.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] per-variable metadata?</h1>
-<!-- received="Thu Aug  4 14:13:05 2011" -->
-<!-- isoreceived="20110804131305" -->
-<!-- sent="Thu, 4 Aug 2011 21:13:05 +0100" -->
-<!-- isosent="20110804201305" -->
-<!-- name="Lowry, Roy K." -->
-<!-- email="rkl" -->
-<!-- subject="[CF-metadata] per-variable metadata?" -->
-<!-- id="40829B0E077C1145A6DE44D39B3830A9200A4B7353_at_nerckwmb1.ad.nerc.ac.uk" -->
+<a style="text-decoration:none" href="./3613.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3615.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] coordinate bounds with non-unique coordinate values</h1>
+<!-- received="Mon Sep 20 15:18:07 2010" -->
+<!-- isoreceived="20100920141807" -->
+<!-- sent="Mon, 20 Sep 2010 15:18:07 -0600" -->
+<!-- isosent="20100920211807" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] coordinate bounds with non-unique coordinate values" -->
+<!-- id="4C97CF8F.5030101_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4E3AE225.5030907_at_whoi.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +53,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./3615.html" accesskey="d" title="Upendra Dadi: &quot;[CF-metadata] per-variable metadata?&quot;">Next message</a> ]
-[ <a href="./3613.html" title="Nan Galbraith: &quot;[CF-metadata] per-variable metadata?&quot;">Previous message</a> ]
-[ <a href="./3613.html" title="Nan Galbraith: &quot;[CF-metadata] per-variable metadata?&quot;">In reply to</a> ]
+[ <a href="./3615.html" accesskey="d" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] CMIP5 cloud, aerosol and radiation standard names&quot;">Next message</a> ]
+[ <a href="./3613.html" title="Pierre Friedlingstein: &quot;[CF-metadata] CMIP5 carbon cycle standard names&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./3619.html" accesskey="t" title="Nan Galbraith: &quot;[CF-metadata] per-variable metadata?&quot;">Next in thread</a> ]
+[ <a href="./3618.html" accesskey="t" title="Jonathan Gregory: &quot;[CF-metadata] coordinate bounds with non-unique coordinate values&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,122 +70,190 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Lowry, Roy K. &lt;<a href="mailto:rkl?Subject=Re%3A%20%5BCF-metadata%5D%20per-variable%20metadata%3F">rkl</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20coordinate%20bounds%20with%20non-unique%20coordinate%20values">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 4 Aug 2011 21:13:05 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 20 Sep 2010 15:18:07 -0600</span><br />
 </address>
 <br />
-Hi Nan,
+&nbsp;&nbsp;While decoding NCEP forecast model output in GRIB2, and converting to 
 <br />
-<br />Encoding what I would regard as usage metadata into ancilliary variables is one solution, but I would much rather see a formalised metadata model for doing this.  As you say a standard way of doing this is long overdue. My hope is that SeadataNet II starting later this year will take on and address this challenge.  However, if anybody knows of anything already in existence that fits the bill it would be good to prevent yet another wheel being reinvented.
+CF-NetCDF, we have run across time coordinates that are actually 
 <br />
-<br />Cheers, Roy.
+intervals, not points. The time intervals are unique, but sometimes the 
 <br />
-________________________________
+forecast time coordinate values are not.
 <br />
-From: cf-metadata-bounces at cgd.ucar.edu [cf-metadata-bounces at cgd.ucar.edu] On Behalf Of Nan Galbraith [ngalbraith at whoi.edu]
+<br />For example, below is the &quot;Total_precipitation&quot; variable and its time 
 <br />
-Sent: 04 August 2011 19:17
+coordinates, from the NAM Conus 12km model run on 2010-09-14T00:00:00Z, 
 <br />
-To: Steve Hankin; cf-metadata at cgd.ucar.edu
+coming over the conduit data feed:
 <br />
-Cc: Jeff deLaBeaujardiere
+<br />&nbsp;&nbsp;&nbsp;float Total_precipitation(time=50, y=428, x=614);
 <br />
-Subject: Re: [CF-metadata] per-variable metadata?
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:units = &quot;kg m-2&quot;;
 <br />
-<br />Hi Steve -
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:long_name = &quot;Total_precipitation_Accumulation (Accumulation for  
 <br />
-<br />I'm very interested in the background discussion on this -
+Mixed Intervals) _at_ surface&quot;;
 <br />
-any chance of bringing it into the foreground?
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:cell_methods = &quot;time: sum&quot;;
 <br />
-<br />I'm using ancillary variables in 2-D in situ data files to describe
+<br />&nbsp;&nbsp;&nbsp;&nbsp;int time(time=50);
 <br />
-instruments and things like precision, accuracy, sample scheme,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:long_name = &quot;forecast time for (mixed intervals)&quot;;
 <br />
-etc.. For temperature files from moorings where different sensor
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:units = &quot;hour since 2010-09-14T00:00:00Z&quot;;
 <br />
-types are at different depths, I'd like to use something like
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:bounds = &quot;time_bounds&quot;;
 <br />
-<br />TEMP:ancillary_variables = &quot;Instrument_manufacturer Instrument_model
+<br />&nbsp;&nbsp;data:
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instrument_sample_scheme Instrument_serial_number TEMP_qc_procedure
+<br />&nbsp;&nbsp;&nbsp;{0, 3, 6, 6, 9, 9, 12, 12, 15, 18, 18, 21, 21, 24, 24, 27, 30, 30, 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TEMP_accuracy TEMP_precision TEMP_resolution&quot;;
+33, 33, 36, 36, 39, 42, 42, 45, 45, 48, 48, 51, 54, 54, 57, 57, 60, 60, 
 <br />
-and then
+63, 66, 66, 69, 69, 72, 72, 75, 78, 78, 81, 81, 84, 84}
 <br />
-short INST_SN(depth) ;
+<br />&nbsp;&nbsp;&nbsp;int time_bounds(time=50, bounds_dim=2);
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INST_SN:long_name = &quot;instrument_serial_number&quot; ;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:long_name = &quot;bounds for time&quot;;
 <br />
-... etc., etc.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:units = &quot;hour since 2010-09-14T00:00:00Z&quot;;
 <br />
-<br />If there's going to be a standard way to do this, I'd really like to
+<br />&nbsp;&nbsp;data:
 <br />
-know about it - sooner rather than than later.
+<br />&nbsp;&nbsp;&nbsp;{
 <br />
-<br />Thanks -
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{0, 0},
 <br />
-Nan
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{0, 3},
 <br />
-<br />On 8/4/11 11:35 AM, Steve Hankin wrote:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{0, 6},
 <br />
-Hi Jeff,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{3, 6},
 <br />
-<br />Each variable in a CF file may possess an |ancillary_variables| attribute, that points to variables that have relationships (<a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.5/cf-conventions.html#ancillary-data">http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.5/cf-conventions.html#ancillary-data</a>).  To attach flags to a variable, use |ancillary_variables| to point to a variable that has |flag_values||| and |flag_meanings |attributes (<a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.5/cf-conventions.html#flags">http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.5/cf-conventions.html#flags</a>).
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{0, 9},
 <br />
-<br />We have started a discussion in the background, whether an example that illustrates this should be included in the CF documentation.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{6, 9},
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;- Steve
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{0, 12},
 <br />
-<br />=====================================================
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{9, 12},
 <br />
-<br />On 7/14/2010 6:21 AM, Jeff deLaBeaujardiere wrote:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{12, 15},
 <br />
-In another discussion, Steve Hankin wrote:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{12, 18},
 <br />
-<em class="quotelev1">&gt; CF generally favors attributes attached to variables over attributes attached to files
-</em><br />
-<br />This reminds me of a question I wanted to ask: does CF have any conventions regarding how to handle data that contains multiple observed quantities with different quality flags, comment fields or other attributes for each quantity?
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{15, 18},
 <br />
-<br />-Jeff DLB
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{12, 21},
 <br />
-<br /><br /><br />_______________________________________________
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{18, 21},
 <br />
-CF-metadata mailing list
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{12, 24},
 <br />
-CF-metadata at cgd.ucar.edu&lt;mailto:CF-metadata at cgd.ucar.edu&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{21, 24},
 <br />
-<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{24, 27},
 <br />
-<br /><br /><br />_______________________________________________
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{24, 30},
 <br />
-CF-metadata mailing list
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{27, 30},
 <br />
-CF-metadata at cgd.ucar.edu&lt;mailto:CF-metadata at cgd.ucar.edu&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{24, 33},
 <br />
-<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{30, 33},
 <br />
-<br /><br /><br /><br /><pre>
---
-*******************************************************
-* Nan Galbraith                        (508) 289-2444 *
-* Upper Ocean Processes Group            Mail Stop 29 *
-* Woods Hole Oceanographic Institution                *
-* Woods Hole, MA 02543                                *
-*******************************************************
--- 
-This message (and any attachments) is for the recipient only. NERC
-is subject to the Freedom of Information Act 2000 and the contents
-of this email and any reply you make may be disclosed by NERC unless
-it is exempt from release under the Act. Any material supplied to
-NERC may be stored in an electronic records management system.
--------------- next part --------------
-An HTML attachment was scrubbed...
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20110804/32e377c8/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20110804/32e377c8/attachment.html</a>&gt;
-</pre>
-<span id="received"><dfn>Received on</dfn> Thu Aug 04 2011 - 14:13:05 BST</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{24, 36},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{33, 36},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{36, 39},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{36, 42},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{39, 42},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{36, 45},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{42, 45},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{36, 48},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{45, 48},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{48, 51},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{48, 54},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{51, 54},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{48, 57},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{54, 57},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{48, 60},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{57, 60},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{60, 63},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{60, 66},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{63, 66},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{60, 69},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{66, 69},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{60, 72},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{69, 72},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{72, 75},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{72, 78},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{75, 78},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{72, 81},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{78, 81},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{72, 84},
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{81, 84}
+<br />
+&nbsp;&nbsp;&nbsp;}
+<br />
+<br />So these are accumulations of total precipitation at the surface, and 
+<br />
+for whatever reason the data producers want to output multiple 
+<br />
+accumulation intervals with the same forecast time. Note that the 
+<br />
+forecast time coordinate is always the end of the interval, and is not 
+<br />
+unique.
+<br />
+<br />My thought is that since the bounds are unique, this is a reasonable way 
+<br />
+to encode this, even though it violates the rule for unique, monotonic 
+<br />
+coordinates. My argument is that the &quot;unique, monotonic coordinates&quot; 
+<br />
+rule covers the common case for coordinate variables, but is sometimes 
+<br />
+not appropriate, as in this case.  Thus would require a client to make 
+<br />
+coordinate bounds (when they exist) an integral part of coordinate 
+<br />
+processing, however.
+<br />
+<br />Comments are solicited.
+<br />
+<span id="received"><dfn>Received on</dfn> Mon Sep 20 2010 - 15:18:07 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -195,13 +261,12 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start3614">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./3615.html" title="Next message in the list">Upendra Dadi: "[CF-metadata] per-variable metadata?"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./3613.html" title="Previous message in the list">Nan Galbraith: "[CF-metadata] per-variable metadata?"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./3613.html" title="Message to which this message replies">Nan Galbraith: "[CF-metadata] per-variable metadata?"</a></li>
+<li><dfn>Next message</dfn>: <a href="./3615.html" title="Next message in the list">alison.pamment at stfc.ac.uk: "[CF-metadata] CMIP5 cloud, aerosol and radiation standard names"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./3613.html" title="Previous message in the list">Pierre Friedlingstein: "[CF-metadata] CMIP5 carbon cycle standard names"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./3619.html" title="Next message in this discussion thread">Nan Galbraith: "[CF-metadata] per-variable metadata?"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./3618.html" title="Next message in this discussion thread">Jonathan Gregory: "[CF-metadata] coordinate bounds with non-unique coordinate values"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./3619.html" title="Message sent in reply to this message">Nan Galbraith: "[CF-metadata] per-variable metadata?"</a></li>
+<dfn>Reply</dfn>: <a href="./3618.html" title="Message sent in reply to this message">Jonathan Gregory: "[CF-metadata] coordinate bounds with non-unique coordinate values"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -212,7 +277,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:49 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./3613.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3615.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

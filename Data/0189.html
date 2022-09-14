@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Standard names for altimeter data from Tom Gross on 2006-08-22 (mailing-list-archive)</title>
-<meta name="Author" content="Tom Gross (Tom.Gross)" />
-<meta name="Subject" content="[CF-metadata] Standard names for altimeter data" />
-<meta name="Date" content="2006-08-22" />
+<title>[CF-metadata] bounds from Jonathan Gregory on 2003-06-20 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] bounds" />
+<meta name="Date" content="2003-06-20" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0188.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0190.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Standard names for altimeter data</h1>
-<!-- received="Tue Aug 22 11:34:16 2006" -->
-<!-- isoreceived="20060822103416" -->
-<!-- sent="Tue, 22 Aug 2006 13:34:16 -0400" -->
-<!-- isosent="20060822173416" -->
-<!-- name="Tom Gross" -->
-<!-- email="Tom.Gross" -->
-<!-- subject="[CF-metadata] Standard names for altimeter data" -->
-<!-- id="44EB4018.8050602_at_noaa.gov" -->
+<a style="text-decoration:none" href="./0188.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0190.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] bounds</h1>
+<!-- received="Fri Jun 20 09:40:36 2003" -->
+<!-- isoreceived="20030620084036" -->
+<!-- sent="Fri, 20 Jun 2003 16:40:36 +0100" -->
+<!-- isosent="20030620154036" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] bounds" -->
+<!-- id="20030620154036.GA12764_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="s4eafc88.086_at_wpo.nerc.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0190.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Standard names for altimeter data&quot;">Next message</a> ]
-[ <a href="./0188.html" title="Nan Galbraith: &quot;[CF-metadata] Precipitation query&quot;">Previous message</a> ]
+[ <a href="./0190.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Exner function&quot;">Next message</a> ]
+[ <a href="./0188.html" title="Brian Eaton: &quot;[CF-metadata] bounds&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0191.html" accesskey="t" title="Brian Eaton: &quot;[CF-metadata] bounds&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -69,198 +70,80 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Tom Gross &lt;<a href="mailto:Tom.Gross?Subject=Re%3A%20%5BCF-metadata%5D%20Standard%20names%20for%20altimeter%20data">Tom.Gross</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20bounds">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 22 Aug 2006 13:34:16 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 20 Jun 2003 16:40:36 +0100</span><br />
 </address>
 <br />
-I may not have a CF compliant thinking process here, but I see little, if any, difference in the need of an offset reference attribute verses the need of a units attribute.  The units attribute is often a multiplier between equivalent descriptions, while the reference is an additive difference between equivalent descriptions.
+Dear Brian
 <br />
-<br />Maybe the existence of the needed metadata attribute is the only thing needed to be encoded into the standard name, like: 
+<br />Well, I think we do almost agree! Not quite, though.
 <br />
-<em class="quotelev2">&gt;&gt;
+<br /><em class="quotelev1">&gt; trying to classify grids by an &quot;underlying x-y
 </em><br />
-On the other hand, we could also take advantage of the situation by 
+<em class="quotelev1">&gt; arrangement&quot;.  We do not resort to such language in the current CF document
+</em><br />
+<em class="quotelev1">&gt; when describing the use of 2-D lat/lon arrays for grid coordinates.
+</em><br />
+<br />Yes, I agree. However, what I meant by that phrase is implied what you have
 <br />
-introducing some new standard names, more general, like 
+said at the start of (3) i.e. there are 2D lat and lon variables and the cells
 <br />
-&quot;sea_surface_height_above_reference_surface&quot; and 
+have four sides.
 <br />
-&quot;sea_surface_height_above_reference_profile&quot;, that would include all sea 
+<br />I agree with what you have said except the requirement in (3) for them to
 <br />
-surface height kinds of parameters, and all the reference datums?
+be contiguous. The test you give indicates whether they are contiguous. It's
 <br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<br />Which could imply the existence of the attribute  &quot;reference_surface&quot; or 
+well defined how to test it in this case. There might still be 4-sided cells
 <br />
-&quot;reference_profile&quot;
+in 2D arrays and not be contiguous if there was a row or column &quot;missing&quot;.
 <br />
-or more simply &quot;reference&quot;.
+This is just an extension of the 1D case and it makes the contiguousness test
 <br />
-<br />If a person wanted to specify his sea surface height without a reference 
+useful, because *some* of the rows and columns may be contiguous, others not.
 <br />
-datum I suppose that they could use a name like &quot;sea_surface_height&quot; 
+<br />Consider this situation: suppose you did have a 2D grid completely covering the
 <br />
-with no reference, but they might as well also leave out the units 
+plane and then you removed one row from the middle of the rows. Your statement
 <br />
-attribute for feet or meters, for all the good such a piece of 
+would imply you'd have to rearrange all the bounds from (3) to (4) just because
 <br />
-incomplete data would be. (OK, a bit harsh, but true.)
+of that. I think it is simpler and better to leave them as (3) and just drop the
 <br />
-<br />Tom Gross
+single row from the bounds. The test will detect where a row is missing.
 <br />
-<br /><br /><br /><br />Roy Lowry wrote:
+<br /><em class="quotelev1">&gt; (3) In the case where the horizontal grid is described by two-dimensional
+</em><br />
+<em class="quotelev1">&gt;     coordinate variables lat(N,M) and lon(N,M), and the associated cells
+</em><br />
+<em class="quotelev1">&gt;     are 4 sided, then the boundary variables are given in
+</em><br />
+<em class="quotelev1">&gt;     the form latbnd(N,M,2,2) and lonbnd(N,M,2,2) rather than in variables
+</em><br />
+<em class="quotelev1">&gt;     that use only a single dimension for the cell vertices.  The contiguity
+</em><br />
+<em class="quotelev1">&gt;     of the cells implies the following equalities:
+</em><br />
+<br /><em class="quotelev1">&gt;     For 0 &lt; j &lt; N and 0 &lt; i &lt; M
+</em><br />
+<br />I would state the tests as follows, which seems a bit simpler to me
 <br />
-<br /><em class="quotelev1">&gt;There is an interesting general point raised here by the statement 'a standard name for each reference datum would be a 
-</em><br />
-<em class="quotelev1">&gt;little bit excessive'.  If the specific reference datum isn't held in the standard name then the information needs to be in another standardised location in the CF attributes or the data are not fully decribed by the metadata.  I remember the issue of datums came up before with regard to CF, but can't remember if it was ever resolved.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;Cheers, Roy.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;Olivier Lauret &lt;olauret at cls.fr&gt; 8/22/2006 12:26 pm &gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;        
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
-</em><br />
-<em class="quotelev1">&gt;Dear Tom,
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;The fact is that MSL, MLLW, NAVD88.. especially concern tide gauges, 
-</em><br />
-<em class="quotelev1">&gt;coastal oceanography - among the applications, and do not really apply to 
-</em><br />
-<em class="quotelev1">&gt;satellite altimetry. Of course I only focused on altimeter data, that 
-</em><br />
-<em class="quotelev1">&gt;usually refer to, let's say, 4 different reference surfaces: the reference 
-</em><br />
-<em class="quotelev1">&gt;ellipsoid (it can be WGS84 or any other), a mean along-track profile or a 
-</em><br />
-<em class="quotelev1">&gt;mean sea surface, and (indirectly) the geoid.
-</em><br />
-<em class="quotelev1">&gt;But I agree with you: a standard name for each reference datum would be a 
-</em><br />
-<em class="quotelev1">&gt;little bit excessive.
-</em><br />
-<em class="quotelev1">&gt;At the same time &quot;sea_surface_height_above_sea_level&quot;, 
-</em><br />
-<em class="quotelev1">&gt;&quot;sea_surface_height_above_geoid&quot; were already availble in the standard 
-</em><br />
-<em class="quotelev1">&gt;names table, and none of them could &quot;include&quot; or be compared to altimeter 
-</em><br />
-<em class="quotelev1">&gt;sea_surface_height_above_reference_ellipsoid, because beyond the reference 
-</em><br />
-<em class="quotelev1">&gt;datum, the meaning is different in terms of physical processes to be 
-</em><br />
-<em class="quotelev1">&gt;considered. Then it raises the question of how we define the reference 
-</em><br />
-<em class="quotelev1">&gt;surfaces.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;One one hand, if the whole entire sea surface height parameters (in situ, 
-</em><br />
-<em class="quotelev1">&gt;tide gauges..) could refer to {&quot;sea_surface_height_above_sea_level&quot;, 
-</em><br />
-<em class="quotelev1">&gt;&quot;sea_surface_height_above_geoid&quot;}, except satellite altimetry, maybe it is 
-</em><br />
-<em class="quotelev1">&gt;possible for us to introduce the missing altimeter dedicated standard names?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;On the other hand, we could also take advantage of the situation by 
-</em><br />
-<em class="quotelev1">&gt;introducing some new standard names, more general, like 
-</em><br />
-<em class="quotelev1">&gt;&quot;sea_surface_height_above_reference_surface&quot; and 
-</em><br />
-<em class="quotelev1">&gt;&quot;sea_surface_height_above_reference_profile&quot;, that would include all sea 
-</em><br />
-<em class="quotelev1">&gt;surface height kinds of parameters, and all the reference datums?
-</em><br />
-<em class="quotelev1">&gt;For &quot;sea_surface_height_above_reference_surface&quot;, the reference surface 
-</em><br />
-<em class="quotelev1">&gt;could be a mean sea surface, a reference ellipsoid, or the geoid, that 
-</em><br />
-<em class="quotelev1">&gt;could be specified as attributes.
-</em><br />
-<em class="quotelev1">&gt;For &quot;sea_surface_height_above_reference_profile&quot;, the reference profile 
-</em><br />
-<em class="quotelev1">&gt;could be a mean sea level, a mean profile etc, defined as attributes as well.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;I don't know. That depends on the fellings of the ocean/climate users 
-</em><br />
-<em class="quotelev1">&gt;community, but the discussion is open.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;Best regards
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;Olivier Lauret
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;CLS Space Oceanography Division
-</em><br />
-<em class="quotelev1">&gt;Data Information and Diffusion
-</em><br />
-<em class="quotelev1">&gt;8-10 rue Hermes,
-</em><br />
-<em class="quotelev1">&gt;31526 Ramonville-St-Agne, Cedex, France
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;Email: olivier.lauret at cls.fr 
-</em><br />
-<em class="quotelev1">&gt;Tel: (+33) (0) 561 39 48 51
-</em><br />
-<em class="quotelev1">&gt;Fax:(+33) (0) 561 39 48 51
-</em><br />
-<em class="quotelev1">&gt;Internet:
-</em><br />
-<em class="quotelev1">&gt;<a href="http://www.cls.fr">http://www.cls.fr</a> 
-</em><br />
-<em class="quotelev1">&gt;<a href="http://www.aviso.oceanobs.com/">http://www.aviso.oceanobs.com/</a> 
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;_______________________________________________
-</em><br />
-<em class="quotelev1">&gt;CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt;CF-metadata at cgd.ucar.edu 
-</em><br />
-<em class="quotelev1">&gt;<a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<span id="received"><dfn>Received on</dfn> Tue Aug 22 2006 - 11:34:16 BST</span>
+<br />If cells (j,i) and (j,i+1) are contiguous, then
+<br />
+<br />bnd(j,i,0,1)=bnd(j,i+1,0,0) and bnd(j,i,1,1)=bnd(j,i+1,1,0)
+<br />
+<br />If cells (j,i) and (j+1,i) are contiguous, then
+<br />
+<br />bnd(j,i,1,0)=bnd(j+1,i,0,0) and bnd(j,i,1,1)=bnd(j+1,i,0,1)
+<br />
+<br /><em class="quotelev1">&gt;     where bnd stands for either latbnd or lonbnd.
+</em><br />
+<br />Best wishes
+<br />
+<br />Jonathan
+<br />
+<span id="received"><dfn>Received on</dfn> Fri Jun 20 2003 - 09:40:36 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -268,9 +151,12 @@ incomplete data would be. (OK, a bit harsh, but true.)
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start189">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0190.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Standard names for altimeter data"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0188.html" title="Previous message in the list">Nan Galbraith: "[CF-metadata] Precipitation query"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0190.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Exner function"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0188.html" title="Previous message in the list">Brian Eaton: "[CF-metadata] bounds"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0191.html" title="Next message in this discussion thread">Brian Eaton: "[CF-metadata] bounds"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0191.html" title="Message sent in reply to this message">Brian Eaton: "[CF-metadata] bounds"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -281,7 +167,7 @@ incomplete data would be. (OK, a bit harsh, but true.)
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:45 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0188.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0190.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

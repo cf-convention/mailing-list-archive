@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] FW: new standard_names for variables	concerningseasurface waves from Nan Galbraith on 2008-03-31 (mailing-list-archive)</title>
-<meta name="Author" content="Nan Galbraith (ngalbraith)" />
-<meta name="Subject" content="[CF-metadata] FW: new standard_names for variables	concerningseasurface waves" />
-<meta name="Date" content="2008-03-31" />
+<title>[CF-metadata] new standard_names for variables concerning sea surface waves from Richard Gorman on 2006-11-20 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Richard Gorman (r.gorman)" />
+<meta name="Subject" content="[CF-metadata] new standard_names for variables concerning sea surface waves" />
+<meta name="Date" content="2006-11-20" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1268.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1270.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] FW: new standard_names for variables	concerningseasurface waves</h1>
-<!-- received="Mon Mar 31 10:08:51 2008" -->
-<!-- isoreceived="20080331090851" -->
-<!-- sent="Mon, 31 Mar 2008 12:08:51 -0400" -->
-<!-- isosent="20080331160851" -->
-<!-- name="Nan Galbraith" -->
-<!-- email="ngalbraith" -->
-<!-- subject="[CF-metadata] FW: new standard_names for variables	concerningseasurface waves" -->
-<!-- id="47F10C93.3030602_at_whoi.edu" -->
+<a style="text-decoration:none" href="./1268.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1270.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new standard_names for variables concerning sea surface waves</h1>
+<!-- received="Sun Nov 19 17:03:40 2006" -->
+<!-- isoreceived="20061119170340" -->
+<!-- sent="Mon, 20 Nov 2006 13:03:40 +1300" -->
+<!-- isosent="20061120000340" -->
+<!-- name="Richard Gorman" -->
+<!-- email="r.gorman" -->
+<!-- subject="[CF-metadata] new standard_names for variables concerning sea surface waves" -->
+<!-- id="4560F0DC.4080009_at_niwa.co.nz" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="EB1E7CB92F5B35459E0B926D2A614DB60DCE02_at_EXCHANGE19.fed.cclrc.ac.uk" -->
+<!-- inreplyto="455CD1A2.8090601_at_niwa.co.nz" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1270.html" accesskey="d" title="Roy Lowry: &quot;[CF-metadata] FW: new standard_names for	variables	concerningseasurface waves&quot;">Next message</a> ]
-[ <a href="./1268.html" title="John Graybeal: &quot;[CF-metadata] FW: new standard_names for variables concerningseasurface waves&quot;">Previous message</a> ]
-[ <a href="./1266.html" title="Pamment, JA: &quot;[CF-metadata] FW: new standard_names for variables	concerningseasurface waves&quot;">In reply to</a> ]
+[ <a href="./1270.html" accesskey="d" title="Simon Wood: &quot;[CF-metadata] axis attribute&quot;">Next message</a> ]
+[ <a href="./1268.html" title="John Caron: &quot;[CF-metadata] CF provisional standards&quot;">Previous message</a> ]
+[ <a href="./1257.html" title="Simon Wood: &quot;[CF-metadata] new standard_names for variables concerning sea surface waves&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,148 +70,322 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Nan Galbraith &lt;<a href="mailto:ngalbraith?Subject=Re%3A%20%5BCF-metadata%5D%20FW%3A%20new%20standard_names%20for%20variables%09concerningseasurface%20waves">ngalbraith</a>&gt;
+<dfn>From</dfn>: Richard Gorman &lt;<a href="mailto:r.gorman?Subject=Re%3A%20%5BCF-metadata%5D%20new%20standard_names%20for%20variables%20concerning%20sea%20surface%20waves">r.gorman</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 31 Mar 2008 12:08:51 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 20 Nov 2006 13:03:40 +1300</span><br />
 </address>
 <br />
-Thanks, Alison. Wave_frequency would be better, although it
+Hi Simon,
 <br />
-implies, to me, the frequency of wave peaks where we really
+<br />I'm not sure that a &quot;moment&quot; dimension would be very helpful for a lot 
 <br />
-could use a term for a coordinate parameter of anything that
+of typical applications.
 <br />
-can be reported in the frequency domain. So, I'm not sure why
+<br />To give the specific example I'm working with, we have a wave model 
 <br />
-'frequency' itself isn't sufficient in this case, other than a
+writing files with up to 20 variables which are functions of (time, 
 <br />
-possible conflict with sound frequency ... although its a stretch
+longitude, latitude). Of these, 9 are wave parameters derived from the 
 <br />
-to see how these could be mistaken for one another.  A specific,
+spectra computed in the model, the rest are other environmental 
 <br />
-non-coordinate parameter like brunt_vaisala_frequency_in_air
+variables (water depth, currents, winds, etc.). Only one of those 9 is a 
 <br />
-should of course keep its more definitive standard name.
+mean period (the -1 moment in this case). Introducing a dimension which 
 <br />
-<br /><em class="quotelev1"> &gt; Don't forget we can have internal waves (waves propagated on subsurface
-</em><br />
-<em class="quotelev1"> &gt; density boundaries like thermoclines) as well as surface waves in water
-</em><br />
-<em class="quotelev1"> &gt; bodies.
-</em><br />
-<br />Yes, I guess that's my point: why would we need a separate
+would be of length one, and only applying to one of our 20 variables, 
 <br />
-frequency coordinate parameter for frequency of internal
+would seem an unnecessarily cumbersome way to determine which, if any, 
 <br />
-waves?  The meaning of the coordinate parameter is the same
+of the variables is appropriate to compare with data from another 
 <br />
-in both cases, and the standard name of the measured parameter
+source. It would be much easier to do that from the standard name and/or 
 <br />
-explains itself.
+&nbsp;&nbsp;other attributes that apply to all the variables in the dataset.
 <br />
-<br />We don't specify the variable being measured when we use depth
+<br />Regards,
 <br />
-as a coordinate parameter in CF, so I'm not sure why this case
+Richard
 <br />
-should be different.
+<br /><br />On 17/11/2006 10:01 a.m., Simon Wood wrote:
 <br />
-<br /><em class="quotelev1"> &gt; My working hypothesis is that optimum combination of detail and
+<em class="quotelev1">&gt; Hi Richard,
 </em><br />
-<em class="quotelev1"> &gt; generality is medium + property
+<em class="quotelev1">&gt; 
 </em><br />
-<br />Mine is that it's a bad idea to provide information that might be
-<br />
-misleading or conflicting in a NetCDF field when that information
-<br />
-is contained in another field, the standard_name. In this case, the
-<br />
-parameter's standard name, sea_surface_wave_variance_spectral_density,
-<br />
-gives information about the quantity being reported, and the name of
-<br />
-the coordinate parameter should contain exactly enough information
-<br />
-to make the measured parameter definitively understood.  If there is
-<br />
-another standard name where this would not be the case, I haven't
-<br />
-come across it.  That's the strength of NetCDF, and we may as well
-<br />
-take advantage of its strong points, since we put up with its weak
-<br />
-points as well.
-<br />
-<br />Wave_frequency seems like a better alternative and a good compromise,
-<br />
-to me.
-<br />
-<br />Cheers - Nan
-<br />
-<br /><br /><em class="quotelev4"> &gt; &gt;&gt;&gt; &quot;Pamment, JA (Alison)&quot; &lt;J.A.Pamment at rl.ac.uk&gt; 03/31/08 11:09 AM &gt;&gt;&gt;
+<em class="quotelev1">&gt; Would it be appropriate to consider the moment as a dimension?  That way 
 </em><br />
-<em class="quotelev2"> &gt; &gt;
+<em class="quotelev1">&gt;  you could just define 3 standard names for the wave periods:
 </em><br />
-<em class="quotelev2"> &gt; &gt; One of our parameters is sea_surface_wave_variance_spectral_density,
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev2"> &gt; &gt; with coordinate variables time and frequency.
+<em class="quotelev1">&gt; sea_surface_wave_period;s
 </em><br />
-<em class="quotelev2"> &gt; &gt;
+<em class="quotelev1">&gt; sea_surface_wind_wave_period;s
 </em><br />
-<em class="quotelev2"> &gt; &gt; Sea_surface_wave_frequency is an accepted standard name, but I
+<em class="quotelev1">&gt; sea_surface_swell_wave_period;s
 </em><br />
-<em class="quotelev2"> &gt; &gt; would like to know why 'frequency' is not preferable, being more
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev2"> &gt; &gt; generic. As an analogy, we can use 'depth' as the coordinate variable
+<em class="quotelev1">&gt; and use a 'tm' dimension for the different means, taking values -1, 0, 
 </em><br />
-<em class="quotelev2"> &gt; &gt; for temperatures, and are not so specific as to require
+<em class="quotelev1">&gt; 1, 2 etc.
 </em><br />
-<em class="quotelev2"> &gt; &gt; sea_water_temperature_depth.  Is specifying sea_surface_wave
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev2"> &gt; &gt; really necessary, and might it not be misleading if the parameter
+<em class="quotelev1">&gt; Obviously not all tm values would have to be present in any particular 
 </em><br />
-<em class="quotelev2"> &gt; &gt; is not actually &quot;plain&quot; sea_surface_waves?
+<em class="quotelev1">&gt; file (so you don't always have to provide values for every moment if not 
 </em><br />
-<br /><em class="quotelev1"> &gt; I'm not an expert in this area myself, so I'm not quite sure what you
+<em class="quotelev1">&gt; required).  You would probably make it the left most dimension (in CDL 
 </em><br />
-<em class="quotelev1"> &gt; mean by &quot;plain&quot; sea_surface_waves.  However, to respond to your general
+<em class="quotelev1">&gt; notation) so it is least tightly bound (based on the fact that the 
 </em><br />
-<em class="quotelev1"> &gt; point, I agree that sea_surface_wave_frequency is very specific.
+<em class="quotelev1">&gt; original proposal was to have them as separate datasets -- but maybe 
 </em><br />
-<em class="quotelev1"> &gt; The original proposal (see
+<em class="quotelev1">&gt; thats not what you would actually want? maybe right most would be 
 </em><br />
-<em class="quotelev1"> &gt; <a href="http://www.cgd.ucar.edu/pipermail/cf-metadata/2006/000958.html">http://www.cgd.ucar.edu/pipermail/cf-metadata/2006/000958.html</a>) was for
+<em class="quotelev1">&gt; preferable?).
 </em><br />
-<em class="quotelev1"> &gt; wave_frequency and it was submitted along with quite a list of other sea
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1"> &gt; surface wave names.  I suspect that it was changed for consistency with
+<em class="quotelev1">&gt; regards,
 </em><br />
-<em class="quotelev1"> &gt; the other names.  I think that we need to at least use the term
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1"> &gt; wave_frequency  rather than simply 'frequency' because it is not the
+<em class="quotelev1">&gt; Simon Wood
 </em><br />
-<em class="quotelev1"> &gt; only kind of frequency in standard names.  We have the names
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1"> &gt; sound_frequency, which could in fact be described by wave_frequency, and
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1"> &gt; brunt_vaisala_frequency_in_air, which is a parameter that relates to the
+<em class="quotelev1">&gt; Richard Gorman wrote:
 </em><br />
-<em class="quotelev1"> &gt; static stability of air and is useful for determining whether gravity
+<em class="quotelev2">&gt;&gt; Hi,
 </em><br />
-<em class="quotelev1"> &gt; waves will be generated, for example, by flow over orography.  I think
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev1"> &gt; that we could use wave_frequency quite adequately for fluid dynamical
+<em class="quotelev2">&gt;&gt; I'm also coming to grips with CF-compliance for wave data and model 
 </em><br />
-<em class="quotelev1"> &gt; waves, sound waves and electromagnetic waves independent of the medium
+<em class="quotelev2">&gt;&gt; products, so think I should comment.
 </em><br />
-<em class="quotelev1"> &gt; in which they occur.  Would you be happy with wave_frequency?
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev1"> &gt;
+<em class="quotelev2">&gt;&gt; The various quantities Heinz and Beate describe are all derived from 
 </em><br />
-<em class="quotelev1"> &gt; Best wishes,
+<em class="quotelev2">&gt;&gt; the directional spectrum. In the most general case (and explicitly so 
 </em><br />
-<em class="quotelev1"> &gt; Alison
+<em class="quotelev2">&gt;&gt; inside a spectral wave model) this is a function S(t,x,y,f,theta) of 
 </em><br />
-<span id="received"><dfn>Received on</dfn> Mon Mar 31 2008 - 10:08:51 BST</span>
+<em class="quotelev2">&gt;&gt; five dimensions:
+</em><br />
+<em class="quotelev2">&gt;&gt; t = time,
+</em><br />
+<em class="quotelev2">&gt;&gt; x,y = spatial coordinates (e.g. longitude &amp; latitude)
+</em><br />
+<em class="quotelev2">&gt;&gt; f = frequency
+</em><br />
+<em class="quotelev2">&gt;&gt; theta = direction
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; S has the standard name 
+</em><br />
+<em class="quotelev2">&gt;&gt; &quot;sea_surface_wave_directional_variance_spectral_density&quot;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Integrating over direction:
+</em><br />
+<em class="quotelev2">&gt;&gt; S1 = integral[S d(theta)], with the standard name 
+</em><br />
+<em class="quotelev2">&gt;&gt; &quot;sea_surface_wave_variance_spectral_density&quot;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; The parameters of interest can be derived from moments of the spectra, 
+</em><br />
+<em class="quotelev2">&gt;&gt; i.e. if
+</em><br />
+<em class="quotelev2">&gt;&gt; M(n) = integral[S1*f^n df]
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; then the various definitions of mean period are
+</em><br />
+<em class="quotelev2">&gt;&gt; Tm-1 = M(-1)/M(0)
+</em><br />
+<em class="quotelev2">&gt;&gt; Tm1 = M(0)/M(1)
+</em><br />
+<em class="quotelev2">&gt;&gt; Tm2 = sqrt(M(0)/M(2))
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Also:
+</em><br />
+<em class="quotelev2">&gt;&gt; Hm0 = 4*sqrt(M(0)) = &quot;sea_surface_wave_significant_height&quot;
+</em><br />
+<em class="quotelev2">&gt;&gt; while &quot;mean direction&quot; and &quot;directional spread&quot; come from various 
+</em><br />
+<em class="quotelev2">&gt;&gt; directional moments of S, e.g.
+</em><br />
+<em class="quotelev2">&gt;&gt; integral[[S cos(theta) df] d(theta)]
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Now the problem is how to describe these variables where the frequency 
+</em><br />
+<em class="quotelev2">&gt;&gt; and directional dimensions are not necessarily explicitly present: 
+</em><br />
+<em class="quotelev2">&gt;&gt; i.e. our data are Hm0(t,x,y), etc. These may come from a model which 
+</em><br />
+<em class="quotelev2">&gt;&gt; has derived them from spectra, or from satellite data where the 
+</em><br />
+<em class="quotelev2">&gt;&gt; spectrum hasn't been used explicitly at all.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; If we accept that these quantities are well defined in terms of these 
+</em><br />
+<em class="quotelev2">&gt;&gt; accepted definitions, we could just give them standard names as Heinz 
+</em><br />
+<em class="quotelev2">&gt;&gt; and Beate propose (except I'd suggest
+</em><br />
+<em class="quotelev4">&gt;&gt;  &gt;&gt; for the periods from the moment of order 2:
+</em><br />
+<em class="quotelev4">&gt;&gt;  &gt;&gt; sea_surface_wave_tm2_period;s
+</em><br />
+<em class="quotelev4">&gt;&gt;  &gt;&gt; sea_surface_wind_tm2_peak_period;s
+</em><br />
+<em class="quotelev4">&gt;&gt;  &gt;&gt; sea_surface_swell_tm2_peak_period;s
+</em><br />
+<em class="quotelev2">&gt;&gt; should read:
+</em><br />
+<em class="quotelev2">&gt;&gt; sea_surface_wave_tm2_period;s
+</em><br />
+<em class="quotelev2">&gt;&gt; sea_surface_wind_wave_tm2_period;s
+</em><br />
+<em class="quotelev2">&gt;&gt; sea_surface_swell_wave_tm2_period;s
+</em><br />
+<em class="quotelev2">&gt;&gt; for consistency).
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; But in some cases it could be helpful to spell out how these are 
+</em><br />
+<em class="quotelev2">&gt;&gt; derived. For example, ideally the frequency range is 0 to infinity, 
+</em><br />
+<em class="quotelev2">&gt;&gt; but in practice a limited frequency range might have been used, 
+</em><br />
+<em class="quotelev2">&gt;&gt; especially if we are distinguishing swell and wind waves. Then we 
+</em><br />
+<em class="quotelev2">&gt;&gt; could give explicit frequency bounds, and use a cell method 
+</em><br />
+<em class="quotelev2">&gt;&gt; description, e.g. for Tm1:
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; standard_name = &quot;sea_surface_wave_tm1_period&quot;
+</em><br />
+<em class="quotelev2">&gt;&gt; cell_method = &quot;sea_surface_wave_variance_spectral_density: normalised 
+</em><br />
+<em class="quotelev2">&gt;&gt; inverse of first frequency moment&quot; or similar.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Unfortunately it's rather wordy, and that's one of the simpler ones: 
+</em><br />
+<em class="quotelev2">&gt;&gt; directional spread would be quite messy to define in words!
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Regards,
+</em><br />
+<em class="quotelev2">&gt;&gt; Richard
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; On 12/11/2006 2:59 a.m., Jonathan Gregory wrote:
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Dear Heinz and Beate
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; we propose new standard_names for serveral variables concerning wave 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; periods deduced from the one dimensional frequency wave spectrum:
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; These concepts look to me like different statistical methods for 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; characterising
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; the spectrum, and as such, can they be expressed by cell_methods? For 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; instance,
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; if we define a standard name of
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; probability_density_function_of_sea_surface_wind_wave_period
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; we can express the &quot;peak&quot; period (I presume this is the mode of the 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; pdf - is
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; that right?) with a standard name of sea_surface_wind_wave_period and a
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; cell_methods of
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; &quot;probability_density_function_of_sea_surface_wind_wave_period: maximum&quot;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; I imagine that something like that could done for the others, but I 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; am not
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; clear what the &quot;mean&quot; is over, or what &quot;tm&quot; means. &quot;spread&quot; also 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; sounds like
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; a statistic of some kind, that would need definition, or is it perhaps a
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; standard deviation?
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Cheers
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Jonathan
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; _______________________________________________
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<br /><pre>
+-- 
+=========================================================
+Richard Gorman
+National Institute of Water and Atmospheric Research
+PO Box 11-115, Hamilton, 3251, New Zealand
+Tel: +64 7 856 1736 Mob: 021 074 7490 Fax: +64 7 856 0151
+Email: r.gorman at niwa.co.nz   Web: <a href="http://www.niwa.co.nz">http://www.niwa.co.nz</a>
+=========================================================
+</pre>
+<span id="received"><dfn>Received on</dfn> Sun Nov 19 2006 - 17:03:40 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -219,9 +393,9 @@ to me.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1269">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1270.html" title="Next message in the list">Roy Lowry: "[CF-metadata] FW: new standard_names for	variables	concerningseasurface waves"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1268.html" title="Previous message in the list">John Graybeal: "[CF-metadata] FW: new standard_names for variables concerningseasurface waves"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./1266.html" title="Message to which this message replies">Pamment, JA: "[CF-metadata] FW: new standard_names for variables	concerningseasurface waves"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1270.html" title="Next message in the list">Simon Wood: "[CF-metadata] axis attribute"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1268.html" title="Previous message in the list">John Caron: "[CF-metadata] CF provisional standards"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./1257.html" title="Message to which this message replies">Simon Wood: "[CF-metadata] new standard_names for variables concerning sea surface waves"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -233,7 +407,7 @@ to me.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:03 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1268.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1270.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

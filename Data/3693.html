@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] standard names for stations from Nan Galbraith on 2011-08-25 (mailing-list-archive)</title>
-<meta name="Author" content="Nan Galbraith (ngalbraith)" />
-<meta name="Subject" content="[CF-metadata] standard names for stations" />
-<meta name="Date" content="2011-08-25" />
+<title>[CF-metadata]  New standard names for satellite obs data from Jonathan Gregory on 2010-10-19 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata]  New standard names for satellite obs data" />
+<meta name="Date" content="2010-10-19" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./3692.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3694.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard names for stations</h1>
-<!-- received="Thu Aug 25 10:08:00 2011" -->
-<!-- isoreceived="20110825090800" -->
-<!-- sent="Thu, 25 Aug 2011 12:08:00 -0400" -->
-<!-- isosent="20110825160800" -->
-<!-- name="Nan Galbraith" -->
-<!-- email="ngalbraith" -->
-<!-- subject="[CF-metadata] standard names for stations" -->
-<!-- id="4E567360.6000606_at_whoi.edu" -->
+<a style="text-decoration:none" href="./3692.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3694.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  New standard names for satellite obs data</h1>
+<!-- received="Tue Oct 19 12:49:07 2010" -->
+<!-- isoreceived="20101019114907" -->
+<!-- sent="Tue, 19 Oct 2010 14:49:07 -0400" -->
+<!-- isosent="20101019184907" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata]  New standard names for satellite obs data" -->
+<!-- id="20101019184907.GB6525_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20110825125002.GE16768_at_met.reading.ac.uk" -->
+<!-- inreplyto="web-32612015_at_mail.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./3694.html" accesskey="d" title="Jeffrey F. Painter: &quot;[CF-metadata] standard names for stations&quot;">Next message</a> ]
-[ <a href="./3692.html" title="Renata McCoy: &quot;[CF-metadata] standard names for stations&quot;">Previous message</a> ]
-[ <a href="./3691.html" title="Jonathan Gregory: &quot;[CF-metadata] standard names for stations&quot;">In reply to</a> ]
+[ <a href="./3694.html" accesskey="d" title="Mike Grant: &quot;[CF-metadata] New standard names for satellite obs data&quot;">Next message</a> ]
+[ <a href="./3692.html" title="John Caron: &quot;[CF-metadata] Is there some samples of netCDF CF-1.0/1.4 for polar stereographic and other non-lat lon geo-grided data&quot;">Previous message</a> ]
+[ <a href="./3689.html" title="Seth McGinnis: &quot;[CF-metadata] New standard names for satellite obs data&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./3700.html" accesskey="t" title="Ben Hetland: &quot;[CF-metadata] New standard names for satellite obs data&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,91 +71,28 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Nan Galbraith &lt;<a href="mailto:ngalbraith?Subject=Re%3A%20%5BCF-metadata%5D%20standard%20names%20for%20stations">ngalbraith</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20New%20standard%20names%20for%20satellite%20obs%20data">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 25 Aug 2011 12:08:00 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 19 Oct 2010 14:49:07 -0400</span><br />
 </address>
 <br />
-Isn't this part of the NetCDF Attribute Convention for Dataset Discovery?
+Dear Seth, Aleksandar
 <br />
-I'm not sure we want to wander into that territory - wouldn't it be better
+<br /><em class="quotelev1">&gt; I believe this is correct; a 'time' has to be a numeric value.
+</em><br />
+<br />In CF, that's right. A quantity with a standard_name of time has to be in time
 <br />
-to recommend the use of the NACDD?
+units according to udunits.
 <br />
-<br />Also, the WMO platform id may seem like a definitive id, but, as I 
+<br />What is the reason for needing to use a string-valued time? Couldn't the
 <br />
-understand
+information be represented as a numeric time instead?
 <br />
-it, these numbers are re-used (except in special cases).
+<br />Best wishes
 <br />
-<br />I like the NACDD approach, that specifies both the id and the &quot;naming
+<br />Jonathan
 <br />
-authority&quot; that supports it; this combination &quot;should be a globally unique
-<br />
-identifier for the dataset.&quot; So, if you've got a permanent wmo id for your
-<br />
-station, you can use that as the name, and use wmo as the naming
-<br />
-authority.
-<br />
-<br />I use wmo ids myself, but it does not seem like an appropriate part
-<br />
-of the CF spec.
-<br />
-<br />- Nan
-<br />
-<br /><br /><br />On 8/25/11 8:50 AM, Jonathan Gregory wrote:
-<br />
-<em class="quotelev1">&gt; Dear Jeff
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; I think this one is fine
-</em><br />
-<em class="quotelev2">&gt;&gt; - wmo_platform_id : variable of integer type, containing the WMO
-</em><br />
-<em class="quotelev2">&gt;&gt; identifier of an observing station or other platform
-</em><br />
-<em class="quotelev1">&gt; For this one
-</em><br />
-<em class="quotelev2">&gt;&gt; - station_description : variable of character type containing a
-</em><br />
-<em class="quotelev2">&gt;&gt; description of a time series station
-</em><br />
-<em class="quotelev1">&gt; I now wonder what we mean by &quot;description&quot;. What is probably expected is a
-</em><br />
-<em class="quotelev1">&gt; geographical location of some sort, isn't it. Could we call it station_name?
-</em><br />
-<em class="quotelev1">&gt; Like long_name and standard_name, it could still be several words.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Best wishes
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Jonathan
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<br /><br /><pre>
--- 
-*******************************************************
-* Nan Galbraith                        (508) 289-2444 *
-* Upper Ocean Processes Group            Mail Stop 29 *
-* Woods Hole Oceanographic Institution                *
-* Woods Hole, MA 02543                                *
-*******************************************************
-</pre>
-<span id="received"><dfn>Received on</dfn> Thu Aug 25 2011 - 10:08:00 BST</span>
+<span id="received"><dfn>Received on</dfn> Tue Oct 19 2010 - 12:49:07 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -162,10 +100,11 @@ of the CF spec.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start3693">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./3694.html" title="Next message in the list">Jeffrey F. Painter: "[CF-metadata] standard names for stations"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./3692.html" title="Previous message in the list">Renata McCoy: "[CF-metadata] standard names for stations"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./3691.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] standard names for stations"</a></li>
+<li><dfn>Next message</dfn>: <a href="./3694.html" title="Next message in the list">Mike Grant: "[CF-metadata] New standard names for satellite obs data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./3692.html" title="Previous message in the list">John Caron: "[CF-metadata] Is there some samples of netCDF CF-1.0/1.4 for polar stereographic and other non-lat lon geo-grided data"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./3689.html" title="Message to which this message replies">Seth McGinnis: "[CF-metadata] New standard names for satellite obs data"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./3700.html" title="Next message in this discussion thread">Ben Hetland: "[CF-metadata] New standard names for satellite obs data"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -176,7 +115,7 @@ of the CF spec.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:50 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./3692.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3694.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

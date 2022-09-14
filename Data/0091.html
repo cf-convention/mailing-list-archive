@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] additions to CF-1.0 from Brian Eaton on 2006-03-22 (mailing-list-archive)</title>
-<meta name="Author" content="Brian Eaton (eaton)" />
-<meta name="Subject" content="[CF-metadata] additions to CF-1.0" />
-<meta name="Date" content="2006-03-22" />
+<title>[CF-metadata] CF-1.0-beta5: curvilinear bounds &quot;contiguous&quot; attribute from Steve Hankin on 2003-03-12 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Steve Hankin (hankin)" />
+<meta name="Subject" content="[CF-metadata] CF-1.0-beta5: curvilinear bounds &quot;contiguous&quot; attribute" />
+<meta name="Date" content="2003-03-12" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0090.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0092.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] additions to CF-1.0</h1>
-<!-- received="Tue Mar 21 19:48:50 2006" -->
-<!-- isoreceived="20060321194850" -->
-<!-- sent="Tue, 21 Mar 2006 19:48:50 -0700" -->
-<!-- isosent="20060322024850" -->
-<!-- name="Brian Eaton" -->
-<!-- email="eaton" -->
-<!-- subject="[CF-metadata] additions to CF-1.0" -->
-<!-- id="20060322024850.GJ23642_at_ucar.edu" -->
+<a style="text-decoration:none" href="./0090.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0092.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF-1.0-beta5: curvilinear bounds &quot;contiguous&quot; attribute</h1>
+<!-- received="Wed Mar 12 10:21:27 2003" -->
+<!-- isoreceived="20030312102127" -->
+<!-- sent="Wed, 12 Mar 2003 09:21:27 -0800" -->
+<!-- isosent="20030312172127" -->
+<!-- name="Steve Hankin" -->
+<!-- email="hankin" -->
+<!-- subject="[CF-metadata] CF-1.0-beta5: curvilinear bounds &quot;contiguous&quot; attribute" -->
+<!-- id="3E6F6C97.C04C1FE1_at_pmel.noaa.gov" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20030310214723.GC1054&#64;ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0092.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Integerized Sinusoidal Grid&quot;">Next message</a> ]
-[ <a href="./0090.html" title="Bert Jagers: &quot;[CF-metadata] CF convention for vector quantities&quot;">Previous message</a> ]
+[ <a href="./0092.html" accesskey="d" title="Luis Kornblueh: &quot;[CF-metadata] Proposal for spherical harmonics&quot;">Next message</a> ]
+[ <a href="./0090.html" title="Bryan Lawrence: &quot;[CF-metadata] Future development of CF&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,26 +69,146 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Brian Eaton &lt;<a href="mailto:eaton?Subject=Re%3A%20%5BCF-metadata%5D%20additions%20to%20CF-1.0">eaton</a>&gt;
+<dfn>From</dfn>: Steve Hankin &lt;<a href="mailto:hankin?Subject=Re%3A%20%5BCF-metadata%5D%20CF-1.0-beta5%3A%20curvilinear%20bounds%20%22contiguous%22%20attribute">hankin</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 21 Mar 2006 19:48:50 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 12 Mar 2003 09:21:27 -0800</span><br />
 </address>
 <br />
-As recently requested I've made 2 additions to the CF-1.0 document:
+Hi All,
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;1.  Add azimuthal equidistant projection to Appendix F. 
+<br />A message from Jonathan yesterday mentioned the impending
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;2.  Add atmosphere_ln_pressure_coordinate to Appendix D.
+release of the first non-BETA CF standard.  (I second the
 <br />
-<br />All changes made to the CF-1.0 document since it's release are highlighted
+plan, of course!) I would like to return to our previous
 <br />
-and documented in the &quot;Revision History&quot; section at the end of the
+discussions of Cell Bounds (just a year ago -- one sample
 <br />
-document.
+message attached to help you locate the dialog).  I'm not
 <br />
-<br />Brian
+sure that the outcomes of that discussion are incorporated
 <br />
-<span id="received"><dfn>Received on</dfn> Tue Mar 21 2006 - 19:48:50 GMT</span>
+into the current CF beta.  In particular we discussed an
+<br />
+attribute to indicate that the cells were contiguous.  I am
+<br />
+perhaps overlooking it, but I did not find it in
+<br />
+<a href="http://www.cgd.ucar.edu/cms/eaton/cf-metadata/CF-working.html#bnds">http://www.cgd.ucar.edu/cms/eaton/cf-metadata/CF-working.html#bnds</a>
+<br />
+<br />1. The concern:  Consider the pressing need to create model
+<br />
+access and inter-comparison frameworks on the Web.
+<br />
+Curvilinear grids will be commonplace.  A Web server for
+<br />
+this purpose (such as LAS) will need to open a CF file and
+<br />
+rapidly (in interactive time) extract coordinates and data
+<br />
+and create a plot.  The most common and informative style of
+<br />
+plot is one in which the individual cells are colored --
+<br />
+producing a filled contour plot that also communicates grid
+<br />
+resolution.  The &quot;contiguous&quot; attribute is important here.
+<br />
+If the application has no way of knowing a priori that the
+<br />
+cells are contiguous, then it must either use
+<br />
+extraordinarily inefficient graphics of plotting every
+<br />
+polygon individually, or it must examine all relevant
+<br />
+vertices to confirm that the data are contiguous.  In a
+<br />
+stateless Web server it must repeat this for every plot.
+<br />
+<br />====
+<br />
+<br />The &quot;contiguous&quot; attribute is the main point and one that I
+<br />
+believe we agreed upon. What follows should be considered as
+<br />
+a separate discussion.
+<br />
+<br />2. CF-1.0-beta5 encodes curvilinear coordinate bounds using
+<br />
+n*m*nv instead of n*m*2*2.  This is nasty for the common,
+<br />
+simple graphics of contiguous cells.  The application has to
+<br />
+read all of the (redundant) vertices;  then knowing neither
+<br />
+the ordering of the vertices nor the starting &quot;corner&quot; it
+<br />
+must figure out which edges the adjacent cells share. This
+<br />
+is a fussy problem rather than hard, but it definitely makes
+<br />
+reading CF files more complex and specialized code will be
+<br />
+required.  The problem gets even more fun in a model
+<br />
+inter-comparison framework.  Do file A and file B contain
+<br />
+identical grids?  The algorithm needed in order to know this
+<br />
+involves a &quot;blind grope&quot; over the bounds of the first cells,
+<br />
+knowing neither the relative orientation, nor the relative
+<br />
+starting vertex (&quot;corner&quot;) on the two grids. These problems
+<br />
+are not shared by the n*m*2*2 encoding.
+<br />
+<br />Standards such as CF are built upon trade-offs -- commonly,
+<br />
+generality vs. simplicity.  In weighing the choice we
+<br />
+consider the level of generality gained vs the level of
+<br />
+complexity added.  In our last discussions of the &quot;nv vertex
+<br />
+encoding&quot; the stated generality goal was to accommodate a
+<br />
+particular hexagonal grid.  At that time our discussions
+<br />
+revealed that i) no one had yet attempted to encode that
+<br />
+grid in a CF file; and ii) the &quot;hexagonal&quot; grid actually had
+<br />
+varying numbers of vertices (i.e. it was not a good fit to
+<br />
+the standard, anyway).  Before CF-1.0-beta5 becomes official
+<br />
+are we comfortable that we have adequately tested cases
+<br />
+where the generality of this encoding is required and we
+<br />
+have demonstrated that the trade-off is positive on balance?
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;- steve
+<br />
+<br /><pre>
+--
+                |  NOAA/PMEL               |  ph. (206)
+526-6080
+Steve Hankin    |  7600 Sand Point Way NE  |  FAX (206)
+526-6744
+                |  Seattle, WA 98115-0070  |
+hankin at pmel.noaa.gov
+-------------- next part --------------
+An embedded message was scrubbed...
+From: Bob Drach &lt;drach at llnl.gov&gt;
+Subject: Re: CF cell edges in curvilinear coordinate systems
+Date: Mon, 11 Feb 2002 09:58:13 -0800
+Size: 6565
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20030312/e4fbb779/attachment.mht">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20030312/e4fbb779/attachment.mht</a>&gt;
+</pre>
+<span id="received"><dfn>Received on</dfn> Wed Mar 12 2003 - 10:21:27 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -95,8 +216,8 @@ document.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start91">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0092.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Integerized Sinusoidal Grid"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0090.html" title="Previous message in the list">Bert Jagers: "[CF-metadata] CF convention for vector quantities"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0092.html" title="Next message in the list">Luis Kornblueh: "[CF-metadata] Proposal for spherical harmonics"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0090.html" title="Previous message in the list">Bryan Lawrence: "[CF-metadata] Future development of CF"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -108,7 +229,7 @@ document.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:44 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0090.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0092.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

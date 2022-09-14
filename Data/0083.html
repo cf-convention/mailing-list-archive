@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Variable Associations (was CF convention for vector quantities) from Jonathan Gregory on 2006-03-20 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] Variable Associations (was CF convention for vector quantities)" />
-<meta name="Date" content="2006-03-20" />
+<title>[CF-metadata] Re: CF-1.0-beta5: grid mappings from Steve Hankin on 2003-03-10 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Steve Hankin (hankin)" />
+<meta name="Subject" content="[CF-metadata] Re: CF-1.0-beta5: grid mappings" />
+<meta name="Date" content="2003-03-10" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0082.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0084.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Variable Associations (was CF convention for vector quantities)</h1>
-<!-- received="Mon Mar 20 08:58:22 2006" -->
-<!-- isoreceived="20060320085822" -->
-<!-- sent="Mon, 20 Mar 2006 15:58:22 +0000" -->
-<!-- isosent="20060320155822" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] Variable Associations (was CF convention for vector quantities)" -->
-<!-- id="20060320155822.GB9850_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0082.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0084.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Re: CF-1.0-beta5: grid mappings</h1>
+<!-- received="Mon Mar 10 12:41:11 2003" -->
+<!-- isoreceived="20030310124111" -->
+<!-- sent="Mon, 10 Mar 2003 11:41:11 -0800" -->
+<!-- isosent="20030310194111" -->
+<!-- name="Steve Hankin" -->
+<!-- email="hankin" -->
+<!-- subject="[CF-metadata] Re: CF-1.0-beta5: grid mappings" -->
+<!-- id="3E6CEA57.F25E37B3_at_pmel.noaa.gov" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20030310172232.GA1054_at_ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0084.html" accesskey="d" title="Karl Taylor: &quot;[CF-metadata] change_in&quot;">Next message</a> ]
-[ <a href="./0082.html" title="Bryan Lawrence: &quot;Fwd: [CF-metadata] Variable Associations (was CF convention for vector quantities)&quot;">Previous message</a> ]
+[ <a href="./0084.html" accesskey="d" title="Brian Eaton: &quot;[CF-metadata] Re: CF-1.0-beta5: grid mappings&quot;">Next message</a> ]
+[ <a href="./0082.html" title="Brian Eaton: &quot;[CF-metadata] CF-1.0-beta5: grid mappings&quot;">Previous message</a> ]
+[ <a href="./0082.html" title="Brian Eaton: &quot;[CF-metadata] CF-1.0-beta5: grid mappings&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0085.html" accesskey="t" title="John Caron: &quot;[CF-metadata] Variable Associations (was CF convention for vector quantities)&quot;">Next in thread</a> ]
+[ <a href="./0084.html" accesskey="t" title="Brian Eaton: &quot;[CF-metadata] Re: CF-1.0-beta5: grid mappings&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,36 +72,119 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Variable%20Associations%20(was%20CF%20convention%20for%20vector%20quantities)">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Steve Hankin &lt;<a href="mailto:hankin?Subject=Re%3A%20%5BCF-metadata%5D%20Re%3A%20CF-1.0-beta5%3A%20grid%20mappings">hankin</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 20 Mar 2006 15:58:22 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 10 Mar 2003 11:41:11 -0800</span><br />
 </address>
 <br />
-Dear Bryan
+Hi Brian,
 <br />
-<br /><em class="quotelev1">&gt; I think it's quite clear that the vertical components don't fit into the 
+<br />As always, I have to preface my remark with an apology for entering the
+<br />
+discussion late and not attempting to follow every detail.  Would that some
+<br />
+other commitments could somehow diminish ...
+<br />
+<br />Two comments:
+<br />
+<br />&nbsp;&nbsp;1. on the general issue of &quot;standard names&quot;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;There is a level of risk to the interoperability and versioning of CF
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;files when you introduce standard name tables.  This is not a new issue in
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CF, but with each new step down this path (e.g. grid_mapping_name) we
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expand the problem area.  GRIB stands as an example of where the need on
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the part of users to add new names has fragmented the standard.  For CF,
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;each new modeling group that develops an interesting coordinate system
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;will be motivated to extend the standard by encoding their own pet name
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;into their grid_mapping_name.
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thought should be given to how to minimize this problem.  Should we
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;implement some kind of procedure (at Unidata?) to allow users a path to
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;register new grid mapping names? (Importantly registration can make users
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aware that someone else may already have added the same new grid mapping
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;under a different name.)  [Obviously, a much better solution would be if
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the desired grid metrics could be generalized in a manner that does not
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;depend upon a name. Have all such approaches already been discussed and
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dismissed as unfeasible?  Aren't some of the modeling framework folks
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;working on this problem?]
+<br />
+<br />&nbsp;&nbsp;2. on the specific example of the rotated pole grid in section 5.6
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The explanatory text says &quot;This should prevent a COARDS compliant
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application from mistaking the variables rlon and rlat to be actual
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude and latitude coordinates.&quot;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The standard names &quot;grid_latitude&quot; and &quot;grid_longitude&quot; were not a part of
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COARDS, so including them does not really provide the claimed backwards
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;compatibility.  Some word smithing to explain that the curvilinear grids
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;are an extension to COARDS would suffice to fix this -- there is no way
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;that COARDS could have understood this file.
+<br />
+<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;- steve
+<br />
+<br />============================
+<br />
+<br />Brian Eaton wrote:
+<br />
+<br /><em class="quotelev1">&gt; All,
 </em><br />
-<em class="quotelev1">&gt; algorithm you describe.
+<em class="quotelev1">&gt;
 </em><br />
-<br />No, they don't. I was describing an algorithm to generate the file for Bert's
-<br />
-2D vector case. The vertical components aren't named so systematically.
-<br />
-<br />I do think that knowledge of higher-level associations is useful, but there
-<br />
-are many of them, they are application-dependent, and they cannot all be
-<br />
-foreseen at the time of writing the file. Hence I think it's better to put
-<br />
-them in external metadata. The role of CF metadata is to allow you to identify
-<br />
-and describe the quantity, not to prescribe what to do with it.
-<br />
-<br />Cheers
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Mon Mar 20 2006 - 08:58:22 GMT</span>
+<em class="quotelev1">&gt; I've updated the grid mappings section of the CF doc to reflect the
+</em><br />
+<em class="quotelev1">&gt; consensus of the recent discussions.  The current draft is CF-1.0-beta5 and
+</em><br />
+<em class="quotelev1">&gt; is linked to the CF home page at
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/cms/eaton/cf-metadata/index.html">http://www.cgd.ucar.edu/cms/eaton/cf-metadata/index.html</a>.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Please have a look and let me know what you think.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Thanks,
+</em><br />
+<em class="quotelev1">&gt; Brian
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; P.S.  Please feel free to comment on any aspect of the beta5 document.
+</em><br />
+<em class="quotelev1">&gt;       We'd love to get a non-beta version released soon.
+</em><br />
+<br /><pre>
+--
+                |  NOAA/PMEL               |  ph. (206) 526-6080
+Steve Hankin    |  7600 Sand Point Way NE  |  FAX (206) 526-6744
+                |  Seattle, WA 98115-0070  |  hankin at pmel.noaa.gov
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20030310/ecbbff79/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20030310/ecbbff79/attachment.html</a>&gt;
+</pre>
+<span id="received"><dfn>Received on</dfn> Mon Mar 10 2003 - 12:41:11 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -107,12 +192,13 @@ and describe the quantity, not to prescribe what to do with it.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start83">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0084.html" title="Next message in the list">Karl Taylor: "[CF-metadata] change_in"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0082.html" title="Previous message in the list">Bryan Lawrence: "Fwd: [CF-metadata] Variable Associations (was CF convention for vector quantities)"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0084.html" title="Next message in the list">Brian Eaton: "[CF-metadata] Re: CF-1.0-beta5: grid mappings"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0082.html" title="Previous message in the list">Brian Eaton: "[CF-metadata] CF-1.0-beta5: grid mappings"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0082.html" title="Message to which this message replies">Brian Eaton: "[CF-metadata] CF-1.0-beta5: grid mappings"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0085.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] Variable Associations (was CF convention for vector quantities)"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./0084.html" title="Next message in this discussion thread">Brian Eaton: "[CF-metadata] Re: CF-1.0-beta5: grid mappings"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0085.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] Variable Associations (was CF convention for vector quantities)"</a></li>
+<dfn>Reply</dfn>: <a href="./0084.html" title="Message sent in reply to this message">Brian Eaton: "[CF-metadata] Re: CF-1.0-beta5: grid mappings"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -123,7 +209,7 @@ and describe the quantity, not to prescribe what to do with it.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:44 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0082.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0084.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

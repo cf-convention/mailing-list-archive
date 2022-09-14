@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF from Jon Blower on 2007-04-27 (mailing-list-archive)</title>
-<meta name="Author" content="Jon Blower (jdb)" />
-<meta name="Subject" content="[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF" />
-<meta name="Date" content="2007-04-27" />
+<title>[CF-metadata] standard names to be added from Jonathan Gregory on 2006-01-15 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] standard names to be added" />
+<meta name="Date" content="2006-01-15" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0814.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0816.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF</h1>
-<!-- received="Fri Apr 27 10:37:59 2007" -->
-<!-- isoreceived="20070427093759" -->
-<!-- sent="Fri, 27 Apr 2007 17:37:59 +0100" -->
-<!-- isosent="20070427163759" -->
-<!-- name="Jon Blower" -->
-<!-- email="jdb" -->
-<!-- subject="[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF" -->
-<!-- id="2bb6ee950704270937i64595a93j8ac32ddddceb7428_at_mail.gmail.com" -->
+<a style="text-decoration:none" href="./0814.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0816.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard names to be added</h1>
+<!-- received="Sun Jan 15 02:24:10 2006" -->
+<!-- isoreceived="20060115022410" -->
+<!-- sent="Sun, 15 Jan 2006 09:24:10 +0000" -->
+<!-- isosent="20060115092410" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] standard names to be added" -->
+<!-- id="20060115092410.GA2235_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20070427162139.GA8750_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0816.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF&quot;">Next message</a> ]
-[ <a href="./0814.html" title="Jonathan Gregory: &quot;[CF-metadata]  vector quantities (e.g. velocities) in CF-NetCDF&quot;">Previous message</a> ]
-[ <a href="./0814.html" title="Jonathan Gregory: &quot;[CF-metadata]  vector quantities (e.g. velocities) in CF-NetCDF&quot;">In reply to</a> ]
+[ <a href="./0816.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] New standard names proposal for ECPC CEOP data&quot;">Next message</a> ]
+[ <a href="./0814.html" title="Jonathan Gregory: &quot;[CF-metadata] cf2 progress&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0820.html" accesskey="t" title="John Graybeal: &quot;[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,138 +68,50 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jon Blower &lt;<a href="mailto:jdb?Subject=Re%3A%20%5BCF-metadata%5D%20vector%20quantities%20(e.g.%20velocities)%20in%20CF-NetCDF">jdb</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20standard%20names%20to%20be%20added">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 27 Apr 2007 17:37:59 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Sun, 15 Jan 2006 09:24:10 +0000</span><br />
 </address>
 <br />
-Thanks Jonathan.
+Dear all
 <br />
-<br />Here's a brief description of my use case.  I have a collection of
+<br />The following proposed standard names result from email threads in November
 <br />
-NetCDF files (ocean forecast and analysis) and I have written a Web
+and December, initiated by Knut Lisaeter, Tony Jolibois and Keith Dixon. They
 <br />
-Map Service that largely configures itself, based on the contents of
+will be added next week (Monday 23rd) unless anyone has further comments.
 <br />
-the (CF) metadata in the files.  I want to avoid, as far as possible,
+<br />Cheers
 <br />
-manual configuration of the server.
+<br />Jonathan
 <br />
-<br />Most variables (i.e. WMS layers) are scalar quantities, but I'd like
+<br /><br />sea_ice_x_velocity:m s-1
 <br />
-my software to be able to automatically detect those layers that
+sea_ice_y_velocity:m s-1
 <br />
-represent the components of a vector quantity.  Then I can present,
+surface_downward_x_stress:Pa
 <br />
-through the WMS, a new &quot;virtual&quot; layer that is rendered by default as
+surface_downward_y_stress:Pa
 <br />
-vectors (arrows).
+downward_x_stress_at_sea_ice_base:Pa
 <br />
-<br />As a particular example, many of the NetCDF files in question have
+downward_y_stress_at_sea_ice_base:Pa
 <br />
-component variables called &quot;northward_sea_water_velocity&quot; and
+ocean_mixed_layer_thickness_defined_by_mixing_scheme:m
 <br />
-&quot;eastward_sea_water_velocity&quot;.  I'd like to present these through the
+ocean_mixed_layer_thickness_defined_by_temperature:m
 <br />
-WMS as a single layer called &quot;sea_water_velocity&quot; that is rendered as
+ocean_mixed_layer_thickness_defined_by_sigma_t:m
 <br />
-a vector field.
+ocean_mixed_layer_thickness_defined_by_sigma_theta:m
 <br />
-<br />There are also examples that use magnitude and direction, e.g.
+integral_of_air_temperature_excess_wrt_time:K s
 <br />
-&quot;wind_from_direction&quot; and &quot;wind_speed&quot;.
+integral_of_air_temperature_deficit_wrt_time:K s
 <br />
-<br />No doubt there will also be examples that give the components of the
+air_temperature_threshold:K
 <br />
-velocity along the grid unit vectors rather than &quot;northward&quot; and
-<br />
-&quot;eastward&quot;.
-<br />
-<br />I have only considered horizontal 2-D fields (for display on maps) but
-<br />
-no doubt there will be cases where software will need to detect and
-<br />
-display 3-D vector fields.
-<br />
-<br />Jon
-<br />
-<br />On 4/27/07, Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt; wrote:
-<br />
-<em class="quotelev1">&gt; Dear Jon
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; There is no way to do this at present in CF, but this is not the first time
-</em><br />
-<em class="quotelev1">&gt; the question has been asked. It could be done by introducing new standard
-</em><br />
-<em class="quotelev1">&gt; names which did not specify the component, and having a dimension running over
-</em><br />
-<em class="quotelev1">&gt; components, with values such as eastward, northward, x and y. I expect other
-</em><br />
-<em class="quotelev1">&gt; approaches are possible.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; It would be helpful if you could describe a particular use-case.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Best wishes
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Jonathan
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; As you know, vector quanties such as velocities are often represented
-</em><br />
-<em class="quotelev2">&gt; &gt; in CF-NetCDF as two separate component fields (e.g.
-</em><br />
-<em class="quotelev2">&gt; &gt; &quot;northward_sea_water_velocity&quot; and &quot;eastward_sea_water_velocity&quot;).  Is
-</em><br />
-<em class="quotelev2">&gt; &gt; there a standard way in CF to represent vector quantities?  E.g. in
-</em><br />
-<em class="quotelev2">&gt; &gt; the above case could the two component fields be combined to give a
-</em><br />
-<em class="quotelev2">&gt; &gt; single two-component variable called &quot;horizontal_sea_water_velocity&quot;
-</em><br />
-<em class="quotelev2">&gt; &gt; or whatever the best standard name is?  Is there any way to
-</em><br />
-<em class="quotelev2">&gt; &gt; unambiguously represent the fact that two or more fields in a NetCDF
-</em><br />
-<em class="quotelev2">&gt; &gt; file represent the components of a vector quantity (other than by
-</em><br />
-<em class="quotelev2">&gt; &gt; interpreting the standard name)?
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<br /><br /><pre>
--- 
---------------------------------------------------------------
-Dr Jon Blower              Tel: +44 118 378 5213 (direct line)
-Technical Director         Tel: +44 118 378 8741 (ESSC)
-Reading e-Science Centre   Fax: +44 118 378 6413
-ESSC                       Email: jdb at mail.nerc-essc.ac.uk
-University of Reading
-3 Earley Gate
-Reading RG6 6AL, UK
---------------------------------------------------------------
-</pre>
-<span id="received"><dfn>Received on</dfn> Fri Apr 27 2007 - 10:37:59 BST</span>
+<span id="received"><dfn>Received on</dfn> Sun Jan 15 2006 - 02:24:10 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -211,13 +119,9 @@ Reading RG6 6AL, UK
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start815">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0816.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0814.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]  vector quantities (e.g. velocities) in CF-NetCDF"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0814.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata]  vector quantities (e.g. velocities) in CF-NetCDF"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0816.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] New standard names proposal for ECPC CEOP data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0814.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] cf2 progress"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0820.html" title="Next message in this discussion thread">John Graybeal: "[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0820.html" title="Message sent in reply to this message">John Graybeal: "[CF-metadata] vector quantities (e.g. velocities) in CF-NetCDF"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -228,7 +132,7 @@ Reading RG6 6AL, UK
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:56 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0814.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0816.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

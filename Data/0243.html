@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Non temporal/spatial dimension question from Brian Eaton on 2006-09-27 (mailing-list-archive)</title>
-<meta name="Author" content="Brian Eaton (eaton)" />
-<meta name="Subject" content="[CF-metadata] Non temporal/spatial dimension question" />
-<meta name="Date" content="2006-09-27" />
+<title>[CF-metadata] standard name proposals from John Evans on 2003-08-04 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Evans (johnevans)" />
+<meta name="Subject" content="[CF-metadata] standard name proposals" />
+<meta name="Date" content="2003-08-04" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0242.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0244.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Non temporal/spatial dimension question</h1>
-<!-- received="Wed Sep 27 14:11:55 2006" -->
-<!-- isoreceived="20060927131155" -->
-<!-- sent="Wed, 27 Sep 2006 14:11:55 -0600" -->
-<!-- isosent="20060927201155" -->
-<!-- name="Brian Eaton" -->
-<!-- email="eaton" -->
-<!-- subject="[CF-metadata] Non temporal/spatial dimension question" -->
-<!-- id="20060927201155.GB3004_at_ucar.edu" -->
+<a style="text-decoration:none" href="./0242.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0244.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard name proposals</h1>
+<!-- received="Mon Aug  4 11:12:36 2003" -->
+<!-- isoreceived="20030804101236" -->
+<!-- sent="Mon, 4 Aug 2003 17:12:36 +0000" -->
+<!-- isosent="20030804171236" -->
+<!-- name="John Evans" -->
+<!-- email="johnevans" -->
+<!-- subject="[CF-metadata] standard name proposals" -->
+<!-- id="200308041712.36308.johnevans_at_acm.org" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="DA82364018466D4D842186D5356746B194F52D_at_ice.shore.mbari.org" -->
+<!-- inreplyto="200307311704.35015.johnevans_at_acm.org" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0244.html" accesskey="d" title="Ed Hartnett: &quot;[CF-metadata] question about sigma level vertical coordinate.&quot;">Next message</a> ]
-[ <a href="./0242.html" title="Jonathan Gregory: &quot;[CF-metadata] Non temporal/spatial dimension question&quot;">Previous message</a> ]
-[ <a href="./0241.html" title="Godin, Michael: &quot;[CF-metadata] Non temporal/spatial dimension question&quot;">In reply to</a> ]
+[ <a href="./0244.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] standard name proposals&quot;">Next message</a> ]
+[ <a href="./0242.html" title="John Evans: &quot;[CF-metadata] standard name proposals&quot;">Previous message</a> ]
+[ <a href="./0242.html" title="John Evans: &quot;[CF-metadata] standard name proposals&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,116 +70,55 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Brian Eaton &lt;<a href="mailto:eaton?Subject=Re%3A%20%5BCF-metadata%5D%20Non%20temporal%2Fspatial%20dimension%20question">eaton</a>&gt;
+<dfn>From</dfn>: John Evans &lt;<a href="mailto:johnevans?Subject=Re%3A%20%5BCF-metadata%5D%20standard%20name%20proposals">johnevans</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 27 Sep 2006 14:11:55 -0600</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 4 Aug 2003 17:12:36 +0000</span><br />
 </address>
 <br />
-Hi Mike,
+Next round.  After this I'll shut up for a while.
 <br />
-<br />The recommendation that non space/time dimensions be added to the left of
+<br />Standard Name					Units
 <br />
-space/time dimensions was taken from the COARDS document, and is part of
+in_situ_density_of_seawater		kg/m^3
 <br />
-CF's attempt to remain COARDS compliant.  However, as you note, this
+potential_density_of_seawater		kg/m^3
 <br />
-recommendation can't be followed if you wish to keep time as the unlimited
+downwelling_photosynthetically_active_radiation		microE/m^2/s
 <br />
-dimension.  Several solutions come to mind.  The one you mention is a
+<br />The first two would be commonly known as &quot;sigma-t&quot; and &quot;sigma-theta&quot;.  There's 
 <br />
-possibility.  I'd be tempted though to use the order (time, wavelength,
+currently an entry for &quot;density&quot;, but it would kind of paper over the 
 <br />
-latitude, longitude), since then wavelength is in the slot normally used by
+difference between the two, and there is actually something of an issue with 
 <br />
-the vertical level and applications that expect a level coordinate there
+their units.  Typically, the actual value is between 1024 and 1028 kg/m^3 for 
 <br />
-might be made to work with wavelength instead.  Another possibility is to
+seawater, but historically 1000 is subtracted off of it to get a value 
 <br />
-not use wavelength as a coordinate and instead put that into the variable
+between 24 and 28.  In fact, a lot of code assumes this.  This would seem to 
 <br />
-name so that each wavelength (or range of wavelengths) is in a variable
+conflict with section 3.1 of the current beta standard, that 
 <br />
-with dimensions (time, latitude, longitude) which makes COARDS conforming
+<br />&quot;The Udunits syntax that allows scale factors and offsets to be applied to a 
 <br />
-apps really happy.  In the end I think it comes down to making sure that
+unit is not supported by this standard. The application of any scale factors 
 <br />
-the applications that need to read your data can handle the dimension
+or offsets to data should be indicated by the scale_factor and add_offset 
 <br />
-ordering you choose.  My impression is that we're not yet at the stage
+attributes. Use of these attributes is discussed in detail in the section on 
 <br />
-where there are lots of robust implementations of the full CF conventions,
+data packing which is their most important application. &quot;  
 <br />
-so you still need to be concerned with dimension ordering.
+<br />I assume that the first sentence means that &quot;kg/m^3 _at_ -1000&quot; is definitely not 
 <br />
-<br />Brian
+allowed?
 <br />
-<br /><br />On Wed, Sep 27, 2006 at 12:06:09PM -0700, Godin, Michael wrote:
-<br />
-<em class="quotelev1">&gt; Under 2.4, Dimensions, Recommendations, the CF standard says &quot;In files
-</em><br />
-<em class="quotelev1">&gt; that are meant to conform to the COARDS subset of CF, any dimensions of a
-</em><br />
-<em class="quotelev1">&gt; variable other than space and time dimensions should be added &quot;to the
-</em><br />
-<em class="quotelev1">&gt; left&quot; of the space and time dimensions as represented in CDL.&quot;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; So, if I have a variable that varies with time, latitude, longitude and
-</em><br />
-<em class="quotelev1">&gt; wavelength, then the recommendation is to use the dimensions:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; wavelength, time, latitude, longitude
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; However, such a set of dimensions doesn't allow me to define a compliant
-</em><br />
-<em class="quotelev1">&gt; file with an expanding time dimension and an extra dimension.  Is there a
-</em><br />
-<em class="quotelev1">&gt; subset to CF/COARDS that would otherwise follow COARDS, except for the
-</em><br />
-<em class="quotelev1">&gt; dimension ordering, which would allow me to define a much more manageable
-</em><br />
-<em class="quotelev1">&gt; variable with dimensions such as:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; time, latitude, longitude, wavelength
-</em><br />
-<em class="quotelev1">&gt;  
-</em><br />
-<em class="quotelev1">&gt; Thanks, 
-</em><br />
-<em class="quotelev1">&gt; Mike
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; _____________________________________________
-</em><br />
-<em class="quotelev1">&gt; Michael A. Godin
-</em><br />
-<em class="quotelev1">&gt; Software Engineer
-</em><br />
-<em class="quotelev1">&gt; Monterey Bay Aquarium Research Institute
-</em><br />
-<em class="quotelev1">&gt; Phone: 831-775-2063  <a href="http://www.mbari.org">http://www.mbari.org</a> &lt;<a href="http://www.mbari.org/">http://www.mbari.org/</a>&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<span id="received"><dfn>Received on</dfn> Wed Sep 27 2006 - 14:11:55 BST</span>
+<br /><br /><pre>
+-- 
+John Evans           
+johnevans at acm.org   
+</pre>
+<span id="received"><dfn>Received on</dfn> Mon Aug 04 2003 - 11:12:36 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -187,9 +126,9 @@ so you still need to be concerned with dimension ordering.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start243">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0244.html" title="Next message in the list">Ed Hartnett: "[CF-metadata] question about sigma level vertical coordinate."</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0242.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Non temporal/spatial dimension question"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0241.html" title="Message to which this message replies">Godin, Michael: "[CF-metadata] Non temporal/spatial dimension question"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0244.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] standard name proposals"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0242.html" title="Previous message in the list">John Evans: "[CF-metadata] standard name proposals"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0242.html" title="Message to which this message replies">John Evans: "[CF-metadata] standard name proposals"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -201,7 +140,7 @@ so you still need to be concerned with dimension ordering.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:46 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0242.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0244.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Getting back to ensembles from Jonathan Gregory on 2006-11-28 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] Getting back to ensembles" />
-<meta name="Date" content="2006-11-28" />
+<title>[CF-metadata] Conventions for Unstructured Grid Data from Brian Eaton on 2004-11-18 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Brian Eaton (eaton)" />
+<meta name="Subject" content="[CF-metadata] Conventions for Unstructured Grid Data" />
+<meta name="Date" content="2004-11-18" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0504.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0506.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Getting back to ensembles</h1>
-<!-- received="Tue Nov 28 09:02:15 2006" -->
-<!-- isoreceived="20061128090215" -->
-<!-- sent="Tue, 28 Nov 2006 16:02:15 +0000" -->
-<!-- isosent="20061128160215" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] Getting back to ensembles" -->
-<!-- id="20061128160215.GC4317_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0504.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0506.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Conventions for Unstructured Grid Data</h1>
+<!-- received="Thu Nov 18 09:16:32 2004" -->
+<!-- isoreceived="20041118091632" -->
+<!-- sent="Thu, 18 Nov 2004 09:16:32 -0700" -->
+<!-- isosent="20041118161632" -->
+<!-- name="Brian Eaton" -->
+<!-- email="eaton" -->
+<!-- subject="[CF-metadata] Conventions for Unstructured Grid Data" -->
+<!-- id="20041118161632.GC18354_at_ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="419BAF45.B8FD7773_at_noaa.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0506.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] curvilinear cartesian coordinates case&quot;">Next message</a> ]
-[ <a href="./0504.html" title="Francisco Doblas-Reyes: &quot;[CF-metadata] Getting back to ensembles&quot;">Previous message</a> ]
+[ <a href="./0506.html" accesskey="d" title="Rich Signell: &quot;[CF-metadata]  The &#0034;grid&#0034; attribute seems to solve both unstructured and staggered grid issues&quot;">Next message</a> ]
+[ <a href="./0504.html" title="Jonathan Gregory: &quot;[CF-metadata] new standard names added&quot;">Previous message</a> ]
+[ <a href="./0503.html" title="Steve Hankin: &quot;[CF-metadata] Conventions for Unstructured Grid Data&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0569.html" accesskey="t" title="Francisco Doblas-Reyes: &quot;[CF-metadata] Getting back to ensembles&quot;">Next in thread</a> ]
+[ <a href="./0506.html" accesskey="t" title="Rich Signell: &quot;[CF-metadata]  The &#0034;grid&#0034; attribute seems to solve both unstructured and staggered grid issues&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,64 +72,114 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Getting%20back%20to%20ensembles">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Brian Eaton &lt;<a href="mailto:eaton?Subject=Re%3A%20%5BCF-metadata%5D%20Conventions%20for%20Unstructured%20Grid%20Data">eaton</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 28 Nov 2006 16:02:15 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 18 Nov 2004 09:16:32 -0700</span><br />
 </address>
 <br />
-Dear Paco
+All,
 <br />
-<br /><em class="quotelev1">&gt; What is not so clear to me is whether attributes such as &quot;institution&quot; 
-</em><br />
-<em class="quotelev1">&gt; or &quot;source&quot; or the one mentioned by Jamie &quot;experiment_id&quot; would be 
-</em><br />
-<em class="quotelev1">&gt; allowed as auxiliary variables, &quot;realization&quot; being for me the 
-</em><br />
-<em class="quotelev1">&gt; coordinate variable. Their inclusion in the list of accepted standard 
-</em><br />
-<em class="quotelev1">&gt; names would be the best for me
-</em><br />
-<br />I think that would be fine, myself. Bryan has a reservation about calling
+<br />I agree with Steve's general comments on the current proposal.  And I agree
 <br />
-them standard names, and I can see that this is a bit different from many
+with adding new attributes to point to the variables that will describe
 <br />
-standard-named quantities, but on the whole I feel we don't need a distinction
+properties of the mesh.  The only thing I'd like to modify about Steve's
 <br />
-since they are formally similar.
+proposal is that rather than attaching those attributes directly to the
 <br />
-<br /><em class="quotelev1">&gt; However, the use of external 
-</em><br />
-<em class="quotelev1">&gt; dictionaries poses certain problems, as discussed.
-</em><br />
-<br />I would suppose that external dictionaries would be a further optional
+dependent variables, I'd prefer an analogous approach to the one we chose
 <br />
-feature. That is, you can supply that attribute to point to a list of
+(after a lengthy discussion) for describing grid mappings.  In this case
 <br />
-standardised values for the particular quantity (such as institution), but
+we're trying to describe the grid, so I propose a &quot;grid&quot; attribute to
 <br />
-otherwise its values are not standardised. For the sake of self-description,
+attach to the dependent variable, and that attribute points to a variable
 <br />
-the values of the quantity should be as intelligible as possible without
+which just acts as a container for all the specific attributes needed to
 <br />
-an external dictionary.
+describe connections and boundary nodes for a particular type of mesh.
 <br />
-<br />In your example, I think that experiment_id, source, realization and
+I've modified the original proposal to illustrate the idea, without having
 <br />
-institution should be listed in the coordinates attribute of the data
+given much thought to whether or not the specific attribute names are the
 <br />
-variable, since they are auxiliary coordinate variables. Also, I would
+best ones.
 <br />
-suggest that the units of leadtime are just days, not &quot;days since ...&quot;,
+<br />netcdf umesh_cf {
 <br />
-because forecast period is an elapsed time, rather than an encoded time/date,
+dimensions:
 <br />
-isn't it?
+&nbsp;&nbsp;node = 9700 ;
 <br />
-<br />Best wishes
+&nbsp;&nbsp;nele = 17925 ;
 <br />
-<br />Jonathan
+&nbsp;&nbsp;nbnd = 1476 ;
 <br />
-<span id="received"><dfn>Received on</dfn> Tue Nov 28 2006 - 09:02:15 GMT</span>
+&nbsp;&nbsp;nface = 3 ;
+<br />
+&nbsp;&nbsp;nbi = 4 ;
+<br />
+&nbsp;&nbsp;sigma = 1 ;
+<br />
+&nbsp;&nbsp;time = UNLIMITED ; // (0 currently)
+<br />
+variables:
+<br />
+&nbsp;&nbsp;float time(time) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;time:long_name = &quot;Time&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;time:units = &quot;days since 2003-01-01  0:00:00 00:00&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;time:base_date = 2003, 1, 1, 0 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;time:standard_name = &quot;time&quot; ;
+<br />
+&nbsp;&nbsp;float lon(node) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lon:long_name = &quot;Longitude&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lon:units = &quot;degrees_east&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lon:standard_name = &quot;longitude&quot; ;
+<br />
+&nbsp;&nbsp;float lat(node) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lat:long_name = &quot;Latitude&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lat:units = &quot;degrees_north&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lat:standard_name = &quot;latitude&quot; ;
+<br />
+&nbsp;&nbsp;float depth(node) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;depth:long_name = &quot;Bathymetry&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;depth:units = &quot;meters&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;depth:positive = &quot;down&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;depth:standard_name = &quot;depth&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;depth:grid = &quot;grid_description&quot;;
+<br />
+&nbsp;&nbsp;char grid_description
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;mesh:grid_name = &quot;triangular_mesh&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;mesh:Horizontal_Triangular_Element_Incidence_List = &quot;ele&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;mesh:Boundary_Segment_Node_List = &quot;bnd&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;mesh:index_start = 1;
+<br />
+&nbsp;&nbsp;int ele(nele, nface) ;
+<br />
+&nbsp;&nbsp;int bnd(nbnd, nbi) ;
+<br />
+<br /><br />Brian
+<br />
+<span id="received"><dfn>Received on</dfn> Thu Nov 18 2004 - 09:16:32 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -135,12 +187,13 @@ isn't it?
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start505">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0506.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] curvilinear cartesian coordinates case"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0504.html" title="Previous message in the list">Francisco Doblas-Reyes: "[CF-metadata] Getting back to ensembles"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0506.html" title="Next message in the list">Rich Signell: "[CF-metadata]  The &#0034;grid&#0034; attribute seems to solve both unstructured and staggered grid issues"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0504.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] new standard names added"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0503.html" title="Message to which this message replies">Steve Hankin: "[CF-metadata] Conventions for Unstructured Grid Data"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0569.html" title="Next message in this discussion thread">Francisco Doblas-Reyes: "[CF-metadata] Getting back to ensembles"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./0506.html" title="Next message in this discussion thread">Rich Signell: "[CF-metadata]  The &#0034;grid&#0034; attribute seems to solve both unstructured and staggered grid issues"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0569.html" title="Message sent in reply to this message">Francisco Doblas-Reyes: "[CF-metadata] Getting back to ensembles"</a></li>
+<dfn>Reply</dfn>: <a href="./0506.html" title="Message sent in reply to this message">Rich Signell: "[CF-metadata]  The &#0034;grid&#0034; attribute seems to solve both unstructured and staggered grid issues"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -151,7 +204,7 @@ isn't it?
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:51 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0504.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0506.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

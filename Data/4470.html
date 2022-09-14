@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Ocean CTD data following CF Conventions v1.6 from andrew walsh on 2012-05-02 (mailing-list-archive)</title>
-<meta name="Author" content="andrew walsh (awalsh)" />
-<meta name="Subject" content="[CF-metadata] Ocean CTD data following CF Conventions v1.6" />
-<meta name="Date" content="2012-05-02" />
+<title>[CF-metadata] CDM calendar date handling from Don Murray on 2011-08-18 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Don Murray (Don.Murray)" />
+<meta name="Subject" content="[CF-metadata] CDM calendar date handling" />
+<meta name="Date" content="2011-08-18" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4469.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4471.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Ocean CTD data following CF Conventions v1.6</h1>
-<!-- received="Tue May  1 17:08:29 2012" -->
-<!-- isoreceived="20120501160829" -->
-<!-- sent="Wed, 2 May 2012 09:08:29 +1000" -->
-<!-- isosent="20120501230829" -->
-<!-- name="andrew walsh" -->
-<!-- email="awalsh" -->
-<!-- subject="[CF-metadata] Ocean CTD data following CF Conventions v1.6" -->
-<!-- id="6F9EBFAC4E8F48039A5906DBEDB873E4_at_awalsh1" -->
+<a style="text-decoration:none" href="./4469.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4471.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CDM calendar date handling</h1>
+<!-- received="Thu Aug 18 06:54:19 2011" -->
+<!-- isoreceived="20110818055419" -->
+<!-- sent="Thu, 18 Aug 2011 06:54:19 -0600" -->
+<!-- isosent="20110818125419" -->
+<!-- name="Don Murray" -->
+<!-- email="Don.Murray" -->
+<!-- subject="[CF-metadata] CDM calendar date handling" -->
+<!-- id="4E4D0B7B.304_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="6A8A345E-06EB-44B9-B670-04D28E9D450E&#64;noaa.gov" -->
+<!-- inreplyto="4E4C53BB.5070408_at_unidata.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4471.html" accesskey="d" title="andrew walsh: &quot;[CF-metadata] Ocean CTD data following CF Conventions v1.6&quot;">Next message</a> ]
-[ <a href="./4469.html" title="David Hassell: &quot;[CF-metadata] Reverse-time trajectory&quot;">Previous message</a> ]
+[ <a href="./4471.html" accesskey="d" title="Upendra Dadi: &quot;[CF-metadata] CDM calendar date handling&quot;">Next message</a> ]
+[ <a href="./4469.html" title="John Caron: &quot;[CF-metadata] CDM calendar date handling&quot;">Previous message</a> ]
+[ <a href="./4469.html" title="John Caron: &quot;[CF-metadata] CDM calendar date handling&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./4474.html" accesskey="t" title="John Caron: &quot;[CF-metadata] CDM calendar date handling&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -69,112 +72,71 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: andrew walsh &lt;<a href="mailto:awalsh?Subject=Re%3A%20%5BCF-metadata%5D%20Ocean%20CTD%20data%20following%20CF%20Conventions%20v1.6">awalsh</a>&gt;
+<dfn>From</dfn>: Don Murray &lt;<a href="mailto:Don.Murray?Subject=Re%3A%20%5BCF-metadata%5D%20CDM%20calendar%20date%20handling">Don.Murray</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 2 May 2012 09:08:29 +1000</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 18 Aug 2011 06:54:19 -0600</span><br />
 </address>
 <br />
-Hi Jim,
+Hi John-
 <br />
-<br />Yes, thats correct. If you see the attached CDL in earlier email we have used coordinates
+<br />On 8/17/11 5:50 PM, John Caron wrote:
 <br />
-attributes on measured variables e.g
+<em class="quotelev1">&gt; In March I promised to do something with the &quot;udunits handling of fuzzy
+</em><br />
+<em class="quotelev1">&gt; time units&quot; email conversation. I now have a preliminary implementation
+</em><br />
+<em class="quotelev1">&gt; of extended date coordinates. docs are here:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.unidata.ucar.edu/software/netcdf-java/CDM/DateTime.html">http://www.unidata.ucar.edu/software/netcdf-java/CDM/DateTime.html</a>
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; If there's interest, I can propose as a CF convention. Otherwise it can
+</em><br />
+<em class="quotelev1">&gt; remain a CDM extension.
+</em><br />
+<br />Thanks for tackling this. I'm just starting a project with non-standard 
 <br />
-<br />temperature:coordinates = &quot;time latitude longitude pressure&quot;
+calendars and this will help tremendously.
 <br />
-<br /><br />Andrew
+<br />A couple of comment/questions:
 <br />
-&nbsp;&nbsp;----- Original Message ----- 
+<br />- Why is the calendar field limited to integer types?  It seems like one 
 <br />
-&nbsp;&nbsp;From: Jim Biard 
+could use NcML to change the unit of an existing double time coordinate 
 <br />
-&nbsp;&nbsp;To: cf-metadata at cgd.ucar.edu 
+variable to be a calendar unit so it can be handled correctly, but then 
 <br />
-&nbsp;&nbsp;Sent: Wednesday, May 02, 2012 4:51 AM
+you'd have a scope mismatch.
 <br />
-&nbsp;&nbsp;Subject: Re: [CF-metadata] Ocean CTD data following CF Conventions v1.6
+- Some geophysical datasets use units of millions of years before a 
 <br />
-<br /><br />&nbsp;&nbsp;Hi.
+date, e.g. Myr before 1950-01-01.   It would be good to support the 
 <br />
-<br /><br />&nbsp;&nbsp;If someone chooses the scalar approach, isn't it necessary to declare the coordinates via the coordinates attribute on the measurement variables?
+&quot;before&quot; syntax and also support &quot;yr&quot; as an abbreviation for year.
 <br />
-<br /><br />&nbsp;&nbsp;Grace and peace,
+- perhaps you could support &quot;mon&quot; and &quot;mo&quot; for month as well.
 <br />
-<br /><br />&nbsp;&nbsp;Jim
+- &quot;grammer&quot; should be &quot;grammar&quot; ;-)
 <br />
-<br /><br />&nbsp;&nbsp;Jim Biard
+- I don't think the &quot;udunit date grammer&quot; is any more difficult to 
 <br />
-&nbsp;&nbsp;Research Scholar
+understand than the ISO8601 grammar.  It's basically the same.
 <br />
-&nbsp;&nbsp;Cooperative Institute for Climate and Satellites
+<br />Thanks again for tackling this.
 <br />
-&nbsp;&nbsp;Remote Sensing and Applications Division
+<br />Don
 <br />
-&nbsp;&nbsp;National Climatic Data Center
-<br />
-&nbsp;&nbsp;151 Patton Ave, Asheville, NC 28801-5001
-<br />
-<br />&nbsp;&nbsp;jim.biard at noaa.gov
-<br />
-&nbsp;&nbsp;828-271-4900
-<br />
-<br /><br />&nbsp;&nbsp;On May 1, 2012, at 12:21 PM, John Caron wrote:
-<br />
-<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;On 4/30/2012 8:40 PM, andrew walsh wrote:
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hi John and CF-Metadata list,
-<br />
-<br /><br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Based on your earlier advice I decided using the Scalar way to represent
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the coordinate lat, long and time rather than Vector way i.e lat(lat0, lon(lon), time(time)
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mainly for reason of simplicity.
-<br />
-<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;the correct other choice is lat(profile), lon(profile), time(profile). not sure if you caught that.
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;the scalar choice is fine for 1 profile per file. the other is used to store multiple profiles in one file.
-<br />
-<br /><br /><br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I have run the Scalar sample through the BADC netCDF checker (*Note)
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at <a href="http://titania.badc.rl.ac.uk/cgi-bin/cf-checker.pl">http://titania.badc.rl.ac.uk/cgi-bin/cf-checker.pl</a> and I now get this error
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on each of the lat, lon, time variables:
-<br />
-<br /><br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ERROR (4): Axis attribute is not allowed for auxillary coordinate variables.
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I don't get this error with the Vector approach. It looks like the checker thinks
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my scalar lat, lon, time are 'auxilliary coordinate variables' and axis attributes
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;are not allowed on these. Is the checker interpreting things correctly?
-<br />
-<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;i think we recently clarified that axis is acceptable on auxiliary coordinates. OTOH, its unecessary, as long as you follow the other rules for identifying coordinates (chapter 4).
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;_______________________________________________
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;CF-metadata mailing list
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;CF-metadata at cgd.ucar.edu
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-<br />
-<br /><br /><br /><br /><br />------------------------------------------------------------------------------
-<br />
-<br /><br />&nbsp;&nbsp;_______________________________________________
-<br />
-&nbsp;&nbsp;CF-metadata mailing list
-<br />
-&nbsp;&nbsp;CF-metadata at cgd.ucar.edu
-<br />
-&nbsp;&nbsp;<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-<br />
--------------- next part --------------
-<br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120502/3783cca2/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120502/3783cca2/attachment-0001.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Tue May 01 2012 - 17:08:29 BST</span>
+<pre>
+-- 
+Don Murray
+NOAA/ESRL/PSD and CIRES
+303-497-3596
+<a href="http://www.esrl.noaa.gov/psd/people/don.murray/">http://www.esrl.noaa.gov/psd/people/don.murray/</a>
+</pre>
+<span id="received"><dfn>Received on</dfn> Thu Aug 18 2011 - 06:54:19 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -182,9 +144,13 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4470">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4471.html" title="Next message in the list">andrew walsh: "[CF-metadata] Ocean CTD data following CF Conventions v1.6"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4469.html" title="Previous message in the list">David Hassell: "[CF-metadata] Reverse-time trajectory"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4471.html" title="Next message in the list">Upendra Dadi: "[CF-metadata] CDM calendar date handling"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4469.html" title="Previous message in the list">John Caron: "[CF-metadata] CDM calendar date handling"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./4469.html" title="Message to which this message replies">John Caron: "[CF-metadata] CDM calendar date handling"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./4474.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] CDM calendar date handling"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./4474.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] CDM calendar date handling"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -195,7 +161,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:03 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4469.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4471.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

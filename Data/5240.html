@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Taxa in CF.  Some questions from Lowry, Roy K. on 2013-04-02 (mailing-list-archive)</title>
-<meta name="Author" content="Lowry, Roy K. (rkl)" />
-<meta name="Subject" content="[CF-metadata] Taxa in CF.  Some questions" />
-<meta name="Date" content="2013-04-02" />
+<title>[CF-metadata] identification of vector components from John Caron on 2012-04-24 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] identification of vector components" />
+<meta name="Date" content="2012-04-24" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5239.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5241.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Taxa in CF.  Some questions</h1>
-<!-- received="Tue Apr  2 02:33:51 2013" -->
-<!-- isoreceived="20130402013351" -->
-<!-- sent="Tue, 2 Apr 2013 09:33:51 +0100" -->
-<!-- isosent="20130402083351" -->
-<!-- name="Lowry, Roy K." -->
-<!-- email="rkl" -->
-<!-- subject="[CF-metadata] Taxa in CF.  Some questions" -->
-<!-- id="40829B0E077C1145A6DE44D39B3830A922ACE76E50_at_nerckwmb1.ad.nerc.ac.uk" -->
+<a style="text-decoration:none" href="./5239.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5241.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] identification of vector components</h1>
+<!-- received="Tue Apr 24 13:16:53 2012" -->
+<!-- isoreceived="20120424121653" -->
+<!-- sent="Tue, 24 Apr 2012 13:16:53 -0600" -->
+<!-- isosent="20120424191653" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] identification of vector components" -->
+<!-- id="4F96FC25.7050801_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="8AC4893FB411FA4AA8CFECD9C8913B660CB47CA0_at_EXXMAIL01.desktop.frd.metoffice.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5241.html" accesskey="d" title="Steve Hankin: &quot;[CF-metadata] interplay of standard name modifiers, cell_methods -- is there a problem?&quot;">Next message</a> ]
-[ <a href="./5239.html" title="Cameron-smith, Philip: &quot;[CF-metadata] Question from NODC about interplay of standard name modifiers, cell_methods, etc.&quot;">Previous message</a> ]
+[ <a href="./5241.html" accesskey="d" title="Bert Jagers: &quot;[CF-metadata] identification of vector components&quot;">Next message</a> ]
+[ <a href="./5239.html" title="Burkhardt Rockel: &quot;[CF-metadata] rotated pole projection&quot;">Previous message</a> ]
+[ <a href="./5232.html" title="Hedley, Mark: &quot;[CF-metadata] identification of vector components&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,92 +70,74 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Lowry, Roy K. &lt;<a href="mailto:rkl?Subject=Re%3A%20%5BCF-metadata%5D%20Taxa%20in%20CF.%20%20Some%20questions">rkl</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20identification%20of%20vector%20components">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 2 Apr 2013 09:33:51 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 24 Apr 2012 13:16:53 -0600</span><br />
 </address>
 <br />
-Dear All,
+On 4/24/2012 4:16 AM, Hedley, Mark wrote:
 <br />
-<br />I am currently working on a Trac ticket submission for handling of taxonomic data in CF and thought I'd run an example past the list to make sure I've got it right.
+<em class="quotelev1">&gt; There are particular issue here with format interoperability and conversion with respect to phenomenon.  In GRIB2, for example, there are codes which identify vector components:
+</em><br />
+<em class="quotelev1">&gt;    Wind direction (from which blowing) degree true
+</em><br />
+<em class="quotelev1">&gt;    Wind speed ms
+</em><br />
+<em class="quotelev1">&gt;    u-component of wind ms
+</em><br />
+<em class="quotelev1">&gt;    v-component of wind
+</em><br />
+<em class="quotelev1">&gt; but no code for eastward_...
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; The current situation poses significant challenges for GRIB - CF interoperability.
+</em><br />
+On 4/24/2012 10:42 AM, Hedley, Mark wrote:
 <br />
-<br />Jonathan suggested using a container variable analogous to geographic regions.  My interpretation of this would result in a simple time series (excluding ancillary variables and  most parameter attributes for clarity) for two taxa being structured as follows:
+<em class="quotelev3">&gt;&gt; &gt;  Can similar tests be used with Grib conversion? I assume that Grib must provide sufficient metadata to indicate whether the grid is lon-lat.
+</em><br />
+<em class="quotelev1">&gt; Yes and your assumption is correct, there is sufficient information to deliver interoperability, but implementing this is adding complexity which I feel is not necessary and may cause future issues maintaining the special cases.  One of the reasons I raise GRIB is that it treats vector component as one phenomenon, as I have described, not two as is done in CF currently.
+</em><br />
+<br />A few comments on my favorite topic, GRIB:
 <br />
-<br />dimensions;
+<br />AFAIU, like CF, GRIB does not associate, say, the u and v components of 
 <br />
-INSTANCE = 1 ;
+wind together, or identify them as vectors. You &quot;just have to know&quot; what 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MAXT = 1000 ;
+the naming conventions are to make the association.
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STRING80 = 80;
+<br />More generally, it seems that the crux of the issue is that one wants to 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LABEL = 2;
+know if the vector components of, say, wind, are reletive to the grid or 
 <br />
-variables;
+to lat/lon.  GRIB does encode this info in the GDS, the equivalent of 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float abundance(INSTANCE, MAXT, LABEL);
+the CF projection. Again you just have to know if that information is 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;abundance:standard_name=&quot;number_concentration_of_taxon_in_sea_water&quot;;
+actually pertinent to the GRIB record you are looking at. If you know 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;abundance:co-ordinates=&quot;taxon_name&quot;;
+this, one could use it in the correct standard CF name.
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double time (INSTANCE, MAXT);
+<br />In terms of mapping between GRIB and CF standard_names, these is 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char taxon_name (INSTANCE, LABEL, STRING80);
+unfortunately no such up-to-date mapping, AFAIK. It would be very useful 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;taxon_name:standard_name=&quot;taxon_name&quot;  /*Standard Name yet to be proposed*/;
+and quite challenging to do so. One reason its hard is that a GRIB 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char taxon_identifier (INSTANCE, LABEL, STRING80);
+&quot;variable&quot; must be discovered through hueristics that involve the 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;taxon_identifier: standard_name=&quot;taxon_identifier&quot;;
+parameter name, the level type, and a whole bunch of other things that 
 <br />
-<br />Note that I have included a taxon_identifier (populated using aphiaID, ITIS TSN, LSID) in addition to a taxon name because homonyms do exist and this is the only way of distinguishing them.  It also provides some degree of protection against spelling errors, which are a persistent problem with taxonomic names.
+you &quot;just have to know&quot;. Some details for the foolhardy are at a URL you 
 <br />
-<br />My instinctive encoding would have been:
+just have to know, but since I know it, here it is:
 <br />
-<br />dimensions;
+<br /><a href="http://www.unidata.ucar.edu/blogs/developer/en/entry/dataset_schemas_are_lost_in">http://www.unidata.ucar.edu/blogs/developer/en/entry/dataset_schemas_are_lost_in</a>
 <br />
-INSTANCE = 1 ;
+<br />John
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MAXT = 1000 ;
-<br />
-&nbsp;variables;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float abundance1(INSTANCE, MAXT);
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;abundance:standard_name=&quot;number_concentration_of_taxon_in_sea_water&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;abundance:taxon_name=&quot;taxon#1 name&quot;;
-<br />
-abundance:taxon_identifier=&quot;aphiaid:taxon#1 aphia identifier&quot;;
-<br />
-float abundance2(INSTANCE, MAXT);
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;abundance:standard_name=&quot;number_concentration_of_taxon_in_sea_water&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;abundance:taxon_name=&quot;taxon#2 name&quot;;
-<br />
-abundance:taxon_identifier=&quot;aphiaid:taxon#2 aphia identifier&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double time (INSTANCE, MAXT);
-<br />
-<br />However, having thought it through I'm coming around to preferring Jonathan's encoding as it's much more powerful and allows different taxa lists to co-exist within a single NetCDF container.  Does anybody disagree with this? If not, is there anything that needs to be changed in my example - e.g. should taxon_identifier also be specified as a co-ordinate?
-<br />
-<br />Cheers, Roy.
-<br />
-<br />Please note that I now work part-time from Tuesday to Thursday.  E-mail response on other days is possible but not guaranteed!
-<br />
-<br /><br /><br /><br />&nbsp;&nbsp;________________________________
-<br />
-This message (and any attachments) is for the recipient only. NERC is subject to the Freedom of Information Act 2000 and the contents of this email and any reply you make may be disclosed by NERC unless it is exempt from release under the Act. Any material supplied to NERC may be stored in an electronic records management system.
-<br />
--------------- next part --------------
-<br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130402/85163107/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130402/85163107/attachment.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Tue Apr 02 2013 - 02:33:51 BST</span>
+<span id="received"><dfn>Received on</dfn> Tue Apr 24 2012 - 13:16:53 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -161,8 +145,9 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5240">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5241.html" title="Next message in the list">Steve Hankin: "[CF-metadata] interplay of standard name modifiers, cell_methods -- is there a problem?"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5239.html" title="Previous message in the list">Cameron-smith, Philip: "[CF-metadata] Question from NODC about interplay of standard name modifiers, cell_methods, etc."</a></li>
+<li><dfn>Next message</dfn>: <a href="./5241.html" title="Next message in the list">Bert Jagers: "[CF-metadata] identification of vector components"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5239.html" title="Previous message in the list">Burkhardt Rockel: "[CF-metadata] rotated pole projection"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./5232.html" title="Message to which this message replies">Hedley, Mark: "[CF-metadata] identification of vector components"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -174,7 +159,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:18 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5239.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5241.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

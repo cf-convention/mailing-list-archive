@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] additional standard name for ISMIP6 from Karl Taylor on 2017-01-25 (mailing-list-archive)</title>
-<meta name="Author" content="Karl Taylor (taylor13)" />
-<meta name="Subject" content="[CF-metadata] additional standard name for ISMIP6" />
-<meta name="Date" content="2017-01-25" />
+<title>[CF-metadata] Specifying latitude and longitude of transects and regions from Jonathan Gregory on 2015-06-29 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] Specifying latitude and longitude of transects and regions" />
+<meta name="Date" content="2015-06-29" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./7978.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7980.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] additional standard name for ISMIP6</h1>
-<!-- received="Wed Jan 25 11:20:46 2017" -->
-<!-- isoreceived="20170125112046" -->
-<!-- sent="Wed, 25 Jan 2017 10:20:46 -0800" -->
-<!-- isosent="20170125182046" -->
-<!-- name="Karl Taylor" -->
-<!-- email="taylor13" -->
-<!-- subject="[CF-metadata] additional standard name for ISMIP6" -->
-<!-- id="46532d92-a325-e286-693e-15b98eb3ebb3_at_llnl.gov" -->
+<a style="text-decoration:none" href="./7978.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7980.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Specifying latitude and longitude of transects and regions</h1>
+<!-- received="Mon Jun 29 10:37:15 2015" -->
+<!-- isoreceived="20150629093715" -->
+<!-- sent="Mon, 29 Jun 2015 17:37:15 +0100" -->
+<!-- isosent="20150629163715" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] Specifying latitude and longitude of transects and regions" -->
+<!-- id="20150629163715.GA7118_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20170125172734.GB9102_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./7980.html" accesskey="d" title="David Lawrence: &quot;[CF-metadata] New area_types for LUMIP subgrid land-use tile reporting&quot;">Next message</a> ]
-[ <a href="./7978.html" title="Jonathan Gregory: &quot;[CF-metadata] Fwd: RE: Request for 4 new standard names - CMIP6 HighResMIP&quot;">Previous message</a> ]
-[ <a href="./7977.html" title="Jonathan Gregory: &quot;[CF-metadata] additional standard name for ISMIP6&quot;">In reply to</a> ]
+[ <a href="./7980.html" accesskey="d" title="Jim Biard: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">Next message</a> ]
+[ <a href="./7978.html" title="Jim Biard: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./8008.html" accesskey="t" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] additional standard name for ISMIP6&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -71,70 +68,84 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Karl Taylor &lt;<a href="mailto:taylor13?Subject=Re%3A%20%5BCF-metadata%5D%20additional%20standard%20name%20for%20ISMIP6">taylor13</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Specifying%20latitude%20and%20longitude%20of%20transects%20and%20regions">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 25 Jan 2017 10:20:46 -0800</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 29 Jun 2015 17:37:15 +0100</span><br />
 </address>
 <br />
-Hi Alison and Jonathan,
+Dear Martin
 <br />
-<br />I'm confused by the following discussion:
+<br />The reason for giving names to the transects and basins is because they are
 <br />
-<br /><em class="quotelev4">&gt;&gt;&gt;&gt; 17. land_ice_mass_not_displacing_sea_water (kg)
+numerically a bit imprecise - they will differ from model to model - but still
+<br />
+the Atlantic in one model should be regarded as comparable to the Atlantic in
+<br />
+another model, etc. I agree we do not have a way at present to record precisely
+<br />
+what it means in a given case. Since transects might be jagged lines and coasts
+<br />
+always are, a more general solution than endpoints would be a way to associate
+<br />
+a named line or outline (a geographical feature) with a list of coordinates
+<br />
+that trace it out, perhaps. Is there a use-case for this extra metadata? Has it
+<br />
+been requested in CMIP6?
+<br />
+<br />Best wishes
+<br />
+<br />Jonathan
+<br />
+<br />----- Forwarded message from martin.juckes at stfc.ac.uk -----
+<br />
+<br /><em class="quotelev1">&gt; Date: Mon, 29 Jun 2015 12:31:37 +0000
 </em><br />
-<em class="quotelev2">&gt;&gt; The name and units are agreed. I suggest the following as the definition:
+<em class="quotelev1">&gt; From: martin.juckes at stfc.ac.uk
 </em><br />
-<em class="quotelev2">&gt;&gt; ' &quot;Land ice not displacing sea water&quot; means land ice that would not alter sea level if removed. It excludes ice shelves and grounded ice-sheets resting on bedrock that is below sea level. It includes glaciers, floating ice caps and ice-sheets resting on bedrock above sea level. The quantity with standard name land_ice_mass_not_displacing_sea_water is the total mass integrated over an area of land ice. The geographical extent of the ice over which the mass was calculated should be described by providing bounds on the horizontal coordinate variables.'
+<em class="quotelev1">&gt; To: cf-metadata at cgd.ucar.edu
 </em><br />
-<em class="quotelev2">&gt;&gt;
+<em class="quotelev1">&gt; Subject: [CF-metadata] Specifying latitude and longitude of transects and
 </em><br />
-<em class="quotelev2">&gt;&gt; Is the bit about glaciers and ice caps correct? I put it in because the definition of land_ice usually refers to them and I want to be as clear as possible about how this name differs from the others.
+<em class="quotelev1">&gt; 	regions
 </em><br />
-<em class="quotelev1">&gt; Glaciers is correct, but not &quot;floating ice caps&quot;. You could say &quot;ice caps&quot;.
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; Glaciologists use &quot;ice cap&quot; to mean a thing like a glacier or an ice sheet
+<em class="quotelev1">&gt; Hello All,
 </em><br />
-<em class="quotelev1">&gt; but of intermediate size. (Journalists, confusingly, sometimes use &quot;ice cap&quot;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; to refer to Arctic sea-ice.)
+<em class="quotelev1">&gt; There are some variables in the CMIP5 archive which lack explicit latitude and longitude information, such as mfo (standard name sea_water_transport_across_line) and msftzzzba (ocean_y_overturning_mass_streamfunction_due_to_bolus_advection). The first is a mass flux across a transect and the second is a zonally averaged stream function, averaged across an ocean basin.  
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; For transects, the mfo variable is encoded with an index dimension and a coordinate &quot;passage&quot; which labels transects by the name of the passage they cross (e.g. fram_strait). The information about precisely which part of the Fram Strait is used is in a document referred to from the MIP tables. It would be nice to have a means of encoding the end points of the transect in the CF metadata. I looked into using the &quot;bounds&quot; attribute, but that is defined to represent cell boundaries, so an extension to the convention is, I think, needed. It makes sense to follow the pattern used to represent cell boundaries.  I propose defining a new attribute &quot;transect&quot; which, like the &quot;bounds&quot; attribute, can be attached to coordinate variables and takes the name of another variable as its value. The named variable should contain the end points of the transect.
 </em><br />
-In the first sentence does &quot;would not alter sea level if removed&quot; mean 
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; The same approach could be used for the streamfunction .. which is a mean across an east-west transect (this approach would lead to a specifcation of the east and west endpoints of each basin at each latitude -- but I'm not sure that it would be feasible to collect that much detail in the CMIP data files). 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Is there a cleaner way of encoding transect and basin coordinates?
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; regards,
+</em><br />
+<em class="quotelev1">&gt; Martin
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<br />----- End forwarded message -----
 <br />
-the same thing as &quot;would not alter sea level if melted (assuming the 
-<br />
-water runs into the sea)&quot;?  If so, I would rewrite the next two sentence 
-<br />
-something like &quot;It excludes ice shelves (and any other sort of floating 
-<br />
-ice) and it excludes a fraction of grounded ice-sheet mass equivalent to 
-<br />
-the mass of any sea water it displaces.  It includes glaciers and a 
-<br />
-portion the portion of grounded ice-sheet mass exceeding the mass of any 
-<br />
-sea water displaced.&quot;  I think mentioning &quot;ice caps&quot; confuses things.    
-<br />
-I think this better accounts for the difference in density of frozen 
-<br />
-water and liquid water.  Perhaps that density difference isn't large 
-<br />
-enough to matter.  If so, then I think you could say &quot;It excludes ice 
-<br />
-shelves (and any other sort of floating ice) and the portion of grounded 
-<br />
-ice-sheets that is below sea level.  It includes glaciers and the mass 
-<br />
-of grounded ice-sheets existing above sea level.&quot;
-<br />
-<br />best regards,
-<br />
-Karl
-<br />
-<span id="received"><dfn>Received on</dfn> Wed Jan 25 2017 - 11:20:46 GMT</span>
+<span id="received"><dfn>Received on</dfn> Mon Jun 29 2015 - 10:37:15 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -142,11 +153,9 @@ Karl
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start7979">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./7980.html" title="Next message in the list">David Lawrence: "[CF-metadata] New area_types for LUMIP subgrid land-use tile reporting"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./7978.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Fwd: RE: Request for 4 new standard names - CMIP6 HighResMIP"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./7977.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] additional standard name for ISMIP6"</a></li>
+<li><dfn>Next message</dfn>: <a href="./7980.html" title="Next message in the list">Jim Biard: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./7978.html" title="Previous message in the list">Jim Biard: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./8008.html" title="Next message in this discussion thread">alison.pamment at stfc.ac.uk: "[CF-metadata] additional standard name for ISMIP6"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -157,7 +166,7 @@ Karl
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:08 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./7978.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7980.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

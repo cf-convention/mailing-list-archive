@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Inconsistent use of flag_values attribute. from Brian Eaton on 2007-04-19 (mailing-list-archive)</title>
-<meta name="Author" content="Brian Eaton (eaton)" />
-<meta name="Subject" content="[CF-metadata] Inconsistent use of flag_values attribute." />
-<meta name="Date" content="2007-04-19" />
+<title>[CF-metadata] more new names from Jonathan Gregory on 2005-11-28 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] more new names" />
+<meta name="Date" content="2005-11-28" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0803.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0805.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Inconsistent use of flag_values attribute.</h1>
-<!-- received="Thu Apr 19 10:43:34 2007" -->
-<!-- isoreceived="20070419094334" -->
-<!-- sent="Thu, 19 Apr 2007 10:43:34 -0600" -->
-<!-- isosent="20070419164334" -->
-<!-- name="Brian Eaton" -->
-<!-- email="eaton" -->
-<!-- subject="[CF-metadata] Inconsistent use of flag_values attribute." -->
-<!-- id="20070419164334.GA17306_at_ucar.edu" -->
+<a style="text-decoration:none" href="./0803.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0805.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] more new names</h1>
+<!-- received="Mon Nov 28 09:12:28 2005" -->
+<!-- isoreceived="20051128091228" -->
+<!-- sent="Mon, 28 Nov 2005 16:12:28 +0000" -->
+<!-- isosent="20051128161228" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] more new names" -->
+<!-- id="20051128161225.GB20352_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="1176979019.25327.102.camel_at_eld334.desktop.frd.metoffice.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0805.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  Inconsistent use of flag_values attribute.&quot;">Next message</a> ]
-[ <a href="./0803.html" title="Stark, John: &quot;[CF-metadata] Inconsistent use of flag_values attribute.&quot;">Previous message</a> ]
-[ <a href="./0803.html" title="Stark, John: &quot;[CF-metadata] Inconsistent use of flag_values attribute.&quot;">In reply to</a> ]
+[ <a href="./0805.html" accesskey="d" title="Frederique Blanc: &quot;[CF-metadata] mixed layer depth&quot;">Next message</a> ]
+[ <a href="./0803.html" title="Knut Lis&#0230;ter: &quot;[CF-metadata] standard names for &#0034;grid relative&#0034; sea ice velocity and stresses&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,102 +68,108 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Brian Eaton &lt;<a href="mailto:eaton?Subject=Re%3A%20%5BCF-metadata%5D%20Inconsistent%20use%20of%20flag_values%20attribute.">eaton</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20more%20new%20names">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 19 Apr 2007 10:43:34 -0600</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 28 Nov 2005 16:12:28 +0000</span><br />
 </address>
 <br />
-I agree with John that flag_values should be numeric.  That is the intent
+The following standard names have been added, following proposals of
 <br />
-expressed in section 3.5.  The type specified in appendix A is a mistake
+Burkhardt Rockel.
 <br />
-and should be corrected.
+<br />Jonathan
 <br />
-<br />Brian
+<br />kg m-2:::water_potential_evaporation_amount
 <br />
-<br /><br />On Thu, Apr 19, 2007 at 11:36:59AM +0100, Stark, John wrote:
+kg m-2:::runoff_amount
 <br />
-<em class="quotelev1">&gt; Dear all,
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; We have a NetCDF file that fails the CF compliance checker on the BADC
-</em><br />
-<em class="quotelev1">&gt; website:
-</em><br />
-<em class="quotelev1">&gt; <a href="http://titania.badc.rl.ac.uk/cgi-bin/cf-checker.pl">http://titania.badc.rl.ac.uk/cgi-bin/cf-checker.pl</a> 
-</em><br />
-<em class="quotelev1">&gt; The failure concerns the use of 'flag_values' to describe a flag
-</em><br />
-<em class="quotelev1">&gt; variable called 'mask'.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev2">&gt; &gt; Checking variable: mask
-</em><br />
-<em class="quotelev2">&gt; &gt; ------------------
-</em><br />
-<em class="quotelev2">&gt; &gt; ERROR: Attribute flag_values of incorrect type
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Following this up we ran into a problem. On the list of attributes in
-</em><br />
-<em class="quotelev1">&gt; CF-1.0 appendix A, flag_values is described as a string, but all the
-</em><br />
-<em class="quotelev1">&gt; examples I've seen, including that in CF-1.0, section 3.5, use a list
-</em><br />
-<em class="quotelev1">&gt; (vector) of valid numeric values (presumably matching the variable
-</em><br />
-<em class="quotelev1">&gt; type). 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Part of the the ncdump for our file looks like this:
-</em><br />
-<em class="quotelev1">&gt;   byte mask(time, lat, lon) ;
-</em><br />
-<em class="quotelev1">&gt;     mask:long_name = &quot;sea/land/lake/ice field composite mask&quot; ;
-</em><br />
-<em class="quotelev1">&gt;     mask:_FillValue = -128b ;
-</em><br />
-<em class="quotelev1">&gt;     mask:flag_values = 1b, 2b, 4b, 8b ;
-</em><br />
-<em class="quotelev1">&gt;     mask:flag_meanings = &quot;sea land lake ice&quot; ;
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I think flag_values should be numeric rather than a string. The CF-1.0
-</em><br />
-<em class="quotelev1">&gt; standard should be consistent either way...
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Thanks,
-</em><br />
-<em class="quotelev1">&gt; John
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; -- 
-</em><br />
-<em class="quotelev1">&gt; John Stark   SST and Sea Ice Scientist
-</em><br />
-<em class="quotelev1">&gt; Met Office   FitzRoy Road   Exeter   EX1 3PB  United Kingdom
-</em><br />
-<em class="quotelev1">&gt; Tel: +44 (0)1392 885059   Fax: +44 (0)1392 885681
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<span id="received"><dfn>Received on</dfn> Thu Apr 19 2007 - 10:43:34 BST</span>
+K:::sea_ice_temperature
+<br />
+m2 s-2:::surface_geopotential
+<br />
+1:::surface_specific_humidity
+<br />
+1:::mass_fraction_of_rain_in_air
+<br />
+1:::mass_fraction_of_snow_in_air
+<br />
+1:::mass_fraction_of_graupel_in_air
+<br />
+m:::convective_cloud_base_altitude
+<br />
+m:::convective_cloud_top_altitude
+<br />
+1:::atmosphere_surface_drag_coefficient_of_momentum
+<br />
+1:::atmosphere_surface_drag_coefficient_of_heat
+<br />
+m:::lwe_thickness_of_frozen_water_content_of_soil_layer
+<br />
+s-1:::coriolis_parameter
+<br />
+J m-2:::atmosphere_enthalpy_content
+<br />
+J m-2:::atmosphere_potential_energy_content
+<br />
+W m-2:::upwelling_shortwave_flux_in_air
+<br />
+W m-2:::downwelling_shortwave_flux_in_air
+<br />
+W m-2:::upwelling_longwave_flux_in_air
+<br />
+W m-2:::downwelling_longwave_flux_in_air
+<br />
+K s-1:::tendency_of_air_temperature_due_to_radiative_heating
+<br />
+Pa:::magnitude_of_surface_downward_stress
+<br />
+s:::duration_of_sunshine
+<br />
+1:::soil_porosity
+<br />
+m s-1:::geostrophic_eastward_wind
+<br />
+m s-1:::geostrophic_northward_wind
+<br />
+W m-2:::surface_downwelling_photosynthetic_radiative_flux_in_air
+<br />
+1:::mass_fraction_of_precipitation_in_air
+<br />
+W m-2:::tendency_of_atmosphere_kinetic_energy_content_due_to_advection
+<br />
+W m-2:::tendency_of_atmosphere_potential_energy_content_due_to_advection
+<br />
+W m-2:::tendency_of_atmosphere_enthalpy_content_due_to_advection
+<br />
+1:::model_level_number_at_convective_cloud_base
+<br />
+1:::model_level_number_at_convective_cloud_top
+<br />
+1:::model_level_number_at_top_of_atmosphere_boundary_layer
+<br />
+m:::altitude_at_top_of_dry_convection
+<br />
+m2 s-1:::atmosphere_momentum_diffusivity
+<br />
+m2 s-1:::atmosphere_heat_diffusivity
+<br />
+kg m-2 s-1:::atmosphere_convective_mass_flux
+<br />
+Pa:::equivalent_pressure_of_atmosphere_ozone_content
+<br />
+m s-1:::wind_speed_of_gust
+<br />
+1:::volume_fraction_of_water_in_soil_at_field_capacity
+<br />
+1:::volume_fraction_of_water_in_soil_at_wilting_point
+<br />
+Pa:::difference_of_air_pressure_from_model_reference
+<br />
+1:::soil_type
+<br />
+1:::land_cover
+<br />
+<span id="received"><dfn>Received on</dfn> Mon Nov 28 2005 - 09:12:28 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -173,9 +177,8 @@ and should be corrected.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start804">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0805.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  Inconsistent use of flag_values attribute."</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0803.html" title="Previous message in the list">Stark, John: "[CF-metadata] Inconsistent use of flag_values attribute."</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0803.html" title="Message to which this message replies">Stark, John: "[CF-metadata] Inconsistent use of flag_values attribute."</a></li>
+<li><dfn>Next message</dfn>: <a href="./0805.html" title="Next message in the list">Frederique Blanc: "[CF-metadata] mixed layer depth"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0803.html" title="Previous message in the list">Knut Lis&#0230;ter: "[CF-metadata] standard names for &#0034;grid relative&#0034; sea ice velocity and stresses"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -187,7 +190,7 @@ and should be corrected.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:56 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0803.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0805.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

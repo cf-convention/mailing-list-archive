@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] percent coverage by GOES-R geophysical variables from rhorne at excaliburlabs.com on 2013-06-13 (mailing-list-archive)</title>
-<meta name="Author" content="rhorne at excaliburlabs.com (rhorne)" />
-<meta name="Subject" content="[CF-metadata] percent coverage by GOES-R geophysical variables" />
-<meta name="Date" content="2013-06-13" />
+<title>[CF-metadata] Another potentially useful extension to the standard_name table: OFFLINE RESPONSE from Schultz, Martin on 2012-09-14 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Schultz, Martin (m.schultz)" />
+<meta name="Subject" content="[CF-metadata] Another potentially useful extension to the standard_name table: OFFLINE RESPONSE" />
+<meta name="Date" content="2012-09-14" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5522.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5524.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] percent coverage by GOES-R geophysical variables</h1>
-<!-- received="Thu Jun 13 12:35:33 2013" -->
-<!-- isoreceived="20130613113533" -->
-<!-- sent="Thu, 13 Jun 2013 14:35:33 -0400" -->
-<!-- isosent="20130613183533" -->
-<!-- name="rhorne at excaliburlabs.com" -->
-<!-- email="rhorne" -->
-<!-- subject="[CF-metadata] percent coverage by GOES-R geophysical variables" -->
-<!-- id="c6f7d82$660e2511$5f87e6c1$_at_excaliburlabs.com" -->
+<a style="text-decoration:none" href="./5522.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5524.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Another potentially useful extension to the standard_name table: OFFLINE RESPONSE</h1>
+<!-- received="Fri Sep 14 01:07:51 2012" -->
+<!-- isoreceived="20120914000751" -->
+<!-- sent="Fri, 14 Sep 2012 07:07:51 +0000" -->
+<!-- isosent="20120914070751" -->
+<!-- name="Schultz, Martin" -->
+<!-- email="m.schultz" -->
+<!-- subject="[CF-metadata] Another potentially useful extension to the standard_name table: OFFLINE RESPONSE" -->
+<!-- id="4A980E5ADF859E4E9007AA5514CF9C8E0AEDB2_at_MBX2010-K01.ad.fz-juelich.de" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="50523901.2080400_at_ed.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5524.html" accesskey="d" title="Jonathan Wrotny: &quot;[CF-metadata] new standard names for CIN, LFC,LCL; update to CAPE&quot;">Next message</a> ]
-[ <a href="./5522.html" title="Jonathan Gregory: &quot;[CF-metadata] differences between collocated values of the same type of quantity (and standard_name)&quot;">Previous message</a> ]
+[ <a href="./5524.html" accesskey="d" title="Lowry, Roy K.: &quot;[CF-metadata] Standard Name Serving&quot;">Next message</a> ]
+[ <a href="./5522.html" title="Robert Muetzelfeldt: &quot;[CF-metadata] Another potentially useful extension to the standard_name table&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,140 +69,215 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: rhorne at excaliburlabs.com &lt;<a href="mailto:rhorne?Subject=Re%3A%20%5BCF-metadata%5D%20percent%20coverage%20by%20GOES-R%20geophysical%20variables">rhorne</a>&gt;
+<dfn>From</dfn>: Schultz, Martin &lt;<a href="mailto:m.schultz?Subject=Re%3A%20%5BCF-metadata%5D%20Another%20potentially%20useful%20extension%20to%20the%20standard_name%20table%3A%20OFFLINE%20RESPONSE">m.schultz</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 13 Jun 2013 14:35:33 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 14 Sep 2012 07:07:51 +0000</span><br />
 </address>
 <br />
-Dear Jonathan: 
+Hi Robert,
 <br />
-<br />&nbsp;&nbsp;
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;very good points! I like this idea of hierarchical &lt;attribute&gt;...&lt;/attribute&gt; and &lt;compound&gt;...&lt;/compound&gt; structures. I just don't speak XML well enough myself yet ;-)  Only for the canonical_units things are set in stone already, all other things are just beginning to be defined.
 <br />
-<br />Thanks for the reply.. 
+<br />&nbsp;&nbsp;&nbsp;Just one question/comment, though: if we plan on further extending this concept beyond &lt;compound&gt;, wouldn't it then make sense to generalize this further? Example:
 <br />
-<br />&nbsp;&nbsp;
+&lt;controlled_item id=&quot;compound&quot;&gt;
 <br />
-<br />The specific geophysical quantity where this issue came up are the 
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;trimethylbenzene&lt;/name&gt;
 <br />
-different cloud phase categories (std name = cloud_phase_category). that 
+&nbsp;&nbsp;&nbsp;&lt;codelist&gt;...&lt;/codelist&gt;
 <br />
-are reported for the entire image on a percentage basis.  Note that we have 
+&lt;/controlled_item&gt;
 <br />
-not yet proposed standard names for the specific cloud phase categories, 
+etc. ?  Or would this make it again more difficult to parse?
 <br />
-and are exploring other data design options. 
+<br />Cheers,
 <br />
-<br />&nbsp;&nbsp;
+<br />Martin
 <br />
-<br />Moving forward we will propose &quot;percent_&quot; standard_names as required. 
+<br />Von: Robert Muetzelfeldt [mailto:r.muetzelfeldt at ed.ac.uk]
 <br />
-<br />&nbsp;&nbsp;
+Gesendet: Donnerstag, 13. September 2012 21:50
 <br />
-<br />very respectfully, 
+An: Schultz, Martin
 <br />
-<br />&nbsp;&nbsp;
+Betreff: Fwd: Re: [CF-metadata] Another potentially useful extension to the standard_name table: OFFLINE RESPONSE
 <br />
-<br />randy
+<br />Hi Martin,
 <br />
-<br />----------------------------------------
+<br />I sent the following response to your email to the list this morning, but it has not yet appeared (being moderated? - but I've posted OK before).   So I thought I would send you the reply directly, so you can be thinking about it.  If it's wrong/irrelevant/unworkable (given existing constraints in the XML Schema or tools for handling these documents), then do feel free to say so when my email eventually appears on the list.  I won't be upset.
 <br />
-&nbsp;From: &quot;Jonathan Gregory&quot; &lt;j.m.gregory at reading.ac.uk&gt;
+<br />Cheers,
 <br />
-Sent: Thursday, June 13, 2013 1:28 PM
+Robert
 <br />
-To: cf-metadata at cgd.ucar.edu
+<br /><br />-------- Original Message --------
 <br />
-Subject: [CF-metadata] percent coverage by GOES-R geophysical variables
+Subject:
 <br />
-<br />Dear Randy
+<br />Re: [CF-metadata] Another potentially useful extension to the standard_name table
 <br />
-<br />You added the following to ticket 102. It's a reasonable point, but I 
+<br />Date:
 <br />
-don't
+<br />Thu, 13 Sep 2012 10:21:13 +0100
 <br />
-think it belongs in that ticket. I suggest we discuss it on the email 
+<br />From:
 <br />
-list.
+<br />Robert Muetzelfeldt &lt;r.muetzelfeldt at ed.ac.uk&gt;&lt;mailto:r.muetzelfeldt at ed.ac.uk&gt;
 <br />
-<br /><em class="quotelev1">&gt; On GOES-R ground, some of the data we report for a given geographic 
-</em><br />
-region
+<br />To:
 <br />
-<em class="quotelev1">&gt; (i.e. a cell containing many observations) is the percent that a
-</em><br />
-<em class="quotelev1">&gt; particular geophysical quantity exists.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; We were planning on using the cell method &quot;sum&quot; because it generally
-</em><br />
-<em class="quotelev1">&gt; conforms to the definiiton of sum in Appendix E (The data values are
-</em><br />
-<em class="quotelev1">&gt; representative of a sum or accumulation over the cell. This is the 
-</em><br />
-default
+<br />cf-metadata at cgd.ucar.edu&lt;mailto:cf-metadata at cgd.ucar.edu&gt;
 <br />
-<em class="quotelev1">&gt; method for a quantity that is extensive with respect to the specified
-</em><br />
-<em class="quotelev1">&gt; dimension.)
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; The problem with doing this is ...
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Percent is not the same units of the geophysical quantity. To solve 
-</em><br />
-this,
+<br /><br /><br />Hi Martin,
 <br />
-<em class="quotelev1">&gt; the units column for the &quot;sum&quot; row in appendix E could be modified to
-</em><br />
-<em class="quotelev1">&gt; allow percent.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Another option may be to treat &quot;percent&quot; as a cell method.
-</em><br />
-<br />I would say that the percent existence of X is a different geophysical 
+<br />Is there some reason why the &lt;entry&gt; element must have a flat set of sub-elements, as in your example below?    It seems to me that from an XML data-design point-of-view, a neater data model would be:
 <br />
-quantity
+&lt;entry id=&quot;...&quot;&gt;
 <br />
-from X and therefore needs its own standard name, which will be 
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;compound_name&gt;...&lt;/compound_name&gt;                See note [1] below
 <br />
-dimensionless
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;compound_codelist&gt;...&lt;/compound_codelist&gt;
 <br />
-as you say (not in the units of X). This is like area_fraction quantities 
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;canonical_units&gt; ... see note [2] below ...&lt;/canonical_units&gt;
 <br />
-e.g.
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;description&gt;...&lt;/description&gt;
 <br />
-cloud_area_fraction or area_fraction_below_surface. Could you give some
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;attribute_list&gt;
 <br />
-examples of X? The appropriate cell_method for the derived variable is 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;attribute status=&quot;recommended&quot; name=&quot;emission_sector&quot;/&gt;
 <br />
-&quot;sum&quot;,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;attribute status=&quot;recommended&quot; name=&quot;emission_sector_reference&quot;/&gt;
 <br />
-as you suggest, since it represents the entire cell, not a point.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;attribute status=&quot;recommended&quot; name=&quot;compound_group_members&quot;/&gt;
 <br />
-<br />Best wishes
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;attribute status=&quot;optional&quot; name=&quot;comments&quot;/&gt;
 <br />
-<br />Jonathan
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/attribute_list&gt;
 <br />
-_______________________________________________
+&lt;/entry&gt;
 <br />
-CF-metadata mailing list
+<br />This design is:
 <br />
-CF-metadata at cgd.ucar.edu
+- more in keeping with conventional XML designs;
 <br />
-<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+- allows for additional forms of 'status' without changing the DTD/Schema;
 <br />
-<br /><br />-------------- next part --------------
+- facilitates processing (you are parsing *only* XML; you don't need separate code to parse
 <br />
+&nbsp;&nbsp;the text string for each of your 3 original elements).
+<br />
+<br />It is a matter of taste as to whether you prefer the above design of the &lt;attribute&gt; element (i.e. with two (XML) attributes), or whether you would prefer to have 'status' and 'name' as two sub-elements of &lt;attribute&gt;.
+<br />
+<br />The following notes are not directly relevant to your suggestion, but I might as well make the points now:
+<br />
+<br />Note [1]
+<br />
+A similar argument as the above applies to the two &lt;compound_...&gt; elements, which would I think be better represented as:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;compound name=&quot;...&quot; codelist=&quot;...&quot;/&gt;
+<br />
+or
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;compound&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;...&lt;/name&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;codelist&gt;...&lt;/codelist&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/compound&gt;
+<br />
+But it may be that this decision is already fixed in stone.
+<br />
+<br />Note [2]
+<br />
+A similar argument applies to &lt;canonical_units&gt;, except here I think the principled approach would be to use the W3C Units in MathML ( <a href="http://www.w3.org/TR/mathml-units/">http://www.w3.org/TR/mathml-units/</a>) or UnitsML ( <a href="http://unitsml.nist.gov/">http://unitsml.nist.gov/</a>), since both represent a concerted effort to develop a standard for representing units in a machine-processable format.    I can think of several reasons why people might object vigourously to either solution: the current design is also already fixed in stone; it is harder to write my hand; it is harder for humans to read; it is much more verbose; and possibly quite simply that &lt;entry&gt; may have to have a flat list of sub-elements (as per the first sentence of this email).   However, these standards exist for a good reason, and  we should have a good reason for not adopting them.
+<br />
+<br />Cheers,
+<br />
+Robert
+<br />
+<br /><br /><br />On 13/09/12 08:09, Schultz, Martin wrote:
+<br />
+Dear all,
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;during the recent discussion on &quot;compound_name&quot; as additional tag in the standard_names.xml file and in relation to track ticket #90 it occurred to me that another useful addition could be to express the &quot;need&quot; of certain variable attributes in this table as well. This refers to the attempt of creating a &quot;CF-1.6-strict&quot; standard which would have more things mandatory in order to better support interoperable applications.
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;One example (related to the new emission standard_names) could be:
+<br />
+<br /><br />-&lt;entry id=&quot; tendency_of_atmosphere_mass_content_of_alcohols_due_to_emission_from_industrial_processes_and_combustion&quot;&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&lt;compound_name&gt;Alcohols&lt;/compound_name&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&lt;compound_codelist&gt;<a href="http://rdfdata.eionet.europa.eu/airquality/components/">http://rdfdata.eionet.europa.eu/airquality/components/</a>??&lt;/compound_codelist&lt;<a href="http://rdfdata.eionet.europa.eu/airquality/components/??%3c/compound_codelist">http://rdfdata.eionet.europa.eu/airquality/components/??%3c/compound_codelist</a>&gt;&gt; # ??
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;canonical_units&gt;kg m-2 s-1&lt;/canonical_units&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&lt;description&gt;&quot;...&quot; &lt;/description&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&lt;required_attributes&gt;None&lt;/required_attributes&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&lt;recommended_attributes&gt;emission_sector, emission_sector_reference, compound_group_members&lt;/recommended_attributes&gt;
+<br />
+&nbsp;&nbsp;&nbsp;&lt;optional_attributes&gt;comments&lt;/optional_attributes&gt;
+<br />
+&lt;/entry&gt;
+<br />
+<br />The idea is that &quot;optional&quot; refers to &quot;could&quot; in the description, &quot;recommended&quot; to &quot;should&quot;, and &quot;required&quot; to &quot;shall&quot;.
+<br />
+<br />Best regards,
+<br />
+<br />Martin
+<br />
+<br /><br />PD Dr. Martin G. Schultz
+<br />
+IEK-8, Forschungszentrum J?lich
+<br />
+D-52425 J?lich
+<br />
+Ph: +49 2461 61 2831
+<br />
+<br /><br /><br />------------------------------------------------------------------------------------------------
+<br />
+------------------------------------------------------------------------------------------------
+<br />
+Forschungszentrum Juelich GmbH
+<br />
+52425 Juelich
+<br />
+Sitz der Gesellschaft: Juelich
+<br />
+Eingetragen im Handelsregister des Amtsgerichts Dueren Nr. HR B 3498
+<br />
+Vorsitzender des Aufsichtsrats: MinDir Dr. Karl Eugen Huthmacher
+<br />
+Geschaeftsfuehrung: Prof. Dr. Achim Bachem (Vorsitzender),
+<br />
+Karsten Beneke (stellv. Vorsitzender), Prof. Dr.-Ing. Harald Bolt,
+<br />
+Prof. Dr. Sebastian M. Schmidt
+<br />
+------------------------------------------------------------------------------------------------
+<br />
+------------------------------------------------------------------------------------------------
+<br />
+<br />Kennen Sie schon unsere app? <a href="http://www.fz-juelich.de/app">http://www.fz-juelich.de/app</a>
+<br />
+<br /><br /><br /><br />_______________________________________________
+<br />
+<br />CF-metadata mailing list
+<br />
+<br />CF-metadata at cgd.ucar.edu&lt;mailto:CF-metadata at cgd.ucar.edu&gt;
+<br />
+<br /><a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+<br />
+<br /><br /><br /><pre>
+--
+-----
+-------------- next part --------------
 An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130613/ee59be5c/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130613/ee59be5c/attachment.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Thu Jun 13 2013 - 12:35:33 BST</span>
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120914/10f1e11e/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120914/10f1e11e/attachment-0001.html</a>&gt;
+</pre>
+<span id="received"><dfn>Received on</dfn> Fri Sep 14 2012 - 01:07:51 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -209,8 +285,8 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5523">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5524.html" title="Next message in the list">Jonathan Wrotny: "[CF-metadata] new standard names for CIN, LFC,LCL; update to CAPE"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5522.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] differences between collocated values of the same type of quantity (and standard_name)"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5524.html" title="Next message in the list">Lowry, Roy K.: "[CF-metadata] Standard Name Serving"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5522.html" title="Previous message in the list">Robert Muetzelfeldt: "[CF-metadata] Another potentially useful extension to the standard_name table"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -222,7 +298,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:24 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5522.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5524.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

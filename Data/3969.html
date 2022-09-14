@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF website links to standard names status pages from Jonathan Gregory on 2011-11-29 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] CF website links to standard names status pages" />
-<meta name="Date" content="2011-11-29" />
+<title>[CF-metadata] ESRI implementation of ellipsoidal-earth from David Blodgett on 2011-02-02 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="David Blodgett (dblodgett)" />
+<meta name="Subject" content="[CF-metadata] ESRI implementation of ellipsoidal-earth" />
+<meta name="Date" content="2011-02-02" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./3968.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3970.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF website links to standard names status pages</h1>
-<!-- received="Tue Nov 29 07:56:33 2011" -->
-<!-- isoreceived="20111129075633" -->
-<!-- sent="Tue, 29 Nov 2011 14:56:33 +0000" -->
-<!-- isosent="20111129145633" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] CF website links to standard names status pages" -->
-<!-- id="20111129145633.GB6350_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./3968.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3970.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] ESRI implementation of ellipsoidal-earth</h1>
+<!-- received="Wed Feb  2 06:19:06 2011" -->
+<!-- isoreceived="20110202061906" -->
+<!-- sent="Wed, 2 Feb 2011 07:19:06 -0600" -->
+<!-- isosent="20110202131906" -->
+<!-- name="David Blodgett" -->
+<!-- email="dblodgett" -->
+<!-- subject="[CF-metadata] ESRI implementation of ellipsoidal-earth" -->
+<!-- id="D7C8F5B0-AF75-41B6-BF8D-F5F2EFA1ABE3_at_usgs.gov" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="AANLkTinxF12Qa8319okKjkWbEgys0vdWFoaEoEB0LK60_at_mail.gmail.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,9 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./3970.html" accesskey="d" title="Durack, Paul J.: &quot;[CF-metadata] new TEOS-10 standard names&quot;">Next message</a> ]
-[ <a href="./3968.html" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] CF website links to standard names status pages&quot;">Previous message</a> ]
+[ <a href="./3970.html" accesskey="d" title="Bentley, Philip: &quot;[CF-metadata] ESRI implementation of ellipsoidal-earth&quot;">Next message</a> ]
+[ <a href="./3968.html" title="Rich Signell: &quot;[CF-metadata] ESRI implementation of ellipsoidal-earth&quot;">Previous message</a> ]
+[ <a href="./3968.html" title="Rich Signell: &quot;[CF-metadata] ESRI implementation of ellipsoidal-earth&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./3976.html" accesskey="t" title="Heiko Klein: &quot;[CF-metadata] ESRI implementation of ellipsoidal-earth&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,24 +72,146 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20website%20links%20to%20standard%20names%20status%20pages">j.m.gregory</a>&gt;
+<dfn>From</dfn>: David Blodgett &lt;<a href="mailto:dblodgett?Subject=Re%3A%20%5BCF-metadata%5D%20ESRI%20implementation%20of%20ellipsoidal-earth">dblodgett</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 29 Nov 2011 14:56:33 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 2 Feb 2011 07:19:06 -0600</span><br />
 </address>
 <br />
-Dear Alison
+All, I meant to send the following to the list yesterday but I don't think it came through... Hopefully this one makes it through.
 <br />
-<br /><em class="quotelev1">&gt; Today I have added some links to the CF website Standard Names, Documents and Discussions pages. All three pages contain the same new links to the CEDA vocabulary manager status pages for standard names.
+<br />New to the list, Rich Signell asked me if I'd respond to John's question below. For what its worth:
+<br />
+<br />I've done a fair amount of thinking and asked a lot of questions re: 
+<br />
+<br /><em class="quotelev1">&gt; what to use for the default ellipsoid when
 </em><br />
-<br />This is a very welcome development. I am sure people will appreciate being able
+<em class="quotelev1">&gt; these are not specified. It seems to me the obvious candidates are 1)
+</em><br />
+<em class="quotelev1">&gt; spherical earth with a standard radius, or 2) WGS84 ellipsoid.
+</em><br />
+<br />I have come to the conclusion that WGS84 is probably the best default. Although really, without a datum definition a dataset is incomplete (according to geographic information science) and an error should be thrown.
 <br />
-to see the status of proposal. Thanks for setting it up and maintaining it.
+<br />My reasoning for this is that I have not been able to find an atmospheric scientist who has converted ground based model forcing data locations into the spherical datum used by their model grid. This basically means that the grid's geometry calculations are out of sync with the actual location of the forcings. So the eventual model output or reanalysis or whatever, is actually most similar, location wise, to a geodetic datum (like WGS84)
 <br />
-<br />Cheers
+<br />However,
 <br />
-<br />Jonathan
+<br />Things get complicated with projected coordinate systems based on spherical datums. The issue there is that to properly unproject, you need to use the math associated with the spherical datum. You then have lat/lon positions with spherical datum indicated in its metadata. But the original data was likely not converted to the spherical datum but rather reassigned, so you have to change the metadata (hack!) without transforming to the new, correct datum. We deal with this by using 2D axis definitions and indicating that the lat/lon is on whatever datum we think it came from.
 <br />
-<span id="received"><dfn>Received on</dfn> Tue Nov 29 2011 - 07:56:33 GMT</span>
+<br />Hopefully that is helpful,
+<br />
+<br />p.s. Welcome back John!
+<br />
+<br />Dave 
+<br />
+<br />On Feb 2, 2011, at 7:01 AM, Rich Signell wrote:
+<br />
+<br /><em class="quotelev1">&gt; John &amp; Co,
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Also, they are wondering what to use for the default ellipsoid when these
+</em><br />
+<em class="quotelev2">&gt;&gt; are not specified. It seems to me the obvious candidates are 1) spherical
+</em><br />
+<em class="quotelev2">&gt;&gt; earth with a standard radius, or 2) WGS84 ellipsoid.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; I imagine the vast majority of netcdf datasets fall into this camp.  I
+</em><br />
+<em class="quotelev1">&gt; had an interesting talk yesterday with Dave Blodgett, who pointed out
+</em><br />
+<em class="quotelev1">&gt; that even though most models are running on a spherical earth, they
+</em><br />
+<em class="quotelev1">&gt; mostly likely do not transform the initial bathymetry/topography,
+</em><br />
+<em class="quotelev1">&gt; coastline, and other model inputs into spherical earth coordinates,
+</em><br />
+<em class="quotelev1">&gt; but just leave them in their original datum, which is usually WGS84.
+</em><br />
+<em class="quotelev1">&gt; So it seems that your 2) would be more likely to be right.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; And just to make sure that CFers are on the same page, if the datum is
+</em><br />
+<em class="quotelev1">&gt; actually known to be different, it can be specified using the CF datum
+</em><br />
+<em class="quotelev1">&gt; parameters (&quot;inverse_flattening&quot; and &quot;earth_radius&quot;, or
+</em><br />
+<em class="quotelev1">&gt; &quot;semi_major_axis&quot; and &quot;semi_minor_axis&quot;  in CF 1.5
+</em><br />
+<em class="quotelev1">&gt; (<a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.5/apf.html">http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.5/apf.html</a>) where
+</em><br />
+<em class="quotelev1">&gt; the doc now states: &quot;The attributes which describe the ellipsoid and
+</em><br />
+<em class="quotelev1">&gt; prime meridian may be included, when applicable, with any grid
+</em><br />
+<em class="quotelev1">&gt; mapping.&quot;
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; -Rich
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; On Tue, Feb 1, 2011 at 2:40 PM, John Caron &lt;caron at unidata.ucar.edu&gt; wrote:
+</em><br />
+<em class="quotelev2">&gt;&gt; Apparently ESRI is willing to add support for CF 1.5 grid_mapping attributes
+</em><br />
+<em class="quotelev2">&gt;&gt; for ellipsoidal-earth/geodetic-datum definitions in the Grid Mappings and
+</em><br />
+<em class="quotelev2">&gt;&gt; Projections specification.
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; They are looking for sample data, especially using ellipsoidal parameters
+</em><br />
+<em class="quotelev2">&gt;&gt; (semi_major_axis/semi_minor_axis/inverse_flattening). Does anyone have any?
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Also, they are wondering what to use for the default ellipsoid when these
+</em><br />
+<em class="quotelev2">&gt;&gt; are not specified. It seems to me the obvious candidates are 1) spherical
+</em><br />
+<em class="quotelev2">&gt;&gt; earth with a standard radius, or 2) WGS84 ellipsoid.
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; Opinions?
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; John
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev2">&gt;&gt; _______________________________________________
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev2">&gt;&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; -- 
+</em><br />
+<em class="quotelev1">&gt; Dr. Richard P. Signell   (508) 457-2229
+</em><br />
+<em class="quotelev1">&gt; USGS, 384 Woods Hole Rd.
+</em><br />
+<em class="quotelev1">&gt; Woods Hole, MA 02543-1598
+</em><br />
+<span id="received"><dfn>Received on</dfn> Wed Feb 02 2011 - 06:19:06 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -93,9 +219,13 @@ to see the status of proposal. Thanks for setting it up and maintaining it.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start3969">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./3970.html" title="Next message in the list">Durack, Paul J.: "[CF-metadata] new TEOS-10 standard names"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./3968.html" title="Previous message in the list">alison.pamment at stfc.ac.uk: "[CF-metadata] CF website links to standard names status pages"</a></li>
+<li><dfn>Next message</dfn>: <a href="./3970.html" title="Next message in the list">Bentley, Philip: "[CF-metadata] ESRI implementation of ellipsoidal-earth"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./3968.html" title="Previous message in the list">Rich Signell: "[CF-metadata] ESRI implementation of ellipsoidal-earth"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./3968.html" title="Message to which this message replies">Rich Signell: "[CF-metadata] ESRI implementation of ellipsoidal-earth"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./3976.html" title="Next message in this discussion thread">Heiko Klein: "[CF-metadata] ESRI implementation of ellipsoidal-earth"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./3976.html" title="Message sent in reply to this message">Heiko Klein: "[CF-metadata] ESRI implementation of ellipsoidal-earth"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -106,7 +236,7 @@ to see the status of proposal. Thanks for setting it up and maintaining it.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:54 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./3968.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3970.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

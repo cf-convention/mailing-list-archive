@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Proposed standard names for biological model outputs from Jonathan Gregory on 2006-12-05 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] Proposed standard names for biological model outputs" />
-<meta name="Date" content="2006-12-05" />
+<title>[CF-metadata] GIS issues from Steve Hankin on 2005-02-22 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Steve Hankin (steven.c.hankin)" />
+<meta name="Subject" content="[CF-metadata] GIS issues" />
+<meta name="Date" content="2005-02-22" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0560.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0562.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Proposed standard names for biological model outputs</h1>
-<!-- received="Tue Dec  5 11:27:01 2006" -->
-<!-- isoreceived="20061205112701" -->
-<!-- sent="Tue, 5 Dec 2006 18:27:01 +0000" -->
-<!-- isosent="20061205182701" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] Proposed standard names for biological model outputs" -->
-<!-- id="20061205182701.GA480_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0560.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0562.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] GIS issues</h1>
+<!-- received="Tue Feb 22 15:28:21 2005" -->
+<!-- isoreceived="20050222152821" -->
+<!-- sent="Tue, 22 Feb 2005 14:28:21 -0800" -->
+<!-- isosent="20050222222821" -->
+<!-- name="Steve Hankin" -->
+<!-- email="steven.c.hankin" -->
+<!-- subject="[CF-metadata] GIS issues" -->
+<!-- id="421BB205.82AFE1A6_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="200502221945.j1MJjdv2000648_at_unidata.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0562.html" accesskey="d" title="Roy Lowry: &quot;[CF-metadata] Proposed standard names for biological model outputs&quot;">Next message</a> ]
-[ <a href="./0560.html" title="Steve Hankin: &quot;[CF-metadata] curvilinear cartesian coordinates case (service-oriented approach)&quot;">Previous message</a> ]
+[ <a href="./0562.html" accesskey="d" title="Russ Rew: &quot;[CF-metadata] Horizontal Data Coordinate System Definition [l ong] (fwd)&quot;">Next message</a> ]
+[ <a href="./0560.html" title="Russ Rew: &quot;[CF-metadata] GIS issues&quot;">Previous message</a> ]
+[ <a href="./0560.html" title="Russ Rew: &quot;[CF-metadata] GIS issues&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,44 +70,175 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Proposed%20standard%20names%20for%20biological%20model%20outputs">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Steve Hankin &lt;<a href="mailto:steven.c.hankin?Subject=Re%3A%20%5BCF-metadata%5D%20GIS%20issues">steven.c.hankin</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 5 Dec 2006 18:27:01 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 22 Feb 2005 14:28:21 -0800</span><br />
 </address>
 <br />
-Dear Roy
+Hi Russ,
 <br />
-<br /><em class="quotelev1">&gt; I can see a future request for 'Nitrogen_molar_biomass_of_phytoplankton' and nobody realising that it is the same thing as the pre-existing 'molar_concentration_of_nitrogen_in_sea_water_due_to_phytoplankton'.
+<br />All that you have said is true and nicely summarized in your concluding
+<br />
+word, &quot;CF and GIS conventions might evolve more easily if they were
+<br />
+independent rather than tightly coupled&quot;.  But isn't this approach
+<br />
+perilous for interoperability?  (ah, the epic battle to support the forces
+<br />
+of convergence over the forces of divergence ...)  Moving to greater
+<br />
+independence between the encoding of model grids and GIS data is not a
+<br />
+desirable thing if it means that GIS clients are not able to access model
+<br />
+grids and scientific anal&amp;viz packages are not able to access GIS data
+<br />
+without each application requiring two separate software development
+<br />
+tracks.
+<br />
+<br />The direction that Jonathan's email was leading seemed promising:  how to
+<br />
+augment GIS codes (which require external tables) with extra content in
+<br />
+order to make them self-describing. (but not easy in general!).  Another
+<br />
+approach entirely is through client libraries based upon a rich data model
+<br />
+-- i.e. that Unidata (or others) would provide multi-language APIs so that
+<br />
+applications need not be aware of the specific details of the netCDF
+<br />
+conventions.  These approaches might be blended -- e.g. could we envision
+<br />
+well-supported libraries in multiple languages (packaged with the netCDF
+<br />
+client code) that could return CF-style coordinates given inputs of GIS
+<br />
+codes and parameters?  (I assume we all agree that Java-only solution
+<br />
+would not be sufficient.)
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;- steve
+<br />
+<br />==================================================
+<br />
+<br />Russ Rew wrote:
+<br />
+<br /><em class="quotelev1">&gt; Jonathan Gregory wrote:
 </em><br />
-<br />This kind of thing is certainly a problem but I don't think we can avoid it.
-<br />
-When people approach things from different backgrounds they have different
-<br />
-expectations. We just have to point that the quantity exists under a different
-<br />
-name already. This has happened before.
-<br />
-<br />Of course, we can minimise it by using familiar terms, and that is one reason
-<br />
-for doing so. However, I somewhat disagree with Steve's preference for the
-<br />
-technical terms of specialised fields, as often these terms are unclear and
-<br />
-confused - at least, I have got that impression from previous exercises to
-<br />
-devise new standard names. In their own fields they are jargon which is
-<br />
-understood, and the background is known, but to outsiders they can seem
-<br />
-unintuitive and unclear. Obviously this is not always the case. We have to
-<br />
-take each case on its merits.
-<br />
-<br />Best wishes
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Tue Dec 05 2006 - 11:27:01 GMT</span>
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; *  only a subset of the CF community are users of GIS software, WMS
+</em><br />
+<em class="quotelev2">&gt; &gt;    servers and MS Access. I'm not familiar with any of these, for
+</em><br />
+<em class="quotelev2">&gt; &gt;    instance, and I expect I am typical of scientists working with
+</em><br />
+<em class="quotelev2">&gt; &gt;    GCMs. It would make CF less easily usable, for those who are not,
+</em><br />
+<em class="quotelev2">&gt; &gt;    to tie ourselves to particular software.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Maybe it's time to break off GIS conventions into a separate
+</em><br />
+<em class="quotelev1">&gt; orthogonal set of conventions for GIS users, which you would specify
+</em><br />
+<em class="quotelev1">&gt; with something like
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;   :Conventions = &quot;CF-1.0, GIS-x&quot;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; to indicate that data conforms to CF version 1.0 conventions as well
+</em><br />
+<em class="quotelev1">&gt; as GIS version x conventions.  It might be beneficial to organize GIS
+</em><br />
+<em class="quotelev1">&gt; conventions into multiple independent sets as well, such as WKT, EPSG,
+</em><br />
+<em class="quotelev1">&gt; FGDC, etc., or nested levels encompassing more extensive GIS
+</em><br />
+<em class="quotelev1">&gt; information for multiple uses.  Decoupling GIS metadata from CF
+</em><br />
+<em class="quotelev1">&gt; metadata would permit separate and perhaps more rapid development of
+</em><br />
+<em class="quotelev1">&gt; the necessary conventions.  Such decoupling would also permit the use
+</em><br />
+<em class="quotelev1">&gt; of the GIS conventions independently or with other non-CF conventions.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I think the subset of the netCDF community interested in accurate GIS
+</em><br />
+<em class="quotelev1">&gt; metadata is large enough that a separate independent standard would be
+</em><br />
+<em class="quotelev1">&gt; useful.  There might even be GIS users who are interested enough to
+</em><br />
+<em class="quotelev1">&gt; propose a draft set of conventions.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; As a disclaimer, I should state that
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;   * I'm not very familiar with the issues and the discussion that's
+</em><br />
+<em class="quotelev1">&gt;     already taken place in regards to expanding the CF conventions to
+</em><br />
+<em class="quotelev1">&gt;     provide more accurate and comprehensive GIS metadata.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;   * It's not my intention to undermine the CF conventions, which I
+</em><br />
+<em class="quotelev1">&gt;     think are the best available netCDF conventions for many purposes,
+</em><br />
+<em class="quotelev1">&gt;     by suggesting that they be broken up into smaller orthogonal
+</em><br />
+<em class="quotelev1">&gt;     pieces.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I'm just suggesting that CF and GIS conventions might evolve more
+</em><br />
+<em class="quotelev1">&gt; easily if they were independent rather than tightly coupled.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; --Russ
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; _____________________________________________________________________
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Russ Rew                                         UCAR Unidata Program
+</em><br />
+<em class="quotelev1">&gt; russ at unidata.ucar.edu          <a href="http://www.unidata.ucar.edu/staff/russ">http://www.unidata.ucar.edu/staff/russ</a>
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<br /><pre>
+--
+???,??,????`????,??,????`????,??,????`??????,??,???
+Steve Hankin, NOAA/PMEL -- Steven.C.Hankin at noaa.gov
+7600 Sand Point Way NE, Seattle, WA 98115-6349
+ph. (206) 526-6080, FAX (206) 526-6744
+</pre>
+<span id="received"><dfn>Received on</dfn> Tue Feb 22 2005 - 15:28:21 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -113,8 +246,9 @@ take each case on its merits.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start561">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0562.html" title="Next message in the list">Roy Lowry: "[CF-metadata] Proposed standard names for biological model outputs"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0560.html" title="Previous message in the list">Steve Hankin: "[CF-metadata] curvilinear cartesian coordinates case (service-oriented approach)"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0562.html" title="Next message in the list">Russ Rew: "[CF-metadata] Horizontal Data Coordinate System Definition [l ong] (fwd)"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0560.html" title="Previous message in the list">Russ Rew: "[CF-metadata] GIS issues"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0560.html" title="Message to which this message replies">Russ Rew: "[CF-metadata] GIS issues"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -126,7 +260,7 @@ take each case on its merits.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:52 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0560.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0562.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

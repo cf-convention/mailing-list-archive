@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] new standard name: land_surface_skin_temperature from Karl Taylor on 2013-06-10 (mailing-list-archive)</title>
-<meta name="Author" content="Karl Taylor (taylor13)" />
-<meta name="Subject" content="[CF-metadata] new standard name: land_surface_skin_temperature" />
-<meta name="Date" content="2013-06-10" />
+<title>[CF-metadata] Data Model Development from Hedley, Mark on 2012-09-06 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Hedley, Mark (mark.hedley)" />
+<meta name="Subject" content="[CF-metadata] Data Model Development" />
+<meta name="Date" content="2012-09-06" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5503.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5505.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new standard name: land_surface_skin_temperature</h1>
-<!-- received="Mon Jun 10 10:10:35 2013" -->
-<!-- isoreceived="20130610091035" -->
-<!-- sent="Mon, 10 Jun 2013 09:10:35 -0700" -->
-<!-- isosent="20130610161035" -->
-<!-- name="Karl Taylor" -->
-<!-- email="taylor13" -->
-<!-- subject="[CF-metadata] new standard name: land_surface_skin_temperature" -->
-<!-- id="51B5FA7A.60807_at_llnl.gov" -->
+<a style="text-decoration:none" href="./5503.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5505.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Data Model Development</h1>
+<!-- received="Thu Sep  6 10:24:27 2012" -->
+<!-- isoreceived="20120906092427" -->
+<!-- sent="Thu, 6 Sep 2012 17:24:27 +0100" -->
+<!-- isosent="20120906162427" -->
+<!-- name="Hedley, Mark" -->
+<!-- email="mark.hedley" -->
+<!-- subject="[CF-metadata] Data Model Development" -->
+<!-- id="8AC4893FB411FA4AA8CFECD9C8913B660CB48008_at_EXXMAIL01.desktop.frd.metoffice.com" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="51B5F642.10100_at_aer.com" -->
+<!-- inreplyto="8AC4893FB411FA4AA8CFECD9C8913B660CB48007_at_EXXMAIL01.desktop.frd.metoffice.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5505.html" accesskey="d" title="Jim Biard: &quot;[CF-metadata] new standard name: land_surface_skin_temperature&quot;">Next message</a> ]
-[ <a href="./5503.html" title="Jonathan Wrotny: &quot;[CF-metadata] new standard name: land_surface_skin_temperature&quot;">Previous message</a> ]
-[ <a href="./5503.html" title="Jonathan Wrotny: &quot;[CF-metadata] new standard name: land_surface_skin_temperature&quot;">In reply to</a> ]
+[ <a href="./5505.html" accesskey="d" title="Lowry, Roy K.: &quot;[CF-metadata] Proposal for standard name	&#0034;surface_snow_binary_mask&#0034;&quot;">Next message</a> ]
+[ <a href="./5503.html" title="Jim Biard: &quot;[CF-metadata] Proposal for standard name &#0034;surface_snow_binary_mask&#0034;&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./5505.html" accesskey="t" title="Jim Biard: &quot;[CF-metadata] new standard name: land_surface_skin_temperature&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -71,178 +69,30 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Karl Taylor &lt;<a href="mailto:taylor13?Subject=Re%3A%20%5BCF-metadata%5D%20new%20standard%20name%3A%20land_surface_skin_temperature">taylor13</a>&gt;
+<dfn>From</dfn>: Hedley, Mark &lt;<a href="mailto:mark.hedley?Subject=Re%3A%20%5BCF-metadata%5D%20Data%20Model%20Development">mark.hedley</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 10 Jun 2013 09:10:35 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 6 Sep 2012 17:24:27 +0100</span><br />
 </address>
 <br />
-Dear Jonathan's W &amp; G,
+Hello CF Community
 <br />
-<br />I would contend that in models &quot;surface_temperature&quot; is the radiating 
+<br />There has been agreement, on ticket 88, that a data model for CF would be beneficial, and the terms of reference for the development and maintenance of this model.
 <br />
-temperature of the surface and therefore the same as the &quot;skin 
+<br />I have started a Wiki page on the CF Trac site, my hope is that we can develop a list of defined types/constructs/things and relate these to each other:
 <br />
-temperature&quot;.  I'm wondering why we need to distinguish between surface 
+<a href="https://cf-pcmdi.llnl.gov/trac/wiki/PotentialDataModelTypes">https://cf-pcmdi.llnl.gov/trac/wiki/PotentialDataModelTypes</a>
 <br />
-temperature and surface skin temperature.   I think users looking for 
+<br />I would like to encourage people to take part in the development of this model by:
 <br />
-surface_temperature should find any measurement of the radiating 
+&nbsp;- editing the wiki, adding type names and definitions, as suggestions for discussion; 
 <br />
-temperature of the surface.
+&nbsp;- posting thoughts to the mailing list (with the subject prefix: Data Model, and a subject, please).
 <br />
-<br />Karl
+<br />many thanks
 <br />
-<br /><br /><br />On 6/10/13 8:52 AM, Jonathan Wrotny wrote:
+mark
 <br />
-<em class="quotelev1">&gt; Dear Jonathan Gregory,
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; I have not yet replied to this e-mail yet from you...thanks for the 
-</em><br />
-<em class="quotelev1">&gt; information on the meaning of the various surface temperatures.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Yes, the land skin temperature is actually different from the 
-</em><br />
-<em class="quotelev1">&gt; &quot;surface_temperature&quot; standard name since it corresponds to the skin, 
-</em><br />
-<em class="quotelev1">&gt; and not the interface, temperature.  So, I do believe that an 
-</em><br />
-<em class="quotelev1">&gt; additional name will need to be added to account for this land 
-</em><br />
-<em class="quotelev1">&gt; analogue to &quot;sea_surface_skin_temperature.&quot;  Here is my current proposal:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Standard Name:   land_surface_skin_temperature
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Definition:The surface called &quot;surface&quot; means the lower boundary of 
-</em><br />
-<em class="quotelev1">&gt; the atmosphere. The land surface skin temperature is the temperature 
-</em><br />
-<em class="quotelev1">&gt; measured by an infrared radiometer, but measurements from microwave 
-</em><br />
-<em class="quotelev1">&gt; radiometers operating at GHz wavelengths also exist. It represents the 
-</em><br />
-<em class="quotelev1">&gt; aggregate temperature of the skin surface where &quot;skin&quot; means the 
-</em><br />
-<em class="quotelev1">&gt; surface medium viewed by a sensor to a vertical depth of approximately 
-</em><br />
-<em class="quotelev1">&gt; 12 micrometers.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Measurements of this quantity are subject to a large potential diurnal 
-</em><br />
-<em class="quotelev1">&gt; cycle which is primarily due to the balance between heating during the 
-</em><br />
-<em class="quotelev1">&gt; day by solar radiation and continual cooling from terrestrial 
-</em><br />
-<em class="quotelev1">&gt; (long-wave) radiation emitted by the skin surface.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Canonical Units:K
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Sincerely,
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Jonathan
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; On 6/7/2013 3:47 AM, Jonathan Gregory wrote:
-</em><br />
-<em class="quotelev2">&gt;&gt; Dear Jonathan W
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; If my interpretation of all of the surface temperature names is
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; correct, then there may need to be a modification to the current
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; definition of &quot;sea_surface_temperature.&quot;  In particular, this
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; definition states &quot;It is the temperature of sea water near the
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; surface (including the part under sea-ice, if any), and not the skin
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; temperature, whose standard name is surface_temperature.&quot; However,
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; it seems to me that the &quot;surface_temperature&quot; is the
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; atmosphere/medium interface temperature, and not the temperature of
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; the medium below the interface (e.g. the skin temperature). So, I'm
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; wondering if the above sentence in quotes incorrectly refers to the
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; &quot;surface_temperature&quot; when perhaps it should refer to the
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; &quot;sea_surface_skin_temperature&quot;?
-</em><br />
-<em class="quotelev2">&gt;&gt; Yes, I think you are right. This definition of sea_surface_temperature may
-</em><br />
-<em class="quotelev2">&gt;&gt; predate the introduction of sea_surface_skin_temperature. The SST is neither
-</em><br />
-<em class="quotelev2">&gt;&gt; the true interface temperature (for which the name is surface_temperature) nor
-</em><br />
-<em class="quotelev2">&gt;&gt; the &quot;skin&quot; temperature, but a bulk temperature applying to a rather ill-defined
-</em><br />
-<em class="quotelev2">&gt;&gt; upper layer of the ocean. There isn't a land analogue for SST.
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; If land skin temperature is different from surface_temperature of the
-</em><br />
-<em class="quotelev2">&gt;&gt; interface, a new name is needed for it, I agree.
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Cheers
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Jonathan
-</em><br />
-<em class="quotelev2">&gt;&gt; _______________________________________________
-</em><br />
-<em class="quotelev2">&gt;&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev2">&gt;&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev2">&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<br />-------------- next part --------------
-<br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130610/5bcfd218/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130610/5bcfd218/attachment-0001.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Mon Jun 10 2013 - 10:10:35 BST</span>
+<span id="received"><dfn>Received on</dfn> Thu Sep 06 2012 - 10:24:27 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -250,11 +100,9 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5504">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5505.html" title="Next message in the list">Jim Biard: "[CF-metadata] new standard name: land_surface_skin_temperature"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5503.html" title="Previous message in the list">Jonathan Wrotny: "[CF-metadata] new standard name: land_surface_skin_temperature"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./5503.html" title="Message to which this message replies">Jonathan Wrotny: "[CF-metadata] new standard name: land_surface_skin_temperature"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5505.html" title="Next message in the list">Lowry, Roy K.: "[CF-metadata] Proposal for standard name	&#0034;surface_snow_binary_mask&#0034;"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5503.html" title="Previous message in the list">Jim Biard: "[CF-metadata] Proposal for standard name &#0034;surface_snow_binary_mask&#0034;"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./5505.html" title="Next message in this discussion thread">Jim Biard: "[CF-metadata] new standard name: land_surface_skin_temperature"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -265,7 +113,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:24 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5503.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5505.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

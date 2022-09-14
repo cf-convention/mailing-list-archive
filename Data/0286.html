@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] standard names for aerosols and chemistry from Christiane Textor on 2006-10-05 (mailing-list-archive)</title>
-<meta name="Author" content="Christiane Textor (christiane.textor)" />
-<meta name="Subject" content="[CF-metadata] standard names for aerosols and chemistry" />
-<meta name="Date" content="2006-10-05" />
+<title>[CF-metadata] UTM projections from Jonathan Gregory on 2003-10-23 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] UTM projections" />
+<meta name="Date" content="2003-10-23" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0285.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0287.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard names for aerosols and chemistry</h1>
-<!-- received="Thu Oct  5 11:24:45 2006" -->
-<!-- isoreceived="20061005102445" -->
-<!-- sent="Thu, 05 Oct 2006 19:24:45 +0200" -->
-<!-- isosent="20061005172445" -->
-<!-- name="Christiane Textor" -->
-<!-- email="christiane.textor" -->
-<!-- subject="[CF-metadata] standard names for aerosols and chemistry" -->
-<!-- id="45253FDD.9020309_at_aero.jussieu.fr" -->
+<a style="text-decoration:none" href="./0285.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0287.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] UTM projections</h1>
+<!-- received="Thu Oct 23 02:00:10 2003" -->
+<!-- isoreceived="20031023010010" -->
+<!-- sent="Thu, 23 Oct 2003 09:00:10 +0100" -->
+<!-- isosent="20031023080010" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] UTM projections" -->
+<!-- id="20031023080010.GA5787_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="s51a2e14.005_at_wpo.nerc.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0287.html" accesskey="d" title="Christiane Textor: &quot;[CF-metadata] Use of Standard Names and Coordinate Variables (relevant to the aerosol discussion)&quot;">Next message</a> ]
-[ <a href="./0285.html" title="Jonathan Gregory: &quot;Fwd: Re: [CF-metadata] cell metrics&quot;">Previous message</a> ]
+[ <a href="./0287.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] WRF staggered grids&quot;">Next message</a> ]
+[ <a href="./0285.html" title="John Caron: &quot;[CF-metadata] UTM projections&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0288.html" accesskey="t" title="Brian Eaton: &quot;[CF-metadata] UTM projections&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -69,91 +70,40 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Christiane Textor &lt;<a href="mailto:christiane.textor?Subject=Re%3A%20%5BCF-metadata%5D%20standard%20names%20for%20aerosols%20and%20chemistry">christiane.textor</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20UTM%20projections">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 05 Oct 2006 19:24:45 +0200</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 23 Oct 2003 09:00:10 +0100</span><br />
 </address>
 <br />
-Dear all,
+Dear John
 <br />
-<br />Please find an updated version (3) of the aerosol and chemical standard 
+<br />Thanks for looking into this. If people want to use it with CF, I agree it
 <br />
-names at 
+should be supported. Since we want it to be self-describing as far as possible,
 <br />
-<a href="http://wiki.esipfed.org/index.php/CF_Standard_Names_-_Proposed_names_for_TF_HTAP">http://wiki.esipfed.org/index.php/CF_Standard_Names_-_Proposed_names_for_TF_HTAP</a>
+<br /><em class="quotelev1">&gt;  1. If there is standard ellipsoid for each zone, it would be nice if 
+</em><br />
+<em class="quotelev1">&gt; the ellipsoid parameter could be optional, since many may not know what 
+</em><br />
+<em class="quotelev1">&gt; to put there.
+</em><br />
+But we should say in the appendix what these defaults are.
 <br />
-<br />This email is in response to the comments on standard names for aerosols 
+<br /><em class="quotelev1">&gt;  2. We probably want a controlled set of ellipsoid names (?)
+</em><br />
+with appropriate links to further information which defines them.
 <br />
-and chemistry.
+<br />I'm afraid I don't know anything about this projection. As with other issues,
 <br />
-<br />*surface_emission_mass_flux
+I suggest it is up to those who want to use it, and therefore who know how it
 <br />
---------------------------
+can/should be used, to propose the requirement.
 <br />
-I do not think that the word 'emission' is generally associated only 
+<br />Best wishes
 <br />
-with pollution and would like to keep the word.
+<br />Jonathan
 <br />
-<br />&nbsp;From the guideline of CF standard_names construction I cite:
-<br />
-&quot;The surface called &quot;surface&quot; means the lower boundary of the atmosphere.&quot;
-<br />
-<br />Hence, it should be clear the emissions into the atmosphere is meant, 
-<br />
-especially if the keyword 'positive' is set to 'upwards'
-<br />
-<br />*species_as_species
-<br />
--------------------
-<br />
-Jonathan proposed to always use the construction 'X_as_Y' in
-<br />
-mass fluxes of molecules, and to use instead of 'X_as_X' 'X_as_such'.
-<br />
-I agree and changed the table (which contains lots of 'as_such now'). 
-<br />
-This is not necessary for mercury as it is not a molecule.
-<br />
-<br />*aerosol water
-<br />
---------------
-<br />
-aerosol_water_ambient_aerosol
-<br />
-Jonathan porposed that the name should be the other way round. I do not 
-<br />
-agree because a 'water aerosol' would be a hydrometeor, i.e., clouds or 
-<br />
-precipitation.
-<br />
-<br />Please note that the HTAP experiments already started. Hence, it will 
-<br />
-not be possible to include all modifications resulting from our 
-<br />
-discussion into the HTAP simulations. However, the aerosol and chemistry 
-<br />
-community is becoming familiar with CF and will be use these for future 
-<br />
-experiments.
-<br />
-<br />Best regards,
-<br />
-Christiane
-<br />
-<br /><br /><pre>
--- 
-Christiane Textor
-GMES France Atmosph?re - GEMS France
-Service d'A?ronomie INSU CNRS, Tour 46, RDC # 2
-Universit? Pierre et Marie Curie, Boite 102
-4 place Jussieu
-75252 Paris C?dex 05
-France
-Tel: ++33 1.44.27.21.82
-Fax: ++33 1.44.27.21.81
-Email: christiane.textor at aero.jussieu.fr
-</pre>
-<span id="received"><dfn>Received on</dfn> Thu Oct 05 2006 - 11:24:45 BST</span>
+<span id="received"><dfn>Received on</dfn> Thu Oct 23 2003 - 02:00:10 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -161,9 +111,12 @@ Email: christiane.textor at aero.jussieu.fr
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start286">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0287.html" title="Next message in the list">Christiane Textor: "[CF-metadata] Use of Standard Names and Coordinate Variables (relevant to the aerosol discussion)"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0285.html" title="Previous message in the list">Jonathan Gregory: "Fwd: Re: [CF-metadata] cell metrics"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0287.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] WRF staggered grids"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0285.html" title="Previous message in the list">John Caron: "[CF-metadata] UTM projections"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0288.html" title="Next message in this discussion thread">Brian Eaton: "[CF-metadata] UTM projections"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0288.html" title="Message sent in reply to this message">Brian Eaton: "[CF-metadata] UTM projections"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -174,7 +127,7 @@ Email: christiane.textor at aero.jussieu.fr
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:47 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0285.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0287.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

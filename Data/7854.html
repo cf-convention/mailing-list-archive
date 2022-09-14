@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]  Usage of histogram_of_X_over_Z from Jonathan Gregory on 2016-10-14 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata]  Usage of histogram_of_X_over_Z" />
-<meta name="Date" content="2016-10-14" />
+<title>[CF-metadata] Are cell_methods attributes OK for coordinate variables? from Charlie Zender on 2015-06-01 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Charlie Zender (zender)" />
+<meta name="Subject" content="[CF-metadata] Are cell_methods attributes OK for coordinate variables?" />
+<meta name="Date" content="2015-06-01" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./7853.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7855.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  Usage of histogram_of_X_over_Z</h1>
-<!-- received="Fri Oct 14 03:27:22 2016" -->
-<!-- isoreceived="20161014022722" -->
-<!-- sent="Fri, 14 Oct 2016 10:27:22 +0100" -->
-<!-- isosent="20161014092722" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata]  Usage of histogram_of_X_over_Z" -->
-<!-- id="20161014092722.GA13395_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./7853.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7855.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Are cell_methods attributes OK for coordinate variables?</h1>
+<!-- received="Sun May 31 18:17:35 2015" -->
+<!-- isoreceived="20150531171735" -->
+<!-- sent="Sun, 31 May 2015 17:17:35 -0700" -->
+<!-- isosent="20150601001735" -->
+<!-- name="Charlie Zender" -->
+<!-- email="zender" -->
+<!-- subject="[CF-metadata] Are cell_methods attributes OK for coordinate variables?" -->
+<!-- id="556BA49F.4070003_at_uci.edu" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./7855.html" accesskey="d" title="martin.juckes at stfc.ac.uk: &quot;[CF-metadata] Metadata/standard names for variables involving thresholds (e.g. climate indices)&quot;">Next message</a> ]
-[ <a href="./7853.html" title="Heiko Klein: &quot;[CF-metadata] Broken links to NUG in conventions document&quot;">Previous message</a> ]
+[ <a href="./7855.html" accesskey="d" title="David Hassell: &quot;[CF-metadata] Are cell_methods attributes OK for coordinate variables?&quot;">Next message</a> ]
+[ <a href="./7853.html" title="Randy Horne: &quot;[CF-metadata] the state of the CF 1.7 document&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./7855.html" accesskey="t" title="David Hassell: &quot;[CF-metadata] Are cell_methods attributes OK for coordinate variables?&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,232 +70,65 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20Usage%20of%20histogram_of_X_over_Z">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Charlie Zender &lt;<a href="mailto:zender?Subject=Re%3A%20%5BCF-metadata%5D%20Are%20cell_methods%20attributes%20OK%20for%20coordinate%20variables%3F">zender</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 14 Oct 2016 10:27:22 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Sun, 31 May 2015 17:17:35 -0700</span><br />
 </address>
 <br />
-Dear Martin and Alejandro  (following off-list discussions)
+Aloha CFers,
 <br />
-<br /><em class="quotelev1">&gt; The CF definitions say ''&quot;histogram_of_X[_over_Z]&quot; means histogram (i.e. number of counts for each range of X) of variations (over Z) of X.'
-</em><br />
-<br />Yes, that's in the guidelines for construction of standard names, and there
+<br />Is it correct to add a cell_methods = &quot;time: mean&quot; attribute to the
 <br />
-are only two of them at present, as you say. The simplest case is when you
+time coordinate when the coordinate is averaged over time?
 <br />
-have some quantity Q depending on only one dimension, Q(Z). Then the histogram
+NCO's ncra does this (though the NERC CF checker doesn't like it).
 <br />
-H(Q) is the number of values of Q which fall into each interval of Q,
+It's clear from the CF docs that ncra time-averaging a variable like
 <br />
-considering variation over Z.  In general there could be more than one
+wind(time) from an array to a degenerate (size 1) array should
 <br />
-dimension retained, and more than one removed. If the original field was
+add a cell_methods = &quot;time: mean&quot; attribute to wind.
 <br />
-Q(P,Y,Z,T), we might construct a histogram H(Q,Z,T), for instance, containing
+Yet should it add cell_methods to the time coordinate itself?
 <br />
-the frequencies of values of Q falling into joint intervals of Q, Z and T, for
+<br />My take is that it should.  The time_bounds variable, if any,
 <br />
-variation over P and Y. Following the guideline above, we would call this a
+will show the original extent of the temporal range, and the time
 <br />
-histogram of Q over P and Y, I think.
+coordinate value contains the mean of the original range.
 <br />
-<br />It is not necessary to indicate in the standard name the dimensions which
+Yet an NCO user is making a good case that cell_methods are only
 <br />
-the histogram depends on (Z and T in my example) because the coordinate
+for non-coordinate variables. His point is that many variables with
 <br />
-variables (of Z and T) make that clear. Martin suggests that by this argument
+different cell_methods can all contain the same coordinate, so that
 <br />
-we could also omit Q from the standard name, and just call it a histogram
+the coordinate should not have cell_methods. My response is that
 <br />
-(or frequency distribution) rather than a histogram of Q, where Q is air
+cell_methods refers to the bounds variable of the coordinate, not
 <br />
-temperature, precipitation amount, backscattering ratio, etc. I think there
+the coordinate values themselves.
 <br />
-are two reasons why we include Q in the standard name,
+<br />Is the question clear? If not, I can supply CDL...
 <br />
-<br />* I think a histogram of air temperature is not the same geophysical quantity
+<br />Mahalo,
 <br />
-as a histogram of precipitation amount, for instance, so they should be
+Charlie
 <br />
-distinguished by standard name.
+<br />p.s. the CF list archives on the CF homepage poinst to 
 <br />
-<br />* Although histograms are pure numbers, and so are probabilities, probability
+<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata">http://mailman.cgd.ucar.edu/pipermail/cf-metadata</a>
 <br />
-densities are not. Histograms, probability distributions and probability
+and that URL currently (and for the past ~week) yields this error:
 <br />
-density functions are all related ways of expressing the same information.
+The requested URL /pipermail/cf-metadata/ was not found on this server.
 <br />
-In the guidelines, we foresee that we might need names for all of them (though
-<br />
-so far we have only histograms) and it would make sense to give them consistent
-<br />
-names. The probability density function of air temperature has units of K-1,
-<br />
-and of precipitation amount kg-1 m2, for instance. Because they have different
-<br />
-canonical units, they must have different standard names, so Q needs to be
-<br />
-included in the standard name.
-<br />
-<br />Cell methods describe how the values represent variation within the cells.
-<br />
-The transformation from the values of a quantity to a histogram of the
-<br />
-quantity makes the original quantity into a dimension. This seems more of
-<br />
-a radical transformation than computing a mean or a standard deviation, which
-<br />
-doesn't change the dimensions of the variable, but just reduces their size
-<br />
-(to unity if completely collapsed). A frequency distribution of Q is
-<br />
-regarded as a different geophysical quantity from Q itself, so we have not
-<br />
-used cell methods to describe the relationship. Of course, this is a bit
-<br />
-arbitrary (like everything else in the CF convention!).
-<br />
-<br />I agree with Martin that we could omit the &quot;over&quot; part of the standard name for
-<br />
-histograms, probabilities and probability densities. It is useful to retain the
-<br />
-collapsed dimensions as size-1 dimensions, so that their original range can
-<br />
-be recorded. They could be assigned cell_method of &quot;sum&quot;, the default for
-<br />
-extensive quantities, because the histogram applies to their entire range.
-<br />
-The same applies to the variable with has been histogrammed and is now a
-<br />
-dimension; the histogram is a sum for each of its cells.
-<br />
-<br />For example, in the 1D case, suppose the original field is air_temperature
-<br />
-as a function of time only. Then the histogram variable is
-<br />
-&nbsp;&nbsp;float hair(tair);
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;hair:standard_name=&quot;histogram_of_air_temperature&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;hair:units=&quot;1&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;hair:cell_methods=&quot;time: sum tair: sum&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;hair:coordinates=&quot;time&quot;;
-<br />
-&nbsp;&nbsp;float time; // scalar coordinate variable with bounds
-<br />
-&nbsp;&nbsp;float tair(tair);
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;tair:units=&quot;K&quot;;
-<br />
-<br />As a multidimensional example, suppose the original field is
-<br />
-&nbsp;&nbsp;float tair(time,altitude,latitude,longitude);
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;tair:units=&quot;K&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;tair:standard_name=&quot;air_temperature&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;tair:cell_methods=&quot;altitude: mean area: mean time: mean&quot;;
-<br />
-from which we might construct
-<br />
-&nbsp;&nbsp;float pair(tair,time,altitude);
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;pair:standard_name=&quot;probability_density_function_of_air_temperature&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;pair:units=&quot;K-1&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;pair:cell_methods=&quot;altitude: mean time: mean area: sum tair: mean&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;pair:coordinates=&quot;latitude longitude&quot;; // to record the ranges
-<br />
-Here, I suggest that the cell_method for area is &quot;sum&quot;, because the PDF
-<br />
-applies to the whole area, which is an extensive quantity. For air temperature
-<br />
-it seems more sense to interpret a PDF as a mean within cells, since a PDF is
-<br />
-an intensive quantity - you can interpolate it, for example - but not a point
-<br />
-quantity if it's calculated from a histogram with finite bin-widths.
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;
-<br />
-Best wishes
-<br />
-<br />Jonathan
-<br />
-<br />----- Forwarded message from martin.juckes at stfc.ac.uk -----
-<br />
-<br /><em class="quotelev1">&gt; Date: Wed, 12 Oct 2016 18:05:06 +0000
-</em><br />
-<em class="quotelev1">&gt; From: martin.juckes at stfc.ac.uk
-</em><br />
-<em class="quotelev1">&gt; To: cf-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; Subject: [CF-metadata] Usage of histogram_of_X_over_Z
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Hello,
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; There are two standard names of the form histogram_of_..... in the CF Standard Name list (at version 36): histogram_of_backscattering_ratio_over_height_above_reference_ellipsoid and histogram_of_equivalent_reflectivity_factor_over_height_above_reference_ellipsoid. Both of these where used in CMIP5 and set to be used in CMIP6, but the usage does not appear to match the standard name desecriptions. 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; The possible confusion is over the role of different coordinates. The CF definitions say ''&quot;histogram_of_X[_over_Z]&quot; means histogram (i.e. number of counts for each range of X) of variations (over Z) of X.' This implies to me that you start with a function of Z and possibly other coordinates and end up with a function of X and the other coordinates. E.g. if the source data is X(lat,lon,Z), then the histogram data will be of the form frequency(lat,lon,X).
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; In the two CMIP5/CMIP6 draft variables (cfadLidarsr532, cfadDbze94) using these standard names the &quot;Z&quot; coordinate  which is included in the standard name (&quot;height_above_reference_ellipsoid&quot;) is one of the coordinates of the histogram data variable. Both these variables appear to be joint distributions (frequency of X and Y values) over sub-grid variability as a function of latitude, longitude and time. 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I've been reviewing these existing definitions in some detail because there are some new distribution variables in the request and I'd like to make sure that we have a consistent approach. 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; If we need to described a variable which carries a joint distribution of X and Y, then the variable will have to use X and Y as coordinates, so perhaps we can simplify the process by leaving them out of the standard name. Similarly the &quot;over_Z&quot; part of the name would be better expressed as a cell_methods construct. This line of reasoning suggests using a new standard name such as &quot;frequency_distribution&quot; (units &quot;1&quot;). The only difficulty is that the frequency distribution might be a function of the quantities X and Y (scattering ratio and cloud top height for cfadLidarsr532) and also of latitude, longitude and time. There should be some way of distinguishing the different roles of these 5 coordinates: is is the distribution of X and Y as a function of latitude, longitude and time. I think this could be done conveniently by introducing a single new attribute, e.g. &quot;bin_coords: X Y&quot;.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; &quot;frequency_distribution&quot; could be used for single or joint distributions.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; My questions to the list are:
-</em><br />
-<em class="quotelev1">&gt; (1) am I missing something in my interpretation of the existing histogram_of_... names?
-</em><br />
-<em class="quotelev1">&gt; (2) if not, is the adoption of a &quot;frequency_distribution&quot; standard name an appropriate way forward?
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; regards,
-</em><br />
-<em class="quotelev1">&gt; Martin
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; regards,
-</em><br />
-<em class="quotelev1">&gt; Martin
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<br />----- End forwarded message -----
-<br />
-<span id="received"><dfn>Received on</dfn> Fri Oct 14 2016 - 03:27:22 BST</span>
+<pre>
+-- 
+Charlie Zender, Earth System Sci. &amp; Computer Sci.
+University of California, Irvine 949-891-2429 )'(
+</pre>
+<span id="received"><dfn>Received on</dfn> Sun May 31 2015 - 18:17:35 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -301,9 +136,13 @@ Best wishes
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start7854">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./7855.html" title="Next message in the list">martin.juckes at stfc.ac.uk: "[CF-metadata] Metadata/standard names for variables involving thresholds (e.g. climate indices)"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./7853.html" title="Previous message in the list">Heiko Klein: "[CF-metadata] Broken links to NUG in conventions document"</a></li>
+<li><dfn>Next message</dfn>: <a href="./7855.html" title="Next message in the list">David Hassell: "[CF-metadata] Are cell_methods attributes OK for coordinate variables?"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./7853.html" title="Previous message in the list">Randy Horne: "[CF-metadata] the state of the CF 1.7 document"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./7855.html" title="Next message in this discussion thread">David Hassell: "[CF-metadata] Are cell_methods attributes OK for coordinate variables?"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./7855.html" title="Message sent in reply to this message">David Hassell: "[CF-metadata] Are cell_methods attributes OK for coordinate variables?"</a></li>
+<li><dfn>Reply</dfn>: <a href="./7856.html" title="Message sent in reply to this message">Jim Biard: "[CF-metadata] Are cell_methods attributes OK for coordinate variables?"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -314,7 +153,7 @@ Best wishes
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:07 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./7853.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7855.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

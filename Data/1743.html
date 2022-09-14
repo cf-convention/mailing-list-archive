@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] new named fields for ocean from Stephen Griffies on 2008-11-06 (mailing-list-archive)</title>
-<meta name="Author" content="Stephen Griffies (Stephen.Griffies)" />
-<meta name="Subject" content="[CF-metadata] new named fields for ocean" />
-<meta name="Date" content="2008-11-06" />
+<title>[CF-metadata] Are There Best Practices for Developing New NetCDF Conventions? from Russ Rew on 2007-07-10 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Russ Rew (russ)" />
+<meta name="Subject" content="[CF-metadata] Are There Best Practices for Developing New NetCDF Conventions?" />
+<meta name="Date" content="2007-07-10" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1742.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1744.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new named fields for ocean</h1>
-<!-- received="Thu Nov  6 10:16:28 2008" -->
-<!-- isoreceived="20081106101628" -->
-<!-- sent="Thu, 06 Nov 2008 12:16:28 -0500" -->
-<!-- isosent="20081106171628" -->
-<!-- name="Stephen Griffies" -->
-<!-- email="Stephen.Griffies" -->
-<!-- subject="[CF-metadata] new named fields for ocean" -->
-<!-- id="4913266C.60909_at_noaa.gov" -->
+<a style="text-decoration:none" href="./1742.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1744.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Are There Best Practices for Developing New NetCDF Conventions?</h1>
+<!-- received="Tue Jul 10 13:26:32 2007" -->
+<!-- isoreceived="20070710122632" -->
+<!-- sent="Tue, 10 Jul 2007 13:26:32 -0600" -->
+<!-- isosent="20070710192632" -->
+<!-- name="Russ Rew" -->
+<!-- email="russ" -->
+<!-- subject="[CF-metadata] Are There Best Practices for Developing New NetCDF Conventions?" -->
+<!-- id="20070710192632.99C83CB27A_at_laraine.unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="1225982646.22409.45.camel_at_eld336.desktop.frd.metoffice.com" -->
+<!-- inreplyto="Mark.A.Ohrenschall_at_noaa.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1744.html" accesskey="d" title="Philip J. Cameronsmith1: &quot;[CF-metadata] mixing ratio&quot;">Next message</a> ]
-[ <a href="./1742.html" title="Jonathan Gregory: &quot;[CF-metadata]  new named fields for ocean&quot;">Previous message</a> ]
-[ <a href="./1740.html" title="Ian Culverwell: &quot;[CF-metadata] new named fields for ocean&quot;">In reply to</a> ]
+[ <a href="./1744.html" accesskey="d" title="John Caron: &quot;[CF-metadata] Are There Best Practices for Developing New NetCDF Conventions?&quot;">Next message</a> ]
+[ <a href="./1742.html" title="Steve Hankin: &quot;[CF-metadata] [Fwd: Are There Best Practices for Developing New NetCDF Conventions?]&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./1749.html" accesskey="t" title="Ian Culverwell: &quot;[CF-metadata] new named fields for ocean&quot;">Next in thread</a> ]
+[ <a href="./1744.html" accesskey="t" title="John Caron: &quot;[CF-metadata] Are There Best Practices for Developing New NetCDF Conventions?&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,114 +71,132 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Stephen Griffies &lt;<a href="mailto:Stephen.Griffies?Subject=Re%3A%20%5BCF-metadata%5D%20new%20named%20fields%20for%20ocean">Stephen.Griffies</a>&gt;
+<dfn>From</dfn>: Russ Rew &lt;<a href="mailto:russ?Subject=Re%3A%20%5BCF-metadata%5D%20Are%20There%20Best%20Practices%20for%20Developing%20New%20NetCDF%20Conventions%3F">russ</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 06 Nov 2008 12:16:28 -0500</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 10 Jul 2007 13:26:32 -0600</span><br />
 </address>
 <br />
-Ian,
+Mark,
 <br />
-<br /><br />Thanks for the comments.  In addition to Jonathan's responses, here are 
-<br />
-mine regarding the subgrid scale fields.
-<br />
-<br /><br />Ian Culverwell wrote:
-<br />
-<em class="quotelev1">&gt; Dear Stephen,
+<br /><em class="quotelev1">&gt; We are developing CF compliant netCDF files with additional (or
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; &quot;optional&quot;) metadata in the netCDF header from our own sources,
 </em><br />
-<em class="quotelev1">&gt; (1) There are no standard_names including &quot;laplacian&quot; yet - it would
+<em class="quotelev1">&gt; e.g., a subset of the FGDC metadata content standard, our Rich
 </em><br />
-<em class="quotelev1">&gt; seem to be the default (coeffs in m2/s). 
+<em class="quotelev1">&gt; Inventory database, etc... Our sources are potentially new,
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; additional netCDF conventions, and so our essential question is if
 </em><br />
-<em class="quotelev1">&gt;   
+<em class="quotelev1">&gt; there is a best practices guide for netCDF convention developers,
 </em><br />
-<br />I introduced the &quot;laplacian&quot; name to distinguish from the &quot;biharmonic&quot; 
-<br />
-now included in my proposed list.  Are you suggesting to drop 
-<br />
-&quot;laplacian&quot; and let that be the default, unless otherwise noted by a 
-<br />
-&quot;biharmonic&quot; name?  Indeed, that is just what is done in my list for 
-<br />
-vertical mixing (in fact, I know of no ocean model that employs a 
-<br />
-biharmonic operator for vertical mixing).   In summary, I am not 
-<br />
-strongly in favour one way or the other for the lateral, but initially 
-<br />
-suggested the name &quot;laplacian&quot; to remain symmetric with the name 
-<br />
-&quot;biharmonic.&quot;  I can readily drop this for the lateral if that is 
-<br />
-strongly favoured. 
-<br />
-<br /><br /><em class="quotelev1">&gt; (2) There are lots of &quot;ocean_vertical_...&quot; diffusivities (see table);
+<em class="quotelev1">&gt; especially so that various conventions do not clash or conflict with
 </em><br />
-<em class="quotelev1">&gt; perhaps you need to to preface yours as &quot;ocean_lateral_...&quot;  (I don't
+<em class="quotelev1">&gt; each other.
 </em><br />
-<em class="quotelev1">&gt; know; I'm no expert.)
+<br />I don't know of any such guide.  Last week, John Caron and I gave a
+<br />
+talk on &quot;Writing NetCDF Files: Best Practices&quot; which touched on
+<br />
+conventions, including looking at some existing conventions for
+<br />
+observational data and at some issues in developing CF conventions for
+<br />
+netCDF-4.  If you're interested in the presentations, they're
+<br />
+available here:
+<br />
+<br />&nbsp;&nbsp;<a href="http://www.unidata.ucar.edu/community/seminars/">http://www.unidata.ucar.edu/community/seminars/</a>
+<br />
+<br /><em class="quotelev1">&gt; For example, if we are free to name our new, homemade netCDF
 </em><br />
-<em class="quotelev1">&gt;   
+<em class="quotelev1">&gt; attributes however we like, could those attribute names conflict
 </em><br />
-<br /><br />Below again are the lateral SGS fields. For physical reasons, I do not 
+<em class="quotelev1">&gt; with existing or future netCDF conventions? Is there any mechanism
+</em><br />
+<em class="quotelev1">&gt; for indicating which convention(s) a netCDF attribute complies with?
+</em><br />
+<em class="quotelev1">&gt; Is there a namespace mechanism so that if two conventions use the
+</em><br />
+<em class="quotelev1">&gt; same name for an attribute, that attribute can be disambiguated?
+</em><br />
+<br />You're right, there is a potential for name clashes in trying to
 <br />
-believe the added name &quot;lateral&quot; is needed, since there is already in 
+comply with multiple conventions, and we have no agreed on mechanism
 <br />
-the proposed name a specification that encompasses more precisely what 
+to avoid this yet.  Benno Blumenthal (IRI, The Earth Institute at
 <br />
-the term &quot;lateral&quot; would otherwise provide.  For example, 
+Columbia University) has requested that we add namespaces to netCDF
 <br />
-&quot;ocean_tracer_bolus_laplacian_diffusivity&quot; would not be more clearly 
+attributes, but we haven't figured out a reasonable way to do that
 <br />
-stated as &quot;ocean_tracer_bolus_lateral_laplacian_diffusivity&quot;, since 
+yet.
 <br />
-there is physically no corresponding 
+<br />There are potential problems with using the natural XML syntax, since
 <br />
-&quot;ocean_tracer_bolus_vertical_laplacian_diffusivity&quot;; the term &quot;bolus&quot; is 
+an attribute name like &quot;foo:bar&quot; in CDL could be interpreted either as
 <br />
-sufficient.  Likewise, &quot;ocean_tracer_epineutral_biharmonic_diffusivity&quot; 
+a variable attribute named &quot;bar&quot; for a variable named &quot;foo&quot; or a
 <br />
-would not be better written as 
+global attribute named &quot;bar&quot; in the namespace referred to by &quot;foo&quot;.
 <br />
-&quot;ocean_tracer_epineutral_lateral_biharmonic_diffusivity&quot;, since there is 
+An alternative is using a different character than &quot;:&quot; for namespaces.
 <br />
-no &quot;ocean_tracer_epineutral_vertical_biharmonic_diffusivity&quot;; the term 
+<br />New conventions can avoid collisions with existing namespaces by
 <br />
-&quot;epineutral&quot; serves to fully specify the diffusivity. 
+choosing a unique short prefix for all their attributes, but it's too
 <br />
-<br /><br />Best,
+late to require this for existing conventions like CF.
 <br />
-&nbsp;Stephen
+<br /><em class="quotelev1">&gt; We're also wondering what to do for those attributes which serve
+</em><br />
+<em class="quotelev1">&gt; both the CF convention and our own FGDC (or others) convention. For
+</em><br />
+<em class="quotelev1">&gt; the sake of netCDF software that is looking for CF attributes we'd
+</em><br />
+<em class="quotelev1">&gt; have to name such a common attribute using its CF name, but what if
+</em><br />
+<em class="quotelev1">&gt; we also wanted to ensure that that common attribute remained
+</em><br />
+<em class="quotelev1">&gt; associated with its FGDC siblings?  (E.g., suppose we wanted to
+</em><br />
+<em class="quotelev1">&gt; extract all FGDC attributes from the netCDF header?) Do we then need
+</em><br />
+<em class="quotelev1">&gt; to define that attribute twice, once with its CF name and once with
+</em><br />
+<em class="quotelev1">&gt; its FGDC name?
+</em><br />
+<br />In netCDF-4, groups provide name scopes within a single dataset, so an
 <br />
-<br /><br /><br />LATERAL SUBGRID SCALE FIELDS
+FGDC group could have a group-level attribute named &quot;title&quot; and a
 <br />
-ocean_tracer_bolus_laplacian_diffusivity                              m2/s
+DublinCore group could have a different group-level attribute named
 <br />
-ocean_tracer_bolus_biharmonic_diffusivity                             m2/s
+&quot;title&quot;.  But that doesn't solve the problem for variable attributes
 <br />
-ocean_tracer_epineutral_laplacian_diffusivity                         m2/s
+or for netCDF-3.
 <br />
-ocean_tracer_epineutral_biharmonic_diffusivity                        m2/s
+<br /><em class="quotelev1">&gt; So we are wondering what the netCDF conventions community thinks
+</em><br />
+<em class="quotelev1">&gt; about these considerations, and any advice or experience they may
+</em><br />
+<em class="quotelev1">&gt; offer us on how to add our own attributes to a netCDF file in a
+</em><br />
+<em class="quotelev1">&gt; coherent way that is harmonious with other, existing conventions.
+</em><br />
+<br />For now I would recommend simple prefixes as part of the attribute
 <br />
-ocean_tracer_xy_laplacian_diffusivity                                 m2/s
+name in new conventions comprehensive enough that name clashes with
 <br />
-ocean_tracer_xy_biharmonic_diffusivity                                m4/s
+existing conventions are likely.  We'll consider other suggestions,
 <br />
-tendency_of_ocean_eddy_kinetic_energy_content_due_to_bolus_transport  W/m2
+but we have to be conservative with regard to compatibility with
 <br />
-ocean_momentum_xy_laplacian_diffusivity                               
+existing conventions, software, and data archives.
 <br />
-m2/s 
+<br />--Russ
 <br />
-ocean_momentum_xy_biharmonic_diffusivity                              m4/s
-<br />
-ocean_kinetic_energy_dissipation_per_unit_area_due_to_xy_friction     W/m2
-<br />
-<span id="received"><dfn>Received on</dfn> Thu Nov 06 2008 - 10:16:28 GMT</span>
+<span id="received"><dfn>Received on</dfn> Tue Jul 10 2007 - 13:26:32 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -187,13 +204,12 @@ ocean_kinetic_energy_dissipation_per_unit_area_due_to_xy_friction     W/m2
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1743">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1744.html" title="Next message in the list">Philip J. Cameronsmith1: "[CF-metadata] mixing ratio"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1742.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]  new named fields for ocean"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./1740.html" title="Message to which this message replies">Ian Culverwell: "[CF-metadata] new named fields for ocean"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1744.html" title="Next message in the list">John Caron: "[CF-metadata] Are There Best Practices for Developing New NetCDF Conventions?"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1742.html" title="Previous message in the list">Steve Hankin: "[CF-metadata] [Fwd: Are There Best Practices for Developing New NetCDF Conventions?]"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./1749.html" title="Next message in this discussion thread">Ian Culverwell: "[CF-metadata] new named fields for ocean"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./1744.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] Are There Best Practices for Developing New NetCDF Conventions?"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./1749.html" title="Message sent in reply to this message">Ian Culverwell: "[CF-metadata] new named fields for ocean"</a></li>
+<dfn>Reply</dfn>: <a href="./1744.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] Are There Best Practices for Developing New NetCDF Conventions?"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -204,7 +220,7 @@ ocean_kinetic_energy_dissipation_per_unit_area_due_to_xy_friction     W/m2
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:12 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1742.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1744.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

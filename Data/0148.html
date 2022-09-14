@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Standard names for wave model data. from Jonathan Gregory on 2006-05-31 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] Standard names for wave model data." />
-<meta name="Date" content="2006-05-31" />
+<title>[CF-metadata] bounds from Bob Drach on 2003-04-29 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Bob Drach (drach)" />
+<meta name="Subject" content="[CF-metadata] bounds" />
+<meta name="Date" content="2003-04-29" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0147.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0149.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Standard names for wave model data.</h1>
-<!-- received="Wed May 31 11:02:06 2006" -->
-<!-- isoreceived="20060531100206" -->
-<!-- sent="Wed, 31 May 2006 18:02:06 +0100" -->
-<!-- isosent="20060531170206" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] Standard names for wave model data." -->
-<!-- id="20060531170206.GB9128_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0147.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0149.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] bounds</h1>
+<!-- received="Tue Apr 29 11:56:02 2003" -->
+<!-- isoreceived="20030429105602" -->
+<!-- sent="Tue, 29 Apr 2003 10:56:02 -0700" -->
+<!-- isosent="20030429175602" -->
+<!-- name="Bob Drach" -->
+<!-- email="drach" -->
+<!-- subject="[CF-metadata] bounds" -->
+<!-- id="3EAEBCB2.3B77722A_at_llnl.gov" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20030428232430.A1971_at_mreydhon.lan" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0149.html" accesskey="d" title="Stark, John: &quot;[CF-metadata] Standard names for wave model data.&quot;">Next message</a> ]
-[ <a href="./0147.html" title="Stark, John: &quot;[CF-metadata] Standard names for wave model data.&quot;">Previous message</a> ]
+[ <a href="./0149.html" accesskey="d" title="Brian Eaton: &quot;[CF-metadata] bounds&quot;">Next message</a> ]
+[ <a href="./0147.html" title="Jonathan Gregory: &quot;[CF-metadata] bounds&quot;">Previous message</a> ]
+[ <a href="./0147.html" title="Jonathan Gregory: &quot;[CF-metadata] bounds&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0149.html" accesskey="t" title="Stark, John: &quot;[CF-metadata] Standard names for wave model data.&quot;">Next in thread</a> ]
+[ <a href="./0149.html" accesskey="t" title="Brian Eaton: &quot;[CF-metadata] bounds&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,64 +72,206 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Standard%20names%20for%20wave%20model%20data.">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Bob Drach &lt;<a href="mailto:drach?Subject=Re%3A%20%5BCF-metadata%5D%20bounds">drach</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 31 May 2006 18:02:06 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 29 Apr 2003 10:56:02 -0700</span><br />
 </address>
 <br />
-Dear John
+Jonathan,
 <br />
-<br />Some comments
+<br />Thanks for raising the issue again. I'm basically in agreement with your proposal,
 <br />
-<br /><em class="quotelev1">&gt; We could use &quot;wind_and_swell_wave&quot; instead of just &quot;wave&quot; in the
+with a few concerns to raise.
+<br />
+<br />Your proposal to add the requirement, for the non-rectilinear case, that the cell
+<br />
+vertices be written counter-clockwise (as viewed from above the lat-lon plane) is
+<br />
+very useful. This improves on the current draft.
+<br />
+<br />I'm not convinced that using z-ordering for the 2D rectilinear case is an
+<br />
+improvement on the current draft, but can live with it if this is the consensus.
+<br />
+The main thing is to avoid the complication of multiple representations. One issue
+<br />
+I still have is that, if CF stipulates counterclockwise ordering in the general
+<br />
+case (a good thing), how does an application translate the z-ordered bounds to a
+<br />
+counterclockwise ordering? An additional constraint is needed, such as:
+<br />
+<br />For a given cell (i,j), having vertices P(m,n) = &lt;bounds_lon(i,j,m,n),
+<br />
+bounds_lat(i,j,m,n)&gt;, then the points P(0,0), P(1,0), P(1,1), P(0,1) are ordered
+<br />
+counterclockwise in the lat-lon plane, as viewed from above.
+<br />
+<br />Best regards,
+<br />
+<br />Bob
+<br />
+<br />Jonathan Gregory wrote:
+<br />
+<br /><em class="quotelev1">&gt; Dear All
 </em><br />
-<em class="quotelev1">&gt; following names.   
+<em class="quotelev1">&gt;
 </em><br />
-Yes, I think &quot;wave&quot; needs clarifying somehow. There are many kinds of wave in
-<br />
-the Earth System! If not wind_and_swell, maybe some other phrase that indicates
-<br />
-ocean surface waves?
-<br />
-<br /><em class="quotelev1">&gt; standard_name = &quot;direction_of_wave_velocity&quot; ;
+<em class="quotelev1">&gt; I believe the issue of bounds is the only thing which stands in the way of a
 </em><br />
-<em class="quotelev1">&gt; standard_name = &quot;wave_spectrum_direction&quot; ;
+<em class="quotelev1">&gt; non-beta release of CF. There hasn't been any further activity on that thread
 </em><br />
-What's the difference between these? Do they need to be different stdnames?
-<br />
-<br /><em class="quotelev1">&gt; standard_name = &quot;wave_spectrum_energy&quot; ;
+<em class="quotelev1">&gt; this month, so I'd like to restart it by summarising the position. I think
 </em><br />
-<em class="quotelev1">&gt; units = &quot;m2 s-1&quot; ;
+<em class="quotelev1">&gt; there are three cases to distinguish in the current CF draft:
 </em><br />
-The units of m2 are not units of energy. Perhaps it's the square of the
-<br />
-wave amplitude, or the RMS amplitude?
-<br />
-<br /><em class="quotelev1">&gt; This variable would be used to describe the (zero upcrossing) wave
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; period at each location:
+<em class="quotelev1">&gt; 1D: A coordinate variable x(x) has bounds (x,2) i.e. each cell has an upper and
 </em><br />
-<em class="quotelev1">&gt; standard_name = &quot;wave_period&quot; ;
+<em class="quotelev1">&gt; a lower boundary. This allows cells to be non-contiguous or overlapping, but it
 </em><br />
-What does zero-upcrossing mean? If it is an essential distinction from other
-<br />
-definitions of period, perhaps it should be included in the stdname?
-<br />
-<br /><em class="quotelev1">&gt; This variable would be used to describe the period at which peak wave
+<em class="quotelev1">&gt; means a check is needed to determine whether they are contiguous.
 </em><br />
-<em class="quotelev1">&gt; energy occurs at each location:
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; standard_name = &quot;peak_period_of_wave_field&quot; ;
+<em class="quotelev1">&gt; 2D rectilinear: In the case when lat and lon are not 1D axes but there are two
 </em><br />
-This could be given a standard name of wave_period and a cell_methods of
-<br />
-&quot;wave_energy: maximum&quot; (with above comments on wave_period and wave_energy).
-<br />
-<br />Best wishes
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Wed May 31 2006 - 11:02:06 BST</span>
+<em class="quotelev1">&gt; 1D projection/transformation axes x and y in the horizontal plane, the
+</em><br />
+<em class="quotelev1">&gt; auxiliary coordinates lat(y,x) and lon(y,x) have bounds (y,x,4). The order of
+</em><br />
+<em class="quotelev1">&gt; the vertices is not specified. The axes x and y can themselves have 1D bounds.
+</em><br />
+<em class="quotelev1">&gt; The 2D cells are contiguous in lat and lon if they are contiguous in x and y,
+</em><br />
+<em class="quotelev1">&gt; so contiguousness can be checked in 1D if the bounds are supplied.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; 2D non-rectilinear: In the case when the horizontal cells are not arranged in a
+</em><br />
+<em class="quotelev1">&gt; 2D array, they have one or more index dimensions n,..., with auxiliary
+</em><br />
+<em class="quotelev1">&gt; coordinate variables lat(...,n) and lon(...,n) having bounds (...,n,p), where p
+</em><br />
+<em class="quotelev1">&gt; is the number of vertices of the cells e.g. they could be hexagonal. Checking
+</em><br />
+<em class="quotelev1">&gt; for contiguous cells in this case is complicated.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; In the 1D case, an alternative representation for contiguous cells would have
+</em><br />
+<em class="quotelev1">&gt; bounds (x+1), the bounds of cell i having indices i and i+1. This scheme is not
+</em><br />
+<em class="quotelev1">&gt; currently included in CF but may seem more obvious. It has the attraction that
+</em><br />
+<em class="quotelev1">&gt; contiguousness is guaranteed by construction and therefore does not have to be
+</em><br />
+<em class="quotelev1">&gt; tested. This avoids the difficulty of deciding how to check for contiguousness
+</em><br />
+<em class="quotelev1">&gt; reliably, given numerical imprecision.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; However, it has the drawbacks (a) it can't be used for the unlimited dimension,
+</em><br />
+<em class="quotelev1">&gt; (b) it doesn't avoid an explicit contiguousness check for wrap-round axes e.g.
+</em><br />
+<em class="quotelev1">&gt; longitude, in which the first and last boundaries may be coincident, (c) it may
+</em><br />
+<em class="quotelev1">&gt; be unreliable to assume that all contiguous cases use (x+1), since (x,2) must
+</em><br />
+<em class="quotelev1">&gt; also be supported; hence a contiguousness check may still be needed for (x,2).
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; My own opinion is that we should stick with supporting just (x,2) for 1D and
+</em><br />
+<em class="quotelev1">&gt; not allow (x+1) as an alternative. I don't think that the advantage of not
+</em><br />
+<em class="quotelev1">&gt; having to test for contiguousness in certain cases justifies the extra
+</em><br />
+<em class="quotelev1">&gt; complexity of supporting two schemes in the standard.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I'd like to make the following proposals concerning bounds (a summary of what I
+</em><br />
+<em class="quotelev1">&gt; proposed in my last posting):
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; (1) In the 1D case, if no bounds are supplied, assume contiguous cells.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; (2) For a 1D coordinate variable with bounds (x,2), define an ordering for the
+</em><br />
+<em class="quotelev1">&gt; 2nd index, namely that the bounds should be ordered in the same sense as the
+</em><br />
+<em class="quotelev1">&gt; coordinates, so that the 0-bound of cell i is on the side that faces cell i-1
+</em><br />
+<em class="quotelev1">&gt; and the 1-bound on the side facing cell i+1.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; (3) It follows that cells i and i+1 are contiguous if bound (i,1) equals bound
+</em><br />
+<em class="quotelev1">&gt; (i+1,0), with a tolerance that the absolute difference between the bounds must
+</em><br />
+<em class="quotelev1">&gt; be several orders of magnitude smaller than the absolute difference between the
+</em><br />
+<em class="quotelev1">&gt; gridpoints of the cells.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; (4) In the 2D rectilinear case, the bounds should be dimensioned (y,x,2,2),
+</em><br />
+<em class="quotelev1">&gt; where the 3rd index corresponds to y and the 4th to x.  (This is a change from
+</em><br />
+<em class="quotelev1">&gt; the current CF standard.) This case is indicated by their being two trailing
+</em><br />
+<em class="quotelev1">&gt; dimensions of size 2. Contiguousness should be checked on the bounds of the 1D
+</em><br />
+<em class="quotelev1">&gt; coordinate variables rather than the 2D auxiliary coordinate variables.  As a
+</em><br />
+<em class="quotelev1">&gt; consequence of the ordering of the 1D bounds, the 2D vertices are ordered in a
+</em><br />
+<em class="quotelev1">&gt; &quot;zigzag&quot; - an N or a Z or their mirror images.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; (5) In the non-rectilinear case, the bounds should be dimensioned (...,n,p) (no
+</em><br />
+<em class="quotelev1">&gt; change to CF). The fact that there is only a single bounds dimension, which has
+</em><br />
+<em class="quotelev1">&gt; size p&gt;2, indicates this case. The vertices must be traversed anticlockwise in
+</em><br />
+<em class="quotelev1">&gt; the lat-lon plane as viewed from above. Testing for contiguousness is a
+</em><br />
+<em class="quotelev1">&gt; complicated operation, so you might want to save the results. I suggested in an
+</em><br />
+<em class="quotelev1">&gt; earlier posting a scheme we might adopt for this (on Mon Mar 17 at 17:49:50).
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Best wishes
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Jonathan
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<span id="received"><dfn>Received on</dfn> Tue Apr 29 2003 - 11:56:02 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -135,12 +279,13 @@ This could be given a standard name of wave_period and a cell_methods of
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start148">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0149.html" title="Next message in the list">Stark, John: "[CF-metadata] Standard names for wave model data."</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0147.html" title="Previous message in the list">Stark, John: "[CF-metadata] Standard names for wave model data."</a></li>
+<li><dfn>Next message</dfn>: <a href="./0149.html" title="Next message in the list">Brian Eaton: "[CF-metadata] bounds"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0147.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] bounds"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0147.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] bounds"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0149.html" title="Next message in this discussion thread">Stark, John: "[CF-metadata] Standard names for wave model data."</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./0149.html" title="Next message in this discussion thread">Brian Eaton: "[CF-metadata] bounds"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0149.html" title="Message sent in reply to this message">Stark, John: "[CF-metadata] Standard names for wave model data."</a></li>
+<dfn>Reply</dfn>: <a href="./0149.html" title="Message sent in reply to this message">Brian Eaton: "[CF-metadata] bounds"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -151,7 +296,7 @@ This could be given a standard name of wave_period and a cell_methods of
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:45 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0147.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0149.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] wrong description for runoff_flux from Paola Petrelli on 2011-04-15 (mailing-list-archive)</title>
-<meta name="Author" content="Paola Petrelli (paolap)" />
-<meta name="Subject" content="[CF-metadata] wrong description for runoff_flux" />
-<meta name="Date" content="2011-04-15" />
+<title>[CF-metadata] handling climatological bounds in CF from Upendra Dadi on 2010-04-28 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Upendra Dadi (Upendra.Dadi)" />
+<meta name="Subject" content="[CF-metadata] handling climatological bounds in CF" />
+<meta name="Date" content="2010-04-28" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./3435.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3437.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] wrong description for runoff_flux</h1>
-<!-- received="Thu Apr 14 17:12:49 2011" -->
-<!-- isoreceived="20110414161249" -->
-<!-- sent="Thu, 14 Apr 2011 23:12:49 -0000" -->
-<!-- isosent="20110414231249" -->
-<!-- name="Paola Petrelli" -->
-<!-- email="paolap" -->
-<!-- subject="[CF-metadata] wrong description for runoff_flux" -->
-<!-- id="1302822773.25082.3.camel_at_itsadmin-laptop" -->
+<a style="text-decoration:none" href="./3435.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3437.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] handling climatological bounds in CF</h1>
+<!-- received="Wed Apr 28 08:47:41 2010" -->
+<!-- isoreceived="20100428074741" -->
+<!-- sent="Wed, 28 Apr 2010 10:47:41 -0400" -->
+<!-- isosent="20100428144741" -->
+<!-- name="Upendra Dadi" -->
+<!-- email="Upendra.Dadi" -->
+<!-- subject="[CF-metadata] handling climatological bounds in CF" -->
+<!-- id="4BD84A8D.3060902_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./3437.html" accesskey="d" title="John Caron: &quot;[CF-metadata] physical vs dimensional units&quot;">Next message</a> ]
-[ <a href="./3435.html" title="Cecelia DeLuca: &quot;[CF-metadata] Fwd: PALEO..&quot;">Previous message</a> ]
+[ <a href="./3437.html" accesskey="d" title="V. Balaji: &quot;[CF-metadata] Separating geolocation/timing co-ordinates from measurement data&quot;">Next message</a> ]
+[ <a href="./3435.html" title="Jonathan Gregory: &quot;[CF-metadata] Separating geolocation/timing co-ordinates from measurement data&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,48 +68,46 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Paola Petrelli &lt;<a href="mailto:paolap?Subject=Re%3A%20%5BCF-metadata%5D%20wrong%20description%20for%20runoff_flux">paolap</a>&gt;
+<dfn>From</dfn>: Upendra Dadi &lt;<a href="mailto:Upendra.Dadi?Subject=Re%3A%20%5BCF-metadata%5D%20handling%20climatological%20bounds%20in%20CF">Upendra.Dadi</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 14 Apr 2011 23:12:49 -0000</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 28 Apr 2010 10:47:41 -0400</span><br />
 </address>
 <br />
-Hi,
+Hello,
 <br />
-<br />I'm not sure if this the right place to post this, 
+&nbsp;I am trying to create a CF compliant NetCDF containing climatological 
 <br />
-I'm getting this description for runoff_flux in the html standard name
+statistics. The data consists of monthly means of a certain parameter 
 <br />
-table
+which is calculated from data which starts on 1773-1-13 and ends on 
 <br />
-<br />The geoid is a surface of constant geopotential with which mean sea
+2001-6-29. How do I represent this information using climatology 
 <br />
-level would coincide if the ocean were at rest. (The volume enclosed
+variable ? The examples in the documentation don't tell how to represent 
 <br />
-between the geoid and the sea floor equals the mean volume of water in
+this information. All the examples in the documentation have their 
 <br />
-the ocean.) In an ocean GCM the geoid is the surface of zero depth, or
+climatological bounds which start and end exactly at the start date and 
 <br />
-the rigid lid if the model uses that approximation. &quot;Sea surface height&quot;
+end date of the climatology intervals. But in general this is not the 
 <br />
-is a time-varying quantity. By definition of the geoid, the global
+case. Climatology variable tries to represent more than one piece 
 <br />
-average of the time-mean sea surface height (i.e. mean sea level) above
+information in a single variable - the climatology intervals(day, month, 
 <br />
-the geoid must be zero. The standard name for the height of the sea
+season,etc.) and the actual bounds (start date and end date). I am not 
 <br />
-surface above mean sea level is sea_surface_height_above_sea_level. The
+sure if this is the reason for the problem.
 <br />
-standard name for the height of the sea surface above the reference
+<br />Also, is there any significance to year in the time variable when 
 <br />
-ellipsoid is sea_surface_height_above_reference_ellipsoid.
+representing climatological information? Or can I start from any year?
 <br />
-<br />regards,
+<br />Any help is appreciated.
 <br />
-<br />Paola Petrelli
+<br />Upendra
 <br />
-TPAC-UTAS
-<br />
-<span id="received"><dfn>Received on</dfn> Thu Apr 14 2011 - 17:12:49 BST</span>
+<span id="received"><dfn>Received on</dfn> Wed Apr 28 2010 - 08:47:41 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -117,8 +115,8 @@ TPAC-UTAS
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start3436">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./3437.html" title="Next message in the list">John Caron: "[CF-metadata] physical vs dimensional units"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./3435.html" title="Previous message in the list">Cecelia DeLuca: "[CF-metadata] Fwd: PALEO.."</a></li>
+<li><dfn>Next message</dfn>: <a href="./3437.html" title="Next message in the list">V. Balaji: "[CF-metadata] Separating geolocation/timing co-ordinates from measurement data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./3435.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Separating geolocation/timing co-ordinates from measurement data"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -130,7 +128,7 @@ TPAC-UTAS
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:45 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./3435.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3437.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

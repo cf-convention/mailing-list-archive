@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF-checker as a script from Schultz, Martin on 2013-09-25 (mailing-list-archive)</title>
-<meta name="Author" content="Schultz, Martin (m.schultz)" />
-<meta name="Subject" content="[CF-metadata] CF-checker as a script" />
-<meta name="Date" content="2013-09-25" />
+<title>[CF-metadata] [CF Metadata] #68: CF data model and reference implementation in Python from Chris Barker - NOAA Federal on 2013-01-10 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Chris Barker - NOAA Federal (chris.barker)" />
+<meta name="Subject" content="[CF-metadata] [CF Metadata] #68: CF data model and reference implementation in Python" />
+<meta name="Date" content="2013-01-10" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5742.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5744.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF-checker as a script</h1>
-<!-- received="Wed Sep 25 08:42:12 2013" -->
-<!-- isoreceived="20130925074212" -->
-<!-- sent="Wed, 25 Sep 2013 14:42:12 +0000" -->
-<!-- isosent="20130925144212" -->
-<!-- name="Schultz, Martin" -->
-<!-- email="m.schultz" -->
-<!-- subject="[CF-metadata] CF-checker as a script" -->
-<!-- id="4A980E5ADF859E4E9007AA5514CF9C8E19AA94E1_at_MBX2010-E01.ad.fz-juelich.de" -->
+<a style="text-decoration:none" href="./5742.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5744.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] [CF Metadata] #68: CF data model and reference implementation in Python</h1>
+<!-- received="Thu Jan 10 11:26:54 2013" -->
+<!-- isoreceived="20130110112654" -->
+<!-- sent="Thu, 10 Jan 2013 10:26:54 -0800" -->
+<!-- isosent="20130110182654" -->
+<!-- name="Chris Barker - NOAA Federal" -->
+<!-- email="chris.barker" -->
+<!-- subject="[CF-metadata] [CF Metadata] #68: CF data model and reference implementation in Python" -->
+<!-- id="CALGmxELXC3tHyhd1JQnqAYeqdP=ip9fvAdDMgbvSZieyBQgtGQ_at_mail.gmail.com" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="075.24bcb33d4f09c02d3135f1c56fb4f778_at_lists.llnl.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,9 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5744.html" accesskey="d" title="Steve Hankin: &quot;[CF-metadata] Are ensembles a compelling use case for &#0034;group-aware&#0034; metadata? (CZ)&quot;">Next message</a> ]
-[ <a href="./5742.html" title="Michael Decker: &quot;[CF-metadata] CF checker as script&quot;">Previous message</a> ]
+[ <a href="./5744.html" accesskey="d" title="Chris Barker - NOAA Federal: &quot;[CF-metadata] [CF Metadata] #68: CF data model and reference implementation in Python&quot;">Next message</a> ]
+[ <a href="./5742.html" title="Lowry, Roy K.: &quot;[CF-metadata] sea_water_pressure&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./5744.html" accesskey="t" title="Chris Barker - NOAA Federal: &quot;[CF-metadata] [CF Metadata] #68: CF data model and reference implementation in Python&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,86 +71,178 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Schultz, Martin &lt;<a href="mailto:m.schultz?Subject=Re%3A%20%5BCF-metadata%5D%20CF-checker%20as%20a%20script">m.schultz</a>&gt;
+<dfn>From</dfn>: Chris Barker - NOAA Federal &lt;<a href="mailto:chris.barker?Subject=Re%3A%20%5BCF-metadata%5D%20%5BCF%20Metadata%5D%20%2368%3A%20CF%20data%20model%20and%20reference%20implementation%20in%20Python">chris.barker</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 25 Sep 2013 14:42:12 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 10 Jan 2013 10:26:54 -0800</span><br />
 </address>
 <br />
-Dear Petra,
+Folks,
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;we developed such a script at Forschungszentrum Juelich: <a href="http://redmine.iek.fz-juelich.de/projects/cfchecker">http://redmine.iek.fz-juelich.de/projects/cfchecker</a>. My colleague Michael Decker (m.decker at fz-juelich.de) will be happy to assist you if you have questions. The tool has been developed in python.
+<br />I'm posting this to the list, rather than the ticket, as the ticket
 <br />
-<br />Best regards,
+had gotten huge, and it looks like it may be closed/restarted/split up
 <br />
-<br />Martin Schultz
+anyway. Also, this, perhaps, a more general question/thought.
 <br />
-<br /><em class="quotelev1">&gt; Date: Tue, 24 Sep 2013 08:05:55 +0000
+<br /><em class="quotelev2">&gt;  &gt; This illustrates my point.  I am not advocating a discussion here on how
 </em><br />
-<em class="quotelev1">&gt; From: Fuchs Petra &lt;Petra.Fuchs at dwd.de&gt;
+<em class="quotelev1">&gt;  to represent time, instead I am advocating that the data model does not
 </em><br />
-<em class="quotelev1">&gt; To: &quot;'cf-metadata at cgd.ucar.edu'&quot; &lt;cf-metadata at cgd.ucar.edu&gt;
+<em class="quotelev1">&gt;  take on this question at all, it is for implementations to deal with.
 </em><br />
-<em class="quotelev1">&gt; Subject: [CF-metadata] CF checker as script
-</em><br />
-<em class="quotelev1">&gt; Message-ID:
-</em><br />
-<em class="quotelev1">&gt;       &lt;9298739FB413E644A0A1DA64DA4B37F0337614AD at OFWEXC21.win2
-</em><br />
-<em class="quotelev1">&gt; 003.dwd.de&gt;
-</em><br />
-<em class="quotelev1">&gt; Content-Type: text/plain; charset=&quot;us-ascii&quot;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Dear members of the CF mailing list,
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; We generate climate data records based on satellite data  in netcdf cf
-</em><br />
-<em class="quotelev1">&gt; standard format as output. As we are dealing with a  large number of files
-</em><br />
-<em class="quotelev1">&gt; we are interested in using the netcdf cf checker offline and running a script
-</em><br />
-<em class="quotelev1">&gt; (for LINUX/UNIX) to check the files in our processing environment. Do you
-</em><br />
-<em class="quotelev1">&gt; have such a script available for users?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Thank you in advance,
-</em><br />
-<em class="quotelev1">&gt; Best regards,
-</em><br />
-<em class="quotelev1">&gt; Petra
-</em><br />
-<br /><br />------------------------------------------------------------------------------------------------
+<br />My idea/confusion is about what the difference is between a data
 <br />
-------------------------------------------------------------------------------------------------
+model, and a particular implimentation -- i.e in this case, we have
 <br />
-Forschungszentrum Juelich GmbH
+the netcdf CF standard -- that is an implimentation of (theoretically)
 <br />
-52425 Juelich
+a CF data model.
 <br />
-Sitz der Gesellschaft: Juelich
+<br />But if we define the data model and netcdf implementation to be
 <br />
-Eingetragen im Handelsregister des Amtsgerichts Dueren Nr. HR B 3498
+identical, then there is no point in having a data model as a unique
 <br />
-Vorsitzender des Aufsichtsrats: MinDir Dr. Karl Eugen Huthmacher
+concept.
 <br />
-Geschaeftsfuehrung: Prof. Dr. Achim Bachem (Vorsitzender),
+<br />But I do like having a data model, and the original title of this
 <br />
-Karsten Beneke (stellv. Vorsitzender), Prof. Dr.-Ing. Harald Bolt,
+ticket outlines why -- with an independently defined data model, we
 <br />
-Prof. Dr. Sebastian M. Schmidt
+can have implementation in Python, or your language of choice, that is
 <br />
-------------------------------------------------------------------------------------------------
+independent of the specific storage format, etc. Ideally, that would
 <br />
-------------------------------------------------------------------------------------------------
+mean that one coudl work with such an implementation in a nice natural
 <br />
-<br />Das Forschungszentrum oeffnet seine Tueren am Sonntag, 29. September, von 10:00 bis 17:00 Uhr: <a href="http://www.tagderneugier.de">http://www.tagderneugier.de</a>
+way.
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Sep 25 2013 - 08:42:12 BST</span>
+<br />So on to an example -- for axes -- datetime is a common axis to want
+<br />
+to use for the kind of data we're trying to deal with here -- working
+<br />
+with an abstraction of a data model, I want to work with the time axis
+<br />
+in a natural way -- that would be a datetime type of some sort -- in
+<br />
+fact, pretty much the first thing I ever do when reading in a netcdf
+<br />
+CF file, isto convertt eh time axis to python datetime -- I don't want
+<br />
+my client code to have to deal with whether the units are seconds or
+<br />
+days, or ??? -- that's what a datetime type is for.
+<br />
+<br />So I think the data model, in this case, should define the concept of
+<br />
+a time axis, which has datetime types of some sort -- they are
+<br />
+sortable, differentiable, etc. in Python, for instance, they might be
+<br />
+an array of numpy datetime64 types, or a python list of
+<br />
+datetime,datetime objects.
+<br />
+<br />But in CF-netcdf, we have &quot;timedelta since datetime&quot; as the standard
+<br />
+-- so we can store datetime axis with standard numerical types. fine,
+<br />
+but is that the data model? or is that a particular encoding for a
+<br />
+particular file format? I think the later.
+<br />
+<br />Example: unicode provides a data model for text -- a set of code
+<br />
+points, etc. With a modern programing language, you can work with text
+<br />
+in unicode objects -- a sequence of characters, etc. You don't need to
+<br />
+know about how they are internally encoded. However, when you want to
+<br />
+do I/O, you do need to know about encoding. So a file format
+<br />
+specification, and the tools to work with that format, need to specify
+<br />
+and handle the encoding/decoding for you.
+<br />
+<br />I think we should take a similar approach to netcdf-CF -- in a netcdf
+<br />
+file, time axes are encoded as &quot;timedelta since datetime&quot;, but in the
+<br />
+data model, they are an abstract datetime type. In other formats that
+<br />
+support the data model, one might well choose a different &quot;encoding&quot;.
+<br />
+(maybe iso strings, but I rather NOT have that in netcdf files --
+<br />
+leave it to libraries to convert different encodings for you)
+<br />
+<br />I've focused on time axes -- I do think that datetimes are a common
+<br />
+enough case that special treatment is warranted, but maybe there are
+<br />
+others, or a generalization that could be used.
+<br />
+<br />Another example:
+<br />
+<br />This is a bit of a side issue, but may be relvant. On the numpy list
+<br />
+there is discussion about casting rules -- when to upcast, for
+<br />
+example, an 8-bit integer to a larger integer. One driving example is
+<br />
+HDF files -- apparently it' s common to store data in small integers,
+<br />
+along with a scale and offset that will transform the the natural data
+<br />
+coordinates. (this is done in CF, too, yes?) The problem arrises when
+<br />
+you load up an array of 8 bit integers, then multiply and add the
+<br />
+scale and offset -- you can very easily end up overflowing your data
+<br />
+type if you're not careful.
+<br />
+<br />My thoughts on this is that the &quot;small integer plus shift and scale&quot;
+<br />
+should be thought of like an encoding, and should be hidden from the
+<br />
+user end -- the data model should reflect the real values, and the I/O
+<br />
+library should handle the encoding/decoding for you -- i.e. user code
+<br />
+should be able to get, for instance, the voltage from a sensor, in an
+<br />
+appropriate type, with the scaling/shifting applied, and not have to
+<br />
+know or care about how it was stored in the file.
+<br />
+<br />Of course, it should also be possible to access the raw data as
+<br />
+stored, but that should require explicit  access, and can assume that
+<br />
+the user knows what they are doing.
+<br />
+<br />So: in short -- the CF data model should be more general, and deal
+<br />
+with data concepts, separate from encoding of those data. File formats
+<br />
+should specify encoding, and libraries should handle
+<br />
+encoding/decoding.
+<br />
+<br />-Chris
+<br />
+<br /><pre>
+-- 
+Christopher Barker, Ph.D.
+Oceanographer
+Emergency Response Division
+NOAA/NOS/OR&amp;R            (206) 526-6959   voice
+7600 Sand Point Way NE   (206) 526-6329   fax
+Seattle, WA  98115       (206) 526-6317   main reception
+Chris.Barker at noaa.gov
+</pre>
+<span id="received"><dfn>Received on</dfn> Thu Jan 10 2013 - 11:26:54 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -155,9 +250,12 @@ Prof. Dr. Sebastian M. Schmidt
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5743">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5744.html" title="Next message in the list">Steve Hankin: "[CF-metadata] Are ensembles a compelling use case for &#0034;group-aware&#0034; metadata? (CZ)"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5742.html" title="Previous message in the list">Michael Decker: "[CF-metadata] CF checker as script"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5744.html" title="Next message in the list">Chris Barker - NOAA Federal: "[CF-metadata] [CF Metadata] #68: CF data model and reference implementation in Python"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5742.html" title="Previous message in the list">Lowry, Roy K.: "[CF-metadata] sea_water_pressure"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./5744.html" title="Next message in this discussion thread">Chris Barker - NOAA Federal: "[CF-metadata] [CF Metadata] #68: CF data model and reference implementation in Python"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./5744.html" title="Message sent in reply to this message">Chris Barker - NOAA Federal: "[CF-metadata] [CF Metadata] #68: CF data model and reference implementation in Python"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -168,7 +266,7 @@ Prof. Dr. Sebastian M. Schmidt
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:30 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5742.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5744.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

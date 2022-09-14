@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF point observation Conventions ready for review from Nan Galbraith on 2009-11-13 (mailing-list-archive)</title>
-<meta name="Author" content="Nan Galbraith (ngalbraith)" />
-<meta name="Subject" content="[CF-metadata] CF point observation Conventions ready for review" />
-<meta name="Date" content="2009-11-13" />
+<title>[CF-metadata]  fixed sensors, depth, datum from Jonathan Gregory on 2008-09-10 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata]  fixed sensors, depth, datum" />
+<meta name="Date" content="2008-09-10" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2324.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2326.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF point observation Conventions ready for review</h1>
-<!-- received="Fri Nov 13 13:37:56 2009" -->
-<!-- isoreceived="20091113133756" -->
-<!-- sent="Fri, 13 Nov 2009 15:37:56 -0500" -->
-<!-- isosent="20091113203756" -->
-<!-- name="Nan Galbraith" -->
-<!-- email="ngalbraith" -->
-<!-- subject="[CF-metadata] CF point observation Conventions ready for review" -->
-<!-- id="4AFDC3A4.4090700_at_whoi.edu" -->
+<a style="text-decoration:none" href="./2324.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2326.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  fixed sensors, depth, datum</h1>
+<!-- received="Wed Sep 10 06:18:05 2008" -->
+<!-- isoreceived="20080910051805" -->
+<!-- sent="Wed, 10 Sep 2008 13:18:05 +0100" -->
+<!-- isosent="20080910121805" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata]  fixed sensors, depth, datum" -->
+<!-- id="20080910121805.GA8933_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4AFDB16D.7080400_at_unidata.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +53,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2326.html" accesskey="d" title="John Caron: &quot;[CF-metadata] CF point observation Conventions ready for review&quot;">Next message</a> ]
-[ <a href="./2324.html" title="John Caron: &quot;[CF-metadata] CF point observation Conventions ready for review&quot;">Previous message</a> ]
-[ <a href="./2324.html" title="John Caron: &quot;[CF-metadata] CF point observation Conventions ready for review&quot;">In reply to</a> ]
+[ <a href="./2326.html" accesskey="d" title="Jon Blower: &quot;[CF-metadata] fixed sensors, depth, datum&quot;">Next message</a> ]
+[ <a href="./2324.html" title="olivier lauret: &quot;[CF-metadata] fixed sensors, depth, datum&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./2326.html" accesskey="t" title="John Caron: &quot;[CF-metadata] CF point observation Conventions ready for review&quot;">Next in thread</a> ]
+[ <a href="./2326.html" accesskey="t" title="Jon Blower: &quot;[CF-metadata] fixed sensors, depth, datum&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,129 +70,76 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Nan Galbraith &lt;<a href="mailto:ngalbraith?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20point%20observation%20Conventions%20ready%20for%20review">ngalbraith</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20fixed%20sensors%2C%20depth%2C%20datum">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 13 Nov 2009 15:37:56 -0500</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 10 Sep 2008 13:18:05 +0100</span><br />
 </address>
 <br />
-Hi John -
+Dear Dale
 <br />
-<br />This file has a single variable from a single mooring deployment. A
+<br /><em class="quotelev1">&gt;           + Create a z dimension with a value of 1
+</em><br />
+<em class="quotelev1">&gt;           + The vertical coordinate variable 'z'  (i.e. z(z) ) will be
+</em><br />
+<em class="quotelev1">&gt;             used to fix the location of the sensor in vertical space
+</em><br />
+<em class="quotelev1">&gt;             (i.e. not the distance below the water's surface) referenced
+</em><br />
+<em class="quotelev1">&gt;             to a datum.
+</em><br />
+<em class="quotelev1">&gt;           + For the datum we use WGS84.
+</em><br />
+<br />By &quot;WGS84&quot; I presume you mean their geoid (I am not an expert in vertical
 <br />
-complete mooring deployment file would have 3 (or 4) depth coordinate
+datums). If so, as Olivier says, you could request a new standard name of
 <br />
-variables, one each for temperature, velocity, and salinity measurements,
+depth_below_geoid or height_above_geoid. As an alternative to a dimension of
 <br />
-since we measure temperature everywhere and add velocity or salinity
+size 1, you can use a scalar coordinate variable (CF 5.7).
 <br />
-at selected depths; it would also have met data, which would either have
+<br /><em class="quotelev1">&gt;           + The depth variable (pressure sensor) gives depth in vertical
+</em><br />
+<em class="quotelev1">&gt;             distance below surface (which varies with the tide for fixed
+</em><br />
+<em class="quotelev1">&gt;             instruments).
+</em><br />
+<br />The standard name of &quot;depth&quot;, which you have used, means depth below the
 <br />
-a singleton depth dimension or none - but would have sensor heights
+(sea) surface, which I think is what you want. Since it is not a coordinate
 <br />
-provided as variable attributes.
+variable, it doesn't need a positive attribute.
 <br />
-<br />For the OceanSITES project, we're limited to a single coordinate variable
+<br />If I understand correctly, the offsets are giving the height_above_geoid of
 <br />
-for Z, which is why I'm building multiple files for each deployment - at
+various tidal datums. I suggest that a more CF-like way to do this would be to
 <br />
-least at the moment. 
+provide these offsets as data variables, each with its own standard name; the
 <br />
-<br />The sample file also represents a single deployment at a site; a nearly 
+standard names would be e.g. height_above_geoid_of_mean_lower_low_water. You
 <br />
-identical
+could request such standard names. If they are all standard tidal datums, that
 <br />
-mooring is deployed every year at nominally the same location, with some
+might be unproblematic! The tidal datum epoch would then naturally be given as
 <br />
-changes to the depths or to the types of instruments (and so, different 
+the bounds of the time coordinate variable for these various datums.
 <br />
-variables)
+<br /><em class="quotelev1">&gt;    The instrument goes up and down with the tide and the
+</em><br />
+<em class="quotelev1">&gt;    sensors are at a fixed distance below the surface.   The vertical
+</em><br />
+<em class="quotelev1">&gt;    values are all distance below the surface.  How do we handle that?
+</em><br />
+<em class="quotelev1">&gt;    One solution is to keep the vertical dimension of unity and have a
+</em><br />
+<em class="quotelev1">&gt;    vertical coordinate variable referenced to depth below the surface.
+</em><br />
+<br />Yes, I think that is the right solution.
 <br />
-at these depths.
+<br />Cheers
 <br />
-<br />Being able to combine all the deployments for a single site could be a big
+<br />Jonathan
 <br />
-help in organizing this data, although at present it's not possible to 
-<br />
-put even
-<br />
-one full deployment into a single file in the OceanSITES system.
-<br />
-<br />Hope this isn't too much information...
-<br />
-<br />Cheers - Nan
-<br />
-<br /><br /><em class="quotelev1">&gt; Hi Han:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Ok, let me understand what you have before I comment on whether it 
-</em><br />
-<em class="quotelev1">&gt; fits in:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; ...
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; It looks like you have a single moored buoy in this file.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; The 1D lat, lon I think are clearer as scalars :
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;   float latitude ;
-</em><br />
-<em class="quotelev1">&gt;       latitude:axis = &quot;Y&quot; ;
-</em><br />
-<em class="quotelev1">&gt;   float longitude ;
-</em><br />
-<em class="quotelev1">&gt;       longitude:axis = &quot;X&quot; ;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  float time(time) ;
-</em><br />
-<em class="quotelev1">&gt;       time:axis = &quot;T&quot; ;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;   float depth(depth) ;
-</em><br />
-<em class="quotelev1">&gt;       depth:axis = &quot;Z&quot; ;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;   float STMP(time, depth) ;
-</em><br />
-<em class="quotelev1">&gt;       STMP:standard_name = &quot;sea_water_temperature&quot; ;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;   short INST_SN(depth) ;
-</em><br />
-<em class="quotelev1">&gt;       INST_SN:long_name = &quot;instrument_serial_number&quot; ;
-</em><br />
-<em class="quotelev1">&gt; So it appears that you have the same depth coordinate for each 
-</em><br />
-<em class="quotelev1">&gt; measurement, and some data which is independent of the time, but z 
-</em><br />
-<em class="quotelev1">&gt; dependent. Am I missing anything?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<br /><br /><pre>
--- 
-*******************************************************
-* Nan Galbraith                        (508) 289-2444 *
-* Upper Ocean Processes Group            Mail Stop 29 *
-* Woods Hole Oceanographic Institution                *
-* Woods Hole, MA 02543                                *
-*******************************************************
-</pre>
-<span id="received"><dfn>Received on</dfn> Fri Nov 13 2009 - 13:37:56 GMT</span>
+<span id="received"><dfn>Received on</dfn> Wed Sep 10 2008 - 06:18:05 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -202,13 +147,12 @@ one full deployment into a single file in the OceanSITES system.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2325">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2326.html" title="Next message in the list">John Caron: "[CF-metadata] CF point observation Conventions ready for review"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2324.html" title="Previous message in the list">John Caron: "[CF-metadata] CF point observation Conventions ready for review"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./2324.html" title="Message to which this message replies">John Caron: "[CF-metadata] CF point observation Conventions ready for review"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2326.html" title="Next message in the list">Jon Blower: "[CF-metadata] fixed sensors, depth, datum"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2324.html" title="Previous message in the list">olivier lauret: "[CF-metadata] fixed sensors, depth, datum"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./2326.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] CF point observation Conventions ready for review"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./2326.html" title="Next message in this discussion thread">Jon Blower: "[CF-metadata] fixed sensors, depth, datum"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./2326.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] CF point observation Conventions ready for review"</a></li>
+<dfn>Reply</dfn>: <a href="./2326.html" title="Message sent in reply to this message">Jon Blower: "[CF-metadata] fixed sensors, depth, datum"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -219,7 +163,7 @@ one full deployment into a single file in the OceanSITES system.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:24 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2324.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2326.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

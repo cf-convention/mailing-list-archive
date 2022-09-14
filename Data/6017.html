@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] vertical coordinates and positive attributes from Jonathan Gregory on 2014-01-29 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] vertical coordinates and positive attributes" />
-<meta name="Date" content="2014-01-29" />
+<title>[CF-metadata] standard names for ocean model turbulent quantities from Tuomas Karna on 2013-03-26 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Tuomas Karna (karnat)" />
+<meta name="Subject" content="[CF-metadata] standard names for ocean model turbulent quantities" />
+<meta name="Date" content="2013-03-26" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./6016.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6018.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] vertical coordinates and positive attributes</h1>
-<!-- received="Wed Jan 29 10:26:44 2014" -->
-<!-- isoreceived="20140129102644" -->
-<!-- sent="Wed, 29 Jan 2014 17:26:44 +0000" -->
-<!-- isosent="20140129172644" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] vertical coordinates and positive attributes" -->
-<!-- id="20140129172644.GA11443_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./6016.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6018.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard names for ocean model turbulent quantities</h1>
+<!-- received="Tue Mar 26 16:26:09 2013" -->
+<!-- isoreceived="20130326162609" -->
+<!-- sent="Tue, 26 Mar 2013 15:26:09 -0700" -->
+<!-- isosent="20130326222609" -->
+<!-- name="Tuomas Karna" -->
+<!-- email="karnat" -->
+<!-- subject="[CF-metadata] standard names for ocean model turbulent quantities" -->
+<!-- id="51522081.9040701_at_stccmop.org" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="014539AC4976BE4490A360410A8C201756A7B9A0_at_EXCHMBX01.fed.cclrc.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,11 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./6018.html" accesskey="d" title="John Graybeal: &quot;[CF-metadata] vertical coordinates and positive attributes&quot;">Next message</a> ]
-[ <a href="./6016.html" title="Steve Hankin: &quot;[CF-metadata] vertical coordinates and positive attributes&quot;">Previous message</a> ]
+[ <a href="./6018.html" accesskey="d" title="Aleksandar Jelenak - NOAA Affiliate: &quot;[CF-metadata] New standard name: datetime_iso8601 (standard_name or units?)&quot;">Next message</a> ]
+[ <a href="./6016.html" title="Jonathan Gregory: &quot;[CF-metadata] Question from NODC about interplay of standard name modifiers, cell_methods, etc.&quot;">Previous message</a> ]
+[ <a href="./5912.html" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] standard names for ocean model turbulent quantities&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./6018.html" accesskey="t" title="John Graybeal: &quot;[CF-metadata] vertical coordinates and positive attributes&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,74 +70,162 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20vertical%20coordinates%20and%20positive%20attributes">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Tuomas Karna &lt;<a href="mailto:karnat?Subject=Re%3A%20%5BCF-metadata%5D%20standard%20names%20for%20ocean%20model%20turbulent%20quantities">karnat</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 29 Jan 2014 17:26:44 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 26 Mar 2013 15:26:09 -0700</span><br />
 </address>
 <br />
-Dear Steve
+Dear Allison,
 <br />
-<br /><em class="quotelev1">&gt; In practice I do not think that
-</em><br />
-<em class="quotelev1">&gt; standard_name=depth and positive=up are necessarily in conflict (see
-</em><br />
-<em class="quotelev1">&gt; bold text below).  We fairly commonly encounter ocean model outputs
-</em><br />
-<em class="quotelev1">&gt; in which the depths are encoded as negatives:
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt;    0
-</em><br />
-<em class="quotelev1">&gt;    -10
-</em><br />
-<em class="quotelev1">&gt;    -20
-</em><br />
-<em class="quotelev1">&gt;    ...
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; There are merits to this encoding -- especially apparent in coupled
-</em><br />
-<em class="quotelev1">&gt; ocean/atmosphere situations.  (Also it preserves the right-handed
-</em><br />
-<em class="quotelev1">&gt; coordinate system.)  It would be quite peculiar (and a frequent
-</em><br />
-<em class="quotelev1">&gt; source of error) to insist that an ocean model output file name its
-</em><br />
-<em class="quotelev1">&gt; Z axis as &quot;altitude&quot;, simply because it has encoded the depth values
-</em><br />
-<em class="quotelev1">&gt; as negatives.  The purpose of the 'positive' attribute is to inform
-</em><br />
-<em class="quotelev1">&gt; the application when the encoding of values and the physical
-</em><br />
-<em class="quotelev1">&gt; interpretation of the Z axis are reversed from one another.
-</em><br />
-<br />Maybe it's annoying, but I can't agree with that. I would say that such depth
+<br />I agree on your comment about giving a better definition to 'small 
 <br />
-values are wrong. The standard_name depth is defined as &quot;the vertical distance
+scale'. The turbulence closure models are derived from the primitive 
 <br />
-below the surface&quot;. -10 m means 10 m above the surface. There's no point in
+equations via Reynolds decomposition, separating mean flow and random 
 <br />
-having standard names unless we use them correctly, and this is one of the
+fluctuations. Therefore I think that defining an upper length scale for 
 <br />
-kinds of imprecision standard names can help eliminate. It's fine for the ocean
+the turbulent fluctuations is not very straightforward. I guess in 
 <br />
-model to encode -10 m for 10 m below the surface if it wants to, but then it
+practice the turbulent mixing length is used as a descriptive length scale.
 <br />
-should use the standard_name of height instead (or altitude, since distance
+<br />Perhaps one solution could be to drop the &quot;small scale&quot; and stress the 
 <br />
-above the surface and above the geoid is approx the same thing in ocean areas).
+random nature of turbulence instead:
 <br />
-In all the ocean model data I work with (mostly from CMIP), depth is a positive
+&quot;Turbulent kinetic energy&quot; is the kinetic energy of chaotic turbulent 
 <br />
-number, as it should be.
+fluctuations of the flow ?
 <br />
-<br />Best wishes
+<br />Tuomas Karna
 <br />
-<br />Jonathan
+<br />Post-Doctoral Fellow
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Jan 29 2014 - 10:26:44 GMT</span>
+Center for Coastal Margin Observation and Prediction (CMOP)
+<br />
+Oregon Health and Science University
+<br />
+karnat at stccmop.org
+<br />
+<br /><br />On 03/19/2013 05:32 AM, alison.pamment at stfc.ac.uk wrote:
+<br />
+<em class="quotelev1">&gt; Dear Tuomas,
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Thank you for working on the definitions. I take your point that 'turbulent' does not necessarily mean 'subgrid scale'. I think your suggested text is basically fine but it would  be helpful if we could also include an upper limit on what you mean by 'small'.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Best wishes,
+</em><br />
+<em class="quotelev1">&gt; Alison
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; ------
+</em><br />
+<em class="quotelev1">&gt; Alison Pamment                          Tel: +44 1235 778065
+</em><br />
+<em class="quotelev1">&gt; NCAS/British Atmospheric Data Centre    Email: alison.pamment at stfc.ac.uk
+</em><br />
+<em class="quotelev1">&gt; STFC Rutherford Appleton Laboratory
+</em><br />
+<em class="quotelev1">&gt; R25, 2.22
+</em><br />
+<em class="quotelev1">&gt; Harwell Oxford, Didcot, OX11 0QX, U.K.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; -----Original Message-----
+</em><br />
+<em class="quotelev2">&gt;&gt; From: CF-metadata [mailto:cf-metadata-bounces at cgd.ucar.edu] On Behalf
+</em><br />
+<em class="quotelev2">&gt;&gt; Of Tuomas Karna
+</em><br />
+<em class="quotelev2">&gt;&gt; Sent: 15 March 2013 16:50
+</em><br />
+<em class="quotelev2">&gt;&gt; To: cf-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt;&gt; Subject: Re: [CF-metadata] standard names for ocean model turbulent
+</em><br />
+<em class="quotelev2">&gt;&gt; quantities
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Dear Allison,
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Thank you for your comments. I'd propose some further changes to the
+</em><br />
+<em class="quotelev2">&gt;&gt; definitions:
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; 1. &quot;specific_turbulent_kinetic_energy_of_sea_water (m2 s-2)&quot;
+</em><br />
+<em class="quotelev2">&gt;&gt; As turbulent kinetic energy is not necessary equivalent to model's
+</em><br />
+<em class="quotelev2">&gt;&gt; subgrid scale eddy kinetic energy, I'd formulate the definition as:
+</em><br />
+<em class="quotelev2">&gt;&gt; ' &quot;Specific&quot; means per unit mass. &quot;Turbulent kinetic energy&quot; is the
+</em><br />
+<em class="quotelev2">&gt;&gt; kinetic energy of small scale turbulent fluctuations of the flow. '
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; 2. &quot;specific_turbulent_kinetic_energy_dissipation_in_sea_water (W kg-1)&quot;
+</em><br />
+<em class="quotelev2">&gt;&gt; The definition would then become:
+</em><br />
+<em class="quotelev2">&gt;&gt; ' &quot;Specific&quot; means per unit mass. &quot;Turbulent kinetic energy&quot; is the
+</em><br />
+<em class="quotelev2">&gt;&gt; kinetic energy of small scale turbulent fluctuations of the flow. The
+</em><br />
+<em class="quotelev2">&gt;&gt; dissipation of kinetic energy arises in ocean models as a result of the
+</em><br />
+<em class="quotelev2">&gt;&gt; viscosity of sea water.'
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; 3. &quot;turbulent_mixing_length_of_sea_water (m)&quot;
+</em><br />
+<em class="quotelev2">&gt;&gt; '  &quot;Turbulent mixing length&quot; is used in models to describe the macro
+</em><br />
+<em class="quotelev2">&gt;&gt; length scale of energy-containing eddies in a turbulent flow. '
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; If these definitions seems too vague, I can try to elaborate them futher.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Best regards,
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Tuomas Karna
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Post-Doctoral Fellow
+</em><br />
+<em class="quotelev2">&gt;&gt; Center for Coastal Margin Observation and Prediction (CMOP)
+</em><br />
+<em class="quotelev2">&gt;&gt; Oregon Health and Science University
+</em><br />
+<em class="quotelev2">&gt;&gt; karnat at stccmop.org
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<span id="received"><dfn>Received on</dfn> Tue Mar 26 2013 - 16:26:09 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -145,13 +233,10 @@ number, as it should be.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start6017">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./6018.html" title="Next message in the list">John Graybeal: "[CF-metadata] vertical coordinates and positive attributes"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./6016.html" title="Previous message in the list">Steve Hankin: "[CF-metadata] vertical coordinates and positive attributes"</a></li>
+<li><dfn>Next message</dfn>: <a href="./6018.html" title="Next message in the list">Aleksandar Jelenak - NOAA Affiliate: "[CF-metadata] New standard name: datetime_iso8601 (standard_name or units?)"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./6016.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Question from NODC about interplay of standard name modifiers, cell_methods, etc."</a></li>
+<li><dfn>In reply to</dfn>: <a href="./5912.html" title="Message to which this message replies">alison.pamment at stfc.ac.uk: "[CF-metadata] standard names for ocean model turbulent quantities"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./6018.html" title="Next message in this discussion thread">John Graybeal: "[CF-metadata] vertical coordinates and positive attributes"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./6018.html" title="Message sent in reply to this message">John Graybeal: "[CF-metadata] vertical coordinates and positive attributes"</a></li>
-<li><dfn>Reply</dfn>: <a href="./6019.html" title="Message sent in reply to this message">Steve Hankin: "[CF-metadata] vertical coordinates and positive attributes"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -162,7 +247,7 @@ number, as it should be.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:35 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./6016.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6018.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

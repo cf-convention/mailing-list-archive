@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Different variables with same standard name from Jonathan Gregory on 2006-10-19 (mailing-list-archive)</title>
+<title>[CF-metadata] Re: Array Subscript Convention from Jonathan Gregory on 2004-02-11 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] Different variables with same standard name" />
-<meta name="Date" content="2006-10-19" />
+<meta name="Subject" content="[CF-metadata] Re: Array Subscript Convention" />
+<meta name="Date" content="2004-02-11" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0359.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0361.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Different variables with same standard name</h1>
-<!-- received="Thu Oct 19 07:37:04 2006" -->
-<!-- isoreceived="20061019063704" -->
-<!-- sent="Thu, 19 Oct 2006 14:37:04 +0100" -->
-<!-- isosent="20061019133704" -->
+<a style="text-decoration:none" href="./0359.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0361.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Re: Array Subscript Convention</h1>
+<!-- received="Wed Feb 11 10:45:21 2004" -->
+<!-- isoreceived="20040211104521" -->
+<!-- sent="Wed, 11 Feb 2004 17:45:21 +0000" -->
+<!-- isosent="20040211174521" -->
 <!-- name="Jonathan Gregory" -->
 <!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] Different variables with same standard name" -->
-<!-- id="20061019133704.GA11870_at_met.reading.ac.uk" -->
+<!-- subject="[CF-metadata] Re: Array Subscript Convention" -->
+<!-- id="20040211174521.GC4313_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0361.html" accesskey="d" title="John Caron: &quot;[CF-metadata] [Fwd: Re: Problems reading NetCDF data - get NaNs]&quot;">Next message</a> ]
-[ <a href="./0359.html" title="Egil St&#0248;ren: &quot;[CF-metadata] Different variables with same standard name&quot;">Previous message</a> ]
+[ <a href="./0361.html" accesskey="d" title="Brian Eaton: &quot;[CF-metadata] omega&quot;">Next message</a> ]
+[ <a href="./0359.html" title="Jonathan Gregory: &quot;[CF-metadata] omega&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,30 +68,56 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Different%20variables%20with%20same%20standard%20name">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Re%3A%20Array%20Subscript%20Convention">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 19 Oct 2006 14:37:04 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 11 Feb 2004 17:45:21 +0000</span><br />
 </address>
 <br />
-Dear Egil
+Dear Tom
 <br />
-<br /><em class="quotelev1">&gt; Is it possible to have a CF-compliant netCDF-file with the same 
-</em><br />
-<em class="quotelev1">&gt; standard_name for several variables? I can not see that this is 
-</em><br />
-<em class="quotelev1">&gt; explicitly prohibited in the CF standard, but all the examples are 
-</em><br />
-<em class="quotelev1">&gt; conforming to a one-to-one relationship rule for names vs. standard_names.
-</em><br />
-<br />Yes, it is possible. Presumably they would be distinguished by some
+<br />CF makes a lot of use of attributes. Much information is factorised out of
 <br />
-other metadata (time coordinates, cell_methods, etc.).
+the standard name in this way. For instance, we don't have a standard name
 <br />
-<br />Cheers
+for 2 m air temperature (unlike the AMIP table) because we regard 2 m as
+<br />
+a vertical coordinate, which should not be included in the standard name.
+<br />
+<br />One argument for including the 0 or 1 convention in the name is because it is
+<br />
+absolutely essential for interpretation of the data that this convention be
+<br />
+stated. The same is true of whether a flux or a velocity is upward or downward.
+<br />
+By putting them in the standard name we make it impossible for the convention
+<br />
+not to be stated. I think it's virtually certain that if these conventions
+<br />
+were recorded in other attributes they would sometimes be omitted.
+<br />
+<br /><em class="quotelev1">&gt; I need a COARDS standard name for the ele
+</em><br />
+<em class="quotelev1">&gt; and bnd arrays?
+</em><br />
+<br />Yes, I think that would be right, and I argue that these standard names
+<br />
+should have the 1 or 0 convention suffixed to them.
+<br />
+<br /><em class="quotelev1">&gt;                 ele:long_name = &quot;Horizontal Triangular Element Incidence
+</em><br />
+<em class="quotelev1">&gt; List&quot; 
+</em><br />
+<em class="quotelev1">&gt;                 bnd:long_name = &quot;Boundary Segment Node List&quot; ;
+</em><br />
+<br />Is it possible to make these more self-explanatory so that they could be
+<br />
+used as standard names? Maybe they refer specifically to some kind of grid?
+<br />
+<br />Best wishes
 <br />
 <br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Thu Oct 19 2006 - 07:37:04 BST</span>
+<span id="received"><dfn>Received on</dfn> Wed Feb 11 2004 - 10:45:21 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -99,8 +125,8 @@ other metadata (time coordinates, cell_methods, etc.).
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start360">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0361.html" title="Next message in the list">John Caron: "[CF-metadata] [Fwd: Re: Problems reading NetCDF data - get NaNs]"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0359.html" title="Previous message in the list">Egil St&#0248;ren: "[CF-metadata] Different variables with same standard name"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0361.html" title="Next message in the list">Brian Eaton: "[CF-metadata] omega"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0359.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] omega"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -112,7 +138,7 @@ other metadata (time coordinates, cell_methods, etc.).
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:48 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0359.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0361.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

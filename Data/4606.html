@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] applicability of CF conventions from Randy Horne on 2012-07-13 (mailing-list-archive)</title>
-<meta name="Author" content="Randy Horne (rhorne)" />
-<meta name="Subject" content="[CF-metadata] applicability of CF conventions" />
-<meta name="Date" content="2012-07-13" />
+<title>[CF-metadata] Standard_name table entries for air quality data from Jonathan Gregory on 2011-10-04 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] Standard_name table entries for air quality data" />
+<meta name="Date" content="2011-10-04" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4605.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4607.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] applicability of CF conventions</h1>
-<!-- received="Fri Jul 13 12:48:06 2012" -->
-<!-- isoreceived="20120713114806" -->
-<!-- sent="Fri, 13 Jul 2012 14:48:06 -0400" -->
-<!-- isosent="20120713184806" -->
-<!-- name="Randy Horne" -->
-<!-- email="rhorne" -->
-<!-- subject="[CF-metadata] applicability of CF conventions" -->
-<!-- id="D58459FF-91A2-4C95-83B7-660E47C0E6B5_at_excaliburlabs.com" -->
+<a style="text-decoration:none" href="./4605.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4607.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Standard_name table entries for air quality data</h1>
+<!-- received="Tue Oct  4 08:39:25 2011" -->
+<!-- isoreceived="20111004073925" -->
+<!-- sent="Tue, 4 Oct 2011 15:39:25 +0100" -->
+<!-- isosent="20111004143925" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] Standard_name table entries for air quality data" -->
+<!-- id="20111004143925.GB17211_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="DDB20D8288D53E4D811673C30FAB857D01AFE2896816_at_NSPEXMBX-B.the-lab.llnl.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,11 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4607.html" accesskey="d" title="Tom Whittaker: &quot;[CF-metadata] [cf-satellite] applicability of CF conventions&quot;">Next message</a> ]
-[ <a href="./4605.html" title="Jonathan Gregory: &quot;[CF-metadata] Standard names for sea level change&quot;">Previous message</a> ]
+[ <a href="./4607.html" accesskey="d" title="Lowry, Roy K.: &quot;[CF-metadata] new TEOS-10 standard names&quot;">Next message</a> ]
+[ <a href="./4605.html" title="Lowry, Roy K.: &quot;[CF-metadata] Question on WKT representation of CRS (Bentley, Philip)&quot;">Previous message</a> ]
+[ <a href="./4601.html" title="Cameron-smith, Philip: &quot;[CF-metadata] Standard_name table entries for air quality data&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./4607.html" accesskey="t" title="Tom Whittaker: &quot;[CF-metadata] [cf-satellite] applicability of CF conventions&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,30 +70,82 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Randy Horne &lt;<a href="mailto:rhorne?Subject=Re%3A%20%5BCF-metadata%5D%20applicability%20of%20CF%20conventions">rhorne</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Standard_name%20table%20entries%20for%20air%20quality%20data">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 13 Jul 2012 14:48:06 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 4 Oct 2011 15:39:25 +0100</span><br />
 </address>
 <br />
-Dear all:
+Dear Martin
 <br />
-<br />Is it a given that the CF conventions apply to data below, at, or above the surface of the earth ?
+<br />Unlike Philip, I don't have the expertise to comment on the chemical content
 <br />
-<br /><br />very respectfully,
+of your email.
 <br />
-<br />randy
+<br /><em class="quotelev2">&gt; &gt; * (actually more a question): How do I express the &quot;daily 8 hour
+</em><br />
+<em class="quotelev2">&gt; &gt; maximum&quot; value that is derived from hourly measurements of (surface)
+</em><br />
+<em class="quotelev2">&gt; &gt; ozone mole fractions? I would tend to apply cell_methods here, but how
+</em><br />
+<em class="quotelev2">&gt; &gt; should this attribute look like? To explain in more detail: first an 8-
+</em><br />
+<em class="quotelev2">&gt; &gt; hour running mean of hourly concentrations is calculated, then the
+</em><br />
+<em class="quotelev2">&gt; &gt; daily maximum value of these running means is picked as the indicator.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; [PJC] I don't have an answer, I just want to reinforce the usefulness of having such cell_methods. 1-hour means are also common.
+</em><br />
+<br />Do you mean you end up with one value for each day, being the largest of the
 <br />
-<br />____________________________________
+24 running-8-hour means within the day? There is not current a way to describe
 <br />
-<br />Randy C. Horne (rhorne at excaliburlabs.com)
+this in cell_methods. We'll have to devise one if this is a common need.
 <br />
-Principal Engineer, Excalibur Laboratories Inc.
+<br /><em class="quotelev2">&gt; &gt; aerosol&quot; ? (and would &quot;Mie&quot; be spelled with &quot;M&quot; or &quot;m&quot;?)
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; [PJC] I couldn't find any capital letter in the std_name list, but I also couldn't find any proper nouns (such as people's names) either.
+</em><br />
+<br />I think it would be lower case, as we use lower case for everything, even
 <br />
-voice &amp; fax: (321) 952.5100
+when upper case is more common (e.g. toa for top of atmosphere). This is
 <br />
-url: <a href="http://www.excaliburlabs.com">http://www.excaliburlabs.com</a>
+to avoid irritating problems with wrong case being accidentally used. I am
 <br />
-<span id="received"><dfn>Received on</dfn> Fri Jul 13 2012 - 12:48:06 BST</span>
+sure it would be very unsafe to distinguish two names just on the basis of
+<br />
+lower vs upper case, so we lose nothing by ignoring case, in effect.
+<br />
+<br /><em class="quotelev2">&gt; &gt; * Stumbling over the &quot;group&quot; or &quot;lumping&quot; concept again, I would
+</em><br />
+<em class="quotelev2">&gt; &gt; propose to add a new attribute to the CF standard which is specifically
+</em><br />
+<em class="quotelev2">&gt; &gt; used to describe the group compounds.
+</em><br />
+<br />I am not sure whether you mean a variable att or a global att. I would
+<br />
+certainly favour the former, because I think it's better for variables to
+<br />
+describe themselves. Is a new att really needed, though? Could you provide
+<br />
+a more detailed description in the long_name, perhaps? You could standardise
+<br />
+the long_name, to allow automatic processing, for particular applications. On
+<br />
+the other hand, if there is a common need to distinguish different choices of
+<br />
+lumping, because the quantities are not really comparable for the purpose in
+<br />
+hand, that would be a reason for making the distinction in the standard name.
+<br />
+<br />best wishes
+<br />
+<br />Jonathan
+<br />
+<span id="received"><dfn>Received on</dfn> Tue Oct 04 2011 - 08:39:25 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -101,12 +153,10 @@ url: <a href="http://www.excaliburlabs.com">http://www.excaliburlabs.com</a>
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4606">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4607.html" title="Next message in the list">Tom Whittaker: "[CF-metadata] [cf-satellite] applicability of CF conventions"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4605.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Standard names for sea level change"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4607.html" title="Next message in the list">Lowry, Roy K.: "[CF-metadata] new TEOS-10 standard names"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4605.html" title="Previous message in the list">Lowry, Roy K.: "[CF-metadata] Question on WKT representation of CRS (Bentley, Philip)"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./4601.html" title="Message to which this message replies">Cameron-smith, Philip: "[CF-metadata] Standard_name table entries for air quality data"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./4607.html" title="Next message in this discussion thread">Tom Whittaker: "[CF-metadata] [cf-satellite] applicability of CF conventions"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./4607.html" title="Message sent in reply to this message">Tom Whittaker: "[CF-metadata] [cf-satellite] applicability of CF conventions"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -117,7 +167,7 @@ url: <a href="http://www.excaliburlabs.com">http://www.excaliburlabs.com</a>
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:05 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4605.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4607.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

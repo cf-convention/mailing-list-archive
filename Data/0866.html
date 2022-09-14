@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] proposed rules for changes to CF conventions from Russ Rew on 2007-06-27 (mailing-list-archive)</title>
-<meta name="Author" content="Russ Rew (russ)" />
-<meta name="Subject" content="[CF-metadata] proposed rules for changes to CF conventions" />
-<meta name="Date" content="2007-06-27" />
+<title>[CF-metadata] Integerized Sinusoidal Grid from Julien Demaria on 2006-03-08 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Julien Demaria (dem)" />
+<meta name="Subject" content="[CF-metadata] Integerized Sinusoidal Grid" />
+<meta name="Date" content="2006-03-08" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0865.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0867.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] proposed rules for changes to CF conventions</h1>
-<!-- received="Wed Jun 27 15:13:54 2007" -->
-<!-- isoreceived="20070627141354" -->
-<!-- sent="Wed, 27 Jun 2007 15:13:54 -0600" -->
-<!-- isosent="20070627211354" -->
-<!-- name="Russ Rew" -->
-<!-- email="russ" -->
-<!-- subject="[CF-metadata] proposed rules for changes to CF conventions" -->
-<!-- id="200706272113.l5RLDsrt020415_at_unidata.ucar.edu" -->
+<a style="text-decoration:none" href="./0865.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0867.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Integerized Sinusoidal Grid</h1>
+<!-- received="Wed Mar  8 08:03:58 2006" -->
+<!-- isoreceived="20060308080358" -->
+<!-- sent="Wed, 08 Mar 2006 16:03:58 +0100" -->
+<!-- isosent="20060308150358" -->
+<!-- name="Julien Demaria" -->
+<!-- email="dem" -->
+<!-- subject="[CF-metadata] Integerized Sinusoidal Grid" -->
+<!-- id="440EF25E.8090309_at_acri-st.fr" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="j.m.gregory_at_reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0867.html" accesskey="d" title="Steve Hankin: &quot;[CF-metadata] proposed rules for changes to CF conventions&quot;">Next message</a> ]
-[ <a href="./0865.html" title="Jonathan Gregory: &quot;[CF-metadata] proposed rules for changes to CF conventions&quot;">Previous message</a> ]
+[ <a href="./0867.html" accesskey="d" title="Ben Foster: &quot;[CF-metadata] proposed new vertical coordinate&quot;">Next message</a> ]
+[ <a href="./0865.html" title="Jonathan Gregory: &quot;[CF-metadata] Azimuthal Equidistant Projection&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -69,28 +68,96 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Russ Rew &lt;<a href="mailto:russ?Subject=Re%3A%20%5BCF-metadata%5D%20proposed%20rules%20for%20changes%20to%20CF%20conventions">russ</a>&gt;
+<dfn>From</dfn>: Julien Demaria &lt;<a href="mailto:dem?Subject=Re%3A%20%5BCF-metadata%5D%20Integerized%20Sinusoidal%20Grid">dem</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 27 Jun 2007 15:13:54 -0600</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 08 Mar 2006 16:03:58 +0100</span><br />
 </address>
 <br />
-Jonathan,
+Hi,
 <br />
-<br /><em class="quotelev1">&gt; ... Please could the members of the conventions committee
-</em><br />
-<em class="quotelev1">&gt; state their view, even if just Yes/No.
-</em><br />
-<br />I vote Yes, with a minor correction: please use &quot;Unidata libcf&quot;
+<br />We search to describe in CF netCDF convention a &quot;integerized sinusoidal 
 <br />
-instead of &quot;Unidata cflib&quot;.  The name &quot;cflib&quot; is already in wide
+equal-area grid (ISIN grid)&quot; as used in SEAWiFS/MODIS Level 3 HDF data.
 <br />
-enough use in other contexts that we didn't want to add to the
+Its characteristics are that on each row of latitude there is an integer 
 <br />
-confusion ...
+number of longitude bins. Poles always represented as 3 triangular bins. 
 <br />
-<br />--Russ
+Bins aren't aligned between rows.
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Jun 27 2007 - 15:13:54 BST</span>
+In SEAWiFS/MODIS Level 3 HDF only bins (pixels) with data are stored, 
+<br />
+and the geolocation information for each bin is only its indice in the 
+<br />
+global integerized sinusoidal grid (first bin is on south, last on the 
+<br />
+north).
+<br />
+<br />The only mecanisms I see in CF to do that are:
+<br />
+<br />- &quot;5.3  Reduced horizontal grid&quot;: but:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Are bins always aligned ?
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;How can I know/compute the coverage of each pixel (its vertex) ?
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Is this mechanism largely used ?
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Are there free tools to see this kind of CF files ? (FERRET ?)
+<br />
+<br />- &quot;5.4  Timeseries of station data&quot;: but:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I don't believe this mecanism is really appropriated...
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;How can I know/compute the coverage of each pixel (its vertex) ?
+<br />
+<br />- &quot;5.6  Grid mappings and projections&quot;: in fact I think we can't 
+<br />
+represent ISIN grids with that model ?
+<br />
+<br /><br />The simpliest way I see is:
+<br />
+<br />&quot;
+<br />
+dimensions:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data_Bins = 5965 ;
+<br />
+variables:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int bin_num(Data_Bins) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bin_num:long_name = &quot;Index number of each bin in the 
+<br />
+global sinusoidal grid&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;short mean(Data_Bins) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mean:long_name = &quot;Arithmetic mean of the geophysical 
+<br />
+variable for each bin&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mean:units = &quot;mg.m-3&quot; ;
+<br />
+<br />// global attributes:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:Conventions = &quot;CF-1.0&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:Parameter_Code = &quot;CHL1&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:Parameter = &quot;Chlorophyll A - case 1 water&quot; ;
+<br />
+&quot;
+<br />
+<br />It is compliant with the CF checker..., but are there any tool who can 
+<br />
+use these files ?
+<br />
+<br /><br /><br />Many Thanks in advance for help,
+<br />
+<br />Julien
+<br />
+<span id="received"><dfn>Received on</dfn> Wed Mar 08 2006 - 08:03:58 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -98,8 +165,8 @@ confusion ...
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start866">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0867.html" title="Next message in the list">Steve Hankin: "[CF-metadata] proposed rules for changes to CF conventions"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0865.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] proposed rules for changes to CF conventions"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0867.html" title="Next message in the list">Ben Foster: "[CF-metadata] proposed new vertical coordinate"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0865.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Azimuthal Equidistant Projection"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -111,7 +178,7 @@ confusion ...
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:57 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0865.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0867.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

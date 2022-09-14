@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Common names for chemical species from Schultz, Martin on 2007-08-06 (mailing-list-archive)</title>
-<meta name="Author" content="Schultz, Martin (m.schultz)" />
-<meta name="Subject" content="[CF-metadata] Common names for chemical species" />
-<meta name="Date" content="2007-08-06" />
+<title>[CF-metadata] Standard names for altimeter data from Tom Gross on 2006-08-22 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Tom Gross (Tom.Gross)" />
+<meta name="Subject" content="[CF-metadata] Standard names for altimeter data" />
+<meta name="Date" content="2006-08-22" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0999.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1001.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Common names for chemical species</h1>
-<!-- received="Mon Aug  6 02:40:16 2007" -->
-<!-- isoreceived="20070806014016" -->
-<!-- sent="Mon, 6 Aug 2007 10:40:16 +0200" -->
-<!-- isosent="20070806084016" -->
-<!-- name="Schultz, Martin" -->
-<!-- email="m.schultz" -->
-<!-- subject="[CF-metadata] Common names for chemical species" -->
-<!-- id="2E9C45494F78A3498A77616E7C2DBB4C012D7EF9_at_icg217.icg-ii-w2k.kfa-juelich.de" -->
+<a style="text-decoration:none" href="./0999.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1001.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Standard names for altimeter data</h1>
+<!-- received="Tue Aug 22 11:34:16 2006" -->
+<!-- isoreceived="20060822103416" -->
+<!-- sent="Tue, 22 Aug 2006 13:34:16 -0400" -->
+<!-- isosent="20060822173416" -->
+<!-- name="Tom Gross" -->
+<!-- email="Tom.Gross" -->
+<!-- subject="[CF-metadata] Standard names for altimeter data" -->
+<!-- id="44EB4018.8050602_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="mailman.1241.1186104782.6412.cf-metadata_at_cgd.ucar.edu" -->
+<!-- inreplyto="s4eafc88.086_at_wpo.nerc.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,8 +54,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1001.html" accesskey="d" title="Roy Lowry: &quot;[CF-metadata] Common names for chemical species&quot;">Next message</a> ]
-[ <a href="./0999.html" title="Don Morton: &quot;[CF-metadata] Seeking example program for storing surface obs in CF convention&quot;">Previous message</a> ]
+[ <a href="./1001.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Standard names for altimeter data&quot;">Next message</a> ]
+[ <a href="./0999.html" title="Nan Galbraith: &quot;[CF-metadata] Precipitation query&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -69,100 +69,198 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Schultz, Martin &lt;<a href="mailto:m.schultz?Subject=Re%3A%20%5BCF-metadata%5D%20Common%20names%20for%20chemical%20species">m.schultz</a>&gt;
+<dfn>From</dfn>: Tom Gross &lt;<a href="mailto:Tom.Gross?Subject=Re%3A%20%5BCF-metadata%5D%20Standard%20names%20for%20altimeter%20data">Tom.Gross</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 6 Aug 2007 10:40:16 +0200</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 22 Aug 2006 13:34:16 -0400</span><br />
 </address>
 <br />
-&nbsp;
+I may not have a CF compliant thinking process here, but I see little, if any, difference in the need of an offset reference attribute verses the need of a units attribute.  The units attribute is often a multiplier between equivalent descriptions, while the reference is an additive difference between equivalent descriptions.
 <br />
-Hi,
+<br />Maybe the existence of the needed metadata attribute is the only thing needed to be encoded into the standard name, like: 
 <br />
-<br />&nbsp;&nbsp;&nbsp;first of all, I am very pleased to see this topic getting more and more attention in this newsgroup and also in the community of (atmospheric) chemistry modellers. It is good to have people like Christiane and Philip involved in this and I hope that we will be more in the future when more people realize the advantages of some standards for exchanging and assessing multiple output.
+<em class="quotelev2">&gt;&gt;
+</em><br />
+On the other hand, we could also take advantage of the situation by 
 <br />
-<br />&nbsp;&nbsp;&nbsp;Concerning the list of chemical names, I don't think that CAS or any list with similar level of detail is the way forward. While most models treat a certain number of species (typically 40-60) explicitely, they always group organic species into compound classes in order to make the problem solvable (you just cannot imagine a global or regional 3D model with several million chemical variables). Yes - there are box models which go a certain way to treat individual compounds and radical species (for example the Master Chemical Mechanism in the UK or NCAR's master mechanism), but even these don't resolve everything after a certain point. 
+introducing some new standard names, more general, like 
 <br />
-<br />&nbsp;&nbsp;&nbsp;Luckily, the community is usually interested in a small subset of species only. Presumably the list compiled by Christiane covers quite a bit of that already. However, it is unavoidable to also consider &quot;lumped&quot; compounds in for example intercomparison studies. Then the difficulty is to find an unambiguous definition which nevertheless encompasses a sufficiently large number of models so that the &quot;standard&quot; is not only a private convention which could even interfere with other similar definitions. Let me give two examples here:
+&quot;sea_surface_height_above_reference_surface&quot; and 
 <br />
-<br />(1) pentanes: chemically, one distinguishes between n-pentane and i-pentane (one is linear the other molecule &quot;T&quot;-shaped). Both react through different pathways and form different compounds in the end. Nevertheless, the two molecules are practically always grouped together in modelling applications and the different reaction pathways are described via stochiometric factors
+&quot;sea_surface_height_above_reference_profile&quot;, that would include all sea 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pentane + OH -&gt; 0.7 * X + 0.3 * Y + 0.235 * Z + ...
+surface height kinds of parameters, and all the reference datums?
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;In this example, defining a standard name for pentane would pose no major problem, I suppose.
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<br />Which could imply the existence of the attribute  &quot;reference_surface&quot; or 
 <br />
-<br />(2) alkanes: Many models treat alkanes explicitly up to a certain C-number (usually 3, 4, or 5) and then lump everything else together. Practically, one could of course define standard names such as 
+&quot;reference_profile&quot;
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;mixing_ratio_of_alkanes_with_at_least_three_c_atoms_in_air
+or more simply &quot;reference&quot;.
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;mixing_ratio_of_alkanes_with_at_least_four_c_atoms_in_air
+<br />If a person wanted to specify his sea surface height without a reference 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;mixing_ratio_of_alkanes_with_at_least_five_c_atoms_in_air    
+datum I suppose that they could use a name like &quot;sea_surface_height&quot; 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;mixing_ratio_of_alkanes_with_at_least_six_c_atoms_in_air
+with no reference, but they might as well also leave out the units 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;...
+attribute for feet or meters, for all the good such a piece of 
 <br />
-However, the rule to make use of these would be quite complex. Say, you want to compute the total amount of hydrocarbons in an air mass, then this would be either
+incomplete data would be. (OK, a bit harsh, but true.)
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;ethane + alkanes(C3) + &quot;aromatics&quot; + ...
+<br />Tom Gross
 <br />
-or
+<br /><br /><br /><br />Roy Lowry wrote:
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;ethane + propane + alkanes(C4) + &quot;aromatics&quot; + ...
-<br />
-or
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;ethane + propane + butane + alkanes(C5) + &quot;aromatics&quot; + ...
-<br />
-...
-<br />
-And the same complications (if not worse) appear with unsaturated species, oxygenated species, etc.
-<br />
-<br />I don't know an easy way out of this, but it is good that these things are discussed here and now.
-<br />
-<br />Best regards,
-<br />
-<br />Martin
-<br />
-<br /><br />&lt; Dr. Martin G. Schultz, ICG-II, Forschungszentrum J?lich &gt;
-<br />
-&lt; D-52425 J?lich, Germany                                 &gt;
-<br />
-&lt; ph: +49 (0)2461 61 2831, fax: +49 (0)2461 61 8131       &gt;
-<br />
-&lt; email: m.schultz at fz-juelich.de                          &gt;
-<br />
-&lt; web: <a href="http://www.fz-juelich.de/icg/icg-2/m_schultz">http://www.fz-juelich.de/icg/icg-2/m_schultz</a>      &gt;
-<br />
-<br />Forschungszentrum J?lich GmbH
-<br />
-52425 J?lich
-<br />
-<br />Sitz der Gesellschaft: J?lich
-<br />
-Eingetragen im Handelsregister des Amtsgerichts D?ren Nr. HR B 3498
-<br />
-Vorsitzende des Aufsichtsrats: MinDirig'in B?rbel Brumme-Bothe
-<br />
-Vorstand: Prof. Dr. Achim Bachem (Vorsitzender), Dr. Ulrich Krafft (stellv. 
-<br />
-Vorsitzender)
-<br />
-<br />-------------- next part --------------
-<br />
-A non-text attachment was scrubbed...
-<br />
-Name: Martin Schultz (m.schultz at fz-juelich.de).vcf
-<br />
-Type: text/x-vcard
-<br />
-Size: 481 bytes
-<br />
-Desc: Martin Schultz (m.schultz at fz-juelich.de).vcf
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20070806/7bea8961/attachment-0002.vcf">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20070806/7bea8961/attachment-0002.vcf</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Mon Aug 06 2007 - 02:40:16 BST</span>
+<br /><em class="quotelev1">&gt;There is an interesting general point raised here by the statement 'a standard name for each reference datum would be a 
+</em><br />
+<em class="quotelev1">&gt;little bit excessive'.  If the specific reference datum isn't held in the standard name then the information needs to be in another standardised location in the CF attributes or the data are not fully decribed by the metadata.  I remember the issue of datums came up before with regard to CF, but can't remember if it was ever resolved.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;Cheers, Roy.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;Olivier Lauret &lt;olauret at cls.fr&gt; 8/22/2006 12:26 pm &gt;&gt;&gt;
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;        
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;
+</em><br />
+<em class="quotelev1">&gt;Dear Tom,
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;The fact is that MSL, MLLW, NAVD88.. especially concern tide gauges, 
+</em><br />
+<em class="quotelev1">&gt;coastal oceanography - among the applications, and do not really apply to 
+</em><br />
+<em class="quotelev1">&gt;satellite altimetry. Of course I only focused on altimeter data, that 
+</em><br />
+<em class="quotelev1">&gt;usually refer to, let's say, 4 different reference surfaces: the reference 
+</em><br />
+<em class="quotelev1">&gt;ellipsoid (it can be WGS84 or any other), a mean along-track profile or a 
+</em><br />
+<em class="quotelev1">&gt;mean sea surface, and (indirectly) the geoid.
+</em><br />
+<em class="quotelev1">&gt;But I agree with you: a standard name for each reference datum would be a 
+</em><br />
+<em class="quotelev1">&gt;little bit excessive.
+</em><br />
+<em class="quotelev1">&gt;At the same time &quot;sea_surface_height_above_sea_level&quot;, 
+</em><br />
+<em class="quotelev1">&gt;&quot;sea_surface_height_above_geoid&quot; were already availble in the standard 
+</em><br />
+<em class="quotelev1">&gt;names table, and none of them could &quot;include&quot; or be compared to altimeter 
+</em><br />
+<em class="quotelev1">&gt;sea_surface_height_above_reference_ellipsoid, because beyond the reference 
+</em><br />
+<em class="quotelev1">&gt;datum, the meaning is different in terms of physical processes to be 
+</em><br />
+<em class="quotelev1">&gt;considered. Then it raises the question of how we define the reference 
+</em><br />
+<em class="quotelev1">&gt;surfaces.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;One one hand, if the whole entire sea surface height parameters (in situ, 
+</em><br />
+<em class="quotelev1">&gt;tide gauges..) could refer to {&quot;sea_surface_height_above_sea_level&quot;, 
+</em><br />
+<em class="quotelev1">&gt;&quot;sea_surface_height_above_geoid&quot;}, except satellite altimetry, maybe it is 
+</em><br />
+<em class="quotelev1">&gt;possible for us to introduce the missing altimeter dedicated standard names?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;On the other hand, we could also take advantage of the situation by 
+</em><br />
+<em class="quotelev1">&gt;introducing some new standard names, more general, like 
+</em><br />
+<em class="quotelev1">&gt;&quot;sea_surface_height_above_reference_surface&quot; and 
+</em><br />
+<em class="quotelev1">&gt;&quot;sea_surface_height_above_reference_profile&quot;, that would include all sea 
+</em><br />
+<em class="quotelev1">&gt;surface height kinds of parameters, and all the reference datums?
+</em><br />
+<em class="quotelev1">&gt;For &quot;sea_surface_height_above_reference_surface&quot;, the reference surface 
+</em><br />
+<em class="quotelev1">&gt;could be a mean sea surface, a reference ellipsoid, or the geoid, that 
+</em><br />
+<em class="quotelev1">&gt;could be specified as attributes.
+</em><br />
+<em class="quotelev1">&gt;For &quot;sea_surface_height_above_reference_profile&quot;, the reference profile 
+</em><br />
+<em class="quotelev1">&gt;could be a mean sea level, a mean profile etc, defined as attributes as well.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;I don't know. That depends on the fellings of the ocean/climate users 
+</em><br />
+<em class="quotelev1">&gt;community, but the discussion is open.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;Best regards
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;Olivier Lauret
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;CLS Space Oceanography Division
+</em><br />
+<em class="quotelev1">&gt;Data Information and Diffusion
+</em><br />
+<em class="quotelev1">&gt;8-10 rue Hermes,
+</em><br />
+<em class="quotelev1">&gt;31526 Ramonville-St-Agne, Cedex, France
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;Email: olivier.lauret at cls.fr 
+</em><br />
+<em class="quotelev1">&gt;Tel: (+33) (0) 561 39 48 51
+</em><br />
+<em class="quotelev1">&gt;Fax:(+33) (0) 561 39 48 51
+</em><br />
+<em class="quotelev1">&gt;Internet:
+</em><br />
+<em class="quotelev1">&gt;<a href="http://www.cls.fr">http://www.cls.fr</a> 
+</em><br />
+<em class="quotelev1">&gt;<a href="http://www.aviso.oceanobs.com/">http://www.aviso.oceanobs.com/</a> 
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;_______________________________________________
+</em><br />
+<em class="quotelev1">&gt;CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt;CF-metadata at cgd.ucar.edu 
+</em><br />
+<em class="quotelev1">&gt;<a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<span id="received"><dfn>Received on</dfn> Tue Aug 22 2006 - 11:34:16 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -170,8 +268,8 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1000">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1001.html" title="Next message in the list">Roy Lowry: "[CF-metadata] Common names for chemical species"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0999.html" title="Previous message in the list">Don Morton: "[CF-metadata] Seeking example program for storing surface obs in CF convention"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1001.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Standard names for altimeter data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0999.html" title="Previous message in the list">Nan Galbraith: "[CF-metadata] Precipitation query"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -183,7 +281,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:59 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0999.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1001.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Standardizing how ensemble (realization) axes are encoded from Kettleborough, Jamie on 2013-11-15 (mailing-list-archive)</title>
-<meta name="Author" content="Kettleborough, Jamie (jamie.kettleborough)" />
-<meta name="Subject" content="[CF-metadata] Standardizing how ensemble (realization) axes are encoded" />
-<meta name="Date" content="2013-11-15" />
+<title>[CF-metadata] Rotated Pole projection possibly wrong from Seth McGinnis on 2013-03-06 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Seth McGinnis (mcginnis)" />
+<meta name="Subject" content="[CF-metadata] Rotated Pole projection possibly wrong" />
+<meta name="Date" content="2013-03-06" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5865.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5867.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Standardizing how ensemble (realization) axes are encoded</h1>
-<!-- received="Fri Nov 15 10:43:40 2013" -->
-<!-- isoreceived="20131115104340" -->
-<!-- sent="Fri, 15 Nov 2013 17:43:40 +0000" -->
-<!-- isosent="20131115174340" -->
-<!-- name="Kettleborough, Jamie" -->
-<!-- email="jamie.kettleborough" -->
-<!-- subject="[CF-metadata] Standardizing how ensemble (realization) axes are encoded" -->
-<!-- id="F9565F07C6F37743B851EF445FE7B6320CAC0B_at_EXXCMPD1DAG3.cmpd1.metoffice.gov.uk" -->
+<a style="text-decoration:none" href="./5865.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5867.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Rotated Pole projection possibly wrong</h1>
+<!-- received="Wed Mar  6 13:17:34 2013" -->
+<!-- isoreceived="20130306131734" -->
+<!-- sent="Wed, 06 Mar 2013 13:17:34 -0700" -->
+<!-- isosent="20130306201734" -->
+<!-- name="Seth McGinnis" -->
+<!-- email="mcginnis" -->
+<!-- subject="[CF-metadata] Rotated Pole projection possibly wrong" -->
+<!-- id="web-44959106_at_mail.ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20131115170904.GA30868_at_met.reading.ac.uk" -->
+<!-- inreplyto="20130306182947.GA21574_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5867.html" accesskey="d" title="Steve Hankin: &quot;[CF-metadata] Standardizing how ensemble (realization) axes are encoded&quot;">Next message</a> ]
-[ <a href="./5865.html" title="Jeffrey F. Painter: &quot;[CF-metadata] Standard name for Greenland surface melt product&quot;">Previous message</a> ]
-[ <a href="./5863.html" title="Jonathan Gregory: &quot;[CF-metadata] Standardizing how ensemble (realization) axes are encoded&quot;">In reply to</a> ]
+[ <a href="./5867.html" accesskey="d" title="John Caron: &quot;[CF-metadata] Rotated Pole projection possibly wrong&quot;">Next message</a> ]
+[ <a href="./5865.html" title="Burkhardt Rockel: &quot;[CF-metadata] Rotated Pole projection possibly wrong&quot;">Previous message</a> ]
+[ <a href="./5864.html" title="David Hassell: &quot;[CF-metadata] Rotated Pole projection possibly wrong&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./5867.html" accesskey="t" title="Steve Hankin: &quot;[CF-metadata] Standardizing how ensemble (realization) axes are encoded&quot;">Next in thread</a> ]
+[ <a href="./5868.html" accesskey="t" title="John Caron: &quot;[CF-metadata] Rotated Pole projection possibly wrong&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,114 +72,178 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Kettleborough, Jamie &lt;<a href="mailto:jamie.kettleborough?Subject=Re%3A%20%5BCF-metadata%5D%20Standardizing%20how%20ensemble%20(realization)%20axes%20are%20encoded">jamie.kettleborough</a>&gt;
+<dfn>From</dfn>: Seth McGinnis &lt;<a href="mailto:mcginnis?Subject=Re%3A%20%5BCF-metadata%5D%20Rotated%20Pole%20projection%20possibly%20wrong">mcginnis</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 15 Nov 2013 17:43:40 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 06 Mar 2013 13:17:34 -0700</span><br />
 </address>
 <br />
-Hello,
+So there are an infinite number of ways to decompose a 3-D orientation into
 <br />
-<br />In the original proposal for an ensemble like axis we used the standard_name 'realization' because it included things that weren't obviously model ensembles - they may be forecasts or projections generated by statistical methods - but that could be handled in a way similar to model ensembles.  The paper:  <a href="http://www.climateprediction.net/wp-content/publications/nature_allen_051000.pdf">http://www.climateprediction.net/wp-content/publications/nature_allen_051000.pdf</a> is an example of this sort of technique.
+three orthogonal rotations.  Specifying the projection in terms of the final
 <br />
-<br />The use of 'realization' has been questioned before on this list - so I'd be very happy to review its use.  If 'ensemble' is more familiar and useful then that would be fine.  (I think this can be handled with aliases - is that right?)
+location of the north pole and an optional rotation around that point means
 <br />
-<br />I think there is a complication with ensemble based statistics (sorry I haven't followed this latest thread close enough to know whether it has been talked about).  You often weight each ensemble memember e.g. based on some estimate of that ensemble member's likelihood - before calculating the ensemble statistic. I think there is a thread somewhere like <a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2007/046103.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2007/046103.html</a> which discussed this previously.
+that CF is actually agnostic about exactly how you get there.
 <br />
-<br />Now apologies: in my usual useless style on this list - I probably won't manage to follow this up in any detail - but since Jonathan mentioned me I thought I needed to try to fill in some background.
+<br />That said, given that it's being specified in that way, the decomposition that
 <br />
-<br />Jamie
+maps most straightforwardly to those parameters is a Z-Y-X rotation sequence
 <br />
-<br /><br /><em class="quotelev1">&gt; -----Original Message-----
+using an extrinsic (space-fixed) coordinate system:
+<br />
+<br />First rotate by angle phi around the north pole in space-fixed coordinates.
+<br />
+Then rotate by angle theta around 0N 90E in space-fixed coordinates.
+<br />
+Finally, rotate by angle psi around 0N 0E in space-fixed coordinates.
+<br />
+<br />The location of the grid's north pole in the original lat-lon coordinate system
+<br />
+is now at longitude = phi, colatitude = minus theta.  
+<br />
+<br />(I'm not sure how psi relates to north_pole_grid_longitude mathematically; it
+<br />
+defaults to zero and I've never seen it in use, so I think it's included mostly
+<br />
+for completeness. I agree that we may well want to change it to something more
+<br />
+obvious like an azimuth angle.)
+<br />
+<br />Switching to the GRIB2 convention where you use the south pole instead of the
+<br />
+north should be just a matter of adding 180 degrees to phi and negating theta.
+<br />
+<br />Cheers,
+<br />
+<br />--Seth
+<br />
+<br /><br />On Wed, 6 Mar 2013 18:29:47 +0000
+<br />
+&nbsp;David Hassell &lt;d.c.hassell at reading.ac.uk&gt; wrote:
+<br />
+<em class="quotelev1">&gt;Hello,
 </em><br />
-<em class="quotelev1">&gt; From: Jonathan Gregory [mailto:j.m.gregory at reading.ac.uk] 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Sent: 15 November 2013 17:09
+<em class="quotelev1">&gt;It is a bit of mess! As I understand it, the full rotation described
 </em><br />
-<em class="quotelev1">&gt; To: cf-metadata at cgd.ucar.edu
+<em class="quotelev1">&gt;is a sequence of rotations about three different axes:
 </em><br />
-<em class="quotelev1">&gt; Cc: caron at unidata.ucar.edu; Steve Hankin; Kettleborough, 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Jamie; Hedley, Mark
+<em class="quotelev1">&gt;   Z  = 90S - 90N
 </em><br />
-<em class="quotelev1">&gt; Subject: [CF-metadata] Standardizing how ensemble 
+<em class="quotelev1">&gt;   Y' = 90W' - 90E'
 </em><br />
-<em class="quotelev1">&gt; (realization) axes are encoded
+<em class="quotelev1">&gt;   X&quot; = 0E&quot; - 180E&quot;
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Dear all
+<em class="quotelev1">&gt;where it is understood that the definitions of the N-S and W-E axes
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;change after each rotation (hence the primes and double
 </em><br />
-<em class="quotelev1">&gt; This is partly a reply to various off-list emails. 
+<em class="quotelev1">&gt;primes). Therefore the order in which they are done matters.
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; I don't believe that the current CF standard says anything 
+<em class="quotelev1">&gt;I suspect that the usual and assumed order is Z, Y', X&quot;?
 </em><br />
-<em class="quotelev1">&gt; specifically about
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; ensemble axes. We did discuss introducing axis=&quot;E&quot; but that 
+<em class="quotelev2">&gt;&gt;From the GRIB-2 stuff John posted the north_pole_grid_longitude gives
 </em><br />
-<em class="quotelev1">&gt; wasn't adopted. The
+<em class="quotelev1">&gt;the rotation about the X&quot; axis.
 </em><br />
-<em class="quotelev1">&gt; axis attribute is generally redundant (the same came be 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; deduced from mandatory
+<em class="quotelev1">&gt;Something like John's &quot;Angle of rotation&quot; seems right to me. 
 </em><br />
-<em class="quotelev1">&gt; units, positive att or standard_name). I think it would be 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; better to use the
+<em class="quotelev1">&gt;The apparent lack of consistency between the parameter names irks
 </em><br />
-<em class="quotelev1">&gt; standard_name to indicate an ensemble axis, whether collapsed or not.
+<em class="quotelev1">&gt;me. Perhaps one solution could be to:
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Jamies Kettleborough has reminded us that we introduced the 
+<em class="quotelev1">&gt;i) Add some text to the conventions state the order (Z, Y', X&quot;, say)
 </em><br />
-<em class="quotelev1">&gt; standard_name of
+<em class="quotelev1">&gt;   and direction of rotations.
 </em><br />
-<em class="quotelev1">&gt; realization for ensemble members. (I did have a memory of 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; that, but I searched
+<em class="quotelev1">&gt;ii) add three new, consistent, self-describing parameters (e.g.)
 </em><br />
-<em class="quotelev1">&gt; the table for a spelling with S rather than Z!) So I withdraw 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; my suggestion of
+<em class="quotelev1">&gt;angle_of_rotation_z
 </em><br />
-<em class="quotelev1">&gt; new standard names for this. I think that the existing 
+<em class="quotelev1">&gt;angle_of_rotation_y
 </em><br />
-<em class="quotelev1">&gt; convention permits a
+<em class="quotelev1">&gt;angle_of_rotation_x
 </em><br />
-<em class="quotelev1">&gt; cell_methods entry of &quot;realization: METHOD&quot;, when there is no 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; dimension named
+<em class="quotelev1">&gt;iii) allow aliases for backwards compatibility
 </em><br />
-<em class="quotelev1">&gt; &quot;realization&quot;, to indicate that an ensemble axis has been 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; collapsed using
+<em class="quotelev1">&gt;grid_north_pole_longitude &lt;=&gt; angle_of_rotation_z
 </em><br />
-<em class="quotelev1">&gt; the METHOD stated. In the case where a cell_methods entry 
+<em class="quotelev1">&gt;grid_north_pole_latitude  &lt;=&gt; angle_of_rotation_y
 </em><br />
-<em class="quotelev1">&gt; gives a name that is
+<em class="quotelev1">&gt;north_pole_grid_longitude &lt;=&gt; angle_of_rotation_x   
 </em><br />
-<em class="quotelev1">&gt; not a dimension name, it's interpreted as a standard name, 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; and it means &quot;over
+<em class="quotelev1">&gt;Or would that just obfuscate things even more?
 </em><br />
-<em class="quotelev1">&gt; all available values&quot;.
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;All the best,
 </em><br />
-<em class="quotelev1">&gt; Cheers
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;David
 </em><br />
-<em class="quotelev1">&gt; Jonathan
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt;P.S. If you have a copy available, there are some nice descriptions in
 </em><br />
-<span id="received"><dfn>Received on</dfn> Fri Nov 15 2013 - 10:43:40 GMT</span>
+<em class="quotelev1">&gt;     &quot;Coordinate Systems and Map Projections&quot; by D. H. Maling
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;--
+</em><br />
+<em class="quotelev1">&gt;David Hassell
+</em><br />
+<em class="quotelev1">&gt;National Centre for Atmospheric Science (NCAS)
+</em><br />
+<em class="quotelev1">&gt;Department of Meteorology, University of Reading,
+</em><br />
+<em class="quotelev1">&gt;Earley Gate, PO Box 243,
+</em><br />
+<em class="quotelev1">&gt;Reading RG6 6BB, U.K.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;Tel   : 0118 3785613
+</em><br />
+<em class="quotelev1">&gt;Fax   : 0118 3788316
+</em><br />
+<em class="quotelev1">&gt;E-mail: d.c.hassell at reading.ac.uk
+</em><br />
+<em class="quotelev1">&gt;_______________________________________________
+</em><br />
+<em class="quotelev1">&gt;CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt;CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt;<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<span id="received"><dfn>Received on</dfn> Wed Mar 06 2013 - 13:17:34 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -187,13 +251,14 @@ Hello,
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5866">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5867.html" title="Next message in the list">Steve Hankin: "[CF-metadata] Standardizing how ensemble (realization) axes are encoded"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5865.html" title="Previous message in the list">Jeffrey F. Painter: "[CF-metadata] Standard name for Greenland surface melt product"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./5863.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] Standardizing how ensemble (realization) axes are encoded"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5867.html" title="Next message in the list">John Caron: "[CF-metadata] Rotated Pole projection possibly wrong"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5865.html" title="Previous message in the list">Burkhardt Rockel: "[CF-metadata] Rotated Pole projection possibly wrong"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./5864.html" title="Message to which this message replies">David Hassell: "[CF-metadata] Rotated Pole projection possibly wrong"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./5867.html" title="Next message in this discussion thread">Steve Hankin: "[CF-metadata] Standardizing how ensemble (realization) axes are encoded"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./5868.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] Rotated Pole projection possibly wrong"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./5867.html" title="Message sent in reply to this message">Steve Hankin: "[CF-metadata] Standardizing how ensemble (realization) axes are encoded"</a></li>
+<dfn>Reply</dfn>: <a href="./5868.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] Rotated Pole projection possibly wrong"</a></li>
+<li><dfn>Reply</dfn>: <a href="./5874.html" title="Message sent in reply to this message">Tom Kunicki: "[CF-metadata] Rotated Pole projection possibly wrong"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -204,7 +269,7 @@ Hello,
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:32 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5865.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5867.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

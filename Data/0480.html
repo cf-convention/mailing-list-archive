@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] axis attribute from Simon Wood on 2006-11-22 (mailing-list-archive)</title>
-<meta name="Author" content="Simon Wood (simon.wood)" />
-<meta name="Subject" content="[CF-metadata] axis attribute" />
-<meta name="Date" content="2006-11-22" />
+<title>[CF-metadata] Re: meaning of depth in the ocean from Rich Signell on 2004-10-26 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Rich Signell (rsignell)" />
+<meta name="Subject" content="[CF-metadata] Re: meaning of depth in the ocean" />
+<meta name="Date" content="2004-10-26" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0479.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0481.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] axis attribute</h1>
-<!-- received="Wed Nov 22 13:55:35 2006" -->
-<!-- isoreceived="20061122135535" -->
-<!-- sent="Thu, 23 Nov 2006 09:55:35 +1300" -->
-<!-- isosent="20061122205535" -->
-<!-- name="Simon Wood" -->
-<!-- email="simon.wood" -->
-<!-- subject="[CF-metadata] axis attribute" -->
-<!-- id="4564B947.6080904_at_niwa.co.nz" -->
+<a style="text-decoration:none" href="./0479.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0481.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Re: meaning of depth in the ocean</h1>
+<!-- received="Tue Oct 26 09:17:45 2004" -->
+<!-- isoreceived="20041026081745" -->
+<!-- sent="Tue, 26 Oct 2004 11:17:45 -0400" -->
+<!-- isosent="20041026151745" -->
+<!-- name="Rich Signell" -->
+<!-- email="rsignell" -->
+<!-- subject="[CF-metadata] Re: meaning of depth in the ocean" -->
+<!-- id="417E6A99.8070308_at_usgs.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20061122112751.GA8728_at_met.reading.ac.uk" -->
+<!-- inreplyto="20041026144026.GB29099_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0481.html" accesskey="d" title="Richard Gorman: &quot;[CF-metadata] axis attribute&quot;">Next message</a> ]
-[ <a href="./0479.html" title="Jonathan Gregory: &quot;[CF-metadata] axis attribute&quot;">Previous message</a> ]
-[ <a href="./0476.html" title="Jonathan Gregory: &quot;[CF-metadata] axis attribute&quot;">In reply to</a> ]
+[ <a href="./0481.html" accesskey="d" title="John Caron: &quot;[CF-metadata] meaning of depth in the ocean&quot;">Next message</a> ]
+[ <a href="./0479.html" title="Jonathan Gregory: &quot;[CF-metadata] meaning of depth in the ocean&quot;">Previous message</a> ]
+[ <a href="./0479.html" title="Jonathan Gregory: &quot;[CF-metadata] meaning of depth in the ocean&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0487.html" accesskey="t" title="John Caron: &quot;[CF-metadata] axis attribute&quot;">Next in thread</a> ]
+[ <a href="./0482.html" accesskey="t" title="John Caron: &quot;[CF-metadata] Re: meaning of depth in the ocean&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -71,157 +72,162 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Simon Wood &lt;<a href="mailto:simon.wood?Subject=Re%3A%20%5BCF-metadata%5D%20axis%20attribute">simon.wood</a>&gt;
+<dfn>From</dfn>: Rich Signell &lt;<a href="mailto:rsignell?Subject=Re%3A%20%5BCF-metadata%5D%20Re%3A%20meaning%20of%20depth%20in%20the%20ocean">rsignell</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 23 Nov 2006 09:55:35 +1300</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 26 Oct 2004 11:17:45 -0400</span><br />
 </address>
 <br />
-Jonathan,
+Jonathan Gregory wrote:
 <br />
-<br />So to provide a concrete example, would the following correctly reflect 
+<br /><em class="quotelev1">&gt;This problem is broader than dimensionless coordinates. The basic problem is
+</em><br />
+<em class="quotelev1">&gt;what &quot;depth&quot; means as a vertical coordinate in the ocean or the ocean
+</em><br />
+<em class="quotelev1">&gt;model. At present we have a standard_name of depth, defined relative to the
+</em><br />
+<em class="quotelev1">&gt;surface, which is further defined as mean sea level.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+I just got off the phone with John Wilkin, another ocean modeler, and he 
 <br />
-what you are suggesting?
+reminded me
 <br />
-<br />dimensions:
+that mean sea level should *not* be thought of as the local geopotential 
 <br />
-&nbsp;&nbsp;&nbsp;time = 1;
+for ocean models.
 <br />
-&nbsp;&nbsp;&nbsp;nx = 5008; ny = 5536;
+Consider the Gulf Stream region, where there is a jump in mean sea level 
 <br />
-<br />variables:
+of order 1 meter!
 <br />
-&nbsp;&nbsp;&nbsp;// coordinate variables
+<br /><em class="quotelev1">&gt;But...
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;- it might be relative to the geoid or some other geopotential surface, instead
+</em><br />
+<em class="quotelev1">&gt;of mean sea level, so perhaps we should have separate standard names for
+</em><br />
+<em class="quotelev1">&gt;depth_below_geoid and depth_below_surface.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+We could have differing standard names, or we could just say that depth 
 <br />
-&nbsp;&nbsp;&nbsp;float time(time);	
+is defined
 <br />
-<br />&nbsp;&nbsp;&nbsp;float nx(nx);
+relative to &quot;the datum&quot; and have a &quot;datum_offset&quot; field that contains the
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nx:standard_name = ?projection_x_coordinate?;
+offset between &quot;the datum&quot; and the geoid.
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nx:units = ?km?;
+<br /><em class="quotelev1">&gt;- what does it mean for an ocean model? So far (e.g. for the IPCC data
+</em><br />
+<em class="quotelev1">&gt;collection) we have been assuming that in a rigid-lid model, &quot;geoid&quot; means
+</em><br />
+<em class="quotelev1">&gt;the rigid lid z=0. What does z=0 mean in an ocean model with a free surface?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+z=0 means the same thing whether free surface or rigid lid.
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nx:axis = ?X?;		// ###
+In free surface models, there is a variable (e.g. &quot;zeta&quot;) that 
 <br />
-<br />&nbsp;&nbsp;&nbsp;float ny(ny);
+represents the departure
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ny:standard_name = ?projection_y_coordinate?;
+of the free surface from the &quot;datum&quot; (z=0).
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ny:units = ?km?;
+<br /><em class="quotelev2">&gt;&gt;What do you think about adding to the CF convention the specification of 
+</em><br />
+<em class="quotelev2">&gt;&gt;a 2D variable
+</em><br />
+<em class="quotelev2">&gt;&gt;(function of lat, lon) called &quot;geoid_offset&quot; (or equivalent) that would 
+</em><br />
+<em class="quotelev2">&gt;&gt;specify the
+</em><br />
+<em class="quotelev2">&gt;&gt;offset between the &quot;local datum&quot; (z=0) and the geoid?
+</em><br />
+<em class="quotelev2">&gt;&gt;    
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;If the local datum is a geopotential, a single number rather than a field ought
+</em><br />
+<em class="quotelev1">&gt;to be enough to specify the offset, shouldn't it?
+</em><br />
+<em class="quotelev1">&gt;  
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+Hmmm... perhaps you are right.   I was thinking before that we might 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ny:axis = ?Y?;		// ###
+want to specify the
 <br />
-<br />&nbsp;&nbsp;&nbsp;float lat(ny, nx);
+datum relative to mean sea level, which would technically require a 2D 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat:standard_name = ?latitude?;
+offset field, but in light of
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat:units = ?degrees_north?;
+John Wilkin's point, I can't actually think of any cases where this 
 <br />
-<br />&nbsp;&nbsp;&nbsp;float lon(ny, nx);
+would make sense.
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon:standard_name = ?longitude?;
+<br /><em class="quotelev1">&gt;  
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt;And while we are on the subject, are we being intentionally ambiguous by 
+</em><br />
+<em class="quotelev2">&gt;&gt;referring
+</em><br />
+<em class="quotelev2">&gt;&gt;to &quot;the geoid&quot;?    I'm thinking about NAD27, GRS80, WGS84, etc..
+</em><br />
+<em class="quotelev2">&gt;&gt;    
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;Yes, we are being vague. In some cases e.g. ocean models for climate, this
+</em><br />
+<em class="quotelev1">&gt;doesn't matter. But sometimes it clearly would matter. So we may need some
+</em><br />
+<em class="quotelev1">&gt;further way to specify the geoid, as one of the reference ellipsoids.
+</em><br />
+<em class="quotelev1">&gt;  
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+Yes, why not list the reference ellipsoid.    For the cases where it 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon:units = ?degrees_east?;
+will matter people will
 <br />
-<br />&nbsp;&nbsp;&nbsp;// observation data
+be sure to specify the correct ellipsoid, and for all the other cases, 
 <br />
-&nbsp;&nbsp;&nbsp;float sst(time, ny, nx);
+it just won't matter.
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sst:standard_name = ?sea_surface_temperature?;
+<br />-Rich
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sst:coordinates = ?lat lon?;
+<br />- 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...
+Richard P. Signell           rsignell at usgs.gov
 <br />
-<br />This makes the most sense to me, although I suspect it is not what 
+U.S. Geological Survey       Phone: (508) 457-2229
 <br />
-others are suggesting...
+384 Woods Hole Road          Fax:   (508) 457-2310
 <br />
-<br />cheers
+Woods Hole, MA  02543-1598  
 <br />
-<br />Simon
-<br />
-<br /><br />Jonathan Gregory wrote:
-<br />
-<em class="quotelev1">&gt; Dear All
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I've argued so far in favour of restricting axis X and Y to 1D lon and lat
-</em><br />
-<em class="quotelev1">&gt; coord variables. Now I'd like to argue the alternative of generalising them
-</em><br />
-<em class="quotelev1">&gt; to be used with any 1D horizontal coord variables i.e. removing the exclusion
-</em><br />
-<em class="quotelev1">&gt; that they can't be used for rotated lon and lat.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; For 1D lon and lat, the axis attribute is still redundant while we adhere to
-</em><br />
-<em class="quotelev1">&gt; COARDS, because such coord vars must be identifiable by units (and can
-</em><br />
-<em class="quotelev1">&gt; optionally also be identified by standard name). However for other horizontal
-</em><br />
-<em class="quotelev1">&gt; coordinates the axis attribute is not redundant if generalised. It tells you
-</em><br />
-<em class="quotelev1">&gt; that this axis is a horizontal axis. If you had some non-spatiotemporal
-</em><br />
-<em class="quotelev1">&gt; axes e.g. realization or land cover type, it might be useful to be told which
-</em><br />
-<em class="quotelev1">&gt; of the axes are the horizontal coordinates, since this is not easy to deduce
-</em><br />
-<em class="quotelev1">&gt; from the standard names without some intelligence. Is it useful to know?
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I think the choice of X and Y is arbitrary. Both of them indicate horizontal,
-</em><br />
-<em class="quotelev1">&gt; and the only difference is a preferred choice for plotting, I imagine. Rotated
-</em><br />
-<em class="quotelev1">&gt; lon is not necessarily X, for instance, if the pole is tipped over a long way.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I would not favour allowing X and Y on 2D aux coord variables. I think that
-</em><br />
-<em class="quotelev1">&gt; in cases where there are 2D horizontal aux coord variables, the X and Y
-</em><br />
-<em class="quotelev1">&gt; designations still properly belong to the 1D axes e.g. the projection coords.
-</em><br />
-<em class="quotelev1">&gt; Because these axes are thus designated, you can tell which 2D coord vars are
-</em><br />
-<em class="quotelev1">&gt; horizontal; they have dimensions belonging to axes which are labelled with
-</em><br />
-<em class="quotelev1">&gt; X and Y. Perhaps we should make it mandatory to attach standard_names of
-</em><br />
-<em class="quotelev1">&gt; longitude and latitude to 2D auxiliary lon and lat variables so that they can
-</em><br />
-<em class="quotelev1">&gt; be easily identified as such.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Cheers
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Jonathan
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<br /><br /><pre>
--- 
-Simon Wood
-National Institute of Water and Atmospheric Research, Wellington, NZ	
-simon.wood at niwa.co.nz
-<a href="http://www.niwa.co.nz">http://www.niwa.co.nz</a>
-</pre>
-<span id="received"><dfn>Received on</dfn> Wed Nov 22 2006 - 13:55:35 GMT</span>
+<span id="received"><dfn>Received on</dfn> Tue Oct 26 2004 - 09:17:45 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -229,11 +235,13 @@ simon.wood at niwa.co.nz
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start480">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0481.html" title="Next message in the list">Richard Gorman: "[CF-metadata] axis attribute"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0479.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] axis attribute"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0476.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] axis attribute"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0481.html" title="Next message in the list">John Caron: "[CF-metadata] meaning of depth in the ocean"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0479.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] meaning of depth in the ocean"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0479.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] meaning of depth in the ocean"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0487.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] axis attribute"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./0482.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] Re: meaning of depth in the ocean"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0482.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] Re: meaning of depth in the ocean"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -244,7 +252,7 @@ simon.wood at niwa.co.nz
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:51 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0479.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0481.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] sea_ice_salinity unit in standard name table from Bert Jagers on 2012-01-29 (mailing-list-archive)</title>
-<meta name="Author" content="Bert Jagers (bert.jagers)" />
-<meta name="Subject" content="[CF-metadata] sea_ice_salinity unit in standard name table" />
-<meta name="Date" content="2012-01-29" />
+<title>[CF-metadata] udunits handling of fuzzy time units from Benno Blumenthal on 2011-03-18 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Benno Blumenthal (benno)" />
+<meta name="Subject" content="[CF-metadata] udunits handling of fuzzy time units" />
+<meta name="Date" content="2011-03-18" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4147.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4149.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] sea_ice_salinity unit in standard name table</h1>
-<!-- received="Sun Jan 29 05:50:05 2012" -->
-<!-- isoreceived="20120129055005" -->
-<!-- sent="Sun, 29 Jan 2012 13:50:05 +0100" -->
-<!-- isosent="20120129125005" -->
-<!-- name="Bert Jagers" -->
-<!-- email="bert.jagers" -->
-<!-- subject="[CF-metadata] sea_ice_salinity unit in standard name table" -->
-<!-- id="4F25407D.5020506_at_deltares.nl" -->
+<a style="text-decoration:none" href="./4147.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4149.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] udunits handling of fuzzy time units</h1>
+<!-- received="Fri Mar 18 12:27:52 2011" -->
+<!-- isoreceived="20110318122752" -->
+<!-- sent="Fri, 18 Mar 2011 14:27:52 -0400" -->
+<!-- isosent="20110318182752" -->
+<!-- name="Benno Blumenthal" -->
+<!-- email="benno" -->
+<!-- subject="[CF-metadata] udunits handling of fuzzy time units" -->
+<!-- id="AANLkTik2gT9afxSONiZQOBbXqc-8+or+Fy6BjeFozgOi_at_mail.gmail.com" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="014539AC4976BE4490A360410A8C201706968D22_at_EXCHMBX03.fed.cclrc.ac.uk" -->
+<!-- inreplyto="D38DCA8842FECD4585C8DE16D602ABF40FC424_at_VIME-MBX2.rdg.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4149.html" accesskey="d" title="Stephane TAROT: &quot;[CF-metadata] Sea surface height&quot;">Next message</a> ]
-[ <a href="./4147.html" title="Haaring, Pieter: &quot;[CF-metadata] Sea surface height&quot;">Previous message</a> ]
-[ <a href="./4103.html" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] Request for a region standard_name&quot;">In reply to</a> ]
+[ <a href="./4149.html" accesskey="d" title="Christopher Barker: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">Next message</a> ]
+[ <a href="./4147.html" title="Jon Blower: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">Previous message</a> ]
+[ <a href="./4147.html" title="Jon Blower: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./4101.html" accesskey="t" title="John Graybeal: &quot;[CF-metadata] Request for a region standard_name&quot;">Next in thread</a> ]
+[ <a href="./4150.html" accesskey="t" title="John Caron: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -71,34 +72,142 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Bert Jagers &lt;<a href="mailto:bert.jagers?Subject=Re%3A%20%5BCF-metadata%5D%20sea_ice_salinity%20unit%20in%20standard%20name%20table">bert.jagers</a>&gt;
+<dfn>From</dfn>: Benno Blumenthal &lt;<a href="mailto:benno?Subject=Re%3A%20%5BCF-metadata%5D%20udunits%20handling%20of%20fuzzy%20time%20units">benno</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Sun, 29 Jan 2012 13:50:05 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 18 Mar 2011 14:27:52 -0400</span><br />
 </address>
 <br />
-Hi Alison,
+It is worse than that -- though the local time of the standard creates a
 <br />
-<br />Triggered by a discussion in the OGC WaterML group on the unit of 
+problem for us -- according to the iso standard, if time is omitted, the
 <br />
-salinity data, I looked at the CF name table and noticed that the 
+string corresponds to the whole day, not the start of the day -- ISO8601 is
 <br />
-sea_ice_salinity seems to be the only quantity that uses canonical unit 
+a time *interval* standard -- the iso8601 string implies a moment and a
 <br />
-&quot;PSU&quot;. I assume that this should read 1e-3 consistent with the other 
+width a.k.a resolution.  For example, 2001-01-01/07  is the first week of
 <br />
-salinity quantities.
+2001 is an ISO8601 string.  This is an &quot;excellent&quot; time representation, and
 <br />
-<br />Best regards,
+an essential characteristic of a good time representation, but does not map
 <br />
-<br />Bert
+well into software that only holds an instantaneous time, or even XML Schema
 <br />
-<br /><br />&nbsp;
+for that matter.   CF, of course, has bounds, so that the edges of the time
 <br />
-<br />DISCLAIMER: This message is intended exclusively for the addressee(s) and may contain confidential and privileged information. If you are not the intended recipient please notify the sender immediately and destroy this message. Unauthorized use, disclosure or copying of this message is strictly prohibited.
+interval can be specified.
 <br />
-The foundation 'Stichting Deltares', which has its seat at Delft, The Netherlands, Commercial Registration Number 41146461, is not liable in any way whatsoever for consequences and/or damages resulting from the improper, incomplete and untimely dispatch, receipt and/or content of this e-mail.
+<br />Benno
 <br />
-<span id="received"><dfn>Received on</dfn> Sun Jan 29 2012 - 05:50:05 GMT</span>
+<br />On Fri, Mar 18, 2011 at 1:23 PM, Jon Blower &lt;j.d.blower at reading.ac.uk&gt;wrote:
+<br />
+<br /><em class="quotelev2">&gt; &gt; Just so you know, the UDUNITS package does assume the first day of the
+</em><br />
+<em class="quotelev2">&gt; &gt; year at 00:00:00 UTC if additional resolution time-fields are omitted.
+</em><br />
+<em class="quotelev2">&gt; &gt; This conforms to the ISO standard.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Actually (according to Wikipedia at least) the ISO8601 standard assumes
+</em><br />
+<em class="quotelev1">&gt; local time if the time zone is omitted.  I'm not sure what time information
+</em><br />
+<em class="quotelev1">&gt; (if any) is inferred if the ISO string omits hours/minutes/seconds (i.e. I
+</em><br />
+<em class="quotelev1">&gt; don't think 2008-01-01 is inferred to be the same as 2008-01-01T00:00:00Z).
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; But it's important to highlight that UDUNITS does assume midnight UTC if no
+</em><br />
+<em class="quotelev1">&gt; time is provided.  It implies that the temporal resolution is not to be
+</em><br />
+<em class="quotelev1">&gt; inferred from the length of the UDUNITS time string.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Jon
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; -----Original Message-----
+</em><br />
+<em class="quotelev1">&gt; From: cf-metadata-bounces at cgd.ucar.edu [mailto:
+</em><br />
+<em class="quotelev1">&gt; cf-metadata-bounces at cgd.ucar.edu] On Behalf Of Steve Emmerson
+</em><br />
+<em class="quotelev1">&gt; Sent: 18 March 2011 17:14
+</em><br />
+<em class="quotelev1">&gt; To: cf-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; Subject: Re: [CF-metadata] udunits handling of fuzzy time units
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Martin,
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; On 03/18/2011 04:11 AM, Schultz, Martin wrote:
+</em><br />
+<em class="quotelev2">&gt; &gt; PS: I do disagree with Christopher when he says ''&quot;30 days since 31 Jan
+</em><br />
+<em class="quotelev1">&gt; 2008&quot; is perfectly well defined.'' - do you refer to 00 UTC or 12 UTC on 31
+</em><br />
+<em class="quotelev1">&gt; Jan 2008? Or even 00:00 UTC or 01:02:30.3625132 h UTC? OK: if you define an
+</em><br />
+<em class="quotelev1">&gt; &quot;oceanographic calendar&quot; (where anything shorter than a day doesn't matter),
+</em><br />
+<em class="quotelev1">&gt; you could have a rule that all hours, minutes, seconds, milliseconds, etc.
+</em><br />
+<em class="quotelev1">&gt; are mapped onto one value (say 00:00:00 h UTC). But you will need to define
+</em><br />
+<em class="quotelev1">&gt; this rule in order to give a meaning to your calendar.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Just so you know, the UDUNITS package does assume the first day of the
+</em><br />
+<em class="quotelev1">&gt; year at 00:00:00 UTC if additional resolution time-fields are omitted.
+</em><br />
+<em class="quotelev1">&gt; This conforms to the ISO standard.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Regards,
+</em><br />
+<em class="quotelev1">&gt; Steve Emmerson
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<br /><br /><br /><pre>
+-- 
+Dr. M. Benno Blumenthal          benno at iri.columbia.edu
+International Research Institute for climate and society
+The Earth Institute at Columbia University
+Lamont Campus, Palisades NY 10964-8000   (845) 680-4450
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20110318/fce2d3c6/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20110318/fce2d3c6/attachment-0001.html</a>&gt;
+</pre>
+<span id="received"><dfn>Received on</dfn> Fri Mar 18 2011 - 12:27:52 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -106,11 +215,13 @@ The foundation 'Stichting Deltares', which has its seat at Delft, The Netherland
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4148">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4149.html" title="Next message in the list">Stephane TAROT: "[CF-metadata] Sea surface height"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4147.html" title="Previous message in the list">Haaring, Pieter: "[CF-metadata] Sea surface height"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./4103.html" title="Message to which this message replies">alison.pamment at stfc.ac.uk: "[CF-metadata] Request for a region standard_name"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4149.html" title="Next message in the list">Christopher Barker: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4147.html" title="Previous message in the list">Jon Blower: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./4147.html" title="Message to which this message replies">Jon Blower: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./4101.html" title="Next message in this discussion thread">John Graybeal: "[CF-metadata] Request for a region standard_name"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./4150.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./4150.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -121,7 +232,7 @@ The foundation 'Stichting Deltares', which has its seat at Delft, The Netherland
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:57 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4147.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4149.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

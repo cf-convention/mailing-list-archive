@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Accumulation since timestep 0, cell-method from Heiko Klein on 2008-08-05 (mailing-list-archive)</title>
-<meta name="Author" content="Heiko Klein (Heiko.Klein)" />
-<meta name="Subject" content="[CF-metadata] Accumulation since timestep 0, cell-method" />
-<meta name="Date" content="2008-08-05" />
+<title>[CF-metadata] Proposed standard names for biological model outputs from Godin, Michael on 2007-01-04 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Godin, Michael (Godin)" />
+<meta name="Subject" content="[CF-metadata] Proposed standard names for biological model outputs" />
+<meta name="Date" content="2007-01-04" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1456.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1458.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Accumulation since timestep 0, cell-method</h1>
-<!-- received="Tue Aug  5 05:34:20 2008" -->
-<!-- isoreceived="20080805043420" -->
-<!-- sent="Tue, 05 Aug 2008 13:34:20 +0200" -->
-<!-- isosent="20080805113420" -->
-<!-- name="Heiko Klein" -->
-<!-- email="Heiko.Klein" -->
-<!-- subject="[CF-metadata] Accumulation since timestep 0, cell-method" -->
-<!-- id="48983ABC.3050405_at_met.no" -->
+<a style="text-decoration:none" href="./1456.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1458.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Proposed standard names for biological model outputs</h1>
+<!-- received="Thu Jan  4 09:51:56 2007" -->
+<!-- isoreceived="20070104095156" -->
+<!-- sent="Thu, 4 Jan 2007 08:51:56 -0800" -->
+<!-- isosent="20070104165156" -->
+<!-- name="Godin, Michael" -->
+<!-- email="Godin" -->
+<!-- subject="[CF-metadata] Proposed standard names for biological model outputs" -->
+<!-- id="DA82364018466D4D842186D5356746B1D7C9B2_at_ice.shore.mbari.org" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1458.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  Accumulation since timestep 0, cell-method&quot;">Next message</a> ]
-[ <a href="./1456.html" title="Heiko Klein: &quot;[CF-metadata] Usage of integral_of_Y_wrt_X&quot;">Previous message</a> ]
+[ <a href="./1458.html" accesskey="d" title="Christiane Textor: &quot;[CF-metadata] aerosol and chemistry names - continuation&quot;">Next message</a> ]
+[ <a href="./1456.html" title="David Stuebe: &quot;[CF-metadata] CF-metadata Digest, Vol 46, Issue 1&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,49 +68,72 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Heiko Klein &lt;<a href="mailto:Heiko.Klein?Subject=Re%3A%20%5BCF-metadata%5D%20Accumulation%20since%20timestep%200%2C%20cell-method">Heiko.Klein</a>&gt;
+<dfn>From</dfn>: Godin, Michael &lt;<a href="mailto:Godin?Subject=Re%3A%20%5BCF-metadata%5D%20Proposed%20standard%20names%20for%20biological%20model%20outputs">Godin</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 05 Aug 2008 13:34:20 +0200</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 4 Jan 2007 08:51:56 -0800</span><br />
 </address>
 <br />
-Some of our models write out precipitation data as accumulated 
+Ron and Jonathan,
 <br />
-precipitation starting at time-step 0. E.g.
+<br />Good catch.  Not sure why I typed &quot;silica&quot; when I meant &quot;silicon&quot;.  It is actually quite incorrect (&quot;silicate&quot; would have been closer to reality), and the reference to &quot;silica atoms&quot; in the definition seems truly bizarre. So, here's the revision, with full description:
 <br />
-<br />Time:   0  3  6  9  12  15
+<br />mole_concentration_of_organic_detritus_in_sea_water_expressed_as_silicon
 <br />
-Precip: 0 15 15 25  26  26
+Description: Mole concentration means moles (amount of
 <br />
-<br />meaning that there was no precipitation between 3 and 6, and no 
+substance) per unit volume and is used in the construction mole_concentration_of_X_in_Y, where X is a material constituent of Y. Organic detritus are particles of debris from decaying plants and animals. The construction expressed_as_silicon indicates that the indicated mole concentration is of silicon atoms due to the organic detritus.
 <br />
-precipitation between 12 and 15.
+<br />Cheers,
 <br />
-<br />One solution would be to define Time:bounds as
+Mike
 <br />
-Time:bounds: 0,0, 0,3, 0,6, 0,9, 0,12, 0,15 but then I would need to 
+<br />-----Original Message-----
 <br />
-declare different times for the other paramters since Time:bounds belong 
+From: cf-metadata-bounces at cgd.ucar.edu [mailto:cf-metadata-bounces at cgd.ucar.edu] On Behalf Of Roy Lowry
 <br />
-to Time and not to precipitation. Therefore I would prefer to give 
+Sent: Thursday, January 04, 2007 5:05 AM
 <br />
-precipitation a cell_method attribute, e.g.
+To: cf-metadata at cgd.ucar.edu
 <br />
-percip:cell_method: &quot;time: sum since time(0)&quot;
+Subject: Re: [CF-metadata] Proposed standard names for biological model outputs
 <br />
-<br />Does there exist such a cell_method? Or is this a very uncommon case?
+<br />Michael,
 <br />
-<br />Best regards,
+<br />Nice job.  I love the definitions.
 <br />
-<br />Heiko
+<br />However, I agree with Jonathan that although numerically equivanent in the world of moles 'expressed_as_silicon is more consistent and less confusing than 'expressed_as_silica'.
 <br />
-<br /><pre>
--- 
-Dr. Heiko Klein                              Tel. + 47 22 96 32 58
-Development Section / IT Department          Fax. + 47 22 69 63 55
-Norwegian Meteorological Institute           <a href="http://www.met.no">http://www.met.no</a>
-P.O. Box 43 Blindern  0313 Oslo NORWAY
+<br />Cheers, Roy.
+<br />
+<br /><em class="quotelev3">&gt;&gt;&gt; Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt; 01/04/07 8:11 AM &gt;&gt;&gt;
+</em><br />
+Dear Michael
+<br />
+<br />These look very good to me, and thanks for your clear definitions. I have one question, about silica (=SiO2). Do you mean silicon? 
+<br />
+<br />In the discussions about Christiane's aerosol names we appear to have agreed that we need only say X_expressed_as_Y when X and Y are different; that is the rule you have used, so yours and hers are consistent.
+<br />
+<br />Best wishes
+<br />
+<br />Jonathan
+<br />
+_______________________________________________
+<br />
+CF-metadata mailing list
+<br />
+CF-metadata at cgd.ucar.edu
+<br />
+<a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+<br />
+<br /><br /><pre>
+--
+This message (and any attachments) is for the recipient only. NERC is subject to the Freedom of Information Act 2000 and the contents of this email and any reply you make may be disclosed by NERC unless it is exempt from release under the Act. Any material supplied to NERC may be stored in an electronic records management system.
+_______________________________________________
+CF-metadata mailing list
+CF-metadata at cgd.ucar.edu
+<a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </pre>
-<span id="received"><dfn>Received on</dfn> Tue Aug 05 2008 - 05:34:20 BST</span>
+<span id="received"><dfn>Received on</dfn> Thu Jan 04 2007 - 09:51:56 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -118,8 +141,8 @@ P.O. Box 43 Blindern  0313 Oslo NORWAY
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1457">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1458.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  Accumulation since timestep 0, cell-method"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1456.html" title="Previous message in the list">Heiko Klein: "[CF-metadata] Usage of integral_of_Y_wrt_X"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1458.html" title="Next message in the list">Christiane Textor: "[CF-metadata] aerosol and chemistry names - continuation"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1456.html" title="Previous message in the list">David Stuebe: "[CF-metadata] CF-metadata Digest, Vol 46, Issue 1"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -131,7 +154,7 @@ P.O. Box 43 Blindern  0313 Oslo NORWAY
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:06 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1456.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1458.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

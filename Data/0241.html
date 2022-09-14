@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Non temporal/spatial dimension question from Godin, Michael on 2006-09-27 (mailing-list-archive)</title>
-<meta name="Author" content="Godin, Michael (Godin)" />
-<meta name="Subject" content="[CF-metadata] Non temporal/spatial dimension question" />
-<meta name="Date" content="2006-09-27" />
+<title>[CF-metadata] standard name proposals from Jonathan Gregory on 2003-07-31 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] standard name proposals" />
+<meta name="Date" content="2003-07-31" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0240.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0242.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Non temporal/spatial dimension question</h1>
-<!-- received="Wed Sep 27 13:06:09 2006" -->
-<!-- isoreceived="20060927120609" -->
-<!-- sent="Wed, 27 Sep 2006 12:06:09 -0700" -->
-<!-- isosent="20060927190609" -->
-<!-- name="Godin, Michael" -->
-<!-- email="Godin" -->
-<!-- subject="[CF-metadata] Non temporal/spatial dimension question" -->
-<!-- id="DA82364018466D4D842186D5356746B194F52D_at_ice.shore.mbari.org" -->
+<a style="text-decoration:none" href="./0240.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0242.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard name proposals</h1>
+<!-- received="Thu Jul 31 02:43:06 2003" -->
+<!-- isoreceived="20030731014306" -->
+<!-- sent="Thu, 31 Jul 2003 09:43:06 +0100" -->
+<!-- isosent="20030731084306" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] standard name proposals" -->
+<!-- id="20030731084306.GA8588_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,10 +53,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0242.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Non temporal/spatial dimension question&quot;">Next message</a> ]
-[ <a href="./0240.html" title="Bryan Lawrence: &quot;[CF-metadata] Use of Standard Names and Coordinate Variables (relevant to the aerosol discussion)&quot;">Previous message</a> ]
+[ <a href="./0242.html" accesskey="d" title="John Evans: &quot;[CF-metadata] standard name proposals&quot;">Next message</a> ]
+[ <a href="./0240.html" title="John Evans: &quot;[CF-metadata] standard name proposals&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0243.html" accesskey="t" title="Brian Eaton: &quot;[CF-metadata] Non temporal/spatial dimension question&quot;">Next in thread</a> ]
+[ <a href="./0242.html" accesskey="t" title="John Evans: &quot;[CF-metadata] standard name proposals&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,42 +70,74 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Godin, Michael &lt;<a href="mailto:Godin?Subject=Re%3A%20%5BCF-metadata%5D%20Non%20temporal%2Fspatial%20dimension%20question">Godin</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20standard%20name%20proposals">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 27 Sep 2006 12:06:09 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 31 Jul 2003 09:43:06 +0100</span><br />
 </address>
 <br />
-Under 2.4, Dimensions, Recommendations, the CF standard says &quot;In files that are meant to conform to the COARDS subset of CF, any dimensions of a variable other than space and time dimensions should be added &quot;to the left&quot; of the space and time dimensions as represented in CDL.&quot;
+Dear John
 <br />
-&nbsp;
+<br />A few at a time is easier to deal with - thanks! As usual, I would like to
 <br />
-So, if I have a variable that varies with time, latitude, longitude and wavelength, then the recommendation is to use the dimensions:
+make these more precise, and also to conform with existing standard names where
 <br />
-<br />wavelength, time, latitude, longitude
+appropriate. Your use of &quot;radiance&quot; and &quot;irradiance&quot; seems to be the reverse
 <br />
-<br />However, such a set of dimensions doesn't allow me to define a compliant file with an expanding time dimension and an extra dimension.  Is there a subset to CF/COARDS that would otherwise follow COARDS, except for the dimension ordering, which would allow me to define a much more manageable variable with dimensions such as:
+of definitions I have found on the web, and also of the existing radiance
 <br />
-&nbsp;
+standard names; that is, it is radiance which is per unit solid angle. The
 <br />
-time, latitude, longitude, wavelength
+standard use of the terms appears to be without wavelength dependence;
 <br />
-&nbsp;
+&quot;spectral&quot; indicates this dependence. The canonical units are SI but obviously
 <br />
-Thanks, 
+any dimensionally equivalent unit is OK.
 <br />
-Mike
+<br /><em class="quotelev1">&gt; seawater_conductivity			units of msiemens/cm
+</em><br />
+sea_water_electrical_conductivity               siemens/m
 <br />
-<br />_____________________________________________
+<br /><em class="quotelev1">&gt; seawater_chlorophyll_concentration	units of micrograms/liter
+</em><br />
+chlorophyll_concentration_in_sea_water          kg/m3
 <br />
-Michael A. Godin
+<br /><em class="quotelev1">&gt; upwelling_radiance				units of microwatts/cm^2/nanometer
+</em><br />
+upwelling_spectral_irradiance                   W/m2/m
 <br />
-Software Engineer
+<br /><em class="quotelev1">&gt; downwelling_irradiance			units of microwatts/cm^2/nanometer/steradian
+</em><br />
+downwelling_spectral_radiance                   W/m2/m/sr
 <br />
-Monterey Bay Aquarium Research Institute
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; and since we use wavelength as a dimension for the last two parameters, I'd 
+</em><br />
+<em class="quotelev1">&gt; also like to simply propose
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; wavelength					units of nanometers
+</em><br />
+electromagnetic_wavelength                      m
 <br />
-Phone: 831-775-2063  <a href="http://www.mbari.org">http://www.mbari.org</a> &lt;<a href="http://www.mbari.org/">http://www.mbari.org/</a>&gt; 
+<br />At the same time, we can add the corresponding down/upwelling names.
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Sep 27 2006 - 13:06:09 BST</span>
+<br />I propose that we make the existing standard names longwave_radiance and
+<br />
+shortwave_radiance obsolete, because they don't indicate direction. It is a
+<br />
+pity that was overlooked. We will make these aliases to upwelling_*_radiance,
+<br />
+because they are equivalenced to NCEP GRIB codes which are +ve upwards.
+<br />
+<br />Is the above all OK for you?
+<br />
+<br />Cheers
+<br />
+<br />Jonathan
+<br />
+<span id="received"><dfn>Received on</dfn> Thu Jul 31 2003 - 02:43:06 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -113,12 +145,12 @@ Phone: 831-775-2063  <a href="http://www.mbari.org">http://www.mbari.org</a> &lt
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start241">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0242.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Non temporal/spatial dimension question"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0240.html" title="Previous message in the list">Bryan Lawrence: "[CF-metadata] Use of Standard Names and Coordinate Variables (relevant to the aerosol discussion)"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0242.html" title="Next message in the list">John Evans: "[CF-metadata] standard name proposals"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0240.html" title="Previous message in the list">John Evans: "[CF-metadata] standard name proposals"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0243.html" title="Next message in this discussion thread">Brian Eaton: "[CF-metadata] Non temporal/spatial dimension question"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./0242.html" title="Next message in this discussion thread">John Evans: "[CF-metadata] standard name proposals"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0243.html" title="Message sent in reply to this message">Brian Eaton: "[CF-metadata] Non temporal/spatial dimension question"</a></li>
+<dfn>Reply</dfn>: <a href="./0242.html" title="Message sent in reply to this message">John Evans: "[CF-metadata] standard name proposals"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -129,7 +161,7 @@ Phone: 831-775-2063  <a href="http://www.mbari.org">http://www.mbari.org</a> &lt
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:46 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0240.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0242.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

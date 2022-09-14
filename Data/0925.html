@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] proposed rules for changes to CF conventions from Jonathan Gregory on 2007-07-07 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] proposed rules for changes to CF conventions" />
-<meta name="Date" content="2007-07-07" />
+<title>[CF-metadata] standard_name.xml from John Caron on 2006-04-06 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] standard_name.xml" />
+<meta name="Date" content="2006-04-06" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0924.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0926.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] proposed rules for changes to CF conventions</h1>
-<!-- received="Sat Jul  7 10:51:13 2007" -->
-<!-- isoreceived="20070707095113" -->
-<!-- sent="Sat, 7 Jul 2007 17:51:13 +0100" -->
-<!-- isosent="20070707165113" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] proposed rules for changes to CF conventions" -->
-<!-- id="20070707165113.GA2319_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0924.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0926.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard_name.xml</h1>
+<!-- received="Thu Apr  6 16:28:59 2006" -->
+<!-- isoreceived="20060406152859" -->
+<!-- sent="Thu, 06 Apr 2006 16:28:59 -0600" -->
+<!-- isosent="20060406222859" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] standard_name.xml" -->
+<!-- id="4435962B.4080201_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="s434cdeb.004_at_wpo.nerc.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0926.html" accesskey="d" title="Pamment, JA: &quot;[CF-metadata] Hoedk/Stockhause standard names&quot;">Next message</a> ]
-[ <a href="./0924.html" title="taylor13 at llnl.gov: &quot;[CF-metadata] proposed rules for changes to CF conventions&quot;">Previous message</a> ]
+[ <a href="./0926.html" accesskey="d" title="John Caron: &quot;[CF-metadata] standard_name.xml&quot;">Next message</a> ]
+[ <a href="./0924.html" title="carl wolfteich: &quot;[CF-metadata] REASoN CAN Data Portal Project&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,22 +69,116 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20proposed%20rules%20for%20changes%20to%20CF%20conventions">j.m.gregory</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20standard_name.xml">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Sat, 7 Jul 2007 17:51:13 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 06 Apr 2006 16:28:59 -0600</span><br />
 </address>
 <br />
-Dear Karl
+Hi Roy:
 <br />
-<br />Yes, you are right. Let's change &quot;must&quot; to &quot;should&quot;. The moderator can work
+<br />Thanks for taking the time to explain all that. A few comments below.
 <br />
-out whether he/she needs to pursue members who haven't voted.
+<br /><br />Roy Lowry wrote:
 <br />
-<br />Cheers
+<em class="quotelev1">&gt; Hello John,
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Mapping CF Standard names to GCMD Parameter Valids to the public
+</em><br />
+<em class="quotelev1">&gt; domain 'variable' level shouldn't be a problem as the GCMD vocabulary
+</em><br />
+<em class="quotelev1">&gt; is clearly a discovery vocabulary.  The issues Bryan is eluding to
+</em><br />
+<em class="quotelev1">&gt; result from trying to map a usage vocabulary (one containing terms
+</em><br />
+<em class="quotelev1">&gt; that fully describe a data value) because vital information for the
+</em><br />
+<em class="quotelev1">&gt; mapping (e.g. whether a value is a mean or a standard deviation) are
+</em><br />
+<em class="quotelev1">&gt; held in CF fields other than the Standard Name.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Are you aware of the MMI vocabulary mapping workshop that was held in
+</em><br />
+<em class="quotelev1">&gt; Boulder last August?  CF was one of the vocabs used, but the work
+</em><br />
+<em class="quotelev1">&gt; really only scratched the surface looking at maybe half a dozen
+</em><br />
+<em class="quotelev1">&gt; terms.  There should still be an OWL version of CF on the MMI site
+</em><br />
+<em class="quotelev1">&gt; (as well as GCMD), but this will a snapshot that is now well out of
+</em><br />
+<em class="quotelev1">&gt; date.  
+</em><br />
+<br /><em class="quotelev1">&gt; There is however an open source tool to convert the XML to OWL
+</em><br />
+<em class="quotelev1">&gt; (voc2OWL) and a very neat mapping tool (VINE).  The resulting map is
+</em><br />
+<em class="quotelev1">&gt; an OWL file that can be used with web services also provided by MMI
+</em><br />
+<em class="quotelev1">&gt; to build a thesaurus server.  I would strongly recommend their
+</em><br />
+<em class="quotelev1">&gt; approach.
+</em><br />
+<br /><br />I have grabbed the files at
 <br />
-<br />Jonathan
+<br /><a href="http://marinemetadata.org/2005/02/cf">http://marinemetadata.org/2005/02/cf</a>
 <br />
-<span id="received"><dfn>Received on</dfn> Sat Jul 07 2007 - 10:51:13 BST</span>
+<a href="http://marinemetadata.org/2005/02/gcmd">http://marinemetadata.org/2005/02/gcmd</a>
+<br />
+<br />they are OWL XML files. Are these the ones you are recommending? 
+<br />
+<br /><em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; The one issue with the GCMD parameter valids that was never properly
+</em><br />
+<em class="quotelev1">&gt; sorted at Boulder is that the mapping was done to GCMD variable terms
+</em><br />
+<em class="quotelev1">&gt; without their overlying term hierarchy, which took no account of the
+</em><br />
+<em class="quotelev1">&gt; fact that EARTH SCIENCE &gt; Biosphere &gt; Animal Taxonomy &gt; Fish and
+</em><br />
+<em class="quotelev1">&gt; EARTH SCIENCE &gt;  Oceans &gt; Marine Biology &gt; Fish are different.  I
+</em><br />
+<em class="quotelev1">&gt; know Luis Bermudez of MMI was looking at this issue, but don't know
+</em><br />
+<em class="quotelev1">&gt; how far he got.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Building an ontology mapping between CF and GCMD was on my agenda for
+</em><br />
+<em class="quotelev1">&gt; later this year to provide the capability to NDG for entering a CF
+</em><br />
+<em class="quotelev1">&gt; Standard Name into a discovery portal and finding DIFs marked up
+</em><br />
+<em class="quotelev1">&gt; using GCMD parameter valids.  But I'm more than happy for someone
+</em><br />
+<em class="quotelev1">&gt; else to make a start and would of course be happy to help once the
+</em><br />
+<em class="quotelev1">&gt; time slot I've allocated for later this year comes around.
+</em><br />
+<br />Yes, I need
+<br />
+<br />&nbsp;CF standard name -&gt; GCMD parameter valid
+<br />
+<br />and also 
+<br />
+<br />&nbsp;Grib1/Grib2 parameter -&gt; GCMD parameter valid
+<br />
+<br />I have a simple start on the latter, courtesy of Gene Major at GCMD.
+<br />
+<br />Im unclear on whats all needed to implement the service you describe? 
+<br />
+<br /><br /><em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Cheers, Roy.
+</em><br />
+<br />Thanks!
+<br />
+<span id="received"><dfn>Received on</dfn> Thu Apr 06 2006 - 16:28:59 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -91,8 +186,8 @@ out whether he/she needs to pursue members who haven't voted.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start925">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0926.html" title="Next message in the list">Pamment, JA: "[CF-metadata] Hoedk/Stockhause standard names"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0924.html" title="Previous message in the list">taylor13 at llnl.gov: "[CF-metadata] proposed rules for changes to CF conventions"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0926.html" title="Next message in the list">John Caron: "[CF-metadata] standard_name.xml"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0924.html" title="Previous message in the list">carl wolfteich: "[CF-metadata] REASoN CAN Data Portal Project"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -104,7 +199,7 @@ out whether he/she needs to pursue members who haven't voted.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:58 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0924.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0926.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

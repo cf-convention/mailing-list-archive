@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Recording requirements expressed in standard name	definitions from martin.juckes at stfc.ac.uk on 2016-07-15 (mailing-list-archive)</title>
-<meta name="Author" content="martin.juckes at stfc.ac.uk (martin.juckes)" />
-<meta name="Subject" content="[CF-metadata] Recording requirements expressed in standard name	definitions" />
-<meta name="Date" content="2016-07-15" />
+<title>[CF-metadata] How to define time coordinate in GPS? from Julien Demaria on 2015-04-24 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Julien Demaria (Julien.Demaria)" />
+<meta name="Subject" content="[CF-metadata] How to define time coordinate in GPS?" />
+<meta name="Date" content="2015-04-24" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./7700.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7702.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Recording requirements expressed in standard name	definitions</h1>
-<!-- received="Fri Jul 15 03:37:51 2016" -->
-<!-- isoreceived="20160715023751" -->
-<!-- sent="Fri, 15 Jul 2016 09:37:51 +0000" -->
-<!-- isosent="20160715093751" -->
-<!-- name="martin.juckes at stfc.ac.uk" -->
-<!-- email="martin.juckes" -->
-<!-- subject="[CF-metadata] Recording requirements expressed in standard name	definitions" -->
-<!-- id="E21FBC3F00D7304687CB46529F9676D70102846C86_at_exchmbx01" -->
+<a style="text-decoration:none" href="./7700.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7702.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] How to define time coordinate in GPS?</h1>
+<!-- received="Fri Apr 24 10:14:13 2015" -->
+<!-- isoreceived="20150424091413" -->
+<!-- sent="Fri, 24 Apr 2015 16:14:13 +0000" -->
+<!-- isosent="20150424161413" -->
+<!-- name="Julien Demaria" -->
+<!-- email="Julien.Demaria" -->
+<!-- subject="[CF-metadata] How to define time coordinate in GPS?" -->
+<!-- id="3B970FB76033264EB34479EC8A365E1101BA32AE31_at_vwiexc030.acri.local" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="VI1PR0601MB2623A572DBC6DC8E41797DFB99320_at_VI1PR0601MB2623.eurprd06.prod.outlook.com" -->
+<!-- inreplyto="DC6567808739F54EAE9CCE07BD3AABB5022DBBA7_at_ap-embx-sp30.RES.AD.JPL" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,10 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./7702.html" accesskey="d" title="Dirk Notz: &quot;[CF-metadata] CMIP6 Sea Ice MIP: General variables&quot;">Next message</a> ]
-[ <a href="./7700.html" title="Lowry, Roy K.: &quot;[CF-metadata] Recording requirements expressed in standard name	definitions&quot;">Previous message</a> ]
-[ <a href="./7700.html" title="Lowry, Roy K.: &quot;[CF-metadata] Recording requirements expressed in standard name	definitions&quot;">In reply to</a> ]
+[ <a href="./7702.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  How to define time coordinate in GPS?&quot;">Next message</a> ]
+[ <a href="./7700.html" title="Jonathan Gregory: &quot;[CF-metadata]  CF region_names&quot;">Previous message</a> ]
+[ <a href="./7698.html" title="Manning, Evan M: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./7703.html" accesskey="t" title="Jim Biard: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,200 +72,167 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: martin.juckes at stfc.ac.uk &lt;<a href="mailto:martin.juckes?Subject=Re%3A%20%5BCF-metadata%5D%20Recording%20requirements%20expressed%20in%20standard%20name%09definitions">martin.juckes</a>&gt;
+<dfn>From</dfn>: Julien Demaria &lt;<a href="mailto:Julien.Demaria?Subject=Re%3A%20%5BCF-metadata%5D%20How%20to%20define%20time%20coordinate%20in%20GPS%3F">Julien.Demaria</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 15 Jul 2016 09:37:51 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 24 Apr 2015 16:14:13 +0000</span><br />
 </address>
 <br />
-Hello Roy,
+Hi,
 <br />
-<br />Thanks, in that case I agree completely. It will be an interesting challenge to come up with a suitable set of RDF predicates. I hope your optimism about reaching agreement on a place for the list in CF is justified,
+<br />Thanks a lot for all your accurate answers!
 <br />
-<br />cheers,
+<br />With all these information, for the moment we think the best way to represent our time in CF is to convert the time stamp of the units attribute from GPS to UTC.
 <br />
-Martin
+We cannot change it for the GPS beginning 1980-01-06 so we must transform the 2000-01-01 from GPS to UTC to be more CF compliant.
 <br />
-________________________________
+We also specify GPS in the long name and in a new non standard time_reference attribute :
 <br />
-From: Lowry, Roy K. [rkl at bodc.ac.uk]
+<br />int64 time_stamp(rows) ;
 <br />
-Sent: 14 July 2016 16:25
+&nbsp;&nbsp;&nbsp;&nbsp;time_stamp:standard_name = &quot;time&quot; ;
 <br />
-To: Juckes, Martin (STFC,RAL,RALSP); cf-metadata at cgd.ucar.edu
+&nbsp;&nbsp;&nbsp;&nbsp;time_stamp:units = &quot;microseconds since 2000-01-01 00:00:13 UTC&quot; ;
 <br />
-Subject: Re: [CF-metadata] Recording requirements expressed in standard name definitions
+&nbsp;&nbsp;&nbsp;&nbsp;time_stamp:long_name = &quot;Elapsed time since 01 Jan 2000 0h GPS&quot; ;
 <br />
-<br /><br />Hi Martin,
+&nbsp;&nbsp;&nbsp;&nbsp;time_stamp:time_reference = &quot;GPS&quot;
 <br />
-<br /><br />Slight misunderstanding - I was taking the creation of a structured list and its publication through CF for granted. Serving in machine-readable RDF through NVS was seen very much as an additional resource.
+<br />I think with this solution a CF compliant software (which not support leap second) should interpret time &quot;correctly&quot;.
 <br />
-<br /><br />Cheers, Roy.
+Let me know if I missed something.
 <br />
-<br /><br />Please note that I partially retired on 01/11/2015. I am now only working 7.5 hours a week and can only guarantee e-mail response on Wednesdays, my day in the office. All vocabulary queries should be sent to enquiries at bodc.ac.uk. Please also use this e-mail if your requirement is urgent.
+<br />Thanks,
 <br />
-<br /><br />________________________________
+<br />Julien
 <br />
-From: martin.juckes at stfc.ac.uk &lt;martin.juckes at stfc.ac.uk&gt;
+<br />De : Manning, Evan M (398B) [mailto:Evan.M.Manning at jpl.nasa.gov]
 <br />
-Sent: 14 July 2016 14:10
+Envoy? : vendredi 24 avril 2015 14:30
 <br />
-To: Lowry, Roy K.; cf-metadata at cgd.ucar.edu
+? : Chris Barker; Julien Demaria
 <br />
-Subject: RE: [CF-metadata] Recording requirements expressed in standard name definitions
+Cc : Jonathan Gregory; cf-metadata at cgd.ucar.edu
 <br />
-<br />Hi Roy,
+Objet : RE: [CF-metadata] How to define time coordinate in GPS?
 <br />
-<br />I can see how that might work. However, I still think it would still be useful to have a clearly structured list as an intermediate step.
+<br />It's probably overkill but for Suomi NPP CrIS and ATMS we are planning to provide
 <br />
-<br />After posting the email it occurred to me that it may be better to have such a list either as part of the conformance document or as an additional list posted in the CF Standard Name page (<a href="http://cfconventions.org/standard-names.html">http://cfconventions.org/standard-names.html</a>) rather than adding it to the convention document itself,
+timestamps for each obs in both TAI and UTC.
 <br />
-Standard Names - CF Conventions&lt;<a href="http://cfconventions.org/standard-names.html">http://cfconventions.org/standard-names.html</a>&gt;
+<br />TAI is the true time dimension, but UTC gives users a correct UTC if that's what they want and should minimize the temptation for them to do TAI to UTC conversions using tools which don't understand leap seconds.
 <br />
-cfconventions.org
-<br />
-Toggle navigation CF MetaData. Conformance; Discussion; Documents; Governance; Standard Names; CF Standard Names. Standard Name Table (v34, 13 June 2016)
-<br />
-<br /><br /><br /><br />regards,
-<br />
-Martin
+<br />&nbsp;&nbsp;-- Evan
 <br />
 ________________________________
 <br />
-From: Lowry, Roy K. [rkl at bodc.ac.uk]
+From: Chris Barker [chris.barker at noaa.gov]
 <br />
-Sent: 13 July 2016 19:25
+Sent: Thursday, April 23, 2015 4:48 PM
 <br />
-To: Juckes, Martin (STFC,RAL,RALSP); cf-metadata at cgd.ucar.edu
+To: Julien Demaria
 <br />
-Subject: Re: [CF-metadata] Recording requirements expressed in standard name definitions
+Cc: Jonathan Gregory; cf-metadata at cgd.ucar.edu&lt;mailto:cf-metadata at cgd.ucar.edu&gt;
 <br />
-<br /><br />Hi Martin,
+Subject: Re: [CF-metadata] How to define time coordinate in GPS?
 <br />
-<br /><br />NVS delivers in RDF, so the knowledge would have to be served in the form of triples describing required relationships between Standard Names, such as:
+On Thu, Apr 23, 2015 at 7:19 AM, Julien Demaria &lt;Julien.Demaria at acri-st.fr&lt;mailto:Julien.Demaria at acri-st.fr&gt;&gt; wrote:
 <br />
-<br /><br />area_fraction requires area_type
+I'm also not an expert on this:
 <br />
-<br /><br />or between Standard Names and other CF controlled vocabularies in NVS like cell methods.  I'll suggest spinning up a project to investigate what is possible and serve some examples.
+&quot;GPS, Global Positioning System time, is the atomic time scale implemented by the atomic clocks in the GPS ground control stations and the GPS satellites themselves. GPS time was zero at 0h 6-Jan-1980 and since it is not perturbed by leap seconds GPS is now ahead of UTC by 16 seconds.&quot;
 <br />
-<br /><br />Cheers, Roy.
+<br />It seems to me then, that the &quot;right&quot; way is to express this time as:
 <br />
-<br /><br />Please note that I partially retired on 01/11/2015. I am now only working 7.5 hours a week and can only guarantee e-mail response on Wednesdays, my day in the office. All vocabulary queries should be sent to enquiries at bodc.ac.uk. Please also use this e-mail if your requirement is urgent.
+<br />time_unit since 1908-01-06T00:00:00Z
 <br />
-<br /><br />________________________________
+<br />since that is technically exactly correct.
 <br />
-From: martin.juckes at stfc.ac.uk &lt;martin.juckes at stfc.ac.uk&gt;
+<br />clients are likely to translate to year-month-day-hour-minute-second using UTC, but maybe not. And as others have pointed out, most libs don't do leap seconds anyway, so are using &quot;GPS time&quot; whether they specify it or not.
 <br />
-Sent: 13 July 2016 16:36
+<br />I guess what I am saying is that this isn't really a &quot;how to encode it in CF&quot; question -- if you use that epoch, then it becomes entirely up to the client what time it wants to translate to.
 <br />
-To: Lowry, Roy K.; cf-metadata at cgd.ucar.edu
+<br />-Chris
 <br />
-Subject: RE: [CF-metadata] Recording requirements expressed in standard name definitions
+<br /><br /><br /><br /><a href="http://www.leapsecond.com/java/gpsclock.htm">http://www.leapsecond.com/java/gpsclock.htm</a>
 <br />
-<br />Dear Roy,
+a more detailed explanation:
 <br />
-<br />Having the constraints expressed in a machine readable way in the NVS sounds good in principle, but do you have a clear idea about how to make it work in practise? The constraints described in ticket 151 are quite complex, so I'm not sure how they would be expressed.
+<a href="https://confluence.qps.nl/display/KBE/UTC+to+GPS+Time+Correction">https://confluence.qps.nl/display/KBE/UTC+to+GPS+Time+Correction</a>
 <br />
-e.g.
+<br />Thanks in advance,
 <br />
-Either:
+<br />Julien
 <br />
-&nbsp;&nbsp;var.type == string AND var.values in standard_region_list
+<br /><em class="quotelev1">&gt;Jonathan Gregory j.m.gregory at reading.ac.uk&lt;<a href="http://reading.ac.uk">http://reading.ac.uk</a>&gt;
+</em><br />
+<em class="quotelev1">&gt;Thu Apr 23 07:58:09 MDT 2015
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;Dear Julien
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;Could you explain what the difference is between GPS time and UTC (for a non-
+</em><br />
+<em class="quotelev1">&gt;expert such as me)?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;Thanks
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;Jonathan
+</em><br />
+<br />De : Julien Demaria
 <br />
-Or:
+Envoy? : jeudi 23 avril 2015 14:51
 <br />
-&nbsp;&nbsp;flag_values, flag_meanings in var.attributes AND flag_meanings.values in standard_region_list AND var.type == flag_values.type
+? : 'cf-metadata at cgd.ucar.edu&lt;mailto:cf-metadata at cgd.ucar.edu&gt;'
 <br />
-<br />But as the above text is just something I made up now, it would take quite a lot of work, I expect, to get a reliable parsing algorithm.
+Objet : How to define time coordinate in GPS?
 <br />
-<br />regards,
+<br />Hi,
 <br />
-Martin
+<br />I need to define a time coordinate variable which use the GPS time referential instead of UTC, but I did not found how to specify this.
 <br />
-________________________________________
+For the moment my variable look like this :
 <br />
-From: Lowry, Roy K. [rkl at bodc.ac.uk]
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int64 time_stamp(rows) ;
 <br />
-Sent: 13 July 2016 09:38
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time_stamp:standard_name = &quot;time&quot; ;
 <br />
-To: Juckes, Martin (STFC,RAL,RALSP); cf-metadata at cgd.ucar.edu
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time_stamp:units = &quot;microseconds since 2000-01-01 00:00:00&quot; ;
 <br />
-Subject: RE: [CF-metadata] Recording requirements expressed in standard name    definitions
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time_stamp:_FillValue = -1L ;
 <br />
-<br />Dear Martin,
+<br />Thanks in advance,
 <br />
-<br />This sounds an excellent idea. What do you thinks of the idea of building the knowledge into NVS to make it accessible in machine-readable form and so the requirements could be enforced by the CF checker?
-<br />
-<br />Cheers, Roy.
-<br />
-<br />-----Original Message-----
-<br />
-From: CF-metadata [mailto:cf-metadata-bounces at cgd.ucar.edu] On Behalf Of martin.juckes at stfc.ac.uk
-<br />
-Sent: 07 July 2016 12:01
-<br />
-To: cf-metadata at cgd.ucar.edu
-<br />
-Subject: [CF-metadata] Recording requirements expressed in standard name definitions
-<br />
-<br />Dear All,
-<br />
-<br />in connection with ticket 151 (<a href="http://cf-trac.llnl.gov/trac/ticket/151">http://cf-trac.llnl.gov/trac/ticket/151</a>) I had proposed a section in appendix B listing standard names whose definitions impose additional constraints on variable attributes etc. Jonathan convinced me that ticket 151 was not the right place for this.
-<br />
-<br />The proposal for this new section was motivated by the fact that standard name descriptions cannot include examples or markup, and the specification of the rules is not as clear as in the convention text. It also appears that the rules are not checked by the CF checker (at least not the few that I have looked at in detail) and I think the best way to get consistent checking would be to first create a well structured summary of these rules in the conventions document.
-<br />
-<br />The constraint related to ticket 151 is that variables with standard name &quot;region&quot; or &quot;area_type&quot; must be consistent with the standard region and area type lists.
-<br />
-<br />I have reviewed the first half of the standard name list (a to m) and found the following coordinate constraints expressed:
-<br />
-<br />(1) area_fraction: requires an area_type coordinate;
-<br />
-<br />(2) atmosphere_lifting_condensation_level + 2 others: requires an original_air_pressure_of_lifted_parcel coordinate.
-<br />
-<br />(3) Many &quot;layer&quot; quantities (e.g. dry_static_energy_content_of_atmosphere_layer): require vertical coordinate with bounds.
-<br />
-<br />(4) change_in_energy_content_of_atmosphere_layer_due_to_change_in_sigma_coordinate_wrt_surface_pressure: must have a vertical coordinate variable (axis=Z)
-<br />
-<br />(5) change_over_time_... and .._displacement: require bounds on time coordinate
-<br />
-<br />(6) downwelling_photosynthetic_photon_radiance_in_sea_water and other radiance variables: direction must be specified, e.g. with coordinate of &quot;zenith_angle&quot;.
-<br />
-<br />(7) mass_concentration_of_pm..._ambient_aerosol_in_air (and mass_fraction_of_pm..): require air_temperature and relative_humidity
-<br />
-<br />(8) isotropic_radiance_per_unit_wavelength_in_air (and other per_unit_wavelength varables): the definition is slightly ambiguous with the sentence  &quot;A coordinate variable for radiation wavelength should be given the standard name radiation_wavelength&quot; which, taken literally, means the use of a wavelength coordinate is optional: should it be &quot;A coordinate variable for radiation wavelength should be given with the standard name radiation_wavelength&quot;, making the wavelength coordinate required?
-<br />
-<br />Is it worth completing the review of the standard name desriptions and creating an appendix section to list these constraints, giving examples (or pointing to examples which may be better positioned in relevant portions of the main text)?
-<br />
-<br />regards,
-<br />
-Martin
+<br />Julien
 <br />
 <br /><br />_______________________________________________
 <br />
 CF-metadata mailing list
 <br />
-CF-metadata at cgd.ucar.edu
+CF-metadata at cgd.ucar.edu&lt;mailto:CF-metadata at cgd.ucar.edu&gt;
 <br />
 <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 <br />
-________________________________
-<br />
-&nbsp;This message (and any attachments) is for the recipient only. NERC is subject to the Freedom of Information Act 2000 and the contents of this email and any reply you make may be disclosed by NERC unless it is exempt from release under the Act. Any material supplied to NERC may be stored in an electronic records management system.
-<br />
-________________________________
-<br />
-________________________________
-<br />
-This message (and any attachments) is for the recipient only. NERC is subject to the Freedom of Information Act 2000 and the contents of this email and any reply you make may be disclosed by NERC unless it is exempt from release under the Act. Any material supplied to NERC may be stored in an electronic records management system.
-<br />
-________________________________
-<br />
-________________________________
-<br />
-This message (and any attachments) is for the recipient only. NERC is subject to the Freedom of Information Act 2000 and the contents of this email and any reply you make may be disclosed by NERC unless it is exempt from release under the Act. Any material supplied to NERC may be stored in an electronic records management system.
-<br />
-________________________________
-<br />
-<span id="received"><dfn>Received on</dfn> Fri Jul 15 2016 - 03:37:51 BST</span>
+<br /><br /><br /><pre>
+--
+Christopher Barker, Ph.D.
+Oceanographer
+Emergency Response Division
+NOAA/NOS/OR&amp;R            (206) 526-6959   voice
+7600 Sand Point Way NE   (206) 526-6329   fax
+Seattle, WA  98115       (206) 526-6317   main reception
+Chris.Barker at noaa.gov&lt;mailto:Chris.Barker at noaa.gov&gt;
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150424/3fe51f4e/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150424/3fe51f4e/attachment-0001.html</a>&gt;
+</pre>
+<span id="received"><dfn>Received on</dfn> Fri Apr 24 2015 - 10:14:13 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -271,10 +240,13 @@ ________________________________
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start7701">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./7702.html" title="Next message in the list">Dirk Notz: "[CF-metadata] CMIP6 Sea Ice MIP: General variables"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./7700.html" title="Previous message in the list">Lowry, Roy K.: "[CF-metadata] Recording requirements expressed in standard name	definitions"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./7700.html" title="Message to which this message replies">Lowry, Roy K.: "[CF-metadata] Recording requirements expressed in standard name	definitions"</a></li>
+<li><dfn>Next message</dfn>: <a href="./7702.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  How to define time coordinate in GPS?"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./7700.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]  CF region_names"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./7698.html" title="Message to which this message replies">Manning, Evan M: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./7703.html" title="Next message in this discussion thread">Jim Biard: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./7703.html" title="Message sent in reply to this message">Jim Biard: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -285,7 +257,7 @@ ________________________________
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:05 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./7700.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7702.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

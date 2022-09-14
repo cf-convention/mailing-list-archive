@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF conventions and netCDF-4 from Russ Rew on 2008-10-28 (mailing-list-archive)</title>
-<meta name="Author" content="Russ Rew (russ)" />
-<meta name="Subject" content="[CF-metadata] CF conventions and netCDF-4" />
-<meta name="Date" content="2008-10-28" />
+<title>[CF-metadata] proposed rules for changes to CF conventions from Jonathan Gregory on 2007-06-28 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] proposed rules for changes to CF conventions" />
+<meta name="Date" content="2007-06-28" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1697.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1699.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF conventions and netCDF-4</h1>
-<!-- received="Tue Oct 28 15:22:15 2008" -->
-<!-- isoreceived="20081028152215" -->
-<!-- sent="Tue, 28 Oct 2008 15:22:15 -0600" -->
-<!-- isosent="20081028212215" -->
-<!-- name="Russ Rew" -->
-<!-- email="russ" -->
-<!-- subject="[CF-metadata] CF conventions and netCDF-4" -->
-<!-- id="7145.1225228935_at_buddy.unidata.ucar.edu" -->
+<a style="text-decoration:none" href="./1697.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1699.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] proposed rules for changes to CF conventions</h1>
+<!-- received="Thu Jun 28 11:14:45 2007" -->
+<!-- isoreceived="20070628101445" -->
+<!-- sent="Thu, 28 Jun 2007 18:14:45 +0100" -->
+<!-- isosent="20070628171445" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] proposed rules for changes to CF conventions" -->
+<!-- id="20070628171445.GC12559_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="philip.bentley_at_metoffice.gov.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1699.html" accesskey="d" title="Robert Muetzelfeldt: &quot;[CF-metadata] a different (but perhaps unoriginal) approach to standard name construction&quot;">Next message</a> ]
-[ <a href="./1697.html" title="Julia Collins: &quot;[CF-metadata] a different (but perhaps unoriginal) approach to standard name construction&quot;">Previous message</a> ]
+[ <a href="./1699.html" accesskey="d" title="V. Balaji: &quot;[CF-metadata] proposed rules for changes to CF conventions&quot;">Next message</a> ]
+[ <a href="./1697.html" title="Godin, Michael: &quot;[CF-metadata] &#0034;positive&#0034; attribute&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -69,112 +68,82 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Russ Rew &lt;<a href="mailto:russ?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20conventions%20and%20netCDF-4">russ</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20proposed%20rules%20for%20changes%20to%20CF%20conventions">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 28 Oct 2008 15:22:15 -0600</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 28 Jun 2007 18:14:45 +0100</span><br />
 </address>
 <br />
-Hi Phil,
+Dear John
 <br />
-<br /><em class="quotelev1">&gt; I can't recall if this topic has come up for discussion on the mailing
-</em><br />
-<em class="quotelev1">&gt; list before - apologies in advance if that is the case.
+<br /><em class="quotelev1">&gt; Perhaps you can clarify what happens in the following case: 1) Someone expresses a concern.  2) The moderator (or someone else) responds to the concern.  3) The moderator summarizes the outcome after suitable time.  (Note that the person expressing the original concern has said nothing further.) 4) No one else contributes.  
 </em><br />
 <em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; Although the current CF conventions do not appear to be tied explicitly
+<em class="quotelev1">&gt; Is this deemed to be a consensus, or not?  My sense is that unless the originator of the concern in step (1) says &quot;I accept your point of view, carry on&quot;,  the initial concern should be considered an outstanding objection.
 </em><br />
-<em class="quotelev1">&gt; to a particular version of the netCDF library, there are certain
-</em><br />
-<em class="quotelev1">&gt; sections (e.g. 2.2 Data Types) which imply a fairly strong linkage with
-</em><br />
-<em class="quotelev1">&gt; the netCDF-3 'classic' data model.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Thinking about the new features that ship with the netCDF-4 library -
-</em><br />
-<em class="quotelev1">&gt; named groups and richer data types, for instance - would it be correct
-</em><br />
-<em class="quotelev1">&gt; to assume that the same metadata attributes that make a netCDF-3 file
-</em><br />
-<em class="quotelev1">&gt; CF-compliant would also render the equivalent netCDF-4 file CF-
-</em><br />
-<em class="quotelev1">&gt; compliant? (I'm assuming here that the data and metadata are placed
-</em><br />
-<em class="quotelev1">&gt; within the default root group in the case of the netCDF-4 file.)
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I think the answer is Yes, but it would be useful to hear the view of
-</em><br />
-<em class="quotelev1">&gt; others.
-</em><br />
-<br />Yes, a netCDF-3 file that is CF-compliant should also be CF-compliant as
+<br />Hmmm. I think it will generally work better if the moderator tries to keep out
 <br />
-a netCDF-4 file, becasue the CF conventions all apply to classic model
+of it (though I'd find that hard if I were moderator :-). I tend to think that
 <br />
-data that's represented in netCDF-4 format files.
+if A proposes, B objects, C responds to B's objection (in support of A), and
 <br />
-<br /><em class="quotelev1">&gt; Alternatively, asking the question from the opposite perspective, are
+then neither A nor B comment further, the proposal should be accepted. By not
+<br />
+responding, I think B has dropped his objection. If B was interested enough to
+<br />
+comment, I expect he would make time to say just &quot;No, I am still not happy&quot; if
+<br />
+nothing more.  If C agrees with B's objection, and A doesn't respond, there is
+<br />
+an outstanding objection and hence not a consensus.
+<br />
+<br /><em class="quotelev1">&gt; This question might become clearer if the mechanism and timing of the 'call for a vote' was explicitly described in the procedures -- right now the voting is mentioned only in the summary of closing the track ticket.
 </em><br />
-<em class="quotelev1">&gt; there updates that need to be factored into a future version of CF to
+<br />I think the vote occurs two weeks after the moderator has summarised the
+<br />
+discussion, if no-one has said anything subsequently. If the summary says
+<br />
+there is nearly a consensus (in the judgement of the moderator), and no-one
+<br />
+has challenged that assessment (by commenting subsequently), the issue is
+<br />
+decided by a vote, and requires near-unanimity for acceptance.
+<br />
+<br /><em class="quotelev1">&gt; Real files can be very useful for humans to understand precisely the application and implications of the proposed change.
 </em><br />
-<em class="quotelev1">&gt; cater for the new capabilities offered by netCDF-4?
+<br />OK. Since you and John Caron agree, I am outvoted. :-) If the change was to
+<br />
+prohibit something, I suppose the test file would be something that was
+<br />
+deliberately erroneous under the proposed change. That is useful input to
+<br />
+test the CF checker. Do you agree?
+<br />
+<br /><em class="quotelev1">&gt; Third option: Require testing before a conclusion is reached. Provisional libcf and CF checkers are presumably within reason.
 </em><br />
-<br />Yes, but I think it may be premature to propose CF conventions
+<br />I think that is the idea. The decision to go from provisional to final depends
 <br />
-concerning the new features of netCDF-4 until there is more experience
+on the testing.
 <br />
-with using them.  So far, most netCDF-4 users seem to be employing the
-<br />
-&quot;classic model&quot;, in which data follows the simpler netCDF-3 data model
-<br />
-but may use performance-oriented features of netCDF-4, such as
-<br />
-compression, chunking, larger variable sizes, and efficient schema
-<br />
-changes.  Use of such performance features don't require readers to
-<br />
-change their programs, but merely recompile them, and the changes to
-<br />
-writing programs are minor.
-<br />
-<br />I've written a draft document &quot;Developing conventions for netCDF-4&quot;:
-<br />
-<br />&nbsp;&nbsp;<a href="http://www.unidata.ucar.edu/staff/russ/nc4_conventions.html">http://www.unidata.ucar.edu/staff/russ/nc4_conventions.html</a>
-<br />
-<br />that identifies some areas where conventions may be needed for new
-<br />
-features like groups and compound types and proposes a few conventions,
-<br />
-such as for assigning attributes to members of compound type.  These are
-<br />
-likely to be &quot;Users Guide&quot; conventions, so CF could inherit them as
-<br />
-happened with the &quot;units&quot; attribute, for example.
-<br />
-<br />Feedback on that draft document is appreciated.
-<br />
-<br />--Russ
-<br />
-<br /><em class="quotelev1">&gt; Thanks in advance.
+<br /><em class="quotelev1">&gt; Finally, could you briefly mention (or point to) the rationale for the standard names following a separate process? A quick review of the site didn't uncover this information, thanks.
 </em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Regards,
-</em><br />
-<em class="quotelev1">&gt; Phil
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<span id="received"><dfn>Received on</dfn> Tue Oct 28 2008 - 15:22:15 GMT</span>
+<br />The white paper might say something. It's basically because (a) there are two
+<br />
+committees representing the different sort of expertise and (b) the nature of
+<br />
+the changes are different. Stdname proposals are typically large collections of
+<br />
+small points to be discussed, conventions often larger conceptual issues. But
+<br />
+there is overlap, as Alison pointed out in Paris, and some issues might cover
+<br />
+both areas or pass from one to the other.
+<br />
+<br />Best wishes
+<br />
+<br />Jonathan
+<br />
+<span id="received"><dfn>Received on</dfn> Thu Jun 28 2007 - 11:14:45 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -182,8 +151,8 @@ happened with the &quot;units&quot; attribute, for example.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1698">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1699.html" title="Next message in the list">Robert Muetzelfeldt: "[CF-metadata] a different (but perhaps unoriginal) approach to standard name construction"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1697.html" title="Previous message in the list">Julia Collins: "[CF-metadata] a different (but perhaps unoriginal) approach to standard name construction"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1699.html" title="Next message in the list">V. Balaji: "[CF-metadata] proposed rules for changes to CF conventions"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1697.html" title="Previous message in the list">Godin, Michael: "[CF-metadata] &#0034;positive&#0034; attribute"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -195,7 +164,7 @@ happened with the &quot;units&quot; attribute, for example.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:12 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1697.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1699.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

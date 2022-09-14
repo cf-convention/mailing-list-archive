@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF and multi-forecast system ensemble data from Kettleborough, Jamie on 2006-11-15 (mailing-list-archive)</title>
-<meta name="Author" content="Kettleborough, Jamie (jamie.kettleborough)" />
-<meta name="Subject" content="[CF-metadata] CF and multi-forecast system ensemble data" />
-<meta name="Date" content="2006-11-15" />
+<title>[CF-metadata] Units: absolute vs difference from Steve Hankin on 2004-08-17 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Steve Hankin (steven.c.hankin)" />
+<meta name="Subject" content="[CF-metadata] Units: absolute vs difference" />
+<meta name="Date" content="2004-08-17" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0438.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0440.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF and multi-forecast system ensemble data</h1>
-<!-- received="Wed Nov 15 02:56:30 2006" -->
-<!-- isoreceived="20061115025630" -->
-<!-- sent="Wed, 15 Nov 2006 09:56:30 +0000" -->
-<!-- isosent="20061115095630" -->
-<!-- name="Kettleborough, Jamie" -->
-<!-- email="jamie.kettleborough" -->
-<!-- subject="[CF-metadata] CF and multi-forecast system ensemble data" -->
-<!-- id="1163584590.13618.30.camel_at_eld408.desktop.frd.metoffice.com" -->
+<a style="text-decoration:none" href="./0438.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0440.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Units: absolute vs difference</h1>
+<!-- received="Mon Aug 16 18:31:11 2004" -->
+<!-- isoreceived="20040816173111" -->
+<!-- sent="Mon, 16 Aug 2004 17:31:11 -0700" -->
+<!-- isosent="20040817003111" -->
+<!-- name="Steve Hankin" -->
+<!-- email="steven.c.hankin" -->
+<!-- subject="[CF-metadata] Units: absolute vs difference" -->
+<!-- id="412151CF.1B872579_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20061111131005.GA3820_at_met.reading.ac.uk" -->
+<!-- inreplyto="20040811004058.GI13218&#64;ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +54,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0440.html" accesskey="d" title="Kettleborough, Jamie: &quot;[CF-metadata] CF provisional standards&quot;">Next message</a> ]
-[ <a href="./0438.html" title="Jonathan Gregory: &quot;[CF-metadata] species as species in chemical and aerosol?names - &#0034;mercury&#0034;&quot;">Previous message</a> ]
-[ <a href="./0407.html" title="Jonathan Gregory: &quot;[CF-metadata] CF and multi-forecast system ensemble data&quot;">In reply to</a> ]
+[ <a href="./0440.html" accesskey="d" title="Roy Lowry: &quot;[CF-metadata] Units: absolute vs difference&quot;">Next message</a> ]
+[ <a href="./0438.html" title="Brian Eaton: &quot;[CF-metadata] Units: absolute vs difference&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,76 +69,143 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Kettleborough, Jamie &lt;<a href="mailto:jamie.kettleborough?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20and%20multi-forecast%20system%20ensemble%20data">jamie.kettleborough</a>&gt;
+<dfn>From</dfn>: Steve Hankin &lt;<a href="mailto:steven.c.hankin?Subject=Re%3A%20%5BCF-metadata%5D%20Units%3A%20absolute%20vs%20difference">steven.c.hankin</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 15 Nov 2006 09:56:30 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 16 Aug 2004 17:31:11 -0700</span><br />
 </address>
 <br />
-Hello Jonathan,
+All,
 <br />
-<br />In your example:
+<br />IMHO John's question is part of a broader issue in the construction of standard
 <br />
-<em class="quotelev1">&gt; 
+parameter names -- the need for hierarchy.  (I confess at the outset that these are
+<br />
+inchoate thoughts ... so this email is just to open the dialog.)
+<br />
+<br />Looking at names like
+<br />
+&nbsp;&nbsp;tendency_of_air_temperature_due_to_diabatic_processes
+<br />
+&nbsp;&nbsp;tendency_of_air_temperature_due_to_dry_convection
+<br />
+&nbsp;&nbsp;tendency_of_air_temperature_due_to_large_scale_precipitation
+<br />
+&nbsp;&nbsp;...
+<br />
+we see how a single conceptual quantity, &quot;tendency_of_air_temperature&quot;, has diverged
+<br />
+into many variables.  Some important semantics have been lost in the process -- that
+<br />
+these variables are part of a family (terms in a &quot;budget&quot;).  Simply knowing that the
+<br />
+variables share the same units is not a sufficient indication (to a machine) that it
+<br />
+is reasonable to allow these variables to be added together.
+<br />
+<br />John's example is related.  A &quot;delta&quot; of a quantity is still that same quantity, but
+<br />
+with some (possibly time/space dependent) offset removed.  This kind of information
+<br />
+needs to be captured in a sophisticated naming scheme (but how best to do so?).
+<br />
+<br />This email is more trouble than help, I know.  But that seems to be the nature of
+<br />
+the beast.
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;- steve
+<br />
+<br />==================================
+<br />
+<br />Brian Eaton wrote:
+<br />
+<br /><em class="quotelev1">&gt; I agree with Jonathan that the distinction should be made in the
 </em><br />
-<em class="quotelev1">&gt;   float temperature(realization,time,lat,lon):
+<em class="quotelev1">&gt; description of the quantity, and not in the units.  We do have the standard
 </em><br />
-<em class="quotelev1">&gt;     temperature:coordinates = 'time lat lon metadata1' ;
+<em class="quotelev1">&gt; name air_temperature_anomaly, but anomaly implies that the difference is
 </em><br />
-<em class="quotelev1">&gt;   char metadata1(realization,len100):
+<em class="quotelev1">&gt; with a climatology.  If we had a standard name like
 </em><br />
-<em class="quotelev1">&gt;     metadata1:standard_name=&quot;institution&quot;; // for instance
+<em class="quotelev1">&gt; air_temperature_difference it seems that would be appropriate.  But that
 </em><br />
-<em class="quotelev1">&gt;     metadata1:external_vocabulary = <a href="http://wmo.foo.int/identifierY">http://wmo.foo.int/identifierY</a> 
+<em class="quotelev1">&gt; leaves an unresolved issue as to what the difference is with respect to.
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; Of course the same issue is present with an anomaly; we don't currently
 </em><br />
-<em class="quotelev1">&gt; I proposed that the new standard names would be the same as the new or
+<em class="quotelev1">&gt; have a mechanism for connecting an anomaly with the appropriate
 </em><br />
-<em class="quotelev1">&gt; existing global and local attributes that we use for these purposes
+<em class="quotelev1">&gt; climatology.
 </em><br />
-<em class="quotelev1">&gt; (such as institution).
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; In view of the problems with interpreting exactly what a difference field
 </em><br />
-<br />I was wondering do we need _both_ the standard_name and the
-<br />
-external_vocabulary?  For instance is there a risk of redundancy?  I
-<br />
-think the potential for redundancy arises if an application can infer
-<br />
-the kind of standard name type quantity the vocabulary refers to (either
-<br />
-by knowing it hard coded, or through vocab URL naming conventions)?  The
-<br />
-main reason I can think of for including both is if an application has
-<br />
-some idea of what to do with 'institution' without having to know what
-<br />
-the individual names in the vocab mean (e.g. use it to slice an
-<br />
-ensemble), but doesn't necessarily know that
-<br />
-<a href="http://wmo.foo.int/identifierY">http://wmo.foo.int/identifierY</a> is an institution type label.
-<br />
-<br />Something else I'm not so clear on is can the providers of a vocabulary
-<br />
-mix the kind of things they are naming within a vocab list (e.g. have a
-<br />
-single vocab containing both 'source' and 'institution'?)  If the vocabs
-<br />
-are being maintained externally I don't think you can control whether
-<br />
-this happens or not.  (Which I think implies that you need both
-<br />
-standard_name and external_vocabulary for safety's sake).
-<br />
-<br />I'm not sure I've added anything here - but figured it was worth posting
-<br />
-to try and get some clarification.
-<br />
-<br />Jamie
-<br />
-<span id="received"><dfn>Received on</dfn> Wed Nov 15 2006 - 02:56:30 GMT</span>
+<em class="quotelev1">&gt; means, the question that comes to mind is why is WRF writing temperature
+</em><br />
+<em class="quotelev1">&gt; differences to the output file?  Why not convert to a standard quantity
+</em><br />
+<em class="quotelev1">&gt; before output (or during conversion to CF compliant output)?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Brian
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; On Tue, Aug 10, 2004 at 10:49:33PM +0100, Jonathan Gregory wrote:
+</em><br />
+<em class="quotelev2">&gt; &gt; Dear John
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; we're looking at WRF model output with temperature differences in
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; Kelvin. unfortunately, our software package converts to Celsius by
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; subtracting 273. We could fix if we knew it was a temp difference
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; instead of an absolute temp.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; I don't think the units would be able to help you. Does the WRF model output
+</em><br />
+<em class="quotelev2">&gt; &gt; distinguish in any other way between temperatures and temperature differences?
+</em><br />
+<em class="quotelev2">&gt; &gt; Would your software be able to look at other attributes to decide what to do?
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; Cheers
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; Jonathan
+</em><br />
+<em class="quotelev2">&gt; &gt; _______________________________________________
+</em><br />
+<em class="quotelev2">&gt; &gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev2">&gt; &gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt; &gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<br /><pre>
+--
+???,??,????`????,??,????`????,??,????`??????,??,???
+Steve Hankin, NOAA/PMEL -- Steven.C.Hankin at noaa.gov
+7600 Sand Point Way NE, Seattle, WA 98115-0070
+ph. (206) 526-6080, FAX (206) 526-6744
+</pre>
+<span id="received"><dfn>Received on</dfn> Mon Aug 16 2004 - 18:31:11 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -147,9 +213,8 @@ to try and get some clarification.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start439">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0440.html" title="Next message in the list">Kettleborough, Jamie: "[CF-metadata] CF provisional standards"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0438.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] species as species in chemical and aerosol?names - &#0034;mercury&#0034;"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0407.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] CF and multi-forecast system ensemble data"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0440.html" title="Next message in the list">Roy Lowry: "[CF-metadata] Units: absolute vs difference"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0438.html" title="Previous message in the list">Brian Eaton: "[CF-metadata] Units: absolute vs difference"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -161,7 +226,7 @@ to try and get some clarification.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:50 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0438.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0440.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

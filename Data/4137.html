@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Sea surface height from Bentley, Philip on 2012-01-26 (mailing-list-archive)</title>
-<meta name="Author" content="Bentley, Philip (philip.bentley)" />
-<meta name="Subject" content="[CF-metadata] Sea surface height" />
-<meta name="Date" content="2012-01-26" />
+<title>[CF-metadata] udunits handling of fuzzy time units from Jonathan Gregory on 2011-03-16 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] udunits handling of fuzzy time units" />
+<meta name="Date" content="2011-03-16" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4136.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4138.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Sea surface height</h1>
-<!-- received="Thu Jan 26 08:13:46 2012" -->
-<!-- isoreceived="20120126081346" -->
-<!-- sent="Thu, 26 Jan 2012 15:13:46 -0000" -->
-<!-- isosent="20120126151346" -->
-<!-- name="Bentley, Philip" -->
-<!-- email="philip.bentley" -->
-<!-- subject="[CF-metadata] Sea surface height" -->
-<!-- id="E51EDFEBF10BE44BB4BDAF5FC2F024B903636ABE_at_EXXMAIL02.desktop.frd.metoffice.com" -->
+<a style="text-decoration:none" href="./4136.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4138.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] udunits handling of fuzzy time units</h1>
+<!-- received="Wed Mar 16 11:26:07 2011" -->
+<!-- isoreceived="20110316112607" -->
+<!-- sent="Wed, 16 Mar 2011 17:26:07 +0000" -->
+<!-- isosent="20110316172607" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] udunits handling of fuzzy time units" -->
+<!-- id="20110316172606.GA7938_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4F215BF9.1040200_at_ifremer.fr" -->
+<!-- inreplyto="4D80F134.10804_at_unidata.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4138.html" accesskey="d" title="Bert Jagers: &quot;[CF-metadata] Sea surface height&quot;">Next message</a> ]
-[ <a href="./4136.html" title="Lowry, Roy K.: &quot;[CF-metadata] Sea surface height&quot;">Previous message</a> ]
-[ <a href="./4133.html" title="Stephane TAROT: &quot;[CF-metadata] Sea surface height&quot;">In reply to</a> ]
+[ <a href="./4138.html" accesskey="d" title="John Caron: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">Next message</a> ]
+[ <a href="./4136.html" title="Steve Emmerson: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">Previous message</a> ]
+[ <a href="./4136.html" title="Steve Emmerson: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./4138.html" accesskey="t" title="Bert Jagers: &quot;[CF-metadata] Sea surface height&quot;">Next in thread</a> ]
+[ <a href="./4139.html" accesskey="t" title="Steve Emmerson: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,94 +72,38 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Bentley, Philip &lt;<a href="mailto:philip.bentley?Subject=Re%3A%20%5BCF-metadata%5D%20Sea%20surface%20height">philip.bentley</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20udunits%20handling%20of%20fuzzy%20time%20units">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 26 Jan 2012 15:13:46 -0000</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 16 Mar 2011 17:26:07 +0000</span><br />
 </address>
 <br />
-Hi Stephane,
+Dear Steve
 <br />
-&nbsp;
+<br /><em class="quotelev2">&gt; &gt; If udunits itself were extended to cover non-real-world calendars, wouldn't
+</em><br />
+<em class="quotelev2">&gt; &gt; that be OK?
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; That idea is easy to say (or request) but it would be very difficult to
+</em><br />
+<em class="quotelev1">&gt; implement because one of the most fundamental assumptions of the UDUNITS
+</em><br />
+<em class="quotelev1">&gt; library -- one around which the library is designed -- is the idea that
+</em><br />
+<em class="quotelev1">&gt; units have constant size; hence, Caron's and my suggestion for use of a
+</em><br />
+<em class="quotelev1">&gt; separate, calendar-handling library.
+</em><br />
+<br />I see, OK. It would have to replicate some of the functionality of udunits,
 <br />
-Would one or both of the following two standard names cover your use-case? The first is in effect your residual, I think.
+though, wouldn't it. What do you use to do the date translation in ncdump -t?
 <br />
-&nbsp;
+<br />Cheers
 <br />
---------------
+<br />Jonathan
 <br />
-standard name: water_surface_height_above_reference_datum
-<br />
-&nbsp;&nbsp;canon units: m
-<br />
-&nbsp;&nbsp;description: 'Water surface height above reference datum' means the height of the upper surface of a body of liquid water, such as sea, lake or river, above an arbitrary reference datum. The altitude of the datum should be provided in a variable with standard name water_surface_reference_datum_altitude. The surface called &quot;surface&quot; means the lower boundary of the atmosphere.
-<br />
---------------
-<br />
-standard name: water_surface_reference_datum_altitude
-<br />
-&nbsp;&nbsp;canon units: m
-<br />
-&nbsp;&nbsp;description: Altitude is the (geometric) height above the geoid, which is the reference geopotential surface. The geoid is similar to mean sea level. 'Water surface reference datum altitude' means the altitude of the arbitrary datum referred to by a quantity with standard name 'water_surface_height_above_reference_datum'. The surface called &quot;surface&quot; means the lower boundary of the atmosphere.
-<br />
---------------
-<br />
-<br />Regards,
-<br />
-Phil
-<br />
-<br /><br />________________________________
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;From: cf-metadata-bounces at cgd.ucar.edu [mailto:cf-metadata-bounces at cgd.ucar.edu] On Behalf Of Stephane TAROT
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sent: 26 January 2012 13:58
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To: cf-metadata at cgd.ucar.edu
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subject: [CF-metadata] Sea surface height
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hi,
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In the MyOcean european project, we are using sea_surface_height_above_sea_level for the insitu data mesured by tide gauges.
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;By substracting these measures and the predicted tide sea level, we calculate the residual due to atmospheric (pressure and wind) conditions.
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Is there an existing standard name for the residual ?
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Should we consider that the predicted tide sea level is a sort of climatology and therefore use &quot;sea_surface_height_above_sea_level_anomaly&quot; for the residual ?
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thanks for your help
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;St?phane Tarot (Ifremer)
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<br />
-<br />-------------- next part --------------
-<br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120126/b1aaf914/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120126/b1aaf914/attachment-0001.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Thu Jan 26 2012 - 08:13:46 GMT</span>
+<span id="received"><dfn>Received on</dfn> Wed Mar 16 2011 - 11:26:07 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -167,13 +111,13 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4137">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4138.html" title="Next message in the list">Bert Jagers: "[CF-metadata] Sea surface height"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4136.html" title="Previous message in the list">Lowry, Roy K.: "[CF-metadata] Sea surface height"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./4133.html" title="Message to which this message replies">Stephane TAROT: "[CF-metadata] Sea surface height"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4138.html" title="Next message in the list">John Caron: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4136.html" title="Previous message in the list">Steve Emmerson: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./4136.html" title="Message to which this message replies">Steve Emmerson: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./4138.html" title="Next message in this discussion thread">Bert Jagers: "[CF-metadata] Sea surface height"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./4139.html" title="Next message in this discussion thread">Steve Emmerson: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./4138.html" title="Message sent in reply to this message">Bert Jagers: "[CF-metadata] Sea surface height"</a></li>
+<dfn>Reply</dfn>: <a href="./4139.html" title="Message sent in reply to this message">Steve Emmerson: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -184,7 +128,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:57 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4136.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4138.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

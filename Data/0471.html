@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] new standard_names for variables concerning sea surface waves from Jonathan Gregory on 2006-11-21 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] new standard_names for variables concerning sea surface waves" />
-<meta name="Date" content="2006-11-21" />
+<title>[CF-metadata] quantities requiring parameters to define them from Brian Eaton on 2004-10-22 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Brian Eaton (eaton)" />
+<meta name="Subject" content="[CF-metadata] quantities requiring parameters to define them" />
+<meta name="Date" content="2004-10-22" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0470.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0472.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new standard_names for variables concerning sea surface waves</h1>
-<!-- received="Tue Nov 21 11:16:14 2006" -->
-<!-- isoreceived="20061121111614" -->
-<!-- sent="Tue, 21 Nov 2006 18:16:14 +0000" -->
-<!-- isosent="20061121181614" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] new standard_names for variables concerning sea surface waves" -->
-<!-- id="20061121181614.GB1823_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0470.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0472.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] quantities requiring parameters to define them</h1>
+<!-- received="Fri Oct 22 09:51:44 2004" -->
+<!-- isoreceived="20041022085144" -->
+<!-- sent="Fri, 22 Oct 2004 09:51:44 -0600" -->
+<!-- isosent="20041022155144" -->
+<!-- name="Brian Eaton" -->
+<!-- email="eaton" -->
+<!-- subject="[CF-metadata] quantities requiring parameters to define them" -->
+<!-- id="20041022155144.GD3538_at_ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20041022141233.GA490_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0472.html" accesskey="d" title="Mark Ohrenschall: &quot;[CF-metadata] CF-1.0 -- 7.1 Cell Boundaries and IDV&quot;">Next message</a> ]
-[ <a href="./0470.html" title="Jonathan Gregory: &quot;[CF-metadata] axis attribute&quot;">Previous message</a> ]
+[ <a href="./0472.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] quantities requiring parameters to define them&quot;">Next message</a> ]
+[ <a href="./0470.html" title="Roy Lowry: &quot;[CF-metadata] quantities requiring parameters to define them&quot;">Previous message</a> ]
+[ <a href="./0469.html" title="Jonathan Gregory: &quot;[CF-metadata] quantities requiring parameters to define them&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0482.html" accesskey="t" title="Richard Gorman: &quot;[CF-metadata] new standard_names for variables concerning sea surface	waves&quot;">Next in thread</a> ]
+[ <a href="./0473.html" accesskey="t" title="Derrick Snowden: &quot;[CF-metadata] quantities requiring parameters to define them&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,48 +72,186 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20new%20standard_names%20for%20variables%20concerning%20sea%20surface%20waves">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Brian Eaton &lt;<a href="mailto:eaton?Subject=Re%3A%20%5BCF-metadata%5D%20quantities%20requiring%20parameters%20to%20define%20them">eaton</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 21 Nov 2006 18:16:14 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 22 Oct 2004 09:51:44 -0600</span><br />
 </address>
 <br />
-Dear Richard
+Hi Jonathan,
 <br />
-<br />Thank you for your helpful explanation of what these quantities mean as stats
+<br />I find this use of formula_terms confusing.
 <br />
-of the spectrum. I agree with you that in view of their diversity they are
+<br />The problem you describe seems like a good candidate for the
 <br />
-better regarded as independent quantities and given standard names as such,
+ancillary_variables attribute and the standard_name modifiers.  
 <br />
-rather than being described as statistics. Your definitions in terms of moments
+Your example might be expressed like this:
 <br />
-would be useful to include in the description of these standard names.
+<br />variables:
 <br />
-<br />However, I still wonder whether there are any more self-explanatory names we
+&nbsp;&nbsp;float ild(time,lat,lon)
 <br />
-can give to them than tm-1, tm1 and tm2. Is this what they are invariably
+&nbsp;&nbsp;&nbsp;&nbsp;ild:standard_name=&quot;ocean_mixed_layer_thickness_diagnosed_from_temperature&quot;;
 <br />
-called, or do there exist any longer, more obvious, designations?
+&nbsp;&nbsp;&nbsp;&nbsp;ild:units=&quot;m&quot;;
 <br />
-<br />The frequency range could certainly be indicated for any such quantity by
+&nbsp;&nbsp;&nbsp;&nbsp;ild:ancillary_variables = &quot;tanom&quot;;
 <br />
-including a size-one or scalar coordinate variable of e.g.
+&nbsp;&nbsp;float pottem(time,level,lat,lon);
 <br />
-sea_surface_swell_wave_period, whose bounds would supply the range. We could
+&nbsp;&nbsp;&nbsp;&nbsp;pottem:standard_name = &quot;sea_water_potential_temperature&quot;;
 <br />
-also define names for frequency, rather than period, if that is preferable,
+&nbsp;&nbsp;&nbsp;&nbsp;pottem:units = &quot;degC&quot; ;
 <br />
-as it seems it might be given your formulae are in terms of frequency. No
+&nbsp;&nbsp;&nbsp;&nbsp;pottem:ancillary_variables = &quot;pref&quot;;
 <br />
-cell_methods entry would be needed, because these are integral quantities, and
+&nbsp;&nbsp;float tanom;
 <br />
-their default interpretation is to apply to the range indicated by the bounds.
+&nbsp;&nbsp;&nbsp;&nbsp;tanom:units=&quot;degC&quot;;
 <br />
-<br />Cheers
+&nbsp;&nbsp;&nbsp;&nbsp;tanom:standard_name=&quot;sea_water_temperature difference&quot;;
 <br />
-<br />Jonathan
+&nbsp;&nbsp;float pref;
 <br />
-<span id="received"><dfn>Received on</dfn> Tue Nov 21 2006 - 11:16:14 GMT</span>
+&nbsp;&nbsp;&nbsp;&nbsp;pref:units=&quot;dbar&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;pref:standard_name=&quot;air_pressure reference&quot;;
+<br />
+data:
+<br />
+&nbsp;&nbsp;tanom=0.5;
+<br />
+&nbsp;&nbsp;pref=2000;
+<br />
+<br />and then we'd only need to add &quot;difference&quot; and &quot;reference&quot; to the modifier
+<br />
+list in appendix C.
+<br />
+<br />Brian
+<br />
+<br />On Fri, Oct 22, 2004 at 03:12:33PM +0100, Jonathan Gregory wrote:
+<br />
+<em class="quotelev1">&gt; Dear All
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Some quantities cannot be fully defined by a standard name because their
+</em><br />
+<em class="quotelev1">&gt; definition includes a numeric parameter. If we included numeric parameters in
+</em><br />
+<em class="quotelev1">&gt; the name, the standard name table would become (uncountably) infinitely long.
+</em><br />
+<em class="quotelev1">&gt; For example, air and sea water potential temperature have a reference pressure,
+</em><br />
+<em class="quotelev1">&gt; usually assumed to be 1 atmosphere, but not necessarily so (especially in the
+</em><br />
+<em class="quotelev1">&gt; ocean). The ocean mixed layer thickness is often defined as being the depth
+</em><br />
+<em class="quotelev1">&gt; at which the temperature differs by some amount from the surface temperature,
+</em><br />
+<em class="quotelev1">&gt; and there are various choices for this number.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; One option would be to store the reference pressure and the temperature
+</em><br />
+<em class="quotelev1">&gt; difference as scalar coordinate variables or coordinate variables with a size
+</em><br />
+<em class="quotelev1">&gt; of unity, and identify them with standard names. I think this is the right
+</em><br />
+<em class="quotelev1">&gt; approach in some cases. For example, the depth of the 20 degC isotherm in the
+</em><br />
+<em class="quotelev1">&gt; ocean can be given a standard name of depth and a scalar coordinate of 20 degC.
+</em><br />
+<em class="quotelev1">&gt; For the two examples above, however, it doesn't seem so good to me because
+</em><br />
+<em class="quotelev1">&gt; &quot;reference pressure for potential temperature&quot; and &quot;temperature anomaly from
+</em><br />
+<em class="quotelev1">&gt; surface in mixed layer definition&quot; aren't physical quantities that you'd like
+</em><br />
+<em class="quotelev1">&gt; to have standard names for. They are literally just parameters in a formula.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Another approach would be to define attributes for these numbers. I don't like
+</em><br />
+<em class="quotelev1">&gt; that idea very much either because it would lead to a lot of new attributes
+</em><br />
+<em class="quotelev1">&gt; being necessary.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; My proposal is that we should extend the use of the formula_terms attribute to
+</em><br />
+<em class="quotelev1">&gt; cover this situation. At present formula_terms is used to supply variables for
+</em><br />
+<em class="quotelev1">&gt; computing dimensional vertical coordinates from dimensionless ones. It can be
+</em><br />
+<em class="quotelev1">&gt; an attribute only of a variable containing coordinate information, and the
+</em><br />
+<em class="quotelev1">&gt; contents it can have depend on the standard_name of the variable it is attached
+</em><br />
+<em class="quotelev1">&gt; to. I propose that we should allow formula_terms also to be attached to data
+</em><br />
+<em class="quotelev1">&gt; variables as well. In the same way, the contents it could have would depend on
+</em><br />
+<em class="quotelev1">&gt; the standard_name of the variable. Hence my two examples would become
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; variables:
+</em><br />
+<em class="quotelev1">&gt;   float ild(time,lat,lon)
+</em><br />
+<em class="quotelev1">&gt;     ild:standard_name=&quot;ocean_mixed_layer_thickness_diagnosed_from_temperature&quot;;
+</em><br />
+<em class="quotelev1">&gt;     ild:units=&quot;m&quot;;
+</em><br />
+<em class="quotelev1">&gt;     ild:formula_terms=&quot;temperature_difference: tanom&quot;;
+</em><br />
+<em class="quotelev1">&gt;   float pottem(time,level,lat,lon);
+</em><br />
+<em class="quotelev1">&gt;     pottem:standard_name = &quot;sea_water_potential_temperature&quot;;
+</em><br />
+<em class="quotelev1">&gt;     pottem:units = &quot;degC&quot; ;
+</em><br />
+<em class="quotelev1">&gt;     pottem:formula_terms=&quot;reference_pressure: pref&quot;;
+</em><br />
+<em class="quotelev1">&gt;   float tanom;
+</em><br />
+<em class="quotelev1">&gt;     tanom:units=&quot;degC&quot;;
+</em><br />
+<em class="quotelev1">&gt;   float pref;
+</em><br />
+<em class="quotelev1">&gt;     pref:units=&quot;dbar&quot;;
+</em><br />
+<em class="quotelev1">&gt; data:
+</em><br />
+<em class="quotelev1">&gt;   tanom=0.5;
+</em><br />
+<em class="quotelev1">&gt;   pref=2000;
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Any views?
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Best wishes
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Jonathan
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<span id="received"><dfn>Received on</dfn> Fri Oct 22 2004 - 09:51:44 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -119,12 +259,13 @@ their default interpretation is to apply to the range indicated by the bounds.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start471">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0472.html" title="Next message in the list">Mark Ohrenschall: "[CF-metadata] CF-1.0 -- 7.1 Cell Boundaries and IDV"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0470.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] axis attribute"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0472.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] quantities requiring parameters to define them"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0470.html" title="Previous message in the list">Roy Lowry: "[CF-metadata] quantities requiring parameters to define them"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0469.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] quantities requiring parameters to define them"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0482.html" title="Next message in this discussion thread">Richard Gorman: "[CF-metadata] new standard_names for variables concerning sea surface	waves"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./0473.html" title="Next message in this discussion thread">Derrick Snowden: "[CF-metadata] quantities requiring parameters to define them"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0482.html" title="Message sent in reply to this message">Richard Gorman: "[CF-metadata] new standard_names for variables concerning sea surface	waves"</a></li>
+<dfn>Reply</dfn>: <a href="./0473.html" title="Message sent in reply to this message">Derrick Snowden: "[CF-metadata] quantities requiring parameters to define them"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -135,7 +276,7 @@ their default interpretation is to apply to the range indicated by the bounds.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:50 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0470.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0472.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF-1.6 Conformance Requirements/Recommendations from Jonathan Gregory on 2012-04-02 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] CF-1.6 Conformance Requirements/Recommendations" />
-<meta name="Date" content="2012-04-02" />
+<title>[CF-metadata] Interpretation of Compression by Gathering method from Steve Hankin on 2011-06-01 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Steve Hankin (Steven.C.Hankin)" />
+<meta name="Subject" content="[CF-metadata] Interpretation of Compression by Gathering method" />
+<meta name="Date" content="2011-06-01" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4329.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4331.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF-1.6 Conformance Requirements/Recommendations</h1>
-<!-- received="Mon Apr  2 14:00:22 2012" -->
-<!-- isoreceived="20120402130022" -->
-<!-- sent="Mon, 2 Apr 2012 21:00:22 +0100" -->
-<!-- isosent="20120402200022" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] CF-1.6 Conformance Requirements/Recommendations" -->
-<!-- id="20120402200021.GA16502_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./4329.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4331.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Interpretation of Compression by Gathering method</h1>
+<!-- received="Wed Jun  1 09:17:57 2011" -->
+<!-- isoreceived="20110601081757" -->
+<!-- sent="Wed, 01 Jun 2011 15:17:57 -0000" -->
+<!-- isosent="20110601151757" -->
+<!-- name="Steve Hankin" -->
+<!-- email="Steven.C.Hankin" -->
+<!-- subject="[CF-metadata] Interpretation of Compression by Gathering method" -->
+<!-- id="4DE65824.8020707_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="8AC4893FB411FA4AA8CFECD9C8913B6609A27767_at_EXXMAIL01.desktop.frd.metoffice.com" -->
+<!-- inreplyto="E51EDFEBF10BE44BB4BDAF5FC2F024B9036367C4_at_EXXMAIL02.desktop.frd.metoffice.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4331.html" accesskey="d" title="Karl Taylor: &quot;[CF-metadata] CF-1.6 Conformance Requirements/Recommendations&quot;">Next message</a> ]
-[ <a href="./4329.html" title="Hedley, Mark: &quot;[CF-metadata] CF-1.6 Conformance Requirements/Recommendations&quot;">Previous message</a> ]
-[ <a href="./4329.html" title="Hedley, Mark: &quot;[CF-metadata] CF-1.6 Conformance Requirements/Recommendations&quot;">In reply to</a> ]
+[ <a href="./4331.html" accesskey="d" title="Mike Grant: &quot;[CF-metadata] Interpretation of Compression by Gathering method&quot;">Next message</a> ]
+[ <a href="./4329.html" title="Bentley, Philip: &quot;[CF-metadata] Interpretation of Compression by Gathering method&quot;">Previous message</a> ]
+[ <a href="./4329.html" title="Bentley, Philip: &quot;[CF-metadata] Interpretation of Compression by Gathering method&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./4331.html" accesskey="t" title="Karl Taylor: &quot;[CF-metadata] CF-1.6 Conformance Requirements/Recommendations&quot;">Next in thread</a> ]
+[ <a href="./4331.html" accesskey="t" title="Mike Grant: &quot;[CF-metadata] Interpretation of Compression by Gathering method&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,42 +72,146 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20CF-1.6%20Conformance%20Requirements%2FRecommendations">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Steve Hankin &lt;<a href="mailto:Steven.C.Hankin?Subject=Re%3A%20%5BCF-metadata%5D%20Interpretation%20of%20Compression%20by%20Gathering%20method">Steven.C.Hankin</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 2 Apr 2012 21:00:22 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 01 Jun 2011 15:17:57 -0000</span><br />
 </address>
 <br />
-Dear all
+Hi Philip,
 <br />
-<br />Thanks for your postings. There seems to be a consensus on this. I have
+<br />Compression by Gathering as defined in the CF document is not widely 
 <br />
-therefore changed my existing trac ticket 85 accordingly
+supported in software.  You should anticipate serious interoperability 
 <br />
-<a href="https://cf-pcmdi.llnl.gov/trac/ticket/85">https://cf-pcmdi.llnl.gov/trac/ticket/85</a>
+barriers if you choose to use it.  In view of the option to use 
 <br />
-to record this consensus. Note that this means we have to amend section 9.6
+&quot;chunked&quot; netCDF4 compression transparently with the netCDF3 classic 
 <br />
-as well, which explicitly disallowed missing data in aux coord vars (except
+API, there's a strong case that the old Compression by Gathering should 
 <br />
-for nonexistent elements). We have to change this, or else it would not be
+be formally deprecated.
 <br />
-legal for Nan to store her profiles with missing pressure in discrete sampling
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Steve
 <br />
-geometries following sect 9, for instance.
+<br />===========================================
 <br />
-<br />I hope I've got this right. Ticket 85 is a defect ticket, intended to correct
+<br />On 6/1/2011 6:47 AM, Bentley, Philip wrote:
 <br />
-mistakes uncontroversially! Therefore if anyone isn't happy with this, they
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Hi folks,
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; In investigating possible ways of efficiently storing data variables 
+</em><br />
+<em class="quotelev1">&gt; containing large numbers of contiguous missing values within 
+</em><br />
+<em class="quotelev1">&gt; CF-netCDF3 files, I have been looking at chapter 8 in the CF 
+</em><br />
+<em class="quotelev1">&gt; conventions document, which describes the technique of compression by 
+</em><br />
+<em class="quotelev1">&gt; gathering. (Of course, effective compression could readily be achieved 
+</em><br />
+<em class="quotelev1">&gt; externally using, say, gzip.  But for this discussion I'm interested 
+</em><br />
+<em class="quotelev1">&gt; in ways to do this solely using netCDF-3.)
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Whilst the compression by gathering method doesn't appear to be 
+</em><br />
+<em class="quotelev1">&gt; designed expressly for the purpose of circumventing the need to store 
+</em><br />
+<em class="quotelev1">&gt; long (time) series of missing data values, it does, on the face of it, 
+</em><br />
+<em class="quotelev1">&gt; seem like it could be subverted for just that purpose.  However, for 
+</em><br />
+<em class="quotelev1">&gt; this to work it has to be assumed that, upon expansion of the 
+</em><br />
+<em class="quotelev1">&gt; dimensions specified in the 'compress' attribute of the mask array 
+</em><br />
+<em class="quotelev1">&gt; variable (e.g. the landpoint variable of example 8.1), all non-masked 
+</em><br />
+<em class="quotelev1">&gt; elements are assigned the missing/fill value within the in-memory data 
+</em><br />
+<em class="quotelev1">&gt; array.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; The final sentence of chapter 8, in referring to example 8.2, reads: 
+</em><br />
+<em class="quotelev1">&gt; &quot;This information implies that the salinity field should be 
+</em><br />
+<em class="quotelev1">&gt; uncompressed to an array with dimensions (depth, lat, lon)&quot;.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I wonder if that should actually read &quot;(time, depth, lat, lon)&quot;?  
+</em><br />
+<em class="quotelev1">&gt; Regardless, the implication seems to be that missing elements in the 
+</em><br />
+<em class="quotelev1">&gt; uncompressed array should take on the missing/fill value.  Is that the 
+</em><br />
+<em class="quotelev1">&gt; correct interpretation?  If so, can we further assume that either the 
+</em><br />
+<em class="quotelev1">&gt; _FillValue or the missing_value attribute becomes mandatory for 
+</em><br />
+<em class="quotelev1">&gt; compressed variables? (Or perhaps netCDF's default fill value would be 
+</em><br />
+<em class="quotelev1">&gt; used instead?)
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; To add a final twist, of the four netCDF clients (ncview, ncbrowse, 
+</em><br />
+<em class="quotelev1">&gt; panoply, in house app) I have tried against a variable compressed in 
+</em><br />
+<em class="quotelev1">&gt; this fashion, none uncompresses the variable as expected according to 
+</em><br />
+<em class="quotelev1">&gt; the wording of the CF convention - though some of this may well be due 
+</em><br />
+<em class="quotelev1">&gt; to simple pilot error!  In all cases the variable is treated, if at 
+</em><br />
+<em class="quotelev1">&gt; all, merely as a regular 2D variable - in my case (time, goodpoints).  
+</em><br />
+<em class="quotelev1">&gt; Is anyone aware of any netCDF clients out there which can handle 
+</em><br />
+<em class="quotelev1">&gt; compressed variables correctly?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Regards,
+</em><br />
+<em class="quotelev1">&gt; Phil
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; PS: Clearly the general requirement described above can be met at 
+</em><br />
+<em class="quotelev1">&gt; netCDF-4 through use of the per-variable compression options available 
+</em><br />
+<em class="quotelev1">&gt; with that version.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+-------------- next part --------------
 <br />
-should object on the ticket, and we'll need to open a different one to discuss
+An HTML attachment was scrubbed...
 <br />
-another way to modify the convention.
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20110601/7c0faee4/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20110601/7c0faee4/attachment-0001.html</a>&gt;
 <br />
-<br />Best wishes
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Mon Apr 02 2012 - 14:00:22 BST</span>
+<span id="received"><dfn>Received on</dfn> Wed Jun 01 2011 - 09:17:57 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -115,13 +219,14 @@ another way to modify the convention.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4330">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4331.html" title="Next message in the list">Karl Taylor: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4329.html" title="Previous message in the list">Hedley, Mark: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./4329.html" title="Message to which this message replies">Hedley, Mark: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4331.html" title="Next message in the list">Mike Grant: "[CF-metadata] Interpretation of Compression by Gathering method"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4329.html" title="Previous message in the list">Bentley, Philip: "[CF-metadata] Interpretation of Compression by Gathering method"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./4329.html" title="Message to which this message replies">Bentley, Philip: "[CF-metadata] Interpretation of Compression by Gathering method"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./4331.html" title="Next message in this discussion thread">Karl Taylor: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./4331.html" title="Next message in this discussion thread">Mike Grant: "[CF-metadata] Interpretation of Compression by Gathering method"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./4331.html" title="Message sent in reply to this message">Karl Taylor: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
+<dfn>Reply</dfn>: <a href="./4331.html" title="Message sent in reply to this message">Mike Grant: "[CF-metadata] Interpretation of Compression by Gathering method"</a></li>
+<li><dfn>Reply</dfn>: <a href="./4343.html" title="Message sent in reply to this message">Bentley, Philip: "[CF-metadata] Interpretation of Compression by Gathering method"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -132,7 +237,7 @@ another way to modify the convention.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:00 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4329.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4331.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

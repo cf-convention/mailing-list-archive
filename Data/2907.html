@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Seeking new CF standard names (9) for sea surface wave parameters from andrew walsh on 2010-10-21 (mailing-list-archive)</title>
-<meta name="Author" content="andrew walsh (awalsh)" />
-<meta name="Subject" content="[CF-metadata] Seeking new CF standard names (9) for sea surface wave parameters" />
-<meta name="Date" content="2010-10-21" />
+<title>[CF-metadata] Salinity units from Russ Rew on 2009-06-17 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Russ Rew (russ)" />
+<meta name="Subject" content="[CF-metadata] Salinity units" />
+<meta name="Date" content="2009-06-17" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2906.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2908.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Seeking new CF standard names (9) for sea surface wave parameters</h1>
-<!-- received="Wed Oct 20 18:09:29 2010" -->
-<!-- isoreceived="20101020170929" -->
-<!-- sent="Thu, 21 Oct 2010 11:09:29 +1100" -->
-<!-- isosent="20101021000929" -->
-<!-- name="andrew walsh" -->
-<!-- email="awalsh" -->
-<!-- subject="[CF-metadata] Seeking new CF standard names (9) for sea surface wave parameters" -->
-<!-- id="1A845BC2F7F24FEDB3E2D63CE6CBBC9D_at_awalsh1" -->
+<a style="text-decoration:none" href="./2906.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2908.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Salinity units</h1>
+<!-- received="Wed Jun 17 07:10:10 2009" -->
+<!-- isoreceived="20090617061010" -->
+<!-- sent="Wed, 17 Jun 2009 07:10:10 -0600" -->
+<!-- isosent="20090617131010" -->
+<!-- name="Russ Rew" -->
+<!-- email="russ" -->
+<!-- subject="[CF-metadata] Salinity units" -->
+<!-- id="5741.1245244210_at_buddy.unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20101013092129.GE19630&#64;met.reading.ac.uk" -->
+<!-- inreplyto="j.m.gregory_at_reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,8 +54,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2908.html" accesskey="d" title="Jon Blower: &quot;[CF-metadata] New standard names for satellite obs data&quot;">Next message</a> ]
-[ <a href="./2906.html" title="Evan Manning: &quot;[CF-metadata] New standard names for satellite obs data -- zenith &#0038; azimuth angles&quot;">Previous message</a> ]
+[ <a href="./2908.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  Salinity units&quot;">Next message</a> ]
+[ <a href="./2906.html" title="Helen Snaith: &quot;[CF-metadata] salinity units&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -69,162 +69,70 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: andrew walsh &lt;<a href="mailto:awalsh?Subject=Re%3A%20%5BCF-metadata%5D%20Seeking%20new%20CF%20standard%20names%20(9)%20for%20sea%20surface%20wave%20parameters">awalsh</a>&gt;
+<dfn>From</dfn>: Russ Rew &lt;<a href="mailto:russ?Subject=Re%3A%20%5BCF-metadata%5D%20Salinity%20units">russ</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 21 Oct 2010 11:09:29 +1100</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 17 Jun 2009 07:10:10 -0600</span><br />
 </address>
 <br />
-Hi Jonathon and CF metadata list,
+Jonathan,
 <br />
-<br />Summarising our discussions thus far we propose:
-<br />
-<br />2 new Cell methods:
-<br />
-<br />root_mean_square
-<br />
-mean_of_upper_decile
-<br />
-<br />and these new standard names:
-<br />
-<br />sea_surface_wave_height (common concept)
-<br />
-sea_surface_wave_mean_crest_period
-<br />
-sea_surface_wave_significant_wave_period
-<br />
-sea_surface_wave_period_at_second_largest_peak_of_variance_spectral_density
-<br />
-sea_surface_wave_variance_spectral_density_zeroth_frequency_moment
-<br />
-sea_surface_wave_root_mean_square_amplitude_from_variance_spectral_density
-<br />
-<br />The sea_surface_wave_height is a common concept (standard name) which may be
-<br />
-qualified by a cell_method attribute to realise the actual variable. The 
-<br />
-sea_surface_wave_height
-<br />
-when combined with a cell method of:
-<br />
-<br />time: mean
-<br />
-time: maximum
-<br />
-time: root_mean_square
-<br />
-time: mean_of_upper_decile
-<br />
-<br />will describe the statistical wave height variables:
-<br />
-<br />sea_surface_mean_wave_height
-<br />
-sea_surface_maximum_wave_height
-<br />
-sea_surface_root_mean_square_wave_height
-<br />
-sea_surface_wave_mean_of_highest_one_tenth_waves
-<br />
-<br />respectively.
-<br />
-<br />I have attached a spreadsheet which contains the names, descriptions and units
-<br />
-of the variables proposed.
-<br />
-<br />Looking forward to getting final approval to add these to the CF name lists.
-<br />
-<br /><br />Andrew Walsh
-<br />
-Data Facilitator AODN
-<br />
-<br />----- Original Message ----- 
-<br />
-From: &quot;Jonathan Gregory&quot; &lt;j.m.gregory at reading.ac.uk&gt;
-<br />
-To: &quot;andrew walsh&quot; &lt;awalsh at metoc.gov.au&gt;
-<br />
-Cc: &lt;cf-metadata at cgd.ucar.edu&gt;; &quot;Mark Kulmar&quot; &lt;Mark.Kulmar at mhl.nsw.gov.au&gt;
-<br />
-Sent: Wednesday, October 13, 2010 20:21
-<br />
-Subject: [CF-metadata] Seeking new CF standard names (9) for sea surface wave 
-<br />
-parameters
-<br />
-<br /><br /><em class="quotelev1">&gt; Dear Andrew
+<br /><em class="quotelev1">&gt; The intention of recording the units as 1e-3 (dimensionless) was to
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; suggest a canonical unit of PSU i.e. approximately the same as parts
 </em><br />
-<em class="quotelev2">&gt;&gt; Yes, but depends on the community (list) accepting the idea of having a
+<em class="quotelev1">&gt; per thousand.  However, this is unclear and therefore
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; unsatisfactory. We have discussed this before, in fact, and I believe
 </em><br />
-<em class="quotelev1">&gt; Good. I think we are agreed then to propose these new cell methods:
+<em class="quotelev1">&gt; we have decided in principle that the unit should be indicated as
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; psu. Since that is not a legal unit in the standard udunits.dat, in
 </em><br />
-<em class="quotelev1">&gt; root_mean_square
+<em class="quotelev1">&gt; past discussions we have also decided we would publish our own CF
 </em><br />
-<em class="quotelev1">&gt; mean_of_upper_decile
+<em class="quotelev1">&gt; version of udunits.dat, including psu as a unit (not convertible to
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; other units). The CF udunits.dat should also include sverdrup (=1e6 m3
 </em><br />
-<em class="quotelev1">&gt; and these new standard names:
+<em class="quotelev1">&gt; s-1) and bel B (hence decibel dB, dimensionless). The latter is
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; already given as the canonical unit for some standard names, although
 </em><br />
-<em class="quotelev1">&gt; sea_surface_wave_height
+<em class="quotelev1">&gt; it is not a legal udunit.
 </em><br />
-<em class="quotelev1">&gt; sea_surface_wave_mean_crest_period
-</em><br />
-<em class="quotelev1">&gt; sea_surface_wave_significant_wave_period
-</em><br />
-<em class="quotelev1">&gt; sea_surface_wave_period_at_second_largest_peak_of_variance_spectral_density
-</em><br />
-<em class="quotelev1">&gt; sea_surface_wave_variance_spectral_density_zeroth_frequency_moment
-</em><br />
-<em class="quotelev1">&gt; sea_surface_wave_root_mean_square_amplitude_from_variance_spectral_density
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; I agree that the last will avoid confusion with the RMS of wave height.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; I agree also that this depends on users being comfortable with the concepts
-</em><br />
-<em class="quotelev1">&gt; being split into two attributes, in accordance with the usual CF practice,
-</em><br />
-<em class="quotelev1">&gt; but deciding on how to join them up as common_concepts will help. Comments
-</em><br />
-<em class="quotelev1">&gt; from others would help. It is good that Roy supports this compromise.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Best wishes
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Jonathan
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
--------------- next part --------------
+<br />The ability to represent logarithmic units such as decibels has been
 <br />
-A non-text attachment was scrubbed...
+added to udunits, although the string representation for such units
 <br />
-Name: Proposed_wave_parm_names_for_CFlist.xls
+includes a reference level.  For example, decibels can be represented as 
 <br />
-Type: application/vnd.ms-excel
+&quot;0.1 lg(re m/(5 s)^2) _at_ 50&quot;.  The new udunits software also has an XML
 <br />
-Size: 16896 bytes
+database that can be extended with new units, a new API, and support for
 <br />
-Desc: not available
+the current udunits API:
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20101021/5f399b9b/attachment-0001.xls">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20101021/5f399b9b/attachment-0001.xls</a>&gt;
+<br />&nbsp;&nbsp;<a href="http://www.unidata.ucar.edu/software/udunits/">http://www.unidata.ucar.edu/software/udunits/</a>
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Oct 20 2010 - 18:09:29 BST</span>
+<br />We're planning on including the new udunits with the upcoming netCDF 4.1
+<br />
+release, but you can try it now by configuring with --enable-udunits in
+<br />
+the current snapshot release.
+<br />
+<br /><em class="quotelev1">&gt; I'd suggest that the CF udunits.dat, with these changes, should be put on our
+</em><br />
+<em class="quotelev1">&gt; website, mentioned in 3.1 section about units in the CF standard, and used by
+</em><br />
+<em class="quotelev1">&gt; the CF checker.
+</em><br />
+<br />That seems like a good idea, and I think we should also include the XML
+<br />
+version if the new udunits package becomes more widely used.
+<br />
+<br />--Russ
+<br />
+<span id="received"><dfn>Received on</dfn> Wed Jun 17 2009 - 07:10:10 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -232,8 +140,8 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2907">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2908.html" title="Next message in the list">Jon Blower: "[CF-metadata] New standard names for satellite obs data"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2906.html" title="Previous message in the list">Evan Manning: "[CF-metadata] New standard names for satellite obs data -- zenith &#0038; azimuth angles"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2908.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  Salinity units"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2906.html" title="Previous message in the list">Helen Snaith: "[CF-metadata] salinity units"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -245,7 +153,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:34 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2906.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2908.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

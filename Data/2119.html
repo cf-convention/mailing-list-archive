@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] example 7.8 from Heinke Hoeck on 2009-07-03 (mailing-list-archive)</title>
-<meta name="Author" content="Heinke Hoeck (heinke.hoeck)" />
-<meta name="Subject" content="[CF-metadata] example 7.8" />
-<meta name="Date" content="2009-07-03" />
+<title>[CF-metadata] what standard names are for from Roy Lowry on 2008-04-09 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Roy Lowry (rkl)" />
+<meta name="Subject" content="[CF-metadata] what standard names are for" />
+<meta name="Date" content="2008-04-09" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2118.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2120.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] example 7.8</h1>
-<!-- received="Fri Jul  3 02:24:54 2009" -->
-<!-- isoreceived="20090703012454" -->
-<!-- sent="Fri, 03 Jul 2009 10:24:54 +0200" -->
-<!-- isosent="20090703082454" -->
-<!-- name="Heinke Hoeck" -->
-<!-- email="heinke.hoeck" -->
-<!-- subject="[CF-metadata] example 7.8" -->
-<!-- id="4A4DC056.20900_at_zmaw.de" -->
+<a style="text-decoration:none" href="./2118.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2120.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] what standard names are for</h1>
+<!-- received="Wed Apr  9 13:42:12 2008" -->
+<!-- isoreceived="20080409124212" -->
+<!-- sent="Wed, 09 Apr 2008 20:42:12 +0100" -->
+<!-- isosent="20080409194212" -->
+<!-- name="Roy Lowry" -->
+<!-- email="rkl" -->
+<!-- subject="[CF-metadata] what standard names are for" -->
+<!-- id="s7fd2a43.042_at_wpo.nerc.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2120.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  example 7.8&quot;">Next message</a> ]
-[ <a href="./2118.html" title="Jonathan Gregory: &quot;[CF-metadata]  further cloud variables for cmip5&quot;">Previous message</a> ]
+[ <a href="./2120.html" accesskey="d" title="Bryan Lawrence: &quot;[CF-metadata] what standard names are for&quot;">Next message</a> ]
+[ <a href="./2118.html" title="Jonathan Gregory: &quot;[CF-metadata] Adding new standard names for satellite altimetry&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./2125.html" accesskey="t" title="Dominic Lowe: &quot;[CF-metadata] example 7.8&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,70 +68,110 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Heinke Hoeck &lt;<a href="mailto:heinke.hoeck?Subject=Re%3A%20%5BCF-metadata%5D%20example%207.8">heinke.hoeck</a>&gt;
+<dfn>From</dfn>: Roy Lowry &lt;<a href="mailto:rkl?Subject=Re%3A%20%5BCF-metadata%5D%20what%20standard%20names%20are%20for">rkl</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 03 Jul 2009 10:24:54 +0200</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 09 Apr 2008 20:42:12 +0100</span><br />
 </address>
 <br />
+Hi Martin,
+<br />
+<br />I appreciate your pressures, but you need to understand the consequences of quick fixes through unmanaged XML schemas.  I have been bitten so many times by approaches such as this that do not scale that (coming from Liverpool) I would sceam 'CALM DOWN!'
+<br />
+<br />Cheers, Roy.
+<br />
+<br /><em class="quotelev3">&gt;&gt;&gt; &quot;Schultz, Martin&quot; &lt;m.schultz at fz-juelich.de&gt; 04/09/08 5:25 PM &gt;&gt;&gt;
+</em><br />
 Dear all,
 <br />
-<br />I need help for 'Example 7.8. Climatological seasons'.
+<br />&nbsp;&nbsp;&nbsp;although the subject has been changed I feel that this discussion has
 <br />
-This should be:
+been closely related to my recent question about adding extra tags in
 <br />
-'average seasonal-minimum temperature for the four standard
+the XML file and mdefining a way how these can survive. To ask again
 <br />
-climatological seasons MAM JJA SON DJF'.
+much more specifically this time: 
 <br />
-<br />dimensions:
+(1) who is maintaining the xml file (and the asociated syntax definiiton
 <br />
-&nbsp;&nbsp;time=4;
+file which I could not locate on the web)?
 <br />
-&nbsp;&nbsp;nv=2;
+(2) if I would send an edited XML file which included &lt;htap&gt; tags to
 <br />
-variables:
+contain the TFHTAP multi-model assessment variable names (just like it
 <br />
-&nbsp;&nbsp;float temperature(time,lat,lon);
+is the case for &lt;amip&gt; at present) to the person named in (1): would
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;temperature:long_name=&quot;surface air temperature&quot;;
+this xml file be further maintained and future updates would keep this
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;temperature:cell_methods=&quot;time: minimum within years time: mean over
+additional tag?
 <br />
-years&quot;;
+<br />&nbsp;&nbsp;&nbsp;If these two points can be satisfied, it would constitute a great
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;temperature:units=&quot;K&quot;;
+step forward for me to actually make use of the cf standard names and
 <br />
-&nbsp;&nbsp;double time(time);
+other standards around it. And I believe that this will also proliferate
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;time:climatology=&quot;climatology_bounds&quot;;
+into many other international (atmospheric chemistry) modelling
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;time:units=&quot;days since 1960-1-1&quot;;
+initiatives, because many groups are involved in HTAP. If not, then I
 <br />
-&nbsp;&nbsp;double climatology_bounds(time,nv);
+fear that the HTAP community for example will quickly loose interest to
 <br />
-data:  // time coordinates translated to date/time format
+follow standard names as there will for a long time be no &quot;super
 <br />
-&nbsp;&nbsp;time=&quot;1960-4-16&quot;, &quot;1960-7-16&quot;, &quot;1960-10-16&quot;, &quot;1961-1-16&quot; ;
+software&quot; that eliminates the need to know the actual variable names in
 <br />
-&nbsp;&nbsp;climatology_bounds=&quot;1960-3-1&quot;,  &quot;1990-6-1&quot;,
+order to process the data.
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;1960-6-1&quot;,  &quot;1990-9-1&quot;,
+<br />Sorry for being somewhat pushy on this, but I need to get some work done
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;1960-9-1&quot;,  &quot;1990-12-1&quot;,
+here.
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;1960-12-1&quot;, &quot;1991-3-1&quot; ;
+<br />Thanks and best regards,
 <br />
-<br />Where is the information that the intervals are 3 months (seasons)?
+<br />Martin
 <br />
-In the climatology_bounds the intervals are 30 years and 3 months.
+<br /><br />-------------------------------------------------------------------
 <br />
-In the cell_methods no interval information is given.
+-------------------------------------------------------------------
 <br />
-<br />Best wishes
+Forschungszentrum Juelich GmbH
 <br />
-Heinke
+52425 Juelich
 <br />
-<span id="received"><dfn>Received on</dfn> Fri Jul 03 2009 - 02:24:54 BST</span>
+<br />Sitz der Gesellschaft: Juelich
+<br />
+Eingetragen im Handelsregister des Amtsgerichts Dueren Nr. HR B 3498
+<br />
+Vorsitzende des Aufsichtsrats: MinDir'in Baerbel Brumme-Bothe
+<br />
+Geschaeftsfuehrung: Prof. Dr. Achim Bachem (Vorsitzender),
+<br />
+Dr. Ulrich Krafft (stellv. Vorsitzender), Prof. Dr. Harald Bolt,
+<br />
+Dr. Sebastian M. Schmidt
+<br />
+-------------------------------------------------------------------
+<br />
+-------------------------------------------------------------------
+<br />
+<br /><br /><br />_______________________________________________
+<br />
+CF-metadata mailing list
+<br />
+CF-metadata at cgd.ucar.edu
+<br />
+<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+<br />
+<br /><br /><pre>
+-- 
+This message (and any attachments) is for the recipient only. NERC
+is subject to the Freedom of Information Act 2000 and the contents
+of this email and any reply you make may be disclosed by NERC unless
+it is exempt from release under the Act. Any material supplied to
+NERC may be stored in an electronic records management system.
+</pre>
+<span id="received"><dfn>Received on</dfn> Wed Apr 09 2008 - 13:42:12 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -141,12 +179,9 @@ Heinke
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2119">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2120.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  example 7.8"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2118.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]  further cloud variables for cmip5"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2120.html" title="Next message in the list">Bryan Lawrence: "[CF-metadata] what standard names are for"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2118.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Adding new standard names for satellite altimetry"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./2125.html" title="Next message in this discussion thread">Dominic Lowe: "[CF-metadata] example 7.8"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./2125.html" title="Message sent in reply to this message">Dominic Lowe: "[CF-metadata] example 7.8"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -157,7 +192,7 @@ Heinke
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:19 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2118.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2120.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

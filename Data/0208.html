@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] The Final Version of the Futures of CF Paper from Bryan Lawrence on 2006-09-12 (mailing-list-archive)</title>
-<meta name="Author" content="Bryan Lawrence (b.n.lawrence)" />
-<meta name="Subject" content="[CF-metadata] The Final Version of the Futures of CF Paper" />
-<meta name="Date" content="2006-09-12" />
+<title>[CF-metadata] Vertical Coordinate Systems from Schmidli Juerg on 2003-07-22 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Schmidli Juerg (schmidli)" />
+<meta name="Subject" content="[CF-metadata] Vertical Coordinate Systems" />
+<meta name="Date" content="2003-07-22" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0207.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0209.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] The Final Version of the Futures of CF Paper</h1>
-<!-- received="Tue Sep 12 09:52:48 2006" -->
-<!-- isoreceived="20060912085248" -->
-<!-- sent="Tue, 12 Sep 2006 16:52:48 +0100" -->
-<!-- isosent="20060912155248" -->
-<!-- name="Bryan Lawrence" -->
-<!-- email="b.n.lawrence" -->
-<!-- subject="[CF-metadata] The Final Version of the Futures of CF Paper" -->
-<!-- id="1158076368.21142.60.camel_at_localhost.localdomain" -->
+<a style="text-decoration:none" href="./0207.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0209.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Vertical Coordinate Systems</h1>
+<!-- received="Tue Jul 22 09:56:23 2003" -->
+<!-- isoreceived="20030722085623" -->
+<!-- sent="Tue, 22 Jul 2003 17:56:23 +0200" -->
+<!-- isosent="20030722155623" -->
+<!-- name="Schmidli Juerg" -->
+<!-- email="schmidli" -->
+<!-- subject="[CF-metadata] Vertical Coordinate Systems" -->
+<!-- id="3F1D5EA7.C4E0B492_at_geo.umnw.ethz.ch" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0209.html" accesskey="d" title="Steve Hankin: &quot;[CF-metadata] The Final Version of the Futures of CF Paper&quot;">Next message</a> ]
-[ <a href="./0207.html" title="Bryan Lawrence: &quot;[CF-metadata] standard names for aerosols and chemistry&quot;">Previous message</a> ]
+[ <a href="./0209.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] size-one axes&quot;">Next message</a> ]
+[ <a href="./0207.html" title="Stephens, A: &quot;[CF-metadata] Example of forecast data&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0209.html" accesskey="t" title="Steve Hankin: &quot;[CF-metadata] The Final Version of the Futures of CF Paper&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,28 +68,142 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Bryan Lawrence &lt;<a href="mailto:b.n.lawrence?Subject=Re%3A%20%5BCF-metadata%5D%20The%20Final%20Version%20of%20the%20Futures%20of%20CF%20Paper">b.n.lawrence</a>&gt;
+<dfn>From</dfn>: Schmidli Juerg &lt;<a href="mailto:schmidli?Subject=Re%3A%20%5BCF-metadata%5D%20Vertical%20Coordinate%20Systems">schmidli</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 12 Sep 2006 16:52:48 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 22 Jul 2003 17:56:23 +0200</span><br />
 </address>
 <br />
-Hi Folks
+Dear All
 <br />
-<br />After much delay, much of down to my tardiness, a final version of the
+<br />I'm following the development of the CF-conventions
 <br />
-CF Futures paper exists. I've put a copy on my blog:
+with great interest. At our institute we use different
 <br />
-<br /><a href="http://home.badc.rl.ac.uk/lawrence/cf/papers/MaintainingAndAdvancingCF.pdf">http://home.badc.rl.ac.uk/lawrence/cf/papers/MaintainingAndAdvancingCF.pdf</a>
+hydrostatic and non-hydrostatic models with different 
 <br />
-<br />Brian, Kyle: could you please put copies up on the CF websites old and
+vertical coordinates. Currently I'm implementing a
 <br />
-new please?
+subset of the CF-conventions for our visualization
 <br />
-<br /><br />Thanks
+software. 
 <br />
-Bryan
+<br />I propose the following modifications and extensions
 <br />
-<span id="received"><dfn>Received on</dfn> Tue Sep 12 2006 - 09:52:48 BST</span>
+to the vertical coordinate section (for details see
+<br />
+text below)
+<br />
+<br />1. Additional vertical coordinate systems
+<br />
+- atmosphere_sleve_coordinate
+<br />
+- atmosphere_general_height_coordinate
+<br />
+<br />2. Extension of the atmosphere hybrid height coordinate 
+<br />
+for a time dependent surface height, as some models
+<br />
+have a time-dependent topopgraphy.
+<br />
+<br />3. Consistent naming and consistent ordering of the
+<br />
+formula terms for the different vertical coordinates.
+<br />
+<br />Thank you for considering my suggestions.
+<br />
+<br />Juerg
+<br />
+<br /><br /><br />Vertical Coordinate Systems
+<br />
+===========================
+<br />
+<br />Atmosphere sigma coordinate
+<br />
+---------------------------
+<br />
+<br />standard_name = &quot;atmoshpere_sigma_coordinate&quot;
+<br />
+<br />Definition:
+<br />
+p(n,k,j,i) = (1-sigma)*ptop + sigma*psurf(n,j,i)
+<br />
+<br />formuala_terms attribute:
+<br />
+formula_terms = &quot;sigma:var1 ptop:var2 psurf:var3&quot;
+<br />
+<br /><br />Atmosphere hybrid sigma pressure coordinate
+<br />
+-------------------------------------------
+<br />
+<br />standard_name = &quot;atmoshpere_hybrid_sigma_pressure_coordinate&quot;
+<br />
+<br />Definition:
+<br />
+p(n,k,j,i) = a(k)*ptop + b(k)*psurf(n,j,i)
+<br />
+<br />formuala_terms attribute:
+<br />
+formula_terms = &quot;a:var1 b:var2 ptop:var3 psurf:var4&quot;
+<br />
+<br />The hybrid sigma-pressure coordinate for level k is defined as b(k).
+<br />
+<br /><br />Atmosphere hybrid height coordinate
+<br />
+-----------------------------------
+<br />
+<br />standard_name = &quot;atmoshpere_hybrid_height_coordinate&quot;
+<br />
+<br />Definition:
+<br />
+z(n,k,j,i) = a(k)*ztop + b(k)*zsurf(n,j,i)
+<br />
+<br />formuala_terms attribute:
+<br />
+formula_terms = &quot;a:var1 b:var2 ztop:var3 zsurf:var4&quot;
+<br />
+<br />The hybrid height coordinate for level k is defined as a(k)*ztop.
+<br />
+<br /><br />Atmosphere smooth level vertical (SLEVE) coordinate
+<br />
+---------------------------------------------------
+<br />
+<br />standard_name = &quot;atmosphere_sleve_coordinate&quot;
+<br />
+<br />Definition:
+<br />
+z(n,k,j,i) = a(k)*ztop + b1(k)*zsurf1(n,j,i) + b2(k)*zsurf2(n,j,i)
+<br />
+<br />formuala_terms attribute:
+<br />
+formula_terms = &quot;a:var1 b1:var2 b2:var3 ztop:var4 zsurf1:var5
+<br />
+zsurf2:var6&quot;
+<br />
+<br />The hybrid height coordinate for level k is defined as a(k)*ztop.
+<br />
+<br />Reference:
+<br />
+Schaer C, Leuenberger D, Fuhrer O, et al. 2002:
+<br />
+A new terrain-following vertical coordiante formulation for atmospheric
+<br />
+prediction models. Mon. Wea. Rev. 130, 2459-2480.
+<br />
+<br /><br />Atmosphere general height coordinate
+<br />
+------------------------------------
+<br />
+<br />standard_name = &quot;atmosphere_general_height_coordinate&quot;
+<br />
+<br />Definition:
+<br />
+z(n,k,j,i) = z(n,k,j,i)
+<br />
+<br />formuala_terms attribute:
+<br />
+formula_terms = &quot;z:var1&quot;
+<br />
+<span id="received"><dfn>Received on</dfn> Tue Jul 22 2003 - 09:56:23 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -99,12 +211,9 @@ Bryan
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start208">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0209.html" title="Next message in the list">Steve Hankin: "[CF-metadata] The Final Version of the Futures of CF Paper"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0207.html" title="Previous message in the list">Bryan Lawrence: "[CF-metadata] standard names for aerosols and chemistry"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0209.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] size-one axes"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0207.html" title="Previous message in the list">Stephens, A: "[CF-metadata] Example of forecast data"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0209.html" title="Next message in this discussion thread">Steve Hankin: "[CF-metadata] The Final Version of the Futures of CF Paper"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0209.html" title="Message sent in reply to this message">Steve Hankin: "[CF-metadata] The Final Version of the Futures of CF Paper"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -115,7 +224,7 @@ Bryan
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:46 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0207.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0209.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Proposal for additional CF biogeochemistry attributes from Bruce Hackett on 2009-05-13 (mailing-list-archive)</title>
-<meta name="Author" content="Bruce Hackett (Bruce.Hackett)" />
-<meta name="Subject" content="[CF-metadata] Proposal for additional CF biogeochemistry attributes" />
-<meta name="Date" content="2009-05-13" />
+<title>[CF-metadata] new standard names for ECHAM5/CLM/ERA from Roy Lowry on 2008-03-13 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Roy Lowry (rkl)" />
+<meta name="Subject" content="[CF-metadata] new standard names for ECHAM5/CLM/ERA" />
+<meta name="Date" content="2008-03-13" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2056.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2058.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Proposal for additional CF biogeochemistry attributes</h1>
-<!-- received="Wed May 13 01:10:28 2009" -->
-<!-- isoreceived="20090513001028" -->
-<!-- sent="Wed, 13 May 2009 07:10:28 +0000" -->
-<!-- isosent="20090513071028" -->
-<!-- name="Bruce Hackett" -->
-<!-- email="Bruce.Hackett" -->
-<!-- subject="[CF-metadata] Proposal for additional CF biogeochemistry attributes" -->
-<!-- id="4A0A7264.7090103_at_met.no" -->
+<a style="text-decoration:none" href="./2056.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2058.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new standard names for ECHAM5/CLM/ERA</h1>
+<!-- received="Thu Mar 13 04:11:45 2008" -->
+<!-- isoreceived="20080313041145" -->
+<!-- sent="Thu, 13 Mar 2008 10:11:45 +0000" -->
+<!-- isosent="20080313101145" -->
+<!-- name="Roy Lowry" -->
+<!-- email="rkl" -->
+<!-- subject="[CF-metadata] new standard names for ECHAM5/CLM/ERA" -->
+<!-- id="s7d8fdea.027_at_wpo.nerc.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="alpine.LRH.2.00.0905121435070.18678_at_passatt.llnl.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2058.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Proposal for additional CF biogeochemistry attributes&quot;">Next message</a> ]
-[ <a href="./2056.html" title="Philip Cameronsmith: &quot;[CF-metadata] Proposal for additional CF biogeochemistry attributes&quot;">Previous message</a> ]
-[ <a href="./2056.html" title="Philip Cameronsmith: &quot;[CF-metadata] Proposal for additional CF biogeochemistry attributes&quot;">In reply to</a> ]
+[ <a href="./2058.html" accesskey="d" title="John Graybeal: &quot;[CF-metadata] new standard names for ECHAM5/CLM/ERA&quot;">Next message</a> ]
+[ <a href="./2056.html" title="Jonathan Gregory: &quot;[CF-metadata] new standard names for ECHAM5/CLM/ERA&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,208 +68,84 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Bruce Hackett &lt;<a href="mailto:Bruce.Hackett?Subject=Re%3A%20%5BCF-metadata%5D%20Proposal%20for%20additional%20CF%20biogeochemistry%20attributes">Bruce.Hackett</a>&gt;
+<dfn>From</dfn>: Roy Lowry &lt;<a href="mailto:rkl?Subject=Re%3A%20%5BCF-metadata%5D%20new%20standard%20names%20for%20ECHAM5%2FCLM%2FERA">rkl</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 13 May 2009 07:10:28 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 13 Mar 2008 10:11:45 +0000</span><br />
 </address>
 <br />
-Hi Philip,
+Hi Jonathan
 <br />
-<br />I see. There does seem to be a conflict here. The &quot;mole_fraction&quot; prefix 
+<br />Including slashes in standard names (e.g. lake/river/sea) doesn't strike me as a good idea as the Standard Name strings are used in URLs where slashes cause problems. Other delimiters to avoid are '%' and '?' 
 <br />
-is always used to mean ratio to air (medium), it doesn't really address 
+<br />Either stick with underscores, try '|' (which signifies 'or' in some usage) or go with something like lakeOrRiverOrSea.
 <br />
-what we're looking for - a species/species ratio, as you point out.
+<br />Cheers, Roy.
 <br />
-<br />I found there is a Transformation prefix &quot;ratio_of_X_to_Y&quot;, where 
+<br /><em class="quotelev3">&gt;&gt;&gt; Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt; 03/13/08 9:52 AM &gt;&gt;&gt;
+</em><br />
+Dear Heinke
 <br />
-apparently X and Y are to be replaced by other standard_names. Following 
+<br /><em class="quotelev1">&gt; water_vapor_mixing_ratio is more precisely but has the same definition as 
+</em><br />
+<em class="quotelev1">&gt; humidity_mixing_ratio.
+</em><br />
+<br />I agree that water_vapor_mixing_ratio would be clearer.
 <br />
-that slavishly would give something like 
+<br /><em class="quotelev2">&gt; &gt; Maybe the solution to our problem with &quot;sea&quot; is to use the rather long, but
+</em><br />
+<em class="quotelev2">&gt; &gt; explicit, &quot;sea/lake/river&quot; as a replacement for &quot;sea&quot; is standard names.
+</em><br />
+<em class="quotelev2">&gt; &gt;   
+</em><br />
+<em class="quotelev1">&gt; We would prefere Roy's proposal (25.2) to say water_body. In the
+</em><br />
+<em class="quotelev1">&gt; standard name description this could be explained:
+</em><br />
+<em class="quotelev1">&gt; water_body means sea, lake and river.
+</em><br />
+<br />I feel that your explicit description is clearer; water_body is less obvious
 <br />
-&quot;ratio_of_moles_of_nitrate_to_moles_of_phosphate_in_sea_water&quot;. It's a 
+to me. For instance, to replace the current standard_name
 <br />
-mouthful, but I suppose that would be the alternative to defining a new 
+&nbsp;&nbsp;sea_water_temperature
 <br />
-prefix. (&quot;mole_ratio_of_X_to_Y&quot; would be a new Transformation?) Does the 
+the choice is between
 <br />
-length really matter? Since the N/P ratio is a fairly singular case - or 
+&nbsp;&nbsp;lake/river/sea_water_temperature    (I put them in alphabetical order)
 <br />
-is it? -, it may not be justifiable to define a new prefix. Maybe just 
+or
 <br />
-as well to use an existing prefix for this particular quantity.
+&nbsp;&nbsp;water_body_water_temperature
 <br />
-<br />It's really up to you (all) to you to decide this. I'll be happy with 
+The former appears clearer to me, and is only slightly longer. I wonder what
 <br />
-any definition.
+other people think. Of course, there is also the option (assumed implicitly
 <br />
-<br />Cheers, Bruce
+up to now) to define &quot;sea&quot; to mean lake/river/sea, but I think that general
 <br />
-<br />Philip Cameronsmith wrote:
+opinion is less happy with that.
 <br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Hi Bruce,
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; In the atmosphere CF has used 'mole_fraction_' to designate mole/mole 
-</em><br />
-<em class="quotelev1">&gt; quantities.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Hence, perhaps we should use 
-</em><br />
-<em class="quotelev1">&gt; MOLE_FRACTION_of_nitrate_to_phosphate_in_sea_water here?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; The counter argument is that, in every existing CF std name I could find,
-</em><br />
-<em class="quotelev1">&gt; mol_fraction_ is always the mole ratio of the species to air.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Hence, I think the question boils down to: Do we want to create a new 
-</em><br />
-<em class="quotelev1">&gt; prefix (ie 'mole_ratio_') for ratios of species to species (as opposed 
-</em><br />
-<em class="quotelev1">&gt; to the ratio of species to medium)?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Best wishes,
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Philip
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; On Tue, 12 May 2009, Bruce Hackett wrote:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Hi,
-</em><br />
-<em class="quotelev2">&gt;&gt; I was too quick in my last msg, sorry. Got to thinking about the n/p 
-</em><br />
-<em class="quotelev2">&gt;&gt; ratio and checked it out with the people who programmed it. It is the 
-</em><br />
-<em class="quotelev2">&gt;&gt; ratio of mole concentrations that we are calculating and putting into 
-</em><br />
-<em class="quotelev2">&gt;&gt; netCDF files. That's what we suggest establishing a standard_name for.
-</em><br />
-<em class="quotelev2">&gt;&gt; Our motivation is that marine biologists use the N/P ratio, 
-</em><br />
-<em class="quotelev2">&gt;&gt; calculated in this way. (They also seem to prefer expressing oxygen 
-</em><br />
-<em class="quotelev2">&gt;&gt; concentration in ml/l, by the way.)
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Should we change the proposed name to 
-</em><br />
-<em class="quotelev2">&gt;&gt; &quot;mole_ratio_of_nitrate_to_phosphate_in_sea_water&quot;?
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Cheers, Bruce
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; ----- &quot;Philip J. Cameronsmith1&quot; &lt;cameronsmith1 at llnl.gov&gt; wrote:
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; On Mon, 11 May 2009, olivier lauret wrote:
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt; &gt;&gt; 2) ?ratio_of_nitrate_to_phosphate_in_sea_water?
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; &gt;&gt; &gt;&gt; Does this refer name to the mass or volume or mole ratio?
-</em><br />
-<em class="quotelev1">&gt;&gt;&gt; &gt; &gt; I guess it doesn?t really matter, because of the ratio (mass ratio
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; is equal to volume ratio
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt; &gt; anyway)?
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Hi,
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; I'm not sure what volume_ratio means in the ocean, but surely
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; mass_ratio and mole_ratio will be different?
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Best wishes,
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Philip
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; -- 
-</em><br />
-<em class="quotelev2">&gt;&gt; ------------------------------------------------------------------------
-</em><br />
-<em class="quotelev2">&gt;&gt; Bruce Hackett Senior Scientist
-</em><br />
-<em class="quotelev2">&gt;&gt; Norwegian Meteorological Institute (met.no), R &amp; D Dept.
-</em><br />
-<em class="quotelev2">&gt;&gt; P.O. Box 43 - Blindern e-mail: Bruce.Hackett at met.no
-</em><br />
-<em class="quotelev2">&gt;&gt; N-0313 Oslo Phone: +47 22 96 33 39
-</em><br />
-<em class="quotelev2">&gt;&gt; NORWAY Fax: +47 22 96 33 80
-</em><br />
-<em class="quotelev2">&gt;&gt; Mob: +47 48 048 958
-</em><br />
-<em class="quotelev2">&gt;&gt; ------------------------------------------------------------------------
-</em><br />
-<em class="quotelev2">&gt;&gt; _______________________________________________
-</em><br />
-<em class="quotelev2">&gt;&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev2">&gt;&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev2">&gt;&gt; http:// mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; ------------------------------------------------------------------------
-</em><br />
-<em class="quotelev1">&gt; Dr Philip Cameron-Smith Atmospheric, Earth, and Energy Division
-</em><br />
-<em class="quotelev1">&gt; pjc at llnl.gov Lawrence Livermore National Laboratory
-</em><br />
-<em class="quotelev1">&gt; +1 925 4236634 7000 East Avenue, Livermore, CA94550, USA
-</em><br />
-<em class="quotelev1">&gt; ------------------------------------------------------------------------
-</em><br />
+<br />Cheers
+<br />
+<br />Jonathan
+<br />
+_______________________________________________
+<br />
+CF-metadata mailing list
+<br />
+CF-metadata at cgd.ucar.edu
+<br />
+<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+<br />
 <br /><br /><pre>
 -- 
-------------------------------------------------------------------------
-   Bruce Hackett                         Senior Scientist
-   Norwegian Meteorological Institute (met.no), R &amp; D Div.
-   P.O. Box 43 - Blindern                e-mail: Bruce.Hackett at met.no
-   N-0313 Oslo                           Phone:  +47 22 96 33 39
-   NORWAY                                Fax:    +47 22 96 33 80
-                                         Mob:    +47 48 048 958
-   URL:  <a href="http://met.no/english/r_and_d_activities/people/bruceh.html">http://met.no/english/r_and_d_activities/people/bruceh.html</a>
-------------------------------------------------------------------------
+This message (and any attachments) is for the recipient only. NERC
+is subject to the Freedom of Information Act 2000 and the contents
+of this email and any reply you make may be disclosed by NERC unless
+it is exempt from release under the Act. Any material supplied to
+NERC may be stored in an electronic records management system.
 </pre>
-<span id="received"><dfn>Received on</dfn> Wed May 13 2009 - 01:10:28 BST</span>
+<span id="received"><dfn>Received on</dfn> Thu Mar 13 2008 - 04:11:45 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -279,9 +153,8 @@ any definition.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2057">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2058.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Proposal for additional CF biogeochemistry attributes"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2056.html" title="Previous message in the list">Philip Cameronsmith: "[CF-metadata] Proposal for additional CF biogeochemistry attributes"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./2056.html" title="Message to which this message replies">Philip Cameronsmith: "[CF-metadata] Proposal for additional CF biogeochemistry attributes"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2058.html" title="Next message in the list">John Graybeal: "[CF-metadata] new standard names for ECHAM5/CLM/ERA"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2056.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] new standard names for ECHAM5/CLM/ERA"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -293,7 +166,7 @@ any definition.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:18 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2056.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2058.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

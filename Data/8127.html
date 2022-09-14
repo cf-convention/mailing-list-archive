@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Geometries in NetCDF Update from Jonathan Gregory on 2017-03-17 (mailing-list-archive)</title>
+<title>[CF-metadata] New standard_name values for some cloud and aerosol related variables from Jonathan Gregory on 2015-10-02 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] Geometries in NetCDF Update" />
-<meta name="Date" content="2017-03-17" />
+<meta name="Subject" content="[CF-metadata] New standard_name values for some cloud and aerosol related variables" />
+<meta name="Date" content="2015-10-02" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./8126.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8128.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Geometries in NetCDF Update</h1>
-<!-- received="Fri Mar 17 09:15:02 2017" -->
-<!-- isoreceived="20170317091502" -->
-<!-- sent="Fri, 17 Mar 2017 15:15:02 +0000" -->
-<!-- isosent="20170317151502" -->
+<a style="text-decoration:none" href="./8126.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8128.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] New standard_name values for some cloud and aerosol related variables</h1>
+<!-- received="Fri Oct  2 08:16:46 2015" -->
+<!-- isoreceived="20151002071646" -->
+<!-- sent="Fri, 2 Oct 2015 15:16:46 +0100" -->
+<!-- isosent="20151002141646" -->
 <!-- name="Jonathan Gregory" -->
 <!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] Geometries in NetCDF Update" -->
-<!-- id="20170317151502.GA6354_at_met.reading.ac.uk" -->
+<!-- subject="[CF-metadata] New standard_name values for some cloud and aerosol related variables" -->
+<!-- id="20151002141646.GA14736_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./8128.html" accesskey="d" title="Karl Taylor: &quot;[CF-metadata] geoid, sea surface, height, and standard names&quot;">Next message</a> ]
-[ <a href="./8126.html" title="David Blodgett: &quot;[CF-metadata] Geometries in NetCDF Update&quot;">Previous message</a> ]
+[ <a href="./8128.html" accesskey="d" title="David Hassell: &quot;[CF-metadata] cell measures for non-horizontal planes&quot;">Next message</a> ]
+[ <a href="./8126.html" title="Snaith, Helen M.: &quot;[CF-metadata] Standard Names for: Ocean Kinetic Energy and Relative Vorticity&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,284 +68,116 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Geometries%20in%20NetCDF%20Update">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20New%20standard_name%20values%20for%20some%20cloud%20and%20aerosol%20related%20variables">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 17 Mar 2017 15:15:02 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 2 Oct 2015 15:16:46 +0100</span><br />
 </address>
 <br />
-Dear Dave
+Dear Maarten
 <br />
-<br />Since it's quite large, and it sort-of has comparable status to bounds, rather
+<br /><em class="quotelev1">&gt; The calculation is done on two reflectances, typically on two 1 nm
+</em><br />
+<em class="quotelev1">&gt; wide bands. Several pairs have been used to avoid instrumental
+</em><br />
+<em class="quotelev1">&gt; artefacts, but 340/380 nm and 354/388 nm are typical value pairs. A
+</em><br />
+<em class="quotelev1">&gt; size two coordinate variable seems most appropriate.
+</em><br />
+<br />Thanks for further explanation. I agree, that makes sense, since it depends
 <br />
-than being an addition to bounds, I wouldn't make it a subsect of 7.1. I
+on two values, and they aren't a range. However, it can't be a coordinate
 <br />
-suggest putting it as 7.2 and renumbering, or appending it as 7.5. Of course
+or auxiliary coordinate variable in the usual way, since the dimension (of
 <br />
-you can make a reference to it in 7.1.
+size 2) is not a dimension of the data variable. This would be illegal:
 <br />
-<br />I'm happy about this proposal too. Thanks for putting it forward.
+<br />dimensions:
+<br />
+&nbsp;&nbsp;pair=2;
+<br />
+variables:
+<br />
+&nbsp;&nbsp;float wavelength(pair);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;wavelength:standard_name=&quot;radiation_wavelength&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;wavelength:units=&quot;nm&quot;;
+<br />
+&nbsp;&nbsp;float uvindex(lat,lon);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;uvindex:standard_name=&quot;ultraviolet_aerosol_index&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;uvindex:coordinates=&quot;wavelength&quot;;
+<br />
+<br />because pair is not a dimension of uvindex.
+<br />
+<br />Suppose that you wanted to give an index for more than one pair of
+<br />
+wavelengths in one data variable (say for both 340/380 nm and 354/388 nm).
+<br />
+I appreciate that you don't want to do this, but it's an extrapolation which
+<br />
+can happen in other similar cases. I think the CF way to do it would be by
+<br />
+auxiliary coordinate variables:
+<br />
+<br />dimensions:
+<br />
+&nbsp;&nbsp;wavelength=2;
+<br />
+variables:
+<br />
+&nbsp;&nbsp;float firstwavelength(wavelength);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;firstwavelength:units=&quot;nm&quot;;
+<br />
+&nbsp;&nbsp;float secondwavelength(wavelength);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;secondwavelength:units=&quot;nm&quot;;
+<br />
+&nbsp;&nbsp;float uvindex(wavelength,lat,lon);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;uvindex:standard_name=&quot;ultraviolet_aerosol_index&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;uvindex:coordinates=&quot;firstwavelength secondwavelength&quot;;
+<br />
+data:
+<br />
+&nbsp;&nbsp;firstwavelength=340, 354;
+<br />
+&nbsp;&nbsp;secondwavelength=380, 388;
+<br />
+<br />This is CF-compliant. For your case, you would put wavelength=1. The
+<br />
+dimension is good to include because the two wavelengths belong together.
+<br />
+If you make them both scalars (by omitting the dimension), it would still
+<br />
+be CF-compliant, but the association between the two wavelengths would not
+<br />
+be indicated.
+<br />
+<br />I expect this seems more cumbersome to you, but it's consistent with the
+<br />
+treatment of other cases with parameters. It's just more complicated because
+<br />
+you have two numbers, rather than one. However, if the two numbers are
+<br />
+functionally exchangeable, so you don't mind which way round they are, I
+<br />
+see no reason why they shouldn't have the same standard name of
+<br />
+radiation_wavelength. It's not illegal to have more than one coordinate
+<br />
+variable with a given standard_name, but usually it's not a good idea since
+<br />
+it would be ambiguous.
 <br />
 <br />Best wishes
 <br />
 <br />Jonathan
 <br />
-<br />----- Forwarded message from David Blodgett &lt;dblodgett at usgs.gov&gt; -----
-<br />
-<br /><em class="quotelev1">&gt; Date: Fri, 17 Mar 2017 10:06:11 -0500
-</em><br />
-<em class="quotelev1">&gt; From: David Blodgett &lt;dblodgett at usgs.gov&gt;
-</em><br />
-<em class="quotelev1">&gt; To: Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt;
-</em><br />
-<em class="quotelev1">&gt; CC: cf-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; Subject: Re: [CF-metadata] Geometries in NetCDF Update
-</em><br />
-<em class="quotelev1">&gt; X-Mailer: Apple Mail (2.3259)
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Dear Jonathan,
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; OK. This tracks with how I was thinking. 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I was actually thinking this would be section 7.1.1. The rest of my comments about what I think we?ll do in the specification is here (<a href="https://github.com/twhiteaker/netCDF-CF-simple-geometry/issues/58">https://github.com/twhiteaker/netCDF-CF-simple-geometry/issues/58</a> &lt;<a href="https://github.com/twhiteaker/netCDF-CF-simple-geometry/issues/58">https://github.com/twhiteaker/netCDF-CF-simple-geometry/issues/58</a>&gt;) for the record.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Thank you so much for all your time on this, I am very pleased with the outcome. 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; - Dave
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev2">&gt; &gt; On Mar 17, 2017, at 10:00 AM, Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt; wrote:
-</em><br />
-<em class="quotelev2">&gt; &gt; 
-</em><br />
-<em class="quotelev2">&gt; &gt; Dear Dave
-</em><br />
-<em class="quotelev2">&gt; &gt; 
-</em><br />
-<em class="quotelev2">&gt; &gt; Yes, I think you would have a multi-dimensional node_count. I think that fits
-</em><br />
-<em class="quotelev2">&gt; &gt; the design, because a DSG can always be thought of as though it were an
-</em><br />
-<em class="quotelev2">&gt; &gt; orthogonal array, albeit sparsely filled, with an instance dimension and an
-</em><br />
-<em class="quotelev2">&gt; &gt; element dimension. The instance dimension is a discrete axis in the sense of
-</em><br />
-<em class="quotelev2">&gt; &gt; CF section 4.5. Instead of this single discrete axis, you could have several
-</em><br />
-<em class="quotelev2">&gt; &gt; spatial axes.
-</em><br />
-<em class="quotelev2">&gt; &gt; 
-</em><br />
-<em class="quotelev2">&gt; &gt; In fact, in the case I mentioned of a polyhedron, I imagine the data array
-</em><br />
-<em class="quotelev2">&gt; &gt; might have to be 1D anyway, because you can't generally flatten a polyhedron
-</em><br />
-<em class="quotelev2">&gt; &gt; into a rectangular 2D array of faces. So that would be formally just like the
-</em><br />
-<em class="quotelev2">&gt; &gt; case of a DSG.
-</em><br />
-<em class="quotelev2">&gt; &gt; 
-</em><br />
-<em class="quotelev2">&gt; &gt; Until/unless there is a use-case for the application of simple geometries
-</em><br />
-<em class="quotelev2">&gt; &gt; outside DSGs we don't need to say anything about this, but I suggest that the
-</em><br />
-<em class="quotelev2">&gt; &gt; possibility of its being needed means your new section doesn't belong in ch 9.
-</em><br />
-<em class="quotelev2">&gt; &gt; 
-</em><br />
-<em class="quotelev2">&gt; &gt; Best wishes
-</em><br />
-<em class="quotelev2">&gt; &gt; 
-</em><br />
-<em class="quotelev2">&gt; &gt; Jonathan
-</em><br />
-<em class="quotelev2">&gt; &gt; 
-</em><br />
-<em class="quotelev2">&gt; &gt; ----- Forwarded message from David Blodgett &lt;dblodgett at usgs.gov&gt; -----
-</em><br />
-<em class="quotelev2">&gt; &gt; 
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; Date: Thu, 16 Mar 2017 14:19:43 -0500
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; From: David Blodgett &lt;dblodgett at usgs.gov&gt;
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; To: Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt;
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; CC: cf-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; Subject: Re: [CF-metadata]  Geometries in NetCDF Update
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; X-Mailer: Apple Mail (2.3259)
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; 
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; Dear Jonathan,
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; 
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; Thank you for looking things over.
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; 
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; Makes sense that we would add a new ?geometry? attribute that would point at the geometry container variable and be in both the node coordinates and the data variables.
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; 
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; Yes, the 0 or 1 is meant to be inside or outside. We thought that would be specified in the document. I hadn?t thought of it as a true/false, but 0 and 1 are nice because they can be treated that way. We could also use O and I, but I?m hesitant to use characters, where an integer will suffice. We will choose a suitable name that allows the variable to be interpreted as a true/false. Your suggestion is a good starting point, I?ll see how Tim feels about it.
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; 
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; I spent a lot of brain cycles trying to figure out how a ?count?ed contiguous ragged array of nodes could be made to apply to a grid. Would you have a multi-dimension count variable? I guess I?d need to see the cdl structure to understand that case. I?m stuck on the ?count? needing to be on the instance dimension. 
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; 
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; Tim and I will reconcile some of this in the README as well as a more detailed wiki writeup in that GitHub repository then submit the Trac ticket with a proposed section for the spec unless others have input we should consider?
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; 
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; Regards,
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; 
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; - Dave
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; 
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; On Mar 16, 2017, at 12:28 PM, Jonathan Gregory &lt;j.m.gregory at reading.ac.uk&gt; wrote:
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; 
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; Dear Dave
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; 
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; Thanks for this
-</em><br />
-<em class="quotelev1">&gt; &gt;&gt;&gt;&gt; <a href="https://github.com/twhiteaker/netCDF-CF-simple-geometry/blob/master/README.md">https://github.com/twhiteaker/netCDF-CF-simple-geometry/blob/master/README.md</a>
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; I think your explanation of what is needed and why is very clear, and I like
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; the present form of the proposal.
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; 
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; You asked me what I'd expect the bounds attribute to point to. This is my only
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; reservation about the current design. We agree that the simple geometries are
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; a kind of complicated bounds specification. However, we don't have to use the
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; existing bounds att with a new purpose because of that. It currently points to
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; a variable which must be numeric and have particular dimensions; hence one
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; could tell reliably if it was a simple geometry instead if we insist that the
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; geometry container variable must be a scalar, for example. So this does work,
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; but to make it work would require changing existing software, which otherwise
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; would think this new convention is an error. That wouldn't be friendly.
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; 
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; Therefore I would suggest *not* using the bounds att of the aux coord vars, but
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; instead giving them a new att e.g. geometry, to point to the geometry container
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; variable. We can make a rule that it's an error to have both a geometry and a
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; bounds att, like we do with climatology and bounds att.
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; 
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; I'd also suggest requiring the data variable to have the same geometry att.
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; That's because CF is generally &quot;centred&quot; on the data variable. If you've found
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; the data variable, it's convenient to go straight from there to the geometry
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; spec, rather than having to go via the aux coords. However I can see that you
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; also want to attach it to the coordinates, since you might want to describe a
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; geometry without a data variable at all but with nominal coordinates (although,
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; at present, CF always expects there to be data variables).
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; 
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; Arising from your discussion with Dan, I suppose you could say that if there
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; is no part_node_count it must imply there is only one part per instance i.e.
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; you can omit this attribute if it's not needed.
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; 
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; I assume that 0 means inside and 1 outside for the polygon_ring_type. If it's
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; a binary choice like that, maybe it would be more self-explanatory to call it
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; outside, or something else which indicates the convention.
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; 
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; I would note that this new convention is applicable for data on a grid too
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; i.e. on a polyhedron which is composed of more than one type of polygon. Its
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; usefulness is not limited to DSGs.
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; 
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; Best wishes
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; 
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; Jonathan
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; _______________________________________________
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev4">&gt; &gt;&gt;&gt; 
-</em><br />
-<em class="quotelev3">&gt; &gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt; &gt; 
-</em><br />
-<em class="quotelev2">&gt; &gt; ----- End forwarded message -----
-</em><br />
-<em class="quotelev2">&gt; &gt; _______________________________________________
-</em><br />
-<em class="quotelev2">&gt; &gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev2">&gt; &gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev2">&gt; &gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<br />----- End forwarded message -----
-<br />
-<span id="received"><dfn>Received on</dfn> Fri Mar 17 2017 - 09:15:02 GMT</span>
+<span id="received"><dfn>Received on</dfn> Fri Oct 02 2015 - 08:16:46 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -353,8 +185,8 @@ you can make a reference to it in 7.1.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start8127">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./8128.html" title="Next message in the list">Karl Taylor: "[CF-metadata] geoid, sea surface, height, and standard names"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./8126.html" title="Previous message in the list">David Blodgett: "[CF-metadata] Geometries in NetCDF Update"</a></li>
+<li><dfn>Next message</dfn>: <a href="./8128.html" title="Next message in the list">David Hassell: "[CF-metadata] cell measures for non-horizontal planes"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./8126.html" title="Previous message in the list">Snaith, Helen M.: "[CF-metadata] Standard Names for: Ocean Kinetic Energy and Relative Vorticity"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -366,7 +198,7 @@ you can make a reference to it in 7.1.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:11 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./8126.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8128.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

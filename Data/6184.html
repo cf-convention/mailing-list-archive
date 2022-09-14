@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Classification of a &quot;trajectory&quot; with asynchronous time coordinates (Mike Godin) from Schultz, Martin on 2014-03-19 (mailing-list-archive)</title>
-<meta name="Author" content="Schultz, Martin (m.schultz)" />
-<meta name="Subject" content="[CF-metadata] Classification of a &quot;trajectory&quot; with asynchronous time coordinates (Mike Godin)" />
-<meta name="Date" content="2014-03-19" />
+<title>[CF-metadata] Groups in netCDF4 files and CF from Andreas Hilboll on 2013-05-21 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Andreas Hilboll (lists)" />
+<meta name="Subject" content="[CF-metadata] Groups in netCDF4 files and CF" />
+<meta name="Date" content="2013-05-21" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./6183.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6185.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Classification of a &quot;trajectory&quot; with asynchronous time coordinates (Mike Godin)</h1>
-<!-- received="Wed Mar 19 01:53:35 2014" -->
-<!-- isoreceived="20140319015335" -->
-<!-- sent="Wed, 19 Mar 2014 07:53:35 +0000" -->
-<!-- isosent="20140319075335" -->
-<!-- name="Schultz, Martin" -->
-<!-- email="m.schultz" -->
-<!-- subject="[CF-metadata] Classification of a &quot;trajectory&quot; with asynchronous time coordinates (Mike Godin)" -->
-<!-- id="4A980E5ADF859E4E9007AA5514CF9C8E19B010DF_at_MBX2010-E01.ad.fz-juelich.de" -->
+<a style="text-decoration:none" href="./6183.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6185.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Groups in netCDF4 files and CF</h1>
+<!-- received="Tue May 21 01:53:35 2013" -->
+<!-- isoreceived="20130521005335" -->
+<!-- sent="Tue, 21 May 2013 09:53:35 +0200" -->
+<!-- isosent="20130521075335" -->
+<!-- name="Andreas Hilboll" -->
+<!-- email="lists" -->
+<!-- subject="[CF-metadata] Groups in netCDF4 files and CF" -->
+<!-- id="519B27FF.9030102_at_hilboll.de" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="EE1DBA06-5C7F-47CC-9896-1F59F49E4994_at_noaa.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./6185.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  standard name aliases&quot;">Next message</a> ]
-[ <a href="./6183.html" title="Kreienkamp Frank: &quot;[CF-metadata] netcdf-fortran example for Example H.3 out of the cf-convention 1.6&quot;">Previous message</a> ]
+[ <a href="./6185.html" accesskey="d" title="David Hassell: &quot;[CF-metadata] CF trac ticket summary update&quot;">Next message</a> ]
+[ <a href="./6183.html" title="Cameron-smith, Philip: &quot;[CF-metadata] new standard name: lifted_index&quot;">Previous message</a> ]
+[ <a href="./6174.html" title="Jim Biard: &quot;[CF-metadata] Groups in netCDF4 files and CF&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,254 +70,40 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Schultz, Martin &lt;<a href="mailto:m.schultz?Subject=Re%3A%20%5BCF-metadata%5D%20Classification%20of%20a%20%22trajectory%22%20with%20asynchronous%20time%20coordinates%20(Mike%20Godin)">m.schultz</a>&gt;
+<dfn>From</dfn>: Andreas Hilboll &lt;<a href="mailto:lists?Subject=Re%3A%20%5BCF-metadata%5D%20Groups%20in%20netCDF4%20files%20and%20CF">lists</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 19 Mar 2014 07:53:35 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 21 May 2013 09:53:35 +0200</span><br />
 </address>
 <br />
-Dear Mike,
+Jim,
 <br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;what you describe sounds to me like a textbook example of what the netcdf4 groups could accomplish without any quirks. Since you do have a separate time axis for each variable, it doesn't make much sense in my view to force them to co-exist in one file at one &quot;level&quot;. As far as I understand CF, this would require to define a &quot;master time axis&quot;, which would serve as the time &quot;coordinate&quot;. Or else, all time axes would be auxiliary coordinate variables, which also doesn't make much sense in a discovery framework. We did have a discussion on &quot;group-aware CF&quot; a while ago - maybe this is the time to resurrect this?
+<br />thanks for your explanation!
 <br />
-<br />Best regards,
+<br /><em class="quotelev1">&gt; If there are
+</em><br />
+<em class="quotelev1">&gt; dimensions or coordinate variables that are common to data variables
+</em><br />
+<em class="quotelev1">&gt; that have been placed in different groups, they could be reasonably be
+</em><br />
+<em class="quotelev1">&gt; placed at a common level above the groups (such as the root).
+</em><br />
+<em class="quotelev1">&gt;  Dimensions declared in a group (including the root) are visible to all
+</em><br />
+<em class="quotelev1">&gt; child groups, so extension to coordinate variables would not be
+</em><br />
+<em class="quotelev1">&gt; unreasonable.
+</em><br />
+<br />That's a good point. Actually, I'm now placing all the data variables in
 <br />
-<br />Martin
+a group &quot;/data&quot;, and have the coordinate dimensions at &quot;/&quot; instead of
 <br />
-<br /><br />==================
+&quot;/coordinates&quot;. And indeed, PanoplJ can now plot the data.
 <br />
-PD Dr. Martin G. Schultz
+<br />Thanks again!
 <br />
-IEK-8, Forschungszentrum J?lich
+<br />-- Andreas.
 <br />
-D-52425 J?lich
-<br />
-Ph: +49 2461 61 2831
-<br />
-<br /><br /><br /><em class="quotelev1">&gt; Date: Tue, 18 Mar 2014 12:10:44 -0700 (PDT)
-</em><br />
-<em class="quotelev1">&gt; From: Mike Godin &lt;mikegodin at yahoo.com&gt;
-</em><br />
-<em class="quotelev1">&gt; To: &quot;CF-metadata at cgd.ucar.edu&quot; &lt;CF-metadata at cgd.ucar.edu&gt;
-</em><br />
-<em class="quotelev1">&gt; Subject: [CF-metadata] Classification of a &quot;trajectory&quot; with
-</em><br />
-<em class="quotelev1">&gt;       asynchronous    time coordinates
-</em><br />
-<em class="quotelev1">&gt; Message-ID:
-</em><br />
-<em class="quotelev1">&gt;       &lt;1395169844.32180.YahooMailNeo at web141004.mail.bf1.yahoo.com
-</em><br />
-<em class="quotelev2">&gt; &gt;
-</em><br />
-<em class="quotelev1">&gt; Content-Type: text/plain; charset=&quot;utf-8&quot;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; I am considering a file from a sampling system that follows a trajectory, but
-</em><br />
-<em class="quotelev1">&gt; which collects each variable independently of each other. It would have with
-</em><br />
-<em class="quotelev1">&gt; a header that looks like the following (adapted from &quot;Example H.13. A single
-</em><br />
-<em class="quotelev1">&gt; trajectory recording atmospheric composition.&quot;):
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; ? ?dimensions:
-</em><br />
-<em class="quotelev1">&gt; ? ? ? time_lon = 42;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? time_lat = 55;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? time_z = 435;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? time_O3 = 335;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? time_NO3 = 5357;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; ? ?variables:
-</em><br />
-<em class="quotelev1">&gt; ? ? ? double time_lon(time_lon) ;?
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? time_lon:standard_name = &quot;time&quot;;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? time_lon:long_name = &quot;time_lon&quot; ;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? time_lon:units = &quot;days since 1970-01-01 00:00:00&quot; ;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? float lon(time_lon) ;?
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? lon:standard_name = &quot;longitude&quot;;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? lon:long_name = &quot;longitude&quot; ;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? lon:units = &quot;degrees_east&quot; ;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? double time_lat(time_lat) ;?
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? time_lat:standard_name = &quot;time&quot;;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? time_lat:long_name = &quot;time_lat&quot; ;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? time_lat:units = &quot;days since 1970-01-01 00:00:00&quot; ;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? float lat(time_lat) ;?
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? lat:standard_name = &quot;latitude&quot;;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? lat:long_name = &quot;latitude&quot; ;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? lat:units = &quot;degrees_north&quot; ;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? double time_z(time_z) ;?
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? time_z:standard_name = &quot;time&quot;;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? time_z:long_name = &quot;time_z&quot; ;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? time_z:units = &quot;days since 1970-01-01 00:00:00&quot; ;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? float z(time_z) ;?
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? z:standard_name = ?altitude?;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? z:long_name = &quot;height above mean sea level&quot; ;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? z:units = &quot;km&quot; ;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? z:positive = &quot;up&quot; ;?
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? ?z:axis = &quot;Z&quot; ;?
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? ?
-</em><br />
-<em class="quotelev1">&gt; ? ? ?double time_O3(time_O3) ;?
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? time_O3:standard_name = &quot;time&quot;;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? time_O3:long_name = &quot;time_O3&quot; ;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? time_O3:units = &quot;days since 1970-01-01 00:00:00&quot; ;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? float O3(time_O3) ;?
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? O3:standard_name = ?mass_fraction_of_ozone_in_air?;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? O3:long_name = &quot;ozone concentration&quot; ;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? O3:units = &quot;1e-9&quot; ;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? O3:coordinates = &quot;time_O3 lon lat z&quot; ;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; ? ? ?double time_NO3(time_NO3) ;?
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? time_NO3:standard_name = &quot;time&quot;;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? time_NO3:long_name = &quot;time_NO3&quot; ;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? time_NO3:units = &quot;days since 1970-01-01 00:00:00&quot; ;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? float O3(time_NO3) ;?
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? NO3:standard_name = ?mass_fraction_of_nitrate_radical_in_air?;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? NO3:long_name = &quot;NO3 concentration&quot; ;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? NO3:units = &quot;1e-9&quot; ;
-</em><br />
-<em class="quotelev1">&gt; ? ? ? ? ? NO3:coordinates = &quot;time_NO3 lon lat z&quot; ;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; ? ?attributes:
-</em><br />
-<em class="quotelev1">&gt; ? ? ? :featureType = &quot;????&quot;;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; The data points could be sampled to generate a header exactly like the
-</em><br />
-<em class="quotelev1">&gt; example from the standard, but in doing so, one would lose information
-</em><br />
-<em class="quotelev1">&gt; about the timing of each variable's values, and would either end up with data
-</em><br />
-<em class="quotelev1">&gt; loss, or a much larger file. ?So I'm wondering: is this a valid &quot;H.4.2. Single
-</em><br />
-<em class="quotelev1">&gt; trajectory&quot;? ?If not, is it something that can be annotated as a valid CF
-</em><br />
-<em class="quotelev1">&gt; metadata file without altering the measured data?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Thanks, Mike Godin
-</em><br />
-<em class="quotelev1">&gt; -------------- next part --------------
-</em><br />
-<em class="quotelev1">&gt; An HTML attachment was scrubbed...
-</em><br />
-<em class="quotelev1">&gt; URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf">http://mailman.cgd.ucar.edu/pipermail/cf</a>-
-</em><br />
-<em class="quotelev1">&gt; metadata/attachments/20140318/6625043f/attachment.html&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; ------------------------------
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Subject: Digest Footer
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; ------------------------------
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; End of CF-metadata Digest, Vol 131, Issue 1
-</em><br />
-<em class="quotelev1">&gt; *******************************************
-</em><br />
-<br /><br />------------------------------------------------------------------------------------------------
-<br />
-------------------------------------------------------------------------------------------------
-<br />
-Forschungszentrum Juelich GmbH
-<br />
-52425 Juelich
-<br />
-Sitz der Gesellschaft: Juelich
-<br />
-Eingetragen im Handelsregister des Amtsgerichts Dueren Nr. HR B 3498
-<br />
-Vorsitzender des Aufsichtsrats: MinDir Dr. Karl Eugen Huthmacher
-<br />
-Geschaeftsfuehrung: Prof. Dr. Achim Bachem (Vorsitzender),
-<br />
-Karsten Beneke (stellv. Vorsitzender), Prof. Dr.-Ing. Harald Bolt,
-<br />
-Prof. Dr. Sebastian M. Schmidt
-<br />
-------------------------------------------------------------------------------------------------
-<br />
-------------------------------------------------------------------------------------------------
-<br />
-<span id="received"><dfn>Received on</dfn> Wed Mar 19 2014 - 01:53:35 GMT</span>
+<span id="received"><dfn>Received on</dfn> Tue May 21 2013 - 01:53:35 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -323,8 +111,9 @@ Prof. Dr. Sebastian M. Schmidt
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start6184">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./6185.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  standard name aliases"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./6183.html" title="Previous message in the list">Kreienkamp Frank: "[CF-metadata] netcdf-fortran example for Example H.3 out of the cf-convention 1.6"</a></li>
+<li><dfn>Next message</dfn>: <a href="./6185.html" title="Next message in the list">David Hassell: "[CF-metadata] CF trac ticket summary update"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./6183.html" title="Previous message in the list">Cameron-smith, Philip: "[CF-metadata] new standard name: lifted_index"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./6174.html" title="Message to which this message replies">Jim Biard: "[CF-metadata] Groups in netCDF4 files and CF"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -336,7 +125,7 @@ Prof. Dr. Sebastian M. Schmidt
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:40 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./6183.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6185.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

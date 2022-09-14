@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Cell bounds associated with coordinate variable rather than data variable from Karl Taylor on 2009-11-12 (mailing-list-archive)</title>
-<meta name="Author" content="Karl Taylor (taylor13)" />
-<meta name="Subject" content="[CF-metadata] Cell bounds associated with coordinate variable rather than data variable" />
-<meta name="Date" content="2009-11-12" />
+<title>[CF-metadata] Same parameter, different meaning (pressure) from John Graybeal on 2008-08-28 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Graybeal (graybeal)" />
+<meta name="Subject" content="[CF-metadata] Same parameter, different meaning (pressure)" />
+<meta name="Date" content="2008-08-28" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2309.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2311.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Cell bounds associated with coordinate variable rather than data variable</h1>
-<!-- received="Thu Nov 12 06:43:52 2009" -->
-<!-- isoreceived="20091112064352" -->
-<!-- sent="Thu, 12 Nov 2009 05:43:52 -0800" -->
-<!-- isosent="20091112134352" -->
-<!-- name="Karl Taylor" -->
-<!-- email="taylor13" -->
-<!-- subject="[CF-metadata] Cell bounds associated with coordinate variable rather than data variable" -->
-<!-- id="4AFC1118.1090802_at_llnl.gov" -->
+<a style="text-decoration:none" href="./2309.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2311.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Same parameter, different meaning (pressure)</h1>
+<!-- received="Wed Aug 27 22:12:15 2008" -->
+<!-- isoreceived="20080827211215" -->
+<!-- sent="Wed, 27 Aug 2008 23:12:15 -0500" -->
+<!-- isosent="20080828041215" -->
+<!-- name="John Graybeal" -->
+<!-- email="graybeal" -->
+<!-- subject="[CF-metadata] Same parameter, different meaning (pressure)" -->
+<!-- id="11FDA09A-2BAD-4458-8AE5-4485A31874AB_at_mbari.org" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="963738594.2503581258022886743.JavaMail.root_at_imap1a" -->
+<!-- inreplyto="20080827172201.GA20686_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,10 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2311.html" accesskey="d" title="Thomas Lavergne: &quot;[CF-metadata] Cell bounds associated with coordinate variable rather than data variable&quot;">Next message</a> ]
-[ <a href="./2309.html" title="Jonathan Gregory: &quot;[CF-metadata] Cell bounds associated with coordinate variable rather than data variable&quot;">Previous message</a> ]
-[ <a href="./2308.html" title="Thomas Lavergne: &quot;[CF-metadata] Cell bounds associated with coordinate variable rather than data variable&quot;">In reply to</a> ]
+[ <a href="./2311.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  Same parameter, different meaning (pressure)&quot;">Next message</a> ]
+[ <a href="./2309.html" title="Roy Lowry: &quot;[CF-metadata] Same parameter, different meaning (pressure)&quot;">Previous message</a> ]
+[ <a href="./2307.html" title="Jonathan Gregory: &quot;[CF-metadata] Same parameter, different meaning (pressure)&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./2311.html" accesskey="t" title="Jonathan Gregory: &quot;[CF-metadata]  Same parameter, different meaning (pressure)&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,492 +72,108 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Karl Taylor &lt;<a href="mailto:taylor13?Subject=Re%3A%20%5BCF-metadata%5D%20Cell%20bounds%20associated%20with%20coordinate%20variable%20rather%20than%20data%20variable">taylor13</a>&gt;
+<dfn>From</dfn>: John Graybeal &lt;<a href="mailto:graybeal?Subject=Re%3A%20%5BCF-metadata%5D%20Same%20parameter%2C%20different%20meaning%20(pressure)">graybeal</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 12 Nov 2009 05:43:52 -0800</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 27 Aug 2008 23:12:15 -0500</span><br />
 </address>
 <br />
-Dear Thomas and Jonathan,
+I can't reconcile Jonathan's answer (sea_water_pressure_at_sea_floor)  
 <br />
-<br />This is I think easy enough that even I will weigh in.  Makes sense to 
+with Nan's case 2 (&quot;mounted rigidly at a fixed location at *or above*  
 <br />
-me to recommend, but not require, that the coordinate value be the 
+the seafloor&quot;).  I would agree that sea_water_pressure is accurate, as  
 <br />
-mid-point, so I agree with Jonathan.
+far as it goes -- the meaning of the value is the same, it's the  
 <br />
-<br />Best regards,
+application of that meaning that is different.  (Depending on your  
 <br />
-Karl
+definition of 'meaning', of course.)
 <br />
-<br /><br />Thomas Lavergne wrote:
+<br />There would seem to be two key points about the sensor mounting, one  
 <br />
-<em class="quotelev1">&gt; Dear all,
+that it is mounted at a fixed location, and the other is where that  
+<br />
+mounting is with respect to multiple axes.  (I mean, for the data to  
+<br />
+be usefully interpreted, it isn't enough to know just distance above  
+<br />
+sea floor, you need to know exactly which lat/lon | X/Y location it is  
+<br />
+above, or the height of the sea floor at that location; ideally you'd  
+<br />
+know both. In the second case it would be acceptable to have a  
+<br />
+reference with respect to some other datum, for example relative to an  
+<br />
+altitude from GPS when the sensor is a known distance down from that  
+<br />
+measurement, as on a pier).  Understood that the request was a deep  
+<br />
+ocean context but it would be nice of the solution worked in all  
+<br />
+applications.
+<br />
+<br />My bias is always to have the standard name focus on substance +  
+<br />
+property, and for other metadata to explain the rest. So I liked the  
+<br />
+approach that separated the mounting information from the standard  
+<br />
+name.  While the argument can be made that the two mountings are not  
+<br />
+comparable, and so different names should be used, a legitimate  
+<br />
+counter-argument is that with certain processing, the data from the  
+<br />
+two mountings could be made comparable, at least in some circumstances.
+<br />
+<br />John
+<br />
+<br /><br />On Aug 27, 2008, at 12:22 PM, Jonathan Gregory wrote:
+<br />
+<br /><em class="quotelev1">&gt; Dear Steve, Nan et al.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; I would like to push the discussion a bit further on those cell bounds. 
+<em class="quotelev1">&gt; I think it would be fine to have a CF standard name of
+</em><br />
+<em class="quotelev1">&gt; sea_water_pressure_at_sea_floor
+</em><br />
+<em class="quotelev1">&gt; which is certainly an oceanographically useful quantity. We haven't  
+</em><br />
+<em class="quotelev1">&gt; used the
+</em><br />
+<em class="quotelev1">&gt; phrase at_sea_floor hitherto, but sea_floor appears in other  
+</em><br />
+<em class="quotelev1">&gt; standard names
+</em><br />
+<em class="quotelev1">&gt; and there are many quantities which have at_LEVEL phrases.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; We agree that some variables are intensive, others are extensive. For coping equally well with both types of variable, the CF convention offers the notion of coordinates (axis) and cell bounds. 
+<em class="quotelev1">&gt; The pressure measured at a depth specified by a vertical coordinate  
+</em><br />
+<em class="quotelev1">&gt; would
+</em><br />
+<em class="quotelev1">&gt; naturally be called just sea_water_pressure, I think. This is also an
+</em><br />
+<em class="quotelev1">&gt; oceanographically meaningful quantity in its own right. The purpose  
+</em><br />
+<em class="quotelev1">&gt; for which
+</em><br />
+<em class="quotelev1">&gt; you use it (deducing the tilt of the sensor) does not have to be  
+</em><br />
+<em class="quotelev1">&gt; indicated by
+</em><br />
+<em class="quotelev1">&gt; the standard name.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; However, there seem to be a bias here, since bounds cannot be defined without an axis. This leads to the issues that was raise earlier in this thread, namely &quot;what axis value is representative for my cell?&quot;. It is common to use the central value but, as we have seen for accumulated precipitations, other choices might be relevant.
+<em class="quotelev1">&gt; Best wishes
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Yet, as far as I understand this, CF does not give the answer. CF advises us to provide cell bounds for extensive variables but we are free to choose the axis value associated to each cell. It could even be outside the bounds, am I correct? Could it be a &quot;missing value&quot;? 
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Now, we cannot assume that a (visualization) software will care about our cell boundaries. It will most probably use the axis value, trusting the data provider, and this choice is not without consequences. 
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; So the questions are: 
-</em><br />
-<em class="quotelev1">&gt; 1) should we aim at community consensus outside CF (the community of accumulated precipitation would agree on using the end date, etc...)? 
-</em><br />
-<em class="quotelev1">&gt; 2) Should CF propose guidelines on what value to use?
-</em><br />
-<em class="quotelev1">&gt; 3) Should CF mention that there is an ambiguity here? 
-</em><br />
-<em class="quotelev1">&gt; 4) Did I miss a point?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; I have the example of a sea ice motion dataset which is a time-extensive variable, defined as a Lagragian accumulation between a start and a stop time. This aspect is reflected in my time_bounds. But what should I put as the time axis: start time? stop time? mid-time? 
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Any suggestions/comments are welcome.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Cheers,
-</em><br />
-<em class="quotelev1">&gt; Thomas
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; ----- &quot;Ethan Davis&quot; &lt;edavis at unidata.ucar.edu&gt; wrote:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;   
-</em><br />
-<em class="quotelev2">&gt;&gt; Hi Benno,
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Benno Blumenthal wrote:
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Also, it is not particularly natural to use the end point as the
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt; label
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; for the data, certainly not so natural that a program would assume
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt; that
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; not knowing anything else about the data.   It makes sense from a
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt; data
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; collection point of view, maybe, but stops there.   Most of us use
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; center of interval as default, particularly since our semantics are
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt; not
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; good enough to detect accumulation (which is the only case where end
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt; of
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; interval is natural).
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt; The accumulated precipitation data from these models is currently
-</em><br />
-<em class="quotelev2">&gt;&gt; labeled by the end points of the accumulation intervals (i.e., they
-</em><br />
-<em class="quotelev2">&gt;&gt; are
-</em><br />
-<em class="quotelev2">&gt;&gt; all on the forecast time dimension). I'm trying to add the semantics
-</em><br />
-<em class="quotelev2">&gt;&gt; to
-</em><br />
-<em class="quotelev2">&gt;&gt; make it possible to detect that this data is an accumulation without
-</em><br />
-<em class="quotelev2">&gt;&gt; breaking backwards compatibility.
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Since, as you say, accumulation &quot;is the only case where the end of
-</em><br />
-<em class="quotelev2">&gt;&gt; interval is natural&quot;, adding the cell bounds information while using
-</em><br />
-<em class="quotelev2">&gt;&gt; the
-</em><br />
-<em class="quotelev2">&gt;&gt; same forecast time dimension seems natural for this case.
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Ethan
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; Benno Blumenthal wrote:
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; I have to vote for multiple dimensions here -- these are different,
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; parallel dimensions which happen to have the same number of points.
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Also, it is not true that a generic program cannot use the bounds. 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Ingrid, in fact, prints time almost always as an interval, e.g. Jan
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt; 1980
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; if the time cell goes from 0000 1 Jan 1980 to 0000 1 Feb 1980, so
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt; that
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; cell boundaries are critical for time, much more important that
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; spacially. This is because in common usage when we specify a time
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt; we
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; almost always implicitly specify an interval.
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Also, it is not particularly natural to use the end point as the
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt; label
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; for the data, certainly not so natural that a program would assume
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt; that
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; not knowing anything else about the data.   It makes sense from a
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt; data
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; collection point of view, maybe, but stops there.   Most of us use
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; center of interval as default, particularly since our semantics are
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt; not
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; good enough to detect accumulation (which is the only case where end
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt; of
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; interval is natural).
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Benno
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; On Thu, Oct 22, 2009 at 6:08 PM, Ethan Davis
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt; &lt;edavis at unidata.ucar.edu
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; &lt;mailto:edavis at unidata.ucar.edu&gt;&gt; wrote:
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;     Hi John,
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;     John Caron wrote:
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;     &gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;     &gt; The time coordinate here means forecast time, and you are
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt; trying to
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;     &gt; capture &quot;interval of accumulation&quot;.
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;     I'm not sure I understand your point here. The forecast time is
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt; the only
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;     time dimension we have. What other time coordinate would the
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt; &quot;interval
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;     of accumulation&quot; be over?
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;     &gt; As jonathan says, you would have to create separate time
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;     coordinates for
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;     &gt; each variable which has a distinct bounds.
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;     Yes, CF is currently written so only one boundary variable can
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt; be
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;     associate with one coordinate variable so this situation would
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt; require
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;     multiple time coordinates. I'm wondering if CF should be
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt; extended to
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;     allow multiple boundary variables to be associated with a
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt; single
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;     coordinate variable.
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;     &gt; theoretically theres no
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;     &gt; problem with that, practically it may be more confusing than
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt; just
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;     &gt; documenting the bounds on the variable in a non-standard but
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;     &gt; human-readable way. it seems unlikely that a generic program
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt; could do
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;     &gt; anything useful with those coordinate bounds.
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;     I agree that multiple time coordinates would do nothing for
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt; clarity.
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;     Which is why I'm wondering about extending CF to allow for a
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt; clearer,
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;     programmatically useful representation of this data.
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;     Ethan
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;     _______________________________________________
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;     CF-metadata mailing list
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;     CF-metadata at cgd.ucar.edu &lt;mailto:CF-metadata at cgd.ucar.edu&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;     <a href="http://*mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://*mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; -- 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Dr. M. Benno Blumenthal          benno at iri.columbia.edu
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; &lt;mailto:benno at iri.columbia.edu&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; International Research Institute for climate and society
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; The Earth Institute at Columbia University
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Lamont Campus, Palisades NY 10964-8000   (845) 680-4450
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt; ------------------------------------------------------------------------
-</em><br />
-<em class="quotelev2">&gt;&gt;     
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; _______________________________________________
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; <a href="http://*mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://*mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;       
-</em><br />
-<em class="quotelev2">&gt;&gt; -- 
-</em><br />
-<em class="quotelev2">&gt;&gt; Ethan R. Davis                                Telephone: (303)
-</em><br />
-<em class="quotelev2">&gt;&gt; 497-8155
-</em><br />
-<em class="quotelev2">&gt;&gt; Software Engineer                             Fax:       (303)
-</em><br />
-<em class="quotelev2">&gt;&gt; 497-8690
-</em><br />
-<em class="quotelev2">&gt;&gt; UCAR Unidata Program Center                   E-mail:   
-</em><br />
-<em class="quotelev2">&gt;&gt; edavis at ucar.edu
-</em><br />
-<em class="quotelev2">&gt;&gt; P.O. Box 3000
-</em><br />
-<em class="quotelev2">&gt;&gt; Boulder, CO  80307-3000                      
-</em><br />
-<em class="quotelev2">&gt;&gt; <a href="http://*www.*unidata.ucar.edu/">http://*www.*unidata.ucar.edu/</a>
-</em><br />
-<em class="quotelev2">&gt;&gt; ---------------------------------------------------------------------------
-</em><br />
-<em class="quotelev2">&gt;&gt; _______________________________________________
-</em><br />
-<em class="quotelev2">&gt;&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev2">&gt;&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev2">&gt;&gt; <a href="http://*mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://*mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev2">&gt;&gt;     
+<em class="quotelev1">&gt; Jonathan
 </em><br />
 <em class="quotelev1">&gt; _______________________________________________
 </em><br />
@@ -563,15 +181,27 @@ Karl
 </em><br />
 <em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
 </em><br />
-<em class="quotelev1">&gt; <a href="http://*mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://*mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
-<em class="quotelev1">&gt;
+<br /><br />On Aug 19, 2008, at 7:42 AM, Nan Galbraith wrote:
+<br />
+<br /><em class="quotelev1">&gt; 2) Bottom pressure sensors, e.g. mounted rigidly at a fixed
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; location at or above the seafloor, where the pressure values
 </em><br />
-<em class="quotelev1">&gt;   
+<em class="quotelev1">&gt; are a dynamically important quantity that integrates water
 </em><br />
-<span id="received"><dfn>Received on</dfn> Thu Nov 12 2009 - 06:43:52 GMT</span>
+<em class="quotelev1">&gt; column weight (cf. air pressure on weather charts).
+</em><br />
+<br /><br />--------------
+<br />
+John Graybeal   &lt;mailto:graybeal at mbari.org&gt;  -- 831-775-1956
+<br />
+Monterey Bay Aquarium Research Institute
+<br />
+Marine Metadata Interoperability Project: <a href="http://marinemetadata.org">http://marinemetadata.org</a>
+<br />
+<span id="received"><dfn>Received on</dfn> Wed Aug 27 2008 - 22:12:15 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -579,10 +209,13 @@ Karl
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2310">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2311.html" title="Next message in the list">Thomas Lavergne: "[CF-metadata] Cell bounds associated with coordinate variable rather than data variable"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2309.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Cell bounds associated with coordinate variable rather than data variable"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./2308.html" title="Message to which this message replies">Thomas Lavergne: "[CF-metadata] Cell bounds associated with coordinate variable rather than data variable"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2311.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  Same parameter, different meaning (pressure)"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2309.html" title="Previous message in the list">Roy Lowry: "[CF-metadata] Same parameter, different meaning (pressure)"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./2307.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] Same parameter, different meaning (pressure)"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./2311.html" title="Next message in this discussion thread">Jonathan Gregory: "[CF-metadata]  Same parameter, different meaning (pressure)"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./2311.html" title="Message sent in reply to this message">Jonathan Gregory: "[CF-metadata]  Same parameter, different meaning (pressure)"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -593,7 +226,7 @@ Karl
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:23 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2309.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2311.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Standard names for altimeter data from Olivier Lauret on 2006-09-04 (mailing-list-archive)</title>
-<meta name="Author" content="Olivier Lauret (olauret)" />
-<meta name="Subject" content="[CF-metadata] Standard names for altimeter data" />
-<meta name="Date" content="2006-09-04" />
+<title>[CF-metadata] bounds from Jonathan Gregory on 2003-06-30 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] bounds" />
+<meta name="Date" content="2003-06-30" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0193.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0195.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Standard names for altimeter data</h1>
-<!-- received="Mon Sep  4 06:54:37 2006" -->
-<!-- isoreceived="20060904055437" -->
-<!-- sent="Mon, 04 Sep 2006 14:54:37 +0200" -->
-<!-- isosent="20060904125437" -->
-<!-- name="Olivier Lauret" -->
-<!-- email="olauret" -->
-<!-- subject="[CF-metadata] Standard names for altimeter data" -->
-<!-- id="6.1.1.1.2.20060904101355.022f5a38_at_pop.cls.fr" -->
+<a style="text-decoration:none" href="./0193.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0195.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] bounds</h1>
+<!-- received="Mon Jun 30 08:37:53 2003" -->
+<!-- isoreceived="20030630073753" -->
+<!-- sent="Mon, 30 Jun 2003 15:37:53 +0100" -->
+<!-- isosent="20030630143753" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] bounds" -->
+<!-- id="20030630143753.GA19016_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0195.html" accesskey="d" title="John Caron: &quot;[CF-metadata] file with both run time and forecast (valid) time coordinates&quot;">Next message</a> ]
-[ <a href="./0193.html" title="Jonathan Gregory: &quot;[CF-metadata] Standard names for altimeter data&quot;">Previous message</a> ]
+[ <a href="./0195.html" accesskey="d" title="Stephens, A: &quot;[CF-metadata] CF-checker has moved to new URL&quot;">Next message</a> ]
+[ <a href="./0193.html" title="Stephens, A: &quot;[CF-metadata] Example of forecast data&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,74 +68,140 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Olivier Lauret &lt;<a href="mailto:olauret?Subject=Re%3A%20%5BCF-metadata%5D%20Standard%20names%20for%20altimeter%20data">olauret</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20bounds">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 04 Sep 2006 14:54:37 +0200</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 30 Jun 2003 15:37:53 +0100</span><br />
 </address>
 <br />
-Dear Karl and all,
+Dear Brian and all
 <br />
-<br />I understand what you said, but..
+<br />I think that the main cause of discomfort is the issue of how to decide which
 <br />
-Considering what was made for atmospheric sciences, I saw that there are 
+side of a cell might adjoin another cell if they are not actually contiguous.
 <br />
-already some equivalent standard names (geostrophic_Xward_wind, where 
+I suppose that is why you proposed restricting (n,m,2,2) to cells that are
 <br />
-X=east/north). So beyond the strict &quot;physical&quot; aspect (I personnally think 
+contiguous. However that strikes me as inconvenient because it means you have
 <br />
-that the proposed names identify different physical quantities), I would 
+to reconfigure the boundary information from (n,m,2,2) to (n,m,4) if you drop
 <br />
-say that the &quot;geostrophic&quot; feature should also consequently exist for ocean 
+a row or a column from the middle. Also, (n,m,2,2) is particularly useful if
 <br />
-dynamics if we want to be homogeneous?
+the cells are *not* all contiguous, because it makes it easy to know which
 <br />
-<br />About the reference surfaces I rely on what is already available in the 
+boundaries to check for coincidence, provided you are prepared to accept that
 <br />
-standard names table (ie sea_surface_height_above_geoid and 
+cell (j,i) is &quot;next to&quot; cell (j,i-1) in some sense, etc. That's the problem
 <br />
-sea_surface_height_above_sea_level), to provide velocities that are derived 
+raised in the first sentence.
 <br />
-from those parameters. If the first parameters (SSH) identify different 
+<br />I think that being &quot;next to&quot; really depends on the idea of an underlying xy
 <br />
-physical quantities, in my opinion the following parameters (velocities), 
+space in which the cells are actually arranged as a rectangular array. This is
 <br />
-deduced from the same calculation, may also identify different physical 
+not the case, for instance, for cells which are staggered on alternate rows
 <br />
-quantities. It is in the sense that I was thinking when I decided to add 
+(like brickwork in a garden wall):
 <br />
-standard names.
+<br />&nbsp;&nbsp;&nbsp;&nbsp;*   *   *   *   *        These cells could be stored in an (n,m) array
 <br />
-<br />I confirm that this is not only a question of reference or assumption, the 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*   *   *   *   *      but they don't have an underlying coordinate
 <br />
-physical quantities are really different and may be distinguished; I still 
+&nbsp;&nbsp;&nbsp;&nbsp;*   *   *   *   *        variable x(m) because there are two sets of
 <br />
-agree with the names suggested by Jonathan.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*   *   *   *   *      values for x.
 <br />
-<br />Greetings
+<br />In this arrangement it is ambiguous which cell might be regarded as next to a
 <br />
-<br /><br />Olivier Lauret
+cell vertically.
 <br />
-<br />CLS Space Oceanography Division
+<br />I think we can distinguish the case where there is a rectangular xy
 <br />
-Data Information and Diffusion
+arrangement formally by saying continuous x(m) and y(n) coordinates exist.  By
 <br />
-8-10 rue Hermes,
+continuous I mean they aren't just discrete indices. Continuous x and y exist
 <br />
-31526 Ramonville-St-Agne, Cedex, France
+for map projections and a rotated pole, for example. Brian pointed out that
 <br />
-<br />Email: olivier.lauret at cls.fr
+boundaries in x and y might not be stored so we can't use them to test
 <br />
-Tel: (+33) (0) 561 39 48 51
+contiguousness. But if we know we do have the rectangular-xy case, we can
 <br />
-Fax:(+33) (0) 561 39 48 51
+easily test contiguousness if we know which vertex is which. We don't have
 <br />
-Internet:
+to adopt (n,m,2,2) to be able to do that. We can do it just as well with
 <br />
-<a href="http://www.cls.fr">http://www.cls.fr</a>
+(n,m,4) if we define their ordering.
 <br />
-<a href="http://www.aviso.oceanobs.com/">http://www.aviso.oceanobs.com/</a>
+<br />So here is another alternative proposal. There's no change for the 1D case (1)
 <br />
-<span id="received"><dfn>Received on</dfn> Mon Sep 04 2006 - 06:54:37 BST</span>
+and (2). In this proposal I use (n,m,p) for all other cases (as in the present
+<br />
+CF standard), but when x and y exist, they are ordered in a particular way so
+<br />
+contiguousness is easy to test. The only drawback I can see is that you can't
+<br />
+guarantee the vertices are ordered anticlockwise in the lon-lat plane.
+<br />
+However, they are definitely ordered anticlockwise in the xy plane.
+<br />
+<br />By the way, I won't be at work from Sat 5th July for two weeks.
+<br />
+<br />Best wishes
+<br />
+<br />Jonathan
+<br />
+<br /><br />(3) In the case where the horizontal grid is described by two-dimensional
+<br />
+auxiliary coordinate variables in latitude lat(n,m) and longitude lon(n,m),
+<br />
+the associated cells are four-sided, and there exist continuous coordinate
+<br />
+variables x(m) and y(n), then the boundary variables are given in the form
+<br />
+latbnd(n,m,4) and lonbnd(n,m,4), where the trailing index runs over the four
+<br />
+vertices of the cells. Let us call the side of cell (j,i) facing cell (j,i-1)
+<br />
+the &quot;i-1&quot; side, the side facing cell (j,i+1) the &quot;i+1&quot; side, and similarly for
+<br />
+&quot;j-1&quot; and &quot;j+1&quot;. Then we can refer to the vertex formed by sides i-1 and j-1
+<br />
+as (j-1,i-1). With this notation, the four vertices are indexed as follows:
+<br />
+0=(j-1,i-1), 1=(j-1,i+1), 2=(j+1,i+1), 3=(j+1,i-1).
+<br />
+<br />If x-y-upward is a right-handed coordinate system (like lon-lat-upward), this
+<br />
+ordering means the vertices will be traversed anticlockwise on the lon-lat
+<br />
+surface seen from above. If x-y-upward is left-handed, they will be traversed
+<br />
+clockwise on the lon-lat surface.
+<br />
+<br />The bounds can be used to decide whether cells are contiguous, as follows:
+<br />
+<br />For 0 &lt; j &lt; n and 0 &lt; i &lt; m,
+<br />
+<br />If cells (j,i) and (j,i+1) are contiguous, then
+<br />
+<br />bnd(j,i,1)=bnd(j,i+1,0) and bnd(j,i,2)=bnd(j,i+1,3)
+<br />
+<br />If cells (j,i) and (j+1,i) are contiguous, then
+<br />
+<br />bnd(j,i,3)=bnd(j+1,i,0) and bnd(j,i,2)=bnd(j+1,i,1)
+<br />
+<br />(4) In all other cases, the bounds should be dimensioned (...,n,p), where
+<br />
+(...,n) are the dimensions of the auxiliary coordinate variables, and p the
+<br />
+number of vertices of the cells. The vertices must be traversed anticlockwise
+<br />
+in the lon-lat plane as viewed from above. The starting vertex is not
+<br />
+specified by the standard.
+<br />
+<span id="received"><dfn>Received on</dfn> Mon Jun 30 2003 - 08:37:53 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -143,8 +209,8 @@ Internet:
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start194">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0195.html" title="Next message in the list">John Caron: "[CF-metadata] file with both run time and forecast (valid) time coordinates"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0193.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Standard names for altimeter data"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0195.html" title="Next message in the list">Stephens, A: "[CF-metadata] CF-checker has moved to new URL"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0193.html" title="Previous message in the list">Stephens, A: "[CF-metadata] Example of forecast data"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -156,7 +222,7 @@ Internet:
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:45 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0193.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0195.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

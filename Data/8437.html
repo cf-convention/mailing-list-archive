@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] JSON representation based on CF from Mcgibbney, Lewis J on 2017-07-26 (mailing-list-archive)</title>
-<meta name="Author" content="Mcgibbney, Lewis J (Lewis.J.Mcgibbney)" />
-<meta name="Subject" content="[CF-metadata] JSON representation based on CF" />
-<meta name="Date" content="2017-07-26" />
+<title>[CF-metadata] Use of CF standard name region from martin.juckes at stfc.ac.uk on 2016-05-20 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="martin.juckes at stfc.ac.uk (martin.juckes)" />
+<meta name="Subject" content="[CF-metadata] Use of CF standard name region" />
+<meta name="Date" content="2016-05-20" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./8436.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8438.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] JSON representation based on CF</h1>
-<!-- received="Wed Jul 26 09:50:16 2017" -->
-<!-- isoreceived="20170726085016" -->
-<!-- sent="Wed, 26 Jul 2017 15:50:16 +0000" -->
-<!-- isosent="20170726155016" -->
-<!-- name="Mcgibbney, Lewis J" -->
-<!-- email="Lewis.J.Mcgibbney" -->
-<!-- subject="[CF-metadata] JSON representation based on CF" -->
-<!-- id="959C88A7-4819-4A31-ADBD-541D945A9B28_at_jpl.nasa.gov" -->
+<a style="text-decoration:none" href="./8436.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8438.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Use of CF standard name region</h1>
+<!-- received="Fri May 20 13:44:08 2016" -->
+<!-- isoreceived="20160520124408" -->
+<!-- sent="Fri, 20 May 2016 19:44:08 +0000" -->
+<!-- isosent="20160520194408" -->
+<!-- name="martin.juckes at stfc.ac.uk" -->
+<!-- email="martin.juckes" -->
+<!-- subject="[CF-metadata] Use of CF standard name region" -->
+<!-- id="E21FBC3F00D7304687CB46529F9676D7FD5BE647_at_EXCHMBX01.fed.cclrc.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./8438.html" accesskey="d" title="Jon Blower: &quot;[CF-metadata] JSON representation based on CF&quot;">Next message</a> ]
-[ <a href="./8436.html" title="Charlie Zender: &quot;[CF-metadata] JSON representation based on CF&quot;">Previous message</a> ]
+[ <a href="./8438.html" accesskey="d" title="Karl Taylor: &quot;[CF-metadata] Use of CF standard name region&quot;">Next message</a> ]
+[ <a href="./8436.html" title="Jim Biard: &quot;[CF-metadata] weighted time mean vs. conditional time mean.&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./8438.html" accesskey="t" title="Karl Taylor: &quot;[CF-metadata] Use of CF standard name region&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,82 +70,24 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Mcgibbney, Lewis J &lt;<a href="mailto:Lewis.J.Mcgibbney?Subject=Re%3A%20%5BCF-metadata%5D%20JSON%20representation%20based%20on%20CF">Lewis.J.Mcgibbney</a>&gt;
+<dfn>From</dfn>: martin.juckes at stfc.ac.uk &lt;<a href="mailto:martin.juckes?Subject=Re%3A%20%5BCF-metadata%5D%20Use%20of%20CF%20standard%20name%20region">martin.juckes</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 26 Jul 2017 15:50:16 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 20 May 2016 19:44:08 +0000</span><br />
 </address>
 <br />
-Hi Folks,
+Hello All,
 <br />
-My colleague recently brought this list to my attention and I was very happy to see mention of CovJSON ?
+<br />In CMIP5 the variable &quot;basin&quot; was used as a fixed spatial field with integer values and the CF Standard Name &quot;region&quot;, which has the definition &quot;A variable with the standard name of region contains strings which indicate geographical regions. These strings must be chosen from the standard region list.&quot;
 <br />
-At NASA JPL?s PO.DAAC I have also been working with CovJSON manifestations of our data offerings. Specifically, I?ve been working with a bunch of others on the pycovjson [0] toolkit which really lowers the barrier to generation of CovJSON for our data holdings.
+<br />The integer valued CMIP5 variable is clearly not consistent with this definition. The CMIP5 variable was defined with flag_values and flag_meanings, such that the flag_meanings were from the CF standard region list.
 <br />
-I?ve also been talking with Jim Gallagher and Nathan from OPeNDAP about porting the pycovjson logic to C++ and adding it as a data response handler within OPeNDAP.
+<br />The question is, should we redefine the CMIP5 variable somehow, or would it be acceptable to adjust the CF Standard Name definition for region to accept this usage which appears clear enough and is presumably much easier for plotting packages to handle than a spatial array of string values,
 <br />
-Actually, today at the ESIP Summer Meeting, Jon Blower, Univ Reading, UK and I will be presenting on exactly this topic [1]. It would be great if folks could join us and we can further the discussion.
+<br />regards,
 <br />
-I know this message is pretty late, but the maling list conversation was only brought to my attention very last last night.
+Martin
 <br />
-We are kicking off the Telecon in around 2 hours.
-<br />
-Lewis
-<br />
-<br />[0] <a href="https://github.com/Reading-eScience-Centre/pycovjson">https://github.com/Reading-eScience-Centre/pycovjson</a>
-<br />
-[1] <a href="http://sched.co/As6Y">http://sched.co/As6Y</a>
-<br />
-<br />Dr. Lewis John McGibbney Ph.D., B.Sc.
-<br />
-Data Scientist II
-<br />
-Computer Science for Data Intensive Applications Group (398M)
-<br />
-Instrument Software and Science Data Systems Section (398)
-<br />
-Jet Propulsion Laboratory
-<br />
-California Institute of Technology
-<br />
-4800 Oak Grove Drive
-<br />
-Pasadena, California 91109-8099
-<br />
-Mail Stop : 158-256C
-<br />
-Tel:  (+1) (818)-393-7402
-<br />
-Cell: (+1) (626)-487-3476
-<br />
-Fax:  (+1) (818)-393-1190
-<br />
-Email: lewis.j.mcgibbney at jpl.nasa.gov
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[cid:image001.png at 01D305EC.39D6B730]
-<br />
-<br />&nbsp;Dare Mighty Things
-<br />
--------------- next part --------------
-<br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20170726/e1236167/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20170726/e1236167/attachment.html</a>&gt;
-<br />
--------------- next part --------------
-<br />
-A non-text attachment was scrubbed...
-<br />
-Name: image001.png
-<br />
-Type: image/png
-<br />
-Size: 3428 bytes
-<br />
-Desc: image001.png
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20170726/e1236167/attachment.png">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20170726/e1236167/attachment.png</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Wed Jul 26 2017 - 09:50:16 BST</span>
+<span id="received"><dfn>Received on</dfn> Fri May 20 2016 - 13:44:08 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -151,9 +95,12 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start8437">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./8438.html" title="Next message in the list">Jon Blower: "[CF-metadata] JSON representation based on CF"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./8436.html" title="Previous message in the list">Charlie Zender: "[CF-metadata] JSON representation based on CF"</a></li>
+<li><dfn>Next message</dfn>: <a href="./8438.html" title="Next message in the list">Karl Taylor: "[CF-metadata] Use of CF standard name region"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./8436.html" title="Previous message in the list">Jim Biard: "[CF-metadata] weighted time mean vs. conditional time mean."</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./8438.html" title="Next message in this discussion thread">Karl Taylor: "[CF-metadata] Use of CF standard name region"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./8438.html" title="Message sent in reply to this message">Karl Taylor: "[CF-metadata] Use of CF standard name region"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -164,7 +111,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:15 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./8436.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8438.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] paleoclimate time axis from Karl Taylor on 2010-10-29 (mailing-list-archive)</title>
-<meta name="Author" content="Karl Taylor (taylor13)" />
-<meta name="Subject" content="[CF-metadata] paleoclimate time axis" />
-<meta name="Date" content="2010-10-29" />
+<title>[CF-metadata] Cell methods - depth mean from Brown, Jennifer on 2009-07-28 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Brown, Jennifer (jebro)" />
+<meta name="Subject" content="[CF-metadata] Cell methods - depth mean" />
+<meta name="Date" content="2009-07-28" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2954.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2956.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] paleoclimate time axis</h1>
-<!-- received="Fri Oct 29 16:10:58 2010" -->
-<!-- isoreceived="20101029151058" -->
-<!-- sent="Fri, 29 Oct 2010 15:10:58 -0700" -->
-<!-- isosent="20101029221058" -->
-<!-- name="Karl Taylor" -->
-<!-- email="taylor13" -->
-<!-- subject="[CF-metadata] paleoclimate time axis" -->
-<!-- id="4CCB4672.2010502_at_llnl.gov" -->
+<a style="text-decoration:none" href="./2954.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2956.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Cell methods - depth mean</h1>
+<!-- received="Tue Jul 28 04:58:28 2009" -->
+<!-- isoreceived="20090728035828" -->
+<!-- sent="Tue, 28 Jul 2009 11:58:28 +0100" -->
+<!-- isosent="20090728105828" -->
+<!-- name="Brown, Jennifer" -->
+<!-- email="jebro" -->
+<!-- subject="[CF-metadata] Cell methods - depth mean" -->
+<!-- id="9C29AFE27E3FBA4DB1742CC8E8F74ECD0135871E94_at_nerckwmb1.ad.nerc.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2956.html" accesskey="d" title="Karl Taylor: &quot;[CF-metadata] paleoclimate time axis&quot;">Next message</a> ]
-[ <a href="./2954.html" title="Ramsey Harcourt: &quot;[CF-metadata] Seeking new CF standard names (waves and biogeochem)&quot;">Previous message</a> ]
+[ <a href="./2956.html" accesskey="d" title="Stephen Emsley: &quot;[CF-metadata] Standard name definitions ... are these formal or flexible&quot;">Next message</a> ]
+[ <a href="./2954.html" title="Ethan Davis: &quot;[CF-metadata] Namespaces &#0038; multiple conventions&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./2956.html" accesskey="t" title="Karl Taylor: &quot;[CF-metadata] paleoclimate time axis&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,52 +68,54 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Karl Taylor &lt;<a href="mailto:taylor13?Subject=Re%3A%20%5BCF-metadata%5D%20paleoclimate%20time%20axis">taylor13</a>&gt;
+<dfn>From</dfn>: Brown, Jennifer &lt;<a href="mailto:jebro?Subject=Re%3A%20%5BCF-metadata%5D%20Cell%20methods%20-%20depth%20mean">jebro</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 29 Oct 2010 15:10:58 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 28 Jul 2009 11:58:28 +0100</span><br />
 </address>
 <br />
-Hi all,
+Hi,
 <br />
-<br />Example 4.6 in the convention shows an example for a paleoclimate 
+<br />&nbsp;I would like to use cell_methods to create a standard name for the depth mean of the &quot;EASTWARD_SEA_WATER_VELOCITY&quot;. Any guidance would be much appreciated.
 <br />
-time-axis, which I think should be made CF-compliant.  It has a calendar 
+<br />In my data I have lat, long, time and the depth-mean east,north-velocities. I guess I need to attach the cell_methods attribute to the velocity variable. e.g. cell_methods=&quot;ocean_sigma_coordinate:mean&quot;
 <br />
-attribute defined as calendar=&quot;126 kyr B.P.&quot;, but according the the 
+<br />Do I then create an ocean_sigma_coordinate variable (with correct dimensions and values) and attach a bounds attribute?
 <br />
-conventions, &quot;the values currently defined for |calendar|&quot; don't include 
+e.g. ocean_sigma_coordinate : bounds = &quot; sigma_coordinate_bnds&quot;
 <br />
-this &quot;paleo&quot; option.  I propose adding the following sentence after the 
+<br />Then create a 1D sigma_coordinate_bnds variable giving it the interval 1:32, where 32 = the dimensions of ocean_sigma_coordinate.
 <br />
-list of defined values for calendar (in section 4.4.1):
+<br /><br />Cheers,
 <br />
-<br />&quot;The calendar attribute may also be used to identify the era of a 
+Jenny
 <br />
-paleoclimate simulation, when an exact year would be inappropriate.  The 
+<br />-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
 <br />
-form of a paleoclimate calendar attribute should be patterned after this 
+Dr Jenny Brown
 <br />
-example:  calendar = &quot;18 kyr B.P.&quot;, which indicates the simulation is 
+Proudman Oceanographic Laboratory
 <br />
-for a period 18,000 years before present.  The appropriate units will 
+Joseph Proudman building,
 <br />
-usually be kyr, but yr or Myr might also be used.&quot;
+6 Brownlow Street, Liverpool L3 5DA, UK
 <br />
-<br />If there are no immediate objections, I'll ask Jeff Painter to open up a 
+<br />Tel: +44 (0) 151 795 4800 (switchboard)
 <br />
-track for this.
++44 (0) 151 795 4971 (direct)
 <br />
-<br />Best regards,
+Fax: +44 (0) 151 795 4801
 <br />
-Karl
+email jebro at pol.ac.uk
 <br />
-<br /><br />-------------- next part --------------
-<br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20101029/b52fde25/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20101029/b52fde25/attachment-0001.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Fri Oct 29 2010 - 16:10:58 BST</span>
+<br /><br /><br /><pre>
+-- 
+This message (and any attachments) is for the recipient only. NERC
+is subject to the Freedom of Information Act 2000 and the contents
+of this email and any reply you make may be disclosed by NERC unless
+it is exempt from release under the Act. Any material supplied to
+NERC may be stored in an electronic records management system.
+</pre>
+<span id="received"><dfn>Received on</dfn> Tue Jul 28 2009 - 04:58:28 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -123,12 +123,9 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2955">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2956.html" title="Next message in the list">Karl Taylor: "[CF-metadata] paleoclimate time axis"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2954.html" title="Previous message in the list">Ramsey Harcourt: "[CF-metadata] Seeking new CF standard names (waves and biogeochem)"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2956.html" title="Next message in the list">Stephen Emsley: "[CF-metadata] Standard name definitions ... are these formal or flexible"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2954.html" title="Previous message in the list">Ethan Davis: "[CF-metadata] Namespaces &#0038; multiple conventions"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./2956.html" title="Next message in this discussion thread">Karl Taylor: "[CF-metadata] paleoclimate time axis"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./2956.html" title="Message sent in reply to this message">Karl Taylor: "[CF-metadata] paleoclimate time axis"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -139,7 +136,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:35 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2954.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2956.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] curvilinear cartesian coordinates case from Bert Jagers on 2006-11-28 (mailing-list-archive)</title>
-<meta name="Author" content="Bert Jagers (Bert.Jagers)" />
-<meta name="Subject" content="[CF-metadata] curvilinear cartesian coordinates case" />
-<meta name="Date" content="2006-11-28" />
+<title>[CF-metadata] Conventions for Unstructured Grid Data from Steve Hankin on 2004-11-17 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Steve Hankin (Steven.C.Hankin)" />
+<meta name="Subject" content="[CF-metadata] Conventions for Unstructured Grid Data" />
+<meta name="Date" content="2004-11-17" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0502.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0504.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] curvilinear cartesian coordinates case</h1>
-<!-- received="Tue Nov 28 00:33:34 2006" -->
-<!-- isoreceived="20061128003334" -->
-<!-- sent="Tue, 28 Nov 2006 08:33:34 +0100" -->
-<!-- isosent="20061128073334" -->
-<!-- name="Bert Jagers" -->
-<!-- email="Bert.Jagers" -->
-<!-- subject="[CF-metadata] curvilinear cartesian coordinates case" -->
-<!-- id="004001c712bf$831f5270$22e40991_at_wl06377" -->
+<a style="text-decoration:none" href="./0502.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0504.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Conventions for Unstructured Grid Data</h1>
+<!-- received="Wed Nov 17 13:06:29 2004" -->
+<!-- isoreceived="20041117130629" -->
+<!-- sent="Wed, 17 Nov 2004 12:06:29 -0800" -->
+<!-- isosent="20041117200629" -->
+<!-- name="Steve Hankin" -->
+<!-- email="Steven.C.Hankin" -->
+<!-- subject="[CF-metadata] Conventions for Unstructured Grid Data" -->
+<!-- id="419BAF45.B8FD7773_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20061127212708.GE16920&#64;ucar.edu" -->
+<!-- inreplyto="41992F3D.5060909&#64;usgs.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0504.html" accesskey="d" title="Francisco Doblas-Reyes: &quot;[CF-metadata] Getting back to ensembles&quot;">Next message</a> ]
-[ <a href="./0502.html" title="Ethan Davis: &quot;[CF-metadata] Need help writing point netCDF 3 dataset&quot;">Previous message</a> ]
+[ <a href="./0504.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] new standard names added&quot;">Next message</a> ]
+[ <a href="./0502.html" title="Rich Signell: &quot;[CF-metadata] Conventions for Unstructured Grid Data&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0505.html" accesskey="t" title="Brian Eaton: &quot;[CF-metadata] Conventions for Unstructured Grid Data&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -69,170 +71,362 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Bert Jagers &lt;<a href="mailto:Bert.Jagers?Subject=Re%3A%20%5BCF-metadata%5D%20curvilinear%20cartesian%20coordinates%20case">Bert.Jagers</a>&gt;
+<dfn>From</dfn>: Steve Hankin &lt;<a href="mailto:Steven.C.Hankin?Subject=Re%3A%20%5BCF-metadata%5D%20Conventions%20for%20Unstructured%20Grid%20Data">Steven.C.Hankin</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 28 Nov 2006 08:33:34 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 17 Nov 2004 12:06:29 -0800</span><br />
 </address>
 <br />
-Hi Brian,
+Hi Rich, Tom, Jonathan,
 <br />
-<br /><em class="quotelev1">&gt; Thanks for the clarification.  We had not envisioned the case of the
-</em><br />
-<em class="quotelev1">&gt; projection coordinates being represented by auxiliary coordinate 
-</em><br />
-<em class="quotelev1">&gt; variables.
-</em><br />
-<em class="quotelev1">&gt; To support this use case I agree with your recommendation to move the
-</em><br />
-<em class="quotelev1">&gt; grid_mapping attribute to the appropriate auxiliary coordinate variables.
-</em><br />
-<em class="quotelev1">&gt; If this were done then the coordinates attribute of data variables can
-</em><br />
-<em class="quotelev1">&gt; point to all applicable coordinates.  For example:
+<br />I am offline at the moment (on &quot;jury duty&quot; ... or should I say &quot;dreary
+<br />
+duty&quot; as it
+<br />
+is all waiting ...) so do not have access to all of the on-line specs. 
+<br />
+Please
+<br />
+forgive syntactic errors and other clutsy mistakes I will probably
+<br />
+intersperse ...
+<br />
+<br />My comment is not on the specifics of the proper standard names or how
+<br />
+to encode
+<br />
+the starting index.  It is on the more general outlook -- that the
+<br />
+approach we are discussing to encoding unstructured meshes in netCDF
+<br />
+seems in some important ways
+<br />
+inconsistent with the spirit behind the handling of coordinates in CF. 
+<br />
+In CF we do
+<br />
+not standardize the names given to coordinate variables.  Rather we
+<br />
+standardize the
+<br />
+attributes that create the associations between dependent variables and
+<br />
+their
+<br />
+coordinates:  &quot;coordinates =&quot; and &quot;bounds =&quot;.  And we standardize units
+<br />
+and attributes
+<br />
+for axis orientation -- the semantics of the coordinate.  For
+<br />
+unstructured meshes the
+<br />
+definition of the &quot;grid&quot; becomes more complex and requires additional
+<br />
+supporting
+<br />
+structures.  So we need additional information creating the association
+<br />
+between
+<br />
+dependent variables and their underlying coordinates -- similar in
+<br />
+spirit to the
+<br />
+&quot;coordinates =&quot; and &quot;bounds =&quot;.   I wonder if, rather than standardizing
+<br />
+new
+<br />
+dependent variable names, &quot;Horizontal_Triangular_Element_Incidence_List&quot;
+<br />
+and
+<br />
+&quot;Boundary_Segment_Node_List&quot;, we shouldn't be instead standardizing
+<br />
+attributes that
+<br />
+point to these:
+<br />
+<br />e.g.
+<br />
+(1) Add the following **attributes** to CF:
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;my_var: Horizontal_Triangular_Element_Incidence_List = &quot;foo&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;my_var: Boundary_Segment_Node_List = &quot;foo2&quot;;
+<br />
+<br />The importance of this approach is that the coordinate system is a
+<br />
+property of the
+<br />
+dependent variable -- not a property of the file.  Unstructured meshes,
+<br />
+curvilinear
+<br />
+grids, and rectilinear grids should be able to co-exist in the same
+<br />
+file.
+<br />
+Similarly, differing unstructured meshes should be able to co-exist
+<br />
+within the same
+<br />
+file.  The use of a global attribute, ':grid_type = &quot;Triangular&quot; ;' and
+<br />
+standardized
+<br />
+names for coordinate variables will make this difficult to achieve, no? 
+<br />
+(Ditto for
+<br />
+the &quot;z_type&quot; attribute as a global property of the file.)
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;- steve
+<br />
+<br />===============================================
+<br />
+<br />Rich Signell wrote:
+<br />
+<br /><em class="quotelev1">&gt; Jonathan,
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; float waterlevel(TIME,M,N);
+<em class="quotelev1">&gt; I just had a long talk with Tom Gross, and we have the following proposal
 </em><br />
-<em class="quotelev1">&gt;   waterlevel:long_name = &quot;water level&quot; ;
-</em><br />
-<em class="quotelev1">&gt;   waterlevel:units = &quot;M&quot; ;
-</em><br />
-<em class="quotelev1">&gt;   waterlevel:standard_name = &quot;sea_surface_height&quot; ;
-</em><br />
-<em class="quotelev1">&gt;   waterlevel:positive = &quot;up&quot; ;
-</em><br />
-<em class="quotelev1">&gt;   waterlevel:coordinates = &quot;z_lat z_lon zgrid_y_nl zgrid_x_nl zgrid_y_de 
-</em><br />
-<em class="quotelev1">&gt; zgrid_x_de&quot;;
-</em><br />
-<br /><br />Indeed, the CF conventions state that the true latitude and longitude 
-<br />
-coordinates be supplied via the coordinates attribute, i.e. not the local 
-<br />
-coordinates. Basically, there are two options:
-<br />
-<br />1) as you indicate by specifying all auxiliary coordinates (according 
-<br />
-terminology section 1.2 of the conventions, also z_lat and z_lon are 
-<br />
-auxiliary coordinates) as part of the coordinates attribute. The 
-<br />
-grid_mapping associated with the coordinates should be used to uniquely 
-<br />
-identify coordinate pairs.
-<br />
-<br />2) let the reader search for compatible coordinates (dimensions match data) 
-<br />
-based on standard_names. The grid_mapping associated with the coordinates 
-<br />
-should be used to uniquely identify coordinate pairs.
-<br />
-<br />The first, approach would help the reader to find the relevant coordinate 
-<br />
-variables, but will probably break some of the current implementations 
-<br />
-(assuming only one coordinate pair in the coordinates attribute). The second 
-<br />
-option would require more effort by reader, but would allow you to keep the 
-<br />
-coordinates attribute to point to only the lat lon pair.
-<br />
-<br /><em class="quotelev1">&gt; and the projection coordinates are explicity associated with the
-</em><br />
-<em class="quotelev1">&gt; appropriate mapping, for example
+<em class="quotelev1">&gt; for handling unstructured grids:
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; double zgrid_x_nl(M,N);
-</em><br />
-<em class="quotelev1">&gt;   zgrid_x_nl:long_name = &quot;grid cell centres, x-coordinate, EPSG19914&quot; ;
-</em><br />
-<em class="quotelev1">&gt;   zgrid_x_nl:units = &quot;M&quot; ;
-</em><br />
-<em class="quotelev1">&gt;   zgrid_x_nl:standard_name = &quot;projection_x_coordinate&quot; ;
-</em><br />
-<em class="quotelev1">&gt;   zgrid_x_nl:grid_mapping = &quot;EPSG19914&quot; ;
-</em><br />
-<em class="quotelev1">&gt; double zgrid_y_nl(M,N);
-</em><br />
-<em class="quotelev1">&gt;   zgrid_y_nl:long_name = &quot;grid cell centres, y-coordinate, EPSG19914&quot; ;
-</em><br />
-<em class="quotelev1">&gt;   zgrid_y_nl:units = &quot;M&quot; ;
-</em><br />
-<em class="quotelev1">&gt;   zgrid_y_nl:standard_name = &quot;projection_y_coordinate&quot; ;
-</em><br />
-<em class="quotelev1">&gt;   zgrid_y_nl:grid_mapping = &quot;EPSG19914&quot; ;
-</em><br />
-<em class="quotelev1">&gt; double zgrid_x_de(M,N);
-</em><br />
-<em class="quotelev1">&gt;   zgrid_x_de:long_name = &quot;grid cell centres, x-coordinate, EPSG16362&quot; ;
-</em><br />
-<em class="quotelev1">&gt;   zgrid_x_de:units = &quot;M&quot; ;
-</em><br />
-<em class="quotelev1">&gt;   zgrid_x_de:standard_name = &quot;projection_x_coordinate&quot; ;
-</em><br />
-<em class="quotelev1">&gt;   zgrid_x_de:grid_mapping = &quot;EPSG16362&quot; ;
-</em><br />
-<em class="quotelev1">&gt; double zgrid_y_de(M,N);
-</em><br />
-<em class="quotelev1">&gt;   zgrid_y_de:long_name = &quot;grid cell centres, y-coordinate, EPSG16362&quot; ;
-</em><br />
-<em class="quotelev1">&gt;   zgrid_y_de:units = &quot;M&quot; ;
-</em><br />
-<em class="quotelev1">&gt;   zgrid_y_de:standard_name = &quot;projection_y_coordinate&quot; ;
-</em><br />
-<em class="quotelev1">&gt;   zgrid_y_de:grid_mapping = &quot;EPSG16362&quot; ;
-</em><br />
-<br />That should work indeed.
-<br />
-<br /><em class="quotelev2">&gt;&gt; By the way should x_sea_water_velocity and y_sea_water_velocity be 
-</em><br />
-<em class="quotelev2">&gt;&gt; velocity
-</em><br />
-<em class="quotelev2">&gt;&gt; components in lat, lon directions or projection_x_coordinate and
-</em><br />
-<em class="quotelev2">&gt;&gt; projection_y_coordinate directions? I guess the former, if so, I would
-</em><br />
-<em class="quotelev2">&gt;&gt; suggest renaming the components to east_sea_water_velocity and
-</em><br />
-<em class="quotelev2">&gt;&gt; north_sea_water_velocity.
+<em class="quotelev1">&gt; (1) Add the following standard_names to CF:
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; The x/y vector components refer to some rectangular grid other than a
+<em class="quotelev1">&gt; Horizontal_Triangular_Element_Incidence_List
 </em><br />
-<em class="quotelev1">&gt; lat/lon grid.  Since you've provided multiple projection coordinates for
+<em class="quotelev1">&gt; Boundary_Segment_Node_List
 </em><br />
-<em class="quotelev1">&gt; the same values of the vector components I would guess that the vector
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; component are relative to lat/lon coordinates rather than relative to one
+<em class="quotelev1">&gt; (2)  remove units attributes from the variables that correspond to
 </em><br />
-<em class="quotelev1">&gt; of the two projection coordinates.  In this case the appropriate standard
+<em class="quotelev1">&gt; these names.
 </em><br />
-<em class="quotelev1">&gt; names are eastward_sea_water_velocity and westward_sea_water_velocity (but
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; westward_sea_water_velocity is missing from the standard name table). 
+<em class="quotelev1">&gt; (3) Define the upcoming CF Convention &quot;parameters&quot; attribute
 </em><br />
-<em class="quotelev1">&gt; Note
+<em class="quotelev1">&gt; as &quot;index_start_0&quot; or &quot;index_start_1&quot;
 </em><br />
-<em class="quotelev1">&gt; also that the names x_sea_water_velocity and y_sea_water_velocity have 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; been
+<em class="quotelev1">&gt; The resulting unstructured CDL would thus look like:
 </em><br />
-<em class="quotelev1">&gt; updated to sea_water_x_velocity and sea_water_y_velocity.
+<em class="quotelev1">&gt;
 </em><br />
-<br />Okay thanks, great. I just realized there was an issue when I asked the 
-<br />
-question yesterday.
-<br />
-I should have checked the standard name list first.
-<br />
-<br />Best regards,
-<br />
-<br />Bert
-<br />
-<span id="received"><dfn>Received on</dfn> Tue Nov 28 2006 - 00:33:34 GMT</span>
+<em class="quotelev1">&gt; netcdf umesh_cf {
+</em><br />
+<em class="quotelev1">&gt; dimensions:
+</em><br />
+<em class="quotelev1">&gt;         node = 9700 ;
+</em><br />
+<em class="quotelev1">&gt;         nele = 17925 ;
+</em><br />
+<em class="quotelev1">&gt;         nbnd = 1476 ;
+</em><br />
+<em class="quotelev1">&gt;         nface = 3 ;
+</em><br />
+<em class="quotelev1">&gt;         nbi = 4 ;
+</em><br />
+<em class="quotelev1">&gt;         sigma = 1 ;
+</em><br />
+<em class="quotelev1">&gt;         time = UNLIMITED ; // (0 currently)
+</em><br />
+<em class="quotelev1">&gt; variables:
+</em><br />
+<em class="quotelev1">&gt;         int ele(nele, nface) ;
+</em><br />
+<em class="quotelev1">&gt;                 ele:standard_name =
+</em><br />
+<em class="quotelev1">&gt; &quot;Horizontal_Triangular_Element_Incidence_List&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 ele:parameters = &quot;index_start_1&quot; ;
+</em><br />
+<em class="quotelev1">&gt;         int bnd(nbnd, nbi) ;
+</em><br />
+<em class="quotelev1">&gt;                 bnd:standard_name = &quot;Boundary_Segment_Node_List&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 bnd:parameters = &quot;index_start_1&quot; ;
+</em><br />
+<em class="quotelev1">&gt;         float time(time) ;
+</em><br />
+<em class="quotelev1">&gt;                 time:long_name = &quot;Time&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 time:units = &quot;days since 2003-01-01  0:00:00 00:00&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 time:base_date = 2003, 1, 1, 0 ;
+</em><br />
+<em class="quotelev1">&gt;                 time:standard_name = &quot;time&quot; ;
+</em><br />
+<em class="quotelev1">&gt;         float lon(node) ;
+</em><br />
+<em class="quotelev1">&gt;                 lon:long_name = &quot;Longitude&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 lon:units = &quot;degrees_east&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 lon:standard_name = &quot;longitude&quot; ;
+</em><br />
+<em class="quotelev1">&gt;         float lat(node) ;
+</em><br />
+<em class="quotelev1">&gt;                 lat:long_name = &quot;Latitude&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 lat:units = &quot;degrees_north&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 lat:standard_name = &quot;latitude&quot; ;
+</em><br />
+<em class="quotelev1">&gt;         float depth(node) ;
+</em><br />
+<em class="quotelev1">&gt;                 depth:long_name = &quot;Bathymetry&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 depth:units = &quot;meters&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 depth:positive = &quot;down&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 depth:standard_name = &quot;depth&quot; ;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; // global attributes:
+</em><br />
+<em class="quotelev1">&gt;                 :file_type = &quot;FEM&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 :Conventions = &quot;CF-1.0&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 :grid_type = &quot;Triangular&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 :z_type = &quot;sigma&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 :model = &quot;quoddyv511&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 :title = &quot;Chesapeake Bay FEM&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 :comment = &quot;zzrtquoddylinux Twice Daily Runs&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 :source = &quot;bassmmap&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 :institution = &quot;NOAA/NOS/OCS/CSDL/MMAP&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 :history = &quot;original&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 :references = &quot;tom.gross at noaa.gov&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 :creation_date = &quot;2004-05-06  9:18:23  04:00&quot; ;
+</em><br />
+<em class="quotelev1">&gt; }
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Jonathan Gregory wrote:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;Dear Tom
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;I think we didn't finish the earlier discussion, back in February.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;We need to have standard names for the various quantities that define your
+</em><br />
+<em class="quotelev2">&gt; &gt;mesh, such as your &quot;Horizontal Triangular Element Incidence List&quot; and &quot;Boundary
+</em><br />
+<em class="quotelev2">&gt; &gt;Segment Node List&quot;. We agreed that the convention for whether it numbers from
+</em><br />
+<em class="quotelev2">&gt; &gt;0 or 1 needs to be stated. You've suggested doing this with the units
+</em><br />
+<em class="quotelev2">&gt; &gt;attribute e.g. units=&quot;index_start_1&quot;. I think that it would be better to put
+</em><br />
+<em class="quotelev2">&gt; &gt;the &quot;start 0&quot; or &quot;start 1&quot; information into the standard name itself because
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;(a) units=&quot;index_start_1&quot; or similar is not a legal udunit. Hence it would
+</em><br />
+<em class="quotelev2">&gt; &gt;cause a problem to anything which uses udunits to interpret the attribute.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;(b) we do not use units to indicate sign conventions, and this strikes me as
+</em><br />
+<em class="quotelev2">&gt; &gt;a similar kind of issue.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;(c) it is absolutely essential that this information is specified. With
+</em><br />
+<em class="quotelev2">&gt; &gt;physical quantities you could often make an intelligent guess if the units
+</em><br />
+<em class="quotelev2">&gt; &gt;weren't specified, but in this case a guess would be hard to make. Since it is
+</em><br />
+<em class="quotelev2">&gt; &gt;essential, putting it in the standard name is good because it's unavoidable.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;However a compromise might be to consider putting this into a standard_name_
+</em><br />
+<em class="quotelev2">&gt; &gt;parameter which has to be specified as well as the standard name, such as we
+</em><br />
+<em class="quotelev2">&gt; &gt;have been discussing in another thread.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;Any comments?
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;Best wishes
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;Jonathan
+</em><br />
+<em class="quotelev2">&gt; &gt;_______________________________________________
+</em><br />
+<em class="quotelev2">&gt; &gt;CF-metadata mailing list
+</em><br />
+<em class="quotelev2">&gt; &gt;CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt; &gt;<a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; --
+</em><br />
+<em class="quotelev1">&gt; Richard P. Signell           rsignell at usgs.gov
+</em><br />
+<em class="quotelev1">&gt; U.S. Geological Survey       Phone: (508) 457-2229
+</em><br />
+<em class="quotelev1">&gt; 384 Woods Hole Road          Fax:   (508) 457-2310
+</em><br />
+<em class="quotelev1">&gt; Woods Hole, MA  02543-1598
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<span id="received"><dfn>Received on</dfn> Wed Nov 17 2004 - 13:06:29 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -240,9 +434,12 @@ I should have checked the standard name list first.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start503">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0504.html" title="Next message in the list">Francisco Doblas-Reyes: "[CF-metadata] Getting back to ensembles"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0502.html" title="Previous message in the list">Ethan Davis: "[CF-metadata] Need help writing point netCDF 3 dataset"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0504.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] new standard names added"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0502.html" title="Previous message in the list">Rich Signell: "[CF-metadata] Conventions for Unstructured Grid Data"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0505.html" title="Next message in this discussion thread">Brian Eaton: "[CF-metadata] Conventions for Unstructured Grid Data"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0505.html" title="Message sent in reply to this message">Brian Eaton: "[CF-metadata] Conventions for Unstructured Grid Data"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -253,7 +450,7 @@ I should have checked the standard name list first.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:51 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0502.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0504.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

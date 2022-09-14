@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Conformance Requirements/Recommendations for CF-1.6 from Rosalyn Hatcher on 2012-03-01 (mailing-list-archive)</title>
-<meta name="Author" content="Rosalyn Hatcher (r.s.hatcher)" />
-<meta name="Subject" content="[CF-metadata] Conformance Requirements/Recommendations for CF-1.6" />
-<meta name="Date" content="2012-03-01" />
+<title>[CF-metadata] relationship between CF model and netCDF-classic data model from Upendra Dadi on 2011-04-01 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Upendra Dadi (Upendra.Dadi)" />
+<meta name="Subject" content="[CF-metadata] relationship between CF model and netCDF-classic data model" />
+<meta name="Date" content="2011-04-01" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4186.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4188.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Conformance Requirements/Recommendations for CF-1.6</h1>
-<!-- received="Thu Mar  1 07:52:55 2012" -->
-<!-- isoreceived="20120301075255" -->
-<!-- sent="Thu, 01 Mar 2012 14:52:55 +0000" -->
-<!-- isosent="20120301145255" -->
-<!-- name="Rosalyn Hatcher" -->
-<!-- email="r.s.hatcher" -->
-<!-- subject="[CF-metadata] Conformance Requirements/Recommendations for CF-1.6" -->
-<!-- id="4F4F8D47.3090905_at_reading.ac.uk" -->
+<a style="text-decoration:none" href="./4186.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4188.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] relationship between CF model and netCDF-classic data model</h1>
+<!-- received="Fri Apr  1 08:58:46 2011" -->
+<!-- isoreceived="20110401075846" -->
+<!-- sent="Fri, 01 Apr 2011 10:58:46 -0400" -->
+<!-- isosent="20110401145846" -->
+<!-- name="Upendra Dadi" -->
+<!-- email="Upendra.Dadi" -->
+<!-- subject="[CF-metadata] relationship between CF model and netCDF-classic data model" -->
+<!-- id="4D95E826.8030901_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4188.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Conformance Requirements/Recommendations for CF-1.6&quot;">Next message</a> ]
-[ <a href="./4186.html" title="David Hassell: &quot;[CF-metadata] machine-accessible CF compliance checker?&quot;">Previous message</a> ]
+[ <a href="./4188.html" accesskey="d" title="Ed Hartnett: &quot;[CF-metadata] relationship between CF model and netCDF-classic data model&quot;">Next message</a> ]
+[ <a href="./4186.html" title="John Caron: &quot;[CF-metadata] udunits time units question&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./4188.html" accesskey="t" title="Ed Hartnett: &quot;[CF-metadata] relationship between CF model and netCDF-classic data model&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,47 +70,38 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Rosalyn Hatcher &lt;<a href="mailto:r.s.hatcher?Subject=Re%3A%20%5BCF-metadata%5D%20Conformance%20Requirements%2FRecommendations%20for%20CF-1.6">r.s.hatcher</a>&gt;
+<dfn>From</dfn>: Upendra Dadi &lt;<a href="mailto:Upendra.Dadi?Subject=Re%3A%20%5BCF-metadata%5D%20relationship%20between%20CF%20model%20and%20netCDF-classic%20data%20model">Upendra.Dadi</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 01 Mar 2012 14:52:55 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 01 Apr 2011 10:58:46 -0400</span><br />
 </address>
 <br />
-Dear All,
+Hi Folks,
 <br />
-<br />Before I go ahead and start this, I just wanted to check if anybody has 
+&nbsp;&nbsp;&nbsp;I am trying to better understand CF model and its relationship with 
 <br />
-already written or started to write the &quot;Requirements and 
+netCDF-classic data model. Is there even a relationship? If I am 
 <br />
-Recommendations&quot; for Chapter9 - Discrete Sampling Geometries to go into 
+creating a netCDF file using CF conventions, does the file have to be 
 <br />
-the CF Conformance and Requirements Document?   I vaguely remember 
+using classic data model? If I am using netCDF4 with strings and no 
 <br />
-someone saying they'd give it a go.....
+other feature of netCDF4, could it still be CF compliant. Is it right to 
 <br />
-<br />This document lists the checks that the CF Checker performs to establish 
+say that one of the basic elements of CF standard is  regular arrays as 
 <br />
-whether a file is CF compliant or not and obviously needs to be updated 
+opposed to variable length arrays? And that is where the &quot;relationship&quot; 
 <br />
-so I can upgrade the CF Checker to CF-1.6.
+between CF model and netCDF-classic data model ends? Does CF &quot;recognize&quot; 
 <br />
-If no-one has started this then I can come up with a first attempt.
+variable length arrays?
 <br />
-<br />Cheers,
+I guess these issues are important in the context of proposed discrete 
 <br />
-Rosalyn.
+sampling geometry extension to CF.
 <br />
-<br /><pre>
--- 
-Rosalyn Hatcher
-NCAS Computational Modelling Services
-Dept. of Meteorology, University of Reading,
-Earley Gate, Reading. RG6 6BB
-Email: r.s.hatcher at reading.ac.uk     Tel: +44 (0) 118 378 6016
--------------- next part --------------
-An HTML attachment was scrubbed...
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120301/6c9c1fb3/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120301/6c9c1fb3/attachment.html</a>&gt;
-</pre>
-<span id="received"><dfn>Received on</dfn> Thu Mar 01 2012 - 07:52:55 GMT</span>
+<br />Upendra
+<br />
+<span id="received"><dfn>Received on</dfn> Fri Apr 01 2011 - 08:58:46 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -116,9 +109,13 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4187">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4188.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Conformance Requirements/Recommendations for CF-1.6"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4186.html" title="Previous message in the list">David Hassell: "[CF-metadata] machine-accessible CF compliance checker?"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4188.html" title="Next message in the list">Ed Hartnett: "[CF-metadata] relationship between CF model and netCDF-classic data model"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4186.html" title="Previous message in the list">John Caron: "[CF-metadata] udunits time units question"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./4188.html" title="Next message in this discussion thread">Ed Hartnett: "[CF-metadata] relationship between CF model and netCDF-classic data model"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./4188.html" title="Message sent in reply to this message">Ed Hartnett: "[CF-metadata] relationship between CF model and netCDF-classic data model"</a></li>
+<li><dfn>Reply</dfn>: <a href="./4190.html" title="Message sent in reply to this message">Ben Domenico: "[CF-metadata] relationship between CF model and netCDF-classic data model"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -129,7 +126,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:58 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4186.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4188.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

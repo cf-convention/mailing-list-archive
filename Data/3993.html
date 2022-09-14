@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] [thredds] Compression by Gathering working with Thredds? from John Caron on 2011-12-07 (mailing-list-archive)</title>
-<meta name="Author" content="John Caron (caron)" />
-<meta name="Subject" content="[CF-metadata] [thredds] Compression by Gathering working with Thredds?" />
-<meta name="Date" content="2011-12-07" />
+<title>[CF-metadata] Conventions for a network of velocity sensors from Nan Galbraith on 2011-02-10 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Nan Galbraith (ngalbraith)" />
+<meta name="Subject" content="[CF-metadata] Conventions for a network of velocity sensors" />
+<meta name="Date" content="2011-02-10" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./3992.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3994.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] [thredds] Compression by Gathering working with Thredds?</h1>
-<!-- received="Wed Dec  7 10:04:37 2011" -->
-<!-- isoreceived="20111207100437" -->
-<!-- sent="Wed, 07 Dec 2011 10:04:37 -0700" -->
-<!-- isosent="20111207170437" -->
-<!-- name="John Caron" -->
-<!-- email="caron" -->
-<!-- subject="[CF-metadata] [thredds] Compression by Gathering working with Thredds?" -->
-<!-- id="4EDF9CA5.2060404_at_unidata.ucar.edu" -->
+<a style="text-decoration:none" href="./3992.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3994.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Conventions for a network of velocity sensors</h1>
+<!-- received="Thu Feb 10 08:11:35 2011" -->
+<!-- isoreceived="20110210081135" -->
+<!-- sent="Thu, 10 Feb 2011 10:11:35 -0500" -->
+<!-- isosent="20110210151135" -->
+<!-- name="Nan Galbraith" -->
+<!-- email="ngalbraith" -->
+<!-- subject="[CF-metadata] Conventions for a network of velocity sensors" -->
+<!-- id="4D540027.7030407_at_whoi.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4EDF1ED1.7050506_at_tu-dresden.de" -->
+<!-- inreplyto="4D53B47A.7090902_at_zmaw.de" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,8 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./3994.html" accesskey="d" title="John Caron: &quot;[CF-metadata] Use of flag_value and flag_meaning&quot;">Next message</a> ]
-[ <a href="./3992.html" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] new TEOS-10 standard names&quot;">Previous message</a> ]
+[ <a href="./3994.html" accesskey="d" title="Alexander Pletzer: &quot;[CF-metadata] CF Conformance Requirements and Recommendations&quot;">Next message</a> ]
+[ <a href="./3992.html" title="Heinke Hoeck: &quot;[CF-metadata] Conventions for a network of velocity sensors&quot;">Previous message</a> ]
+[ <a href="./3992.html" title="Heinke Hoeck: &quot;[CF-metadata] Conventions for a network of velocity sensors&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -69,80 +70,87 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20%5Bthredds%5D%20Compression%20by%20Gathering%20working%20with%20Thredds%3F">caron</a>&gt;
+<dfn>From</dfn>: Nan Galbraith &lt;<a href="mailto:ngalbraith?Subject=Re%3A%20%5BCF-metadata%5D%20Conventions%20for%20a%20network%20of%20velocity%20sensors">ngalbraith</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 07 Dec 2011 10:04:37 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 10 Feb 2011 10:11:35 -0500</span><br />
 </address>
 <br />
-Hi Matthias:
+Here's what I'm using - or trying to use - for moored instruments.
 <br />
-<br />The CDM/TDS does not support Compression by Gathering, nor does any 
+Our data sets are slightly different from the network of sensors that
 <br />
-other package i know of. There was some internal talk in CF of 
+Eli described, mainly in that we have a single x,y and multiple t,z
 <br />
-deprecating this. I am cc'ing the CF list in case anyone there wants to 
+dimensions.
 <br />
-comment.
+<br />It seems to me that ancillary variables are the right way to connect
 <br />
-<br />Have you looked at using netcdf-4 with compression?
+instrument info to data variables, although it might not have been
 <br />
-<br />John
+their original intended use.
 <br />
-<br />On 12/7/2011 1:07 AM, Matthias M?ller wrote:
+<br />Nan
 <br />
-<em class="quotelev1">&gt; Dear Thredds experts,
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; in order to save us some disk space and maybe increase the performance 
-</em><br />
-<em class="quotelev1">&gt; of a Thredds/ncWMS server we are planning to apply &quot;Compression by 
-</em><br />
-<em class="quotelev1">&gt; Gathering&quot; (CF Conventions 1.6, section 8.2) to our landuse and 
-</em><br />
-<em class="quotelev1">&gt; land-bound climate datasets. Before adapting our data massaging 
-</em><br />
-<em class="quotelev1">&gt; routines I would like to make sure that the results will be compatible 
-</em><br />
-<em class="quotelev1">&gt; with the Thredds server.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Can you please comfirm that Thredds supports netCDF files that utilize 
-</em><br />
-<em class="quotelev1">&gt; &quot;Compression by Gathering&quot;?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Thank you,
-</em><br />
-<em class="quotelev1">&gt; Matthias
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; thredds mailing list
-</em><br />
-<em class="quotelev1">&gt; thredds at unidata.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; For list information or to unsubscribe,  visit: <a href="http://www.unidata.ucar.edu/mailing_lists/">http://www.unidata.ucar.edu/mailing_lists/</a>
-</em><br />
-<br />-------------- next part --------------
+<br />float TEMP(time, depth) ;
 <br />
-An HTML attachment was scrubbed...
+TEMP:standard_name = &quot;sea_water_temperature&quot; ;
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20111207/33f16afe/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20111207/33f16afe/attachment-0001.html</a>&gt;
+TEMP:ancillary_variables = &quot;TEMP_Instrument_manufacturer
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Dec 07 2011 - 10:04:37 GMT</span>
+TEMP_Instrument_model TEMP_Instrument_reference
+<br />
+TEMP_Instrument_mount TEMP_Instrument_serial_number
+<br />
+TEMP_QC TEMP_QC_value TEMP_QC_procedure
+<br />
+TEMP_ACCURACY TEMP_PRECISION TEMP_RESOLUTION&quot;;
+<br />
+char TEMP_Instrument_manufacturer(depth, 20);
+<br />
+char TEMP_Instrument_model(depth,6);
+<br />
+char TEMP_Instrument_reference(depth,100) ;
+<br />
+char TEMP_Instrument_mount(40) ;
+<br />
+char TEMP_Instrument_serial_number(depth, 6);
+<br />
+byte TEMP_QC(depth);
+<br />
+TEMP_QC:conventions = ?OceanSITES reference table 2?;
+<br />
+...
+<br />
+byte TEMP_QC_value(time, depth);
+<br />
+...
+<br />
+char TEMP_QC_procedure(depth,100);
+<br />
+...
+<br />
+float TEMP_ACCURACY(depth);
+<br />
+...
+<br />
+float TEMP_PRECISION(depth);
+<br />
+...
+<br />
+float TEMP_RESOLUTION(depth);
+<br />
+...
+<br />
+<br /><br /><pre>
+-- 
+*******************************************************
+* Nan Galbraith                        (508) 289-2444 *
+* Upper Ocean Processes Group            Mail Stop 29 *
+* Woods Hole Oceanographic Institution                *
+* Woods Hole, MA 02543                                *
+*******************************************************
+</pre>
+<span id="received"><dfn>Received on</dfn> Thu Feb 10 2011 - 08:11:35 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -150,8 +158,9 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start3993">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./3994.html" title="Next message in the list">John Caron: "[CF-metadata] Use of flag_value and flag_meaning"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./3992.html" title="Previous message in the list">alison.pamment at stfc.ac.uk: "[CF-metadata] new TEOS-10 standard names"</a></li>
+<li><dfn>Next message</dfn>: <a href="./3994.html" title="Next message in the list">Alexander Pletzer: "[CF-metadata] CF Conformance Requirements and Recommendations"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./3992.html" title="Previous message in the list">Heinke Hoeck: "[CF-metadata] Conventions for a network of velocity sensors"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./3992.html" title="Message to which this message replies">Heinke Hoeck: "[CF-metadata] Conventions for a network of velocity sensors"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -163,7 +172,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:55 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./3992.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3994.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

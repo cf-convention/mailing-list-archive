@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] time as ISO strings from Steve Emmerson on 2010-10-25 (mailing-list-archive)</title>
-<meta name="Author" content="Steve Emmerson (steve)" />
-<meta name="Subject" content="[CF-metadata] time as ISO strings" />
-<meta name="Date" content="2010-10-25" />
+<title>[CF-metadata] Conventions vs. Community Profiles from Derrick Snowden on 2009-07-14 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Derrick Snowden (Derrick.Snowden)" />
+<meta name="Subject" content="[CF-metadata] Conventions vs. Community Profiles" />
+<meta name="Date" content="2009-07-14" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2937.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2939.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] time as ISO strings</h1>
-<!-- received="Mon Oct 25 08:14:13 2010" -->
-<!-- isoreceived="20101025071413" -->
-<!-- sent="Mon, 25 Oct 2010 08:14:13 -0600" -->
-<!-- isosent="20101025141413" -->
-<!-- name="Steve Emmerson" -->
-<!-- email="steve" -->
-<!-- subject="[CF-metadata] time as ISO strings" -->
-<!-- id="4CC590B5.1000308_at_unidata.ucar.edu" -->
+<a style="text-decoration:none" href="./2937.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2939.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Conventions vs. Community Profiles</h1>
+<!-- received="Tue Jul 14 07:17:29 2009" -->
+<!-- isoreceived="20090714061729" -->
+<!-- sent="Tue, 14 Jul 2009 09:17:29 -0400" -->
+<!-- isosent="20090714131729" -->
+<!-- name="Derrick Snowden" -->
+<!-- email="Derrick.Snowden" -->
+<!-- subject="[CF-metadata] Conventions vs. Community Profiles" -->
+<!-- id="4A5C8569.6050901_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4CC589FA.30308_at_whoi.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2939.html" accesskey="d" title="Ben Hetland: &quot;[CF-metadata] time as ISO strings&quot;">Next message</a> ]
-[ <a href="./2937.html" title="Nan Galbraith: &quot;[CF-metadata] time as ISO strings&quot;">Previous message</a> ]
-[ <a href="./2937.html" title="Nan Galbraith: &quot;[CF-metadata] time as ISO strings&quot;">In reply to</a> ]
+[ <a href="./2939.html" accesskey="d" title="Martina Stockhause: &quot;[CF-metadata] [CF Metadata] #37: Conventions for Point Observation Data&quot;">Next message</a> ]
+[ <a href="./2937.html" title="Yilmaz Arslanoglu: &quot;[CF-metadata] examples 5.8, 5.9, and 5.10 in CF Version 1.4&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./2939.html" accesskey="t" title="Ben Hetland: &quot;[CF-metadata] time as ISO strings&quot;">Next in thread</a> ]
+[ <a href="./2948.html" accesskey="t" title="olivier lauret: &quot;[CF-metadata] Conventions vs. Community Profiles&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -71,30 +70,82 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Steve Emmerson &lt;<a href="mailto:steve?Subject=Re%3A%20%5BCF-metadata%5D%20time%20as%20ISO%20strings">steve</a>&gt;
+<dfn>From</dfn>: Derrick Snowden &lt;<a href="mailto:Derrick.Snowden?Subject=Re%3A%20%5BCF-metadata%5D%20Conventions%20vs.%20Community%20Profiles">Derrick.Snowden</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 25 Oct 2010 08:14:13 -0600</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 14 Jul 2009 09:17:29 -0400</span><br />
 </address>
 <br />
-Nan,
+Hello,
 <br />
-<br />On 10/25/2010 07:45 AM, Nan Galbraith wrote:
+<br />I am interested in creating a new file format for use in an operational 
 <br />
-<em class="quotelev1">&gt; ... The difference in the default time zone between the two standards seems
-</em><br />
-<em class="quotelev1">&gt; to indicate that, as a best practice, we should *always* provide the time
-</em><br />
-<em class="quotelev1">&gt; zone in the reference time - and anywhere there's an absolute time - even
-</em><br />
-<em class="quotelev1">&gt; when the zone isn't strictly needed because it's UTC.
-</em><br />
-<br />Yup.
+data collection scheme.  The file will contain XBT profiles collected 
 <br />
-<br />Steve Emmerson
+under the auspices of the JCOMM Ship Observations Team so will have many 
 <br />
-UDUNITS Developer
+international users.  I'd like to use CF conventions but I'm struggling 
 <br />
-<span id="received"><dfn>Received on</dfn> Mon Oct 25 2010 - 08:14:13 BST</span>
+with the difference between a &quot;convention&quot; and a &quot;profile&quot;.  As I 
+<br />
+understand it, CF provides guidance for how to encode data.  I.e. given 
+<br />
+a certain data structure, CF shows how that can be encoded in an 
+<br />
+efficient and hopefully interoperable way.  As this new XBT file will be 
+<br />
+used by a large community with common goals we would like to 
+<br />
+recommend/require the use of certain attributes and variables.  This 
+<br />
+strikes me as more of a community content profile similar to the way 
+<br />
+ISO19115 provides the structure of a metadata document while the North 
+<br />
+American Profile recommends the usage of certain elements.  My question 
+<br />
+is, how does one go about developing a community profile?  Does this end 
+<br />
+up being another convention or is it distinct in it's representation in 
+<br />
+the file.  For example, would the global attributes look like
+<br />
+<br />.Conventions = &quot;CF-1.4, XBT-1.0&quot; or
+<br />
+<br />.Conventions = &quot;CF-1.4&quot;
+<br />
+.Profile = &quot;XBT-1.0&quot; or .Community_Profile or whatever?
+<br />
+<br />Clearly anything can be done, my question is does anyone care to comment 
+<br />
+on what should be done?  I know other communities such as Argo and 
+<br />
+OceanSITES have made some choices but I'm not sure if they're the right 
+<br />
+ones.
+<br />
+<br />Thanks for your time.
+<br />
+<br />Regards,
+<br />
+Derrick
+<br />
+<br /><pre>
+-- 
+Derrick Snowden
+NOAA Climate Program Office, Climate Observation Division
+1100 Wayne Avenue, Suite 1202
+Silver Spring, MD  20910 USA
+Tel  1-301-427-2464
+Fax  1-301-427-0033
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Derrick_Snowden.vcf
+Type: text/x-vcard
+Size: 305 bytes
+Desc: not available
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20090714/033d0dd2/attachment-0002.vcf">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20090714/033d0dd2/attachment-0002.vcf</a>&gt;
+</pre>
+<span id="received"><dfn>Received on</dfn> Tue Jul 14 2009 - 07:17:29 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -102,11 +153,13 @@ UDUNITS Developer
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2938">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2939.html" title="Next message in the list">Ben Hetland: "[CF-metadata] time as ISO strings"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2937.html" title="Previous message in the list">Nan Galbraith: "[CF-metadata] time as ISO strings"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./2937.html" title="Message to which this message replies">Nan Galbraith: "[CF-metadata] time as ISO strings"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2939.html" title="Next message in the list">Martina Stockhause: "[CF-metadata] [CF Metadata] #37: Conventions for Point Observation Data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2937.html" title="Previous message in the list">Yilmaz Arslanoglu: "[CF-metadata] examples 5.8, 5.9, and 5.10 in CF Version 1.4"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./2939.html" title="Next message in this discussion thread">Ben Hetland: "[CF-metadata] time as ISO strings"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./2948.html" title="Next message in this discussion thread">olivier lauret: "[CF-metadata] Conventions vs. Community Profiles"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./2948.html" title="Message sent in reply to this message">olivier lauret: "[CF-metadata] Conventions vs. Community Profiles"</a></li>
+<li><dfn>Reply</dfn>: <a href="./2950.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] Conventions vs. Community Profiles"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -117,7 +170,7 @@ UDUNITS Developer
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:35 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2937.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2939.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

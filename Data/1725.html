@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Confused about ordering of info in &quot;coordinates&quot; attribute from David Pierce on 2008-11-05 (mailing-list-archive)</title>
-<meta name="Author" content="David Pierce (dpierce)" />
-<meta name="Subject" content="[CF-metadata] Confused about ordering of info in &quot;coordinates&quot; attribute" />
-<meta name="Date" content="2008-11-05" />
+<title>[CF-metadata] proposed rules for changes to CF conventions from Steve Hankin on 2007-07-05 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Steve Hankin (Steven.C.Hankin)" />
+<meta name="Subject" content="[CF-metadata] proposed rules for changes to CF conventions" />
+<meta name="Date" content="2007-07-05" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1724.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1726.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Confused about ordering of info in &quot;coordinates&quot; attribute</h1>
-<!-- received="Tue Nov  4 17:31:13 2008" -->
-<!-- isoreceived="20081104173113" -->
-<!-- sent="Tue, 4 Nov 2008 16:31:13 -0800 (PST)" -->
-<!-- isosent="20081105003113" -->
-<!-- name="David Pierce" -->
-<!-- email="dpierce" -->
-<!-- subject="[CF-metadata] Confused about ordering of info in &quot;coordinates&quot; attribute" -->
-<!-- id="3845.132.239.114.8.1225845073.squirrel_at_crdmail.ucsd.edu" -->
+<a style="text-decoration:none" href="./1724.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1726.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] proposed rules for changes to CF conventions</h1>
+<!-- received="Thu Jul  5 10:50:56 2007" -->
+<!-- isoreceived="20070705095056" -->
+<!-- sent="Thu, 05 Jul 2007 09:50:56 -0700" -->
+<!-- isosent="20070705165056" -->
+<!-- name="Steve Hankin" -->
+<!-- email="Steven.C.Hankin" -->
+<!-- subject="[CF-metadata] proposed rules for changes to CF conventions" -->
+<!-- id="468D2170.4050503_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20070704181606.GA10765_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1726.html" accesskey="d" title="Seth McGinnis: &quot;[CF-metadata] Confused about ordering of info in &#0034;coordinates&#0034;	attribute&quot;">Next message</a> ]
-[ <a href="./1724.html" title="John Graybeal: &quot;[CF-metadata] a different (but perhaps unoriginal) approach to standard name construction&quot;">Previous message</a> ]
+[ <a href="./1726.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  proposed rules for changes to CF conventions&quot;">Next message</a> ]
+[ <a href="./1724.html" title="Pamment, JA: &quot;[CF-metadata] CF standard names for geostrophic current  grids&quot;">Previous message</a> ]
+[ <a href="./1722.html" title="Jonathan Gregory: &quot;[CF-metadata]  proposed rules for changes to CF conventions&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./1726.html" accesskey="t" title="Seth McGinnis: &quot;[CF-metadata] Confused about ordering of info in &#0034;coordinates&#0034;	attribute&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
+[ <a href="./1727.html" accesskey="t" title="Karl Taylor: &quot;[CF-metadata] proposed rules for changes to CF conventions&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,74 +71,261 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: David Pierce &lt;<a href="mailto:dpierce?Subject=Re%3A%20%5BCF-metadata%5D%20Confused%20about%20ordering%20of%20info%20in%20%22coordinates%22%20attribute">dpierce</a>&gt;
+<dfn>From</dfn>: Steve Hankin &lt;<a href="mailto:Steven.C.Hankin?Subject=Re%3A%20%5BCF-metadata%5D%20proposed%20rules%20for%20changes%20to%20CF%20conventions">Steven.C.Hankin</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 4 Nov 2008 16:31:13 -0800 (PST)</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 05 Jul 2007 09:50:56 -0700</span><br />
 </address>
 <br />
-Hello,
+Hi Jonathan,
 <br />
-<br />I've gotten various requests over the years to have ncview handle 2-D
+<br />It would be nice if this was ready to close, but I think others will 
 <br />
-coordinate axes, and thought I'd get around to adding that.  I figured the
+agree that the following is an important consideration.  As stated the 
 <br />
-&quot;coordinates&quot; attribute would be the one to parse for this information,
+moderator has little or no latitude to stretch schedules.  He/she needs 
 <br />
-but am surprised by how it seems to be used.  (Or, not understanding the
+to be given considerable discretion to guide the consensus process.  (A 
 <br />
-reasoning behind it.)  For example, here is a snippet from the CF doc:
+two week interval is so short that key participants may be unavailable 
 <br />
-<br />variables:
+for the entire period due to travel or deadlines.)
 <br />
-&nbsp;&nbsp;float T(lev,yc,xc) ;
+<br />1)
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;T:long_name = &quot;temperature&quot; ;
+<br />&nbsp;&nbsp;&nbsp;&nbsp;* &quot;After four weeks from the proposal, [...], the moderator
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;T:units = &quot;K&quot; ;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*attempts *to wind up the discussion ....&quot;
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;T:coordinates = &quot;lon lat&quot; ;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;==&gt;
 <br />
-<br />As usual, the variable's dimensions are described in the ncdump order (or
+&nbsp;&nbsp;&nbsp;&nbsp;* &quot;After four weeks from the proposal, [...], the moderator *may
 <br />
-C language order) of Z,Y,X.  However, the entries in the &quot;coordinates&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;attempt* to wind up the discussion ....&quot;
 <br />
-attribute are given in X,Y (fortran) order.  Is there some reason why
+<br />2)
 <br />
-information in &quot;coordinates&quot; is specified in a manner opposite to how the
+<br />&nbsp;&nbsp;&nbsp;&nbsp;* &quot;After a further two weeks of no contributions, *the discussion is
 <br />
-variable is described?
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;concluded* in one in one of the following ways:&quot;
 <br />
-<br />What the code has to do is match up strings in &quot;coordinates&quot; to their
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;==&gt;
 <br />
-associated dimensions in the variable.  I had thought this would be a
+&nbsp;&nbsp;&nbsp;&nbsp;* &quot;After a further two weeks of no contributions, *the moderator may
 <br />
-simple ordered matching, i.e., the first entry in the T(lev,yc,xc)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;choose to conclude the discussion *in one in one of the following
 <br />
-dimension list that requires mapping would be matched to the first entry
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ways:&quot;
 <br />
-in &quot;coordinates&quot;, and so on.  But obviously that would reverse the axes
+<br /><br />3)
 <br />
-here.  Is the information in the &quot;coordinates&quot; attribute guaranteed to be
+<br />&nbsp;&nbsp;&nbsp;&nbsp;* &quot;Not near consensus: No change to standard.
 <br />
-in X,Y order?
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The trac ticket is then closed by the moderator stating the outcome.&quot;
 <br />
-<br />Thanks for any info,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;==&gt;
 <br />
-<br />--Dave
+&nbsp;&nbsp;&nbsp;&nbsp;* &quot;Not near consensus:
 <br />
-<br />-------------------------------------------------------------------
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*If consensus has not been reached the moderator may choose to
 <br />
-David W. Pierce
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;close the ticket with no change to the standard; to hold it open
 <br />
-Division of Climate, Atmospheric Science, and Physical Oceanography
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for an additional period of up to 4 weeks while seeking final
 <br />
-Scripps Institution of Oceanography
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;consensus; or to reset the procedural clock to the
 <br />
-(858) 534-8276 (voice)  /  (858) 534-8561 (fax)    dpierce at ucsd.edu
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pre-summarisation phase.&quot;
 <br />
--------------------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*
 <br />
-<span id="received"><dfn>Received on</dfn> Tue Nov 04 2008 - 17:31:13 GMT</span>
+<br />&nbsp;&nbsp;&nbsp;&nbsp;- Steve
+<br />
+<br />================================
+<br />
+<br />Jonathan Gregory wrote:
+<br />
+<em class="quotelev1">&gt; Dear all
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Here's a new version of the proposed rules incorporating the results of the
+</em><br />
+<em class="quotelev1">&gt; discussion in recent days. Are there any further comments? Unless they say
+</em><br />
+<em class="quotelev1">&gt; otherwise, I would assume that Balaji, John Caron, Steve, Russ and Rich will
+</em><br />
+<em class="quotelev1">&gt; be able to agree to this version. Tom Gross and Karl have not voted yet.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Best wishes
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Jonathan
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; New proposals are to be made on trac using the template, including verbatim
+</em><br />
+<em class="quotelev1">&gt; changes proposed to the text of standard document and the conformance
+</em><br />
+<em class="quotelev1">&gt; document.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; A member of the conventions committee, or another suitably qualified person,
+</em><br />
+<em class="quotelev1">&gt; volunteers to moderate the discussion. If no-one volunteers, the chairman of
+</em><br />
+<em class="quotelev1">&gt; the committee will ask someone to do it.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; The discussion takes place on trac.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; The moderator periodically summarises discussion on trac, keeps it moving
+</em><br />
+<em class="quotelev1">&gt; forward and tries to achieve a consensus. It is expected that everyone with an
+</em><br />
+<em class="quotelev1">&gt; interest will contribute to the discussion and to achieving a consensus during
+</em><br />
+<em class="quotelev1">&gt; this stage. During the discussion, if an objection is raised, answered and not
+</em><br />
+<em class="quotelev1">&gt; reasserted, the moderator will assume the objection has been dropped. However,
+</em><br />
+<em class="quotelev1">&gt; since consensus is the best outcome, it will be helpful if anyone who
+</em><br />
+<em class="quotelev1">&gt; expresses an objection explicitly withdraws it on changing their mind or
+</em><br />
+<em class="quotelev1">&gt; deciding to accept the majority view.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; It will be helpful if a test netCDF file is provided as early as possible
+</em><br />
+<em class="quotelev1">&gt; during the discussion. However, several variants of the proposal may be
+</em><br />
+<em class="quotelev1">&gt; discussed, and the proposer may not be able to provide test netCDF files for
+</em><br />
+<em class="quotelev1">&gt; all of them.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; After four weeks from the proposal, or two weeks of no contributions,
+</em><br />
+<em class="quotelev1">&gt; whichever is longer, the moderator attempts to wind up the discussion by
+</em><br />
+<em class="quotelev1">&gt; summarising the outcome. The summary should make clear which version of the
+</em><br />
+<em class="quotelev1">&gt; proposal would be adopted, if any, since several may have been discussed. A
+</em><br />
+<em class="quotelev1">&gt; test netCDF file must exist for this version of the proposal at the time the
+</em><br />
+<em class="quotelev1">&gt; moderator makes the summary. After a further two weeks of no contributions,
+</em><br />
+<em class="quotelev1">&gt; the discussion is concluded in one in one of the following ways:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Consensus: Accept the proposal if there is no outstanding objection, and at
+</em><br />
+<em class="quotelev1">&gt; least three contributors have expressed support for it, including at least two
+</em><br />
+<em class="quotelev1">&gt; members of the conventions committee. If the moderator personally expresses
+</em><br />
+<em class="quotelev1">&gt; support, he or she can be counted among the supporters.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Near consensus: If the conditions for consensus are not met but the
+</em><br />
+<em class="quotelev1">&gt; moderator's summary is that consensus has nearly been achieved, accept the
+</em><br />
+<em class="quotelev1">&gt; proposal if all, or all but one, of the conventions committe vote in favour of
+</em><br />
+<em class="quotelev1">&gt; it. The moderator will call for votes. All members must vote, although some
+</em><br />
+<em class="quotelev1">&gt; may be guided by the expertise of others.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Not near consensus: No change to standard.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; The trac ticket is then closed by the moderator stating the outcome.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; If the change is accepted, the standard document should be updated, the CF
+</em><br />
+<em class="quotelev1">&gt; convention version number incremented, and the conformance document updated.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; The author of the proposal should be added to the list of contributing authors
+</em><br />
+<em class="quotelev1">&gt; of the CF convention.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; At this point, the change is shown in the CF documents as provisional, but it
+</em><br />
+<em class="quotelev1">&gt; will not be revoked unless subsequent testing shows it to be flawed.
+</em><br />
+<em class="quotelev1">&gt; Provisional status lasts until at least two applications have successfully
+</em><br />
+<em class="quotelev1">&gt; interpreted the data in the test or some other netCDF file following the new
+</em><br />
+<em class="quotelev1">&gt; convention. The Unidata libcf and the NCAS CF checker would be sufficient to
+</em><br />
+<em class="quotelev1">&gt; meet this requirement. If other applications are to be used, the conventions
+</em><br />
+<em class="quotelev1">&gt; committee must be satisfied that they are suitable.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Once the testing is successful, the CF documents should again be updated to
+</em><br />
+<em class="quotelev1">&gt; remove the provisional status, and the version number incremented again.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; If the testing is not successful, the change is revoked.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; All versions of the standard and conformance document should be kept available
+</em><br />
+<em class="quotelev1">&gt; online, with their trac tickets and a history of changes.
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt;   
+</em><br />
+<br /><pre>
+-- 
+Steve Hankin, NOAA/PMEL -- Steven.C.Hankin at noaa.gov
+7600 Sand Point Way NE, Seattle, WA 98115-0070
+ph. (206) 526-6080, FAX (206) 526-6744
+&quot;The only thing necessary for the triumph of evil is for good men
+to do nothing.&quot; -- Edmund Burke
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20070705/ada36cce/attachment-0002.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20070705/ada36cce/attachment-0002.html</a>&gt;
+</pre>
+<span id="received"><dfn>Received on</dfn> Thu Jul 05 2007 - 10:50:56 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -145,12 +333,11 @@ Scripps Institution of Oceanography
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1725">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1726.html" title="Next message in the list">Seth McGinnis: "[CF-metadata] Confused about ordering of info in &#0034;coordinates&#0034;	attribute"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1724.html" title="Previous message in the list">John Graybeal: "[CF-metadata] a different (but perhaps unoriginal) approach to standard name construction"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1726.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  proposed rules for changes to CF conventions"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1724.html" title="Previous message in the list">Pamment, JA: "[CF-metadata] CF standard names for geostrophic current  grids"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./1722.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata]  proposed rules for changes to CF conventions"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./1726.html" title="Next message in this discussion thread">Seth McGinnis: "[CF-metadata] Confused about ordering of info in &#0034;coordinates&#0034;	attribute"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./1726.html" title="Message sent in reply to this message">Seth McGinnis: "[CF-metadata] Confused about ordering of info in &#0034;coordinates&#0034;	attribute"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./1727.html" title="Next message in this discussion thread">Karl Taylor: "[CF-metadata] proposed rules for changes to CF conventions"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -161,7 +348,7 @@ Scripps Institution of Oceanography
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:12 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1724.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1726.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

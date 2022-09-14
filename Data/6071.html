@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF-Metadata site is down from stephen.pascoe at stfc.ac.uk on 2014-02-12 (mailing-list-archive)</title>
-<meta name="Author" content="stephen.pascoe at stfc.ac.uk (stephen.pascoe)" />
-<meta name="Subject" content="[CF-metadata] CF-Metadata site is down" />
-<meta name="Date" content="2014-02-12" />
+<title>[CF-metadata]  New CoordinateType: Spectral? from Jonathan Gregory on 2013-04-07 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata]  New CoordinateType: Spectral?" />
+<meta name="Date" content="2013-04-07" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./6070.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6072.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF-Metadata site is down</h1>
-<!-- received="Wed Feb 12 04:48:35 2014" -->
-<!-- isoreceived="20140212044835" -->
-<!-- sent="Wed, 12 Feb 2014 11:48:35 +0000" -->
-<!-- isosent="20140212114835" -->
-<!-- name="stephen.pascoe at stfc.ac.uk" -->
-<!-- email="stephen.pascoe" -->
-<!-- subject="[CF-metadata] CF-Metadata site is down" -->
-<!-- id="4C353E6E4A08AE4792B350DAA392B5215B5C317E_at_EXCHMBX01.fed.cclrc.ac.uk" -->
+<a style="text-decoration:none" href="./6070.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6072.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  New CoordinateType: Spectral?</h1>
+<!-- received="Sun Apr  7 15:24:08 2013" -->
+<!-- isoreceived="20130407142408" -->
+<!-- sent="Sun, 7 Apr 2013 22:24:08 +0100" -->
+<!-- isosent="20130407212408" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata]  New CoordinateType: Spectral?" -->
+<!-- id="20130407212408.GA4619_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./6072.html" accesskey="d" title="Bedka, Kristopher M.: &quot;[CF-metadata] new standard name requests&quot;">Next message</a> ]
-[ <a href="./6070.html" title="stephen.pascoe at stfc.ac.uk: &quot;[CF-metadata] CF-Metadata site is down&quot;">Previous message</a> ]
+[ <a href="./6072.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Consistent standard_names for satellite derived radiance quantities&quot;">Next message</a> ]
+[ <a href="./6070.html" title="Jim Biard: &quot;[CF-metadata] Ancillary Data&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,44 +68,78 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: stephen.pascoe at stfc.ac.uk &lt;<a href="mailto:stephen.pascoe?Subject=Re%3A%20%5BCF-metadata%5D%20CF-Metadata%20site%20is%20down">stephen.pascoe</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20New%20CoordinateType%3A%20Spectral%3F">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 12 Feb 2014 11:48:35 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Sun, 7 Apr 2013 22:24:08 +0100</span><br />
 </address>
 <br />
-Hi,
+Dear Aleksandar
 <br />
-<br />Please ignore my last email.  I have an incorrect URL in my browser cache and have now found the correct URL of cf-pcmdi.llnl.gov.
+<br /><em class="quotelev1">&gt; I know this will likely end up as a trac ticket but would like first
+</em><br />
+<em class="quotelev1">&gt; to gauge the community's opinion about defining a new coordinate type.
+</em><br />
+<em class="quotelev1">&gt; Satellite data originates as measurements at a number of intervals of
+</em><br />
+<em class="quotelev1">&gt; the electromagnetic spectrum. These intervals are commonly referred to
+</em><br />
+<em class="quotelev1">&gt; as bands or channels. Deciding on how to store the band information is
+</em><br />
+<em class="quotelev1">&gt; one of the key issues toward a standardized representation for
+</em><br />
+<em class="quotelev1">&gt; satellite data.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; The convention seems to allow storing of band information either as a
+</em><br />
+<em class="quotelev1">&gt; numerical coordinate variable or as a string auxiliary coordinate
+</em><br />
+<em class="quotelev1">&gt; variable.
+</em><br />
+<br />Yes, the CF standard could handle both of those, without any modification.
 <br />
-<br />Cheers,
+A trac ticket may not be needed. I certainly think there is no problem at
 <br />
-Stephen.
+all for a numerical coordinate of band wavelength. You need only to propose
 <br />
-<br /><pre>
----
-Stephen Pascoe  +44 (0)1235 445980
-Centre of Environmental Data Archival
-STFC Rutherford Appleton Laboratory, Harwell Oxford, Didcot OX11 0QX, UK
-From: Pascoe, Stephen (STFC,RAL,RALSP)
-Sent: 12 February 2014 11:45
-To: Taylor, Karl Taylor (taylor13 at llnl.gov); cf-metadata at cgd.ucar.edu
-Subject: CF-Metadata site is down
-Importance: High
-Hi,
-The domain cf-pcmdi9.llnl.gov has been unreachable since at least yesterday.  We are currently relying on this site for access to the official CF specification.  Can anyone report on when this site will be back and where we can get a copy of the latest CF document in the mean time.
-Thanks,
-Stephen.
----
-Stephen Pascoe  +44 (0)1235 445980
-Centre of Environmental Data Archival
-STFC Rutherford Appleton Laboratory, Harwell Oxford, Didcot OX11 0QX, UK
--- 
-Scanned by iCritical.
--------------- next part --------------
-An HTML attachment was scrubbed...
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140212/b9d79baf/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140212/b9d79baf/attachment-0001.html</a>&gt;
-</pre>
-<span id="received"><dfn>Received on</dfn> Wed Feb 12 2014 - 04:48:35 GMT</span>
+a new standard name for it, if one is needed. There is already a generic
+<br />
+standard name of radiation_wavelength, included for use as a coord variable
+<br />
+just as in your first example. If you need something more specific, I would
+<br />
+suggest sensor_radiation_wavelength. The coord values for this would be the
+<br />
+central wavelengths, and you could also supply bounds specifying the range
+<br />
+of wavelengths covered by the sensor.
+<br />
+<br />Although string-valued auxiliary coordinate variables are possible already,
+<br />
+as used in your second example, I would argue they are less useful as
+<br />
+metadata than numerical ranges. That is because the main use of CF is to
+<br />
+support intercomparison of datasets, which is better-defined if numbers are
+<br />
+used. If there are widely used definitions of named wavelength bands,
+<br />
+required for intercomparison of many datasets, a standard_name could be
+<br />
+defined with a number of permitted string values. I think this extension
+<br />
+could probably be seen as a new standard_name, not requiring a change to
+<br />
+the conventions, although it could be explicitly mentioned in section 6 like
+<br />
+Roy is proposing for biological taxa.
+<br />
+<br />Best wishes
+<br />
+<br />Jonathan
+<br />
+<span id="received"><dfn>Received on</dfn> Sun Apr 07 2013 - 15:24:08 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -113,8 +147,8 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start6071">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./6072.html" title="Next message in the list">Bedka, Kristopher M.: "[CF-metadata] new standard name requests"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./6070.html" title="Previous message in the list">stephen.pascoe at stfc.ac.uk: "[CF-metadata] CF-Metadata site is down"</a></li>
+<li><dfn>Next message</dfn>: <a href="./6072.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Consistent standard_names for satellite derived radiance quantities"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./6070.html" title="Previous message in the list">Jim Biard: "[CF-metadata] Ancillary Data"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -126,7 +160,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:36 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./6070.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6072.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

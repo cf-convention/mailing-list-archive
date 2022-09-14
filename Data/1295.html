@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] what standard names are for from Jon Blower on 2008-04-09 (mailing-list-archive)</title>
-<meta name="Author" content="Jon Blower (jdb)" />
-<meta name="Subject" content="[CF-metadata] what standard names are for" />
-<meta name="Date" content="2008-04-09" />
+<title>[CF-metadata] Getting back to ensembles from John Caron on 2006-11-23 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] Getting back to ensembles" />
+<meta name="Date" content="2006-11-23" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1294.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1296.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] what standard names are for</h1>
-<!-- received="Wed Apr  9 03:50:34 2008" -->
-<!-- isoreceived="20080409025034" -->
-<!-- sent="Wed, 9 Apr 2008 10:50:34 +0100" -->
-<!-- isosent="20080409095034" -->
-<!-- name="Jon Blower" -->
-<!-- email="jdb" -->
-<!-- subject="[CF-metadata] what standard names are for" -->
-<!-- id="2bb6ee950804090250u669396eap7dba406eff8de6ac_at_mail.gmail.com" -->
+<a style="text-decoration:none" href="./1294.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1296.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Getting back to ensembles</h1>
+<!-- received="Wed Nov 22 18:00:17 2006" -->
+<!-- isoreceived="20061122180017" -->
+<!-- sent="Wed, 22 Nov 2006 18:00:17 -0700" -->
+<!-- isosent="20061123010017" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] Getting back to ensembles" -->
+<!-- id="4564F2A1.2000703_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="EB1E7CB92F5B35459E0B926D2A614DB60123FF7B_at_EXCHANGE19.fed.cclrc.ac.uk" -->
+<!-- inreplyto="20061123000327.GA24633_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1296.html" accesskey="d" title="David Poulter: &quot;[CF-metadata] what standard names are for&quot;">Next message</a> ]
-[ <a href="./1294.html" title="Craig Donlon: &quot;[CF-metadata] what standard names are for&quot;">Previous message</a> ]
-[ <a href="./1293.html" title="Pascoe, S: &quot;[CF-metadata] what standard names are for&quot;">In reply to</a> ]
+[ <a href="./1296.html" accesskey="d" title="Bert Jagers: &quot;[CF-metadata] axis attribute - curvilinear cartesian coordinates case&quot;">Next message</a> ]
+[ <a href="./1294.html" title="Jonathan Gregory: &quot;[CF-metadata] Getting back to ensembles&quot;">Previous message</a> ]
+[ <a href="./1294.html" title="Jonathan Gregory: &quot;[CF-metadata] Getting back to ensembles&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./1302.html" accesskey="t" title="V. Balaji: &quot;[CF-metadata] what standard names are for&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
+[ <a href="./1315.html" accesskey="t" title="Francisco Doblas-Reyes: &quot;[CF-metadata] Getting back to ensembles&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,232 +71,170 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jon Blower &lt;<a href="mailto:jdb?Subject=Re%3A%20%5BCF-metadata%5D%20what%20standard%20names%20are%20for">jdb</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20Getting%20back%20to%20ensembles">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 9 Apr 2008 10:50:34 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 22 Nov 2006 18:00:17 -0700</span><br />
 </address>
 <br />
-I agree with Stephen and Bryan here.  I'm really worried about the
+Hi Jonathan:
 <br />
-current state of standard names for many reasons but one very
+<br />Jonathan Gregory wrote:
 <br />
-practical reason in particular.  If the standard name is meant to be
+<em class="quotelev1">&gt; Dear Bryan, John, Paco, Brian, et al.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; I think we are all happy with the idea of a realization dimension and
+</em><br />
+<em class="quotelev1">&gt; auxiliary string coordinate variables (labels) with this dimension that
+</em><br />
+<em class="quotelev1">&gt; contain the various metadata.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; John said that he would require one of these variables to have unique values
+</em><br />
+<em class="quotelev1">&gt; (no repeats) so it could be used for selection. Brian pointed out that the
+</em><br />
+<em class="quotelev1">&gt; current CF (6) provision for label coordinates doesn't have such a restriction.
+</em><br />
+<em class="quotelev1">&gt; However, unique values are required for coordinate variables for the same
+</em><br />
+<em class="quotelev1">&gt; reason that John wants them in this case. If we could regard a realization
+</em><br />
+<em class="quotelev1">&gt; variable as a coordinate variable rather than as alternative label information,
+</em><br />
+<em class="quotelev1">&gt; the uniqueness requirement would be natural. In netCDF string-valued
+</em><br />
+<em class="quotelev1">&gt; arrays have to be 2D character variables, because there isn't support for
+</em><br />
+<em class="quotelev1">&gt; true arrays of strings, but this is a restriction of the file format, and
+</em><br />
+<em class="quotelev1">&gt; netCDF-4 does have strings (I believe). In netCDF-4 it would be natural, I
+</em><br />
+<em class="quotelev1">&gt; think, to have a 1D array of strings whose name was the same as the name of
+</em><br />
+<em class="quotelev1">&gt; its dimension e.g. realization(realization) i.e. a coordinate variable. We
+</em><br />
+<em class="quotelev1">&gt; can't do this now: it has to be realization(realization,stringlength) and we
+</em><br />
+<em class="quotelev1">&gt; even recommend against having a multidimensional array whose name matches the
+</em><br />
+<em class="quotelev1">&gt; name of a dimension, so that it is not misidentified as a coordinate variable.
+</em><br />
+<em class="quotelev1">&gt; But for strings it isn't &quot;logically&quot; multidimensional. So I would propose:
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; * If a 2D auxiliary coordinate variable is of char type and its name is the
+</em><br />
+<em class="quotelev1">&gt; same as the name of its first dimension, it should be regarded as a string-
+</em><br />
+<em class="quotelev1">&gt; valued coordinate variable, and its string values should all be distinct.
+</em><br />
+<em class="quotelev1">&gt; Coordinate variables are also required to be monotonic. Do you want to make
+</em><br />
+<em class="quotelev1">&gt; this requirement too for string-valued ones? I can't see the need for it
+</em><br />
+<em class="quotelev1">&gt; myself, because you don't perform operations on string-valued variables or
+</em><br />
+<em class="quotelev1">&gt; use them for plotting positions, like you do with numeric ones.
+</em><br />
+<br /><em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; * If it has any other name, it should be regarded as a label/alternative
+</em><br />
+<em class="quotelev1">&gt; coordinate variable as currently in CF 6, and the restriction does not apply.
+</em><br />
+<br />I agree with this proposal. One can think of the &quot;string dimension&quot; as an artifact, and ignore it. Netcdf4 will have real Strings. Monotonicity is really useful only for numeric values, so i think &quot;uniqueness of string values&quot; is sufficient for string values coordinate variables.
 <br />
-exposed to the user (which presumably it is) then it must logically
+<br />I dont understand the next part very deeply, so i wont comment on it for now.
 <br />
-appear in user interfaces.  Many of the current names are far too long
-<br />
-for this to be sensible because more and more things have been pushed
-<br />
-into the standard name.
-<br />
-<br />Speaking as a tool developer, the only way to support this is to keep
-<br />
-standard names short and sacrifice some precision.  Standard names can
-<br />
-then be linked trivially to a more wordy and precise definition via a
-<br />
-simple URL as Stephen describes.  Yes, this means an extra step of
-<br />
-indirection but it's an easy one for tool developers to implement.
-<br />
-<br />If you really want a NetCDF file to stand alone and contain all
-<br />
-relevant information then the precise definition of a term can still
-<br />
-appear as a text field in the file.
-<br />
-<br />This proposition is entirely analogous to the OGC concept of having a
-<br />
-Title for a thing (which is human-readable, reasonably short,
-<br />
-imprecise but &quot;good enough&quot;) and an Abstract for the same thing (which
-<br />
-allows more space for a wordier and more precise description).
-<br />
-<br /><em class="quotelev1">&gt;  I completely agree with Bryan's observation that self describing files
+<br /><em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;  are a mirage.
+<em class="quotelev1">&gt; In either case the nature of the metadata needs to be identified. Bryan says
 </em><br />
-Agreed.  Nothing is ever self-describing *and* standalone.  Everything
-<br />
-is described relative to some (implicit or explicit) external set of
-<br />
-conventions or frames of reference.
-<br />
-<br />Jon
-<br />
-<br />On Wed, Apr 9, 2008 at 9:51 AM, Pascoe, S (Stephen) &lt;S.Pascoe at rl.ac.uk&gt; wrote:
-<br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; he &quot;strongly disagrees&quot; with my suggestion. I'm not sure which one of them he
 </em><br />
-<em class="quotelev2">&gt;  &gt; I think we differ on this because I don't want to depend so much on
+<em class="quotelev1">&gt; dislikes :-) but it might be my proposal that new standard names for these
 </em><br />
-<em class="quotelev1">&gt;  the availability
+<em class="quotelev1">&gt; things (such as institution) should be the same as the new or existing names
 </em><br />
-<em class="quotelev2">&gt;  &gt; of powerful software, as in practice it may not exist. It certainly
+<em class="quotelev1">&gt; for global and data variable attributes. It seems sensible to me to make them
 </em><br />
-<em class="quotelev1">&gt;  will not exist
+<em class="quotelev1">&gt; the same names, so probably the objectionable bit is their designation as
 </em><br />
-<em class="quotelev2">&gt;  &gt; (experience shows) and be widely available until quite a long time
+<em class="quotelev1">&gt; standard names.
 </em><br />
-<em class="quotelev1">&gt;  (maybe years)
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev2">&gt;  &gt; after we agree conventions.
+<em class="quotelev1">&gt; Bryan proposes that instead of standard names they should be some new
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; attribute, because standard names are for physical quantities and we should
 </em><br />
-<em class="quotelev1">&gt;  Just an idea.  If the unique identifiers we were using were URLs, some
+<em class="quotelev1">&gt; know what is physical. John may also see an advantage in this. I can see there
 </em><br />
-<em class="quotelev1">&gt;  part of the &quot;powerful&quot; software already does exist.  Resolve the URL and
+<em class="quotelev1">&gt; is a sort of difference, but I don't really think it's clear-cut. We already
 </em><br />
-<em class="quotelev1">&gt;  get the definition.  This can be done by a human user without specialist
+<em class="quotelev1">&gt; have standard names for some things that aren't really physical quantities in
 </em><br />
-<em class="quotelev1">&gt;  software of a software agent.  This is the approach taken by the
+<em class="quotelev1">&gt; Bryan's sense e.g. land_cover and region (string-valued), and various platform_
 </em><br />
-<em class="quotelev1">&gt;  Semantic Web and the concept of Linked Data (<a href="http://linkeddata.org/">http://linkeddata.org/</a>).
+<em class="quotelev1">&gt; names (describing the observation platform rather than any quantity which is
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; observed). I suspect there are grey areas. Why should we make a functional
 </em><br />
-<em class="quotelev1">&gt;  I completely agree with Bryan's observation that self describing files
+<em class="quotelev1">&gt; distinction, for instance, between the ensemble member number and the analysis
 </em><br />
-<em class="quotelev1">&gt;  are a mirage.  The traffic on this list is the best illustration of
+<em class="quotelev1">&gt; time for various forecasts made for the same verification time? I think Bryan
 </em><br />
-<em class="quotelev1">&gt;  that.
+<em class="quotelev1">&gt; would put these in different categories. Moreover, the standard_name and the
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; new attribute will have to be searched for in the same kind of way, and the
 </em><br />
-<em class="quotelev1">&gt;  Cheers,
+<em class="quotelev1">&gt; values of the coordinates they label have to be treated in the same ways
 </em><br />
-<em class="quotelev1">&gt;  Stephen.
+<em class="quotelev1">&gt; (selection, labelling axes, etc.); it complicates the software to have to
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; do this with two different attributes and two different tables to look them up
 </em><br />
-<em class="quotelev1">&gt;  ---
+<em class="quotelev1">&gt; in rather than one. It seems simpler to me to make them standard names. If
 </em><br />
-<em class="quotelev1">&gt;  Stephen Pascoe  +44 (0)1235 445980
+<em class="quotelev1">&gt; there is a need for a distinction, we could make it with some additional
 </em><br />
-<em class="quotelev1">&gt;  British Atmospheric Data Centre
+<em class="quotelev1">&gt; attribute. What different treatments are needed that should be flagged?
 </em><br />
-<em class="quotelev1">&gt;  Rutherford Appleton Laboratory
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; I believe we agree that it's useful to have an attribute that points to an
 </em><br />
-<em class="quotelev1">&gt;  -----Original Message-----
+<em class="quotelev1">&gt; external dictionary. This could be useful for string-valued existing standard-
 </em><br />
-<em class="quotelev1">&gt;  From: cf-metadata-bounces at cgd.ucar.edu
+<em class="quotelev1">&gt; named quantities such as region. I agree that it would be good if these tables
 </em><br />
-<em class="quotelev1">&gt;  [mailto:cf-metadata-bounces at cgd.ucar.edu] On Behalf Of Jonathan Gregory
+<em class="quotelev1">&gt; weren't maintained by us, but I don't think we can do that (as I've said
 </em><br />
-<em class="quotelev1">&gt;  Sent: 09 April 2008 08:51
+<em class="quotelev1">&gt; before) without an agreement with the dictionary-maintainer about the format
 </em><br />
-<em class="quotelev1">&gt;  To: Lawrence, BN (Bryan)
+<em class="quotelev1">&gt; and content of the dictionary. Do others think the same?
 </em><br />
-<em class="quotelev1">&gt;  Cc: cf-metadata at cgd.ucar.edu; Dave Poulter; jfpiolle at ifremer.fr;
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;  Jean-Francois PIOLLE; Kenneth Casey; Pierre LeBorgne
+<em class="quotelev1">&gt; Best wishes
 </em><br />
-<em class="quotelev1">&gt;  Subject: Re: [CF-metadata] what standard names are for
+<em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; Jonathan
 </em><br />
-<em class="quotelev1">&gt;  Dear Bryan (again!)
+<em class="quotelev1">&gt; _______________________________________________
 </em><br />
-<em class="quotelev1">&gt;
+<em class="quotelev1">&gt; CF-metadata mailing list
 </em><br />
-<em class="quotelev2">&gt;  &gt; I don't buy the argument that CF is self-describing. CF metafiles +
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
 </em><br />
-<em class="quotelev2">&gt;  &gt; the conventions document + software that can interpret the convention
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
-<em class="quotelev2">&gt;  &gt; and the file lead to something that is &quot;self-describing&quot;.  If I can
-</em><br />
-<em class="quotelev2">&gt;  &gt; write software that pulls out standard names, I can write software
-</em><br />
-<em class="quotelev2">&gt;  &gt; that pulls the definition out as an option at the same time. Not only
-</em><br />
-<em class="quotelev1">&gt;  can. Should.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  I think we differ on this because I don't want to depend so much on the
-</em><br />
-<em class="quotelev1">&gt;  availability of powerful software, as in practice it may not exist. It
-</em><br />
-<em class="quotelev1">&gt;  certainly will not exist (experience shows) and be widely available
-</em><br />
-<em class="quotelev1">&gt;  until quite a long time (maybe years) after we agree conventions. Hence,
-</em><br />
-<em class="quotelev1">&gt;  I think CF files should be self-describing as far as that can be
-</em><br />
-<em class="quotelev1">&gt;  &quot;reasonably&quot; achieved, so that users can work successfully with them if
-</em><br />
-<em class="quotelev1">&gt;  they have at their disposal only the netCDF library. That is, as you
-</em><br />
-<em class="quotelev1">&gt;  correctly anticipated, why I don't like the idea of opaque URNs in CF
-</em><br />
-<em class="quotelev1">&gt;  files. Opaque URNs would be fine as identifiers in some external tables,
-</em><br />
-<em class="quotelev1">&gt;  in which we set up equivalences between alternative names or
-</em><br />
-<em class="quotelev1">&gt;  conventions.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  But of course I welcome powerful software and convenient tools as well.
-</em><br />
-<em class="quotelev1">&gt;  So it is a compromise, like many things in CF, and I don't take the
-</em><br />
-<em class="quotelev1">&gt;  &quot;self-describing&quot;
-</em><br />
-<em class="quotelev1">&gt;  argument to the ultimate extreme of demanding definitions for everything
-</em><br />
-<em class="quotelev1">&gt;  in the file, and so on. I would just rather use reasonably
-</em><br />
-<em class="quotelev1">&gt;  self-explanatory terms instead of more opaque &quot;jargon&quot; terms as standard
-</em><br />
-<em class="quotelev1">&gt;  names.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  Cheers
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  Jonathan
-</em><br />
-<em class="quotelev1">&gt;  _______________________________________________
-</em><br />
-<em class="quotelev1">&gt;  CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt;  CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt;  <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;  _______________________________________________
-</em><br />
-<em class="quotelev1">&gt;  CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt;  CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt;  <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<br /><br /><br /><pre>
--- 
---------------------------------------------------------------
-Dr Jon Blower Tel: +44 118 378 5213 (direct line)
-Technical Director Tel: +44 118 378 8741 (ESSC)
-Reading e-Science Centre Fax: +44 118 378 6413
-ESSC Email: jdb at mail.nerc-essc.ac.uk
-University of Reading
-3 Earley Gate
-Reading RG6 6AL, UK
---------------------------------------------------------------
-</pre>
-<span id="received"><dfn>Received on</dfn> Wed Apr 09 2008 - 03:50:34 BST</span>
+<span id="received"><dfn>Received on</dfn> Wed Nov 22 2006 - 18:00:17 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -305,13 +242,11 @@ Reading RG6 6AL, UK
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1295">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1296.html" title="Next message in the list">David Poulter: "[CF-metadata] what standard names are for"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1294.html" title="Previous message in the list">Craig Donlon: "[CF-metadata] what standard names are for"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./1293.html" title="Message to which this message replies">Pascoe, S: "[CF-metadata] what standard names are for"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1296.html" title="Next message in the list">Bert Jagers: "[CF-metadata] axis attribute - curvilinear cartesian coordinates case"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1294.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Getting back to ensembles"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./1294.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] Getting back to ensembles"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./1302.html" title="Next message in this discussion thread">V. Balaji: "[CF-metadata] what standard names are for"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./1302.html" title="Message sent in reply to this message">V. Balaji: "[CF-metadata] what standard names are for"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./1315.html" title="Next message in this discussion thread">Francisco Doblas-Reyes: "[CF-metadata] Getting back to ensembles"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -322,7 +257,7 @@ Reading RG6 6AL, UK
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:03 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1294.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1296.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

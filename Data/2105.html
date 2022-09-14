@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Rotated-pole grids from John Caron on 2009-06-17 (mailing-list-archive)</title>
-<meta name="Author" content="John Caron (caron)" />
-<meta name="Subject" content="[CF-metadata] Rotated-pole grids" />
-<meta name="Date" content="2009-06-17" />
+<title>[CF-metadata] what standard names are for from Craig Donlon on 2008-04-09 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Craig Donlon (craig.donlon)" />
+<meta name="Subject" content="[CF-metadata] what standard names are for" />
+<meta name="Date" content="2008-04-09" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2104.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2106.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Rotated-pole grids</h1>
-<!-- received="Wed Jun 17 11:43:18 2009" -->
-<!-- isoreceived="20090617104318" -->
-<!-- sent="Wed, 17 Jun 2009 11:43:18 -0600" -->
-<!-- isosent="20090617174318" -->
-<!-- name="John Caron" -->
-<!-- email="caron" -->
-<!-- subject="[CF-metadata] Rotated-pole grids" -->
-<!-- id="4A392B36.7030807_at_unidata.ucar.edu" -->
+<a style="text-decoration:none" href="./2104.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2106.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] what standard names are for</h1>
+<!-- received="Wed Apr  9 03:32:05 2008" -->
+<!-- isoreceived="20080409023205" -->
+<!-- sent="Wed, 9 Apr 2008 10:32:05 +0100" -->
+<!-- isosent="20080409093205" -->
+<!-- name="Craig Donlon" -->
+<!-- email="craig.donlon" -->
+<!-- subject="[CF-metadata] what standard names are for" -->
+<!-- id="1f73fed70804090232o5d82b78cq7cdbb146cd581f64_at_mail.gmail.com" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4A390C6D.6040309_at_noaa.gov" -->
+<!-- inreplyto="200804090740.38703.b.n.lawrence_at_rl.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2106.html" accesskey="d" title="Jon Blower: &quot;[CF-metadata] Rotated-pole grids&quot;">Next message</a> ]
-[ <a href="./2104.html" title="Stephens, A: &quot;[CF-metadata] Rotated-pole grids&quot;">Previous message</a> ]
-[ <a href="./2102.html" title="Steve Hankin: &quot;[CF-metadata] Rotated-pole grids&quot;">In reply to</a> ]
+[ <a href="./2106.html" accesskey="d" title="Jon Blower: &quot;[CF-metadata] what standard names are for&quot;">Next message</a> ]
+[ <a href="./2104.html" title="Pascoe, S: &quot;[CF-metadata] what standard names are for&quot;">Previous message</a> ]
+[ <a href="./2101.html" title="Bryan Lawrence: &quot;[CF-metadata] what standard names are for&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./2106.html" accesskey="t" title="Jon Blower: &quot;[CF-metadata] Rotated-pole grids&quot;">Next in thread</a> ]
+[ <a href="./2108.html" accesskey="t" title="Kenneth Casey: &quot;[CF-metadata] what standard names are for&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,204 +72,224 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20Rotated-pole%20grids">caron</a>&gt;
+<dfn>From</dfn>: Craig Donlon &lt;<a href="mailto:craig.donlon?Subject=Re%3A%20%5BCF-metadata%5D%20what%20standard%20names%20are%20for">craig.donlon</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 17 Jun 2009 11:43:18 -0600</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 9 Apr 2008 10:32:05 +0100</span><br />
 </address>
 <br />
-A few more cents:
+Hi all:
 <br />
-<br />1. Its more powerful for the client to know the projection transformation than to know only the 2D lat/lon values. For that reason I always encourage providers to include the projection info. When the client doesnt know what to do with the projection info, having the 2D lat/lon info make the data useable anyway, and for that reason i think the decision by CF to require the 2D lat/lon is correct for archival files.
+Just to recap on the logical 'family' of SST names we have currently on the
 <br />
-<br />2. The CDM/TDS uses netcdf/CF as a way to transfer binary information in WCS and other web services. Adding two-dim lat/lon fields can triple (worst case) the size of the file. For that reason CDM/TDS allows the user to specify if they want 2D lat/lon fields or not. This makes the files not strictly CF compliant, but we leave it to the client to decide what tradeoff they want. 
+table (definitions are well described in Alisons last mail):
 <br />
-<br />The point is that web service binary encoding is a use case likely not originally envisioned by the CF committee. 
+<br />surface_temperature
 <br />
-<br /><br />Steve Hankin wrote:
+sea_water_temperature (at depth)
 <br />
-<em class="quotelev1">&gt; [with a small correction embedded in &quot;**&quot;, because I know our community 
+sea_skin_temperature
+<br />
+sea_subskin_temperature
+<br />
+sea_foundation_temperature
+<br />
+<br />and a proposal for
+<br />
+sea_surface_foundation_temperature
+<br />
+<br />I believe we are going in full circle now and I would like to consider the
+<br />
+sea_surface_temperature 'family' and return to
+<br />
+<br />surface_temperature (already defined)
+<br />
+sea_water_temperature (for temperatures at depth)
+<br />
+sea_surface_skin_temperature
+<br />
+sea_surface_subskin_temperature
+<br />
+sea_surface_foundation_temperature
+<br />
+<br />I feel that this solution clearly defines our scope (the sea surface),
+<br />
+delineates the character of the data (skin, subskin, and foundation) and
+<br />
+defines the data as temperature.  Also, there is a logic to the family.
+<br />
+<br />Best regards,
+<br />
+Craig
+<br />
+<br /><br /><br /><br />2008/4/9 Bryan Lawrence &lt;b.n.lawrence at rl.ac.uk&gt;:
+<br />
+<br /><em class="quotelev1">&gt; On Tuesday 08 April 2008 22:30:32 John Graybeal wrote:
 </em><br />
-<em class="quotelev1">&gt; will point it out if I don't]
+<em class="quotelev2">&gt; &gt; Some observations:
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev2">&gt; &gt;
 </em><br />
-<em class="quotelev1">&gt; Hi Jon,
+<em class="quotelev2">&gt; &gt; A term that is accepted in a science domain, but is likely to conflict
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; with
 </em><br />
-<em class="quotelev1">&gt; Assuming I've understood your situation ...
+<em class="quotelev2">&gt; &gt; understood meaning in another science domain or in a non-scientific
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev2">&gt; &gt; context, probably should not be accepted on the 'current usage trumps
 </em><br />
-<em class="quotelev1">&gt; First to restate the party line:  The philosophy of CF has always been 
+<em class="quotelev2">&gt; &gt; future usage' principle.  Foreseeable areas of likely confusion should
 </em><br />
-<em class="quotelev1">&gt; that the coordinate systems be self-describing without the application 
+<em class="quotelev1">&gt; be
 </em><br />
-<em class="quotelev1">&gt; needing to know the specific algorithms used to calculate coordinates 
+<em class="quotelev2">&gt; &gt; avoided.
 </em><br />
-<em class="quotelev1">&gt; (from the name of the projection and a list of parameters).  This 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; approach has great merit.  It shifts the burden of generating 
+<em class="quotelev1">&gt; I don't disagree with that, where the future usage is predictable. But if
 </em><br />
-<em class="quotelev1">&gt; coordinates from clients, who would need to know all projection types 
+<em class="quotelev1">&gt; 'ts
 </em><br />
-<em class="quotelev1">&gt; (in a dynamically growing list), to the individual data provider, who 
+<em class="quotelev1">&gt; just possible (and not probable) then I would.
 </em><br />
-<em class="quotelev1">&gt; needs to know how to generate just the coordinates for the particular  
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; coordinate system being used.  Admittedly, there are some geometric 
+<em class="quotelev2">&gt; &gt; Further, areas of likely confusion should not be addressed on the basis
 </em><br />
-<em class="quotelev1">&gt; computations that are only  possible through knowledge of the projection 
+<em class="quotelev1">&gt; of
 </em><br />
-<em class="quotelev1">&gt; parameters.  For that reason **and because GIS clients will likely 
+<em class="quotelev2">&gt; &gt; &quot;the term name connotes something else, but at least the definition is
 </em><br />
-<em class="quotelev1">&gt; require the projection parameters** those parameters have been added 
+<em class="quotelev2">&gt; &gt; clear.&quot;  A false connotation is harmful to use of the vocabulary.
 </em><br />
-<em class="quotelev1">&gt; over the past 2-3 years to CF.  GFDL's proposed &quot;gridspec&quot; additions to 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; CF actually find a way to include most of that geometry information in 
+<em class="quotelev1">&gt; I don't disagree with that, but removing clarity from the primary usage
 </em><br />
-<em class="quotelev1">&gt; the file without the need to know the projection parameters -- making 
+<em class="quotelev1">&gt; doesn't add value either.
 </em><br />
-<em class="quotelev1">&gt; the file more self-describing, but again at the expense of effort to the 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; data provider.  (Gridspec tooling can add a whole lot of additional 
+<em class="quotelev2">&gt; &gt; At the same time, if a term does become ambiguous due to additional,
 </em><br />
-<em class="quotelev1">&gt; power, too -- support for generalized regridding, etc.)
+<em class="quotelev2">&gt; &gt; overlaid, or replaced meanings, a synonym could be added that could
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev2">&gt; &gt; eventually supplant the original use. It is important to have this
 </em><br />
-<em class="quotelev1">&gt; It sounds like the situation that you face is that you are the lucky one 
+<em class="quotelev1">&gt; option,
 </em><br />
-<em class="quotelev1">&gt; to receive files that contain implied coordinates and you have to serve 
+<em class="quotelev2">&gt; &gt; so we're not totally locked in to outdated terms.
 </em><br />
-<em class="quotelev1">&gt; them as CF with explicit coordinates.  That is a pain in the neck for 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; sure.  On the other hand think of the bright side  ;-) .  The pain in 
+<em class="quotelev1">&gt; One of the reasons why I'd rather have opaque identifiers! Then the
 </em><br />
-<em class="quotelev1">&gt; the neck lands only on you; not on every client who would access this 
+<em class="quotelev1">&gt; primary
 </em><br />
-<em class="quotelev1">&gt; file.  That seems like a good trade-off to promote broad 
+<em class="quotelev1">&gt; identifier is immutable, and one can have evolution of appropriate terms.
 </em><br />
-<em class="quotelev1">&gt; interoperability.  (Would a GIS client understand a rotated pole 
+<em class="quotelev1">&gt; (But, to anticipate Jonathan, opaque identifiers without easily usable
 </em><br />
-<em class="quotelev1">&gt; projection?  It seems like a projection that might be known only by 
+<em class="quotelev1">&gt; resolvers are useless).
 </em><br />
-<em class="quotelev1">&gt; numerical ocean modelers.)
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev2">&gt; &gt; If a particular name is confusing because its meaning is opaque to the
 </em><br />
-<em class="quotelev1">&gt;    2 cents  - Steve
+<em class="quotelev1">&gt; lay
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev2">&gt; &gt; data management community, that is not as big an issue. It is then
 </em><br />
-<em class="quotelev1">&gt; =======================
+<em class="quotelev2">&gt; &gt; essentially a code to those outsiders, to be looked up if necessary.
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev2">&gt; &gt; Whether advanced or localized scientific usage should be promoted into
 </em><br />
-<em class="quotelev1">&gt; Jon Blower wrote:
+<em class="quotelev1">&gt; wide
 </em><br />
-<em class="quotelev2">&gt;&gt; Thanks for the confirmation Don.  This seems very odd indeed - if the
+<em class="quotelev2">&gt; &gt; usage (thereby becoming less code-like), or eschewed in favor of more
 </em><br />
-<em class="quotelev2">&gt;&gt; source data don't contain the (real) lon and lat coordinates then it's
+<em class="quotelev2">&gt; &gt; generally understandable terms, is the typical 'mindshare' tradeoff.
 </em><br />
-<em class="quotelev2">&gt;&gt; quite onerous (and quite pointless) to do so in a convenient fashion
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; (it would generally involve re-writing the headers, or using some long
+<em class="quotelev1">&gt; For whom do we write cf-netcdf files? In most cases for ourselves and our
 </em><br />
-<em class="quotelev2">&gt;&gt; and ugly NcML).  Presumably there must have been a good reason for
+<em class="quotelev1">&gt; existing community.  I would argue that much of the effort to make CF
 </em><br />
-<em class="quotelev2">&gt;&gt; including these coordinates?
+<em class="quotelev1">&gt; names
 </em><br />
-<em class="quotelev2">&gt;&gt;
+<em class="quotelev1">&gt; self-describing beyond the primary user community is mixing up different
 </em><br />
-<em class="quotelev2">&gt;&gt; Cheers, Jon
+<em class="quotelev1">&gt; classes of the metadata taxonomy.  I can elaborate on that add nauseum at
 </em><br />
-<em class="quotelev2">&gt;&gt;
+<em class="quotelev1">&gt; a
 </em><br />
-<em class="quotelev2">&gt;&gt; On Wed, Jun 17, 2009 at 3:52 PM, Don Murray&lt;dmurray at unidata.ucar.edu&gt; wrote:
+<em class="quotelev1">&gt; later date.
 </em><br />
-<em class="quotelev2">&gt;&gt;   
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt; John-
+<em class="quotelev2">&gt; &gt; A specific reaction, then, from someone who is an outsider to the
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt;
+<em class="quotelev1">&gt; community
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt; I believe for all grid_mappings that lat/lon are required even though the
+<em class="quotelev2">&gt; &gt; and the science in question:
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt; grid mapping defines the transformations necessary.  I think it is redundant
+<em class="quotelev2">&gt; &gt;
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt; in all cases, not just for the rotated lat/lon.
+<em class="quotelev2">&gt; &gt; The term 'sea_foundation_temperature' bugs me, because it appears to
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt;
+<em class="quotelev1">&gt; mean
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt; Don
+<em class="quotelev2">&gt; &gt; something (the foundation of the sea) that it does not actually mean,
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt;
+<em class="quotelev1">&gt; and
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt; Jon Blower wrote:
+<em class="quotelev2">&gt; &gt; that someday may be important in its own right.
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt;     
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; Dear all,
+<em class="quotelev1">&gt; Now that's an important point.
 </em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; We have some data that use a rotated pole grid.  The CF convention for
+<em class="quotelev2">&gt; &gt; Suggestion:
 </em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; describing this is here:
+<em class="quotelev2">&gt; &gt;
 </em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
+<em class="quotelev2">&gt; &gt; On the other hand, the term 'sea_surface_foundation_temperature' is
 </em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; <a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.4/cf-conventions.html#id2985006">http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.4/cf-conventions.html#id2985006</a>.
+<em class="quotelev1">&gt; totally
 </em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;  Are the 2D lon and lat variables in this example really necessary?
+<em class="quotelev2">&gt; &gt; transparent in that regard -- I understand that is not the foundation of
 </em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; They would seem to be redundant as their values can be calculated from
+<em class="quotelev2">&gt; &gt; the sea, and even though I don't know exactly what it is, I can look it
 </em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; rlon, rlat and the location of the new &quot;north&quot; pole.
+<em class="quotelev1">&gt; up.
 </em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
+<em class="quotelev2">&gt; &gt; It's even clearer to me than
 </em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt; Thanks, Jon
+<em class="quotelev2">&gt; &gt; sea_surface_temperature_at_diurnal_thermocline_base, for whatever that's
 </em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;
+<em class="quotelev2">&gt; &gt; worth.
 </em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;       
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt; --
+<em class="quotelev1">&gt; I agree, it's more clear to me.
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt; *************************************************************
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt; Don Murray                               UCAR Unidata Program
+<em class="quotelev2">&gt; &gt; Interestingly, I don't believe sea_surface_foundation_temperature has
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt; dmurray at unidata.ucar.edu                        P.O. Box 3000
+<em class="quotelev1">&gt; been
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt; (303) 497-8628                              Boulder, CO 80307
+<em class="quotelev2">&gt; &gt; suggested in this thread, at least in its recent incarnation.
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt; <a href="http://www.unidata.ucar.edu/staff/donm">http://www.unidata.ucar.edu/staff/donm</a>
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt; *************************************************************
+<em class="quotelev1">&gt; Would it be acceptable to the primary user community?
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt;
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;     
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;   
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; ------------------------------------------------------------------------
-</em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; Bryan
 </em><br />
 <em class="quotelev1">&gt; _______________________________________________
 </em><br />
@@ -279,7 +299,25 @@ A few more cents:
 </em><br />
 <em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
-<span id="received"><dfn>Received on</dfn> Wed Jun 17 2009 - 11:43:18 BST</span>
+<em class="quotelev1">&gt;
+</em><br />
+<br /><br /><br /><pre>
+-- 
+Dr Craig Donlon
+Director of the International GODAE SST Pilot Project Office
+Met Office Hadley Centre,
+Fitzroy Road, Exeter, EX1 3PB United Kingdom
+Tel: +44 (0)1392 886622 Mob:07920 235750
+Fax:+44 (0)1392 885681
+Skype ID:crazit
+SkypeIn: +44 0141 416 0882
+E-mail: craig.donlon at gmail.com
+<a href="http://www.ghrsst-pp.org">http://www.ghrsst-pp.org</a>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20080409/91e889f3/attachment-0002.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20080409/91e889f3/attachment-0002.html</a>&gt;
+</pre>
+<span id="received"><dfn>Received on</dfn> Wed Apr 09 2008 - 03:32:05 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -287,13 +325,15 @@ A few more cents:
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2105">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2106.html" title="Next message in the list">Jon Blower: "[CF-metadata] Rotated-pole grids"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2104.html" title="Previous message in the list">Stephens, A: "[CF-metadata] Rotated-pole grids"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./2102.html" title="Message to which this message replies">Steve Hankin: "[CF-metadata] Rotated-pole grids"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2106.html" title="Next message in the list">Jon Blower: "[CF-metadata] what standard names are for"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2104.html" title="Previous message in the list">Pascoe, S: "[CF-metadata] what standard names are for"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./2101.html" title="Message to which this message replies">Bryan Lawrence: "[CF-metadata] what standard names are for"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./2106.html" title="Next message in this discussion thread">Jon Blower: "[CF-metadata] Rotated-pole grids"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./2108.html" title="Next message in this discussion thread">Kenneth Casey: "[CF-metadata] what standard names are for"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./2106.html" title="Message sent in reply to this message">Jon Blower: "[CF-metadata] Rotated-pole grids"</a></li>
+<dfn>Reply</dfn>: <a href="./2108.html" title="Message sent in reply to this message">Kenneth Casey: "[CF-metadata] what standard names are for"</a></li>
+<li><dfn>Reply</dfn>: <a href="./2136.html" title="Message sent in reply to this message">Craig Donlon: "[CF-metadata] what standard names are for"</a></li>
+<li><dfn>Reply</dfn>: <a href="./2154.html" title="Message sent in reply to this message">Pamment, JA: "[CF-metadata] CF-1.0 registration of new names for SST"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -304,7 +344,7 @@ A few more cents:
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:19 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2104.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2106.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

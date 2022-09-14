@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Geyer and Ruane standard names from Pamment, JA on 2006-05-12 (mailing-list-archive)</title>
-<meta name="Author" content="Pamment, JA (J.A.Pamment)" />
-<meta name="Subject" content="[CF-metadata] Geyer and Ruane standard names" />
-<meta name="Date" content="2006-05-12" />
+<title>[CF-metadata] Encoding Errors on variables in CF from Brian Eaton on 2003-04-17 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Brian Eaton (eaton)" />
+<meta name="Subject" content="[CF-metadata] Encoding Errors on variables in CF" />
+<meta name="Date" content="2003-04-17" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0143.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0145.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Geyer and Ruane standard names</h1>
-<!-- received="Fri May 12 06:27:52 2006" -->
-<!-- isoreceived="20060512052752" -->
-<!-- sent="Fri, 12 May 2006 13:27:52 +0100" -->
-<!-- isosent="20060512122752" -->
-<!-- name="Pamment, JA" -->
-<!-- email="J.A.Pamment" -->
-<!-- subject="[CF-metadata] Geyer and Ruane standard names" -->
-<!-- id="EB861CD59F6DAA4BBC25EAE9987C5BC9031BCD76_at_EXCHANGE29.fed.cclrc.ac.uk" -->
+<a style="text-decoration:none" href="./0143.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0145.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Encoding Errors on variables in CF</h1>
+<!-- received="Thu Apr 17 13:58:43 2003" -->
+<!-- isoreceived="20030417125843" -->
+<!-- sent="Thu, 17 Apr 2003 13:58:43 -0600" -->
+<!-- isosent="20030417195843" -->
+<!-- name="Brian Eaton" -->
+<!-- email="eaton" -->
+<!-- subject="[CF-metadata] Encoding Errors on variables in CF" -->
+<!-- id="20030417195842.GI5662_at_ucar.edu" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0145.html" accesskey="d" title="Nan Galbraith: &quot;[CF-metadata] matlab tool on CF convention?&quot;">Next message</a> ]
-[ <a href="./0143.html" title="Jonathan Gregory: &quot;[CF-metadata] Geyer and Ruane standard names&quot;">Previous message</a> ]
+[ <a href="./0145.html" accesskey="d" title="John Evans: &quot;[CF-metadata] Encoding Errors on variables in CF&quot;">Next message</a> ]
+[ <a href="./0143.html" title="Jonathan Gregory: &quot;[CF-metadata] Encoding Errors on variables in CF&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0145.html" accesskey="t" title="John Evans: &quot;[CF-metadata] Encoding Errors on variables in CF&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,52 +70,84 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Pamment, JA &lt;<a href="mailto:J.A.Pamment?Subject=Re%3A%20%5BCF-metadata%5D%20Geyer%20and%20Ruane%20standard%20names">J.A.Pamment</a>&gt;
+<dfn>From</dfn>: Brian Eaton &lt;<a href="mailto:eaton?Subject=Re%3A%20%5BCF-metadata%5D%20Encoding%20Errors%20on%20variables%20in%20CF">eaton</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 12 May 2006 13:27:52 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 17 Apr 2003 13:58:43 -0600</span><br />
 </address>
 <br />
-Dear Jonathan,
+Hi All,
 <br />
-<br /><em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev2">&gt; &gt; According to the literature I read in relation to this proposal,
-</em><br />
-total 
+<br />I agree with Jonathan's items (1) and (4).
 <br />
-<em class="quotelev2">&gt; &gt; soil suction = matric soil suction + osmotic soil suction.  The 
-</em><br />
-<em class="quotelev2">&gt; &gt; generally used term for this quantity does indeed appear to be
-</em><br />
-&quot;total 
+<br />I think backward links provided by an attribute such as &quot;for_variables&quot;
 <br />
-<em class="quotelev2">&gt; &gt; soil suction&quot;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; That's interesting. Thanks for researching it carefully. In the
-</em><br />
-context, it is
+add convenience but no new functionality.  As Jonathan noted all
 <br />
-<em class="quotelev1">&gt; probably clear what &quot;total&quot; means, but it isn't out of context. I
-</em><br />
-think we should
+the links between file variables can be determined by parsing all
 <br />
-<em class="quotelev1">&gt; leave it off for the moment and revisit the issue if it anyone asks
-</em><br />
-for the
+variable's forward link attributes.  The added convenience of a backward
 <br />
-<em class="quotelev1">&gt; qualified terms.
-</em><br />
-<br />Ok, in that case I think soil_suction_at_saturation: Pa
+link must be weighed against the disadvantages of adding complexity to the
 <br />
-should go into the table.
+convention.  I this case I vote against providing backward links.
 <br />
-<br />Thanks,
+<br />I think identifying the error types by the standard name is the right
 <br />
-Alison
+approach rather than by adding a new &quot;intent&quot; attribute.  I'm not in favor
 <br />
-<span id="received"><dfn>Received on</dfn> Fri May 12 2006 - 06:27:52 BST</span>
+of the standard_name prefix &quot;ancillary_data_for_&quot; as it adds no new
+<br />
+information.  But standard name prefixes like &quot;standard_error_of_&quot; do add
+<br />
+information.  We currently require all standard_name values to be
+<br />
+explicitly listed in the table.  As Jonathan has suggested we could specify a
+<br />
+set of prefixes that could be added to any standard name in the table with
+<br />
+the result being a valid standard name that is not explicitly listed in the
+<br />
+table.  The prefix definition would include information about the
+<br />
+appropriate units for the quantity, for example it might say that the units
+<br />
+are the same as those of the quantity to which the prefix is attached.
+<br />
+<br />I prefer the use of standard name prefixes to Jonathan's proposal for
+<br />
+&quot;ready-parsed&quot; standard names with intents.  In that proposal the standard
+<br />
+name part of standard_name's value is actually the standard name of the
+<br />
+data with which this variable is associated.  I think the standard
+<br />
+name should describe the quantity that the attribute attached to.
+<br />
+<br />It has previously been pointed out that it will be difficult to describe
+<br />
+the error types using standard names due to the variety of definitions that
+<br />
+are used for errors.  I think we can start by defining names for the most
+<br />
+commonly used errors (or other data quality measures) and expand the list
+<br />
+by request.  This is how we've dealt with similar issues related to
+<br />
+standard names and projections for example.  Also, if a certain type of
+<br />
+error is easily parameterized, as for example with the number of standard
+<br />
+deviations being reported in a standard error, then new attributes that
+<br />
+give these parameter values can be defined and used in conjunction with the
+<br />
+standard name to precisely define the quantity.  That would be analogous to
+<br />
+how we define projections.
+<br />
+<br />Brian
+<br />
+<span id="received"><dfn>Received on</dfn> Thu Apr 17 2003 - 13:58:43 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -121,9 +155,12 @@ Alison
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start144">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0145.html" title="Next message in the list">Nan Galbraith: "[CF-metadata] matlab tool on CF convention?"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0143.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Geyer and Ruane standard names"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0145.html" title="Next message in the list">John Evans: "[CF-metadata] Encoding Errors on variables in CF"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0143.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Encoding Errors on variables in CF"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0145.html" title="Next message in this discussion thread">John Evans: "[CF-metadata] Encoding Errors on variables in CF"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0145.html" title="Message sent in reply to this message">John Evans: "[CF-metadata] Encoding Errors on variables in CF"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -134,7 +171,7 @@ Alison
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:45 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0143.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0145.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

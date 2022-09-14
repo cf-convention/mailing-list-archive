@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Request for a new standard_name: barometric_altitude from Jonathan Gregory on 2013-07-05 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] Request for a new standard_name: barometric_altitude" />
-<meta name="Date" content="2013-07-05" />
+<title>[CF-metadata] CF-netcdf for Mercator projection - use lat/lon, or xc/yc plus lat/lon from Hedley, Mark on 2012-10-23 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Hedley, Mark (mark.hedley)" />
+<meta name="Subject" content="[CF-metadata] CF-netcdf for Mercator projection - use lat/lon, or xc/yc plus lat/lon" />
+<meta name="Date" content="2012-10-23" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5605.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5607.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Request for a new standard_name: barometric_altitude</h1>
-<!-- received="Fri Jul  5 10:57:17 2013" -->
-<!-- isoreceived="20130705095717" -->
-<!-- sent="Fri, 5 Jul 2013 17:57:17 +0100" -->
-<!-- isosent="20130705165717" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] Request for a new standard_name: barometric_altitude" -->
-<!-- id="20130705165717.GA32174_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./5605.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5607.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF-netcdf for Mercator projection - use lat/lon, or xc/yc plus lat/lon</h1>
+<!-- received="Tue Oct 23 09:41:06 2012" -->
+<!-- isoreceived="20121023084106" -->
+<!-- sent="Tue, 23 Oct 2012 16:41:06 +0100" -->
+<!-- isosent="20121023154106" -->
+<!-- name="Hedley, Mark" -->
+<!-- email="mark.hedley" -->
+<!-- subject="[CF-metadata] CF-netcdf for Mercator projection - use lat/lon, or xc/yc plus lat/lon" -->
+<!-- id="8AC4893FB411FA4AA8CFECD9C8913B660CB4810C_at_EXXMAIL01.desktop.frd.metoffice.com" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="8AC4893FB411FA4AA8CFECD9C8913B660CB4810B&#64;EXXMAIL01.desktop.frd.metoffice.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5607.html" accesskey="d" title="rhorne at excaliburlabs.com: &quot;[CF-metadata] Fwd: how to represent a non-standard error&quot;">Next message</a> ]
-[ <a href="./5605.html" title="Jim Biard: &quot;[CF-metadata] Fwd: how to represent a non-standard error&quot;">Previous message</a> ]
+[ <a href="./5607.html" accesskey="d" title="Hedley, Mark: &quot;[CF-metadata] Adding palettes to the data&quot;">Next message</a> ]
+[ <a href="./5605.html" title="Schultz, Martin: &quot;[CF-metadata] Extensions to the Standard Name table&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,144 +69,227 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Request%20for%20a%20new%20standard_name%3A%20barometric_altitude">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Hedley, Mark &lt;<a href="mailto:mark.hedley?Subject=Re%3A%20%5BCF-metadata%5D%20CF-netcdf%20for%20Mercator%20projection%20-%20use%20lat%2Flon%2C%20or%20xc%2Fyc%20plus%20lat%2Flon">mark.hedley</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 5 Jul 2013 17:57:17 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 23 Oct 2012 16:41:06 +0100</span><br />
 </address>
 <br />
-Dear Martin
+Hello Mark
 <br />
-<br />Obviously these quantities are useful. I have two suggestions for your
+<br />It looks a bit like your two examples are two different datasets.  
 <br />
-consideration, hoping I have understood the idea.
+<br />In Example 1 you have a Wind_SFC value for each pair of projection coordinates; the data is 2D whilst the projection coordinates are 1D.  To be CF compliant you must include latitude and longitude coordinates in your NetCDF file.
 <br />
-<br />* Would it be acceptable and useful to follow some other kinds of standard name
+<br />In Example two you have a Wind_SFC value for each pair of lat/lon coordinates; the data is 2D whilst the coordinates are 1D.  
 <br />
-and call this air_pressure_expressed_as_altitude?
+<br />These datasets cannot be the same for any Mercator I know of, you must have re-sampled your data onto a different horizontal grid.  If this is the case, this seems less preferable, I would preserve the data as much as possible in my files. I you have not re-sampled your data, then the data and coordinates will not match up correctly.
 <br />
-<br />* above_ground doesn't seem specific enough to me, because you don't mean the
+<br />I think example two is explicitly wrong.  I would prefer example one to encode this data.
 <br />
-local ground, which we would usually call &quot;surface&quot; in standard names (i.e. the
+<br />all the best
 <br />
-bottom of the atmosphere). To be more precise, we could use something longer
+mark
 <br />
-such as wrt_surface_at_flight_origin. It refers to a particular time and place.
+<br /><br />-----Original Message-----
 <br />
-<br />Best wishes
+From: CF-metadata on behalf of Mark Mathewson Consulting
 <br />
-<br />Jonathan
+Sent: Thu 11/10/2012 19:05
 <br />
-<br />----- Forwarded message from &quot;Schultz, Martin&quot; &lt;m.schultz at fz-juelich.de&gt; -----
+To: cf-metadata at cgd.ucar.edu
 <br />
-<br /><em class="quotelev1">&gt; From: &quot;Schultz, Martin&quot; &lt;m.schultz at fz-juelich.de&gt;
-</em><br />
-<em class="quotelev1">&gt; To: &quot;cf-metadata at cgd.ucar.edu&quot; &lt;cf-metadata at cgd.ucar.edu&gt;
-</em><br />
-<em class="quotelev1">&gt; Date: Fri, 5 Jul 2013 12:47:34 +0000
-</em><br />
-<em class="quotelev1">&gt; Subject: [CF-metadata] Request for a new standard_name: barometric_altitude
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Dear all,
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt;     for the standardisation of metadata from aircraft measurements I would like to propose on behalf of the IGAS project team two new standard names for altitude:
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 1.       &quot;barometric_altitude&quot;
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; &quot;Barometric altitude is the altitude determined by a pressure measurement which is converted to altitude through interpolation of the International Standard Atmosphere (ICAO, 1976).  A mean sea level pressure of 1013.25 hPa is used for the surface pressure.&quot;
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Units: m
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 2.       &quot;barometric_altitude_above_ground&quot;
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; &quot;Barometric altitude is the altitude determined by a pressure measurement which is converted to altitude through interpolation of the International Standard Atmosphere (ICAO, 1976).  The reference pressure is derived from the surface pressure measurement at take-off of the aircraft.&quot;
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Units: m
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Thanks for considering these and best regards,
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Martin
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; PD Dr. Martin G. Schultz
-</em><br />
-<em class="quotelev1">&gt; IEK-8, Forschungszentrum J?lich
-</em><br />
-<em class="quotelev1">&gt; D-52425 J?lich
-</em><br />
-<em class="quotelev1">&gt; Ph: +49 2461 61 2831
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; ------------------------------------------------------------------------------------------------
-</em><br />
-<em class="quotelev1">&gt; ------------------------------------------------------------------------------------------------
-</em><br />
-<em class="quotelev1">&gt; Forschungszentrum Juelich GmbH
-</em><br />
-<em class="quotelev1">&gt; 52425 Juelich
-</em><br />
-<em class="quotelev1">&gt; Sitz der Gesellschaft: Juelich
-</em><br />
-<em class="quotelev1">&gt; Eingetragen im Handelsregister des Amtsgerichts Dueren Nr. HR B 3498
-</em><br />
-<em class="quotelev1">&gt; Vorsitzender des Aufsichtsrats: MinDir Dr. Karl Eugen Huthmacher
-</em><br />
-<em class="quotelev1">&gt; Geschaeftsfuehrung: Prof. Dr. Achim Bachem (Vorsitzender),
-</em><br />
-<em class="quotelev1">&gt; Karsten Beneke (stellv. Vorsitzender), Prof. Dr.-Ing. Harald Bolt,
-</em><br />
-<em class="quotelev1">&gt; Prof. Dr. Sebastian M. Schmidt
-</em><br />
-<em class="quotelev1">&gt; ------------------------------------------------------------------------------------------------
-</em><br />
-<em class="quotelev1">&gt; ------------------------------------------------------------------------------------------------
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Das Forschungszentrum oeffnet seine Tueren am Sonntag, 29. September, von 10:00 bis 17:00 Uhr: <a href="http://www.tagderneugier.de">http://www.tagderneugier.de</a>
-</em><br />
-<br /><em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<br /><br />----- End forwarded message -----
+Subject: [CF-metadata] CF-netcdf for Mercator projection - use lat/lon,or xc/yc plus lat/lon
 <br />
-<span id="received"><dfn>Received on</dfn> Fri Jul 05 2013 - 10:57:17 BST</span>
+&nbsp;
+<br />
+I have data that I'm putting into CF netcdf format (conventions 1.6) 
+<br />
+that is in the Mercator projection.  I'm trying to determine which 
+<br />
+method is preferred for CF-compliance, in regard to the projection 
+<br />
+information.   The basic question is: Since the Mercator projection is 
+<br />
+N-S-E-W, is there any need to provide projection coordinates (xc, yc)?   
+<br />
+I can see the need to provide the projection coordinates for projections 
+<br />
+such as Polar Stereographic.
+<br />
+<br />Example 1:  Use of x and y projection coordinates, with separate lat/lon 
+<br />
+variables.
+<br />
+netcdf \1 {
+<br />
+dimensions:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xc = 287 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yc = 232 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time = 1 ;
+<br />
+variables:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char Mercator ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mercator:longitude_of_projection_origin = 135.f ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mercator:long_name = &quot;projection information&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mercator:standard_parallel = 0.f ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mercator:false_northing = 0.f ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mercator:grid_mapping_name = &quot;mercator&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mercator:false_easting = 0.f ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float yc(yc) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yc:units = &quot;m&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yc:standard_name = &quot;projection_y_coordinate&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float xc(xc) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xc:units = &quot;m&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xc:standard_name = &quot;projection_x_coordinate&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int time(time) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:units = &quot;hours since 1970-01-01T00:00:00Z&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:long_name = &quot;starting time for grids&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:standard_name = &quot;time&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:calendar = &quot;gregorian&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float longitude(yc, xc) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude:units = &quot;degrees_east&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude:standard_name = &quot;longitude&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float latitude(yc, xc) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude:units = &quot;degrees_north&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude:standard_name = &quot;latitude&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float Wind_SFC(time, yc, xc) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wind_Mag_SFC:_FillValue = -30000.f ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wind_Mag_SFC:grid_mapping = &quot;Mercator&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wind_Mag_SFC:coordinates = &quot;latitude longitude&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wind_Mag_SFC:valid_range = 0.f, 64.30556f ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wind_Mag_SFC:standard_name = &quot;wind_speed&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wind_Mag_SFC:cell_methods = &quot;time: mode&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wind_Mag_SFC:units = &quot;m sec**-1&quot; ;
+<br />
+<br />Example 2:  Just using lat/lon coordinate variables, even though the 
+<br />
+projection is not latlon.
+<br />
+netcdf \1 {
+<br />
+dimensions:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude = 287 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude = 232 ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time = 1 ;
+<br />
+variables:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char Mercator ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mercator:longitude_of_projection_origin = 135.f ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mercator:long_name = &quot;projection information&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mercator:standard_parallel = 0.f ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mercator:false_northing = 0.f ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mercator:grid_mapping_name = &quot;mercator&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mercator:false_easting = 0.f ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int time(time) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:units = &quot;hours since 1970-01-01T00:00:00Z&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:long_name = &quot;starting time for grids&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:standard_name = &quot;time&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:calendar = &quot;gregorian&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float longitude(longitude) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude:units = &quot;degrees_east&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;longitude:standard_name = &quot;longitude&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float latitude(latitude) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude:units = &quot;degrees_north&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latitude:standard_name = &quot;latitude&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float Wind_SFC(time, latitude, longitude) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wind_Mag_SFC:_FillValue = -30000.f ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wind_Mag_SFC:grid_mapping = &quot;Mercator&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wind_Mag_SFC:valid_range = 0.f, 64.30556f ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wind_Mag_SFC:standard_name = &quot;wind_speed&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wind_Mag_SFC:cell_methods = &quot;time: mode&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wind_Mag_SFC:units = &quot;m sec**-1&quot; ;
+<br />
+<br /><br />Which example is preferred?   If example 2 is used, should the xy 
+<br />
+coordinates be provided as:
+<br />
+float xc(longitude) ;
+<br />
+float yc(latitude);
+<br />
+and use the coordinate attribute for Wind pointing to xc and yc?
+<br />
+<br />Thanks.
+<br />
+<br />Regards,
+<br />
+Mark
+<br />
+<br /><pre>
+-- 
+Mark Mathewson Consulting
+535 Swanson Mill Rd.
+Tonasket, WA 98855
+509-429-8635
+_______________________________________________
+CF-metadata mailing list
+CF-metadata at cgd.ucar.edu
+<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</pre>
+<span id="received"><dfn>Received on</dfn> Tue Oct 23 2012 - 09:41:06 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -213,8 +297,8 @@ such as wrt_surface_at_flight_origin. It refers to a particular time and place.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5606">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5607.html" title="Next message in the list">rhorne at excaliburlabs.com: "[CF-metadata] Fwd: how to represent a non-standard error"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5605.html" title="Previous message in the list">Jim Biard: "[CF-metadata] Fwd: how to represent a non-standard error"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5607.html" title="Next message in the list">Hedley, Mark: "[CF-metadata] Adding palettes to the data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5605.html" title="Previous message in the list">Schultz, Martin: "[CF-metadata] Extensions to the Standard Name table"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -226,7 +310,7 @@ such as wrt_surface_at_flight_origin. It refers to a particular time and place.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:26 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5605.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5607.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

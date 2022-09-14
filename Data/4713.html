@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Standard Name Serving from Lowry, Roy K. on 2012-09-14 (mailing-list-archive)</title>
-<meta name="Author" content="Lowry, Roy K. (rkl)" />
-<meta name="Subject" content="[CF-metadata] Standard Name Serving" />
-<meta name="Date" content="2012-09-14" />
+<title>[CF-metadata] FW: FW: Connecting coordinates to Grid Mapping variables from David Hassell on 2011-11-03 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="David Hassell (d.c.hassell)" />
+<meta name="Subject" content="[CF-metadata] FW: FW: Connecting coordinates to Grid Mapping variables" />
+<meta name="Date" content="2011-11-03" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4712.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4714.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Standard Name Serving</h1>
-<!-- received="Fri Sep 14 02:52:10 2012" -->
-<!-- isoreceived="20120914015210" -->
-<!-- sent="Fri, 14 Sep 2012 09:52:10 +0100" -->
-<!-- isosent="20120914085210" -->
-<!-- name="Lowry, Roy K." -->
-<!-- email="rkl" -->
-<!-- subject="[CF-metadata] Standard Name Serving" -->
-<!-- id="40829B0E077C1145A6DE44D39B3830A921DD8C2256_at_nerckwmb1.ad.nerc.ac.uk" -->
+<a style="text-decoration:none" href="./4712.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4714.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] FW: FW: Connecting coordinates to Grid Mapping variables</h1>
+<!-- received="Thu Nov  3 04:05:34 2011" -->
+<!-- isoreceived="20111103040534" -->
+<!-- sent="Thu, 3 Nov 2011 10:05:34 +0000" -->
+<!-- isosent="20111103100534" -->
+<!-- name="David Hassell" -->
+<!-- email="d.c.hassell" -->
+<!-- subject="[CF-metadata] FW: FW: Connecting coordinates to Grid Mapping variables" -->
+<!-- id="20111103100534.GA16600_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="8AC4893FB411FA4AA8CFECD9C8913B660B0951CF_at_EXXMAIL01.desktop.frd.metoffice.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4714.html" accesskey="d" title="Hattersley, Richard: &quot;[CF-metadata] Dimensionless vertical coordinate values&quot;">Next message</a> ]
-[ <a href="./4712.html" title="Schultz, Martin: &quot;[CF-metadata] Another potentially useful extension to the standard_name table: OFFLINE RESPONSE&quot;">Previous message</a> ]
+[ <a href="./4714.html" accesskey="d" title="Hedley, Mark: &quot;[CF-metadata] FW: FW: FW: Connecting coordinates to Grid Mapping variables&quot;">Next message</a> ]
+[ <a href="./4712.html" title="Mike Grant: &quot;[CF-metadata] [cf-satellite] Sharing quality flags	amongmultiple variables&quot;">Previous message</a> ]
+[ <a href="./4706.html" title="Hedley, Mark: &quot;[CF-metadata] FW: FW: Connecting coordinates to Grid Mapping variables&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,41 +70,65 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Lowry, Roy K. &lt;<a href="mailto:rkl?Subject=Re%3A%20%5BCF-metadata%5D%20Standard%20Name%20Serving">rkl</a>&gt;
+<dfn>From</dfn>: David Hassell &lt;<a href="mailto:d.c.hassell?Subject=Re%3A%20%5BCF-metadata%5D%20FW%3A%20FW%3A%20Connecting%20coordinates%20to%20Grid%20Mapping%20variables">d.c.hassell</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 14 Sep 2012 09:52:10 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 3 Nov 2011 10:05:34 +0000</span><br />
 </address>
 <br />
-Dear All,
+Hello Mark,
 <br />
-<br />Up until now, addressing of CF Standard Names through the NERC Vocabulary Server has been through opaque identifiers such as 'P07' and 'CFV8N1'.  In response to requests for addressing through semantically meaningful URLs we have introduced a system of alternative URLs using the following conventions:
+<br />Thanks for presenting this clearly. I favour the second option of an
 <br />
-<br /><br /><br />To obtain a SKOS document containing a description and mappings for a given Standard Name use the syntax:
+expanded syntax for grid_mapping attribute on a data variable.
 <br />
-<br />- <a href="http://vocab.nerc.ac.uk/standard_name/{version}/{standard_name">http://vocab.nerc.ac.uk/standard_name/{version}/{standard_name</a>}
+<br />Pragmatically, I think that it is possible for two data variables in
 <br />
-<br />&nbsp;{version} can be short-circuited to &quot;current&quot;, e.g.
+the same file to share identical latitude and longitude coordinate
 <br />
-<br />- <a href="http://vocab.nerc.ac.uk/standard_name/current/aerosol_angstrom_exponent/">http://vocab.nerc.ac.uk/standard_name/current/aerosol_angstrom_exponent/</a>
+values but have different grid_mappings. This would occur, for
 <br />
-<br />The full Standard Names list can be accessed by <a href="http://vocab.nerc.ac.uk/standard_name/">http://vocab.nerc.ac.uk/standard_name/</a>
+example, if one data variable came from a climate model which used the
 <br />
-<br /><br /><br />Note that the URNs are unchanged and that the URLs based on opaque identifiers are still valid and will continue to be supported by the vocabulary server.
+spherical earth approximation and the other used a spheroidal
 <br />
-<br /><br /><br />Regards, Roy.
+earth. In this case, if the coordinate reference information was
+<br />
+attached to the coordinates I would need to duplicate the coordinates'
+<br />
+data in my file, which is not desirable.
+<br />
+<br /><em class="quotelev1">&gt; * a view that the coordinate is defined with respect to a coordinate
+</em><br />
+<em class="quotelev1">&gt;   system and a data variable is defined with respect to a coordinate
+</em><br />
+<br />Conceptually, I prefer a different interpretation of the role of
+<br />
+coordinate systems. I like to think of a coordinate reference system
+<br />
+as being defined by the arbitrary coordinates which describe the
+<br />
+dimensions of a space (or grid) in which a data variable exists. From
+<br />
+this view point, hanging space-defining attributes off the data
+<br />
+variable seems more natural to me.
+<br />
+<br />All the best,
+<br />
+<br />David
 <br />
 <br /><pre>
--- 
-This message (and any attachments) is for the recipient only. NERC
-is subject to the Freedom of Information Act 2000 and the contents
-of this email and any reply you make may be disclosed by NERC unless
-it is exempt from release under the Act. Any material supplied to
-NERC may be stored in an electronic records management system.
--------------- next part --------------
-An HTML attachment was scrubbed...
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120914/43f0e28f/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120914/43f0e28f/attachment-0001.html</a>&gt;
+--
+David Hassell
+National Centre for Atmospheric Science (NCAS)
+Department of Meteorology, University of Reading,
+Earley Gate, PO Box 243,
+Reading RG6 6BB, U.K.
+Tel   : 0118 3785613
+Fax   : 0118 3788316
+E-mail: d.c.hassell at reading.ac.uk
 </pre>
-<span id="received"><dfn>Received on</dfn> Fri Sep 14 2012 - 02:52:10 BST</span>
+<span id="received"><dfn>Received on</dfn> Thu Nov 03 2011 - 04:05:34 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -110,8 +136,9 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4713">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4714.html" title="Next message in the list">Hattersley, Richard: "[CF-metadata] Dimensionless vertical coordinate values"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4712.html" title="Previous message in the list">Schultz, Martin: "[CF-metadata] Another potentially useful extension to the standard_name table: OFFLINE RESPONSE"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4714.html" title="Next message in the list">Hedley, Mark: "[CF-metadata] FW: FW: FW: Connecting coordinates to Grid Mapping variables"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4712.html" title="Previous message in the list">Mike Grant: "[CF-metadata] [cf-satellite] Sharing quality flags	amongmultiple variables"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./4706.html" title="Message to which this message replies">Hedley, Mark: "[CF-metadata] FW: FW: Connecting coordinates to Grid Mapping variables"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -123,7 +150,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:07 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4712.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4714.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

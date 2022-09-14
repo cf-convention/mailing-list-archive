@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] GOES-R generated binary mask products under proposal from Charles Paxson on 2013-05-15 (mailing-list-archive)</title>
-<meta name="Author" content="Charles Paxson (cpaxson)" />
-<meta name="Subject" content="[CF-metadata] GOES-R generated binary mask products under proposal" />
-<meta name="Date" content="2013-05-15" />
+<title>[CF-metadata] Reverse-time trajectory from Jonathan Gregory on 2012-05-18 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] Reverse-time trajectory" />
+<meta name="Date" content="2012-05-18" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5339.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5341.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] GOES-R generated binary mask products under proposal</h1>
-<!-- received="Wed May 15 13:34:02 2013" -->
-<!-- isoreceived="20130515123402" -->
-<!-- sent="Wed, 15 May 2013 15:34:02 -0400" -->
-<!-- isosent="20130515193402" -->
-<!-- name="Charles Paxson" -->
-<!-- email="cpaxson" -->
-<!-- subject="[CF-metadata] GOES-R generated binary mask products under proposal" -->
-<!-- id="5193E32A.101_at_aer.com" -->
+<a style="text-decoration:none" href="./5339.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5341.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Reverse-time trajectory</h1>
+<!-- received="Fri May 18 06:49:45 2012" -->
+<!-- isoreceived="20120518054945" -->
+<!-- sent="Fri, 18 May 2012 13:49:45 +0100" -->
+<!-- isosent="20120518124945" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] Reverse-time trajectory" -->
+<!-- id="20120518124945.GD28832_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,10 +53,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5341.html" accesskey="d" title="H&#0246;rnquist Sara: &quot;[CF-metadata] GOES-R generated binary mask products under proposal&quot;">Next message</a> ]
-[ <a href="./5339.html" title="Jonathan Wrotny: &quot;[CF-metadata] new standard_name: lwe_thickness_of_water_vapor&quot;">Previous message</a> ]
+[ <a href="./5341.html" accesskey="d" title="Randy Horne: &quot;[CF-metadata] a CF proposal: a convention to provide a general data variable association capability&quot;">Next message</a> ]
+[ <a href="./5339.html" title="Hattersley, Richard: &quot;[CF-metadata] Reverse-time trajectory&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./5341.html" accesskey="t" title="H&#0246;rnquist Sara: &quot;[CF-metadata] GOES-R generated binary mask products under proposal&quot;">Next in thread</a> ]
+[ <a href="./5346.html" accesskey="t" title="Hattersley, Richard: &quot;[CF-metadata] Reverse-time trajectory&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,60 +70,52 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Charles Paxson &lt;<a href="mailto:cpaxson?Subject=Re%3A%20%5BCF-metadata%5D%20GOES-R%20generated%20binary%20mask%20products%20under%20proposal">cpaxson</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Reverse-time%20trajectory">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 15 May 2013 15:34:02 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 18 May 2012 13:49:45 +0100</span><br />
 </address>
 <br />
-Dear CF Metadata Users Group,
+Dear Richard
 <br />
-<br />Through observations and analysis, GOES-R weather products produce 
+<br /><em class="quotelev1">&gt; Does CF really need to support unordered elements *within* a single[1]
+</em><br />
+<em class="quotelev1">&gt; time series? e.g. Are there a significant number of real-time situations
+</em><br />
+<em class="quotelev1">&gt; where the data from a single stream need to be written out of order to a
+</em><br />
+<em class="quotelev1">&gt; CF file?
+</em><br />
+<br />I think that's a reason for having the ragged representation, which mentions
 <br />
-binary masks for: aerosols, smoke, dust and clouds.   No coordinate 
+real-time data as a canonical use case. Data can arrive in the wrong order, I
 <br />
-value is warranted (i.e. CF Metadata standard surface_snow_binary_mask) 
+expect, even if it doesn't happen often.
 <br />
-for any of these four proposed quantities, since a complex set of tests 
+<br /><em class="quotelev1">&gt; So somewhat contrary to my previous statement, my current thinking is
+</em><br />
+<em class="quotelev1">&gt; table 9.1 should keep the &quot;monotonically&quot; and &quot;ordered&quot; descriptions,
+</em><br />
+<em class="quotelev1">&gt; and these should be clarified by further rules stating their ordered
+</em><br />
+<em class="quotelev1">&gt; nature even when expressed as an aux coord var.
+</em><br />
+<br />I think it would be possible make such a restriction if you use the featureType
 <br />
-for each case, such as using brightness temperatures, are used to derive 
+attribute, which indicates that the rules of sect 9 apply. But the use of
 <br />
-signatures of the four atmospheric constituents.  The proposed masks are 
+auxiliary coordinate variables for time already existed before sect 9 was
 <br />
-analogous and defined in a similar way as the CF Metadata standard 
+written, in what sect 9 refers to as the orthogonal multidimensional
 <br />
-names: land_binary_mask and sunlit_binary_mask.
+representation, and that can be used without the featureType attribute.
 <br />
-<br />aerosol_binary_mask: X_binary_mask has 1 where condition X is met, 0 
+<br />Why not sort the data into monotonic order of time before using it?
 <br />
-elsewhere. 1 = aerosols present, 0 = aerosolsabsent
+<br />Best wishes
 <br />
-smoke_binary_mask: X_binary_mask has 1 where condition X is met, 0 
+<br />Jonathan
 <br />
-elsewhere.  1 = smoke present, 0 = smoke absent
-<br />
-dust_binary_mask: X_binary_mask has 1 where condition X is met, 0 
-<br />
-elsewhere.     1 = dust present, 0 = dust absent
-<br />
-cloud_binary_mask: X_binary_mask has 1 where condition X is met, 0 
-<br />
-elsewhere.    1 = cloud present, 0 = cloud absent (clear)
-<br />
-<br />Please accept these four mask names for inclusion into the CF Metadata 
-<br />
-standard.
-<br />
-<br />Sincerely,
-<br />
-<br />Charles Paxson
-<br />
-<br /><br />-------------- next part --------------
-<br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130515/bc2897ef/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130515/bc2897ef/attachment.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Wed May 15 2013 - 13:34:02 BST</span>
+<span id="received"><dfn>Received on</dfn> Fri May 18 2012 - 06:49:45 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -131,13 +123,12 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5340">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5341.html" title="Next message in the list">H&#0246;rnquist Sara: "[CF-metadata] GOES-R generated binary mask products under proposal"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5339.html" title="Previous message in the list">Jonathan Wrotny: "[CF-metadata] new standard_name: lwe_thickness_of_water_vapor"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5341.html" title="Next message in the list">Randy Horne: "[CF-metadata] a CF proposal: a convention to provide a general data variable association capability"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5339.html" title="Previous message in the list">Hattersley, Richard: "[CF-metadata] Reverse-time trajectory"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./5341.html" title="Next message in this discussion thread">H&#0246;rnquist Sara: "[CF-metadata] GOES-R generated binary mask products under proposal"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./5346.html" title="Next message in this discussion thread">Hattersley, Richard: "[CF-metadata] Reverse-time trajectory"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./5341.html" title="Message sent in reply to this message">H&#0246;rnquist Sara: "[CF-metadata] GOES-R generated binary mask products under proposal"</a></li>
-<li><dfn>Reply</dfn>: <a href="./5342.html" title="Message sent in reply to this message">Jim Biard: "[CF-metadata] GOES-R generated binary mask products under proposal"</a></li>
+<dfn>Reply</dfn>: <a href="./5346.html" title="Message sent in reply to this message">Hattersley, Richard: "[CF-metadata] Reverse-time trajectory"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -148,7 +139,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:21 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5339.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5341.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

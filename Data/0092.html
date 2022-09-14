@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Integerized Sinusoidal Grid from Jonathan Gregory on 2006-03-22 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] Integerized Sinusoidal Grid" />
-<meta name="Date" content="2006-03-22" />
+<title>[CF-metadata] Proposal for spherical harmonics from Luis Kornblueh on 2003-03-13 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Luis Kornblueh (kornblueh)" />
+<meta name="Subject" content="[CF-metadata] Proposal for spherical harmonics" />
+<meta name="Date" content="2003-03-13" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0091.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0093.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Integerized Sinusoidal Grid</h1>
-<!-- received="Wed Mar 22 01:52:53 2006" -->
-<!-- isoreceived="20060322015253" -->
-<!-- sent="Wed, 22 Mar 2006 08:52:53 +0000" -->
-<!-- isosent="20060322085253" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] Integerized Sinusoidal Grid" -->
-<!-- id="20060322085253.GK26453_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0091.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0093.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Proposal for spherical harmonics</h1>
+<!-- received="Thu Mar 13 06:29:30 2003" -->
+<!-- isoreceived="20030313062930" -->
+<!-- sent="Thu, 13 Mar 2003 14:29:30 +0100 (MET)" -->
+<!-- isosent="20030313132930" -->
+<!-- name="Luis Kornblueh" -->
+<!-- email="kornblueh" -->
+<!-- subject="[CF-metadata] Proposal for spherical harmonics" -->
+<!-- id="200303131329.OAA04512_at_regen.dkrz.de" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0093.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] change_in&quot;">Next message</a> ]
-[ <a href="./0091.html" title="Brian Eaton: &quot;[CF-metadata] additions to CF-1.0&quot;">Previous message</a> ]
+[ <a href="./0093.html" accesskey="d" title="Luis Kornblueh: &quot;[CF-metadata] PDF of proposal for spectral data&quot;">Next message</a> ]
+[ <a href="./0091.html" title="Steve Hankin: &quot;[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034; attribute&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0097.html" accesskey="t" title="V. Balaji: &quot;[CF-metadata] associating nc files&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,32 +68,116 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Integerized%20Sinusoidal%20Grid">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Luis Kornblueh &lt;<a href="mailto:kornblueh?Subject=Re%3A%20%5BCF-metadata%5D%20Proposal%20for%20spherical%20harmonics">kornblueh</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 22 Mar 2006 08:52:53 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 13 Mar 2003 14:29:30 +0100 (MET)</span><br />
 </address>
 <br />
-Dear Julien
+Hi,
 <br />
-<br />I agree with what Brian said. He wrote
+<br />we would like to include spherical harmonics as horizontal grid type
 <br />
-<br /><em class="quotelev1">&gt; allowing
-</em><br />
-<em class="quotelev1">&gt; the lat/lon coordinates to be stored in a separate file from the data
-</em><br />
-<em class="quotelev1">&gt; variables.  Neither of these options is available in CF-1.0.
-</em><br />
-<br />CF doesn't have a convention for associating separate nc files and treating
+into the CF convention. This type of data is still very common with
 <br />
-them as though they were a single file. However, some software can do this
+NWP and some climate models. It is very efficient in terms of saving
 <br />
-e.g. CDMS/CDAT.
+space. I append our proposal which is in latex (sorry) and would like 
 <br />
-<br />Best wishes
+to ask for comments.
 <br />
-<br />Jonathan
+<br />Thanks a lot,
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Mar 22 2006 - 01:52:53 GMT</span>
+Luis
+<br />
+<pre>
+--
+\documentclass[11pt,a4paper]{article}
+\begin{document}
+\title{Proposal for introducing the spectral representation in CF} 
+\author{Luis Kornblueh\\Max-Planck-Institute for Meteorology}
+\date{\today}
+\maketitle
+\section{Introduction}
+An important class of representing atmospheric model results is given
+by the spherical harmonic representation. This type of data
+representation is non-local, but can be converted into grid-point
+space by the Legendre Transformation.
+An adequate way to describe spherical harmonics is given by the World
+Meteorological Organization (WMO) in the Guide to WMO Binary Code Form
+GRIB 2. We would like to include this description in the CF convention
+without taking compression/encoding into account.
+ 
+\section{Spectral representation}
+Spherical harmonics should have a normalization so that they can be
+used with associated Legendre polynomials of the first kind with a
+normalization such that the integral over the associated Legendre
+polynomials equals 1.
+The associated Legendre polynomials of the first kind in general are
+defined by:
+\[
+P_n^m(\mu) = \sqrt{(2n+1)\frac{(n-m)!}{(n+m)!}}
+             \frac{1}{2^nn!}(1-\mu^2)^{\frac{m}{2}}
+             \frac{d^{n+m}}{d\mu^{n+m}}(\mu^2-1)^n, \; \mbox{with} \; m \geq 0
+\]
+\[
+P_n^{-m}(\mu) = P_n^m(\mu)
+\]
+A field $F(\lambda,\mu)$ in spherical harmonics is represented by:
+\[
+F(\lambda,\mu) = \sum\limits_{m=-m}^M\sum\limits_{n=|m|}^{N(m)}F_n^mP_n^m(\mu)
+                 \mbox{e}^{im\lambda}
+\]
+where $\lambda$ is the longitude, $\mu$ the sine of the latitude, and
+$F_n^{-m}$ the complex conjugate of $F_n^m$.  In the summations, $M$
+is the maximum zonal wave number that is to be included, and $N(m)$
+defines the maximum meridional total wave number $N(m)$, which, it
+should be noted, is a function of $m$. Using two additional truncation
+parameters $K$ and $J$ allows for the definition of different
+truncation types.
+\begin{center}
+\begin{tabular}{lll}
+Triangular  &amp;  $M = J = K$ &amp; $N(m) = J$   \\
+Rhomboidal  &amp;  $K = J+M$   &amp; $N(m) = J+m$ \\
+Trapezoidal &amp;  $K = J, \; K &gt; M$ &amp; $N(m) = J$ \\
+\end{tabular}
+\end{center}
+\section{Coefficient storage mode}
+The complex numbers $F_n^m$ are stored for $m \geq 0$ as pairs of real
+numbers Re($F_n^m$), Im($F_n^m$) ordered with $n$ increasing from $m$
+to $N(m)$, first for $m = 0$ and then for $m = 1, 2, 3, \ldots, M$.
+\section{Attributes required for horizontal representation}
+For specifying the horizontal coordinate type use:
+\begin{verbatim}
+coordinates = &quot;spectral&quot;
+\end{verbatim}
+and required as global attributes:
+\begin{verbatim}
+dimension:
+  :complex = 2
+  :spc     = number of spectral coefficients
+  :spcx    = associated number of longitudes
+  :spcy    = associated number of latitudes
+  :spherical_truncation_type = &quot;triangular&quot;, &quot;rhomboidal&quot;, or &quot;trapezoidal&quot;
+  :spherical_truncation_n = N(m)
+  :spherical_truncation_m = M
+  :spherical_truncation_k = K
+\end{verbatim}
+It is assumed that only one type and resolution of spherical harmonics is
+included in one file.
+ 
+\end{document}
+-- 
+                             \\\\\\
+                             (-0^0-)
+--------------------------oOO--(_)--OOo-----------------------------
+ Luis Kornblueh                           Tel. : +49-40-41173289
+ Max-Planck-Institute for Meteorology     Fax. : +49-40-41173366
+ Bundesstr. 55              
+ D-20146 Hamburg                          Email: kornblueh at dkrz.de
+ Federal Republic of Germany                                               
+ Key fingerprint =  B3 69 B2 FC 81 65 F4 E7  44 45 EA 1A 82 BF D3 A6 
+</pre>
+<span id="received"><dfn>Received on</dfn> Thu Mar 13 2003 - 06:29:30 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -103,12 +185,9 @@ e.g. CDMS/CDAT.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start92">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0093.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] change_in"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0091.html" title="Previous message in the list">Brian Eaton: "[CF-metadata] additions to CF-1.0"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0093.html" title="Next message in the list">Luis Kornblueh: "[CF-metadata] PDF of proposal for spectral data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0091.html" title="Previous message in the list">Steve Hankin: "[CF-metadata] CF-1.0-beta5: curvilinear bounds &#0034;contiguous&#0034; attribute"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0097.html" title="Next message in this discussion thread">V. Balaji: "[CF-metadata] associating nc files"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0097.html" title="Message sent in reply to this message">V. Balaji: "[CF-metadata] associating nc files"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -119,7 +198,7 @@ e.g. CDMS/CDAT.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:44 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0091.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0093.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Help needed with area_type and &quot;surface type classification&quot; datasets from Jonathan Gregory on 2011-09-27 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] Help needed with area_type and &quot;surface type classification&quot; datasets" />
-<meta name="Date" content="2011-09-27" />
+<title>[CF-metadata] time as ISO strings from Benno Blumenthal on 2010-11-01 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Benno Blumenthal (benno)" />
+<meta name="Subject" content="[CF-metadata] time as ISO strings" />
+<meta name="Date" content="2010-11-01" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./3769.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3771.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Help needed with area_type and &quot;surface type classification&quot; datasets</h1>
-<!-- received="Tue Sep 27 08:05:15 2011" -->
-<!-- isoreceived="20110927070515" -->
-<!-- sent="Tue, 27 Sep 2011 15:05:15 +0100" -->
-<!-- isosent="20110927140515" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] Help needed with area_type and &quot;surface type classification&quot; datasets" -->
-<!-- id="20110927140515.GA15684_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./3769.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3771.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] time as ISO strings</h1>
+<!-- received="Mon Nov  1 15:15:18 2010" -->
+<!-- isoreceived="20101101151518" -->
+<!-- sent="Mon, 1 Nov 2010 17:15:18 -0400" -->
+<!-- isosent="20101101211518" -->
+<!-- name="Benno Blumenthal" -->
+<!-- email="benno" -->
+<!-- subject="[CF-metadata] time as ISO strings" -->
+<!-- id="AANLkTima5L1K9KwjUdtkMOh-upyZnp6+mb-6r1pfv+Qu_at_mail.gmail.com" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="web-37020794_at_mail.ucar.edu" -->
+<!-- inreplyto="4CCEFA94.5020500_at_sintef.no" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./3771.html" accesskey="d" title="Dave Allured: &quot;[CF-metadata] Is the &#0034;bits&#0034; unit CF-compliant?&quot;">Next message</a> ]
-[ <a href="./3769.html" title="Culverwell, Ian: &quot;[CF-metadata] Is the &#0034;bits&#0034; unit CF-compliant?&quot;">Previous message</a> ]
-[ <a href="./3766.html" title="Seth McGinnis: &quot;[CF-metadata] Help needed with area_type and &#0034;surface type classification&#0034; datasets&quot;">In reply to</a> ]
+[ <a href="./3771.html" accesskey="d" title="Wright, Bruce: &quot;[CF-metadata] point observation data in CF 1.4&quot;">Next message</a> ]
+[ <a href="./3769.html" title="Ben Hetland: &quot;[CF-metadata] time	as ISO strings&quot;">Previous message</a> ]
+[ <a href="./3769.html" title="Ben Hetland: &quot;[CF-metadata] time	as ISO strings&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./3694.html" accesskey="t" title="Mike Grant: &quot;[CF-metadata] New standard names for satellite obs data&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,70 +71,209 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Help%20needed%20with%20area_type%20and%20%22surface%20type%20classification%22%20datasets">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Benno Blumenthal &lt;<a href="mailto:benno?Subject=Re%3A%20%5BCF-metadata%5D%20time%20as%20ISO%20strings">benno</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 27 Sep 2011 15:05:15 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 1 Nov 2010 17:15:18 -0400</span><br />
 </address>
 <br />
-Dear Seth
+Hi Ben,
 <br />
-<br /><em class="quotelev1">&gt; Attached below are the 93 unique values for surface types from
+<br />First of all, you are spending a lot of time talking about what many
+<br />
+of us think as the parsing of the offset in the units string when it
+<br />
+is passed to udunits, which makes it seem like a side issue, probably
+<br />
+unfairly.
+<br />
+<br />ISO8601, as pointed out before, is not designed as a science standard,
+<br />
+it is a business exchange standard, so they can get away with
+<br />
+<br />1) first deciding to skip year 0000, then changing their minds and
+<br />
+insisting on year zero (Note that xSchema dateTime was based on the
+<br />
+earlier choice, so it continues to skip year zero).
+<br />
+<br />2) ISO8601, according to <a href="http://en.wikipedia.org/wiki/ISO_8601">http://en.wikipedia.org/wiki/ISO_8601</a>, is
+<br />
+proleptic_gregorian, by mutual agreement.  Also, one can put more
+<br />
+digits in the year, again b y mutual agreement. That is not exactly
+<br />
+what one expects from a time representation standard for science,
+<br />
+which needs things stately clearly or left undetermined.  They do say,
+<br />
+however, that time should be continuous at the day granularity, which
+<br />
+forces the conclusion, mutual agreement or not.
+<br />
+<br />Note that XML Schema merely says there is no year 0000
+<br />
+<a href="http://www.w3.org/TR/2004/REC-xmlschema-2-20041028/">http://www.w3.org/TR/2004/REC-xmlschema-2-20041028/</a>.  Whether they
+<br />
+mean by this is that earlier times should be represented by year -2
+<br />
+when ISO8601 says year -1, or they mean you cannot represent just year
+<br />
+0000, or you cannot represent times before year 0000, is hard to say.
+<br />
+Aren't commercial standards wonderful?
+<br />
+<br />So it would seem that conforming to ISO8601 would require proleptic
+<br />
+gregorian calendar support, not in the concrete sense of parsing a
+<br />
+udunits string but in the more general sense of a continuous numeric
+<br />
+representation of time corresponding to ISO8601.  And the &quot;standard&quot;
+<br />
+calendar in udunits is not actually the &quot;standard&quot; calendar of
+<br />
+ISO8601.  So it would seem that at least proleptic_gregorian support
+<br />
+in udunits is essential for future ease of use.
+<br />
+<br />Benno
+<br />
+<br /><br /><br />On Mon, Nov 1, 2010 at 1:36 PM, Ben Hetland &lt;ben.a.hetland at sintef.no&gt; wrote:
+<br />
+<em class="quotelev1">&gt; On 30.10.2010 01:35, John Caron wrote:
 </em><br />
-<em class="quotelev1">&gt; these 3 models.  If it looks like we could hash out the details
+<em class="quotelev2">&gt;&gt; 1) no one is suggesting to replace the udunits convention; the
 </em><br />
-<em class="quotelev1">&gt; and extend the existing area_types list could be extended to
+<em class="quotelev2">&gt;&gt; original suggestion a few years back was to allow ISO 8601
 </em><br />
-<em class="quotelev1">&gt; cover this list in fairly short order, then I think we can say
+<em class="quotelev2">&gt;&gt; formatted time strings in addition.
 </em><br />
-<em class="quotelev1">&gt; that the current system will be sufficient.  If it's a bigger
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev1">&gt; job than that, then I don't think it's adequate.  
+<em class="quotelev2">&gt;&gt; 2) Udunits accepts ISO Strings for the date part, AFAIU, but
 </em><br />
-<br />I don't suppose we could do this quickly, as I expect you anticipate. The
-<br />
-reason why it would take time is because we would have to establish whether
-<br />
-any of these terms actually meant the same thing. So this raises the question
-<br />
-of what the intended use of the metadata is. There could be two aims:
-<br />
-<br />* describe the contents of each dataset by itself.
-<br />
-<br />* indicate which quantities in one dataset are to be regarded as comparable
-<br />
-with quantities in another dataset.
-<br />
-<br />The first aim is easier. It can be met by defining an attribute which is
-<br />
-allowed to contain some values from a vocabulary, which could be a vocabulary
-<br />
-external to CF. Provided the values in the vocabulary are self-explanatory,
-<br />
-the data is self-describing. However, if there are several datasets using
-<br />
-different vocabularies, as you describe, this approach doesn't address the
-<br />
-second aim, which is the one that is usually more difficult. It's the second
-<br />
-aim which is particularly important to CF; that's what standard names are for.
-<br />
-It can't be done without understanding what all the terms in each vocabulary
-<br />
-mean, and that takes effort!
-<br />
-<br />Of course, we could allow area_type to have non-standardised contents, or use
-<br />
-a different attribute for this purpose. That postpones the effort until the
-<br />
-time when you want to do it, so it serves the purpose of data archival more
-<br />
-than data intercomparison, I suppose.
-<br />
-<br />Best wishes
-<br />
-<br />Jonathan
-<br />
-<span id="received"><dfn>Received on</dfn> Tue Sep 27 2011 - 08:05:15 BST</span>
+<em class="quotelev2">&gt;&gt; allows more variations I think.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Yes, or at least this would be a good principle to follow. Alas, Udunits
+</em><br />
+<em class="quotelev1">&gt; lacks a bit to fully accept any ISO 8601 timestamp, even if only the
+</em><br />
+<em class="quotelev1">&gt; date part is considered. For example, a date like &quot;20101101&quot; is accepted
+</em><br />
+<em class="quotelev1">&gt; neither as DATE nor as TIMSTAMP (sic) according to the referenced
+</em><br />
+<em class="quotelev1">&gt; Udunits-2 unit grammar, AFAICT.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I suppose this is also a question of amending the Udunits library itself
+</em><br />
+<em class="quotelev1">&gt; so that full ISO 8601 compliance is achieved. This is something that
+</em><br />
+<em class="quotelev1">&gt; would also make it more suitable in a number of other applications
+</em><br />
+<em class="quotelev1">&gt; besides the netCDF-related ones, I suppose.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; The formal grammar is here:
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; <a href="http://www.unidata.ucar.edu/software/udunits/udunits-2/udunits2lib.html#Grammar">http://www.unidata.ucar.edu/software/udunits/udunits-2/udunits2lib.html#Grammar</a>
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Thanks for the link!
+</em><br />
+<em class="quotelev1">&gt; (I was aware of it, but wasn't sure whether it applied to Udunits-2
+</em><br />
+<em class="quotelev1">&gt; only, or just Udunits in general...)
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; 3) ?The problem with udunits time handling is that it doesnt handle
+</em><br />
+<em class="quotelev2">&gt;&gt; anything other than the default Calendar. So, it cant be used as the
+</em><br />
+<em class="quotelev2">&gt;&gt; reference implementation for non-standard Calendars.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I believe the same &quot;problem&quot; exists with ISO 8601 as well.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I also think that adding calendar support is an issue that should be
+</em><br />
+<em class="quotelev1">&gt; introduced with great caution. Calendars are location and culture
+</em><br />
+<em class="quotelev1">&gt; specific, and even when dealing with historical or culture-specific
+</em><br />
+<em class="quotelev1">&gt; dates (how applicable is that to CF?) one needs quite a bit of
+</em><br />
+<em class="quotelev1">&gt; additional meta information to clearly deal with such a &quot;calendar time
+</em><br />
+<em class="quotelev1">&gt; scale&quot;.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; For scientific usage, I would claim that while any such time scale can
+</em><br />
+<em class="quotelev1">&gt; definitely be useful, one would still sooner or later need to convert
+</em><br />
+<em class="quotelev1">&gt; that &quot;time unit&quot; into something that can be related to _other_ time
+</em><br />
+<em class="quotelev1">&gt; scales, at least if sharing and reuse of data is a concern (which it
+</em><br />
+<em class="quotelev1">&gt; should, IMHO!). To me, it seems that the only internationally accepted
+</em><br />
+<em class="quotelev1">&gt; common standard, or de facto &quot;reference time scale&quot;, is the current
+</em><br />
+<em class="quotelev1">&gt; Gregorian calendar. It is often used in parallel with other calendars.
+</em><br />
+<em class="quotelev1">&gt; If data in _other_ calendars (i.e. &quot;time scales&quot;) were to be specifiable
+</em><br />
+<em class="quotelev1">&gt; in CF, then at least some means of unambiguously mapping them to
+</em><br />
+<em class="quotelev1">&gt; &quot;Gregorian ISO 8601&quot; would need to be settled.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; --
+</em><br />
+<em class="quotelev1">&gt; Regards,
+</em><br />
+<em class="quotelev1">&gt; ? ? ? ?-+-Ben-+-
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Opinions expressed are my own, not necessarily those of my employer.
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<br /><br /><br /><pre>
+-- 
+Dr. M. Benno Blumenthal? ? ? ? ? benno at iri.columbia.edu
+International Research Institute for climate and society
+The Earth Institute at Columbia University
+Lamont Campus, Palisades NY 10964-8000?? (845) 680-4450
+</pre>
+<span id="received"><dfn>Received on</dfn> Mon Nov 01 2010 - 15:15:18 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -141,10 +281,11 @@ than data intercomparison, I suppose.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start3770">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./3771.html" title="Next message in the list">Dave Allured: "[CF-metadata] Is the &#0034;bits&#0034; unit CF-compliant?"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./3769.html" title="Previous message in the list">Culverwell, Ian: "[CF-metadata] Is the &#0034;bits&#0034; unit CF-compliant?"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./3766.html" title="Message to which this message replies">Seth McGinnis: "[CF-metadata] Help needed with area_type and &#0034;surface type classification&#0034; datasets"</a></li>
+<li><dfn>Next message</dfn>: <a href="./3771.html" title="Next message in the list">Wright, Bruce: "[CF-metadata] point observation data in CF 1.4"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./3769.html" title="Previous message in the list">Ben Hetland: "[CF-metadata] time	as ISO strings"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./3769.html" title="Message to which this message replies">Ben Hetland: "[CF-metadata] time	as ISO strings"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./3694.html" title="Next message in this discussion thread">Mike Grant: "[CF-metadata] New standard names for satellite obs data"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -155,7 +296,7 @@ than data intercomparison, I suppose.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:51 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./3769.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3771.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

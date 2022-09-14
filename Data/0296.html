@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] aerosol water from Jonathan Gregory on 2006-10-08 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] aerosol water" />
-<meta name="Date" content="2006-10-08" />
+<title>[CF-metadata] WRF staggered grids and vertical coordinates from John Caron on 2003-10-30 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] WRF staggered grids and vertical coordinates" />
+<meta name="Date" content="2003-10-30" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0295.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0297.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] aerosol water</h1>
-<!-- received="Sun Oct  8 09:51:57 2006" -->
-<!-- isoreceived="20061008085157" -->
-<!-- sent="Sun, 8 Oct 2006 16:51:57 +0100" -->
-<!-- isosent="20061008155157" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] aerosol water" -->
-<!-- id="20061008155157.GA19754_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0295.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0297.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] WRF staggered grids and vertical coordinates</h1>
+<!-- received="Wed Oct 29 17:01:56 2003" -->
+<!-- isoreceived="20031029170156" -->
+<!-- sent="Wed, 29 Oct 2003 17:01:56 -0700" -->
+<!-- isosent="20031030000156" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] WRF staggered grids and vertical coordinates" -->
+<!-- id="3FA054F4.9060705_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,10 +53,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0297.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Use of Standard Names and Coordinate Variables (relevant to the aerosol discussion)&quot;">Next message</a> ]
-[ <a href="./0295.html" title="Jonathan Gregory: &quot;[CF-metadata] cell metrics&quot;">Previous message</a> ]
+[ <a href="./0297.html" accesskey="d" title="Jonathan Gregory: &quot;Fwd: [CF-metadata] Surface Air Temperature&quot;">Next message</a> ]
+[ <a href="./0295.html" title="Jonathan Gregory: &quot;[CF-metadata] CF-1.0 released&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0307.html" accesskey="t" title="Christiane Textor: &quot;[CF-metadata] aerosol water&quot;">Next in thread</a> ]
+[ <a href="./0330.html" accesskey="t" title="John Caron: &quot;[CF-metadata] WRF staggered grids and vertical coordinates&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,54 +70,216 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20aerosol%20water">j.m.gregory</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20WRF%20staggered%20grids%20and%20vertical%20coordinates">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Sun, 8 Oct 2006 16:51:57 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 29 Oct 2003 17:01:56 -0700</span><br />
 </address>
 <br />
-Dear Christiane
+Further thoughts on WRF staggered and vertical coordinates
 <br />
-<br /><em class="quotelev1">&gt; *aerosol water
-</em><br />
-<em class="quotelev1">&gt; --------------
-</em><br />
-<em class="quotelev1">&gt; aerosol_water_ambient_aerosol
-</em><br />
-<em class="quotelev1">&gt; Jonathan porposed that the name should be the other way round. I do not 
-</em><br />
-<em class="quotelev1">&gt; agree because a 'water aerosol' would be a hydrometeor, i.e., clouds or 
-</em><br />
-<em class="quotelev1">&gt; precipitation.
-</em><br />
-<br />I think I haven't understood what this name really means, sorry to say. I
+<br />Most quantities in the file are on a normal grid, say
 <br />
-was guessing it meant the water present in ambient aerosol. But perhaps
+&nbsp;&nbsp;&nbsp;&nbsp;float N(t, z, y, x);
 <br />
-that is wrong?
+<br />This is a projection, and we do have the 2D lat, lon values:
 <br />
-<br />I agree with you about &quot;emission&quot;.
+&nbsp;&nbsp;&nbsp;float lat(t, y, x);
 <br />
-<br /><em class="quotelev1">&gt; Please note that the HTAP experiments already started. Hence, it will 
-</em><br />
-<em class="quotelev1">&gt; not be possible to include all modifications resulting from our 
-</em><br />
-<em class="quotelev1">&gt; discussion into the HTAP simulations.
-</em><br />
-Could you modify the netCDF files afterwards using ncatted for instance?
+&nbsp;&nbsp;&nbsp;float lon(t, y, x);
 <br />
-<br /><em class="quotelev1">&gt; However, the aerosol and chemistry 
-</em><br />
-<em class="quotelev1">&gt; community is becoming familiar with CF and will be use these for future 
-</em><br />
-<em class="quotelev1">&gt; experiments.
-</em><br />
-That's very good news - thanks to your effort in large measure, I expect.
+<br />However there are some quantities on a staggered x coordinate (we'll 
 <br />
-<br />Best wishes
+call x_stag), or on a staggered y coordinate (we'll call y_stag). 
 <br />
-<br />Jonathan
+Staggrered means that they are offset by half a grid cell, ie these are 
 <br />
-<span id="received"><dfn>Received on</dfn> Sun Oct 08 2006 - 09:51:57 BST</span>
+the &quot;edges&quot; of the grids:
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;float U(z, y, x_stag);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;float V(z, y_stag, x);
+<br />
+<br />The usual thing to do would be to also have lat, lon arrays for these 2 
+<br />
+cases:
+<br />
+<br />&nbsp;&nbsp;&nbsp;float lat2(t, y, x_stag);
+<br />
+&nbsp;&nbsp;&nbsp;float lon2(t, y, x_stag);
+<br />
+<br />&nbsp;&nbsp;&nbsp;float lat3(t, y_stag, x);
+<br />
+&nbsp;&nbsp;&nbsp;float lon3(t, y_stag, x);
+<br />
+<br />(there are none using y-stag, x_stag coordinates, but in principle i 
+<br />
+suppose there could be).
+<br />
+<br /><br />Now to add in the vertical coordinates:
+<br />
+<br />The z coordinate is &quot;eta values on half (mass) levels&quot;. Here is how the 
+<br />
+WRF experts describe how to transform to pressure:
+<br />
+<br />&nbsp;standard_name = &quot;terrain-following_eta_coordinate&quot;
+<br />
+<br />&nbsp;Definition: (but these are not coordinate definitions)
+<br />
+<br />&nbsp;&nbsp;&nbsp;press(n,k,j,i) = P(n,k,j,i) + PB(n,k,j,i) 
+<br />
+<br />&nbsp;where press is the pressure at model gridpoint (k,j,i) and time (n),
+<br />
+&nbsp;P is the perturbation pressure and PB the base state pressure
+<br />
+&nbsp;at gridpoint (k,j,i) and time (n). These pressures are defined at
+<br />
+&nbsp;non-staggered eta levels, which are defined by ZNU.
+<br />
+<br /><br />So we have these fields in the file to satisfy the above definition:   
+<br />
+&nbsp;&nbsp;&nbsp;float P(t, z, y, x);
+<br />
+&nbsp;&nbsp;&nbsp;float PB(t, z, y, x);
+<br />
+<br />However this will not work for the staggered grids, so we would need:
+<br />
+&nbsp;&nbsp;&nbsp;float P2(t, z, y, x_stag);
+<br />
+&nbsp;&nbsp;&nbsp;float PB3(t, z, y, x_stag);
+<br />
+<br />&nbsp;&nbsp;&nbsp;float P3(t, z, y_stag, x);
+<br />
+&nbsp;&nbsp;&nbsp;float PB3(t, z, y_stag, x);
+<br />
+<br />The z coordinate also comes in a staggered form, we'll call z_stag, so 
+<br />
+we also need
+<br />
+<br />&nbsp;&nbsp;&nbsp;float P4(t, z_stag, y, x);
+<br />
+&nbsp;&nbsp;&nbsp;float PB4(t, z_stag, y, x);
+<br />
+<br />To summarize, there are staggered coordinates for x, y, and z. In 
+<br />
+principle one could create 8 different grids, in practice it appears 
+<br />
+that only 4 are used.
+<br />
+This still seems like a mess, and I doubt we really want all these 
+<br />
+variations explicitly added, in the form of  6 extra 4D variables, and 4 
+<br />
+extra 3D variables.
+<br />
+<br />In actual practice, the advice is to interpolate back to the normal grid:
+<br />
+<br />&nbsp;U and V, together with temp and moisture variables are on non-staggered
+<br />
+&nbsp;vertical grid (we sometimes call it half-eta levels), and pressure too.
+<br />
+&nbsp;Only vertical motion, W, and geopotential height fields (PH and PHB) are
+<br />
+&nbsp;output on staggered vertical grid (we sometimes call these levels full-eta
+<br />
+&nbsp;levels). When we do post-processing using other software, we typically
+<br />
+&nbsp;average W and PH/PHB to half-eta levels to make all variables colocate
+<br />
+&nbsp;vertically. This is a simple arithmetic average.
+<br />
+<br />&nbsp;Then there is the horizontal staggering, where U is not colocated with
+<br />
+&nbsp;V and all other variables. It may be easier to consider averaging U and V
+<br />
+&nbsp;to the non-staggered horizontal grid, since when one computes meteorological
+<br />
+&nbsp;wind fields (whether it is wind speed, or vectors), the wind components
+<br />
+&nbsp;need to be colocated. On the other hand, if we'd want to do diagnostics, we may
+<br />
+&nbsp;want to use the U and V on their original staggering. An example maybe the
+<br />
+&nbsp;calculation of divergence or vorticity. So we may have the need to provide
+<br />
+&nbsp;height and pressure on U and V grid. To do that, again we can simply average
+<br />
+&nbsp;the nearby grid values to those at U and V.
+<br />
+<br /><br />So one way out is that variables on staggered coordinates can use the 
+<br />
+normal grid coordinates as their coordinate system, by either 
+<br />
+interpolating the variable to the normal grid coordinates, or i suppose, 
+<br />
+interpolate the normal grid coordinates to the staggered ones. This is 
+<br />
+what we might mean by &quot;stagger&quot;, that such interpolation is reasonable. 
+<br />
+If its not, then you have to specifiy the coordinate systems 
+<br />
+independently and in all their gorious detail.
+<br />
+<br />So concretely, if the above proposal was implemented, we are allowed to 
+<br />
+use non-staggered lat, lon and Z coordinates for staggered variables. 
+<br />
+The client program would be in charge of the interpolation.
+<br />
+<br />&nbsp;&nbsp;&nbsp;float x(x);
+<br />
+&nbsp;&nbsp;&nbsp;float x_stag(x_stag);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x_stag:stagger=&quot;x&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;float y(y);
+<br />
+&nbsp;&nbsp;&nbsp;float y_stag(y_stag);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y_stag:stagger=&quot;y&quot;;   
+<br />
+&nbsp;&nbsp;&nbsp;float lat(t, y, x);
+<br />
+&nbsp;&nbsp;&nbsp;float lon(t, y, x);
+<br />
+<br />&nbsp;&nbsp;&nbsp;float ZNU(t, z);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ZNU:long_name = &quot;eta values on half (mass) levels&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ZNU:positive = &quot;down&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ZNU:standard_name = &quot;terrain-following_eta_coordinate&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ZNU:formula_terms = &quot;pressure_perturbation: P pressure_base: PB&quot;;
+<br />
+<br />&nbsp;&nbsp;&nbsp;float ZNW(t, z_stag);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ZNW:long_name = &quot;eta values on full (w) levels&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ZNW:positive = &quot;down&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ZNW:standard_name = &quot;terrain-following_eta_coordinate&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ZNW:formula_terms = &quot;pressure_perturbation: P pressure_base: PB&quot;; 
+<br />
+&nbsp;&nbsp;// P, PB  not on z_stag
+<br />
+<br />&nbsp;&nbsp;&nbsp;float N(t, z, y, x);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N:coordinates = &quot;lat lon ZNU&quot;;  // normal case
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;float U(t, z, y, x_stag);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;U:coordinates = &quot;lat lon ZNU&quot;;  // lat, lon not on y, x_stag
+<br />
+<br />&nbsp;&nbsp;&nbsp;float V(t, z, y_stag, x);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V:coordinates = &quot;lat lon ZNU&quot;; // lat, lon not on y_stag, x
+<br />
+<br />&nbsp;&nbsp;&nbsp;float W(t, z_stag, y, x);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;V:coordinates = &quot;lat lon ZNW&quot;;
+<br />
+<span id="received"><dfn>Received on</dfn> Wed Oct 29 2003 - 17:01:56 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -125,12 +287,12 @@ That's very good news - thanks to your effort in large measure, I expect.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start296">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0297.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Use of Standard Names and Coordinate Variables (relevant to the aerosol discussion)"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0295.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] cell metrics"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0297.html" title="Next message in the list">Jonathan Gregory: "Fwd: [CF-metadata] Surface Air Temperature"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0295.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] CF-1.0 released"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0307.html" title="Next message in this discussion thread">Christiane Textor: "[CF-metadata] aerosol water"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./0330.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] WRF staggered grids and vertical coordinates"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0307.html" title="Message sent in reply to this message">Christiane Textor: "[CF-metadata] aerosol water"</a></li>
+<dfn>Reply</dfn>: <a href="./0330.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] WRF staggered grids and vertical coordinates"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -141,7 +303,7 @@ That's very good news - thanks to your effort in large measure, I expect.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:47 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0295.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0297.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

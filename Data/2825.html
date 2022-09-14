@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CMIP5 cryosphere standard names from alison.pamment at stfc.ac.uk on 2010-09-28 (mailing-list-archive)</title>
-<meta name="Author" content="alison.pamment at stfc.ac.uk (alison.pamment)" />
-<meta name="Subject" content="[CF-metadata] CMIP5 cryosphere standard names" />
-<meta name="Date" content="2010-09-28" />
+<title>[CF-metadata] standard names for variables in raw?engineering units from Jonathan Gregory on 2009-04-13 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] standard names for variables in raw?engineering units" />
+<meta name="Date" content="2009-04-13" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2824.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2826.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CMIP5 cryosphere standard names</h1>
-<!-- received="Tue Sep 28 06:14:45 2010" -->
-<!-- isoreceived="20100928051445" -->
-<!-- sent="Tue, 28 Sep 2010 13:14:45 +0100" -->
-<!-- isosent="20100928121445" -->
-<!-- name="alison.pamment at stfc.ac.uk" -->
-<!-- email="alison.pamment" -->
-<!-- subject="[CF-metadata] CMIP5 cryosphere standard names" -->
-<!-- id="EB1E7CB92F5B35459E0B926D2A614DB60445496B_at_EXCHANGE19.fed.cclrc.ac.uk" -->
+<a style="text-decoration:none" href="./2824.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2826.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard names for variables in raw?engineering units</h1>
+<!-- received="Mon Apr 13 01:40:53 2009" -->
+<!-- isoreceived="20090413004053" -->
+<!-- sent="Mon, 13 Apr 2009 08:40:53 +0100" -->
+<!-- isosent="20090413074053" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] standard names for variables in raw?engineering units" -->
+<!-- id="20090413074053.GA23355_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="FC10364B1C1C694DAF547AC0E8C9A0822582B43693_at_exvic-mbx05.nexus.csiro.au" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2826.html" accesskey="d" title="Siobhan.O&#0039;farrell at csiro.au: &quot;[CF-metadata] CMIP5 cryosphere standard names and standard CMIP5 output&quot;">Next message</a> ]
-[ <a href="./2824.html" title="Mike Grant: &quot;[CF-metadata] Logarithmic scaling and CF-Convention&quot;">Previous message</a> ]
-[ <a href="./2819.html" title="Siobhan.O&#0039;farrell at csiro.au: &quot;[CF-metadata] CMIP5 cryosphere standard names&quot;">In reply to</a> ]
+[ <a href="./2826.html" accesskey="d" title="olivier lauret: &quot;[CF-metadata] Proposal for additional CF biogeochemistry attributes&quot;">Next message</a> ]
+[ <a href="./2824.html" title="Roy Lowry: &quot;[CF-metadata] standard names for variables in raw	engineering units&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./2826.html" accesskey="t" title="Siobhan.O&#0039;farrell at csiro.au: &quot;[CF-metadata] CMIP5 cryosphere standard names and standard CMIP5 output&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,482 +68,66 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: alison.pamment at stfc.ac.uk &lt;<a href="mailto:alison.pamment?Subject=Re%3A%20%5BCF-metadata%5D%20CMIP5%20cryosphere%20standard%20names">alison.pamment</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20standard%20names%20for%20variables%20in%20raw%3Fengineering%20units">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 28 Sep 2010 13:14:45 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 13 Apr 2009 08:40:53 +0100</span><br />
 </address>
 <br />
-Dear Jonathan and Siobhan,
+Dear Roy
 <br />
-<br />Thank you for your responses. Please see below for an update on the
+<br />The space is deliberate. The standard_name attribute consists of a standard
 <br />
-status of the discussions.
+name followed optionally by a modifier. We introduced this syntax to allow us
 <br />
-<br />1) We are agreed on surface_downward_heat_flux_in_snow (Wm-2). The CMIP5
+to define ancillary data of various sorts e.g. a quality flag or a standard
 <br />
-output will use
+error, without requiring a new set of standard names. See CF standard section
 <br />
-a cell_methods of &quot;area: mean where land&quot;.
+3.3. Perhaps we should have put it in a different attribute; this decision was
 <br />
-<br />This name is accepted for inclusion in the standard name table.
+made years ago and I can't remember the discussion.
 <br />
-<br />2) Jonathan wrote:
+<br />I made the raw_data suggestion thinking that, in the case where you have a
 <br />
-<br /><em class="quotelev2">&gt; &gt; (a) Long name 'Surface Temperature of Sea Ice' with units of K and
-</em><br />
-the 
+geophysical quantity, and you also want to save the raw data (perhaps that is
 <br />
-<em class="quotelev2">&gt; &gt; following explanatory comments: 'When computing the time-mean here, 
-</em><br />
-<em class="quotelev2">&gt; &gt; the time-samples, weighted by the area of sea ice in the grid cell, 
-</em><br />
-<em class="quotelev2">&gt; &gt; are accumulated and then divided by the sum of the weights.  Report
-</em><br />
-as 
+the case Nan describes), the raw data could be regarded as ancillary
 <br />
-<em class="quotelev2">&gt; &gt; &quot;missing&quot; in regions free of sea ice.  Note this will be the surface
-</em><br />
-<br /><em class="quotelev2">&gt; &gt; snow temperature in regions where snow covers the sea ice.'
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev2">&gt; &gt; (b) Long name 'Temperature at Interface Between Sea Ice and Snow'
-</em><br />
-with 
+information (a bit like a standard error). This mechanism, with a standard
 <br />
-<em class="quotelev2">&gt; &gt; units of K and the following explanatory comments: 'When computing
-</em><br />
-the 
+name modifier and perhaps using ancillary_variables to point to it (CF 3.4),
 <br />
-<em class="quotelev2">&gt; &gt; time-mean here, the time-samples, weighted by the area of
-</em><br />
-snow-covered 
+might be suitable then. The modifier implies the units of the standard name
 <br />
-<em class="quotelev2">&gt; &gt; sea ice in the grid cell, are accumulated and then divided by the
-</em><br />
-sum 
+have been transformed in a certain way. We could therefore specify them to be
 <br />
-<em class="quotelev2">&gt; &gt; of the weights.  Report as &quot;missing&quot; in regions free of snow-covered
-</em><br />
-<br /><em class="quotelev2">&gt; &gt; sea ice.'
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; It seems to me that (a) is surface_temperature for area: where
-</em><br />
-sea_ice, and (b) is
+dimensionless for raw data, as that is a special case of transformation i.e.
 <br />
-<em class="quotelev1">&gt; sea_ice_surface_temperature for area: where snow_on_sea_ice, in  which
-</em><br />
-I have invented a
+replace units u with 1. They could be in the same units as the geophysical
 <br />
-<em class="quotelev1">&gt; new area_type. Both are time: mean.
-</em><br />
-<br />Siobhan wrote:
+quantity; that would need a different standard name modifier, which might be
 <br />
-<em class="quotelev1">&gt; I think Jonathan's sub categories where snow_on_sea_ice and
-</em><br />
-snow_free_sea_ice approach
+appropriate for uncalibrated data. However they could not be in different
 <br />
-<em class="quotelev1">&gt; helps here, we definitely want the surface temperature over the ice
-</em><br />
-portion of the grid
+units, not related to those of the geophysical quantity.
 <br />
-<em class="quotelev1">&gt; cell rather than over the whole grid cell (using cell methods). Also
-</em><br />
-the interface
+<br />This suggestion doesn't give enough information for the data to be processed.
 <br />
-<em class="quotelev1">&gt; temperature between snow and ice is important to account for, as it is
-</em><br />
-much warmer than
+It's just a way of labelling raw data as such.
 <br />
-<em class="quotelev1">&gt; the surface temperature due to the thermal insulation on snow so I am
-</em><br />
-no two worried about
+<br />If you want to identify the raw data as being a specific output from a
 <br />
-<em class="quotelev1">&gt; the case when there is no snow cover but again the snow_on_sea ice
-</em><br />
-(area type) would help to prevent the confusion.
+particular kind of instrument, I think it's much better to give a standard name
 <br />
-<br />Jonathan's approach simplifies these quantities and I'm happy to follow
+that indicates precisely what it is i.e. more specific than &quot;rain gauge
 <br />
-his suggestion.  I think, then, that we are agreed on using the existing
+raw data&quot;. Then the user could work out how to process it.
 <br />
-standard name of surface_temperature for the first quantity and
+<br />Cheers
 <br />
-introducing a new standard name of
+<br />Jonathan
 <br />
-sea_ice_surface_temperature; K
-<br />
-for the second.
-<br />
-<br />This name is accepted for inclusion in the standard name table.
-<br />
-<br />A new type of snow_on_sea_ice will be added to the area_type table.
-<br />
-<br />I will check that the CMIP5 output document contains the correct
-<br />
-cell_methods entries for these quantities.
-<br />
-<br />(Items 3, 4 and 5 are closed).
-<br />
-<br />6) Alison wrote:
-<br />
-<br /><em class="quotelev1">&gt; I think we should use the existing standard names of
-</em><br />
-<em class="quotelev1">&gt; rainfall_flux; kg m-2 s-1
-</em><br />
-<em class="quotelev1">&gt; snowfall_flux; kg m-2 s-1
-</em><br />
-<em class="quotelev1">&gt; and supply a cell_methods attribute of &quot;area: mean where sea_ice over
-</em><br />
-<em class="quotelev1">&gt; sea&quot; for each of them.
-</em><br />
-<br />Jonathan says he agrees.
-<br />
-<br />Siobhan wrote:
-<br />
-<br /><em class="quotelev1">&gt; It makes sense to separate the water flux from snow and rainfall as
-</em><br />
-the impact differently on the
-<br />
-<em class="quotelev1">&gt; surface using the cell methods would indicate  them onto the sea ice
-</em><br />
-portion of the cell.  Some
-<br />
-<em class="quotelev1">&gt; rain may penetrate into the ice lattice if it s very porous Jonathan
-</em><br />
-or contribute to melt ponds in
-<br />
-<em class="quotelev1">&gt; the Arctic summer, but I don't know of a sea ice models IN CMIP5
-</em><br />
-that sophisticated  to allow for
-<br />
-<em class="quotelev1">&gt; that effect.
-</em><br />
-<br />Sorry, Siobhan, I'm not 100 per cent clear whether you are happy to go
-<br />
-with the names I suggested. The names will certainly allow you to
-<br />
-separate snow and rainfall as per your requirements.
-<br />
-<br />7) We are agreed on
-<br />
-tendency_of_sea_ice_amount_due_to_lateral_growth_of_ice_floes; kg m-2
-<br />
-s-1.
-<br />
-<br />This name is accepted for inclusion in the standard name table.
-<br />
-<br />8) Sea ice thermal energy
-<br />
-<br />Jonathan wrote:
-<br />
-<em class="quotelev2">&gt; &gt; sea_ice_thermal_energy; J
-</em><br />
-<em class="quotelev1">&gt; Is it really J, not J m-2? If J m-2, the phrase heat_content would be
-</em><br />
-<em class="quotelev1">&gt; better, as it would be consistent with the existing name
-</em><br />
-<em class="quotelev1">&gt;integral_of_sea_water_potential_temperature_wrt_depth_expressed_as_heat
-</em><br />
-_content
-<br />
-<em class="quotelev1">&gt; (J m-2). If really J, I wonder if we can think of a phrase related to
-</em><br />
-<em class="quotelev1">&gt; heat_content. I am assuming that this quantity relates to
-</em><br />
-<em class="quotelev1">&gt; temperature, but maybe it relates to latent heat content? It would be
-</em><br />
-<em class="quotelev1">&gt; good to be clear about this in the name.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<br />Alison wrote: 
-<br />
-<em class="quotelev1">&gt; According to the CMIP5 document, the unit is J and the long name is
-</em><br />
-'Sea
-<br />
-<em class="quotelev1">&gt; Ice Total Heat Content'. The explanation says, 'Ice at 0 Celsius is
-</em><br />
-<em class="quotelev1">&gt; assumed taken to have a heat content of 0 J.  When averaging over
-</em><br />
-time,
-<br />
-<em class="quotelev1">&gt; this quantity is weighted by the mass of sea ice.   Report as
-</em><br />
-&quot;missing&quot;
-<br />
-<em class="quotelev1">&gt; in regions free of snow on land.'
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I find this rather confusing - if it is supposed to be a sea ice
-</em><br />
-<em class="quotelev1">&gt; quantity, then surely it should always be reported as &quot;missing&quot; over
-</em><br />
-<em class="quotelev1">&gt; land and open sea.  It doesn't sound as though latent heat is
-</em><br />
-included.
-<br />
-<em class="quotelev1">&gt; I don't think we can call it a 'content' because it isn't a quantity
-</em><br />
-per
-<br />
-<em class="quotelev1">&gt; unit area. Perhaps Siobhan can help to clarify this quantity further.
-</em><br />
-<br />Siobhan wrote:
-<br />
-<br /><em class="quotelev1">&gt; Sea ice thermal energy, I am a bit confused on the history on this one
-</em><br />
-there were two
-<br />
-<em class="quotelev1">&gt; requests originally made in my 2008 document sent To Karl and
-</em><br />
-circulated through the
-<br />
-<em class="quotelev1">&gt; cryosphere community.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; The first was 
-</em><br />
-<em class="quotelev1">&gt; Snow_thermal_energy_content	Snth	new	Jm-2	month	  1
-</em><br />
-all
-<br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; For the land surface component. It was in an earlier version of Karl's
-</em><br />
-document (I had
-<br />
-<em class="quotelev1">&gt; saved 16/6/2009) but is not in the latest 17/9/2010.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; The sea ice heat content was given as 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; integral_of_sea_ice_temperature_wrt_depth_expressed_as_heat_content
-</em><br />
-hcice	New	Jm-2	Month	   1	All
-<br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; It looks like they retained the hcice name but changed the units. 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; So I am puzzled as well, I think it should be Jm-2. 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; The issue of whether the heat content of the snow over the ice should
-</em><br />
-be included is highlighted, it is possible,
-<br />
-<em class="quotelev1">&gt; but it would be preferable as separate variable, as the thermal
-</em><br />
-properties are very different form the ice, and it
-<br />
-<em class="quotelev1">&gt; could confuse interpretation of result if they were merged into one
-</em><br />
-effect (Unless you are using the UM, Jonathan
-<br />
-<em class="quotelev1">&gt; where the atmosphere model treats the two media as if they are
-</em><br />
-combined).
-<br />
-<br />We already have the standard name thermal_energy_content_of_surface_snow
-<br />
-(J m-2) which, if supplied with the correct cell_methods, would deal
-<br />
-with the first quantity Siobhan mentions.  However, I agree that it
-<br />
-doesn't seem to be listed as a separate output in the 17/9/2010 CMIP5
-<br />
-document. If it is needed for CMIP5, then Karl would be the person to
-<br />
-contact.
-<br />
-<br />We seem to be in general agreement that the units of the sea_ice thermal
-<br />
-content should be J m-2, so I will feed that information back to Karl. A
-<br />
-quantity per unit area can certainly be called a 'content' in standard
-<br />
-names, so in fact the original suggestion of 
-<br />
-integral_of_sea_ice_temperature_wrt_depth_expressed_as_heat_content; J
-<br />
-m-2
-<br />
-would be appropriate and it would fit with Jonathan's comments.  Is this
-<br />
-OK?
-<br />
-<br />9) Sea ice albedo
-<br />
-<br />Siobhan wrote:
-<br />
-<em class="quotelev1">&gt; I was bothered that the bare sea ice albedo has been flagged for
-</em><br />
-<em class="quotelev1">&gt; removal, It probably should be total sea
-</em><br />
-<em class="quotelev1">&gt; ice albedo, though in NCAR model bare ice albedo is changeable due to
-</em><br />
-<em class="quotelev1">&gt; black carbon and multi-scattering in
-</em><br />
-<em class="quotelev1">&gt; internal layers.  There is a comment on the next page about getting
-</em><br />
-<em class="quotelev1">&gt; albedo from the downwelling and
-</em><br />
-<em class="quotelev1">&gt; upwelling shortwave radiation, but this would not allow for the
-</em><br />
-<em class="quotelev1">&gt; penetration of shortwave radiation into the
-</em><br />
-<em class="quotelev1">&gt; ice.  My preference is for total sea ice albedo to be saved. This will
-</em><br />
-<em class="quotelev1">&gt; allows for the more sophisticate
-</em><br />
-<em class="quotelev1">&gt; schemes to have an areal average of seasonal changes in albedos across
-</em><br />
-<em class="quotelev1">&gt; thickness categories, snow cover
-</em><br />
-<em class="quotelev1">&gt; properties, melt ponds and now aerosols effects to be analyzed, I
-</em><br />
-<em class="quotelev1">&gt; couldn't find surface albedo being
-</em><br />
-<em class="quotelev1">&gt; saved elsewhere in the CMIP5  document.
-</em><br />
-<br />Alison wrote:
-<br />
-<em class="quotelev1">&gt; In view of Siobhan's comments I think there is definitely a need to
-</em><br />
-<em class="quotelev1">&gt; agree a name for this quantity.  I think that Karl is correct that
-</em><br />
-<em class="quotelev1">&gt; 'surface_albedo' would normally refer to the whole grid cell.  It
-</em><br />
-should
-<br />
-<em class="quotelev1">&gt; really be 'sea_ice_albedo'. We could introduce a new name of
-</em><br />
-<em class="quotelev1">&gt; 'sea_ice_albedo_assuming_no_snow' but I'm not sure whether it is
-</em><br />
-really
-<br />
-<em class="quotelev1">&gt; correct to use the &quot;assuming&quot; phrase here.  Perhaps it would be more
-</em><br />
-<em class="quotelev1">&gt; accurate to use the existing name 'sea_ice_albedo' and introduce a new
-</em><br />
-<em class="quotelev1">&gt; area_type of 'snow_free_ice'. I'd welcome opinions on this.
-</em><br />
-<br />Jonathan wrote:
-<br />
-<br /><em class="quotelev1">&gt; I think that would be a correct description, yes. This area-type is
-</em><br />
-the counterpart of
-<br />
-<em class="quotelev1">&gt; snow_on_sea_ice which I needed above. I think yours should be
-</em><br />
-snow_free_sea_ice.
-<br />
-<br />Siobhan wrote:
-<br />
-<br /><em class="quotelev1">&gt; I still support the need for a sea ice albedos, my comments on whether
-</em><br />
-it is total or bare
-<br />
-<em class="quotelev1">&gt; still stand, again it should be defined on the sea ice portion of the
-</em><br />
-grid. Alison's
-<br />
-<em class="quotelev1">&gt; suggestion of an area type snow_free_ice could help distinguish it is
-</em><br />
-bare, but if the snow
-<br />
-<em class="quotelev1">&gt; depth is also known, then that would be clearer, though there will be
-</em><br />
-transition months as
-<br />
-<em class="quotelev1">&gt; the ice becomes snow free.  
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; So is one total sea ice albedo sufficient?
-</em><br />
-<br />One CF standard name for sea ice albedo is sufficient if it is
-<br />
-essentially the same geophysical quantity for snow covered/bare sea ice.
-<br />
-Then the only issue is to distinguish between surface types and this is
-<br />
-the role of the area_types.  Area types of snow_free_sea_ice and
-<br />
-snow_on_sea_ice would allow you to make that distinction, so I am in
-<br />
-favour of introducing one new standard name of sea_ice_albedo, plus the
-<br />
-new area_types.
-<br />
-<br />Again regarding CMIP5, Karl would be the person to contact if you wish
-<br />
-to save the albedo for both surface types as currently only the bare ice
-<br />
-quantity is listed in the output document.  The quantity
-<br />
-surface_snow_thickness is listed as an output with a cell_methods of
-<br />
-'mean where sea'. If you wanted the same quantity saved with a
-<br />
-cell_methods of 'mean where sea_ice' then I think it would be a separate
-<br />
-output.  In practice, would the quantity that is already being saved be
-<br />
-enough to tell you whether the ice is bare?
-<br />
-<br />10) We are agreed to use the existing names
-<br />
-surface_downward_x_stress; Pa
-<br />
-surface_downward_y_stress; Pa
-<br />
-and introduce two new standard names
-<br />
-upward_x_stress_at_sea_ice_base; Pa
-<br />
-upward_y_stress_at_sea_ice_base; Pa
-<br />
-(all accompanied by a cell_methods attribute of &quot;area: mean where
-<br />
-sea_ice&quot; for CMIP5.)
-<br />
-<br />The new names are accepted for inclusion in the standard name table.
-<br />
-<br />Best wishes,
-<br />
-Alison
-<br />
-<br />------
-<br />
-Alison Pamment                          Tel: +44 1235 778065
-<br />
-NCAS/British Atmospheric Data Centre    Fax: +44 1235 446314
-<br />
-Rutherford Appleton Laboratory          Email: alison.pamment at stfc.ac.uk
-<br />
-Chilton, Didcot, OX11 0QX, U.K.
-<br />
-<pre>
--- 
-Scanned by iCritical.
-</pre>
-<span id="received"><dfn>Received on</dfn> Tue Sep 28 2010 - 06:14:45 BST</span>
+<span id="received"><dfn>Received on</dfn> Mon Apr 13 2009 - 01:40:53 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -555,13 +135,9 @@ Scanned by iCritical.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2825">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2826.html" title="Next message in the list">Siobhan.O&#0039;farrell at csiro.au: "[CF-metadata] CMIP5 cryosphere standard names and standard CMIP5 output"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2824.html" title="Previous message in the list">Mike Grant: "[CF-metadata] Logarithmic scaling and CF-Convention"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./2819.html" title="Message to which this message replies">Siobhan.O&#0039;farrell at csiro.au: "[CF-metadata] CMIP5 cryosphere standard names"</a></li>
+<li><dfn>Next message</dfn>: <a href="./2826.html" title="Next message in the list">olivier lauret: "[CF-metadata] Proposal for additional CF biogeochemistry attributes"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2824.html" title="Previous message in the list">Roy Lowry: "[CF-metadata] standard names for variables in raw	engineering units"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./2826.html" title="Next message in this discussion thread">Siobhan.O&#0039;farrell at csiro.au: "[CF-metadata] CMIP5 cryosphere standard names and standard CMIP5 output"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./2826.html" title="Message sent in reply to this message">Siobhan.O&#0039;farrell at csiro.au: "[CF-metadata] CMIP5 cryosphere standard names and standard CMIP5 output"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -572,7 +148,7 @@ Scanned by iCritical.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:32 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2824.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2826.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

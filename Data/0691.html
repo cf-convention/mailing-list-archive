@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] standard names committee from Jonathan Gregory on 2007-02-08 (mailing-list-archive)</title>
+<title>[CF-metadata] stations and trajectories from Jonathan Gregory on 2005-06-24 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] standard names committee" />
-<meta name="Date" content="2007-02-08" />
+<meta name="Subject" content="[CF-metadata] stations and trajectories" />
+<meta name="Date" content="2005-06-24" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0690.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0692.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard names committee</h1>
-<!-- received="Thu Feb  8 06:10:58 2007" -->
-<!-- isoreceived="20070208061058" -->
-<!-- sent="Thu, 8 Feb 2007 13:10:58 +0000" -->
-<!-- isosent="20070208131058" -->
+<a style="text-decoration:none" href="./0690.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0692.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] stations and trajectories</h1>
+<!-- received="Fri Jun 24 05:00:59 2005" -->
+<!-- isoreceived="20050624040059" -->
+<!-- sent="Fri, 24 Jun 2005 12:00:59 +0100" -->
+<!-- isosent="20050624110059" -->
 <!-- name="Jonathan Gregory" -->
 <!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] standard names committee" -->
-<!-- id="20070208131058.GA29209_at_met.reading.ac.uk" -->
+<!-- subject="[CF-metadata] stations and trajectories" -->
+<!-- id="20050624110059.GA20907_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="42B7256C.8060707_at_unidata.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,9 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0692.html" accesskey="d" title="Roy Lowry: &quot;[CF-metadata] standard names committee&quot;">Next message</a> ]
-[ <a href="./0690.html" title="Karl Taylor: &quot;[CF-metadata] CF and a representation of probalistic forecasts&quot;">Previous message</a> ]
+[ <a href="./0692.html" accesskey="d" title="Jonathan Gregory: &quot;Fwd: Re: [CF-metadata] stations and trajectories&quot;">Next message</a> ]
+[ <a href="./0690.html" title="Russ Rew: &quot;[CF-metadata] CF convention for time variable dimension&quot;">Previous message</a> ]
+[ <a href="./0685.html" title="John Caron: &quot;[CF-metadata] stations and trajectories&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0693.html" accesskey="t" title="John Caron: &quot;[CF-metadata] stations and trajectories&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,34 +72,114 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20standard%20names%20committee">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20stations%20and%20trajectories">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 8 Feb 2007 13:10:58 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 24 Jun 2005 12:00:59 +0100</span><br />
 </address>
 <br />
-Dear Alison
+Dear John
 <br />
-<br />Thank you for your informative and constructive comments on the standard names
+<br />Thanks for this document.
 <br />
-committee. You are doing a very valuable job in managing the standard names
+<em class="quotelev1">&gt; <a href="http://my.unidata.ucar.edu/content/software/netcdf-java/formats/RecordsInNetcdf3.html">http://my.unidata.ucar.edu/content/software/netcdf-java/formats/RecordsInNetcdf3.html</a>
+</em><br />
+<br />In your classification, the model we are using in CF for stations and
 <br />
-process.
+trajectories is (3), the multidimensional case, with data variables dimensioned
 <br />
-<br />With regard to the difficulty of making decisions, perhaps we need to decide
+(station,nobs) and the per-station metadata, dimensioned (station), being
 <br />
-some time-limits. The terms of reference for the committees allowed for this.
+attached to the data variable through the coordinates attribute. As you say,
 <br />
-It is something that we could discuss, especially the standard names committee.
+this is efficient of storage when all stations have the same number of
 <br />
-I wonder what members of that committee think about how the process of
+observations nobs, and efficient for retrieval if you want to get all the obs
 <br />
-reaching decisions on standard names should be conducted. Any views?
+for a given time at once.
 <br />
-<br />Best wishes
+<br />However, it is inconvenient if all the stations have different nobs, as you
+<br />
+need a different nobs dimension and data variable for each one. If there are
+<br />
+thousands, as you comment, this is a mess. Then you would like to store them
+<br />
+in a single variable which is indexed somehow. Your method (2), the linked
+<br />
+list, is a way to do this. Magnus's database-like scheme is another, in which
+<br />
+the data variable is dimensioned (record), and there is a station identifier
+<br />
+variable dimensioned the same way. The timeseries/trajectory for a given
+<br />
+station is then extracted using data_variable(where(station_id eq station)),
+<br />
+in pseudo-IDL, or &quot;select from data_variable where station_id eq station&quot; in
+<br />
+pseudo-SQL. This means all the station metadata is repeated for every obs of
+<br />
+the station, which is inefficient of storage, unlike in your scheme where it
+<br />
+is stored only once. But Magnus's scheme is conceptually simpler and that
+<br />
+makes it appealing, I think.
+<br />
+<br />Your document is about netCDF-3 and I wonder if this is a case where we should
+<br />
+consider defining a convention based on netCDF-4 (coming soon). If I have
+<br />
+understood correctly, netCDF-4 permits multidimensional arrays to have ragged
+<br />
+dimensions. Internally it is mapped onto a 1D array, like your linked list,
+<br />
+but the complexity is hidden behind the interface. With this feature we could
+<br />
+use the multidimensional model. Recall that for the case where all stations
+<br />
+have the same number of obs, this looks like:
+<br />
+<br />&nbsp;&nbsp;float station_latitude(station);
+<br />
+&nbsp;&nbsp;float station_longitude(station);
+<br />
+&nbsp;&nbsp;double time(time);
+<br />
+&nbsp;&nbsp;float data_variable(time,station);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;data_variable:coordinates=&quot;station_latitude station_longitude&quot;;
+<br />
+<br />With the case of different numbers of obs, we would have
+<br />
+<br />&nbsp;&nbsp;float station_latitude(station);
+<br />
+&nbsp;&nbsp;float station_longitude(station);
+<br />
+&nbsp;&nbsp;double time(record,station);
+<br />
+&nbsp;&nbsp;float data_variable(record,station);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;data_variable:coordinates=&quot;station_latitude station_longitude time&quot;;
+<br />
+<br />in which record would be a &quot;ragged&quot; dimension, so it would have a different
+<br />
+size for each station. The only formal difference between the two is that the
+<br />
+time variable is now auxiliary and 2D, because each station has its own set of
+<br />
+times. This is OK; an auxiliary coord var can have any of the dimensions
+<br />
+of the data var. I think therefore that this scheme would be CF-compliant with
+<br />
+no change to the standard, but we would have to point out that the time has
+<br />
+to become auxiliary in this case.
+<br />
+<br />What do you think? Have I understood netCDF-4 correctly?
+<br />
+<br />Cheers
 <br />
 <br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Thu Feb 08 2007 - 06:10:58 GMT</span>
+<span id="received"><dfn>Received on</dfn> Fri Jun 24 2005 - 05:00:59 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -103,9 +187,13 @@ reaching decisions on standard names should be conducted. Any views?
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start691">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0692.html" title="Next message in the list">Roy Lowry: "[CF-metadata] standard names committee"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0690.html" title="Previous message in the list">Karl Taylor: "[CF-metadata] CF and a representation of probalistic forecasts"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0692.html" title="Next message in the list">Jonathan Gregory: "Fwd: Re: [CF-metadata] stations and trajectories"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0690.html" title="Previous message in the list">Russ Rew: "[CF-metadata] CF convention for time variable dimension"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0685.html" title="Message to which this message replies">John Caron: "[CF-metadata] stations and trajectories"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0693.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] stations and trajectories"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0693.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] stations and trajectories"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -116,7 +204,7 @@ reaching decisions on standard names should be conducted. Any views?
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:54 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0690.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0692.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

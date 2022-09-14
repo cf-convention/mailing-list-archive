@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]  statistic indices from Jonathan Gregory on 2008-06-20 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata]  statistic indices" />
-<meta name="Date" content="2008-06-20" />
+<title>[CF-metadata] COARDS name for a time offset from Ed Armstrong on 2006-12-18 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Ed Armstrong (earmstro)" />
+<meta name="Subject" content="[CF-metadata] COARDS name for a time offset" />
+<meta name="Date" content="2006-12-18" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1400.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1402.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  statistic indices</h1>
-<!-- received="Fri Jun 20 04:05:26 2008" -->
-<!-- isoreceived="20080620030526" -->
-<!-- sent="Fri, 20 Jun 2008 11:05:26 +0100" -->
-<!-- isosent="20080620100526" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata]  statistic indices" -->
-<!-- id="20080620100526.GA16702_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./1400.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1402.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] COARDS name for a time offset</h1>
+<!-- received="Mon Dec 18 11:49:10 2006" -->
+<!-- isoreceived="20061218114910" -->
+<!-- sent="Mon, 18 Dec 2006 10:49:10 -0800" -->
+<!-- isosent="20061218184910" -->
+<!-- name="Ed Armstrong" -->
+<!-- email="earmstro" -->
+<!-- subject="[CF-metadata] COARDS name for a time offset" -->
+<!-- id="p06230900c1ac8df057e7_at_[137.79.160.238]" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1402.html" accesskey="d" title="Nan Galbraith: &quot;[CF-metadata] attributes for min/max data	valuesfor	visualization&quot;">Next message</a> ]
-[ <a href="./1400.html" title="Heinke Hoeck: &quot;[CF-metadata] statistic indices&quot;">Previous message</a> ]
+[ <a href="./1402.html" accesskey="d" title="Steve Hankin: &quot;[CF-metadata] Getting back to ensembles&quot;">Next message</a> ]
+[ <a href="./1400.html" title="Jonathan Gregory: &quot;[CF-metadata] new standard names -&#0062; cell metrics&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,46 +68,84 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20statistic%20indices">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Ed Armstrong &lt;<a href="mailto:earmstro?Subject=Re%3A%20%5BCF-metadata%5D%20COARDS%20name%20for%20a%20time%20offset">earmstro</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 20 Jun 2008 11:05:26 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 18 Dec 2006 10:49:10 -0800</span><br />
 </address>
 <br />
-Dear Heinke
+Hi CF folks,
 <br />
-<br /><em class="quotelev1">&gt; So, I agree with you that we need a new cell_method 'count over days'.
-</em><br />
-<em class="quotelev1">&gt; 'count over days'  means: The values of the indicator of
-</em><br />
-<em class="quotelev1">&gt; &quot;mean/minimum/maximum within days&quot;
-</em><br />
-<em class="quotelev1">&gt; for every day is counted.
-</em><br />
-<em class="quotelev1">&gt; 'count' indicates that the result is a number(integer) and that looks
-</em><br />
-<em class="quotelev1">&gt; good for me.
-</em><br />
-<br />I think we should make it more general
+<br />I would like some advice from your group on a name for a COARDS 
 <br />
-<br />&quot;count&quot; means &quot;the number of occurrences of a condition specified in the
+metadata atttribute to describe a time offset for a field.
 <br />
-standard_name&quot;
+<br />First off, I  represent the data management side  of GHRSST: 
 <br />
-<br />As you say, it is an integer. Its unit is 1. This makes a new entry in
+<a href="http://www.ghrsst-pp.org">http://www.ghrsst-pp.org</a>,  which has adopted netCDF and the CF format 
 <br />
-Appendix E, I think.
+for all our sea surface temperature satellite products.
 <br />
-<br /><em class="quotelev1">&gt; Do we need a new ticket ? I hope it does not take so much time.
-</em><br />
-<br />Yes, I think we have to do a ticket for it,  but it is a very small change
+<br />The problem is straightforward.  In all files we represent time of 
 <br />
-so it should not be problematic. If you propose it, I'll moderate it.
+the satellite observations of SST as the following field:
 <br />
-<br />Best wishes
+<br />int time(time) ;
 <br />
-<br />Jonathan
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:long_name = &quot;reference time of sst file&quot; ;
 <br />
-<span id="received"><dfn>Received on</dfn> Fri Jun 20 2008 - 04:05:26 BST</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:units = &quot;seconds since 1981-01-01 00:00:00&quot; ;
+<br />
+<br />however, within our files we have many other observations or model 
+<br />
+predictions of other fields (observed or predicted at different 
+<br />
+times) and we would like to propose something like a 
+<br />
+&quot;offset_from_time&quot; field that represents the time difference in 
+<br />
+seconds from &quot;time&quot; above.  An example might be :
+<br />
+<br /><br />&nbsp;&nbsp;byte wind_speed(time, nj, ni) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_speed:long_name = &quot;wind speed&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_speed:units = &quot;m s-1&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_speed:_FillValue = -128b ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_speed:add_offset = 0.f ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_speed:scale_factor = 1.f ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_speed:valid_min = -127b ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_speed:valid_max = 127b ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_speed:coordinates = &quot;lon lat&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_speed: offset_from_time = 3600s
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_speed:offset_from_time_units: &quot;seconds&quot;
+<br />
+<br />Looking over the COARDS/CF documentation I found on the web, I could 
+<br />
+not find anything that describes what I would like to do. What I have 
+<br />
+proposed..... does it sound reasonable or have I overlooked existing 
+<br />
+COARDS metadata attributes that would fufill our needs ???
+<br />
+<br />Any advice appreciated
+<br />
+<br /><br /><br /><pre>
+-- 
+    ~ed
+Edward M. Armstrong
+Physical Oceanography DAAC		Tel: 818 393-6710
+Jet Propulsion Laboratory		Fax: 818 393-2710
+	edward.armstrong at jpl.nasa.gov
+</pre>
+<span id="received"><dfn>Received on</dfn> Mon Dec 18 2006 - 11:49:10 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -115,8 +153,8 @@ so it should not be problematic. If you propose it, I'll moderate it.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1401">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1402.html" title="Next message in the list">Nan Galbraith: "[CF-metadata] attributes for min/max data	valuesfor	visualization"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1400.html" title="Previous message in the list">Heinke Hoeck: "[CF-metadata] statistic indices"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1402.html" title="Next message in the list">Steve Hankin: "[CF-metadata] Getting back to ensembles"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1400.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] new standard names -&#0062; cell metrics"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -128,7 +166,7 @@ so it should not be problematic. If you propose it, I'll moderate it.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:05 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1400.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1402.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

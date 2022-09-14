@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CDM calendar date handling from Lynnes, Christopher S. on 2011-08-22 (mailing-list-archive)</title>
-<meta name="Author" content="Lynnes, Christopher S. (christopher.s.lynnes)" />
-<meta name="Subject" content="[CF-metadata] CDM calendar date handling" />
-<meta name="Date" content="2011-08-22" />
+<title>[CF-metadata] proposed change to CF calendar from Earl Schwab on 2010-10-14 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Earl Schwab (eschwab.esmf)" />
+<meta name="Subject" content="[CF-metadata] proposed change to CF calendar" />
+<meta name="Date" content="2010-10-14" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./3677.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3679.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CDM calendar date handling</h1>
-<!-- received="Mon Aug 22 09:29:23 2011" -->
-<!-- isoreceived="20110822082923" -->
-<!-- sent="Mon, 22 Aug 2011 10:29:23 -0500" -->
-<!-- isosent="20110822152923" -->
-<!-- name="Lynnes, Christopher S." -->
-<!-- email="christopher.s.lynnes" -->
-<!-- subject="[CF-metadata] CDM calendar date handling" -->
-<!-- id="43DCDA96-0B39-4B3E-BA98-EED741891449_at_nasa.gov" -->
+<a style="text-decoration:none" href="./3677.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3679.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] proposed change to CF calendar</h1>
+<!-- received="Wed Oct 13 18:55:59 2010" -->
+<!-- isoreceived="20101013175559" -->
+<!-- sent="Wed, 13 Oct 2010 18:55:59 -0600" -->
+<!-- isosent="20101014005559" -->
+<!-- name="Earl Schwab" -->
+<!-- email="eschwab.esmf" -->
+<!-- subject="[CF-metadata] proposed change to CF calendar" -->
+<!-- id="4CB6551F.1000509_at_gmail.com" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20110822123753.GE24538_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./3679.html" accesskey="d" title="John Caron: &quot;[CF-metadata] CDM calendar date handling&quot;">Next message</a> ]
-[ <a href="./3677.html" title="Don Murray: &quot;[CF-metadata] CDM calendar date handling&quot;">Previous message</a> ]
-[ <a href="./3676.html" title="Jonathan Gregory: &quot;[CF-metadata] CDM calendar date handling&quot;">In reply to</a> ]
+[ <a href="./3679.html" accesskey="d" title="Christopher Barker: &quot;[CF-metadata] point observation data in CF 1.4&quot;">Next message</a> ]
+[ <a href="./3677.html" title="Jonathan Gregory: &quot;[CF-metadata] point observation data in CF 1.4&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./3679.html" accesskey="t" title="John Caron: &quot;[CF-metadata] CDM calendar date handling&quot;">Next in thread</a> ]
+[ <a href="./3680.html" accesskey="t" title="Benno Blumenthal: &quot;[CF-metadata] proposed change to CF calendar&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -71,76 +70,126 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Lynnes, Christopher S. &lt;<a href="mailto:christopher.s.lynnes?Subject=Re%3A%20%5BCF-metadata%5D%20CDM%20calendar%20date%20handling">christopher.s.lynnes</a>&gt;
+<dfn>From</dfn>: Earl Schwab &lt;<a href="mailto:eschwab.esmf?Subject=Re%3A%20%5BCF-metadata%5D%20proposed%20change%20to%20CF%20calendar">eschwab.esmf</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 22 Aug 2011 10:29:23 -0500</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 13 Oct 2010 18:55:59 -0600</span><br />
 </address>
 <br />
-OK, that looks like it might have an equivalent effect.
+Hi,
 <br />
-<br />On Aug 22, 2011, at 8:37 AM, Jonathan Gregory wrote:
+<br />As Tony indicated, the ESMF Team also supports this proposal to make
 <br />
-<br /><em class="quotelev1">&gt; Dear Chris
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; Perhaps there could be an attribute we could set that says whether we have accounted for leap seconds?  With the absence of such an attribute to be presumed as meaning leap seconds have been ignored.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Perhaps the real-world calendars with and without leap seconds should be
-</em><br />
-<em class="quotelev1">&gt; regarded as two different calendars, since they have different encodings
-</em><br />
-<em class="quotelev1">&gt; (meaning decoding/encoding as YMD HMS &lt;-&gt; time-interval since reference-time).
-</em><br />
-<em class="quotelev1">&gt; The &quot;true&quot; real-world calendar is the one with leap seconds.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; CF has a calendar
-</em><br />
-<em class="quotelev1">&gt; proleptic_gregorian
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt;    A Gregorian calendar extended to dates before 1582-10-15. That is, a year is a leap year if either (i) it is divisible by 4 but not by 100 or (ii) it is divisible by 400.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; What if we clarified this calendar as not having leap seconds? Then it could
-</em><br />
-<em class="quotelev1">&gt; be used for real-world applications for recent dates meaning that it was just
-</em><br />
-<em class="quotelev1">&gt; like the real world except that it doesn't have leap seconds.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Model calendars, which are already idealised wrt length of year, don't have
-</em><br />
-<em class="quotelev1">&gt; leap seconds anyway, I am sure.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Best wishes
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Jonathan
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<br /><pre>
---
-Dr. Christopher Lynnes     NASA/GSFC, Code 610.2    phone: 301-614-5185
-</pre>
-<span id="received"><dfn>Received on</dfn> Mon Aug 22 2011 - 09:29:23 BST</span>
+the CF default/standard Gregorian calendar proleptic.  Like CCSM, our
+<br />
+Gregorian calendar is proleptic, and, also like CCSM, we do not
+<br />
+support a mixed Julian/Gregorian historical calendar, as we've had
+<br />
+no such requirement to-date from our users.
+<br />
+<br />Regards,
+<br />
+Earl Schwab
+<br />
+ESMF Core Team
+<br />
+<br /><br /><br />-------- Original Message --------
+<br />
+Subject: 	proposed change to calendar definitions
+<br />
+Date: 	Fri, 08 Oct 2010 11:00:57 -0700
+<br />
+From: 	Tony Craig &lt;tcraig at ucar.edu&gt;
+<br />
+To: 	cf-metadata at cgd.ucar.edu
+<br />
+CC: 	Mariana Vertenstein &lt;mvertens at ucar.edu&gt;, eschwab.esmf at gmail.com
+<br />
+<br /><br /><br />The NCAR CCSM climate model tries to follow the CF standard
+<br />
+as much as possible with regard to input and output datasets.
+<br />
+However, we are finding it nearly impossible to adhere to the
+<br />
+calendaring standard.  We do not have access to time managers
+<br />
+either internally or through external sources, such as ESMF, to
+<br />
+support the default CF &quot;gregorian/standard&quot; calendar as documented here,
+<br />
+<br /><a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.4/cf-conventions.html#calendar">http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.4/cf-conventions.html#calendar</a>
+<br />
+<br />And at the end of that section, the CF convention notes in particular
+<br />
+the challenges associated with &quot;the discontinuity&quot; in the mixed
+<br />
+gregorian/julian calendar.  We have discussed calendaring issues with the
+<br />
+ESMF developers, and they also have no immediate plans to support
+<br />
+the mixed gregorian/julian calendar.  ESMF is one of our primary tools
+<br />
+for supporting infrastructure in climate models, especially time managers.
+<br />
+<br />As a result, in our implementation, we treat the calendar naming
+<br />
+conventions differently.
+<br />
+<br />gregorian == proleptic_gregorian
+<br />
+<br />and mixed gregorian/julian is not supported.
+<br />
+<br />We would like to propose a change to the CF calendar conventions to
+<br />
+reflect what we believe the community is already doing.  We propose
+<br />
+<br />1. continued support of the name proleptic_calendar for backwards
+<br />
+&nbsp;&nbsp;&nbsp;compatability.
+<br />
+2. changing the definition of gregorian and standard to be the proleptic
+<br />
+&nbsp;&nbsp;&nbsp;gregorian calendar instead of the mixed gregorian/julian.
+<br />
+3. make the proleptic gregorian the default calendar
+<br />
+4. add a new calendar name, such a gregorian_julian to provide the
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ability to define a mixed calendar in CF conventions.
+<br />
+<br />that would change the definition in the above CF standards document to the
+<br />
+following
+<br />
+<br />gregorian or proleptic_gregorian or standard
+<br />
+&nbsp;&nbsp;&nbsp;A gregorian calendar extended to dates before 1582...
+<br />
+&nbsp;&nbsp;&nbsp;This is the default.
+<br />
+<br />gregorian_julian
+<br />
+&nbsp;&nbsp;&nbsp;Mixed Gregorian/Julian calendar as defined by Udunits.
+<br />
+<br />We've had discussions about this with ESMF and they are supportive
+<br />
+of this proposal.  Their gregorian calendar is also proleptic and this
+<br />
+proposed change would make both their and our implementation more
+<br />
+closely aligned with the CF convention.
+<br />
+<br />If you have any questions, please feel free to contact me.  thanks,
+<br />
+<br />tony..........
+<br />
+<br /><br />-------------- next part --------------
+<br />
+An HTML attachment was scrubbed...
+<br />
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20101013/3d0d21ba/attachment-0002.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20101013/3d0d21ba/attachment-0002.html</a>&gt;
+<br />
+<span id="received"><dfn>Received on</dfn> Wed Oct 13 2010 - 18:55:59 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -148,11 +197,12 @@ Dr. Christopher Lynnes     NASA/GSFC, Code 610.2    phone: 301-614-5185
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start3678">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./3679.html" title="Next message in the list">John Caron: "[CF-metadata] CDM calendar date handling"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./3677.html" title="Previous message in the list">Don Murray: "[CF-metadata] CDM calendar date handling"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./3676.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] CDM calendar date handling"</a></li>
+<li><dfn>Next message</dfn>: <a href="./3679.html" title="Next message in the list">Christopher Barker: "[CF-metadata] point observation data in CF 1.4"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./3677.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] point observation data in CF 1.4"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./3679.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] CDM calendar date handling"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./3680.html" title="Next message in this discussion thread">Benno Blumenthal: "[CF-metadata] proposed change to CF calendar"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./3680.html" title="Message sent in reply to this message">Benno Blumenthal: "[CF-metadata] proposed change to CF calendar"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -163,7 +213,7 @@ Dr. Christopher Lynnes     NASA/GSFC, Code 610.2    phone: 301-614-5185
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:50 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./3677.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3679.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

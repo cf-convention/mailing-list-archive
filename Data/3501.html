@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF feature type trajectory (Ch. 9; May 10, 2011) and axis attribute from Chris Paver on 2011-07-07 (mailing-list-archive)</title>
-<meta name="Author" content="Chris Paver (Christopher.Paver)" />
-<meta name="Subject" content="[CF-metadata] CF feature type trajectory (Ch. 9; May 10, 2011) and axis attribute" />
-<meta name="Date" content="2011-07-07" />
+<title>[CF-metadata] bounds/precision for time axis from Steve Hankin on 2010-06-02 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Steve Hankin (Steven.C.Hankin)" />
+<meta name="Subject" content="[CF-metadata] bounds/precision for time axis" />
+<meta name="Date" content="2010-06-02" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./3500.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3502.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF feature type trajectory (Ch. 9; May 10, 2011) and axis attribute</h1>
-<!-- received="Thu Jul  7 06:13:39 2011" -->
-<!-- isoreceived="20110707051339" -->
-<!-- sent="Thu, 07 Jul 2011 12:13:39 +0000" -->
-<!-- isosent="20110707121339" -->
-<!-- name="Chris Paver" -->
-<!-- email="Christopher.Paver" -->
-<!-- subject="[CF-metadata] CF feature type trajectory (Ch. 9; May 10, 2011) and axis attribute" -->
-<!-- id="4E15A2F3.4060504_at_noaa.gov" -->
+<a style="text-decoration:none" href="./3500.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3502.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] bounds/precision for time axis</h1>
+<!-- received="Wed Jun  2 15:57:37 2010" -->
+<!-- isoreceived="20100602145737" -->
+<!-- sent="Wed, 02 Jun 2010 14:57:37 -0700" -->
+<!-- isosent="20100602215737" -->
+<!-- name="Steve Hankin" -->
+<!-- email="Steven.C.Hankin" -->
+<!-- subject="[CF-metadata] bounds/precision for time axis" -->
+<!-- id="4C06D3D1.6010407_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="7CD7F00F17085C4EBB045A35177C85FDE961F8_at_VIME-VS1.rdg-home.ad.rdg.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./3502.html" accesskey="d" title="Nan Galbraith: &quot;[CF-metadata] new TEOS-10 standard names&quot;">Next message</a> ]
-[ <a href="./3500.html" title="Jonathan Gregory: &quot;[CF-metadata] standard_names for emissions - part 2: species&quot;">Previous message</a> ]
+[ <a href="./3502.html" accesskey="d" title="Jon Blower: &quot;[CF-metadata] bounds/precision for time axis&quot;">Next message</a> ]
+[ <a href="./3500.html" title="Jon Blower: &quot;[CF-metadata] bounds/precision for time axis&quot;">Previous message</a> ]
+[ <a href="./3500.html" title="Jon Blower: &quot;[CF-metadata] bounds/precision for time axis&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./3503.html" accesskey="t" title="Jeffrey F. Painter: &quot;[CF-metadata] CF feature type trajectory (Ch. 9; May 10, 2011) and axis attribute&quot;">Next in thread</a> ]
+[ <a href="./3502.html" accesskey="t" title="Jon Blower: &quot;[CF-metadata] bounds/precision for time axis&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,44 +72,136 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Chris Paver &lt;<a href="mailto:Christopher.Paver?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20feature%20type%20trajectory%20(Ch.%209%3B%20May%2010%2C%202011)%20and%20axis%20attribute">Christopher.Paver</a>&gt;
+<dfn>From</dfn>: Steve Hankin &lt;<a href="mailto:Steven.C.Hankin?Subject=Re%3A%20%5BCF-metadata%5D%20bounds%2Fprecision%20for%20time%20axis">Steven.C.Hankin</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 07 Jul 2011 12:13:39 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 02 Jun 2010 14:57:37 -0700</span><br />
 </address>
 <br />
-Dear List,
+Jon Blower wrote:
 <br />
-I have been reviewing the use of the axis attribute as defined in Chapter 5, and 
+<em class="quotelev1">&gt; Dear Jonathan,
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Yes, I take your point.  Another option would be to allow a simple
+</em><br />
+<em class="quotelev1">&gt; attribute on a time axis &quot;nominal_precision&quot; or something similar, which
+</em><br />
+<em class="quotelev1">&gt; could take values like &quot;1 day&quot;, &quot;1 month&quot; etc.  This could be in
+</em><br />
+<em class="quotelev1">&gt; addition to the bounds and cell_methods attributes.
+</em><br />
+<br /><em class="quotelev1">&gt; The problem with
+</em><br />
+<em class="quotelev1">&gt; using the bounds/cell_methods approach in isolation is that it requires
+</em><br />
+<em class="quotelev1">&gt; a client to look at the bounds for every point along the time axis to
+</em><br />
+<em class="quotelev1">&gt; verify that the bounds for each point is the same length.
+</em><br />
+<em class="quotelev1">&gt;   
+</em><br />
+Hi Jon,
 <br />
-comparing it to the trajectory example in the Chapter 9 document at A9.4.  The 
+<br />This comment applies equally to spatial axes; as-is a CF client 
 <br />
-Ch. 5 rules states that only a coordinate variable can have an axis attribute, 
+application must examine the full coordinate axis and its bounds in 
 <br />
-whereas the auxiliary variables cannot.  However, in Ch. 9, the single 
+order to determine if an axis is regularly spaced whether time or 
 <br />
-trajectory dimension is time, but the variable z contains the axis attribute. Is 
+space.  And yes, this is a particularly acute problem for time axes, 
 <br />
-this a change to the rule as stated in Ch. 5, or a typo?  I briefly looked over 
+where it is not uncommon to have many thousands of points in a CF 
 <br />
-the other feature types in Ch. 9, and they all look to have the vertical 
+dataset.  
 <br />
-variable listed with the axis attribute, so maybe it is a typo.
+<br />There have been discussions in the past of the merits of a 
 <br />
-<br />Thanks,
+&quot;point_spacing&quot; attribute:
 <br />
-Chris
+<br />&nbsp;&nbsp;&nbsp;&nbsp;my_axis:point_spacing = &quot;even&quot;;
 <br />
-<pre>
+<br />I'd be totally supportive of adding this attribute to CF, myself.  It 
+<br />
+offers significant efficiencies to clients and it addresses your 
+<br />
+question reasonably well (to quickly infer a nominal spacing from the 
+<br />
+axis coordinates or its bounds).
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;- Steve
+<br />
+<em class="quotelev1">&gt; Best wishes,
+</em><br />
+<em class="quotelev1">&gt; Jon
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; -----Original Message-----
+</em><br />
+<em class="quotelev1">&gt; From: Jonathan Gregory [mailto:jonathan at met.reading.ac.uk] On Behalf Of
+</em><br />
+<em class="quotelev1">&gt; Jonathan Gregory
+</em><br />
+<em class="quotelev1">&gt; Sent: 02 June 2010 19:13
+</em><br />
+<em class="quotelev1">&gt; To: Jon Blower
+</em><br />
+<em class="quotelev1">&gt; Cc: cf-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; Subject: Re: [CF-metadata] bounds/precision for time axis
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Dear Jon
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; If we decide to let cell_methods indicate &quot;vagueness&quot; I don't think it's
+</em><br />
+<em class="quotelev1">&gt; a
+</em><br />
+<em class="quotelev1">&gt; problem if the bounds themselves are precise. The precision is somewhat
+</em><br />
+<em class="quotelev1">&gt; irrelevant, as you say, but it shouldn't be misleading in view of the
+</em><br />
+<em class="quotelev1">&gt; cell_methods. Changing cell_methods is a small alteration to the CF
+</em><br />
+<em class="quotelev1">&gt; standard,
+</em><br />
+<em class="quotelev1">&gt; whereas introducing alternative ways of representing time is a large and
+</em><br />
+<em class="quotelev1">&gt; complex change, which would require substantial alteration to software
+</em><br />
+<em class="quotelev1">&gt; as well.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Best wishes
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Jonathan
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt;   
+</em><br />
+<br /><pre>
 -- 
-Chris Paver, Oceanographer
-NOAA/NODC E/OC1
-1315 East-West Hwy
-Silver Spring MD 20910
-Phone:  301-713-3272 ext. 118
-Fax:  301-713-3302
-<a href="http://www.nodc.noaa.gov/">http://www.nodc.noaa.gov/</a>
+Steve Hankin, NOAA/PMEL -- Steven.C.Hankin at noaa.gov
+7600 Sand Point Way NE, Seattle, WA 98115-0070
+ph. (206) 526-6080, FAX (206) 526-6744
+&quot;The only thing necessary for the triumph of evil is for good men
+to do nothing.&quot; -- Edmund Burke
 </pre>
-<span id="received"><dfn>Received on</dfn> Thu Jul 07 2011 - 06:13:39 BST</span>
+<span id="received"><dfn>Received on</dfn> Wed Jun 02 2010 - 15:57:37 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -115,12 +209,13 @@ Fax:  301-713-3302
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start3501">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./3502.html" title="Next message in the list">Nan Galbraith: "[CF-metadata] new TEOS-10 standard names"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./3500.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] standard_names for emissions - part 2: species"</a></li>
+<li><dfn>Next message</dfn>: <a href="./3502.html" title="Next message in the list">Jon Blower: "[CF-metadata] bounds/precision for time axis"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./3500.html" title="Previous message in the list">Jon Blower: "[CF-metadata] bounds/precision for time axis"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./3500.html" title="Message to which this message replies">Jon Blower: "[CF-metadata] bounds/precision for time axis"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./3503.html" title="Next message in this discussion thread">Jeffrey F. Painter: "[CF-metadata] CF feature type trajectory (Ch. 9; May 10, 2011) and axis attribute"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./3502.html" title="Next message in this discussion thread">Jon Blower: "[CF-metadata] bounds/precision for time axis"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./3503.html" title="Message sent in reply to this message">Jeffrey F. Painter: "[CF-metadata] CF feature type trajectory (Ch. 9; May 10, 2011) and axis attribute"</a></li>
+<dfn>Reply</dfn>: <a href="./3502.html" title="Message sent in reply to this message">Jon Blower: "[CF-metadata] bounds/precision for time axis"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -131,7 +226,7 @@ Fax:  301-713-3302
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:46 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./3500.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3502.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

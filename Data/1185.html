@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Difficulties to display Swath files form NetCDF. from Denis Nadeau on 2008-02-07 (mailing-list-archive)</title>
-<meta name="Author" content="Denis Nadeau (denis.nadeau)" />
-<meta name="Subject" content="[CF-metadata] Difficulties to display Swath files form NetCDF." />
-<meta name="Date" content="2008-02-07" />
+<title>[CF-metadata] CF and multi-forecast system ensemble data from Bryan Lawrence on 2006-10-27 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Bryan Lawrence (b.n.lawrence)" />
+<meta name="Subject" content="[CF-metadata] CF and multi-forecast system ensemble data" />
+<meta name="Date" content="2006-10-27" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1184.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1186.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Difficulties to display Swath files form NetCDF.</h1>
-<!-- received="Thu Feb  7 13:53:57 2008" -->
-<!-- isoreceived="20080207135357" -->
-<!-- sent="Thu, 07 Feb 2008 15:53:57 -0500" -->
-<!-- isosent="20080207205357" -->
-<!-- name="Denis Nadeau" -->
-<!-- email="denis.nadeau" -->
-<!-- subject="[CF-metadata] Difficulties to display Swath files form NetCDF." -->
-<!-- id="47AB6FE5.3080404_at_nasa.gov" -->
+<a style="text-decoration:none" href="./1184.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1186.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF and multi-forecast system ensemble data</h1>
+<!-- received="Fri Oct 27 03:22:58 2006" -->
+<!-- isoreceived="20061027022258" -->
+<!-- sent="Fri, 27 Oct 2006 10:22:58 +0100" -->
+<!-- isosent="20061027092258" -->
+<!-- name="Bryan Lawrence" -->
+<!-- email="b.n.lawrence" -->
+<!-- subject="[CF-metadata] CF and multi-forecast system ensemble data" -->
+<!-- id="1161940978.4780.89.camel_at_localhost.localdomain" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="4541501C.2070003_at_unidata.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1186.html" accesskey="d" title="Craig Donlon: &quot;[CF-metadata] Difficulties to display Swath files form NetCDF.&quot;">Next message</a> ]
-[ <a href="./1184.html" title="Jonathan Gregory: &quot;[CF-metadata]  standard names for flag/qc variables&quot;">Previous message</a> ]
+[ <a href="./1186.html" accesskey="d" title="Kyle Halliday: &quot;[CF-metadata] CF discussion board beta test&quot;">Next message</a> ]
+[ <a href="./1184.html" title="Kettleborough, Jamie: &quot;[CF-metadata] CF and multi-forecast system ensemble data&quot;">Previous message</a> ]
+[ <a href="./1183.html" title="John Caron: &quot;[CF-metadata] CF and multi-forecast system ensemble data&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./1186.html" accesskey="t" title="Craig Donlon: &quot;[CF-metadata] Difficulties to display Swath files form NetCDF.&quot;">Next in thread</a> ]
+[ <a href="./1188.html" accesskey="t" title="Kettleborough, Jamie: &quot;[CF-metadata] CF and multi-forecast system ensemble data&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,58 +72,244 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Denis Nadeau &lt;<a href="mailto:denis.nadeau?Subject=Re%3A%20%5BCF-metadata%5D%20Difficulties%20to%20display%20Swath%20files%20form%20NetCDF.">denis.nadeau</a>&gt;
+<dfn>From</dfn>: Bryan Lawrence &lt;<a href="mailto:b.n.lawrence?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20and%20multi-forecast%20system%20ensemble%20data">b.n.lawrence</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 07 Feb 2008 15:53:57 -0500</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 27 Oct 2006 10:22:58 +0100</span><br />
 </address>
 <br />
-Hi,
+Hi Folks
 <br />
-<br />I am trying to convert a L2 Swath data file from HDF to NetCDF following 
+<br />It seems that there are two threads to the massive email from
 <br />
-CF-1 Convention.   I order to do so, I have tried to follow this method:
+Jamie,Paco, Jonathan that we've seen (and which is not included
 <br />
-<a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.0/cf-conventions.html#id2621732">http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.0/cf-conventions.html#id2621732</a>
+below :-).
 <br />
-<br />I did not succeed to read back the NetCDF file properly into either:  
+<br />The first is how to expedite aggregation, which is the point John has
 <br />
-Ferret, Grads or IDV.  (getting aggravated  :-!  )
+picked up on, and the second is how to deal with the special case of
 <br />
-I saw in the mailing list archive that  &quot;Jonathan Gregory&quot; has tried to 
+ensemble metadata. In this email I'm going to try and boil down what I
 <br />
-do something similar.  Did he succeed?
+think the issues are. 
 <br />
-<br /><a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2004/000426.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2004/000426.html</a>
+<br />The suggestion proposed, as far as I can see reduces to:
 <br />
-<br />So, is there a way to represent SWATH data using CF-1 Convention? 
+&nbsp;
 <br />
-If so, is there a &quot;Application&quot; that can read the metadata and display 
+a) we should create some standard names which exactly correspond to
 <br />
-the image correctly (swath)?
+some recommended global variables, and model integrations should use
 <br />
-<br />Here is a L2 Swath HDF file I am using.
+global variables where they contain exactly one realization to indicate
 <br />
-<a href="ftp://airspar1u.ecs.nasa.gov/data/s4pa//Aqua_AIRS_Level2/AIRX2RET.005/2008/019//AIRS.2008.01.19.001.L2.RetStd.v5.0.14.0.G08020192400.hdf">ftp://airspar1u.ecs.nasa.gov/data/s4pa//Aqua_AIRS_Level2/AIRX2RET.005/2008/019//AIRS.2008.01.19.001.L2.RetStd.v5.0.14.0.G08020192400.hdf</a>
+these.
 <br />
-<br />Thanks for your help on this issue.
+<br />b) upon aggregation, one should use the realization dimension (called
 <br />
-<br /><br />Best Regards,
+joinDim by John and realization by the triumvirate) as both a dimension
 <br />
-Denis
+on the aggregated variable and a key to the metadata about the
 <br />
-<br /><pre>
--- 
-Denis Nadeau
-Goddard Earth Sciences Data &amp; Information Services Center
-Code 610.2
-NASA Goddard Space Flight Center, Greenbelt, MD 20771
-Phone: (301) 614-5514
-Fax:   (301) 614-5268
-email: dnadeau at pop600.gsfc.nasa.gov
-<a href="http://disc.gsfc.nasa.gov">http://disc.gsfc.nasa.gov</a>
-<a href="http://giovanni.gsfc.nasa.gov">http://giovanni.gsfc.nasa.gov</a>    
-</pre>
-<span id="received"><dfn>Received on</dfn> Thu Feb 07 2008 - 13:53:57 GMT</span>
+realizations which is extracted from global variables and populates some
+<br />
+new variables which are essentially metadata variables. (This automatic
+<br />
+extraction would be based on a correspondence between standard names and
+<br />
+global attribute names)
+<br />
+<br />At this point if we take the word model from point a) and the constraint
+<br />
+on realization, then what we have is a rule for how to construct global
+<br />
+metadata into aggregated netcdf files. 
+<br />
+<br />Note that CF doesn't *require* any global attributes (2.6.2), so no code
+<br />
+can rely on them being present, nor does it *limit* global attributes to
+<br />
+only those defined. (Which is good, because I think those defined are
+<br />
+not precise enough for me, nor for Paco, judging by the discussion).
+<br />
+<br />I would have thought it makes sense that in producing any aggregation,
+<br />
+that any of the original metadata which distinguishes the original files
+<br />
+(and their contents) should appear in metadata associated with the join
+<br />
+dimension. From a coding point of view the problem will arise in the
+<br />
+join when the individual files don't all have the appropriate global
+<br />
+attributes (trust me, it'll happen). Anyway from a CF point of view this
+<br />
+produces CF issue A: What is the best method of providing metadata on an
+<br />
+aggregation dimension and indicating that's what has been done?
+<br />
+<br />(Issue B: might be to make sure our solution works when we aggregate two
+<br />
+files that have already been aggregated).
+<br />
+<br />I'm sure John has thought more than most (especially me) about this, so
+<br />
+I'll shut up about aggregation for now ...
+<br />
+<br />At this point there is no necessity for any modifications of standard
+<br />
+names, the discussion thus far is simply about how to use what
+<br />
+attributes we have, but:
+<br />
+<br />Issue C: should we have a standard name modifier associated with a
+<br />
+variable on the aggregation dimension to show that it was produced by
+<br />
+aggregating file attributes?
+<br />
+<br />They also got into what I would call the specifics of variable metadata
+<br />
+needed to distinguish ensemble member identity and characteristics.
+<br />
+These may or may not need standard names, but let's start with the
+<br />
+principle. Are these not simply special cases of variable metadata? With
+<br />
+the possible exception of ensemble_weight, all the others are intended
+<br />
+to be either character strings or url links to information about
+<br />
+variable metadata. In principle we could want exactly the same
+<br />
+facilities for any variables (e.g. a bunch of station data in one file,
+<br />
+we might want to have a lot more characteristics of each station linked
+<br />
+by the station dimension in exactly the same way as the  realization
+<br />
+dimension could be used).
+<br />
+<br />So, I think what we have here is a discussion about what are the
+<br />
+variable attributes (metadata) required to distinguish ensemble members
+<br />
+(or model integrations)? This could go way beyond what we have seen in
+<br />
+the email. Jamie has referred to our work on NumSim
+<br />
+(<a href="http://proj.badc.rl.ac.uk/ndg/wiki/NumSim">http://proj.badc.rl.ac.uk/ndg/wiki/NumSim</a>), and there is also the work
+<br />
+on Numerical Model Metadata
+<br />
+(<a href="http://www.cgam.nerc.ac.uk/pmwiki/NMM/index.php/">http://www.cgam.nerc.ac.uk/pmwiki/NMM/index.php/</a>). Similarly, the
+<br />
+metadata one *might* want to attach to any observation goes way beyond
+<br />
+what one can mandate in the CF file (e.g. SensorML etc).
+<br />
+<br />So there is a continuum of information one could have about a variable
+<br />
+(indexed by station or realization or whatever), ranging from simply
+<br />
+identity (e.g. item number in the sequence) to it's source, to the
+<br />
+entire content of one these external schema.
+<br />
+<br />CF has a number of ways of actually adding such information, we can use
+<br />
+labels (6.1), Ancillary Data etc ... and so without going into the
+<br />
+specifics of the triumvirate discussion, the issue really is:
+<br />
+<br />Issue-D: how far should CF go into providing standard names for
+<br />
+describing variable metadata?
+<br />
+<br />Quite clearly there is utility in new standard names, but in doing so
+<br />
+are we not straying into the governance territory of others - (e.g.
+<br />
+SensorML). I've argued quite strongly that we shouldn't do any more of
+<br />
+this, because every time we do, we add to the CF maintenance problem
+<br />
+(e.g. I think we already have problems with gazeteers). 
+<br />
+<br />Now I know (because I talked to Jamie on the phone) that triumvirate
+<br />
+could argue that in the case of model metadata, it would be helpful for
+<br />
+CF to mandate this stuff at least for the numerical model community. 
+<br />
+<br />Now we can do that ... but ...
+<br />
+<br />I didn't want to make a proposal in this email, but, I think we should
+<br />
+have a standard mechanism of indicating that a specific characterstring
+<br />
+variable set comes from an external vocabulary indicated by a URI:,
+<br />
+something like:
+<br />
+<br />variables:
+<br />
+&nbsp;&nbsp;float temperature(realization,...);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temperature:coordinates=&quot;realization ...&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temperature:ancillary_variables = &quot;metadata&quot;;
+<br />
+&nbsp;&nbsp;char metadata(realization,len80);
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;metadata:external_dictionary='<a href="http://someExternalGovernanceBody">http://someExternalGovernanceBody</a>';
+<br />
+(i.e. a new modifier).
+<br />
+<br />Then, IPCC, or WMO or whoever, could come up with the dictionaries they
+<br />
+want, and the cf file would still be self-describing, cf-software could
+<br />
+still manipulate it, but communities could write software that made use
+<br />
+of these extra characteristics, without CF having to govern everything
+<br />
+(and add all the components of these external schema to CF, piece by
+<br />
+piece, with detailed arguments for each one to go in the standard name
+<br />
+table). 
+<br />
+<br />Obviously my mechanism could be extended for any characteristic of a
+<br />
+variable that we didn't want to put in a standard name, so the real
+<br />
+policy issue is Issue-D, and it comes back to the scope of CF, which
+<br />
+needs some decision.
+<br />
+<br />Thus far we have held a line on standard names, but I feel the
+<br />
+Paco,Jamie,Jonathan proposal takes us into new territory. We will take
+<br />
+on having to discuss and approve a whole new class of standard names
+<br />
+(and all the work that goes with that). It's fine if it's a community
+<br />
+decision to go there, but we need our eyes open :-), and some realistic
+<br />
+appreciation of how we can actually do it. 
+<br />
+<br />My opinion: better to push it off onto the communities who care, and
+<br />
+keep CF focused.
+<br />
+<br />Cheers
+<br />
+Bryan
+<br />
+<span id="received"><dfn>Received on</dfn> Fri Oct 27 2006 - 03:22:58 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -129,12 +317,14 @@ email: dnadeau at pop600.gsfc.nasa.gov
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1185">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1186.html" title="Next message in the list">Craig Donlon: "[CF-metadata] Difficulties to display Swath files form NetCDF."</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1184.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]  standard names for flag/qc variables"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1186.html" title="Next message in the list">Kyle Halliday: "[CF-metadata] CF discussion board beta test"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1184.html" title="Previous message in the list">Kettleborough, Jamie: "[CF-metadata] CF and multi-forecast system ensemble data"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./1183.html" title="Message to which this message replies">John Caron: "[CF-metadata] CF and multi-forecast system ensemble data"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./1186.html" title="Next message in this discussion thread">Craig Donlon: "[CF-metadata] Difficulties to display Swath files form NetCDF."</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./1188.html" title="Next message in this discussion thread">Kettleborough, Jamie: "[CF-metadata] CF and multi-forecast system ensemble data"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./1186.html" title="Message sent in reply to this message">Craig Donlon: "[CF-metadata] Difficulties to display Swath files form NetCDF."</a></li>
+<dfn>Reply</dfn>: <a href="./1188.html" title="Message sent in reply to this message">Kettleborough, Jamie: "[CF-metadata] CF and multi-forecast system ensemble data"</a></li>
+<li><dfn>Reply</dfn>: <a href="./1190.html" title="Message sent in reply to this message">Francisco Doblas-Reyes: "[CF-metadata] CF and multi-forecast system ensemble data"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -145,7 +335,7 @@ email: dnadeau at pop600.gsfc.nasa.gov
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:01 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1184.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1186.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

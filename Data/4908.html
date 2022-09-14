@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]  Cell methods for any combinations of dimensions from Jonathan Gregory on 2012-12-20 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata]  Cell methods for any combinations of dimensions" />
-<meta name="Date" content="2012-12-20" />
+<title>[CF-metadata] Request for a region standard_name from Nan Galbraith on 2012-01-12 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Nan Galbraith (ngalbraith)" />
+<meta name="Subject" content="[CF-metadata] Request for a region standard_name" />
+<meta name="Date" content="2012-01-12" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4907.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4909.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  Cell methods for any combinations of dimensions</h1>
-<!-- received="Thu Dec 20 01:01:26 2012" -->
-<!-- isoreceived="20121220010126" -->
-<!-- sent="Thu, 20 Dec 2012 08:01:26 +0000" -->
-<!-- isosent="20121220080126" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata]  Cell methods for any combinations of dimensions" -->
-<!-- id="20121220080126.GC18084_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./4907.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4909.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Request for a region standard_name</h1>
+<!-- received="Thu Jan 12 08:15:00 2012" -->
+<!-- isoreceived="20120112081500" -->
+<!-- sent="Thu, 12 Jan 2012 10:15:00 -0500" -->
+<!-- isosent="20120112151500" -->
+<!-- name="Nan Galbraith" -->
+<!-- email="ngalbraith" -->
+<!-- subject="[CF-metadata] Request for a region standard_name" -->
+<!-- id="4F0EF8F4.8030407_at_whoi.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="4F0E3924.8070501_at_llnl.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,9 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4909.html" accesskey="d" title="Andreas Hilboll: &quot;[CF-metadata] Proposal for standard names: tropospheric trace gas column amounts&quot;">Next message</a> ]
-[ <a href="./4907.html" title="Jonathan Gregory: &quot;[CF-metadata]  Monotonic coordinates&quot;">Previous message</a> ]
+[ <a href="./4909.html" accesskey="d" title="Lowry, Roy K.: &quot;[CF-metadata] Request for a region standard_name&quot;">Next message</a> ]
+[ <a href="./4907.html" title="Rodrigo Fernandes: &quot;[CF-metadata] FW: netcdf for particle trajectories&quot;">Previous message</a> ]
+[ <a href="./4903.html" title="Karl Taylor: &quot;[CF-metadata] Request for a region standard_name&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./4909.html" accesskey="t" title="Lowry, Roy K.: &quot;[CF-metadata] Request for a region standard_name&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,138 +72,16 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20Cell%20methods%20for%20any%20combinations%20of%20dimensions">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Nan Galbraith &lt;<a href="mailto:ngalbraith?Subject=Re%3A%20%5BCF-metadata%5D%20Request%20for%20a%20region%20standard_name">ngalbraith</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 20 Dec 2012 08:01:26 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 12 Jan 2012 10:15:00 -0500</span><br />
 </address>
 <br />
-Dear Bangyou
+An HTML attachment was scrubbed...
 <br />
-<br />Yes, CF has conventions for this. See Section 7.3 on &quot;Cell methods&quot;. However,
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120112/11724ba7/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20120112/11724ba7/attachment.html</a>&gt;
 <br />
-I'm sorry to say I don't understand your example - I must have misunderstood
-<br />
-something elementary. For instance, if you average over two of the dimensions,
-<br />
-such as sites and sowing, won't there be 3*3=9 values, not 54? Such an average
-<br />
-would be stored in CF as
-<br />
-<br />&nbsp;&nbsp;dimensions:
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;meansites = 1;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;meansowing = 1;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;water = 3;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;genotype = 3;
-<br />
-&nbsp;&nbsp;float meanyield(meansites, meansowing, water, genotype);
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;meanyield:cell_methods=&quot;meansites: mean meansowing: mean&quot;;
-<br />
-&nbsp;
-<br />
-However this does not indicate what the meansites and meansowing axes are.
-<br />
-They should describe themselves somehow e.g.
-<br />
-<br />&nbsp;&nbsp;float meansites(meansites);
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;meansites:long_name=&quot;site&quot;;
-<br />
-<br />Best wishes
-<br />
-<br />Jonathan
-<br />
-<br /><em class="quotelev1">&gt; Our data is structured as follows:
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; dimensions:
-</em><br />
-<em class="quotelev1">&gt;     sites = 3;
-</em><br />
-<em class="quotelev1">&gt;     sowing = 3;
-</em><br />
-<em class="quotelev1">&gt;     water = 3;
-</em><br />
-<em class="quotelev1">&gt;     genotype = 3;
-</em><br />
-<em class="quotelev1">&gt; variables:
-</em><br />
-<em class="quotelev1">&gt;     float yield(sites, sowing, water, genotype);
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; We would like to apply a method (e.g. mean) to any combinations of
-</em><br />
-<em class="quotelev1">&gt; dimensions. For this data set, we will store mean yields for
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 1. all 81 yields: *1* value.
-</em><br />
-<em class="quotelev1">&gt; 2. average for three dimensions, sites, sowing, water and genotype: *12
-</em><br />
-<em class="quotelev1">&gt;    *values.
-</em><br />
-<em class="quotelev1">&gt; 3. average for two dimensions, sites and sowing, sites and water, sites
-</em><br />
-<em class="quotelev1">&gt;    and genotype, sowing and water, sowing and genotype, water and
-</em><br />
-<em class="quotelev1">&gt;    genotype: *54 *values
-</em><br />
-<em class="quotelev1">&gt; 4. average for one dimension: *324* values.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Do some conventions already designed? Or do we need to design some
-</em><br />
-<em class="quotelev1">&gt; new conventions? Any suggestions are welcome.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Best regards,
-</em><br />
-<em class="quotelev1">&gt; Bangyou
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; -- 
-</em><br />
-<em class="quotelev1">&gt; *Dr. Bangyou ZHENG*
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Postdoctoral Research Fellow
-</em><br />
-<em class="quotelev1">&gt; CSIRO Plant Industry
-</em><br />
-<em class="quotelev1">&gt; Queensland Bioscience Precinct
-</em><br />
-<em class="quotelev1">&gt; 306 Carmody Rd
-</em><br />
-<em class="quotelev1">&gt; St Lucia, QLD, 4067, AUSTRALIA
-</em><br />
-<em class="quotelev1">&gt; Tel: +61 (0)7 3214 2620
-</em><br />
-<em class="quotelev1">&gt; Fax: +61 (0)7 3214 2920
-</em><br />
-<em class="quotelev1">&gt; Email: Bangyou.Zheng at csiro.au
-</em><br />
-<br /><em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<br /><br />----- End forwarded message -----
-<br />
-<span id="received"><dfn>Received on</dfn> Thu Dec 20 2012 - 01:01:26 GMT</span>
+<span id="received"><dfn>Received on</dfn> Thu Jan 12 2012 - 08:15:00 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -207,9 +89,13 @@ They should describe themselves somehow e.g.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4908">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4909.html" title="Next message in the list">Andreas Hilboll: "[CF-metadata] Proposal for standard names: tropospheric trace gas column amounts"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4907.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]  Monotonic coordinates"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4909.html" title="Next message in the list">Lowry, Roy K.: "[CF-metadata] Request for a region standard_name"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4907.html" title="Previous message in the list">Rodrigo Fernandes: "[CF-metadata] FW: netcdf for particle trajectories"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./4903.html" title="Message to which this message replies">Karl Taylor: "[CF-metadata] Request for a region standard_name"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./4909.html" title="Next message in this discussion thread">Lowry, Roy K.: "[CF-metadata] Request for a region standard_name"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./4909.html" title="Message sent in reply to this message">Lowry, Roy K.: "[CF-metadata] Request for a region standard_name"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -220,7 +106,7 @@ They should describe themselves somehow e.g.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:12 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4907.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4909.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

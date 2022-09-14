@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] some concerns about the &quot;ensemble axis&quot; proposal from V. Balaji on 2007-02-28 (mailing-list-archive)</title>
-<meta name="Author" content="V. Balaji (V.Balaji)" />
-<meta name="Subject" content="[CF-metadata] some concerns about the &quot;ensemble axis&quot; proposal" />
-<meta name="Date" content="2007-02-28" />
+<title>[CF-metadata] GIS versus CF conventions from Jonathan Gregory on 2005-08-26 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] GIS versus CF conventions" />
+<meta name="Date" content="2005-08-26" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0726.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0728.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] some concerns about the &quot;ensemble axis&quot; proposal</h1>
-<!-- received="Wed Feb 28 14:41:41 2007" -->
-<!-- isoreceived="20070228144141" -->
-<!-- sent="Wed, 28 Feb 2007 16:41:41 -0500 (EST)" -->
-<!-- isosent="20070228214141" -->
-<!-- name="V. Balaji" -->
-<!-- email="V.Balaji" -->
-<!-- subject="[CF-metadata] some concerns about the &quot;ensemble axis&quot; proposal" -->
-<!-- id="Pine.LNX.4.64.0702281640320.6008_at_localhost" -->
+<a style="text-decoration:none" href="./0726.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0728.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] GIS versus CF conventions</h1>
+<!-- received="Fri Aug 26 07:17:50 2005" -->
+<!-- isoreceived="20050826061750" -->
+<!-- sent="Fri, 26 Aug 2005 14:17:50 +0100" -->
+<!-- isosent="20050826131750" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] GIS versus CF conventions" -->
+<!-- id="20050826131750.GB27683_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0728.html" accesskey="d" title="V. Balaji: &quot;[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal&quot;">Next message</a> ]
-[ <a href="./0726.html" title="Jon Blower: &quot;[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal&quot;">Previous message</a> ]
+[ <a href="./0728.html" accesskey="d" title="John Caron: &quot;[CF-metadata] GIS versus CF conventions&quot;">Next message</a> ]
+[ <a href="./0726.html" title="John Caron: &quot;[CF-metadata] GIS versus CF conventions&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0728.html" accesskey="t" title="John Caron: &quot;[CF-metadata] GIS versus CF conventions&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,202 +70,44 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: V. Balaji &lt;<a href="mailto:V.Balaji?Subject=Re%3A%20%5BCF-metadata%5D%20some%20concerns%20about%20the%20%22ensemble%20axis%22%20proposal">V.Balaji</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20GIS%20versus%20CF%20conventions">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 28 Feb 2007 16:41:41 -0500 (EST)</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 26 Aug 2005 14:17:50 +0100</span><br />
 </address>
 <br />
-Francisco Doblas-Reyes writes:
+Dear John
 <br />
-<br /><em class="quotelev1">&gt; Dear Steve and Balaji,
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Thanks for bringing back the issue of CF and the ensemble axis.
-</em><br />
-<br />Paco, Thank you for your patience. I'm sorry this is taking a while to
+<br />The coordinate information is there so that the data can be used by any
 <br />
-settle, but I think it's a key new feature and we needed some time to
+software without having to be able to interpret a higher-level (but more
 <br />
-digest the implications. I really want to come up with a solution to
+compact) grid description. Even though we may add map projections etc. to CF,
 <br />
-this problem, as GFDL is ready with datasets to submit to ENSEMBLES,
+applications might not support them and if they don't the data is useless.
 <br />
-and we are mainly waiting to finalize the issue of what metadata to
+The basic question is not how to change the standard, but whether to change
 <br />
-place in the netCDF files.
+it, I think. Obviously it is easy to omit the coordinate information, but
 <br />
-<br /><em class="quotelev2">&gt;&gt; The original proposal concerned multi-forecast system ensembles. This 
-</em><br />
-<em class="quotelev1">&gt; includes initial-condition ensembles, perturbed-parameter ensembles and 
-</em><br />
-<em class="quotelev1">&gt; multi-models. It is likely that the first two systems have the same grid in 
-</em><br />
-<em class="quotelev1">&gt; all the forecasts, because they would be generated by the same model version.
-</em><br />
-<em class="quotelev1">&gt; I wouldn't call these examples a limited sub-case.
-</em><br />
-<em class="quotelev1">&gt; Solving the question of how to handle multiple grids in the same file before 
-</em><br />
-<em class="quotelev1">&gt; introducing the ensemble dimension would be ideal, but in the meantime the 
-</em><br />
-<em class="quotelev1">&gt; dissemination of standard NetCDF files with all sorts of ensembles forecasts 
-</em><br />
-<em class="quotelev1">&gt; is limited.
-</em><br />
-<br />I understand that in the first two cases, initial-condition and
+the consequence is that the data will not be usable by the majority of
 <br />
-perturbed-parameter, it is very likely that all the models will be on
+applications (I suspect). What criteria could be used to decide whether this
 <br />
-the same grid, and have the same provenance (though that &quot;very likely&quot;
+would be the right choice to make?
 <br />
-might be changing as we do more and more cross-model forecast
+<br />If there are many such fields, perhaps the coordinate information could be
 <br />
-ensembles...). In the last case, multi-model or heterogeneous
+sent in a separate file, just once. This is not CF-compliant, strictly
 <br />
-ensembles, the models might be quite different. I'd like to think of
+speaking, but data-reading software may be able to aggregate many files into
 <br />
-the ENSEMBLES project as an example of the first,
+one dataset, like cdms can do.
 <br />
-climateprediction.net as an example of the second, and IPCC AR4 as an
+<br />Best wishes
 <br />
-example of the third, to see how we might want to represent ensembles
+<br />Jonathan
 <br />
-in these three instances.
-<br />
-<br />For each of these three examples, let's take a look at something you
-<br />
-might want to do by way of analyzing the ensemble data.
-<br />
-<br />- For the first case, the question is something like, &quot;Is the ensemble
-<br />
-&nbsp;&nbsp;&nbsp;mean forecast of some quantity better (i.e lower global RMS error)
-<br />
-&nbsp;&nbsp;&nbsp;than any individual forecast?&quot; Such a question can clearly be well
-<br />
-&nbsp;&nbsp;&nbsp;answered using an array t(x,y,z,t,n) where n is the ensemble ID, if
-<br />
-&nbsp;&nbsp;&nbsp;all the ensemble members are to be included, they're all on the same
-<br />
-&nbsp;&nbsp;&nbsp;grid, and so on. If the question becomes more complicated, e.g, &quot;can
-<br />
-&nbsp;&nbsp;&nbsp;we further improve the skill by omitting from the ensemble the 5
-<br />
-&nbsp;&nbsp;&nbsp;members whose _individual_ RMS error is the worst?&quot; At this point
-<br />
-&nbsp;&nbsp;&nbsp;you are eliminating some random selection of points along the
-<br />
-&nbsp;&nbsp;&nbsp;ensemble axis. This operation is no longer &quot;hyperslabbing&quot; but
-<br />
-&nbsp;&nbsp;&nbsp;&quot;subsetting&quot; in some more general sense.
-<br />
-<br />&nbsp;&nbsp;&nbsp;There are two other technical issues with this approach that also
-<br />
-&nbsp;&nbsp;&nbsp;worry me. One is that netCDF-3 only supports one UNLIMITED
-<br />
-&nbsp;&nbsp;&nbsp;dimension. If that's the time axis, is the number of ensemble
-<br />
-&nbsp;&nbsp;&nbsp;members going to be fixed at initialization? Is that practical?
-<br />
-<br />&nbsp;&nbsp;&nbsp;The second, related issue, is of filesize. One record, i.e a single
-<br />
-&nbsp;&nbsp;&nbsp;slice along the UNLIMTITED axis of a single variable, is stored as
-<br />
-&nbsp;&nbsp;&nbsp;one contiguous hypercube of all the other dimensions. As of
-<br />
-&nbsp;&nbsp;&nbsp;netCDF3.6, this record can be no larger than 4GB. Is it practical to
-<br />
-&nbsp;&nbsp;&nbsp;work within this limit for the ensemble experiments we are
-<br />
-&nbsp;&nbsp;&nbsp;considering, if there were an ensemble axis?
-<br />
-<br />- In the second case (climateprediction.net) the question is something
-<br />
-&nbsp;&nbsp;&nbsp;like, &quot;what range of parameter P among the 100,000-member ensemble
-<br />
-&nbsp;&nbsp;&nbsp;delivers the maximum climate sensitivity&quot;? Again, the answer is
-<br />
-&nbsp;&nbsp;&nbsp;achieved not by hyperslabbing, but by subsetting based on some
-<br />
-&nbsp;&nbsp;&nbsp;outcome in an analysis.
-<br />
-<br />- The third case is like the second, only more so...: a standard query
-<br />
-&nbsp;&nbsp;&nbsp;we've been using in our thought experiments is &quot;give me the surface
-<br />
-&nbsp;&nbsp;&nbsp;temperature field from all 20C3M scenarios in the IPCC AR4 archive
-<br />
-&nbsp;&nbsp;&nbsp;where volcanoes are turned OFF.&quot; This involves some fairly
-<br />
-&nbsp;&nbsp;&nbsp;sophisticated SQL-type processing (and in fact requires 'human
-<br />
-&nbsp;&nbsp;&nbsp;reasoning agents' at present...:-), which I honestly believe is
-<br />
-&nbsp;&nbsp;&nbsp;beyond the scope of what can be stored in simple netCDF file
-<br />
-&nbsp;&nbsp;&nbsp;headers.
-<br />
-<br />Paco, I'm worried about the current proposal for the reasons outlined.
-<br />
-What I think I've learnt is that: a 'dimension' is useful for
-<br />
-'hyperslabbing'. Ensemble processing is usually accompanied by
-<br />
-'subsetting' which is much more general than 'hyperslabbing' and may
-<br />
-involve processing of many layers of metadata. These are very likely
-<br />
-in some higher-level relational model whose 'records' may not map very
-<br />
-well onto netCDF's current model of a 'record'.
-<br />
-<br />I propose, instead, something more minimalist. IPCC AR4 has two
-<br />
-requirements of global attributes, 'experiment' and 'realization'.
-<br />
-Could I suggest that for the moment we can use something like this:
-<br />
-two levels of nomenclature that identifies the collection or ensemble
-<br />
-to which the dataset belongs, and second, an unique ID for each member
-<br />
-within that ensemble. (The 'realization' or 'ensemble_member' string
-<br />
-itself does not have to be unique, as we can combine this with other
-<br />
-provenance information to generate a unique ensemble member ID).
-<br />
-<br /><em class="quotelev1">&gt; My message is that there is a demand for standardized NetCDF ensemble 
-</em><br />
-<em class="quotelev1">&gt; forecast files. Shouldn't the adoption of a CF standard to write those files 
-</em><br />
-<em class="quotelev1">&gt; depend on when an alternative, more adequate solution is available?
-</em><br />
-<br />I really believe that at this point, this is as far as we can go. In a
-<br />
-few years, with more experience of routinely working with multi-model
-<br />
-ensembles we can invent a better way of expressing ourselves. Would
-<br />
-the proposal above satisfy in some fashion the demand for an 'ensemble
-<br />
-forecast dataset (note: not file)'? I believe a THREDDS catalogue can
-<br />
-be configured to permit the kinds of aggregation you have implemented,
-<br />
-working off combinations of global attribute settings to generate an
-<br />
-ensemble dataset.
-<br />
-<br />Thanks,
-<br />
-<pre>
--- 
-V. Balaji                               Office:  +1-609-452-6516
-Head, Modeling Systems Group, GFDL      Home:    +1-212-253-6662
-Princeton University                    Email: v.balaji at noaa.gov
-</pre>
-<span id="received"><dfn>Received on</dfn> Wed Feb 28 2007 - 14:41:41 GMT</span>
+<span id="received"><dfn>Received on</dfn> Fri Aug 26 2005 - 07:17:50 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -271,9 +115,13 @@ Princeton University                    Email: v.balaji at noaa.gov
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start727">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0728.html" title="Next message in the list">V. Balaji: "[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0726.html" title="Previous message in the list">Jon Blower: "[CF-metadata] some concerns about the &#0034;ensemble axis&#0034; proposal"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0728.html" title="Next message in the list">John Caron: "[CF-metadata] GIS versus CF conventions"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0726.html" title="Previous message in the list">John Caron: "[CF-metadata] GIS versus CF conventions"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0728.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] GIS versus CF conventions"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0728.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] GIS versus CF conventions"</a></li>
+<li><dfn>Reply</dfn>: <a href="./0729.html" title="Message sent in reply to this message">V. Balaji: "[CF-metadata] GIS versus CF conventions"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -284,7 +132,7 @@ Princeton University                    Email: v.balaji at noaa.gov
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:54 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0726.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0728.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

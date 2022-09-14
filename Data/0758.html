@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] unique identifiers from Jonathan Gregory on 2007-03-22 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] unique identifiers" />
-<meta name="Date" content="2007-03-22" />
+<title>[CF-metadata] analysis and forecast data from Beate.Geyer at gkss.de on 2005-09-23 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Beate.Geyer at gkss.de (Beate.Geyer)" />
+<meta name="Subject" content="[CF-metadata] analysis and forecast data" />
+<meta name="Date" content="2005-09-23" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0757.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0759.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] unique identifiers</h1>
-<!-- received="Thu Mar 22 11:40:33 2007" -->
-<!-- isoreceived="20070322114033" -->
-<!-- sent="Thu, 22 Mar 2007 17:40:33 +0000" -->
-<!-- isosent="20070322174033" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] unique identifiers" -->
-<!-- id="20070322174033.GA8094_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0757.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0759.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] analysis and forecast data</h1>
+<!-- received="Fri Sep 23 03:13:45 2005" -->
+<!-- isoreceived="20050923021345" -->
+<!-- sent="Fri, 23 Sep 2005 09:13:45 -0000" -->
+<!-- isosent="20050923091345" -->
+<!-- name="Beate.Geyer at gkss.de" -->
+<!-- email="Beate.Geyer" -->
+<!-- subject="[CF-metadata] analysis and forecast data" -->
+<!-- id="OFE53D9E01.42D8EA22-ONC1257085.0030FB19-C1257085.00329EC9_at_dvsun2.gkss.de" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0759.html" accesskey="d" title="Luis Bermudez: &quot;[CF-metadata] unique identifiers&quot;">Next message</a> ]
-[ <a href="./0757.html" title="John Graybeal: &quot;[CF-metadata] unique identifiers&quot;">Previous message</a> ]
+[ <a href="./0759.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Request for new standard names&quot;">Next message</a> ]
+[ <a href="./0757.html" title="Williams, Keith: &quot;[CF-metadata] Request for new standard names&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0759.html" accesskey="t" title="Luis Bermudez: &quot;[CF-metadata] unique identifiers&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,46 +68,186 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20unique%20identifiers">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Beate.Geyer at gkss.de &lt;<a href="mailto:Beate.Geyer?Subject=Re%3A%20%5BCF-metadata%5D%20analysis%20and%20forecast%20data">Beate.Geyer</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 22 Mar 2007 17:40:33 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 23 Sep 2005 09:13:45 -0000</span><br />
 </address>
 <br />
-Dear John
+Dear member of CF community,
 <br />
-<br />The argument appears to be than an unintelligible identifier (i.e. one without
+I got data from GCM-output to convert to netCDF with CF-standard.
 <br />
-semantic content) is good because it is in itself meaningless, so you have to
+The data include multiple forecasts from multiple analysis (6-hourly 
 <br />
-look it up to find out what it means, whereas if you use intelligible names,
+analysis and additional 3h and 6h forecast).
 <br />
-you might be misled by misunderstand them. Is that right? I appreciate that
+Therefore I introduced an additional forecast dimension, but the 
 <br />
-this is rational, but I'm not convinced it is the most helpful approach for
+'CF-Convention compliance checker' refused that solution.
 <br />
-humans. That would be an argument against self-describing netCDF files, for
+How should the structure looks like?
 <br />
-example. It would argue that the metadata in the files should be totally
+Thanks for your help,
 <br />
-cryptic to humans, so that you had the use the latest version of an approved
+Beate Geyer
 <br />
-translator to tell you what it means. That has some attraction, but I'm not
+&nbsp;
 <br />
-sure it really solves the problem. The translator will use its own idioms,
+netcdf example {
 <br />
-which the human user will get used to, and if a new version of the translator
+dimensions:
 <br />
-gives new meanings to the words it uses, you are back in the same problem.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time = UNLIMITED ; // (5 currently)
 <br />
-It seems to me better to admit that one always has be careful at some level,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;forecast = 3 ;
 <br />
-and use names that have some apparent meaning.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat = 1 ;
 <br />
-<br />Best wishes
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon = 1 ;
 <br />
-<br />Jonathan
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tbnds = 2 ;
 <br />
-<span id="received"><dfn>Received on</dfn> Thu Mar 22 2007 - 11:40:33 GMT</span>
+variables:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float ASOD_T(time, forecast, lat, lon) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ASOD_T:units = &quot;W m-2&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ASOD_T:long_name = &quot;toa downward 
+<br />
+shortwave radiation&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ASOD_T:standard_name = 
+<br />
+&quot;toa_incoming_shortwave_flux&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float forecast(forecast) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;forecast:units = &quot;h&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;forecast:standard_name = 
+<br />
+&quot;forecast_period&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float lat(lat) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat:units = &quot;degrees_north&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat:long_name = &quot;latitude&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat:standard_name = &quot;latitude&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float lon(lon) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon:units = &quot;degrees_east&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon:long_name = &quot;longitude&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon:standard_name = &quot;longitude&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double time(time) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:units = &quot;minutes since 1970-01-01 
+<br />
+00:00:00&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:standard_name = &quot;time&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:bounds = &quot;time_bnds&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double time_bnds(time, tbnds) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time_bnds:units = &quot;minutes since 
+<br />
+1970-01-01 00:00:00&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time_bnds:long_name = &quot;time bounds&quot; ;
+<br />
+<br />// global attributes:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:Conventions = &quot;CF-1.0&quot; ;
+<br />
+data:
+<br />
+<br />&nbsp;forecast = 0, 3, 6 ;
+<br />
+<br />&nbsp;time = 17223720, 17224080, 17224440, 17224800, 17225160 ;
+<br />
+}
+<br />
+<br />CF-Convention compliance checker result:
+<br />
+CHECKING NetCDF FILE
+<br />
+=====================
+<br />
+------------------
+<br />
+Checking variable: time_bnds
+<br />
+------------------
+<br />
+------------------
+<br />
+Checking variable: time
+<br />
+------------------
+<br />
+------------------
+<br />
+Checking variable: lat
+<br />
+------------------
+<br />
+------------------
+<br />
+Checking variable: lon
+<br />
+------------------
+<br />
+------------------
+<br />
+Checking variable: ASOD_T
+<br />
+------------------
+<br />
+ERROR: Variable has more than 1 coordinate variable with same axis value
+<br />
+------------------
+<br />
+Checking variable: forecast
+<br />
+------------------
+<br />
+ERRORS detected: 1
+<br />
+WARNINGS given: 0
+<br />
+<br />====================================================
+<br />
+&nbsp;Dr. Beate Geyer 
+<br />
+&nbsp;GKSS Research Centre 
+<br />
+&nbsp;Institute for Coastal Research 
+<br />
+&nbsp;Max-Planck-Str. 
+<br />
+&nbsp;D-21502 Geesthacht, Germany 
+<br />
+<br />E-Mail:   Beate.Geyer at gkss.de
+<br />
+Phone:  04152-872016
+<br />
+====================================================
+<br />
+-------------- next part --------------
+<br />
+An HTML attachment was scrubbed...
+<br />
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20050923/a3dd3a72/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20050923/a3dd3a72/attachment.html</a>&gt;
+<br />
+<span id="received"><dfn>Received on</dfn> Fri Sep 23 2005 - 03:13:45 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -117,12 +255,9 @@ and use names that have some apparent meaning.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start758">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0759.html" title="Next message in the list">Luis Bermudez: "[CF-metadata] unique identifiers"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0757.html" title="Previous message in the list">John Graybeal: "[CF-metadata] unique identifiers"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0759.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Request for new standard names"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0757.html" title="Previous message in the list">Williams, Keith: "[CF-metadata] Request for new standard names"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0759.html" title="Next message in this discussion thread">Luis Bermudez: "[CF-metadata] unique identifiers"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0759.html" title="Message sent in reply to this message">Luis Bermudez: "[CF-metadata] unique identifiers"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -133,7 +268,7 @@ and use names that have some apparent meaning.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:55 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0757.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0759.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] [CF Metadata] #74: Allow sharing of ancillary variables among multiple data variables from rhorne at excaliburlabs.com on 2013-09-09 (mailing-list-archive)</title>
-<meta name="Author" content="rhorne at excaliburlabs.com (rhorne)" />
-<meta name="Subject" content="[CF-metadata] [CF Metadata] #74: Allow sharing of ancillary variables among multiple data variables" />
-<meta name="Date" content="2013-09-09" />
+<title>[CF-metadata] CF calendars (was: problem with times in PSD dataset) from Jonathan Gregory on 2012-12-07 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] CF calendars (was: problem with times in PSD dataset)" />
+<meta name="Date" content="2012-12-07" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5672.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5674.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] [CF Metadata] #74: Allow sharing of ancillary variables among multiple data variables</h1>
-<!-- received="Mon Sep  9 12:06:41 2013" -->
-<!-- isoreceived="20130909110641" -->
-<!-- sent="Mon, 9 Sep 2013 14:06:41 -0400" -->
-<!-- isosent="20130909180641" -->
-<!-- name="rhorne at excaliburlabs.com" -->
-<!-- email="rhorne" -->
-<!-- subject="[CF-metadata] [CF Metadata] #74: Allow sharing of ancillary variables among multiple data variables" -->
-<!-- id="4b5d81b0$7fc24968$6f90035c$_at_excaliburlabs.com" -->
+<a style="text-decoration:none" href="./5672.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5674.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF calendars (was: problem with times in PSD dataset)</h1>
+<!-- received="Fri Dec  7 06:53:10 2012" -->
+<!-- isoreceived="20121207065310" -->
+<!-- sent="Fri, 7 Dec 2012 13:53:10 +0000" -->
+<!-- isosent="20121207135310" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] CF calendars (was: problem with times in PSD dataset)" -->
+<!-- id="20121207135310.GB30613_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5674.html" accesskey="d" title="Signell, Richard: &quot;[CF-metadata] Can we please close ticket 93 and modify the latest CF document accordingly?&quot;">Next message</a> ]
-[ <a href="./5672.html" title="John Caron: &quot;[CF-metadata] thredds changing CF conventions version&quot;">Previous message</a> ]
+[ <a href="./5674.html" accesskey="d" title="Cecelia DeLuca: &quot;[CF-metadata] CF calendars&quot;">Next message</a> ]
+[ <a href="./5672.html" title="Jonathan Gregory: &quot;[CF-metadata] new standard name proposal for total ozone in DU&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./5677.html" accesskey="t" title="Cecelia DeLuca: &quot;[CF-metadata] CF calendars (was: problem with times in PSD dataset)&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,148 +70,62 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: rhorne at excaliburlabs.com &lt;<a href="mailto:rhorne?Subject=Re%3A%20%5BCF-metadata%5D%20%5BCF%20Metadata%5D%20%2374%3A%20Allow%20sharing%20of%20ancillary%20variables%20among%20multiple%20data%20variables">rhorne</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20calendars%20(was%3A%20problem%20with%20times%20in%20PSD%20dataset)">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 9 Sep 2013 14:06:41 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 7 Dec 2012 13:53:10 +0000</span><br />
 </address>
 <br />
-Jonathan: 
+Dear all
 <br />
-when you say:
+<br />I think that we should be very cautious about backwards-incompatibility, even
 <br />
-You could   describe a standard error with a `cell_methods` entry of 
+when changing CF versions. I would be worried about making a change which
 <br />
-`measurement:   standard_deviation`, for instance, if we add `measurement` 
+means metadata would have a different meaning according to which version of
 <br />
-to the standard   name table, meaning the ordinal number of a measurement 
+the convention is used. I know in principle it is safe because the file states
 <br />
-of a given quantity. There does not have to a measurement dimension; using 
+the version, but I don't think we can depend on the version to be coded
 <br />
-a standard   name in `cell_methods` implies that the statistic applies to 
+correctly, or on software to make correct use of it. Although these are errors,
 <br />
-the complete   range of the quantity named i.e. all possible measurements 
+we ought nonetheless to design the convention to be as robust as possible in
 <br />
-in this case. 
+an error-prone world.
 <br />
-Can you provide an example just to make sure I understand ?
+<br />Therefore I don't think it is safe to change the the default calendar from
 <br />
-&nbsp;very respectfully, 
+gregorian to proleptic_gregorian, because that could change the date you
 <br />
-&nbsp;randy
+get for a given time coordinate. However, I do think it would be safe to make
 <br />
-<br />----------------------------------------
+it illegal to use the default calendar for reference dates earlier than
 <br />
-From: &quot;Jonathan Gregory&quot; &lt;j.m.gregory at reading.ac.uk&gt;
+1582-10-15, or for negative time coordinates (to make sure that dates before
 <br />
-Sent: Monday, September 09, 2013 10:26 AM
+1582-10-15 cannot be specified). In that case, real-world data for which there
 <br />
-To: 
+is no problem would be unaffected, but software would reject time coordinates
 <br />
-Subject: Re: [CF Metadata] #74: Allow sharing of ancillary variables among 
+whose interpretation is problematic. Software could provide an option whereby
 <br />
-multiple data variables
+the user could state what the calendar actually is, when not specified, in
 <br />
-<br />#74: Allow sharing of ancillary variables among multiple data variables 
+order to override the error if the user knows what it truly is. Alternatively,
 <br />
----------------------------------------+------------------------------------
+they could easily repair the file with ncatted or some such tool.
 <br />
-&nbsp;
+<br />It should still be possible to use the real-world calendar before 1582-10-15,
 <br />
-&nbsp;&nbsp;Reporter:  rhorne at excaliburlabs.com  |       Owner:  
+because CF might be used for real-world historical data earlier than that date,
 <br />
-cf-conventions at lists.llnl.gov              
+but it would be necessary to state the calendar explicitly.
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type:  enhancement               |      Status:  new                  
+<br />Best wishes
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br />Jonathan
 <br />
-&nbsp;&nbsp;Priority:  medium                    |   Milestone:                       
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<br />
-&nbsp;Component:  cf-conventions            |     Version:                       
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<br />
-Resolution:                            |    Keywords:  &quot;ancillary data&quot; 
-<br />
-&quot;standard name modifiers&quot; 
-<br />
----------------------------------------+------------------------------------
-<br />
-&nbsp;
-<br />
-Comment (by jonathan): 
-<br />
-<br />&nbsp;Dear all 
-<br />
-<br />&nbsp;I tend to think, partly as a result of discussion in another ticket, that 
-<br />
-<br />&nbsp;we should adopt a different solution for `number_of_observations` and 
-<br />
-&nbsp;`status_flag` on the one hand, and `standard_error` and 
-<br />
-&nbsp;`detection_minimum` on the other. Thus we could get rid of standard name 
-<br />
-&nbsp;modifiers, as Nan says; they are awkward and have caused confusion. 
-<br />
-<br />&nbsp;As Randy says, the former two modifiers could become standard names for 
-<br />
-&nbsp;dimensionless quantities. As Nan says, this can't be done for the latter 
-<br />
-&nbsp;two, because they have units. Instead, I think we should put the 
-<br />
-&nbsp;information into `cell_methods`. It is possible to regard standard error 
-<br />
-&nbsp;and detection minimum as particular statistics in an ensemble of possible 
-<br />
-<br />&nbsp;measurements of the same quantity, I would argue. If so, `cell_methods` is 
-<br />
-<br />&nbsp;a natural place to put them, under an entry which applies to a notional 
-<br />
-&nbsp;dimension that runs over the members of this population. You could 
-<br />
-&nbsp;describe a standard error with a `cell_methods` entry of `measurement: 
-<br />
-&nbsp;standard_deviation`, for instance, if we add `measurement` to the standard 
-<br />
-<br />&nbsp;name table, meaning the ordinal number of a measurement of a given 
-<br />
-&nbsp;quantity. There does not have to a measurement dimension; using a standard 
-<br />
-<br />&nbsp;name in `cell_methods` implies that the statistic applies to the complete 
-<br />
-<br />&nbsp;range of the quantity named i.e. all possible measurements in this case. 
-<br />
-&nbsp;Does this make sense to you? 
-<br />
-<br />&nbsp;A nice consequence is that this would simplify the convention, because 
-<br />
-&nbsp;only the standard name and cell methods would determine the canonical 
-<br />
-&nbsp;units of the quantity. At the moment, the standard name modifier has to be 
-<br />
-<br />&nbsp;considered as well. 
-<br />
-<br />&nbsp;Cheers 
-<br />
-<br />&nbsp;Jonathan 
-<br />
-<br />--  
-<br />
-Ticket URL: &lt;<a href="https://cf-pcmdi.llnl.gov/trac/ticket/74#comment:40">https://cf-pcmdi.llnl.gov/trac/ticket/74#comment:40</a>&gt; 
-<br />
-CF Metadata &lt;<a href="http://cf-pcmdi.llnl.gov/">http://cf-pcmdi.llnl.gov/</a>&gt; 
-<br />
-CF Metadata 
-<br />
-<br />-------------- next part --------------
-<br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130909/50b23ed7/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130909/50b23ed7/attachment.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Mon Sep 09 2013 - 12:06:41 BST</span>
+<span id="received"><dfn>Received on</dfn> Fri Dec 07 2012 - 06:53:10 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -217,9 +133,12 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5673">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5674.html" title="Next message in the list">Signell, Richard: "[CF-metadata] Can we please close ticket 93 and modify the latest CF document accordingly?"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5672.html" title="Previous message in the list">John Caron: "[CF-metadata] thredds changing CF conventions version"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5674.html" title="Next message in the list">Cecelia DeLuca: "[CF-metadata] CF calendars"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5672.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] new standard name proposal for total ozone in DU"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./5677.html" title="Next message in this discussion thread">Cecelia DeLuca: "[CF-metadata] CF calendars (was: problem with times in PSD dataset)"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./5677.html" title="Message sent in reply to this message">Cecelia DeLuca: "[CF-metadata] CF calendars (was: problem with times in PSD dataset)"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -230,7 +149,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:28 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5672.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5674.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

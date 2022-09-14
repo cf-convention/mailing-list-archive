@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>Fwd: [CF-metadata] units in cf standard names from Jonathan Gregory on 2006-10-10 (mailing-list-archive)</title>
+<title>[CF-metadata] x- and y-components from Jonathan Gregory on 2003-11-17 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="Fwd: [CF-metadata] units in cf standard names" />
-<meta name="Date" content="2006-10-10" />
+<meta name="Subject" content="[CF-metadata] x- and y-components" />
+<meta name="Date" content="2003-11-17" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0313.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0315.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>Fwd: [CF-metadata] units in cf standard names</h1>
-<!-- received="Tue Oct 10 06:14:30 2006" -->
-<!-- isoreceived="20061010051430" -->
-<!-- sent="Tue, 10 Oct 2006 13:14:30 +0100" -->
-<!-- isosent="20061010121430" -->
+<a style="text-decoration:none" href="./0313.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0315.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] x- and y-components</h1>
+<!-- received="Mon Nov 17 01:57:39 2003" -->
+<!-- isoreceived="20031117015739" -->
+<!-- sent="Mon, 17 Nov 2003 08:57:39 +0000" -->
+<!-- isosent="20031117085739" -->
 <!-- name="Jonathan Gregory" -->
 <!-- email="j.m.gregory" -->
-<!-- subject="Fwd: [CF-metadata] units in cf standard names" -->
-<!-- id="20061010121430.GB7009_at_met.reading.ac.uk" -->
+<!-- subject="[CF-metadata] x- and y-components" -->
+<!-- id="20031117085739.GB20584_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0315.html" accesskey="d" title="Keith Dixon: &quot;Fwd: [CF-metadata] units in cf standard names&quot;">Next message</a> ]
-[ <a href="./0313.html" title="Pamment, JA: &quot;[CF-metadata] units in cf standard names&quot;">Previous message</a> ]
+[ <a href="./0315.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] geoid&quot;">Next message</a> ]
+[ <a href="./0313.html" title="Jonathan Gregory: &quot;[CF-metadata] imminent standard_name table changes&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0315.html" accesskey="t" title="Keith Dixon: &quot;Fwd: [CF-metadata] units in cf standard names&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,58 +68,74 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20Fwd%3A%20%5BCF-metadata%5D%20units%20in%20cf%20standard%20names">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20x-%20and%20y-components">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 10 Oct 2006 13:14:30 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 17 Nov 2003 08:57:39 +0000</span><br />
 </address>
 <br />
-Dear all
+Dear Pieter and Brian
 <br />
-<br />I don't think it's right to use the units to indicate the quantity, which is
+<br />I agree with you too. This issue will affect all vector and tensor quantities.
 <br />
-what kg N would do. COARDS uses special dimensionless units to indicate
+It is inevitable that there will be two versions of many of them, because a
 <br />
-vertical levels in a similar way, but early on in CF we decided to distinguish
+model might need to output such quantities (velocities etc.) both with respect
 <br />
-the identification of a quantity from the units it is measured in. The
+to its grid and with respect to latitude and longitude. Clearly they have to be
 <br />
-quantity being discussed is (for instance) a mass of nitrogen. The units of
+distinguished.
 <br />
-mass are the same for nitrogen, chalk and cheese.
+<br />Therefore I retract my proposal to add eastward and northward sea water
 <br />
-<br />PSU (practical salinity units) is an interesting case in Alison's list.
+velocity. Instead I agree that we should have x_sea_water_velocity and
 <br />
-This is really a dimensionless number (a mass fraction), so we could survive
+y_sea_water_velocity. Also we should replace grid_eastward/northward_wind
 <br />
-without a unit for it, but it seems less clear to say the salinity is 35 1e-3
+with x/y_wind i.e. make the grid_ names into aliases. x/y components should
 <br />
-than to say it is 35 PSU.
+be used whenever x and y are not longitude and latitude. In most cases x and
 <br />
-<br /><em class="quotelev1">&gt; Clearly with CF1.0 we are stuck with udunits.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; However, it's worth thinking about the future. I wasn't involved when
-</em><br />
-<em class="quotelev1">&gt; the decision to be udunit compatible was made. Can anyone summarise the
-</em><br />
-<em class="quotelev1">&gt; benefits that requiring udunit conformance confer on the CF community?
-</em><br />
-<br />The choice of udunits was made by COARDS. We carry on with it for COARDS
+y will be projection_x/y_coordinate in units of distance, but in the case of
 <br />
-compatibility. Are there any other similarly comprehensive and flexible
+the rotated spherical grid they are grid_longitude and grid_latitude in units
 <br />
-standards for interpreting units strings? I think the main benefit is to
+of degrees.
 <br />
-provide a general syntax, and secondarily some associated software for parsing
-<br />
-and converting units.
-<br />
-<br />Cheers
+<br />Best wishes
 <br />
 <br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Tue Oct 10 2006 - 06:14:30 BST</span>
+<br /><em class="quotelev3">&gt; &gt; &gt; The velocity components relative to the local x- and 
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; y-directions on the grid
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; should be called grid_eastward_sea_water_velocity and
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; grid_northward_sea_water_velocity (as for winds). These 
+</em><br />
+<em class="quotelev3">&gt; &gt; &gt; standard names are not in the table but I propose we should add them.
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; East and north even if the grid direction is somewhere in between and
+</em><br />
+<em class="quotelev2">&gt; &gt; location dependent? (picture in attachment)
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; I agree that using east and north in contexts where they don't apply is
+</em><br />
+<em class="quotelev1">&gt; confusing.  We have, for example, names like projection_x_coordinate, and
+</em><br />
+<em class="quotelev1">&gt; projection_y_coordinate to identify projection coordinates.  Perhaps we
+</em><br />
+<em class="quotelev1">&gt; could use names like x_sea_water_velocity and y_sea_water_velocity with
+</em><br />
+<em class="quotelev1">&gt; descriptions to indicate that the x velocity component is positive in the
+</em><br />
+<em class="quotelev1">&gt; direction of increasing x-coordinate.
+</em><br />
+<span id="received"><dfn>Received on</dfn> Mon Nov 17 2003 - 01:57:39 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -129,12 +143,9 @@ and converting units.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start314">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0315.html" title="Next message in the list">Keith Dixon: "Fwd: [CF-metadata] units in cf standard names"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0313.html" title="Previous message in the list">Pamment, JA: "[CF-metadata] units in cf standard names"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0315.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] geoid"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0313.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] imminent standard_name table changes"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0315.html" title="Next message in this discussion thread">Keith Dixon: "Fwd: [CF-metadata] units in cf standard names"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0315.html" title="Message sent in reply to this message">Keith Dixon: "Fwd: [CF-metadata] units in cf standard names"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -145,7 +156,7 @@ and converting units.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:48 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0313.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0315.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

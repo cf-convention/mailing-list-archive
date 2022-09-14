@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] udunits handling of fuzzy time units from Dave Allured on 2011-03-15 (mailing-list-archive)</title>
-<meta name="Author" content="Dave Allured (dave.allured)" />
-<meta name="Subject" content="[CF-metadata] udunits handling of fuzzy time units" />
-<meta name="Date" content="2011-03-15" />
+<title>[CF-metadata] udunits 1 or 2 for CF? from Steve Emmerson on 2010-03-04 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Steve Emmerson (steve)" />
+<meta name="Subject" content="[CF-metadata] udunits 1 or 2 for CF?" />
+<meta name="Date" content="2010-03-04" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./3300.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3302.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] udunits handling of fuzzy time units</h1>
-<!-- received="Mon Mar 14 21:40:46 2011" -->
-<!-- isoreceived="20110314214046" -->
-<!-- sent="Mon, 14 Mar 2011 21:40:46 -0600" -->
-<!-- isosent="20110315034046" -->
-<!-- name="Dave Allured" -->
-<!-- email="dave.allured" -->
-<!-- subject="[CF-metadata] udunits handling of fuzzy time units" -->
-<!-- id="4D7EDFBE.7090103_at_noaa.gov" -->
+<a style="text-decoration:none" href="./3300.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3302.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] udunits 1 or 2 for CF?</h1>
+<!-- received="Thu Mar  4 11:19:49 2010" -->
+<!-- isoreceived="20100304111949" -->
+<!-- sent="Thu, 04 Mar 2010 11:19:49 -0700" -->
+<!-- isosent="20100304181949" -->
+<!-- name="Steve Emmerson" -->
+<!-- email="steve" -->
+<!-- subject="[CF-metadata] udunits 1 or 2 for CF?" -->
+<!-- id="4B8FF9C5.5040404_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4D7EB356.4000903_at_unidata.ucar.edu" -->
+<!-- inreplyto="19272.1267715541_at_buddy.unidata.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./3302.html" accesskey="d" title="Jon Blower: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">Next message</a> ]
-[ <a href="./3300.html" title="John Caron: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">Previous message</a> ]
-[ <a href="./3300.html" title="John Caron: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">In reply to</a> ]
+[ <a href="./3302.html" accesskey="d" title="Steve Emmerson: &quot;[CF-metadata] UDUNITS 1 or 2 for CF?&quot;">Next message</a> ]
+[ <a href="./3300.html" title="Steve Emmerson: &quot;[CF-metadata] &#0034;Andrew Clegg&#0034;:  udunits 1 or 2 for CF?&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./3289.html" accesskey="t" title="John Caron: &quot;[CF-metadata] udunits handling of fuzzy time units&quot;">Next in thread</a> ]
+[ <a href="./3316.html" accesskey="t" title="Andrew Clegg: &quot;[CF-metadata] udunits 1 or 2 for CF?&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,196 +71,48 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Dave Allured &lt;<a href="mailto:dave.allured?Subject=Re%3A%20%5BCF-metadata%5D%20udunits%20handling%20of%20fuzzy%20time%20units">dave.allured</a>&gt;
+<dfn>From</dfn>: Steve Emmerson &lt;<a href="mailto:steve?Subject=Re%3A%20%5BCF-metadata%5D%20udunits%201%20or%202%20for%20CF%3F">steve</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 14 Mar 2011 21:40:46 -0600</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 04 Mar 2010 11:19:49 -0700</span><br />
 </address>
 <br />
-There are several existing solutions to your question, depending on 
+CF-conventioners,
 <br />
-the constraints or requirements of your application.  Some of these 
+<br />I recommend using full unit names and prefixes in unit specifications
 <br />
-use encodings that are not supported by Udunits, but are explicitly 
+for just this reason: unit symbols and prefix symbols can be ambiguous,
 <br />
-legal under the current version of CF.  Here are two leading solutions:
+whereas unit names and prefix names are not.
 <br />
-<br />1.  time at units = &quot;days since 1930-01-01&quot;
+<br />The UDUNITS-2 package will format a binary unit into a string
 <br />
-+   time at calendar = &quot;gregorian&quot;
+representation using either symbols or names -- as requested by the client.
 <br />
-<br />* Compatible with current CF conventions
+<br />Regards,
 <br />
-* Compatible with Udunits-1 and -2
+Steve Emmerson
 <br />
-* Compatible with many existing general purpose softwares
+<br />Andrew Clegg wrote:
 <br />
-* Conforms to the &quot;western world's&quot; actual historic calendar
+I never thought of using the full word 'gram' - I've just checked and
 <br />
-* Complies with CF and COARDS precautions to AVOID fuzzy
+'gram' and 'mgram' work on udunits-2 as well. Thanks.
 <br />
-.   units of months or years
+<br />However, I'm still concerned that there are differences between the 2
 <br />
-* Numeric time step is NOT constant for increments of
+versions, and that this should be at least noted in the conventions.
 <br />
-.   months or years
+Other people in the future will probably have the same problem, and it
 <br />
-<br />2.  time at units = &quot;months (or years) since 1930-01-01&quot;
+would be nice to have a definitive answer. My (strong) personal
 <br />
-+   time at calendar = &quot;360_day&quot;
+preference is to say that all unit strings should be correct when
 <br />
-<br />* Compatible with current CF conventions
+interpreted with udunits-2, rather than relying on a set of 'hacks' to
 <br />
-* NOT compatible with Udunits-1 or -2
+ensure compatibility between the 2.
 <br />
-* Compatible with SOME existing general purpose softwares
-<br />
-* DOES NOT conform to the &quot;western world's&quot; actual historic calendar
-<br />
-* DOES NOT comply with CF and COARDS precautions to AVOID fuzzy
-<br />
-.   units of months or years, but reasonable in this context
-<br />
-* Numeric time step IS constant for increments of
-<br />
-.   months or years
-<br />
-<br />So, what constraints are important for you, and will either of the 
-<br />
-above solutions be satisfactory?
-<br />
-<br />--Dave A.
-<br />
-NOAA/PSD/CIRES
-<br />
-<br />On 3/14/2011 6:31 PM, John Caron wrote:
-<br />
-<em class="quotelev1">&gt; because udunits converts units like months and years to a fixed
-</em><br />
-<em class="quotelev1">&gt; number of seconds, one cant really use things like months and years
-</em><br />
-<em class="quotelev1">&gt; as units, since you get things like this:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; 0 months since 1930-01-01 == 1930-01-01T00:00:00Z
-</em><br />
-<em class="quotelev1">&gt; 1 months since 1930-01-01 == 1930-01-31T10:29:03Z
-</em><br />
-<em class="quotelev1">&gt; 2 months since 1930-01-01 == 1930-03-02T20:58:07Z
-</em><br />
-<em class="quotelev1">&gt; 3 months since 1930-01-01 == 1930-04-02T07:27:11Z
-</em><br />
-<em class="quotelev1">&gt; 4 months since 1930-01-01 == 1930-05-02T17:56:15Z
-</em><br />
-<em class="quotelev1">&gt; 5 months since 1930-01-01 == 1930-06-02T04:25:19Z
-</em><br />
-<em class="quotelev1">&gt; 6 months since 1930-01-01 == 1930-07-02T14:54:22Z
-</em><br />
-<em class="quotelev1">&gt; 7 months since 1930-01-01 == 1930-08-02T01:23:26Z
-</em><br />
-<em class="quotelev1">&gt; 8 months since 1930-01-01 == 1930-09-01T11:52:30Z
-</em><br />
-<em class="quotelev1">&gt; 9 months since 1930-01-01 == 1930-10-01T22:21:34Z
-</em><br />
-<em class="quotelev1">&gt; 10 months since 1930-01-01 == 1930-11-01T08:50:38Z
-</em><br />
-<em class="quotelev1">&gt; 11 months since 1930-01-01 == 1930-12-01T19:19:42Z
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; 0 years since 1850-01-01 == 1850-01-01T00:00:00Z
-</em><br />
-<em class="quotelev1">&gt; 10 years since 1850-01-01 == 1860-01-01T10:07:39Z
-</em><br />
-<em class="quotelev1">&gt; 20 years since 1850-01-01 == 1869-12-31T20:15:19Z
-</em><br />
-<em class="quotelev1">&gt; 30 years since 1850-01-01 == 1880-01-01T06:22:59Z
-</em><br />
-<em class="quotelev1">&gt; 40 years since 1850-01-01 == 1889-12-31T16:30:38Z
-</em><br />
-<em class="quotelev1">&gt; 50 years since 1850-01-01 == 1900-01-01T02:38:18Z
-</em><br />
-<em class="quotelev1">&gt; 60 years since 1850-01-01 == 1910-01-01T12:45:58Z
-</em><br />
-<em class="quotelev1">&gt; 70 years since 1850-01-01 == 1920-01-01T22:53:38Z
-</em><br />
-<em class="quotelev1">&gt; 80 years since 1850-01-01 == 1930-01-01T09:01:17Z
-</em><br />
-<em class="quotelev1">&gt; 90 years since 1850-01-01 == 1940-01-01T19:08:57Z
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; whereas you might really want:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; 0 months since 1930-01-01 = 1930-01-01T00:00Z
-</em><br />
-<em class="quotelev1">&gt; 1 months since 1930-01-01 = 1930-02-01T00:00Z
-</em><br />
-<em class="quotelev1">&gt; 2 months since 1930-01-01 = 1930-03-01T00:00Z
-</em><br />
-<em class="quotelev1">&gt; 3 months since 1930-01-01 = 1930-04-01T00:00Z
-</em><br />
-<em class="quotelev1">&gt; 4 months since 1930-01-01 = 1930-05-01T00:00Z
-</em><br />
-<em class="quotelev1">&gt; 5 months since 1930-01-01 = 1930-06-01T00:00Z
-</em><br />
-<em class="quotelev1">&gt; 6 months since 1930-01-01 = 1930-07-01T00:00Z
-</em><br />
-<em class="quotelev1">&gt; 7 months since 1930-01-01 = 1930-08-01T00:00Z
-</em><br />
-<em class="quotelev1">&gt; 8 months since 1930-01-01 = 1930-09-01T00:00Z
-</em><br />
-<em class="quotelev1">&gt; 9 months since 1930-01-01 = 1930-10-01T00:00Z
-</em><br />
-<em class="quotelev1">&gt; 10 months since 1930-01-01 = 1930-11-01T00:00Z
-</em><br />
-<em class="quotelev1">&gt; 11 months since 1930-01-01 = 1930-12-01T00:00Z
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; 0 years since 1850-01-01 = 1850-01-01T00:00Z
-</em><br />
-<em class="quotelev1">&gt; 10 years since 1850-01-01 = 1860-01-01T00:00Z
-</em><br />
-<em class="quotelev1">&gt; 20 years since 1850-01-01 = 1870-01-01T00:00Z
-</em><br />
-<em class="quotelev1">&gt; 30 years since 1850-01-01 = 1880-01-01T00:00Z
-</em><br />
-<em class="quotelev1">&gt; 40 years since 1850-01-01 = 1890-01-01T00:00Z
-</em><br />
-<em class="quotelev1">&gt; 50 years since 1850-01-01 = 1900-01-01T00:00Z
-</em><br />
-<em class="quotelev1">&gt; 60 years since 1850-01-01 = 1910-01-01T00:00Z
-</em><br />
-<em class="quotelev1">&gt; 70 years since 1850-01-01 = 1920-01-01T00:00Z
-</em><br />
-<em class="quotelev1">&gt; 80 years since 1850-01-01 = 1930-01-01T00:00Z
-</em><br />
-<em class="quotelev1">&gt; 90 years since 1850-01-01 = 1940-01-01T00:00Z
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; the solutions that occur to me are:
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; 1) use ISO date strings
-</em><br />
-<em class="quotelev1">&gt; 2) change the way udunits works
-</em><br />
-<em class="quotelev1">&gt; 3) create another syntax that can be distinguished from udunits and
-</em><br />
-<em class="quotelev1">&gt; make it work like the above
-</em><br />
-<em class="quotelev1">&gt; 4) something else i havent thought of
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; any ideas?
-</em><br />
-<span id="received"><dfn>Received on</dfn> Mon Mar 14 2011 - 21:40:46 GMT</span>
+<span id="received"><dfn>Received on</dfn> Thu Mar 04 2010 - 11:19:49 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -269,13 +120,12 @@ NOAA/PSD/CIRES
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start3301">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./3302.html" title="Next message in the list">Jon Blower: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./3300.html" title="Previous message in the list">John Caron: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./3300.html" title="Message to which this message replies">John Caron: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
+<li><dfn>Next message</dfn>: <a href="./3302.html" title="Next message in the list">Steve Emmerson: "[CF-metadata] UDUNITS 1 or 2 for CF?"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./3300.html" title="Previous message in the list">Steve Emmerson: "[CF-metadata] &#0034;Andrew Clegg&#0034;:  udunits 1 or 2 for CF?"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./3289.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./3316.html" title="Next message in this discussion thread">Andrew Clegg: "[CF-metadata] udunits 1 or 2 for CF?"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./3289.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] udunits handling of fuzzy time units"</a></li>
+<dfn>Reply</dfn>: <a href="./3316.html" title="Message sent in reply to this message">Andrew Clegg: "[CF-metadata] udunits 1 or 2 for CF?"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -286,7 +136,7 @@ NOAA/PSD/CIRES
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:42 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./3300.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3302.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

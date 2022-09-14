@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]  downward_air_velocity from Jonathan Gregory on 2014-09-11 (mailing-list-archive)</title>
+<title>[CF-metadata] Fwd: Re: Request for a new standard_name : surface_snow_extent from Jonathan Gregory on 2013-08-14 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata]  downward_air_velocity" />
-<meta name="Date" content="2014-09-11" />
+<meta name="Subject" content="[CF-metadata] Fwd: Re: Request for a new standard_name : surface_snow_extent" />
+<meta name="Date" content="2013-08-14" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./6466.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6468.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  downward_air_velocity</h1>
-<!-- received="Thu Sep 11 09:52:58 2014" -->
-<!-- isoreceived="20140911085258" -->
-<!-- sent="Thu, 11 Sep 2014 16:52:58 +0100" -->
-<!-- isosent="20140911155258" -->
+<a style="text-decoration:none" href="./6466.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6468.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Fwd: Re: Request for a new standard_name : surface_snow_extent</h1>
+<!-- received="Wed Aug 14 08:55:05 2013" -->
+<!-- isoreceived="20130814075505" -->
+<!-- sent="Wed, 14 Aug 2013 15:55:05 +0100" -->
+<!-- isosent="20130814145505" -->
 <!-- name="Jonathan Gregory" -->
 <!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata]  downward_air_velocity" -->
-<!-- id="20140911155258.GE6083_at_met.reading.ac.uk" -->
+<!-- subject="[CF-metadata] Fwd: Re: Request for a new standard_name : surface_snow_extent" -->
+<!-- id="20130814145504.GA10577_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./6468.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] CF Conventions and netCDF-4 enhanced model&quot;">Next message</a> ]
-[ <a href="./6466.html" title="Hollis, Dan: &quot;[CF-metadata] Return periods&quot;">Previous message</a> ]
+[ <a href="./6468.html" accesskey="d" title="Karl Taylor: &quot;[CF-metadata] misleading sentence on coordinate attribute&quot;">Next message</a> ]
+[ <a href="./6466.html" title="Thomas Lavergne: &quot;[CF-metadata] Request for a new standard_name : surface_snow_extent&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./6469.html" accesskey="t" title="Jim Biard: &quot;[CF-metadata] downward_air_velocity&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,28 +68,72 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20downward_air_velocity">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Fwd%3A%20Re%3A%20Request%20for%20a%20new%20standard_name%20%3A%20surface_snow_extent">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 11 Sep 2014 16:52:58 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 14 Aug 2013 15:55:05 +0100</span><br />
 </address>
 <br />
-Dear Ken
+Dear Thomas
 <br />
-<br /><em class="quotelev1">&gt; I would like to propose a new standard_name to complement upward_air_velocity. upward_air_velocity uses positive values to indicate upward direction, but we have many instrument that use a convention of positive values to indicate downward direction. Can we clone upward_air_velocity to downward_air_velocity with the sign convention reversed?
+<br /><em class="quotelev1">&gt; Would that mean something like:
 </em><br />
-<br />I would say Yes! There are many such pairs, for just that reason. The
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; float snow_extent(time) ;
+</em><br />
+<em class="quotelev1">&gt;    snow_extent:standard_name = &quot;surface_snow_extent&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    snow_extent:cell_methods = &quot;area: sum where land&quot; ;
+</em><br />
+<br />Yes, that's right. Also
 <br />
-motivation for this approach is that it is impossible to say what the
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;snow_extent:units=&quot;m2&quot;; // or equivalent
 <br />
-quantity is without also making the sign convention explicit, which is
+<br /><em class="quotelev1">&gt; To define such a threshold might be tricky :) Intuitively it should be a threshold on area_fraction, but maybe not always. In our processing, we compute a &quot;probability of snow&quot;, and apply a threshold on this probability for deciding on snow/no-snow. This probability and how we compute it in the first place has nothing standardized.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; But let's take the sea_ice_extent as an example. Sea ice extent is (usually) the area of sea ice where sea_ice_area_fraction is more than 0.15. How should we properly define a ice_extent variable that specifies the threshold?
+</em><br />
+<br />We already have a standard_name of sea_ice_extent, as you pointed out, and
 <br />
-a benefit to analysts.
+I think its definition should include the threshold to define what defines
 <br />
-<br />Cheers
+the ice edge, as a default. However if you wanted to state the threshold
+<br />
+explicitly, I'd do it like this:
+<br />
+<br />float ice_extent(time) ; 
+<br />
+&nbsp;&nbsp;ice_extent:standard_name = &quot;sea_ice_extent&quot;; // the existing stdname
+<br />
+&nbsp;&nbsp;ice_extent:cell_methods = &quot;area: sum&quot;;
+<br />
+&nbsp;&nbsp;ice_extent:coordinates = &quot;threshold&quot;; // time is a Unidata coord var
+<br />
+&nbsp;&nbsp;ice_extent:units = &quot;m^2&quot;
+<br />
+<br />float threshold;
+<br />
+&nbsp;&nbsp;threshold:standard_name = &quot;sea_ice_area_fraction&quot;
+<br />
+&nbsp;&nbsp;threshold:long_name = &quot;scalar value to separate ice-covered from ice-free area&quot;
+<br />
+<br />int time(time);
+<br />
+&nbsp;&nbsp;time:units = &quot;seconds since xxxx&quot;
+<br />
+<br />That's essentially what you said, but we don't need &quot;where&quot; in this case,
+<br />
+I think, because the sea ice extent can only apply where there is sea ice,
+<br />
+unlike the snow extent.
+<br />
+<br />Best wishes
 <br />
 <br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Thu Sep 11 2014 - 09:52:58 BST</span>
+<span id="received"><dfn>Received on</dfn> Wed Aug 14 2013 - 08:55:05 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -99,12 +141,9 @@ a benefit to analysts.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start6467">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./6468.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] CF Conventions and netCDF-4 enhanced model"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./6466.html" title="Previous message in the list">Hollis, Dan: "[CF-metadata] Return periods"</a></li>
+<li><dfn>Next message</dfn>: <a href="./6468.html" title="Next message in the list">Karl Taylor: "[CF-metadata] misleading sentence on coordinate attribute"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./6466.html" title="Previous message in the list">Thomas Lavergne: "[CF-metadata] Request for a new standard_name : surface_snow_extent"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./6469.html" title="Next message in this discussion thread">Jim Biard: "[CF-metadata] downward_air_velocity"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./6469.html" title="Message sent in reply to this message">Jim Biard: "[CF-metadata] downward_air_velocity"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -115,7 +154,7 @@ a benefit to analysts.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:46 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./6466.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6468.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

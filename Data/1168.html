@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] (no subject) from dan.bernie at metoffice.gov.uk on 2008-01-29 (mailing-list-archive)</title>
-<meta name="Author" content="dan.bernie at metoffice.gov.uk (dan.bernie)" />
-<meta name="Subject" content="[CF-metadata] (no subject)" />
-<meta name="Date" content="2008-01-29" />
+<title>[CF-metadata] CF and multi-forecast system ensemble data from Jonathan Gregory on 2006-10-18 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] CF and multi-forecast system ensemble data" />
+<meta name="Date" content="2006-10-18" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1167.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1169.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] (no subject)</h1>
-<!-- received="Tue Jan 29 02:19:47 2008" -->
-<!-- isoreceived="20080129021947" -->
-<!-- sent="Tue, 29 Jan 2008 09:19:47 +0000" -->
-<!-- isosent="20080129091947" -->
-<!-- name="dan.bernie at metoffice.gov.uk" -->
-<!-- email="dan.bernie" -->
-<!-- subject="[CF-metadata] (no subject)" -->
-<!-- id="1201598387.8567.34.camel_at_eld269.desktop.frd.metoffice.com" -->
+<a style="text-decoration:none" href="./1167.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1169.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF and multi-forecast system ensemble data</h1>
+<!-- received="Wed Oct 18 09:12:02 2006" -->
+<!-- isoreceived="20061018081202" -->
+<!-- sent="Wed, 18 Oct 2006 16:12:02 +0100" -->
+<!-- isosent="20061018151202" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] CF and multi-forecast system ensemble data" -->
+<!-- id="20061018151202.GG1591_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1169.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] hydrosphere&quot;">Next message</a> ]
-[ <a href="./1167.html" title="Jonathan Gregory: &quot;[CF-metadata] standard name proposal for CCMVal - burden&quot;">Previous message</a> ]
+[ <a href="./1169.html" accesskey="d" title="Francisco Doblas-Reyes: &quot;[CF-metadata] CF and multi-forecast system ensemble data&quot;">Next message</a> ]
+[ <a href="./1167.html" title="Francisco Doblas-Reyes: &quot;[CF-metadata] CF and multi-forecast system ensemble data&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,187 +68,90 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: dan.bernie at metoffice.gov.uk &lt;<a href="mailto:dan.bernie?Subject=Re%3A%20%5BCF-metadata%5D%20(no%20subject)">dan.bernie</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20and%20multi-forecast%20system%20ensemble%20data">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 29 Jan 2008 09:19:47 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 18 Oct 2006 16:12:02 +0100</span><br />
 </address>
 <br />
-Hi,
-<br />
-<br />I am an occasional reader of this list and have a query/proposal about
-<br />
-the CF description of partial cells in (ocean) models with z-
-<br />
-coordinates.
-<br />
-<br />As it stands in the CF convention (as I understand it), when using
-<br />
-partial cells the different volume of cells is accounted for by
-<br />
-including  a 3-D array of the size of the full grid to describe the
-<br />
-volume of each cell as well as a cell measure attribute in the variable:
-<br />
-<br />dimensions:
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;deptht = 301 ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;y = 149 ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;x = 182 ;
-<br />
-variables:
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;float deptht(deptht) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;deptht: long_name = ?depth? ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;deptht: units = ?m? ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;float lon(x,y) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon: long_name = ?longitude? ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon: units = ?degrees_east? ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;float lat(x,y) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat: long_name = ?latitude? ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat: units = ?degrees_north? ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;double volumet(y, x) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;volumet :units = &quot;m3&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;volumet :long_name = &quot;volume of grid cell&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;volumet :standard_name = &quot;cell_volume?;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;float votemper(deptht, y, x) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;votemper:units = &quot;degC&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;votemper:long_name = &quot;Temperature&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;votemper:coordinates = &quot;deptht lat lon&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;votemper:cell_measures = &quot;volume: volumet&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;votemper:standard_name = &quot;sea_water_potential_temperature&quot; ;
-<br />
-<br /><br />My query/suggestion is about the need for a 3-D array for the thickness
-<br />
-of the partial cell. The information on the thickness of the partial
-<br />
-cell is essentially 2-D and the &quot;volumet&quot; array in the example above is
-<br />
-almost doubling the size of the file. It would be entirely possible to
-<br />
-fully define grid cell volumes using level thickness, grid cell area and
-<br />
-information on the level and thickness of the partial cell. In the below
-<br />
-example the &quot;deptht_bounds&quot; is used to find level thickness while the
-<br />
-grid cell area is given in the 2-D array &quot;areat&quot;. These two can be used
-<br />
-for volume of every cell except the partial cells. To deal with the
-<br />
-volume of the partial cells a new cell_measure of
-<br />
-&quot;partial_cell_thickness&quot; could be used. In such a case the thickness and
-<br />
-level of the partial cell can be specifed in a single number. For
-<br />
-example of if the 24th level was the partial cell and it was 0.4 of the
-<br />
-original thickness a &quot;partial_cell_thickness&quot; of 23.4 would specify the
-<br />
-levels and thickness, i.e 23 full levels and 0.4 of the 24th. The
-<br />
-thickness of the partial cell being 0.4 of the thickness determined from
-<br />
-the 24th levels of &quot;deptht_bounds&quot; which would act as a refference. This
-<br />
-in combination with the &quot;areat&quot; array would describe the cell volumes.
-<br />
-<br />e.g. 
-<br />
-<br />dimensions:
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;deptht = 301 ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;y = 149 ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;x = 182 ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;ndepth_bounds = 2 ;
-<br />
-variables:
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;float deptht(deptht) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;deptht: long_name = ?depth? ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;deptht: units = ?m? ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;deptht: bounds = ?deptht_bounds&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;float lon(x,y) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon: long_name = ?longitude? ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon: units = ?degrees_east? ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;float lat(x,y) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat: long_name = ?latitude? ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat: units = ?degrees_north? ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;double deptht_bounds(deptht, ndepth_bounds) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;deptht_bounds:units = &quot;m&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;deptht_bounds:long_name = &quot;depth boundaries of cells&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;double areat(y, x) ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;areat:units = &quot;m2&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;areat:long_name = &quot;area of grid cell&quot; ;
-<br />
-<br /><br />I'm aware that this would require some extra processing to calculate a
-<br />
-3-D array of cell volumes whereas keeping the 3-D volume array is
-<br />
-foolproof, but the calculation is simple and it would greatly reduce the
-<br />
-over head if many files were stored at higher vertical resolutions as in
-<br />
-the above example.
-<br />
-<br />I'd be keen to hear people opinions on this or possible alternatives if
-<br />
-I've missed something about possible ways to deal with this that are
-<br />
-already used.
-<br />
-<br />Regards
-<br />
-<br /><br /><pre>
--- 
-Dan Bernie
-HadGEM Physical Processes and Coupling Scientist
-Met Office Hadley Centre, FitzRoy Road, Exeter, EX1 3PB
-Tel: +44 (0)1392 884862   Fax: +44 (0)1392 885681
-E-mail: dan.bernie at metoffice.gov.uk   <a href="http://www.metoffice.gov.uk">http://www.metoffice.gov.uk</a>
--------------- next part --------------
-An HTML attachment was scrubbed...
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20080129/b0ddfa50/attachment-0002.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20080129/b0ddfa50/attachment-0002.html</a>&gt;
-</pre>
-<span id="received"><dfn>Received on</dfn> Tue Jan 29 2008 - 02:19:47 GMT</span>
+Dear Paco
+<br />
+<br />Thank you for this detailed description.
+<br />
+<br />I think realization is identical in purpose with ensemble_member_number, isn't
+<br />
+it. From this description it seems like you also want to describe the model or
+<br />
+its version, don't you? This will be some string, presumably. If it is the
+<br />
+*combination* of model identity and ensemble member which characterises the
+<br />
+data, perhaps this is another case for an &quot;index&quot; axis with these two parts of
+<br />
+the description as two auxiliary coordinate variables of that axis.
+<br />
+<br />Maybe people who have thought about discovery metadata (not me) might have
+<br />
+views on this.
+<br />
+<br />Best wishes
+<br />
+<br />Jonathan
+<br />
+<br /><em class="quotelev1">&gt; For instance, imagine a multi-model forecast (for the medium-range, 
+</em><br />
+<em class="quotelev1">&gt; monthly, seasonal or interannual time scales) built up from forecasts 
+</em><br />
+<em class="quotelev1">&gt; issued by several GCMs or by a number of versions of a single GCM. Each 
+</em><br />
+<em class="quotelev1">&gt; GCM or model version is supposed to have the possibility of issuing an 
+</em><br />
+<em class="quotelev1">&gt; ensemble of forecasts by perturbing the initial conditions. The members 
+</em><br />
+<em class="quotelev1">&gt; of such an multi-forecast system ensemble forecast can not all be dealt 
+</em><br />
+<em class="quotelev1">&gt; with in a similar way. For a given GCM or single-model version, the 
+</em><br />
+<em class="quotelev1">&gt; ensemble members might have similar statistical properties (e.g., in an 
+</em><br />
+<em class="quotelev1">&gt; initial-condition perturbation ensemble setting), but those ensemble 
+</em><br />
+<em class="quotelev1">&gt; members will likely have different statistical properties when compared 
+</em><br />
+<em class="quotelev1">&gt; to those from another GCM or single-model version, which are also part 
+</em><br />
+<em class="quotelev1">&gt; of the same multi-forecast system ensemble forecast. In my opinion, it 
+</em><br />
+<em class="quotelev1">&gt; is impossible to identify to which forecast system each member belongs 
+</em><br />
+<em class="quotelev1">&gt; to when only using the realization variable.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; The example above is only one among a set of multi-forecast system 
+</em><br />
+<em class="quotelev1">&gt; predictions currently generated operationally (eg, the EUROSIP 
+</em><br />
+<em class="quotelev1">&gt; multi-model seasonal forecasts) or under development (TIGGE medium-range 
+</em><br />
+<em class="quotelev1">&gt; forecasts or the ENSEMBLES seasonal-to-decadal predictions). The 
+</em><br />
+<em class="quotelev1">&gt; closeness to the operational activity prevents some of these communities 
+</em><br />
+<em class="quotelev1">&gt; from using NetCDF because of the lack of adequate standards (and use 
+</em><br />
+<em class="quotelev1">&gt; GRIB1 or GRIB2 instead). We believe that the variables 
+</em><br />
+<em class="quotelev1">&gt; experiment_identifier (along with its auxiliary variables) and 
+</em><br />
+<em class="quotelev1">&gt; ensemble_member_number can handle this problem.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Best regards,
+</em><br />
+<em class="quotelev1">&gt; Paco
+</em><br />
+<span id="received"><dfn>Received on</dfn> Wed Oct 18 2006 - 09:12:02 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -256,8 +159,8 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1168">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1169.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] hydrosphere"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1167.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] standard name proposal for CCMVal - burden"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1169.html" title="Next message in the list">Francisco Doblas-Reyes: "[CF-metadata] CF and multi-forecast system ensemble data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1167.html" title="Previous message in the list">Francisco Doblas-Reyes: "[CF-metadata] CF and multi-forecast system ensemble data"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -269,7 +172,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:01 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1167.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1169.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

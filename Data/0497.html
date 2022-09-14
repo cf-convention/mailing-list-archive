@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Need help writing point netCDF 3 dataset from Mark Ohrenschall on 2006-11-27 (mailing-list-archive)</title>
-<meta name="Author" content="Mark Ohrenschall (Mark.A.Ohrenschall)" />
-<meta name="Subject" content="[CF-metadata] Need help writing point netCDF 3 dataset" />
-<meta name="Date" content="2006-11-27" />
+<title>[CF-metadata] Using 'cfchecks' python script from Stephens, A on 2004-11-01 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Stephens, A (A.Stephens)" />
+<meta name="Subject" content="[CF-metadata] Using 'cfchecks' python script" />
+<meta name="Date" content="2004-11-01" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0496.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0498.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Need help writing point netCDF 3 dataset</h1>
-<!-- received="Mon Nov 27 10:52:27 2006" -->
-<!-- isoreceived="20061127105227" -->
-<!-- sent="Mon, 27 Nov 2006 10:52:27 -0700" -->
-<!-- isosent="20061127175227" -->
-<!-- name="Mark Ohrenschall" -->
-<!-- email="Mark.A.Ohrenschall" -->
-<!-- subject="[CF-metadata] Need help writing point netCDF 3 dataset" -->
-<!-- id="456B25DB.4080402_at_noaa.gov" -->
+<a style="text-decoration:none" href="./0496.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0498.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Using 'cfchecks' python script</h1>
+<!-- received="Mon Nov  1 07:01:11 2004" -->
+<!-- isoreceived="20041101070111" -->
+<!-- sent="Mon, 1 Nov 2004 14:01:11 -0000 " -->
+<!-- isosent="20041101140111" -->
+<!-- name="Stephens, A" -->
+<!-- email="A.Stephens" -->
+<!-- subject="[CF-metadata] Using 'cfchecks' python script" -->
+<!-- id="49F73BEED865D3119F8700902773C9F904C6B96B_at_exchange09.rl.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0498.html" accesskey="d" title="Bert Jagers: &quot;[CF-metadata] curvilinear cartesian coordinates case&quot;">Next message</a> ]
-[ <a href="./0496.html" title="Jonathan Gregory: &quot;[CF-metadata] curvilinear cartesian coordinates case&quot;">Previous message</a> ]
+[ <a href="./0498.html" accesskey="d" title="Rich Signell: &quot;[CF-metadata] Conventions for Unstructured Grid Data&quot;">Next message</a> ]
+[ <a href="./0496.html" title="Jonathan Gregory: &quot;[CF-metadata] new standard names to be added&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0500.html" accesskey="t" title="Simon Wood: &quot;[CF-metadata] Need help writing point netCDF 3 dataset&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,128 +68,68 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Mark Ohrenschall &lt;<a href="mailto:Mark.A.Ohrenschall?Subject=Re%3A%20%5BCF-metadata%5D%20Need%20help%20writing%20point%20netCDF%203%20dataset">Mark.A.Ohrenschall</a>&gt;
+<dfn>From</dfn>: Stephens, A &lt;<a href="mailto:A.Stephens?Subject=Re%3A%20%5BCF-metadata%5D%20Using%20'cfchecks'%20python%20script">A.Stephens</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 27 Nov 2006 10:52:27 -0700</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 1 Nov 2004 14:01:11 -0000 </span><br />
 </address>
 <br />
-Hi folks,
+Dear Gary,
 <br />
-<br />I'm writing a point netCDF 3 dataset which I've had no luck in getting 
+<br />Here at the BADC we run the CF-Checker so we have it installed on a number
 <br />
-either the IDV or netCDF (2.2) Tools to open (it does an NCDump but does 
+of machines.  
 <br />
-nothing under the PointObs tab). It's essentially an XYZT dataset; I've 
+<br />I did the installations quite a while back but there are a few things I
 <br />
-included its CDL below. Can anyone tell me what I'm doing wrong, what 
+know. Firstly, it requires the following packages installed in advance:
 <br />
-I'm not doing that I need to do, and (or) send me an example point 
+<br />- CDAT
 <br />
-netCDF dataset that can be opened by the IDV and netCDF Tools?
+- UDUNITS
 <br />
-<br />Thanks *--* Mark
+<br />Ros Hatcher of the Hadley Centre (UK Met Office) wrote the CF-checker and I
 <br />
-<br />netcdf D:/test.nc {
+imagine you might have got the source from her.
 <br />
-&nbsp;dimensions:
+<br />Can you let me know what you have managed so far and then we can work it out
 <br />
-&nbsp;&nbsp;&nbsp;ni = UNLIMITED;   // (99 currently)   // (has coord.var)
+from there. What Operating System are you using?
 <br />
-&nbsp;variables:
+<br />Kind regards,
 <br />
-&nbsp;&nbsp;&nbsp;int ni(ni=99);
+<br />Ag Stephens
 <br />
-&nbsp;&nbsp;&nbsp;short sst(ni=99);
+<br />-----Original Message-----
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:standard_name = &quot;sea_surface_temperature aerosol-corrected&quot;;
+From: cf-metadata-bounces at cgd.ucar.edu
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:long_name = &quot;Aerosol Corrected SST&quot;;
+[mailto:cf-metadata-bounces at cgd.ucar.edu] On Behalf Of Gary Strand
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:units = &quot;degC&quot;;
+Sent: 29 October 2004 17:16
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:scale_factor = 1s; // short
+To: cf-metadata at cgd.ucar.edu
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:valid_range = -20s, 350s; // short
+Subject: [CF-metadata] Using 'cfchecks' python script
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:coordinates = &quot;latitude longitude obstime&quot;;
+<br /><br />Does anyone use the non-WWW-based 'cfchecks' script? I've been 
 <br />
-&nbsp;&nbsp;&nbsp;short latitude(ni=99);
+attempting to play around with it and just can't get it to work for me.
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:standard_name = &quot;latitude&quot;;
+<br />Any ideas/suggestions would be most welcome!
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:long_name = &quot;Latitude&quot;;
+<br />Gary Strand
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:units = &quot;degrees_north&quot;;
+strandwg at ucar.edu
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:scale_factor = 2s; // short
+<br />_______________________________________________
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:valid_range = -9000s, 9000s; // short
+CF-metadata mailing list
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:_CoordinateAxisType = &quot;Lat&quot;;
+CF-metadata at cgd.ucar.edu
 <br />
-&nbsp;&nbsp;&nbsp;int obstime(ni=99);
+<a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:standard_name = &quot;time&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:long_name = &quot;Date and Time of Observation&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:units = &quot;seconds since 1970-01-01 00:00:00 GMT&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:_CoordinateAxisType = &quot;Time&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;short longitude(ni=99);
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:standard_name = &quot;longitude&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:long_name = &quot;Longitude&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:units = &quot;degrees_east&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:scale_factor = 2s; // short
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:valid_range = -18000s, 17999s; // short
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:_CoordinateAxisType = &quot;Lon&quot;;
-<br />
-<br />&nbsp;:Conventions = &quot;CF-1.0, Unidata Observation Dataset v1.0&quot;;
-<br />
-&nbsp;:title = &quot;Sea Surface Temperatures calculated at points based on satellite observations.&quot;;
-<br />
-&nbsp;:institution = &quot;NOAA National Environmental Satellite, Data and Information Service&quot;;
-<br />
-&nbsp;:source = &quot;NOAA NESDIS Office of Satellite Data Processing and Distribution&quot;;
-<br />
-&nbsp;:history = &quot;2006-11-24 17:14:31 -0700 Translated from test into netCDF at NGDC&quot;;
-<br />
-&nbsp;:references = &quot;<a href="http://www2.ncdc.noaa.gov/docs/klm/html/c9/sec91-2.htm">http://www2.ncdc.noaa.gov/docs/klm/html/c9/sec91-2.htm</a>&quot;;
-<br />
-&nbsp;:comment = &quot;Miscellaneous information about the data or methods used to produce it.&quot;;
-<br />
-&nbsp;:cdm_datatype = &quot;Point&quot;;
-<br />
-&nbsp;:observationDimension = &quot;ni&quot;;
-<br />
-&nbsp;:geospatial_lat_max = 90; // int
-<br />
-&nbsp;:geospatial_lat_min = -90; // int
-<br />
-&nbsp;:geospatial_lon_max = 180; // int
-<br />
-&nbsp;:geospatial_lon_min = -180; // int
-<br />
-&nbsp;:time_coverage_start = &quot;2000-01-01 00:00:00 UTC&quot;;
-<br />
-&nbsp;:time_coverage_end = &quot;2007-01-01 00:00:00 UTC&quot;;
-<br />
-}
-<br />
-<br /><br />-------------- next part --------------
-<br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20061127/2baa17bb/attachment-0002.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20061127/2baa17bb/attachment-0002.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Mon Nov 27 2006 - 10:52:27 GMT</span>
+<span id="received"><dfn>Received on</dfn> Mon Nov 01 2004 - 07:01:11 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -199,12 +137,9 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start497">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0498.html" title="Next message in the list">Bert Jagers: "[CF-metadata] curvilinear cartesian coordinates case"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0496.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] curvilinear cartesian coordinates case"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0498.html" title="Next message in the list">Rich Signell: "[CF-metadata] Conventions for Unstructured Grid Data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0496.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] new standard names to be added"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0500.html" title="Next message in this discussion thread">Simon Wood: "[CF-metadata] Need help writing point netCDF 3 dataset"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0500.html" title="Message sent in reply to this message">Simon Wood: "[CF-metadata] Need help writing point netCDF 3 dataset"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -215,7 +150,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:51 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0496.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0498.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

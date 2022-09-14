@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] standard names for aerosols and chemistry from Christiane Textor on 2006-09-11 (mailing-list-archive)</title>
-<meta name="Author" content="Christiane Textor (christiane.textor)" />
-<meta name="Subject" content="[CF-metadata] standard names for aerosols and chemistry" />
-<meta name="Date" content="2006-09-11" />
+<title>[CF-metadata] size-one axes from Brian Eaton on 2003-07-16 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Brian Eaton (eaton)" />
+<meta name="Subject" content="[CF-metadata] size-one axes" />
+<meta name="Date" content="2003-07-16" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0204.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0206.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard names for aerosols and chemistry</h1>
-<!-- received="Mon Sep 11 06:15:24 2006" -->
-<!-- isoreceived="20060911051524" -->
-<!-- sent="Mon, 11 Sep 2006 14:15:24 +0200" -->
-<!-- isosent="20060911121524" -->
-<!-- name="Christiane Textor" -->
-<!-- email="christiane.textor" -->
-<!-- subject="[CF-metadata] standard names for aerosols and chemistry" -->
-<!-- id="4505535C.3070301_at_aero.jussieu.fr" -->
+<a style="text-decoration:none" href="./0204.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0206.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] size-one axes</h1>
+<!-- received="Wed Jul 16 10:01:06 2003" -->
+<!-- isoreceived="20030716090106" -->
+<!-- sent="Wed, 16 Jul 2003 10:01:06 -0600" -->
+<!-- isosent="20030716160106" -->
+<!-- name="Brian Eaton" -->
+<!-- email="eaton" -->
+<!-- subject="[CF-metadata] size-one axes" -->
+<!-- id="20030716160106.GC25151_at_ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="s50540fe.076_at_wpo.nerc.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0206.html" accesskey="d" title="Roy Lowry: &quot;[CF-metadata] standard names for aerosols and chemistry&quot;">Next message</a> ]
-[ <a href="./0204.html" title="Roy Lowry: &quot;[CF-metadata] standard names for aerosols and chemistry&quot;">Previous message</a> ]
-[ <a href="./0204.html" title="Roy Lowry: &quot;[CF-metadata] standard names for aerosols and chemistry&quot;">In reply to</a> ]
+[ <a href="./0206.html" accesskey="d" title="Brian Eaton: &quot;[CF-metadata] Example of forecast data&quot;">Next message</a> ]
+[ <a href="./0204.html" title="Stephens, A: &quot;[CF-metadata] size-one axes&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,161 +68,80 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Christiane Textor &lt;<a href="mailto:christiane.textor?Subject=Re%3A%20%5BCF-metadata%5D%20standard%20names%20for%20aerosols%20and%20chemistry">christiane.textor</a>&gt;
+<dfn>From</dfn>: Brian Eaton &lt;<a href="mailto:eaton?Subject=Re%3A%20%5BCF-metadata%5D%20size-one%20axes">eaton</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 11 Sep 2006 14:15:24 +0200</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 16 Jul 2003 10:01:06 -0600</span><br />
 </address>
 <br />
-Hello Roy,
+Hi Jonathan,
 <br />
-<br />Thank you very much for your comment! It is the only one I got so far 
+<br />On Fri, Jul 04, 2003 at 05:36:19PM +0100, Jonathan Gregory wrote:
 <br />
-during the three weeks since submission. As you say a little more work 
-<br />
-is needed and I would appreciate some more input (as my colleagues and I 
-<br />
-did already quite a bit of work). I would very much appreciate more 
-<br />
-comments on the proposed aerosol and chemistry names, especially as they 
-<br />
-will be used in their current form within the HTAP model intercomparison 
-<br />
-that is starting these days.
-<br />
-<br />Concerning you comments:
-<br />
-<br />What is wrong with surface_emission_flux?
-<br />
-<br />The state of aerosols (liquid or dry) is dependent on their composition 
-<br />
-and the ambient humidity. The proposed aerosol terms state clearly if 
-<br />
-they relate to dry aerosol, or to which humidity they refer
-<br />
-(e.g.  mass_fraction_of_pm10_aerosol_at_50_percent_relative_humidity_in_air
-<br />
-mass_fraction_ of_dust_dry_aerosol_in_air)
-<br />
-<br />Do you have any suggestions for the mercury variables?
-<br />
-<br />Best regards,
-<br />
-Christiane
-<br />
-<br />Roy Lowry a ?crit :
-<br />
-<em class="quotelev1">&gt; Hello Christine,
+<em class="quotelev1">&gt; My proposal is that, for coordinate variables having a dimension of one,
+</em><br />
+<em class="quotelev1">&gt; except for the basic xyzt (the ones which might have an axis attribute), it
+</em><br />
+<em class="quotelev1">&gt; should be permissible to name the coordinate variable in the coordinates
+</em><br />
+<em class="quotelev1">&gt; attribute *without* the dimension being a dimension of the data variable.
+</em><br />
+<em class="quotelev1">&gt; That would allow many of such size-one coordinate variables to be associated
+</em><br />
+<em class="quotelev1">&gt; with a data variable without insisting that it has many dimensions of size
+</em><br />
+<em class="quotelev1">&gt; one. Since such dimensions do not affect the ordering of the elements of the
+</em><br />
+<em class="quotelev1">&gt; array, they are not really needed as dimensions.
 </em><br />
 <em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; My main comment is that your work is a first step taking CF into a new area.  I therefore feel definitions are especially important.  
+<em class="quotelev1">&gt; The reason for excluding xyzt is that COARDS applications would expect the
 </em><br />
-<br />Whilst there are some really good definitions in your list (e.g. NOy) 
+<em class="quotelev1">&gt; data variable to have these dimensions, even if they do have size one.
+</em><br />
+<br />If we associate size one axes with data variables via the coordinates
 <br />
-there are other areas where more
+attribute then it makes sense to allow them to be scalars which are easier
 <br />
-<br />information would be extermely helpful The ones that hit me straight 
+to implement than 1D arrays.  The dimension is no longer needed as the
 <br />
-away are mercury_0, mercury_2,
+thing which associates the coordinate with the data variable.
 <br />
-<br />'surface_emission_mass_flux', the aerosol terms (does this include solid 
+<br />Why exclude xyzt when those are the most common uses of size one axes?  The
 <br />
-particulates or just liquid phase?),
+reason for introducing a &quot;convenience&quot; feature is to encourage data writers
 <br />
-<br />'pm10' and 'pm2p5', but there may be others.
+to provide this metadata.  If we only make it easier to add a small
 <br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; A little more work on this area would I think greatly enhance a good piece of work.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Cheers, Roy
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev4">&gt;&gt;&gt;&gt;Christiane Textor &lt;christiane.textor at aero.jussieu.fr&gt; 08/18/06 5:53 PM &gt;&gt;&gt;
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Dear all,
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I would like to propose you new_standard names for aerosols and chemical 
-</em><br />
-<em class="quotelev1">&gt; variables. These names will be used in the model intercomparisons in the 
-</em><br />
-<em class="quotelev1">&gt; framework of the Task Force on Hemispheric Transport of Air Pollution
-</em><br />
-<em class="quotelev1">&gt; (<a href="http://www.htap.org/">http://www.htap.org/</a>, <a href="http://aqm.jrc.it/HTAP/">http://aqm.jrc.it/HTAP/</a>) and the European 
-</em><br />
-<em class="quotelev1">&gt; Integrated Project GEMS (<a href="http://www.ecmwf.int/research/EU_projects/GEMS/">http://www.ecmwf.int/research/EU_projects/GEMS/</a>).
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; The proposed names have been extensively discussed by a 'virtual 
-</em><br />
-<em class="quotelev1">&gt; workgroup' activity through a wiki page
-</em><br />
-<em class="quotelev1">&gt; <a href="http://wiki.esipfed.org/index.php/Air_Quality/Chemistry_Naming_Conventions">http://wiki.esipfed.org/index.php/Air_Quality/Chemistry_Naming_Conventions</a>
-</em><br />
-<em class="quotelev1">&gt; with the aid of some CF experts to whom we are very grateful for their 
-</em><br />
-<em class="quotelev1">&gt; support.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Many other people who contributed to discussion:
-</em><br />
-<em class="quotelev1">&gt; Olivier Boucher, Frank Dentener, Rudy Husar, Jonathan Gregory, 
-</em><br />
-<em class="quotelev1">&gt; KyleHalliday, BryanLawrence, Vincent-Henri Peuch, Sebastian Rast, Martin 
-</em><br />
-<em class="quotelev1">&gt; Schultz, Michael Schulz, Ranjeet Sokhi, David Stevenson, Karl Taylor, 
-</em><br />
-<em class="quotelev1">&gt; Christiane Textor, Peter van Velthoven.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Please find attached a file with the proposed standard names.
-</em><br />
-<em class="quotelev1">&gt; More information on how these names are constructed can be found at 
-</em><br />
-<em class="quotelev1">&gt; <a href="http://wiki.esipfed.org/index.php/CF_Standard_Names_-_Future_Atmospheric_Chemistry_and_Aerosol_Terms">http://wiki.esipfed.org/index.php/CF_Standard_Names_-_Future_Atmospheric_Chemistry_and_Aerosol_Terms</a>
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I am looking forward to your comments.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Best regards,
-</em><br />
-<em class="quotelev1">&gt; Christiane Textor
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; (on vacation until September 11)
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<br /><pre>
--- 
-Christiane Textor
-GMES France Atmosph?re - GEMS France
-Service d'A?ronomie INSU CNRS, Tour 46, RDC # 2
-Universit? Pierre et Marie Curie, Boite 102
-4 place Jussieu
-75252 Paris C?dex 05
-France
-Tel: ++33 1.44.27.21.82
-Fax: ++33 1.44.27.21.81
-Email: christiane.textor at aero.jussieu.fr
-</pre>
-<span id="received"><dfn>Received on</dfn> Mon Sep 11 2006 - 06:15:24 BST</span>
+subclass of the metadata of interest, then I don't think the additional
+<br />
+complexity of a new feature is justifiable.  I don't see that COARDS
+<br />
+compliance is an issue.  We're trying to make it easy for people to add
+<br />
+metadata that they might not otherwise add because including size one
+<br />
+dimensions in data variables is somewhat confusing, and more work than
+<br />
+associating a scalar via the coordinates attribute.  Ag observed that
+<br />
+people rarely use size one axes and instead generally encode this
+<br />
+information in attributes and comments, and that when they do provide size
+<br />
+one axes they don't associate them with the data variables by adding the
+<br />
+appropriate size one dimensions.  This reinforces my view that the current
+<br />
+method of using size one axes is too confusing to be widely adopted.
+<br />
+<br />I prefer using the existing coordinates attribute to introducing a new
+<br />
+&quot;size-one-coordinates&quot; attribute.
+<br />
+<br />Brian
+<br />
+<span id="received"><dfn>Received on</dfn> Wed Jul 16 2003 - 10:01:06 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -232,9 +149,8 @@ Email: christiane.textor at aero.jussieu.fr
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start205">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0206.html" title="Next message in the list">Roy Lowry: "[CF-metadata] standard names for aerosols and chemistry"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0204.html" title="Previous message in the list">Roy Lowry: "[CF-metadata] standard names for aerosols and chemistry"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0204.html" title="Message to which this message replies">Roy Lowry: "[CF-metadata] standard names for aerosols and chemistry"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0206.html" title="Next message in the list">Brian Eaton: "[CF-metadata] Example of forecast data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0204.html" title="Previous message in the list">Stephens, A: "[CF-metadata] size-one axes"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -246,7 +162,7 @@ Email: christiane.textor at aero.jussieu.fr
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:46 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0204.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0206.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

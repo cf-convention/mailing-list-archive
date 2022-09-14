@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] new standard names request from Lowry, Roy K. on 2017-03-01 (mailing-list-archive)</title>
-<meta name="Author" content="Lowry, Roy K. (rkl)" />
-<meta name="Subject" content="[CF-metadata] new standard names request" />
-<meta name="Date" content="2017-03-01" />
+<title>[CF-metadata] original_ensemble_size from Karl Taylor on 2015-07-24 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Karl Taylor (taylor13)" />
+<meta name="Subject" content="[CF-metadata] original_ensemble_size" />
+<meta name="Date" content="2015-07-24" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./8059.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8061.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new standard names request</h1>
-<!-- received="Wed Mar  1 01:53:35 2017" -->
-<!-- isoreceived="20170301015335" -->
-<!-- sent="Wed, 1 Mar 2017 08:53:35 +0000" -->
-<!-- isosent="20170301085335" -->
-<!-- name="Lowry, Roy K." -->
-<!-- email="rkl" -->
-<!-- subject="[CF-metadata] new standard names request" -->
-<!-- id="VI1PR0601MB2623CB3B4E19E5F6173410C899290_at_VI1PR0601MB2623.eurprd06.prod.outlook.com" -->
+<a style="text-decoration:none" href="./8059.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8061.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] original_ensemble_size</h1>
+<!-- received="Thu Jul 23 18:42:03 2015" -->
+<!-- isoreceived="20150723174203" -->
+<!-- sent="Thu, 23 Jul 2015 17:42:03 -0700" -->
+<!-- isosent="20150724004203" -->
+<!-- name="Karl Taylor" -->
+<!-- email="taylor13" -->
+<!-- subject="[CF-metadata] original_ensemble_size" -->
+<!-- id="55B189DB.7000701_at_llnl.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="CABkLv=B3Ni6E3EMqC=c9eQGfQ-nMy-itFX+uCPhFfMbwKw3L3w_at_mail.gmail.com" -->
+<!-- inreplyto="55B0D9F4.6020605_at_cicsnc.org" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./8061.html" accesskey="d" title="Durack, Paul J.: &quot;[CF-metadata] New standard names for OMIP biogeochemistry and chemistry&quot;">Next message</a> ]
-[ <a href="./8059.html" title="Allen Jordan - NOAA Affiliate: &quot;[CF-metadata] new standard names request&quot;">Previous message</a> ]
-[ <a href="./8059.html" title="Allen Jordan - NOAA Affiliate: &quot;[CF-metadata] new standard names request&quot;">In reply to</a> ]
+[ <a href="./8061.html" accesskey="d" title="John Graybeal: &quot;[CF-metadata] original_ensemble_size&quot;">Next message</a> ]
+[ <a href="./8059.html" title="Jim Biard: &quot;[CF-metadata] original_ensemble_size&quot;">Previous message</a> ]
+[ <a href="./8059.html" title="Jim Biard: &quot;[CF-metadata] original_ensemble_size&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./8174.html" accesskey="t" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] new standard names request&quot;">Next in thread</a> ]
+[ <a href="./8067.html" accesskey="t" title="Hedley, Mark: &quot;[CF-metadata] original_ensemble_size&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,150 +72,234 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Lowry, Roy K. &lt;<a href="mailto:rkl?Subject=Re%3A%20%5BCF-metadata%5D%20new%20standard%20names%20request">rkl</a>&gt;
+<dfn>From</dfn>: Karl Taylor &lt;<a href="mailto:taylor13?Subject=Re%3A%20%5BCF-metadata%5D%20original_ensemble_size">taylor13</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 1 Mar 2017 08:53:35 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 23 Jul 2015 17:42:03 -0700</span><br />
 </address>
 <br />
-Forgot to set 'reply all'.....
+Hi all,
 <br />
-<br /><br />Hi Allen,
+<br />This addresses the issue of how to associate an ensemble size with a 
 <br />
-<br /><br />As I tried to explain in my last message the way things work in CF is that the Standard Name is associated with a CANONICAL unit. This is an expression of the dimensions of the measurement and NOT the actual unit of measure, which is stored in the NetCDF. For anything in ppt, ppm, ppb etc. the Canonical unit used is 'dimensionless'.
+variable.  It also suggests an alternate way of proceeding that is more 
 <br />
-<br /><br />Cheers, Roy.
+general and will allow us to record, for example, which models were 
 <br />
-<br /><br /><br /><br />Please note that I partially retired on 01/11/2015. I am now only working 7.5 hours a week and can only guarantee e-mail response on Wednesdays, my day in the office. All vocabulary queries should be sent to enquiries at bodc.ac.uk. Please also use this e-mail if your requirement is urgent.
+included in a multi-model mean.
 <br />
-<br /><br />________________________________
+<br />First to consider Jim's suggestion:
 <br />
-From: Allen Jordan - NOAA Affiliate &lt;allen.jordan at noaa.gov&gt;
+I agree with Jim that you might want to indicate which member (or 
 <br />
-Sent: 28 February 2017 22:40
+members) of an ensemble were represented by the variable so you might 
 <br />
-To: Lowry, Roy K.
+want to include a coordinate variable of &quot;realization&quot;.  You could then 
 <br />
-Cc: Steve Emmerson; CF Metadata Mail List
+also define an *attribute* of that coordinate as &quot;ensemble_size&quot; which 
 <br />
-Subject: Re: [CF-metadata] new standard names request
+would record the size, but currently that approach is not standardized 
 <br />
-<br />Hi Roy and Steve.  Your modified names will work fine.  I would prefer units of &quot;ppm&quot; and &quot;ppb&quot; as they match our historical naming.  I'm very new to the CF Conventions, please bear with me.  Here is the modified request for new fields:
+(but of course is permitted) by our conventions.
 <br />
-<br />name: volume_mixing_ratio_of_water_vapor_in_air
+<br />Now Mark's suggestion:
 <br />
-description: The atmospheric water vapor mixing ratio in parts per million by volume.
+Mark's alternative approach to make &quot;ensemble_size&quot; a coordinate 
 <br />
-units: ppm
+variable (presumably in addition to possibly including &quot;realization&quot;) 
 <br />
-<br />name: volume_mixing_ratio_of_ozone_in_air
+would also relate it to the variable of interest, but this would be a 
 <br />
-description: The atmospheric ozone mixing ratio in parts per billion by volume.
+bit unconventional since a variable would normally be considered to be a 
 <br />
-units: ppb
+*function* of its (independent) coordinates. I don't think 
 <br />
-<br />I'll be sure to include the units as attributes of each variable.
+T(x,realization,ensemble_size)  is a proper function, since T depends on 
 <br />
-<br />Thanks.
+x and realization, but should be independent of ensemble size in most cases.
 <br />
-- Allen
+<br />Jonathan's suggestion:
 <br />
-<br />On Tue, Feb 28, 2017 at 2:40 AM, Lowry, Roy K. &lt;rkl at bodc.ac.uk&lt;mailto:rkl at bodc.ac.uk&gt;&gt; wrote:
+I think Jonathan suggested including ensemble_size in a cell_methods 
 <br />
-<br /><br />Hi Steve,
+attribute.  For example
 <br />
-<br /><br />I think there is a CF precedent would pacify you a little here, which is to have Standard Names of the form 'volume_mixing_ratio' with canonical units of dimensionless such as volume_mixing_ratio_of_oxygen_at_stp_in_sea_water. I would suggest following this practice in this case with:
+<br />dimensions:
 <br />
-<br /><br />volume_mixing_ratio_of_water_vapor_in_air
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon=72
 <br />
-<br />volume_mixing_ratio_of_ozone_in_air
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat=96
 <br />
-<br /><br />A note to Allen is that your actual units including scaling factor are explicity included in CF NetCDF as a parameter attribute.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e_size=5
 <br />
-<br /><br />Cheers, Roy.
+<br />variables:
 <br />
-<br />Please note that I partially retired on 01/11/2015. I am now only working 7.5 hours a week and can only guarantee e-mail response on Wednesdays, my day in the office. All vocabulary queries should be sent to enquiries at bodc.ac.uk&lt;mailto:enquiries at bodc.ac.uk&gt;. Please also use this e-mail if your requirement is urgent.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float precip(lon,lat)
 <br />
-<br /><br />________________________________
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;precip: cell_methods=&quot;realization: point (sample_size: e_size)
 <br />
-From: CF-metadata &lt;cf-metadata-bounces at cgd.ucar.edu&lt;mailto:cf-metadata-bounces at cgd.ucar.edu&gt;&gt; on behalf of Steve Emmerson &lt;emmerson at ucar.edu&lt;mailto:emmerson at ucar.edu&gt;&gt;
+<br />where because &quot;realization&quot; is a standard name, it does not need to be 
 <br />
-Sent: 27 February 2017 22:04
+explicitly declared with a &quot;coordinates&quot; attribute.  Jonathan originally 
 <br />
-To: Allen Jordan - NOAA Affiliate
+used &quot;dimension&quot; rather than &quot;sample_size&quot;, but I prefer 
 <br />
-Cc: CF Metadata Mail List
+&quot;sample_size&quot;.   If this approach were followed, then CF would need to 
 <br />
-Subject: Re: [CF-metadata] new standard names request
+be modified so that &quot;sample_size&quot; (along with &quot;interval&quot;) was designated 
 <br />
-<br />BEGIN RANT
+to be one of the options for providing &quot;standardized&quot; extra information 
 <br />
-<br />This is the kind of stuff that I don't like: putting additional (and unnecessary) semantics into the unit specification. &quot;ppm&quot; is bad enough (1e-6 would be better) but *volume*!
+in the cell_methods attribute.  Note that the variable &quot;pointed to&quot; by 
 <br />
-<br />The attributes of a physical quantity are attributes of the quantity itself -- *not* its unit. If a physical quantity is atmospheric mixing ratio by volume, then name it as such and leave the unit alone. The alternative is to pollute the unit namespace with &quot;volume&quot;, &quot;mass&quot;, &quot;carbon&quot;, and whatever else people think up -- leading to a unending additions to the units database.
+original_domain would not necessarily be a coordinate variable; it need 
 <br />
-<br />Call the quantity &quot;atmospheric water vapor mixing ratio by volume&quot; and specify the unit as &quot;1e-6&quot; (or &quot;ppm&quot; if you must).
+not be monotonic and it could be a character variable (i.e., a list).
 <br />
-<br />Lest you think I'm alone in this, see sections 7.4 and 7.5 of &lt;<a href="https://www.nist.gov/pml/nist-guide-si-chapter-7-rules-and-style-conventions-expressing-values-quantities">https://www.nist.gov/pml/nist-guide-si-chapter-7-rules-and-style-conventions-expressing-values-quantities</a>&gt;.
+<br />Alternative &quot;new approach&quot;
 <br />
-[<a href="https://www.nist.gov/sites/default/files/images/pml/pubs/sp811/bannersm_1.jpg">https://www.nist.gov/sites/default/files/images/pml/pubs/sp811/bannersm_1.jpg</a>]&lt;<a href="https://www.nist.gov/pml/nist-guide-si-chapter-7-rules-and-style-conventions-expressing-values-quantities">https://www.nist.gov/pml/nist-guide-si-chapter-7-rules-and-style-conventions-expressing-values-quantities</a>&gt;
+<br />An approach that is a slight variant on Jonathan's and would allow even 
 <br />
-<br />NIST Guide to the SI, Chapter 7: Rules and Style ...&lt;<a href="https://www.nist.gov/pml/nist-guide-si-chapter-7-rules-and-style-conventions-expressing-values-quantities">https://www.nist.gov/pml/nist-guide-si-chapter-7-rules-and-style-conventions-expressing-values-quantities</a>&gt;
+more information to be provided concerning the ensemble is illustrated 
 <br />
-www.nist.gov&lt;<a href="http://www.nist.gov">http://www.nist.gov</a>&gt;
+by the following example:
 <br />
-7.1 Value and numerical value of a quantity The value of a quantity is its magnitude expressed as the product of a number and a unit, and the number multiplying the ...
+<br />dimensions:
 <br />
-<br /><br /><br />END RANT
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon=72
 <br />
-<br />Thanks for letting me get this off my chest. :-)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat=96
 <br />
-<br />Regards,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;members=5
 <br />
-Steve Emmerson
+<br />variables:
 <br />
-<br />On Mon, Feb 27, 2017 at 2:21 PM, Allen Jordan - NOAA Affiliate &lt;allen.jordan at noaa.gov&lt;mailto:allen.jordan at noaa.gov&gt;&gt; wrote:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float precip(lon,lat)
 <br />
-I would like to add two standard names for the NOAA GMD OZWV group's weather balloon data:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;precip: cell_methods=&quot;member: point (sample_pool: members)
 <br />
-<br />name: water_vapor_mixing_ratio
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int member
 <br />
-description: The atmospheric water vapor mixing ratio in parts per million by volume.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;member: standard_name=&quot;realization&quot;
 <br />
-units: ppmv
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int members(members)
 <br />
-<br />name: ozone_mixing_ratio
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;members: standard_name=&quot;realization&quot;
 <br />
-description: The atmospheric ozone mixing ratio in parts per billion by volume.
+<br />data:
 <br />
-units: ppbv
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;member = 3
 <br />
-<br /><br />_______________________________________________
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;members = 1, 3, 5, 6, 10
 <br />
-CF-metadata mailing list
+<br />This would tell you T was from the realization labeled 3 of a 5-member 
 <br />
-CF-metadata at cgd.ucar.edu&lt;mailto:CF-metadata at cgd.ucar.edu&gt;
+ensemble (with labels 1, 3, 5, 6, and 10).  If this approach were 
 <br />
-<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+adopted, then CF would need to be modified so that &quot;sample_pool&quot; (along 
 <br />
-<br /><br />________________________________
+with &quot;interval&quot;) was designated to be one of the the options for 
 <br />
-This message (and any attachments) is for the recipient only. NERC is subject to the Freedom of Information Act 2000 and the contents of this email and any reply you make may be disclosed by NERC unless it is exempt from release under the Act. Any material supplied to NERC may be stored in an electronic records management system.
+providing &quot;standardized&quot; extra information in the cell_methods attribute.
 <br />
-________________________________
+<br />Under Jonathan's approach and also the &quot;new approach&quot;, there wouldn't be 
 <br />
-<br />________________________________
+a need to define the standard_name &quot;ensemble_size&quot; because that would be 
 <br />
-This message (and any attachments) is for the recipient only. NERC is subject to the Freedom of Information Act 2000 and the contents of this email and any reply you make may be disclosed by NERC unless it is exempt from release under the Act. Any material supplied to NERC may be stored in an electronic records management system.
+provided by the dimension size (5 in the above).
 <br />
-________________________________
+<br />Note that the new approach could also be used to record a multi-model 
 <br />
--------------- next part --------------
+ensemble mean (I'm not absolutely sure this example complies with the 
+<br />
+current convention, but I think it would if  the option to designate the 
+<br />
+&quot;original_domain&quot; were added to CF):
+<br />
+<br />dimensions:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon=72
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat=96
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;models=5
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;max_len = 10
+<br />
+<br />variables:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float precip(lon,lat)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;precip: cell_methods=&quot;realization: mean (sample_pool: models)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char models(models, max_len)
+<br />
+<br />data:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;models = &quot;CanESM2&quot;, &quot;CESM1&quot;, &quot;CNRM-CM5&quot;, &quot;HadGEM2&quot;, &quot;MIROC-ESM&quot;
+<br />
+<br />Note also that the flexibility of this new approach could be useful for 
+<br />
+dimensions other than realization when, for example, the sampling 
+<br />
+interval for a spatial mean is from scattered stations.  If one were 
+<br />
+computing an spatial mean from 5 stations, for example, this could be 
+<br />
+recorded as follows:
+<br />
+<br />dimensions:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stations=5
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;max_len=16
+<br />
+<br />variables:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float precmean
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;precmean: cell_methods=&quot;area: mean (sample_pool: stations)&quot;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char stations(stations,max_len)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stations: coordinates=&quot;lat lon&quot;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat(stations)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat: standard_name=&quot;latitude&quot;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon(stations)
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon: standard_name=&quot;longitude&quot;
+<br />
+<br />data:
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stations = &quot;Oakland&quot;, &quot;San Francisco&quot;, &quot;Livermore&quot;, &quot;San Jose&quot;, 
+<br />
+&quot;Palo Alto&quot;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lat = 37.62, 37.77, ...
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lon = -122.27, -122.42, ....
+<br />
+<br />I would find it very nice to be able to specify the models contributing 
+<br />
+to a multi-model mean using the above approach.  Anyone else think so?  
+<br />
+It would also satisfy Mark's use case of wanting to record the size of 
+<br />
+the ensemble.
+<br />
+<br />Best regards,
+<br />
+Karl
+<br />
+<br />-------------- next part --------------
 <br />
 An HTML attachment was scrubbed...
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20170301/e32f15f0/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20170301/e32f15f0/attachment.html</a>&gt;
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150723/c6afd02f/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20150723/c6afd02f/attachment.html</a>&gt;
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Mar 01 2017 - 01:53:35 GMT</span>
+<span id="received"><dfn>Received on</dfn> Thu Jul 23 2015 - 18:42:03 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -223,13 +307,13 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start8060">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./8061.html" title="Next message in the list">Durack, Paul J.: "[CF-metadata] New standard names for OMIP biogeochemistry and chemistry"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./8059.html" title="Previous message in the list">Allen Jordan - NOAA Affiliate: "[CF-metadata] new standard names request"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./8059.html" title="Message to which this message replies">Allen Jordan - NOAA Affiliate: "[CF-metadata] new standard names request"</a></li>
+<li><dfn>Next message</dfn>: <a href="./8061.html" title="Next message in the list">John Graybeal: "[CF-metadata] original_ensemble_size"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./8059.html" title="Previous message in the list">Jim Biard: "[CF-metadata] original_ensemble_size"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./8059.html" title="Message to which this message replies">Jim Biard: "[CF-metadata] original_ensemble_size"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./8174.html" title="Next message in this discussion thread">alison.pamment at stfc.ac.uk: "[CF-metadata] new standard names request"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./8067.html" title="Next message in this discussion thread">Hedley, Mark: "[CF-metadata] original_ensemble_size"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./8174.html" title="Message sent in reply to this message">alison.pamment at stfc.ac.uk: "[CF-metadata] new standard names request"</a></li>
+<dfn>Reply</dfn>: <a href="./8067.html" title="Message sent in reply to this message">Hedley, Mark: "[CF-metadata] original_ensemble_size"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -240,7 +324,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:10 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./8059.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./8061.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

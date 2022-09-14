@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF standard names for chemical constituents? from Jonathan Gregory on 2008-10-10 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] CF standard names for chemical constituents?" />
-<meta name="Date" content="2008-10-10" />
+<title>[CF-metadata] attributes for min/max data values for	visualization from Philip Bentley on 2007-03-28 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Philip Bentley (philip.bentley)" />
+<meta name="Subject" content="[CF-metadata] attributes for min/max data values for	visualization" />
+<meta name="Date" content="2007-03-28" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./1586.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1588.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF standard names for chemical constituents?</h1>
-<!-- received="Fri Oct 10 06:20:12 2008" -->
-<!-- isoreceived="20081010052012" -->
-<!-- sent="Fri, 10 Oct 2008 13:20:12 +0100" -->
-<!-- isosent="20081010122012" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] CF standard names for chemical constituents?" -->
-<!-- id="20081010122012.GE24320_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./1586.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1588.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] attributes for min/max data values for	visualization</h1>
+<!-- received="Wed Mar 28 07:43:35 2007" -->
+<!-- isoreceived="20070328064335" -->
+<!-- sent="Wed, 28 Mar 2007 14:43:35 +0100" -->
+<!-- isosent="20070328134335" -->
+<!-- name="Philip Bentley" -->
+<!-- email="philip.bentley" -->
+<!-- subject="[CF-metadata] attributes for min/max data values for	visualization" -->
+<!-- id="1175089415.9035.169.camel_at_eld414.desktop.frd.metoffice.com" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="2bb6ee950703280600h22828075hd130eeeea31e63e4_at_mail.gmail.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,9 +54,12 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./1588.html" accesskey="d" title="Steve Hankin: &quot;[CF-metadata] CF standard names for chemical	constituents	and aerosols (resulting from a GRIB2 p&quot;">Next message</a> ]
-[ <a href="./1586.html" title="Stephane TAROT: &quot;[CF-metadata] Ocean sigma coordinate&quot;">Previous message</a> ]
+[ <a href="./1588.html" accesskey="d" title="Jon Blower: &quot;[CF-metadata] attributes for min/max data values for visualization&quot;">Next message</a> ]
+[ <a href="./1586.html" title="Pamment, JA: &quot;[CF-metadata] Fwd: Re: approval of standard_names for aerosols and chemistry for HTAP&quot;">Previous message</a> ]
+[ <a href="./1585.html" title="Jon Blower: &quot;[CF-metadata] attributes for min/max data values for visualization&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
+[ <a href="./1588.html" accesskey="t" title="Jon Blower: &quot;[CF-metadata] attributes for min/max data values for visualization&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,58 +72,90 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20standard%20names%20for%20chemical%20constituents%3F">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Philip Bentley &lt;<a href="mailto:philip.bentley?Subject=Re%3A%20%5BCF-metadata%5D%20attributes%20for%20min%2Fmax%20data%20values%20for%09visualization">philip.bentley</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 10 Oct 2008 13:20:12 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 28 Mar 2007 14:43:35 +0100</span><br />
 </address>
 <br />
-Dear Bryan
+Hi Jon et al,
 <br />
-<br />If there are large systematic expansions of the namespace, like lots of
+<br />IMO, this idea seems commendable for actual min/max data values.
 <br />
-chemical species, then I agree that it may be better to put some aspects of
+However, is there merit in adopting somewhat more specific, albeit
 <br />
-it into dimensions, like we have done with land-surface, as Heinke said. This
+longer, attribute names? I'm thinking of the situation - contrived
 <br />
-is also suggested if the data comes from models that actually do treat that
+perhaps - wherein a non-CF-savvy end-user of a netCDF file sees a
 <br />
-aspect (such as the chemical species or the land-surface type) as a dimension.
+metadata attribute called &quot;value_min&quot; and asks the question &quot;Minimum
 <br />
-Of course we have already done that with other aspects of metadata such as
+value of what?&quot;.
 <br />
-cell_methods. So far it hasn't been necessary with chemical species, but I
+<br />Perhaps the answer is self-evident from context; that is, since the
 <br />
-agree it may become necessary.
+attribute is attached (in the netCDF header) to the variable it
 <br />
-<br />I'm very unhappy with the idea of splitting up the namespace into areas
+describes then the association is clear. But in a client software
 <br />
-which develop separately. We have discussed this before. I think that if we
+application that association might not be so obvious.
 <br />
-do that, it is inevitable that names in different areas will become
+<br />In which case is it worth considering more verbose, but more descriptive
 <br />
-inconsistent and there will be duplication, and standard names will no longer
+attribute names, e.g.
 <br />
-be as useful as they are now. One of the reasons they are useful is that they
+<br />{ minimum_data_value, maximum_data_value }, or
 <br />
-have enough information to be used in an interdisciplinary way. I would say
+{ minimum_variable_value, maximum_variable_value }
 <br />
-that in Earth system models including more components, it will become even
+<br />Just a suggestion!
 <br />
-more important to have a common standard namespace for all the components so
+<br />Regards,
 <br />
-that developers and models talk a common language. So I think we should keep
+<br />Phil
 <br />
-the same namespace but encourage people with different expertise to contribute
+<br />On Wed, 2007-03-28 at 14:00 +0100, Jon Blower wrote:
 <br />
-to the development of standard names, as has been happening with the atmosphere
+<br /><em class="quotelev1">&gt; Dear Jonathan and list,
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Just to re-start this debate.  The original question was whether there
+</em><br />
+<em class="quotelev1">&gt; was (or could be) a pair of CF attributes to identify the min and max
+</em><br />
+<em class="quotelev1">&gt; data values in a CF dataset for the purposes of aiding visualization
+</em><br />
+<em class="quotelev1">&gt; tools to choose sensible colour scales.  
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<br />&lt;snip&gt;
 <br />
-chemistry and aerosol projects in a very encouraging way.
+<br /><em class="quotelev1">&gt; These attributes would be optional, but easy to add to existing
+</em><br />
+<em class="quotelev1">&gt; datasets, either through editing the NetCDF files or through other
+</em><br />
+<em class="quotelev1">&gt; decorators such as NcML, CDML etc.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; I propose calling these attributes value_min and value_max.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; What do others think?  Is this a sensible addition to CF?
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Jon
+</em><br />
+<br /><br />-------------- next part --------------
 <br />
-<br />Best wishes
+An HTML attachment was scrubbed...
 <br />
-<br />Jonathan
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20070328/d7a47fc9/attachment-0002.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20070328/d7a47fc9/attachment-0002.html</a>&gt;
 <br />
-<span id="received"><dfn>Received on</dfn> Fri Oct 10 2008 - 06:20:12 BST</span>
+<span id="received"><dfn>Received on</dfn> Wed Mar 28 2007 - 07:43:35 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -127,9 +163,13 @@ chemistry and aerosol projects in a very encouraging way.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start1587">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./1588.html" title="Next message in the list">Steve Hankin: "[CF-metadata] CF standard names for chemical	constituents	and aerosols (resulting from a GRIB2 p"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./1586.html" title="Previous message in the list">Stephane TAROT: "[CF-metadata] Ocean sigma coordinate"</a></li>
+<li><dfn>Next message</dfn>: <a href="./1588.html" title="Next message in the list">Jon Blower: "[CF-metadata] attributes for min/max data values for visualization"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./1586.html" title="Previous message in the list">Pamment, JA: "[CF-metadata] Fwd: Re: approval of standard_names for aerosols and chemistry for HTAP"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./1585.html" title="Message to which this message replies">Jon Blower: "[CF-metadata] attributes for min/max data values for visualization"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./1588.html" title="Next message in this discussion thread">Jon Blower: "[CF-metadata] attributes for min/max data values for visualization"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./1588.html" title="Message sent in reply to this message">Jon Blower: "[CF-metadata] attributes for min/max data values for visualization"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -140,7 +180,7 @@ chemistry and aerosol projects in a very encouraging way.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:09 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./1586.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./1588.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

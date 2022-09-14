@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Conventions for a network of velocity sensors from Heinke Hoeck on 2011-02-10 (mailing-list-archive)</title>
-<meta name="Author" content="Heinke Hoeck (heinke.hoeck)" />
-<meta name="Subject" content="[CF-metadata] Conventions for a network of velocity sensors" />
-<meta name="Date" content="2011-02-10" />
+<title>[CF-metadata] Multiple file datasets from Steve Hankin on 2009-11-20 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Steve Hankin (Steven.C.Hankin)" />
+<meta name="Subject" content="[CF-metadata] Multiple file datasets" />
+<meta name="Date" content="2009-11-20" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./3180.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3182.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Conventions for a network of velocity sensors</h1>
-<!-- received="Thu Feb 10 02:48:42 2011" -->
-<!-- isoreceived="20110210024842" -->
-<!-- sent="Thu, 10 Feb 2011 10:48:42 +0100" -->
-<!-- isosent="20110210094842" -->
-<!-- name="Heinke Hoeck" -->
-<!-- email="heinke.hoeck" -->
-<!-- subject="[CF-metadata] Conventions for a network of velocity sensors" -->
-<!-- id="4D53B47A.7090902_at_zmaw.de" -->
+<a style="text-decoration:none" href="./3180.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3182.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Multiple file datasets</h1>
+<!-- received="Fri Nov 20 10:44:54 2009" -->
+<!-- isoreceived="20091120104454" -->
+<!-- sent="Fri, 20 Nov 2009 09:44:54 -0800" -->
+<!-- isosent="20091120174454" -->
+<!-- name="Steve Hankin" -->
+<!-- email="Steven.C.Hankin" -->
+<!-- subject="[CF-metadata] Multiple file datasets" -->
+<!-- id="4B06D596.1050303_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4D52F2BE.7010102_at_noaa.gov" -->
+<!-- inreplyto="alpine.DEB.1.00.0911200841110.13237_at_joliba" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./3182.html" accesskey="d" title="Nan Galbraith: &quot;[CF-metadata] Conventions for a network of velocity sensors&quot;">Next message</a> ]
-[ <a href="./3180.html" title="Steve Hankin: &quot;[CF-metadata] Conventions for a network of velocity sensors&quot;">Previous message</a> ]
-[ <a href="./3180.html" title="Steve Hankin: &quot;[CF-metadata] Conventions for a network of velocity sensors&quot;">In reply to</a> ]
+[ <a href="./3182.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  Multiple file datasets&quot;">Next message</a> ]
+[ <a href="./3180.html" title="Lowry, Roy K: &quot;[CF-metadata] CF point observation Conventions&quot;">Previous message</a> ]
+[ <a href="./3174.html" title="V. Balaji: &quot;[CF-metadata] Multiple file datasets (was: Swath observational data)&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./3182.html" accesskey="t" title="Nan Galbraith: &quot;[CF-metadata] Conventions for a network of velocity sensors&quot;">Next in thread</a> ]
+[ <a href="./3182.html" accesskey="t" title="Jonathan Gregory: &quot;[CF-metadata]  Multiple file datasets&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,196 +72,398 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Heinke Hoeck &lt;<a href="mailto:heinke.hoeck?Subject=Re%3A%20%5BCF-metadata%5D%20Conventions%20for%20a%20network%20of%20velocity%20sensors">heinke.hoeck</a>&gt;
+<dfn>From</dfn>: Steve Hankin &lt;<a href="mailto:Steven.C.Hankin?Subject=Re%3A%20%5BCF-metadata%5D%20Multiple%20file%20datasets">Steven.C.Hankin</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 10 Feb 2011 10:48:42 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 20 Nov 2009 09:44:54 -0800</span><br />
 </address>
 <br />
-&nbsp;&nbsp;Hi all,
+(My apologies for a rushed answer ... proposal deadlines today.)
 <br />
-the WDCC (<a href="http://cera-www.dkrz.de/">http://cera-www.dkrz.de/</a>) describes the sensor(instrument) and 
+<br />The CF group discussed this topic at length in the context of how to 
 <br />
-source(platform) metadata with the
+infer membership in a model ensemble: how can CF make it evident that 
 <br />
-nasa dif.
+one model run is a close cousin of another's?   The basic strategy that 
 <br />
-<br /><a href="http://gcmd.nasa.gov/User/suppguide/instruments/instrument_identification.html">http://gcmd.nasa.gov/User/suppguide/instruments/instrument_identification.html</a>
+emerged from those discussions was to embed the necessary semantics for 
 <br />
-(<a href="http://gcmd.nasa.gov/User/difguide/sensor_name.html">http://gcmd.nasa.gov/User/difguide/sensor_name.html</a>)
+associating files into the global attributes of the files, rather than 
 <br />
-<br /><a href="http://gcmd.nasa.gov/User/suppguide/platforms/platform_identification.html">http://gcmd.nasa.gov/User/suppguide/platforms/platform_identification.html</a>
+to embed specific linkages into the files.  One special global attribute 
 <br />
-(<a href="http://gcmd.nasa.gov/User/difguide/source_name.html">http://gcmd.nasa.gov/User/difguide/source_name.html</a>)
+only would be defined and rigidly standardized by name.  It would in 
 <br />
-<br />This is done for a project (<a href="http://umwelt.wikidora.com/wikidora/">http://umwelt.wikidora.com/wikidora/</a>) 
+turn tell the names of other global attributes that should be consulted 
 <br />
-together with the
+to determine ensemble membership.  A match of values for all of those 
 <br />
-Meteorological Institute of the University of Bonn.
+attributes would indicate ensemble membership.  For example
 <br />
-It is not possible to view this information in the our user interface. 
+<br />&nbsp;&nbsp;&nbsp;&nbsp;:ensemble_membership = &quot;institution, model, run_date&quot;;
 <br />
-(The system is not ready.)
+&nbsp;&nbsp;&nbsp;&nbsp;:institution = &quot;my_institution&quot;;
 <br />
-Our project partner at the University of Bonn agreed that the dif sensor 
+&nbsp;&nbsp;&nbsp;&nbsp;:model = &quot;my_model&quot;;
 <br />
-and source description is
+&nbsp;&nbsp;&nbsp;&nbsp;:run_date = &quot;my_run_date&quot;;
 <br />
-sufficient for their need.
+<br />(or whatever -- I just pulled this from the air for illustration).
 <br />
-<br />I would like to translate the nasa dif for sensor and source to a cf 
+<br />I believe this is a powerful and general strategy -- applicable to 
 <br />
-example, but I need help.
+ensembles, gridspec, and I suspect the swath problem.  On the DOWN side, 
 <br />
-Problems are:
+it means that file linkages are implicit rather than explicit -- i.e. 
 <br />
-The sensor and source metadate are hierarchic
+they must be inferred from the file.  On the UP side the solution is
 <br />
-and it would be good give a reference to <a href="http://gcmd.nasa.gov">http://gcmd.nasa.gov</a>
+<br />&nbsp;&nbsp;&nbsp;&nbsp;* simple
 <br />
-<br /><br />This is a first quick try:
+&nbsp;&nbsp;&nbsp;&nbsp;* general
 <br />
-<br />dimensions:
+&nbsp;&nbsp;&nbsp;&nbsp;* human readable (in fact, friendly)
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sample = 1000;
+&nbsp;&nbsp;&nbsp;&nbsp;* machine readable (CF awareness in an application would mean
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind_vector = 3;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;knowing the name(s) of the standardized global attributes)
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst_name_strlen = 1000;
+&nbsp;&nbsp;&nbsp;&nbsp;* stable (has no dependencies on file locations or the order of file
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;platform_name_strlen = 1000;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;creations)
 <br />
-<br />variables:
+&nbsp;&nbsp;&nbsp;&nbsp;* robust (linkages between files can be recreated at any time)
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float wind(sample, wind_vector);
+<br />This strategy could fit elegantly with things like the ncML &quot;scan&quot; 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind:long_name = &quot;3D wind&quot;;
+directives; smart scanners that are pointed to collections of files 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind:units = &quot;m/s&quot;;
+(either local or remote THREDDS/OPeNDAP accessible) can build the 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind:coordinates = &quot;lon lat z time&quot;;
+associations as needed.  Ensemble membership, time-aggregation 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char inst_name(sample, inst_name_strlen);
+membership, forecast series membership, gridspec membership -- all can 
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst_name:reference = 
+be properly ordered and sequenced (in principle) through intelligent 
 <br />
-&quot;<a href="http://gcmd.nasa.gov/User/suppguide/instruments/instrument_identification.html">http://gcmd.nasa.gov/User/suppguide/instruments/instrument_identification.html</a>&quot;;
+file scans based upon CF standardized contents.
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst_name:long_name = 
+<br />&nbsp;&nbsp;&nbsp;&nbsp;- Steve
 <br />
-&quot;[Instrument_Category=...][Instrument_Class=...][Instrument_Type=...] 
+<br />================================
 <br />
-[Instrument_Subtype=...][Short_Name=...][Long_Name=...]&quot;;
+<br />V. Balaji wrote:
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inst_name:coordinates = &quot;lon lat z time&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char platform_name(sample, platform_name_strlen);
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;platform_name:reference = 
-<br />
-&quot;<a href="http://gcmd.nasa.gov/User/suppguide/platforms/platform_identification.html">http://gcmd.nasa.gov/User/suppguide/platforms/platform_identification.html</a>&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;platform_name:long_name = 
-<br />
-&quot;[Platform_Category=...][Platform_Series_or_Entity=...][Short_Name=...][Long_Name=...]&quot;;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;platform_name:coordinates = &quot;lon lat z time&quot; ;
-<br />
-<br /><br />I started with an example see:
-<br />
-<a href="http://www.unidata.ucar.edu/staff/caron/papers/obs2.pdf">http://www.unidata.ucar.edu/staff/caron/papers/obs2.pdf</a>
-<br />
-<br />Best wishes
-<br />
-Heinke
-<br />
-<br /><br />On 02/09/2011 09:02 PM, Steve Hankin wrote:
-<br />
-<em class="quotelev1">&gt; Hi Eli,
+<em class="quotelev1">&gt; The gridspec indeed had a proposal about this. Clearly it was a bit
+</em><br />
+<em class="quotelev1">&gt; off-topic, but some mechanism of referring to other files was needed. It
+</em><br />
+<em class="quotelev1">&gt; consists of an attribute called a link_spec, which has attributes of a
+</em><br />
+<em class="quotelev1">&gt; baseURL, a relative pathname, and a checksum for verifying whether the
+</em><br />
+<em class="quotelev1">&gt; external file being referenced is indeed the one you're looking for.
+</em><br />
+<em class="quotelev1">&gt; There wasn't a special var at link syntax, but I don't see why it couldn't
+</em><br />
+<em class="quotelev1">&gt; have had one.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; There is a CF convention for storing multiple observations that is 
+<em class="quotelev1">&gt; CMIP5 is proposing a simplified variant on the link_spec. A file
 </em><br />
-<em class="quotelev1">&gt; under development at <a href="https://cf-pcmdi.llnl.gov/trac/ticket/37">https://cf-pcmdi.llnl.gov/trac/ticket/37</a>.    The 
+<em class="quotelev1">&gt; can have a global attribute &quot;associated_files&quot; which are also
 </em><br />
-<em class="quotelev1">&gt; details are still subject to changes, but the changes will probably be 
+<em class="quotelev1">&gt; formed out of a baseURL and relative pathnames. The only permitted
 </em><br />
-<em class="quotelev1">&gt; relatively small.  The spec that is on-line is a little out of date -- 
+<em class="quotelev1">&gt; associated_files are gridspec, and cell areas and volumes that may
 </em><br />
-<em class="quotelev1">&gt; to be updated as soon as the next editorial pass is ready.  Meantime 
-</em><br />
-<em class="quotelev1">&gt; if you are interested in following this approach, then please write 
-</em><br />
-<em class="quotelev1">&gt; back off-line and I'll send you the latest rough draft.
+<em class="quotelev1">&gt; be used in cell_methods.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;     - Steve
+<em class="quotelev1">&gt; Other approaches have been proposed in this forum, most notably on Trac
+</em><br />
+<em class="quotelev1">&gt; #24 and #27, the common_concept thread and Benno's namespace thread.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; ======================================
+<em class="quotelev1">&gt; SAFE has been explained already in this thread.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; On 2/8/2011 11:22 PM, Ateljevich, Eli wrote:
+<em class="quotelev1">&gt; I agree with John, it would be good to consider this problem in
 </em><br />
-<em class="quotelev2">&gt;&gt; Hi, I am modeling the San Francisco Bay-Delta an estuary with several 
+<em class="quotelev1">&gt; isolation, without the baggage of gridspecs or common concepts or
 </em><br />
-<em class="quotelev2">&gt;&gt; tributaries including the Sacramento River, San Joaquin River and 
+<em class="quotelev1">&gt; namespaces.
 </em><br />
-<em class="quotelev2">&gt;&gt; numerous smaller streams. The boundary data are time series of 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; cross-sectional velocity profiles across each channel. The 
+<em class="quotelev1">&gt; John Caron writes:
 </em><br />
-<em class="quotelev2">&gt;&gt; cross-sections for different sensors are different and each 
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; cross-section contains numerous points.
+<em class="quotelev2">&gt;&gt; This topic deserves its own heading, so here it is.
 </em><br />
-<em class="quotelev2">&gt;&gt; I would like to retain the information about which velocities come 
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; from which sensors, and also add some attributes about the sensors. 
+<em class="quotelev2">&gt;&gt; Perhaps we should gather current practices and ideas. I think 
 </em><br />
-<em class="quotelev2">&gt;&gt; Can anyone comment on which of these possibilities is best:
+<em class="quotelev2">&gt;&gt; Balaji's gridspec has a proposal about this. Can anyone summarize 
 </em><br />
-<em class="quotelev2">&gt;&gt; 1. Each sensor is an independent file. Then the variable would be 
+<em class="quotelev2">&gt;&gt; what SAFE does?
 </em><br />
-<em class="quotelev2">&gt;&gt; water_velocity_x and _y, the transect locations would be included as 
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; a coordinate and the sensor station name such as sacramento_rsac075 
+<em class="quotelev2">&gt;&gt; Im imagining how this is actually used, eg:
 </em><br />
-<em class="quotelev2">&gt;&gt; would be an attribute. It is unclear to me that there is a standard 
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; nomenclature for the sensor name.
+<em class="quotelev2">&gt;&gt; float data(y,x);
 </em><br />
-<em class="quotelev2">&gt;&gt; 2. Each variable is a sensor station-variable pair: 
+<em class="quotelev2">&gt;&gt; data:coordinates = &quot;lat at file1 lon at file2&quot;;
 </em><br />
-<em class="quotelev2">&gt;&gt; sacramento_rsac075_velocity. I don't see anything that looks like 
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; this in the CF examples, but the standard does not address variable 
+<em class="quotelev2">&gt;&gt; ????
 </em><br />
-<em class="quotelev2">&gt;&gt; names. I would use an attribute to identify the sensor name 
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; redundantly, and again I am not clear if there is a standard for 
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; this. The hitch seems to be that each station would have a different 
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; set of cross-section locations so the file would have a location 
+<em class="quotelev2">&gt;&gt; John Graybeal wrote:
 </em><br />
-<em class="quotelev2">&gt;&gt; coordinate for each sensor.
+<em class="quotelev3">&gt;&gt;&gt; I like Bryan's recommendation for a UUID or similar.
 </em><br />
-<em class="quotelev2">&gt;&gt; 3.The data could be velocity(time,station). The &quot;station&quot; coordinate 
+<em class="quotelev3">&gt;&gt;&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; would be associated with lat, long and sensor names. This lumps all 
+<em class="quotelev3">&gt;&gt;&gt; Now I'm going to be annoying and suggest the UUID *could* be a URI, 
 </em><br />
-<em class="quotelev2">&gt;&gt; the data in one variable. The sensor used for each data point can be 
+<em class="quotelev3">&gt;&gt;&gt; or these days, an IRI (International ..).
 </em><br />
-<em class="quotelev2">&gt;&gt; identified, but there is no clear slot for sensor metadata.
+<em class="quotelev3">&gt;&gt;&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; Thanks,
+<em class="quotelev3">&gt;&gt;&gt; And I think the way of 'locating' the file should be neither in 
 </em><br />
-<em class="quotelev2">&gt;&gt; Eli
+<em class="quotelev3">&gt;&gt;&gt; packaging nor in local resolution; it should be in global namespace 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; resolution.  This is the way of the future, and is already more 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; 'permanent' than either packaging or local resolution, IMHO.
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; There is one form of URI in particular that is already resolvable: a 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; URL. OK, that's an old song, but I'm gonna stick to it for a while 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; longer.  That form meets all the other requirements: it can be 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; registered in a resolver, it can be guaranteed unique (to the same 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; authority level as a UUID, anyway), and it is a unique string that 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; can be used to validate the link). And it has the obvious benefit of 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; being resolvable right now, for as long as the domain is held and 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; properly maintained (Good URLs don't die).
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Since the last paragraph risks starting another unique identifier 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; war, I promise not to re-engage unless someone asks me to. 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Meanwhile, I like
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; John
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; On Nov 19, 2009, at 22:23, Bryan Lawrence wrote:
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; On Thursday 19 November 2009 19:40:08 Jonathan Gregory wrote:
+</em><br />
+<em class="quotelev2">&gt;&gt;&gt;&gt;&gt;&gt;     ...  In  some cases, referencing attributes such as
+</em><br />
+<em class="quotelev2">&gt;&gt;&gt;&gt;&gt;&gt;      &quot;coordinates&quot; and &quot;ancillary_variables&quot; would, ideally, 
+</em><br />
+<em class="quotelev2">&gt;&gt;&gt;&gt;&gt;&gt; point to a
+</em><br />
+<em class="quotelev2">&gt;&gt;&gt;&gt;&gt;&gt;      variable in a different dataset.
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt;
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; This is a general problem to which CF doesn't have a solution 
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; because it was
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; conceived as a convention for single netCDF files. However we need 
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; a solution
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; as often several files should be treated as a single dataset.
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt;
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; If the files don't overlap i.e. their contents are complementary, 
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; I think it
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; should be satisfactory to allow variables in one file to be 
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; pointed to by name
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; from another file, with no other mechanism being required within 
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; the file. I
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; don't like the idea of naming one file within another file, as 
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; that would be
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; very fragile. Instead, I think the file aggregation should be 
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; implied by
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; simply defining the group of files which are to be treated as one 
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; file e.g.
+</em><br />
+<em class="quotelev1">&gt;&gt;&gt;&gt;&gt; by putting them in one directory.
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; It's the old ones that are the best ones :-) :-)  this issue keeps 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; on coming back ... :-) :-) and we keep trying to ignore it ...
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; I think we agree that an actual physical filename including path is 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; useless. We need both  a relative link which relies on the 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; preservation of a group of files in a particular arrangement ...  
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; AND an internal identifier so more robust linking mechanisms can be 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; used when (if) the data ends up in a managed environment.
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; I think it's crucial in this situation to ensure that each file has 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; a unique identifier within it (created, for example, with uuid), 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; because all solutions which rely on packaging are fragile (SAFE is 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; probably better than most), but the bottom line is that users move 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; files around ... and we need some way of ensuring that we/they can 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; validate the links that are in place are the ones that were 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; originally intended.
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; So relative links would also include the identifier of the intended 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; target as well as the relative path in operating system agnostic 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; terms.
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; That identifier can be used in two ways: to validate the link (my 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; software can always check that the variable that I just opened 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; following a link from another one is the one that was expected by 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; checking the container identifier), and b) to produce an identifier 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; resolver service for the situation where the packaging has had to 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; be broken (which might occur for performance reasons or ...)
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; CF could recommend something like this ...
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; Bryan
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt;
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; -- 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; Bryan Lawrence
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; Director of Environmental Archival and Associated Research
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; (NCAS/British Atmospheric Data Centre and NCEO/NERC NEODC)
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; STFC, Rutherford Appleton Laboratory
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; Phone +44 1235 445012; Fax ... 5848;
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; Web: home.badc.rl.ac.uk/lawrence
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; _______________________________________________
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; --------------
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; I have my new work email address: jgraybeal at ucsd.edu
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; --------------
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; John Graybeal   &lt;mailto:jgraybeal at ucsd.edu&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; phone: 858-534-2162
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Development Manager
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Ocean Observatories Initiative Cyberinfrastructure Project: 
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; <a href="http://ci.oceanobservatories.org">http://ci.oceanobservatories.org</a>
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; Marine Metadata Interoperability Project: <a href="http://marinemetadata.org">http://marinemetadata.org</a>
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; _______________________________________________
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev2">&gt;&gt;
 </em><br />
 <em class="quotelev2">&gt;&gt; _______________________________________________
 </em><br />
@@ -271,15 +473,17 @@ Heinke
 </em><br />
 <em class="quotelev2">&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
-<em class="quotelev1">&gt; _______________________________________________
+<em class="quotelev2">&gt;&gt;
 </em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
+<em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<span id="received"><dfn>Received on</dfn> Thu Feb 10 2011 - 02:48:42 GMT</span>
+-------------- next part --------------
+<br />
+An HTML attachment was scrubbed...
+<br />
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20091120/c57945d6/attachment-0002.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20091120/c57945d6/attachment-0002.html</a>&gt;
+<br />
+<span id="received"><dfn>Received on</dfn> Fri Nov 20 2009 - 10:44:54 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -287,13 +491,13 @@ Heinke
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start3181">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./3182.html" title="Next message in the list">Nan Galbraith: "[CF-metadata] Conventions for a network of velocity sensors"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./3180.html" title="Previous message in the list">Steve Hankin: "[CF-metadata] Conventions for a network of velocity sensors"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./3180.html" title="Message to which this message replies">Steve Hankin: "[CF-metadata] Conventions for a network of velocity sensors"</a></li>
+<li><dfn>Next message</dfn>: <a href="./3182.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  Multiple file datasets"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./3180.html" title="Previous message in the list">Lowry, Roy K: "[CF-metadata] CF point observation Conventions"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./3174.html" title="Message to which this message replies">V. Balaji: "[CF-metadata] Multiple file datasets (was: Swath observational data)"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./3182.html" title="Next message in this discussion thread">Nan Galbraith: "[CF-metadata] Conventions for a network of velocity sensors"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./3182.html" title="Next message in this discussion thread">Jonathan Gregory: "[CF-metadata]  Multiple file datasets"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./3182.html" title="Message sent in reply to this message">Nan Galbraith: "[CF-metadata] Conventions for a network of velocity sensors"</a></li>
+<dfn>Reply</dfn>: <a href="./3182.html" title="Message sent in reply to this message">Jonathan Gregory: "[CF-metadata]  Multiple file datasets"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -304,7 +508,7 @@ Heinke
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:39 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./3180.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3182.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

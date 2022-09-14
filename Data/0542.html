@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] curvilinear cartesian coordinates case from Jonathan Gregory on 2006-12-04 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] curvilinear cartesian coordinates case" />
-<meta name="Date" content="2006-12-04" />
+<title>[CF-metadata] proposed UTM projection from John Caron on 2005-02-01 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] proposed UTM projection" />
+<meta name="Date" content="2005-02-01" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0541.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0543.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] curvilinear cartesian coordinates case</h1>
-<!-- received="Mon Dec  4 02:08:28 2006" -->
-<!-- isoreceived="20061204020828" -->
-<!-- sent="Mon, 4 Dec 2006 09:08:28 +0000" -->
-<!-- isosent="20061204090828" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] curvilinear cartesian coordinates case" -->
-<!-- id="20061204090828.GA17830_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0541.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0543.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] proposed UTM projection</h1>
+<!-- received="Tue Feb  1 16:21:28 2005" -->
+<!-- isoreceived="20050201162128" -->
+<!-- sent="Tue, 01 Feb 2005 15:21:28 -0800" -->
+<!-- isosent="20050201232128" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] proposed UTM projection" -->
+<!-- id="42000EF8.9050604_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0543.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] curvilinear cartesian coordinates case&quot;">Next message</a> ]
-[ <a href="./0541.html" title="Hill, Julian: &quot;[CF-metadata] NMAT&quot;">Previous message</a> ]
+[ <a href="./0543.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] proposed UTM projection&quot;">Next message</a> ]
+[ <a href="./0541.html" title="John Caron: &quot;[CF-metadata] variable missing &#0034;coordinates&#0034; attribute&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0555.html" accesskey="t" title="Bert Jagers: &quot;[CF-metadata] curvilinear cartesian coordinates case&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,46 +68,62 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20curvilinear%20cartesian%20coordinates%20case">j.m.gregory</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20proposed%20UTM%20projection">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 4 Dec 2006 09:08:28 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 01 Feb 2005 15:21:28 -0800</span><br />
 </address>
 <br />
-Dear Steve and Bert
+I would like to propose adding another &quot;Grid mapping&quot; to appendix F. 
 <br />
-<br /><em class="quotelev1">&gt;    Can someone weigh in
-</em><br />
-<em class="quotelev1">&gt;    regarding the benefit side of this requirement?  Will it be
-</em><br />
-<em class="quotelev1">&gt;    commonplace to require multiple grid mappings in some communities?  In
-</em><br />
-<em class="quotelev1">&gt;    those communities are we confident that the number of alternative grid
-</em><br />
-<em class="quotelev1">&gt;    mappings will remain fixed?
-</em><br />
-<br />I presume that Bert has a definite need to store multiple grid mappings.
+<br /><br />The /UTM_Zone_Number/ parameter name is taken from FGDC, the optional 
 <br />
-I don't think any of the solutions proposed requires the number to be fixed
+ellipsoidal parameters follow Snyder.
 <br />
-i.e. the file could be modified to add another one, using any of the solutions.
+<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Universal Transverse Mercator
 <br />
-<br /><em class="quotelev1">&gt;    As you know I believe personally that the cost of  added complexity,
-</em><br />
-<em class="quotelev1">&gt;    of muddying concepts, etc. in CF is not given enough weight in our
-</em><br />
-<em class="quotelev1">&gt;    discussions.  Often we have a pressing need to create new files, but a
-</em><br />
-<em class="quotelev1">&gt;    much vaguer future intention to create software to read those files,
-</em><br />
-<br />Bert, do you have a definite intention to read these 2D projection coords
+<br />grid_mapping_name = universal_transverse_mercator
 <br />
-from the files? Is there a community of users for them?
+<br />/Map parameters:/
 <br />
-<br />Cheers
+<br />&nbsp;&nbsp;&nbsp;&nbsp;* UTM_Zone_Number - in range [1,60] (north) or [-1, -60] (south)
 <br />
-<br />Jonathan
+&nbsp;&nbsp;&nbsp;&nbsp;* semimajor_axis - radius of the equatorial axis of the ellipsoid in
 <br />
-<span id="received"><dfn>Received on</dfn> Mon Dec 04 2006 - 02:08:28 GMT</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;meters
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;* inverse_flattening - inverse flattening ratio (eg 297)
+<br />
+<br />/Map coordinates:/ The x (abscissa) and y (ordinate) rectangular 
+<br />
+coordinates are identified by the standard_name attribute values 
+<br />
+projection_x_coordinate and projection_y_coordinate respectively.
+<br />
+<br />/Notes:/
+<br />
+<br />The Universal Transverse Mercator projection is a special case of the 
+<br />
+Transverse Mercator projection using an ellipsoidal earth. The scale 
+<br />
+factor (.9996), projection origin latitude (0), and false easting 
+<br />
+parameters (50000 m) are all fixed. The central meridian and 
+<br />
+false_northing parameters are specified by the UTM zone.
+<br />
+<br />The ellipsoid parameters /semimajor_axis/ and /inverse_flattening /are 
+<br />
+optional. If not present, the standard ellipsoid for the given UTM zone 
+<br />
+should be used.
+<br />
+<br />Formulas for the mapping and its inverse along with notes on using the 
+<br />
+PROJ.4 software package for doing the calcuations may be found at 
+<br />
+<a href="http://www.remotesensing.org/geotiff/proj_list/transverse_mercator.html">http://www.remotesensing.org/geotiff/proj_list/transverse_mercator.html</a>
+<br />
+<span id="received"><dfn>Received on</dfn> Tue Feb 01 2005 - 16:21:28 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -117,12 +131,9 @@ from the files? Is there a community of users for them?
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start542">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0543.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] curvilinear cartesian coordinates case"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0541.html" title="Previous message in the list">Hill, Julian: "[CF-metadata] NMAT"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0543.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] proposed UTM projection"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0541.html" title="Previous message in the list">John Caron: "[CF-metadata] variable missing &#0034;coordinates&#0034; attribute"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0555.html" title="Next message in this discussion thread">Bert Jagers: "[CF-metadata] curvilinear cartesian coordinates case"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0555.html" title="Message sent in reply to this message">Bert Jagers: "[CF-metadata] curvilinear cartesian coordinates case"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -133,7 +144,7 @@ from the files? Is there a community of users for them?
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:52 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0541.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0543.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

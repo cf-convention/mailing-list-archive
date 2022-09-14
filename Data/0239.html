@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] standard names for aerosols and chemistry from Jonathan Gregory on 2006-09-27 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] standard names for aerosols and chemistry" />
-<meta name="Date" content="2006-09-27" />
+<title>[CF-metadata] stricter CF conventions from Schmidli Juerg on 2003-07-30 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Schmidli Juerg (schmidli)" />
+<meta name="Subject" content="[CF-metadata] stricter CF conventions" />
+<meta name="Date" content="2003-07-30" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0238.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0240.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard names for aerosols and chemistry</h1>
-<!-- received="Wed Sep 27 10:10:00 2006" -->
-<!-- isoreceived="20060927091000" -->
-<!-- sent="Wed, 27 Sep 2006 17:10:00 +0100" -->
-<!-- isosent="20060927161000" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] standard names for aerosols and chemistry" -->
-<!-- id="20060927161000.GA24210_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0238.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0240.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] stricter CF conventions</h1>
+<!-- received="Wed Jul 30 04:38:31 2003" -->
+<!-- isoreceived="20030730033831" -->
+<!-- sent="Wed, 30 Jul 2003 12:38:31 +0200" -->
+<!-- isosent="20030730103831" -->
+<!-- name="Schmidli Juerg" -->
+<!-- email="schmidli" -->
+<!-- subject="[CF-metadata] stricter CF conventions" -->
+<!-- id="3F27A027.EB6A401_at_geo.umnw.ethz.ch" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0240.html" accesskey="d" title="Bryan Lawrence: &quot;[CF-metadata] Use of Standard Names and Coordinate Variables (relevant to the aerosol discussion)&quot;">Next message</a> ]
-[ <a href="./0238.html" title="Roy Lowry: &quot;[CF-metadata] standard names for aerosols and chemistry&quot;">Previous message</a> ]
+[ <a href="./0240.html" accesskey="d" title="John Evans: &quot;[CF-metadata] standard name proposals&quot;">Next message</a> ]
+[ <a href="./0238.html" title="Brian Eaton: &quot;[CF-metadata] cartesian_x_coordinate&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0240.html" accesskey="t" title="John Evans: &quot;[CF-metadata] standard name proposals&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,30 +70,66 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20standard%20names%20for%20aerosols%20and%20chemistry">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Schmidli Juerg &lt;<a href="mailto:schmidli?Subject=Re%3A%20%5BCF-metadata%5D%20stricter%20CF%20conventions">schmidli</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 27 Sep 2006 17:10:00 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 30 Jul 2003 12:38:31 +0200</span><br />
 </address>
 <br />
-Dear Roy
+Dear All
 <br />
-<br /><em class="quotelev1">&gt; Surface emission is not a term used to my knowledge in the oceanographic domain.  We worry about two boundaries (surface and bed) and have differing practices on flux direction (water to sediment or vice versa) depending on community.  So, I tend to spell things out.
-</em><br />
-I agree with spelling things out if there is any possibility of ambiguity. It
+<br />I think the CF-conventions could be made significantly simpler, 
 <br />
-seems like &quot;surface emission&quot;, however, isn't going to be ambiguous if it has
+clearer and more precise without loosing anything of their 
 <br />
-no meaning other than surface to atmos. The question is whether it is clear
+generality. The backwards-compatibility to COARDS makes the
 <br />
-enough without saying &quot;to atmosphere&quot; explicitly.
+implementation of a general CF-compatible application 
 <br />
-<br /><em class="quotelev1">&gt; I also feel more than one standard vocabulary is needed for CF to cover things like cell metrics.
-</em><br />
-Could you elaborate, please? Thanks
+unnecessarily complicated, due to the different ways of 
 <br />
-<br />Jonathan
+achieving the same goal (e.g. identification of the 
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Sep 27 2006 - 10:10:00 BST</span>
+coordinate axes). No large changes would be required.
+<br />
+Changing some of the recommendations into requirements
+<br />
+would suffice.
+<br />
+<br />Consider, for example, the identification of the coordinate 
+<br />
+axes and their type. Presently, there are three ways to 
+<br />
+identify the coordinate axes:
+<br />
+1. units and positive attribute
+<br />
+2. axis attribute
+<br />
+3. standard_name
+<br />
+<br />A simpler strategy, and easier to implement would be:
+<br />
+- to identify the coordinate variables using the axis attribute
+<br />
+- to determine the type of coordinate using the standard_name attribute
+<br />
+<br />This would require the axis and standard_name attribute to
+<br />
+be mandatory.
+<br />
+<br />As with the present standard it would be easy to write
+<br />
+netcdf files which are both CF-STRICT and COARDS compatible, 
+<br />
+and to write applications which process CF-STRICT and 
+<br />
+COARDS netcdf files. Thus CF-STRICT + COARDS = CF-PRESENT.
+<br />
+<br />Best wishes 
+<br />
+<br />Juerg
+<br />
+<span id="received"><dfn>Received on</dfn> Wed Jul 30 2003 - 04:38:31 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -99,9 +137,13 @@ Could you elaborate, please? Thanks
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start239">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0240.html" title="Next message in the list">Bryan Lawrence: "[CF-metadata] Use of Standard Names and Coordinate Variables (relevant to the aerosol discussion)"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0238.html" title="Previous message in the list">Roy Lowry: "[CF-metadata] standard names for aerosols and chemistry"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0240.html" title="Next message in the list">John Evans: "[CF-metadata] standard name proposals"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0238.html" title="Previous message in the list">Brian Eaton: "[CF-metadata] cartesian_x_coordinate"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0240.html" title="Next message in this discussion thread">John Evans: "[CF-metadata] standard name proposals"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0240.html" title="Message sent in reply to this message">John Evans: "[CF-metadata] standard name proposals"</a></li>
+<li><dfn>Reply</dfn>: <a href="./0246.html" title="Message sent in reply to this message">Brian Eaton: "[CF-metadata] stricter CF conventions"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -112,7 +154,7 @@ Could you elaborate, please? Thanks
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:46 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0238.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0240.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

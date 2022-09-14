@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] new standard name: atmosphere_mass_content_of_volcanic_ash from Jonathan Wrotny on 2013-06-19 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Wrotny (jwrotny)" />
-<meta name="Subject" content="[CF-metadata] new standard name: atmosphere_mass_content_of_volcanic_ash" />
-<meta name="Date" content="2013-06-19" />
+<title>[CF-metadata] how to express data variable element values that needto cover a range from Jonathan Gregory on 2012-09-20 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] how to express data variable element values that needto cover a range" />
+<meta name="Date" content="2012-09-20" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5552.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5554.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new standard name: atmosphere_mass_content_of_volcanic_ash</h1>
-<!-- received="Wed Jun 19 10:56:16 2013" -->
-<!-- isoreceived="20130619095616" -->
-<!-- sent="Wed, 19 Jun 2013 12:56:16 -0400" -->
-<!-- isosent="20130619165616" -->
-<!-- name="Jonathan Wrotny" -->
-<!-- email="jwrotny" -->
-<!-- subject="[CF-metadata] new standard name: atmosphere_mass_content_of_volcanic_ash" -->
-<!-- id="51C1E2B0.9050200_at_aer.com" -->
+<a style="text-decoration:none" href="./5552.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5554.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] how to express data variable element values that needto cover a range</h1>
+<!-- received="Thu Sep 20 03:19:12 2012" -->
+<!-- isoreceived="20120920021912" -->
+<!-- sent="Thu, 20 Sep 2012 10:19:12 +0100" -->
+<!-- isosent="20120920091912" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] how to express data variable element values that needto cover a range" -->
+<!-- id="20120920091912.GB1100_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,8 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5554.html" accesskey="d" title="Karl Taylor: &quot;[CF-metadata] new standard name: land_surface_skin_temperature&quot;">Next message</a> ]
-[ <a href="./5552.html" title="Jonathan Wrotny: &quot;[CF-metadata] new standard name: land_surface_skin_temperature&quot;">Previous message</a> ]
+[ <a href="./5554.html" accesskey="d" title="David Hassell: &quot;[CF-metadata] CF trac ticket summary update&quot;">Next message</a> ]
+[ <a href="./5552.html" title="Chris Barker: &quot;[CF-metadata] how to express data variable element values that needto cover a range&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,44 +68,54 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Wrotny &lt;<a href="mailto:jwrotny?Subject=Re%3A%20%5BCF-metadata%5D%20new%20standard%20name%3A%20atmosphere_mass_content_of_volcanic_ash">jwrotny</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20how%20to%20express%20data%20variable%20element%20values%20that%20needto%20cover%20a%20range">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 19 Jun 2013 12:56:16 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 20 Sep 2012 10:19:12 +0100</span><br />
 </address>
 <br />
-Dear CF board:
+Dear Chris
 <br />
-<br />I would like to propose the following standard name:
+<br /><em class="quotelev1">&gt; but maybe that doesn't fit into CDF standards well, in whcih case, two
+</em><br />
+<em class="quotelev1">&gt; variables with standard names:
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; the_standard_name_lower_limit
+</em><br />
+<em class="quotelev1">&gt; and
+</em><br />
+<em class="quotelev1">&gt; the_standard_name_upper_limit
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; would work fine. Is there currently a standard_name for this data,
+</em><br />
+<em class="quotelev1">&gt; when not given as a range?
+</em><br />
+<br />This is essentially what new standard_name modifiers would achieve. There has
 <br />
-<br />Standard Name:   atmosphere_mass_content_of_volcanic_ash
+to be a standard_name XXX for the quantity itself, as you say, and then Randy
 <br />
-<br />Definition:&quot;Content&quot; indicates a quantity per unit area. The &quot;atmosphere 
+would put   standard_name=&quot;XXX lower_limit&quot;  if lower_limit was a newly agreed
 <br />
-content&quot; of a quantity refers to the vertical integral from the surface 
+modifier. The reason for doing it with modifiers is that they could apply to
 <br />
-to the top of the atmosphere. For the content between specified levels 
+many standard names. Modifiers label fields which provide metadata about
 <br />
-in the atmosphere, standard names including content_of_atmosphere_layer 
+data values, such as uncertainties and status flags. It's slightly odd that
 <br />
-are used.&quot;
+in this case there is no data value, but you can imagine using these modifiers
 <br />
-<br />Canonical Units:kg m-2
+for limits in cases when there was also a data value, so I would feel that
 <br />
-<br /><br />Motivation:  This product will be one of the standard GOES-R output 
+it's an acceptable use for modifiers.
 <br />
-products.
+<br />Cheers
 <br />
-<br />Sincerely,
+<br />Jonathan
 <br />
-<br />Jonathan Wrotny
-<br />
--------------- next part --------------
-<br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130619/83afd473/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130619/83afd473/attachment.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Wed Jun 19 2013 - 10:56:16 BST</span>
+<span id="received"><dfn>Received on</dfn> Thu Sep 20 2012 - 03:19:12 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -113,8 +123,8 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5553">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5554.html" title="Next message in the list">Karl Taylor: "[CF-metadata] new standard name: land_surface_skin_temperature"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5552.html" title="Previous message in the list">Jonathan Wrotny: "[CF-metadata] new standard name: land_surface_skin_temperature"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5554.html" title="Next message in the list">David Hassell: "[CF-metadata] CF trac ticket summary update"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5552.html" title="Previous message in the list">Chris Barker: "[CF-metadata] how to express data variable element values that needto cover a range"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -126,7 +136,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:25 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5552.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5554.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

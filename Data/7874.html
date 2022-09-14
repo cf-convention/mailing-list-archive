@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Handling time when date is &quot;missing&quot; from Armstrong, Edward M on 2016-10-26 (mailing-list-archive)</title>
-<meta name="Author" content="Armstrong, Edward M (Edward.M.Armstrong)" />
-<meta name="Subject" content="[CF-metadata] Handling time when date is &quot;missing&quot;" />
-<meta name="Date" content="2016-10-26" />
+<title>[CF-metadata] Are cell_methods attributes OK for coordinate variables? from Charlie Zender on 2015-06-02 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Charlie Zender (zender)" />
+<meta name="Subject" content="[CF-metadata] Are cell_methods attributes OK for coordinate variables?" />
+<meta name="Date" content="2015-06-02" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./7873.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7875.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Handling time when date is &quot;missing&quot;</h1>
-<!-- received="Wed Oct 26 12:54:18 2016" -->
-<!-- isoreceived="20161026115418" -->
-<!-- sent="Wed, 26 Oct 2016 18:54:18 +0000" -->
-<!-- isosent="20161026185418" -->
-<!-- name="Armstrong, Edward M" -->
-<!-- email="Edward.M.Armstrong" -->
-<!-- subject="[CF-metadata] Handling time when date is &quot;missing&quot;" -->
-<!-- id="D43648EB.1A0EA%edward.m.armstrong_at_jpl.nasa.gov" -->
+<a style="text-decoration:none" href="./7873.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7875.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Are cell_methods attributes OK for coordinate variables?</h1>
+<!-- received="Tue Jun  2 15:15:16 2015" -->
+<!-- isoreceived="20150602141516" -->
+<!-- sent="Tue, 02 Jun 2015 14:15:16 -0700" -->
+<!-- isosent="20150602211516" -->
+<!-- name="Charlie Zender" -->
+<!-- email="zender" -->
+<!-- subject="[CF-metadata] Are cell_methods attributes OK for coordinate variables?" -->
+<!-- id="556E1CE4.2020907_at_uci.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="CAA9eyS664j&ndash;&ndash;&ndash;iKFCsKaDObUq=ryNpFch_mEfAriVrGOxmaTMw_at_mail.gmail.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,10 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./7875.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Feedback requested on proposed CF Simple Geometries&quot;">Next message</a> ]
-[ <a href="./7873.html" title="Jonathan Gregory: &quot;[CF-metadata] Feedback requested on proposed CF Simple Geometries&quot;">Previous message</a> ]
-[ <a href="./7868.html" title="Ajay Krishnan - NOAA Affiliate: &quot;[CF-metadata] Handling time when date is &#0034;missing&#0034;&quot;">In reply to</a> ]
+[ <a href="./7875.html" accesskey="d" title="Lowry, Roy K.: &quot;[CF-metadata] FW:  Salinity units&quot;">Next message</a> ]
+[ <a href="./7873.html" title="Signell, Richard: &quot;[CF-metadata] Salinity units&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./7880.html" accesskey="t" title="Jim Biard: &quot;[CF-metadata] Are cell_methods attributes OK for coordinate variables?&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,46 +70,53 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Armstrong, Edward M &lt;<a href="mailto:Edward.M.Armstrong?Subject=Re%3A%20%5BCF-metadata%5D%20Handling%20time%20when%20date%20is%20%22missing%22">Edward.M.Armstrong</a>&gt;
+<dfn>From</dfn>: Charlie Zender &lt;<a href="mailto:zender?Subject=Re%3A%20%5BCF-metadata%5D%20Are%20cell_methods%20attributes%20OK%20for%20coordinate%20variables%3F">zender</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 26 Oct 2016 18:54:18 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 02 Jun 2015 14:15:16 -0700</span><br />
 </address>
 <br />
-Jay,
+Thank you for your thoughts on this David, Karl, and Jim.
 <br />
-<br />You could use the variable time as a single value to establish the time (in complete CF date format) of the first observation
+David, I concur with you.
 <br />
-<br />Another multi dimension array can then be used to store the time offset (in hours or seconds etc.) of  each measurement from variable time
+Karl, rest assured we are talking about adding cell_methods to _both_
 <br />
-<br />Or else convert the hourly measurements into a proper CF date format to store in variable time
+the variable and its coordinate, not the coordinate instead of the
 <br />
-<br />From: CF-metadata &lt;cf-metadata-bounces at cgd.ucar.edu&lt;mailto:cf-metadata-bounces at cgd.ucar.edu&gt;&gt; on behalf of Ajay Krishnan - NOAA Affiliate &lt;ajay.krishnan at noaa.gov&lt;mailto:ajay.krishnan at noaa.gov&gt;&gt;
+variable.
 <br />
-Date: Tuesday, October 25, 2016 at 11:07 AM
+Jim, you seem to view coordinates as abstract mathematical axes while
 <br />
-To: &quot;cf-metadata at cgd.ucar.edu&lt;mailto:cf-metadata at cgd.ucar.edu&gt;&quot; &lt;cf-metadata at cgd.ucar.edu&lt;mailto:cf-metadata at cgd.ucar.edu&gt;&gt;
+I prefer their geophysical meaning. With respect to this discussion
 <br />
-Subject: [CF-metadata] Handling time when date is &quot;missing&quot;
+I see time similarly to other coordinates like lat, lon, lev.
 <br />
-<br />Hi All,
+For example, when NCO averages a spatiotemporal region I want users to
 <br />
-<br />I have a user that's converting some IMMA format files to CF compliant NetCDF files.
+know that the scalar (or size 1 array) values of time, lat, and lon
 <br />
-<br />The problem is that, we've run into several measurements where just the hour of measurement has been recorded without the corresponding &quot;date&quot;. We would prefer not to omit these data in the conversion, because they are considered valid measurements (and play a role in monthly summary statistics)
+values in the output represent averages over the original input region
 <br />
-<br />How do we represent this in a valid CF NetCDF format since we can't use _FillValues for 'time'? Any suggestions for handling such special cases?
+and cell_methods seems to be the natural way to do this.
 <br />
-<br />Thanks,
+Since CF seems to allow cell_methods on coordinates, NCO will continue
 <br />
-Ajay
+its current behavior. I hope the NERC CF checker starts to allow
 <br />
-<br /><br /><br /><br />-------------- next part --------------
+this behavior (the Decker/Schultz cfchecker always has).
 <br />
-An HTML attachment was scrubbed...
+<br />Best,
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20161026/e7b7ecfa/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20161026/e7b7ecfa/attachment-0001.html</a>&gt;
+Charlie
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Oct 26 2016 - 12:54:18 BST</span>
+<br />p.s. thank you! to whomever fixed the archive URL issue
+<br />
+<pre>
+-- 
+Charlie Zender, Earth System Sci. &amp; Computer Sci.
+University of California, Irvine 949-891-2429 )'(
+</pre>
+<span id="received"><dfn>Received on</dfn> Tue Jun 02 2015 - 15:15:16 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -117,10 +124,12 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start7874">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./7875.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Feedback requested on proposed CF Simple Geometries"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./7873.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Feedback requested on proposed CF Simple Geometries"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./7868.html" title="Message to which this message replies">Ajay Krishnan - NOAA Affiliate: "[CF-metadata] Handling time when date is &#0034;missing&#0034;"</a></li>
+<li><dfn>Next message</dfn>: <a href="./7875.html" title="Next message in the list">Lowry, Roy K.: "[CF-metadata] FW:  Salinity units"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./7873.html" title="Previous message in the list">Signell, Richard: "[CF-metadata] Salinity units"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./7880.html" title="Next message in this discussion thread">Jim Biard: "[CF-metadata] Are cell_methods attributes OK for coordinate variables?"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./7880.html" title="Message sent in reply to this message">Jim Biard: "[CF-metadata] Are cell_methods attributes OK for coordinate variables?"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -131,7 +140,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:07 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./7873.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7875.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

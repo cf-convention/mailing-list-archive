@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] aerosol water from Jonathan Gregory on 2006-11-15 (mailing-list-archive)</title>
+<title>[CF-metadata] Units: absolute vs difference from Jonathan Gregory on 2004-08-10 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] aerosol water" />
-<meta name="Date" content="2006-11-15" />
+<meta name="Subject" content="[CF-metadata] Units: absolute vs difference" />
+<meta name="Date" content="2004-08-10" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0436.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0438.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] aerosol water</h1>
-<!-- received="Wed Nov 15 01:17:49 2006" -->
-<!-- isoreceived="20061115011749" -->
-<!-- sent="Wed, 15 Nov 2006 08:17:49 +0000" -->
-<!-- isosent="20061115081749" -->
+<a style="text-decoration:none" href="./0436.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0438.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Units: absolute vs difference</h1>
+<!-- received="Tue Aug 10 15:49:33 2004" -->
+<!-- isoreceived="20040810144933" -->
+<!-- sent="Tue, 10 Aug 2004 22:49:33 +0100" -->
+<!-- isosent="20040810214933" -->
 <!-- name="Jonathan Gregory" -->
 <!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] aerosol water" -->
-<!-- id="20061115081749.GA16397_at_met.reading.ac.uk" -->
+<!-- subject="[CF-metadata] Units: absolute vs difference" -->
+<!-- id="20040810214933.GB2551_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0438.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] species as species in chemical and aerosol?names - &#0034;mercury&#0034;&quot;">Next message</a> ]
-[ <a href="./0436.html" title="Jonathan Gregory: &quot;[CF-metadata] Satellite community use of netCDF CF (GHRSST-PP)&quot;">Previous message</a> ]
+[ <a href="./0438.html" accesskey="d" title="Brian Eaton: &quot;[CF-metadata] Units: absolute vs difference&quot;">Next message</a> ]
+[ <a href="./0436.html" title="John Caron: &quot;[CF-metadata] Units: absolute vs difference&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./0438.html" accesskey="t" title="Brian Eaton: &quot;[CF-metadata] Units: absolute vs difference&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,52 +70,32 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20aerosol%20water">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Units%3A%20absolute%20vs%20difference">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 15 Nov 2006 08:17:49 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 10 Aug 2004 22:49:33 +0100</span><br />
 </address>
 <br />
-Dear Christiane
+Dear John
 <br />
-<br /><em class="quotelev1">&gt; &gt;&gt;&gt;&gt;mass_fraction_of_water_in_ambient_aerosol_in_air
+<br /><em class="quotelev1">&gt; we're looking at WRF model output with temperature differences in 
 </em><br />
-<br /><em class="quotelev2">&gt; &gt; OK, I see there could be a distinction between in_air and in_cloudy_air.
+<em class="quotelev1">&gt; Kelvin. unfortunately, our software package converts to Celsius by 
 </em><br />
-<em class="quotelev1">&gt; and in_clouds or in_snow etc...
+<em class="quotelev1">&gt; subtracting 273. We could fix if we knew it was a temp difference 
 </em><br />
-<br /><em class="quotelev2">&gt; &gt; If aerosol particles are in cloud water or in precipitation, are they 
+<em class="quotelev1">&gt; instead of an absolute temp.
 </em><br />
-<em class="quotelev1">&gt; still &quot;ambient&quot; aerosol? Do they still have a meaningful mass fraction 
-</em><br />
-<em class="quotelev1">&gt; of water?
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; This distinction would not make sense anymore. It could be dry or 
-</em><br />
-<em class="quotelev1">&gt; ambient aerosol in air, or aerosol at a certain rel. humidity in air. Or 
-</em><br />
-<em class="quotelev1">&gt; they could be contained another phase like clouds or precip, but not at 
-</em><br />
-<em class="quotelev1">&gt; the same time in air.
-</em><br />
-<br />As a result of all this, I understand that you need
+<br />I don't think the units would be able to help you. Does the WRF model output
 <br />
-&nbsp;&nbsp;mass_fraction_of_water_in_ambient_aerosol_in_air
+distinguish in any other way between temperatures and temperature differences?
 <br />
-where &quot;ambient&quot; distinguishes it from a specified RH. Thanks for explaining
+Would your software be able to look at other attributes to decide what to do?
 <br />
-that. But if the aerosol is dry or in another phase, I don't think it is
-<br />
-ambient, so you would not include &quot;ambient&quot;. Anyway, we will perhaps discuss
-<br />
-this again if/when such names are definitely proposed. :-)
-<br />
-<br />Best wishes
+<br />Cheers
 <br />
 <br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Nov 15 2006 - 01:17:49 GMT</span>
+<span id="received"><dfn>Received on</dfn> Tue Aug 10 2004 - 15:49:33 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -121,9 +103,12 @@ this again if/when such names are definitely proposed. :-)
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start437">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0438.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] species as species in chemical and aerosol?names - &#0034;mercury&#0034;"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0436.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Satellite community use of netCDF CF (GHRSST-PP)"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0438.html" title="Next message in the list">Brian Eaton: "[CF-metadata] Units: absolute vs difference"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0436.html" title="Previous message in the list">John Caron: "[CF-metadata] Units: absolute vs difference"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./0438.html" title="Next message in this discussion thread">Brian Eaton: "[CF-metadata] Units: absolute vs difference"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./0438.html" title="Message sent in reply to this message">Brian Eaton: "[CF-metadata] Units: absolute vs difference"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -134,7 +119,7 @@ this again if/when such names are definitely proposed. :-)
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:50 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0436.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0438.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

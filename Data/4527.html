@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] identification of vector components from Hedley, Mark on 2012-05-17 (mailing-list-archive)</title>
-<meta name="Author" content="Hedley, Mark (mark.hedley)" />
-<meta name="Subject" content="[CF-metadata] identification of vector components" />
-<meta name="Date" content="2012-05-17" />
+<title>[CF-metadata] standard names for stations from Jonathan Gregory on 2011-08-31 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] standard names for stations" />
+<meta name="Date" content="2011-08-31" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4526.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4528.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] identification of vector components</h1>
-<!-- received="Thu May 17 07:10:28 2012" -->
-<!-- isoreceived="20120517061028" -->
-<!-- sent="Thu, 17 May 2012 14:10:28 +0100" -->
-<!-- isosent="20120517131028" -->
-<!-- name="Hedley, Mark" -->
-<!-- email="mark.hedley" -->
-<!-- subject="[CF-metadata] identification of vector components" -->
-<!-- id="8AC4893FB411FA4AA8CFECD9C8913B660CB47D14_at_EXXMAIL01.desktop.frd.metoffice.com" -->
+<a style="text-decoration:none" href="./4526.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4528.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard names for stations</h1>
+<!-- received="Wed Aug 31 03:33:26 2011" -->
+<!-- isoreceived="20110831023326" -->
+<!-- sent="Wed, 31 Aug 2011 10:33:26 +0100" -->
+<!-- isosent="20110831093326" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] standard names for stations" -->
+<!-- id="20110831093326.GA4715_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="DDB20D8288D53E4D811673C30FAB857D01B67F65699C&#64;NSPEXMBX-B.the-lab.llnl.gov" -->
+<!-- inreplyto="4E5B99A8.1030805_at_whoi.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,8 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4528.html" accesskey="d" title="Hattersley, Richard: &quot;[CF-metadata] Reverse-time trajectory&quot;">Next message</a> ]
-[ <a href="./4526.html" title="Cameron-smith, Philip: &quot;[CF-metadata] identification of vector components&quot;">Previous message</a> ]
+[ <a href="./4528.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Request for new standard name for components ofplatform_speed_wrt_ground&quot;">Next message</a> ]
+[ <a href="./4526.html" title="Nan Galbraith: &quot;[CF-metadata] Request for new standard name for components ofplatform_speed_wrt_ground&quot;">Previous message</a> ]
+[ <a href="./4522.html" title="Nan Galbraith: &quot;[CF-metadata] standard names for stations&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -69,200 +70,30 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Hedley, Mark &lt;<a href="mailto:mark.hedley?Subject=Re%3A%20%5BCF-metadata%5D%20identification%20of%20vector%20components">mark.hedley</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20standard%20names%20for%20stations">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 17 May 2012 14:10:28 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 31 Aug 2011 10:33:26 +0100</span><br />
 </address>
 <br />
-Hello
+Dear Nan
 <br />
-<br />I have considered a slightly alternative approach to getting what I would like while being considerate of the concerns raised to date.
+<br /><em class="quotelev1">&gt; Do we need to specify whether the _id is numeric or character? I'd prefer
+</em><br />
+<em class="quotelev1">&gt; to leave that to the user and his code.
+</em><br />
+<br />Yes, I think we have to specify this for standard_names; in the standard name
 <br />
-<br />I wonder whether we could use the approach of constraining standard names, as with qualification.  For example:
+table, all of them are either assigned units =&gt; numeric, or stated to be
 <br />
-&nbsp;&nbsp;there is a standard name of air_pressure
+&quot;string&quot;. Of course, a number can be written in a string, and maybe that's the
 <br />
-&nbsp;&nbsp;this could be defined, for a particular dataset, such that the vertical coordinate indicates that the data is at a surface
+right thing to do if this variable would never be processed as a number.
 <br />
-&nbsp;&nbsp;if the fact that the dataset is at a surface is intrinsic to the data, the qualified (constrained) standard name may be used: surface_air_pressure
+<br />Best wishes
 <br />
-<br />We could adopt the same concept to re-interpret vector quantity standard names, without invalidating any current datasets.  This would involve:
+<br />Jonathan
 <br />
-&nbsp;- 'x_' type standard names being valid for all coordinate definitions:
-<br />
-&nbsp;&nbsp;- '&quot;x&quot; indicates a vector component along the grid x-axis, positive with increasing x.'
-<br />
-&nbsp;- 'eastward_' type standard names being valid for all 'true east' vectors:
-<br />
-&nbsp;&nbsp;- '&quot;Eastward&quot; indicates a vector component which is positive when directed eastward (negative westward); where eastward is defined as the grid x-axis direction, this is a constrained version of the &quot;x_&quot; standard name'
-<br />
-&nbsp;&nbsp;- this may be interpreted as:
-<br />
-&nbsp;&nbsp;&nbsp;- 1. where eastward is defined as the grid x-axis, this standard name is a constrained version of x_wind
-<br />
-&nbsp;&nbsp;&nbsp;- 2. where eastward is not defined as the grid x-axis, this standard name stands independently
-<br />
-&nbsp;&nbsp;
-<br />
-This enables data producers to use eastward wind in the same way they currently do, while meeting my requirements, for datasets where x may or may not be east, depending on the location and for data format interoperability with formats which do not have an explicit 'eastward_' phenomenon definition.
-<br />
-<br />It enables datasets to be written where:
-<br />
-&nbsp;- vector is x but not east
-<br />
-&nbsp;- vector is x and may be east or eastish
-<br />
-&nbsp;- vector is x and happens to be always east
-<br />
-&nbsp;- vector is x constrained to always be east
-<br />
-&nbsp;- vector is east but not x
-<br />
-&nbsp;
-<br />
-Would this address some of the concerns, as raised by Brian, Jonathan, etc?
-<br />
-<br />mark
-<br />
-<br />-----Original Message-----
-<br />
-From: cf-metadata-bounces at cgd.ucar.edu on behalf of Cameron-smith, Philip
-<br />
-Sent: Wed 16/05/2012 22:40
-<br />
-To: Jonathan Gregory; cf-metadata at cgd.ucar.edu
-<br />
-Subject: Re: [CF-metadata] identification of vector components
-<br />
-&nbsp;
-<br />
-Hi Jonathan, et al.,
-<br />
-<br />Sounds good to me.   Especially the part about moving to a more grammatical system.
-<br />
-<br />Best wishes,
-<br />
-<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Philip
-<br />
-<br />-----------------------------------------------------------------------
-<br />
-Dr Philip Cameron-Smith, pjc at llnl.gov, Lawrence Livermore National Lab.
-<br />
------------------------------------------------------------------------
-<br />
-<br /><br /><br /><em class="quotelev1">&gt; -----Original Message-----
-</em><br />
-<em class="quotelev1">&gt; From: cf-metadata-bounces at cgd.ucar.edu [mailto:cf-metadata-
-</em><br />
-<em class="quotelev1">&gt; bounces at cgd.ucar.edu] On Behalf Of Jonathan Gregory
-</em><br />
-<em class="quotelev1">&gt; Sent: Wednesday, May 16, 2012 1:57 PM
-</em><br />
-<em class="quotelev1">&gt; To: cf-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; Subject: Re: [CF-metadata] identification of vector components
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Dear Mark and Thomas
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I also think that we would do better to keep the current arrangement of
-</em><br />
-<em class="quotelev1">&gt; standard_names with the umbrella variable as an extra grouping. As you
-</em><br />
-<em class="quotelev1">&gt; may
-</em><br />
-<em class="quotelev1">&gt; remember, the question of whether CF standard names could be decomposed
-</em><br />
-<em class="quotelev1">&gt; into
-</em><br />
-<em class="quotelev1">&gt; separate words or atts has been discussed several times. My own view is
-</em><br />
-<em class="quotelev1">&gt; that
-</em><br />
-<em class="quotelev1">&gt; this would be very difficult and has disadvantages as well as
-</em><br />
-<em class="quotelev1">&gt; advantages.
-</em><br />
-<em class="quotelev1">&gt; Instead, I think would be better to make it easier to construct and
-</em><br />
-<em class="quotelev1">&gt; propose
-</em><br />
-<em class="quotelev1">&gt; new names systematically. A couple of years ago I did a fair amount of
-</em><br />
-<em class="quotelev1">&gt; work
-</em><br />
-<em class="quotelev1">&gt; on that, which I have not brought up to date, but it could be revisited
-</em><br />
-<em class="quotelev1">&gt; if
-</em><br />
-<em class="quotelev1">&gt; you think it is promising. For instance, please have a look at
-</em><br />
-<em class="quotelev1">&gt; <a href="http://www.met.reading.ac.uk/~jonathan/CF_metadata/14.1">http://www.met.reading.ac.uk/~jonathan/CF_metadata/14.1</a>
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Since some of the concern is about backward compatibility, perhaps we
-</em><br />
-<em class="quotelev1">&gt; could
-</em><br />
-<em class="quotelev1">&gt; address Mark's need by defining new standard names for his more general
-</em><br />
-<em class="quotelev1">&gt; purpose, for example x_or_eastward_wind, thus not redefining the
-</em><br />
-<em class="quotelev1">&gt; existing ones.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; As a digression, we could also take the opportunity to make them more
-</em><br />
-<em class="quotelev1">&gt; systematic. With hindsight, it seems a mistake to me that we chose to
-</em><br />
-<em class="quotelev1">&gt; have
-</em><br />
-<em class="quotelev1">&gt; e.g. eastward_sea_ice_velocity and sea_ice_x_velocity, with the
-</em><br />
-<em class="quotelev1">&gt; component in
-</em><br />
-<em class="quotelev1">&gt; a different place. The reason was that the meaning of an x_ prefix to a
-</em><br />
-<em class="quotelev1">&gt; long
-</em><br />
-<em class="quotelev1">&gt; standard name might not be obvious. Perhaps xward_sea_ice_velocity
-</em><br />
-<em class="quotelev1">&gt; would be
-</em><br />
-<em class="quotelev1">&gt; better, and eastward_sea_ice_velocity and
-</em><br />
-<em class="quotelev1">&gt; eastward_or_xward_sea_ice_velocity.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Best wishes
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Jonathan
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-_______________________________________________
-<br />
-CF-metadata mailing list
-<br />
-CF-metadata at cgd.ucar.edu
-<br />
-<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-<br />
-<span id="received"><dfn>Received on</dfn> Thu May 17 2012 - 07:10:28 BST</span>
+<span id="received"><dfn>Received on</dfn> Wed Aug 31 2011 - 03:33:26 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -270,8 +101,9 @@ CF-metadata at cgd.ucar.edu
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4527">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4528.html" title="Next message in the list">Hattersley, Richard: "[CF-metadata] Reverse-time trajectory"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4526.html" title="Previous message in the list">Cameron-smith, Philip: "[CF-metadata] identification of vector components"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4528.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Request for new standard name for components ofplatform_speed_wrt_ground"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4526.html" title="Previous message in the list">Nan Galbraith: "[CF-metadata] Request for new standard name for components ofplatform_speed_wrt_ground"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./4522.html" title="Message to which this message replies">Nan Galbraith: "[CF-metadata] standard names for stations"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -283,7 +115,7 @@ CF-metadata at cgd.ucar.edu
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:04 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4526.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4528.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

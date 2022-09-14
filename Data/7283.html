@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] New standard name: angle between solar and sensor azimuth from Jonathan Gregory on 2015-08-17 (mailing-list-archive)</title>
+<title>[CF-metadata] downward_air_velocity from Jonathan Gregory on 2014-09-11 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] New standard name: angle between solar and sensor azimuth" />
-<meta name="Date" content="2015-08-17" />
+<meta name="Subject" content="[CF-metadata] downward_air_velocity" />
+<meta name="Date" content="2014-09-11" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./7282.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7284.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] New standard name: angle between solar and sensor azimuth</h1>
-<!-- received="Mon Aug 17 11:03:02 2015" -->
-<!-- isoreceived="20150817100302" -->
-<!-- sent="Mon, 17 Aug 2015 18:03:02 +0100" -->
-<!-- isosent="20150817170302" -->
+<a style="text-decoration:none" href="./7282.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7284.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] downward_air_velocity</h1>
+<!-- received="Thu Sep 11 10:26:49 2014" -->
+<!-- isoreceived="20140911092649" -->
+<!-- sent="Thu, 11 Sep 2014 17:26:49 +0100" -->
+<!-- isosent="20140911162649" -->
 <!-- name="Jonathan Gregory" -->
 <!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] New standard name: angle between solar and sensor azimuth" -->
-<!-- id="20150817170302.GA7752_at_met.reading.ac.uk" -->
+<!-- subject="[CF-metadata] downward_air_velocity" -->
+<!-- id="20140911162649.GA7794_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./7284.html" accesskey="d" title="Maarten Sneep: &quot;[CF-metadata] albedo, air pressure definitions&quot;">Next message</a> ]
-[ <a href="./7282.html" title="Andreas Hilboll: &quot;[CF-metadata] New standard name: angle between solar and sensor azimuth&quot;">Previous message</a> ]
+[ <a href="./7284.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata]  CF Conventions and netCDF-4 enhanced model&quot;">Next message</a> ]
+[ <a href="./7282.html" title="Jim Biard: &quot;[CF-metadata] CF Conventions and netCDF-4 enhanced model&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./7292.html" accesskey="t" title="Ben Hetland: &quot;[CF-metadata] downward_air_velocity&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,124 +70,46 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20New%20standard%20name%3A%20angle%20between%20solar%20and%20sensor%20azimuth">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20downward_air_velocity">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 17 Aug 2015 18:03:02 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 11 Sep 2014 17:26:49 +0100</span><br />
 </address>
 <br />
-Dear Andreas
+Dear Jim
 <br />
-<br />I see there is a quantity named relative_sensor_azimuth_angle which is not the
+<br /><em class="quotelev1">&gt; Seems a shame that this wasn't originally handled with a standard
+</em><br />
+<em class="quotelev1">&gt; name of 'vertical_air_velocity' (or some such) that required a
+</em><br />
+<em class="quotelev1">&gt; 'positive' attribute. Both upward and downward could be covered with
+</em><br />
+<em class="quotelev1">&gt; no confusion.
+</em><br />
+<br />If it was a separate attribute, it
 <br />
-same as your quantity, but confusion is possible! Therefore a name for your
+could be omitted, and probably sometimes would be (even if that was an error).
 <br />
-quantity should include &quot;solar&quot; somewhere in it to clarify this, I suggest,
+I expect you, like me, have experienced frustrations with analysing datasets
 <br />
-not just &quot;relative azimuth angle&quot;. CF standard names are often descriptions,
+where the quantities are described but their sign conventions not stated.
 <br />
-so maybe it would be reasonable to call it difference_between_sensor_and_solar_
+With CF standard_names this problem cannot arise. It imposes a small cost by
 <br />
-azimuth_angles. We have other stdnames containing &quot;difference_between_X_and_Y&quot;.
+increasing the number of standard_names that have to be defined, but it's
 <br />
-Then in the definition you could say that the difference of angle is taken
+very easy to agree such pairs of standard_names, and of course it only
 <br />
-either clockwise or anticlockwise, whichever is smaller, so that the angle is
+affects quantities that do have a sign, which is minority. So I don't think
 <br />
-no more than 180 degrees and is unsigned - have I understood that properly?
+it's a shame at all. :-) It was a deliberate decision (made 15 years ago),
+<br />
+which I think has been beneficial.
 <br />
 <br />Best wishes
 <br />
 <br />Jonathan
 <br />
-<br />----- Forwarded message from Andreas Hilboll &lt;lists at hilboll.de&gt; -----
-<br />
-<br /><em class="quotelev1">&gt; Date: Mon, 17 Aug 2015 16:11:27 +0200
-</em><br />
-<em class="quotelev1">&gt; From: Andreas Hilboll &lt;lists at hilboll.de&gt;
-</em><br />
-<em class="quotelev1">&gt; To: cf-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; Subject: [CF-metadata] New standard name: angle between solar and sensor
-</em><br />
-<em class="quotelev1">&gt; 	azimuth
-</em><br />
-<em class="quotelev1">&gt; User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:31.0) Gecko/20100101
-</em><br />
-<em class="quotelev1">&gt; 	Thunderbird/31.8.0
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Hi all,
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; a common quantity in satellite remote sensing of atmospheric composition
-</em><br />
-<em class="quotelev1">&gt; is the so-called 'relative azimuth angle', which in that community
-</em><br />
-<em class="quotelev1">&gt; refers to the difference of solar azimuth and sensor azimuth.  However,
-</em><br />
-<em class="quotelev1">&gt; relevant for the radiative transfer simulations is not the actual
-</em><br />
-<em class="quotelev1">&gt; difference solar_azim - sensor_azim, but rather
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt;    raa = abs(solar_azim - sensor_azim) [where abs(solar_azim -
-</em><br />
-<em class="quotelev1">&gt; sensor_azim) &lt; 180]
-</em><br />
-<em class="quotelev1">&gt;          360 - abs(solar_azim - sensor_azim) [otherwise]
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I would like to propose this quantity to be included in the CF standard
-</em><br />
-<em class="quotelev1">&gt; names, but am unsure how to a) name it [*] and b) describe it [**].
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Any ideas?
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Cheers,
-</em><br />
-<em class="quotelev1">&gt;   Andreas.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; [*] the 'relative_...' commonly used in satellite remote sensing of
-</em><br />
-<em class="quotelev1">&gt; trace gases seems to be un-fit for CF, because there
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt;    relative_sensor_azimuth_angle is the difference between the viewing
-</em><br />
-<em class="quotelev1">&gt;    geometries from two different sensors over the same observation
-</em><br />
-<em class="quotelev1">&gt;    target. It is the difference between the values of two quantities
-</em><br />
-<em class="quotelev1">&gt;    with standard name sensor_azimuth_angle.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; [**] I haven't yet seen formulas in the CF standard name definitions ...
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<br />----- End forwarded message -----
-<br />
-<span id="received"><dfn>Received on</dfn> Mon Aug 17 2015 - 11:03:02 BST</span>
+<span id="received"><dfn>Received on</dfn> Thu Sep 11 2014 - 10:26:49 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -193,9 +117,12 @@ no more than 180 degrees and is unsigned - have I understood that properly?
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start7283">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./7284.html" title="Next message in the list">Maarten Sneep: "[CF-metadata] albedo, air pressure definitions"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./7282.html" title="Previous message in the list">Andreas Hilboll: "[CF-metadata] New standard name: angle between solar and sensor azimuth"</a></li>
+<li><dfn>Next message</dfn>: <a href="./7284.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata]  CF Conventions and netCDF-4 enhanced model"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./7282.html" title="Previous message in the list">Jim Biard: "[CF-metadata] CF Conventions and netCDF-4 enhanced model"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./7292.html" title="Next message in this discussion thread">Ben Hetland: "[CF-metadata] downward_air_velocity"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./7292.html" title="Message sent in reply to this message">Ben Hetland: "[CF-metadata] downward_air_velocity"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -206,7 +133,7 @@ no more than 180 degrees and is unsigned - have I understood that properly?
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:59 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./7282.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7284.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

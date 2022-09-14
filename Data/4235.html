@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] netcdf4 and CF-1.6 from Corey Bettenhausen on 2012-03-13 (mailing-list-archive)</title>
-<meta name="Author" content="Corey Bettenhausen (corey.bettenhausen)" />
-<meta name="Subject" content="[CF-metadata] netcdf4 and CF-1.6" />
-<meta name="Date" content="2012-03-13" />
+<title>[CF-metadata] physical vs dimensional units from Jonathan Gregory on 2011-04-14 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] physical vs dimensional units" />
+<meta name="Date" content="2011-04-14" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4234.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4236.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] netcdf4 and CF-1.6</h1>
-<!-- received="Tue Mar 13 07:02:22 2012" -->
-<!-- isoreceived="20120313070222" -->
-<!-- sent="Tue, 13 Mar 2012 09:02:22 -0400" -->
-<!-- isosent="20120313130222" -->
-<!-- name="Corey Bettenhausen" -->
-<!-- email="corey.bettenhausen" -->
-<!-- subject="[CF-metadata] netcdf4 and CF-1.6" -->
-<!-- id="web-13113994_at_ssaihq.com" -->
+<a style="text-decoration:none" href="./4234.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4236.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] physical vs dimensional units</h1>
+<!-- received="Thu Apr 14 02:14:12 2011" -->
+<!-- isoreceived="20110414011412" -->
+<!-- sent="Thu, 14 Apr 2011 08:14:12 -0000" -->
+<!-- isosent="20110414081412" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] physical vs dimensional units" -->
+<!-- id="20110414081403.GD4813_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4F5F1402.8020709_at_pml.ac.uk" -->
+<!-- inreplyto="4DA60D0A.1010505_at_unidata.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4236.html" accesskey="d" title="John Graybeal: &quot;[CF-metadata] Request: research papers which cite use of CF standard names&quot;">Next message</a> ]
-[ <a href="./4234.html" title="Mike Grant: &quot;[CF-metadata] netcdf4 and CF-1.6&quot;">Previous message</a> ]
-[ <a href="./4234.html" title="Mike Grant: &quot;[CF-metadata] netcdf4 and CF-1.6&quot;">In reply to</a> ]
+[ <a href="./4236.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Proposal for new standard names: depth/bathy/topo rel to datum&quot;">Next message</a> ]
+[ <a href="./4234.html" title="Jonathan Gregory: &quot;[CF-metadata] [Standard name request] property changes over time&quot;">Previous message</a> ]
+[ <a href="./4231.html" title="Steve Emmerson: &quot;[CF-metadata] physical vs dimensional units&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./4248.html" accesskey="t" title="Mike Grant: &quot;[CF-metadata] netcdf4 and CF-1.6&quot;">Next in thread</a> ]
+[ <a href="./4239.html" accesskey="t" title="John Caron: &quot;[CF-metadata] physical vs dimensional units&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,172 +72,48 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Corey Bettenhausen &lt;<a href="mailto:corey.bettenhausen?Subject=Re%3A%20%5BCF-metadata%5D%20netcdf4%20and%20CF-1.6">corey.bettenhausen</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20physical%20vs%20dimensional%20units">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 13 Mar 2012 09:02:22 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 14 Apr 2011 08:14:12 -0000</span><br />
 </address>
 <br />
-Mike, Cauquil, list, 
+Dear John and Steve
 <br />
-I'm interested in this topic of file formats and CF compliance.  I've only used the most basic CF features (CF-required global attributes and variable attributes). To me none of these seem to depend on whether the file is netCDF3/4 or HDF5.  Are there more advanced features of CF that require the netCDF &quot;Classic&quot; model?  Can we expand to at least netCDF4 with data only in the root group? 
+<br />I agree with Steve about this:
 <br />
-<br />I brought this up late last year, but didn't get any bites:
+<br /><em class="quotelev1">&gt; On 04/13/2011 02:25 PM, John Caron wrote:
+</em><br />
+<em class="quotelev2">&gt; &gt; the point im trying to make is that it would be better to understand
+</em><br />
+<em class="quotelev2">&gt; &gt; that &quot;mol mol-1&quot; (canonical udunit = 1) is not the same as  &quot;m3 m-3&quot;
+</em><br />
+<em class="quotelev2">&gt; &gt; (canonical udunit = 1).
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; In my opinion, the distinction between &quot;mol/mol&quot; and &quot;m3/m3&quot; is better
+</em><br />
+<em class="quotelev1">&gt; indicated by the name of the physical quantity being displayed rather
+</em><br />
+<em class="quotelev1">&gt; than by its unit attribute.
+</em><br />
+<br />I would say mol mol-1 and m3 m-3 are actually the same unit. But that doesn't
 <br />
-<a href="http://www.mail-archive.com/cf-metadata">http://www.mail-archive.com/cf-metadata</a> at cgd.ucar.edu/msg02487.html
+mean the quantities with these units are the same. Similarly,
 <br />
-<br />As far as a proof of concept, I do have HDF5 files that will pass a CF-checker, however only data sets in the root group are checked as the CF-checker doesn't descend into sub-groups. So I know that that it's possible to a degree, but the question is whether or not this is &quot;blessed&quot; by the actual conventions.
+net_downward_longwave_flux_in_air and net_downward_shortwave_flux_in_air
 <br />
-Regards,
+are not the same quantity, even though they are both in W m-2.
 <br />
--Corey
+<br />The udunits Unix command doesn't accept garbage garbage-1 as a valid unit,
 <br />
-<br />On Tue, 13 Mar 2012 09:31:46 +0000
+and nor should the Java version, I think.
 <br />
-&nbsp;Mike Grant &lt;mggr at pml.ac.uk&gt; wrote:
+<br />Best wishes
 <br />
-<em class="quotelev1">&gt;Hi Cauquil,
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;On 12/03/12 15:29, Cauquil Pascal (Capgemini) wrote:
-</em><br />
-<em class="quotelev2">&gt;&gt; We intend to use netcdf4 for this new program to use compression and
-</em><br />
-<em class="quotelev2">&gt;&gt; group possibilities but, we want also to be compliant with CF-1.6
-</em><br />
-<em class="quotelev2">&gt;&gt; convention.
-</em><br />
-<em class="quotelev2">&gt;&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt; Do you think it is a possible to display &quot;CF-1.6 compliant&quot; using
-</em><br />
-<em class="quotelev2">&gt;&gt; these 2 netCDF4 features too? Is netCDF4 an axis of discussion for
-</em><br />
-<em class="quotelev2">&gt;&gt; the CF group?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;We use netcdf4 with internal compression and are 1.6 compliant (in as
-</em><br />
-<em class="quotelev1">&gt;much as we can say that without having a compliance checker to ensure
-</em><br />
-<em class="quotelev1">&gt;that).  There's no conflict between CF and the compression feature.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;I'm not so sure about internal groupings (like HDF5?).  I don't see any
-</em><br />
-<em class="quotelev1">&gt;reason why it shouldn't be compatible, but I don't think anyone has put
-</em><br />
-<em class="quotelev1">&gt;effort into defining exactly the expectations for the &quot;non-classic&quot;
-</em><br />
-<em class="quotelev1">&gt;model.  CF may currently be somewhat tied to the netcdf &quot;classic&quot; model,
-</em><br />
-<em class="quotelev1">&gt;but perhaps someone wiser can correct me.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;Cheers,
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;Mike.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;&lt;br /&gt;
-</em><br />
-<em class="quotelev1">&gt;&lt;hr /&gt;
-</em><br />
-<em class="quotelev1">&gt;&lt;p&gt;&lt;font face=&quot;Arial&quot; size=&quot;1&quot;&gt;
-</em><br />
-<em class="quotelev1">&gt;Plymouth Marine Laboratory&lt;br /&gt;
-</em><br />
-<em class="quotelev1">&gt;Registered Office: &lt;br /&gt;
-</em><br />
-<em class="quotelev1">&gt;Prospect Place&lt;br /&gt;
-</em><br />
-<em class="quotelev1">&gt;The Hoe&lt;br /&gt;
-</em><br />
-<em class="quotelev1">&gt;Plymouth  PL1 3DH
-</em><br />
-<em class="quotelev1">&gt;&lt;/font&gt;&lt;/p&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;&lt;p&gt;&lt;font face=&quot;Arial&quot; size=&quot;1&quot;&gt;Website: &lt;a href=&quot;<a href="http://www.pml.ac.uk">http://www.pml.ac.uk</a>&quot;&gt;www.pml.ac.uk&lt;/a&gt;
-</em><br />
-<em class="quotelev1">&gt;&lt;br /&gt;
-</em><br />
-<em class="quotelev1">&gt;&lt;a href=&quot;<a href="http://www.pml.ac.uk/pdf/PML%20Annual%20Review%202011_2.pdf">http://www.pml.ac.uk/pdf/PML%20Annual%20Review%202011_2.pdf</a>&quot;&gt;Click here for the latest PML Annual Review&lt;/a&gt;
-</em><br />
-<em class="quotelev1">&gt;&lt;br /&gt;
-</em><br />
-<em class="quotelev1">&gt;Registered Charity No. 1091222&lt;br /&gt;
-</em><br />
-<em class="quotelev1">&gt;PML is a company limited by guarantee&lt;br /&gt;
-</em><br />
-<em class="quotelev1">&gt;registered in England &amp; Wales&lt;br /&gt;
-</em><br />
-<em class="quotelev1">&gt;company number 4178503&lt;/font&gt;&lt;/p&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;&lt;p&gt;&lt;font face=&quot;Arial&quot; size=&quot;1&quot; color=&quot;green&quot;&gt;Please think before you print.&lt;/font&gt;&lt;/p&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;&lt;hr /&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;&lt;p&gt;&lt;font face=&quot;Arial&quot; size=&quot;1&quot;&gt;This e-mail, its content and any file attachments are confidential.&lt;/font&gt;&lt;/p&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;&lt;p&gt;&lt;font face=&quot;Arial&quot; size=&quot;1&quot;&gt;If you have received this e-mail in error please do not copy, disclose it to any third party or use the contents or attachments in any way. Please notify the sender by replying to this e-mail or e-mail forinfo at pml.ac.uk and then delete the email without making any copies or using it in any other way.&lt;/font&gt;&lt;/p&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;&lt;p&gt;&lt;font face=&quot;Arial&quot; size=&quot;1&quot;&gt;The content of this message may contain personal views which are not the views of Plymouth Marine Laboratory unless specifically stated.&lt;/font&gt;&lt;/p&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;&lt;p&gt;&lt;font face=&quot;Arial&quot; size=&quot;1&quot;&gt;You are reminded that e-mail communications are not secure and may contain viruses. Plymouth Marine Laboratory accepts no liability for any loss or damage which may be caused by viruses.&lt;/font&gt;&lt;/p&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;&lt;hr /&gt;
-</em><br />
-<em class="quotelev1">&gt;&lt;br /&gt;
-</em><br />
-<em class="quotelev1">&gt;&lt;br /&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;_______________________________________________
-</em><br />
-<em class="quotelev1">&gt;CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt;CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt;<a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<br />*************************************
+<br />Jonathan
 <br />
-Corey Bettenhausen
-<br />
-Science System and Applications, Inc
-<br />
-Goddard Space Flight Center
-<br />
-301 614 5383
-<br />
-corey_bettenhausen at ssaihq.com
-<br />
-*************************************
-<br />
-<span id="received"><dfn>Received on</dfn> Tue Mar 13 2012 - 07:02:22 GMT</span>
+<span id="received"><dfn>Received on</dfn> Thu Apr 14 2011 - 02:14:12 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -245,13 +121,13 @@ corey_bettenhausen at ssaihq.com
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4235">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4236.html" title="Next message in the list">John Graybeal: "[CF-metadata] Request: research papers which cite use of CF standard names"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4234.html" title="Previous message in the list">Mike Grant: "[CF-metadata] netcdf4 and CF-1.6"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./4234.html" title="Message to which this message replies">Mike Grant: "[CF-metadata] netcdf4 and CF-1.6"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4236.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Proposal for new standard names: depth/bathy/topo rel to datum"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4234.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] [Standard name request] property changes over time"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./4231.html" title="Message to which this message replies">Steve Emmerson: "[CF-metadata] physical vs dimensional units"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./4248.html" title="Next message in this discussion thread">Mike Grant: "[CF-metadata] netcdf4 and CF-1.6"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./4239.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] physical vs dimensional units"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./4248.html" title="Message sent in reply to this message">Mike Grant: "[CF-metadata] netcdf4 and CF-1.6"</a></li>
+<dfn>Reply</dfn>: <a href="./4239.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] physical vs dimensional units"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -262,7 +138,7 @@ corey_bettenhausen at ssaihq.com
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:59 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4234.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4236.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Non-real-world calendars from Hattersley, Richard on 2013-07-01 (mailing-list-archive)</title>
-<meta name="Author" content="Hattersley, Richard (richard.hattersley)" />
-<meta name="Subject" content="[CF-metadata] Non-real-world calendars" />
-<meta name="Date" content="2013-07-01" />
+<title>[CF-metadata] Choice of fill value for unpacked data from Bentley, Philip on 2012-09-26 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Bentley, Philip (philip.bentley)" />
+<meta name="Subject" content="[CF-metadata] Choice of fill value for unpacked data" />
+<meta name="Date" content="2012-09-26" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5578.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5580.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Non-real-world calendars</h1>
-<!-- received="Mon Jul  1 07:26:22 2013" -->
-<!-- isoreceived="20130701062622" -->
-<!-- sent="Mon, 1 Jul 2013 13:26:22 +0000" -->
-<!-- isosent="20130701132622" -->
-<!-- name="Hattersley, Richard" -->
-<!-- email="richard.hattersley" -->
-<!-- subject="[CF-metadata] Non-real-world calendars" -->
-<!-- id="21A2C87797FA6042B162A8A0A11A15DB05606C_at_EXXCMPD1DAG2.cmpd1.metoffice.gov.uk" -->
+<a style="text-decoration:none" href="./5578.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5580.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Choice of fill value for unpacked data</h1>
+<!-- received="Wed Sep 26 08:59:53 2012" -->
+<!-- isoreceived="20120926075953" -->
+<!-- sent="Wed, 26 Sep 2012 15:59:53 +0100" -->
+<!-- isosent="20120926145953" -->
+<!-- name="Bentley, Philip" -->
+<!-- email="philip.bentley" -->
+<!-- subject="[CF-metadata] Choice of fill value for unpacked data" -->
+<!-- id="E51EDFEBF10BE44BB4BDAF5FC2F024B903636D2B_at_EXXMAIL02.desktop.frd.metoffice.com" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="6983.1348628906_at_unidata.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5580.html" accesskey="d" title="Nan Galbraith: &quot;[CF-metadata] how to represent a non-standard error&quot;">Next message</a> ]
-[ <a href="./5578.html" title="rhorne at excaliburlabs.com: &quot;[CF-metadata] how to represent a non-standard error&quot;">Previous message</a> ]
+[ <a href="./5580.html" accesskey="d" title="Russ Rew: &quot;[CF-metadata] Choice of fill value for unpacked data&quot;">Next message</a> ]
+[ <a href="./5578.html" title="Etienne Tourigny: &quot;[CF-metadata] Choice of fill value for unpacked data&quot;">Previous message</a> ]
+[ <a href="./5576.html" title="Russ Rew: &quot;[CF-metadata] Choice of fill value for unpacked data&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./5587.html" accesskey="t" title="Dave Allured - NOAA Affiliate: &quot;[CF-metadata] Non-real-world calendars&quot;">Next in thread</a> ]
+[ <a href="./5580.html" accesskey="t" title="Russ Rew: &quot;[CF-metadata] Choice of fill value for unpacked data&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,40 +72,142 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Hattersley, Richard &lt;<a href="mailto:richard.hattersley?Subject=Re%3A%20%5BCF-metadata%5D%20Non-real-world%20calendars">richard.hattersley</a>&gt;
+<dfn>From</dfn>: Bentley, Philip &lt;<a href="mailto:philip.bentley?Subject=Re%3A%20%5BCF-metadata%5D%20Choice%20of%20fill%20value%20for%20unpacked%20data">philip.bentley</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 1 Jul 2013 13:26:22 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 26 Sep 2012 15:59:53 +0100</span><br />
 </address>
 <br />
-Hi everyone,
+Hi Russ,
 <br />
-<br />I'd like to propose a trac ticket or two to clarify the meaning when using alternative calendars. But before I do that I'd like to check for community opinion (or even consensus!?) ...
+<br />Thanks for providing this reference, which I had previously come across
 <br />
-<br />1. Time zones should be excluded/banned when using non-real-world calendars. For example, the statement in section 4.4 of &quot;if the time zone is omitted the default is UTC&quot; should not apply.
+as part of some earlier investigative work around data packing. I may be
 <br />
-<br />2. The &quot;months since&quot; and &quot;years since&quot; semantics for non-real-world calendars need defining/outlawing. e.g. The UDUNITS definition of a year as 365.242198781 days makes no sense at all for a 360-day calendar, but in this particular case a year could be unambiguously defined as 360 days.
+misunderstanding some of what's written there, but I wasn't able to see
 <br />
-<br />3. The year-zero semantics for non-real-world calendars need defining. From section 7.4, &quot;Year 0 may be a valid year in non-real-world calendars&quot;.
+anything in that particular section which described how to specify (or
 <br />
-<br />I have some further questions concerning real-world calendars, but as with all things dealing with the real world they are a little more messy so I'll save them for another post.
+derive) a fill value to use with the *unpacked* data array. But it's
 <br />
-<br />Richard Hattersley
+quite likely I'm just missing some key point :-)
 <br />
-Benevolent Dictator of Iris - a CF library for Python: www.scitools.org.uk/iris&lt;<a href="http://www.scitools.org.uk/iris">http://www.scitools.org.uk/iris</a>&gt;
+<br />The CF spec currently states that &quot;values that are identified as missing
 <br />
-Met Office  FitzRoy Road  Exeter  Devon  EX1 3PB  United Kingdom
+should not be transformed&quot;. So if we have a packed data variable of type
 <br />
-Tel: +44 (0)1392 885702
+short which uses a fill value of, say, -32768, all we can do is detect
 <br />
-Email: richard.hattersley at metoffice.gov.uk&lt;mailto:richard.hattersley at metoffice.gov.uk&gt;  Web: www.metoffice.gov.uk&lt;<a href="http://www.metoffice.gov.uk/">http://www.metoffice.gov.uk/</a>&gt;
+those values, avoid applying the unpacking algorithm, and flag them as
 <br />
-<br />-------------- next part --------------
+missing in the in-memory data array.
 <br />
-An HTML attachment was scrubbed...
+<br />Now, when we come to write out the unpacked data array to a new netCDF
 <br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130701/ea9be40b/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20130701/ea9be40b/attachment.html</a>&gt;
+file we need to choose a fill value appropriate to the type and range of
 <br />
-<span id="received"><dfn>Received on</dfn> Mon Jul 01 2013 - 07:26:22 BST</span>
+the unpacked data. We could use some semi-arbitrary value, such as
+<br />
+-1.0e20, or the netCDF default fill value. But as I hinted at in my
+<br />
+original email, both of those choices might be inappropriate, hence my
+<br />
+suggestion to explicitly define what the fill value should be via a
+<br />
+suitable new attribute.
+<br />
+<br />Refining my earlier suggestion, that attribute could also be global, in
+<br />
+which case it would be used for all unpacked variables which didn't
+<br />
+define the new fill value via a variable-scope attribute of the same
+<br />
+name. All this would be optional of course.
+<br />
+<br />Regards,
+<br />
+Phil
+<br />
+<br /><em class="quotelev1">&gt; -----Original Message-----
+</em><br />
+<em class="quotelev1">&gt; From: Russ Rew [mailto:russ at unidata.ucar.edu] 
+</em><br />
+<em class="quotelev1">&gt; Sent: 26 September 2012 04:08
+</em><br />
+<em class="quotelev1">&gt; To: Bentley, Philip
+</em><br />
+<em class="quotelev1">&gt; Cc: cf-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; Subject: Re: [CF-metadata] Choice of fill value for unpacked data
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Hi Phil,
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; The final para of section 2.5.1 of the CF conventions document 
+</em><br />
+<em class="quotelev2">&gt; &gt; describes the use of the _FillValue (or missing_value) attribute in 
+</em><br />
+<em class="quotelev2">&gt; &gt; the case of data packed using the scale-and-offset method.  What is 
+</em><br />
+<em class="quotelev2">&gt; &gt; not clear - at least to me - is what the preferred application 
+</em><br />
+<em class="quotelev2">&gt; &gt; behaviour should be in the case where the data is unpacked and then 
+</em><br />
+<em class="quotelev2">&gt; &gt; written out to a new netCDF file. In particular, what fill value 
+</em><br />
+<em class="quotelev2">&gt; &gt; should be used for the unpacked data variable?
+</em><br />
+<em class="quotelev2">&gt; &gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; [snip]
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; A more detailed recommendation for treating special values 
+</em><br />
+<em class="quotelev1">&gt; such as _FillValue or missing_value for packed data is 
+</em><br />
+<em class="quotelev1">&gt; described, with associated formulas, in the &quot;Packed Data 
+</em><br />
+<em class="quotelev1">&gt; Values&quot; section of a best-practices document that we wrote a 
+</em><br />
+<em class="quotelev1">&gt; few years ago:
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt;   
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.unidata.ucar.edu/netcdf/docs/BestPractices.html#Pac">http://www.unidata.ucar.edu/netcdf/docs/BestPractices.html#Pac</a>
+</em><br />
+<em class="quotelev1">&gt; ked%20Data%20Values
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; It provides a recommendation for ensuring the unpacked 
+</em><br />
+<em class="quotelev1">&gt; special value is not in the range of other unpacked data 
+</em><br />
+<em class="quotelev1">&gt; values.  If that recommendation is followed, I think there is 
+</em><br />
+<em class="quotelev1">&gt; no need for an additional _FillValueUnpacked (or 
+</em><br />
+<em class="quotelev1">&gt; missing_value_unpacked) attribute.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; If you agree that is an acceptable approach, perhaps we 
+</em><br />
+<em class="quotelev1">&gt; should add it to CF ...
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; --Russ
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<span id="received"><dfn>Received on</dfn> Wed Sep 26 2012 - 08:59:53 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -111,13 +215,13 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5579">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5580.html" title="Next message in the list">Nan Galbraith: "[CF-metadata] how to represent a non-standard error"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5578.html" title="Previous message in the list">rhorne at excaliburlabs.com: "[CF-metadata] how to represent a non-standard error"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5580.html" title="Next message in the list">Russ Rew: "[CF-metadata] Choice of fill value for unpacked data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5578.html" title="Previous message in the list">Etienne Tourigny: "[CF-metadata] Choice of fill value for unpacked data"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./5576.html" title="Message to which this message replies">Russ Rew: "[CF-metadata] Choice of fill value for unpacked data"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./5587.html" title="Next message in this discussion thread">Dave Allured - NOAA Affiliate: "[CF-metadata] Non-real-world calendars"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./5580.html" title="Next message in this discussion thread">Russ Rew: "[CF-metadata] Choice of fill value for unpacked data"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./5587.html" title="Message sent in reply to this message">Dave Allured - NOAA Affiliate: "[CF-metadata] Non-real-world calendars"</a></li>
-<li><dfn>Reply</dfn>: <a href="./5590.html" title="Message sent in reply to this message">Seth McGinnis: "[CF-metadata] Non-real-world calendars"</a></li>
+<dfn>Reply</dfn>: <a href="./5580.html" title="Message sent in reply to this message">Russ Rew: "[CF-metadata] Choice of fill value for unpacked data"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -128,7 +232,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:26 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5578.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5580.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

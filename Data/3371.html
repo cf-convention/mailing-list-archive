@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] udunits time unit question from Seth McGinnis on 2011-03-31 (mailing-list-archive)</title>
-<meta name="Author" content="Seth McGinnis (mcginnis)" />
-<meta name="Subject" content="[CF-metadata] udunits time unit question" />
-<meta name="Date" content="2011-03-31" />
+<title>[CF-metadata] Units micro prefix &quot;u&quot; deprecated in udunits-2 from john caron on 2010-03-27 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="john caron (caron)" />
+<meta name="Subject" content="[CF-metadata] Units micro prefix &quot;u&quot; deprecated in udunits-2" />
+<meta name="Date" content="2010-03-27" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./3370.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3372.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] udunits time unit question</h1>
-<!-- received="Thu Mar 31 11:18:49 2011" -->
-<!-- isoreceived="20110331101849" -->
-<!-- sent="Thu, 31 Mar 2011 11:18:49 -0600" -->
-<!-- isosent="20110331171849" -->
-<!-- name="Seth McGinnis" -->
-<!-- email="mcginnis" -->
-<!-- subject="[CF-metadata] udunits time unit question" -->
-<!-- id="web-34683994_at_mail.ucar.edu" -->
+<a style="text-decoration:none" href="./3370.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3372.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Units micro prefix &quot;u&quot; deprecated in udunits-2</h1>
+<!-- received="Sat Mar 27 08:40:20 2010" -->
+<!-- isoreceived="20100327084020" -->
+<!-- sent="Sat, 27 Mar 2010 08:40:20 -0600" -->
+<!-- isosent="20100327144020" -->
+<!-- name="john caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] Units micro prefix &quot;u&quot; deprecated in udunits-2" -->
+<!-- id="4BAE18D4.8080409_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="4D93AE3E.1010706_at_noaa.gov" -->
+<!-- inreplyto="1b3c57e41003261749l2ca7d3b1lf87bc30587787e70_at_mail.gmail.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./3372.html" accesskey="d" title="Schultz, Martin: &quot;[CF-metadata] udunits time units question&quot;">Next message</a> ]
-[ <a href="./3370.html" title="Christopher Barker: &quot;[CF-metadata] udunits time unit question&quot;">Previous message</a> ]
-[ <a href="./3366.html" title="Christopher Barker: &quot;[CF-metadata] udunits time unit question&quot;">In reply to</a> ]
+[ <a href="./3372.html" accesskey="d" title="John.Dunne at noaa.gov: &quot;[CF-metadata] CMIP5 ocean biogeochemistry standard names&quot;">Next message</a> ]
+[ <a href="./3370.html" title="Lowry, Roy K: &quot;[CF-metadata] Units micro prefix &#0034;u&#0034; deprecated in udunits-2&quot;">Previous message</a> ]
+[ <a href="./3369.html" title="Eizi TOYODA: &quot;[CF-metadata] Units micro prefix &#0034;u&#0034; deprecated in udunits-2&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./3401.html" accesskey="t" title="Christopher Barker: &quot;[CF-metadata] udunits time unit question&quot;">Next in thread</a> ]
+[ <a href="./3373.html" accesskey="t" title="Jonathan Gregory: &quot;[CF-metadata] Units micro prefix &#0034;u&#0034; deprecated in udunits-2&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,116 +72,100 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Seth McGinnis &lt;<a href="mailto:mcginnis?Subject=Re%3A%20%5BCF-metadata%5D%20udunits%20time%20unit%20question">mcginnis</a>&gt;
+<dfn>From</dfn>: john caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20Units%20micro%20prefix%20%22u%22%20deprecated%20in%20udunits-2">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 31 Mar 2011 11:18:49 -0600</span><br />
+<span id="date"><dfn>Date</dfn>: Sat, 27 Mar 2010 08:40:20 -0600</span><br />
 </address>
 <br />
-For those who have never encountered a non-standard calendar in the wild,
+Eizi TOYODA wrote:
 <br />
-here's one place they show up:
-<br />
-<br />360-day and 365-day calendars are used in climate modeling.  It requires a lot
-<br />
-of extra work to write code that can handle leap years by making the year
-<br />
-length variable, and the payoff for doing so is minimal.  So in most (maybe
-<br />
-all) cases, nobody's ever done it.  Even the irregularity of variable-length
-<br />
-months is too much work for some model developers.
-<br />
-<br />Yes, 1960-01-31 is an illegal date in a 360-day calendar.  The year 1960 would
-<br />
-generally mean &quot;the year when prescribed model conditions correspond to the
-<br />
-real-world conditions of 1960&quot;.  You wouldn't get a cumulative offset in the
-<br />
-dates using &quot;years since&quot; because there's no one-to-one mapping between model
-<br />
-days and historical days -- if you want to compare the model output with data
-<br />
-that uses a different calendar, the first thing you do is aggregate it to a
-<br />
-monthly or longer timescale where there is a one-to-one correspondence.  (And
-<br />
-usually it doesn't make much sense to compare things day-by-day anyway.)
-<br />
-<br />The point of storing the data using the 360-day calendar is that it faithfully
-<br />
-reflects the structure of the model output.  You could massage the data to fit
-<br />
-a Gregorian calendar, but it would be extra work, it would introduce gaps in
-<br />
-the time coordinate, and the result might not accurately reflect the
-<br />
-descriptions of what went into the model.  For example, if some land-cover
-<br />
-boundary condition was prescribed on a monthly basis, you'd infer the wrong
-<br />
-value for day 60 if the calendar was Gregorian (March 1st) instead of 360-day
-<br />
-(Feb. 30th).  So it's just better all ways round to define a non-standard
-<br />
-calendar that matches how the model works.
-<br />
-<br />Does that help clarify what's going on with these strange beasts?
-<br />
-<br />Cheers,
-<br />
-<br />--Seth
-<br />
-<br /><em class="quotelev1">&gt;360_day
-</em><br />
-<em class="quotelev1">&gt;     All years are 360 days divided into 30 day months.
+<em class="quotelev1">&gt; Hi all,
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;OK, so I take it that a day is 24 hours, so a year is 24 * 360 hours long. I
+<em class="quotelev1">&gt; Nobody here is trying to discourage the use of micro sign. What
 </em><br />
-<em class="quotelev1">&gt;can see the utility in this, but then i guess 1960-01-31 is illegal? And if
-</em><br />
-<em class="quotelev1">&gt;you do &quot;years since&quot; or even &quot;months since&quot;, the meaning is going to get very
-</em><br />
-<em class="quotelev1">&gt;offset after a few year from the &quot;usual&quot; calendar.
+<em class="quotelev1">&gt; character encoding are you going to use?
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;I'm also not sure what &quot;1960-01-01&quot; means in a 360_day calendar -- what is
+<em class="quotelev1">&gt; Micro sign (<a href="http://www.fileformat.info/info/unicode/char/00b5/index.htm">http://www.fileformat.info/info/unicode/char/00b5/index.htm</a>)
 </em><br />
-<em class="quotelev1">&gt;year 0? Or do you use the Gregorian calendar for the &quot;point in time&quot; part?
+<em class="quotelev1">&gt; is single byte 0xB5 in Latin-1 (aka ISO-8859-1) but becomes
 </em><br />
-<em class="quotelev1">&gt;Maybe that doesn't matter, as long as we aren't concerned about absolute
+<em class="quotelev1">&gt; double-byte 0xC2 0xB5 in UTF-8.  There is also confusing Greek small
 </em><br />
-<em class="quotelev1">&gt;dates. This does satisfy Steve's point about having a meaningful axis for
+<em class="quotelev1">&gt; letter mu (<a href="http://www.fileformat.info/info/unicode/char/03bc/index.htm">http://www.fileformat.info/info/unicode/char/03bc/index.htm</a>)
 </em><br />
-<em class="quotelev1">&gt;doing math -- every month and year is the same length.
+<em class="quotelev1">&gt; which is 0xCE 0xBC.  In short this letter is bad for computer
+</em><br />
+<em class="quotelev1">&gt; processing if we don't have mechanism to specify character encoding.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt;However, at the end of the day, I don't see the use -- you really can't talk
+<em class="quotelev1">&gt; UDUNITS 2 API has &quot;encoding&quot; argument, and users can choose either
 </em><br />
-<em class="quotelev1">&gt;about dates in this calendar anyway, so why not pick an arbitrary point in
+<em class="quotelev1">&gt; ASCII, Latin-1, or UTF-8.  Accordingly &quot;udunits2&quot; command has options
 </em><br />
-<em class="quotelev1">&gt;time and use hours? When if comes down to it, I can certainly see why one
+<em class="quotelev1">&gt; -A -L and -U.  It is enough for library that users have control and
 </em><br />
-<em class="quotelev1">&gt;might want to do calculations and plotting, etc, in those calendars, but I
+<em class="quotelev1">&gt; responsibility.  But CF is a standard of metadata that is exchanged
 </em><br />
-<em class="quotelev1">&gt;don't see why your netcdf file has to store the data that way.
+<em class="quotelev1">&gt; among people to avoid confusion.
 </em><br />
-<br />-----
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; The CF community can choose many ways.  I'd like to see views on the community:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; (1) Create a global attribute to specify character encoding (like XML)
+</em><br />
+<em class="quotelev1">&gt;       I believe this won't work.
+</em><br />
+<em class="quotelev1">&gt; (2) Declare that CF uses UTF-8
+</em><br />
+<em class="quotelev1">&gt;       Probably many people simply ignore that and put single 0xB5 as micro sign.
+</em><br />
+<em class="quotelev1">&gt; (3) Recommends only US-ASCII letters in &quot;units&quot; attribute
+</em><br />
+<em class="quotelev1">&gt;       Very conservative, but that is consistent with allowing only
+</em><br />
+<em class="quotelev1">&gt; English in standardized attributes.
+</em><br />
+<em class="quotelev1">&gt; (4) Do nothing
+</em><br />
+<em class="quotelev1">&gt;       I have to warn programmers to anticipate any byte pattern above.
+</em><br />
+<em class="quotelev1">&gt;       That would work if only micro sign is an extension to ASCII.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Best Regards,
+</em><br />
+<em class="quotelev1">&gt;   
+</em><br />
+Strings stored in netCDF (eg variable names, attributes, String data in 
 <br />
-Seth McGinnis
+netCDF-4) are interpreted as UTF-8, and theres no standard way to 
 <br />
-NARCCAP Data Manager
+indicate a different encoding. CF could add such a mechanism, but unless 
 <br />
-Associate Scientist
+they do, by default &quot;CF uses UTF-8&quot;. It would probably be worth speaking 
 <br />
-IMAGe / NCAR
+to this explicitly in the CF doc; I would advocate sticking with UTF-8. 
 <br />
-------
+Requiring US-ASCII for attributes that CF defines is reasonable also.
 <br />
-<span id="received"><dfn>Received on</dfn> Thu Mar 31 2011 - 11:18:49 BST</span>
+<br />As always, there's a tension between CF creating &quot;best practices&quot; for 
+<br />
+new file writers vs trying to define conformance (and staying backwards 
+<br />
+compatible). I think spelling out the unit should be best practice, but 
+<br />
+keeping a &quot;backwards compatible&quot; version of udunits-2 seems necessary.
+<br />
+<span id="received"><dfn>Received on</dfn> Sat Mar 27 2010 - 08:40:20 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -189,13 +173,13 @@ IMAGe / NCAR
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start3371">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./3372.html" title="Next message in the list">Schultz, Martin: "[CF-metadata] udunits time units question"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./3370.html" title="Previous message in the list">Christopher Barker: "[CF-metadata] udunits time unit question"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./3366.html" title="Message to which this message replies">Christopher Barker: "[CF-metadata] udunits time unit question"</a></li>
+<li><dfn>Next message</dfn>: <a href="./3372.html" title="Next message in the list">John.Dunne at noaa.gov: "[CF-metadata] CMIP5 ocean biogeochemistry standard names"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./3370.html" title="Previous message in the list">Lowry, Roy K: "[CF-metadata] Units micro prefix &#0034;u&#0034; deprecated in udunits-2"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./3369.html" title="Message to which this message replies">Eizi TOYODA: "[CF-metadata] Units micro prefix &#0034;u&#0034; deprecated in udunits-2"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./3401.html" title="Next message in this discussion thread">Christopher Barker: "[CF-metadata] udunits time unit question"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./3373.html" title="Next message in this discussion thread">Jonathan Gregory: "[CF-metadata] Units micro prefix &#0034;u&#0034; deprecated in udunits-2"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./3401.html" title="Message sent in reply to this message">Christopher Barker: "[CF-metadata] udunits time unit question"</a></li>
+<dfn>Reply</dfn>: <a href="./3373.html" title="Message sent in reply to this message">Jonathan Gregory: "[CF-metadata] Units micro prefix &#0034;u&#0034; deprecated in udunits-2"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -206,7 +190,7 @@ IMAGe / NCAR
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:43 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./3370.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3372.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

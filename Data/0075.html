@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Integerized Sinusoidal Grid from Julien Demaria on 2006-03-20 (mailing-list-archive)</title>
-<meta name="Author" content="Julien Demaria (dem)" />
-<meta name="Subject" content="[CF-metadata] Integerized Sinusoidal Grid" />
-<meta name="Date" content="2006-03-20" />
+<title>[CF-metadata] Re: projections in CF from Karl E.Taylor on 2003-02-21 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Karl E.Taylor (taylor13)" />
+<meta name="Subject" content="[CF-metadata] Re: projections in CF" />
+<meta name="Date" content="2003-02-21" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0074.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0076.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Integerized Sinusoidal Grid</h1>
-<!-- received="Mon Mar 20 02:21:23 2006" -->
-<!-- isoreceived="20060320022123" -->
-<!-- sent="Mon, 20 Mar 2006 10:21:23 +0100" -->
-<!-- isosent="20060320092123" -->
-<!-- name="Julien Demaria" -->
-<!-- email="dem" -->
-<!-- subject="[CF-metadata] Integerized Sinusoidal Grid" -->
-<!-- id="441E7413.10202_at_acri-st.fr" -->
+<a style="text-decoration:none" href="./0074.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0076.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Re: projections in CF</h1>
+<!-- received="Thu Feb 20 17:07:52 2003" -->
+<!-- isoreceived="20030220170752" -->
+<!-- sent="Thu, 20 Feb 2003 16:07:52 -0800" -->
+<!-- isosent="20030221000752" -->
+<!-- name="Karl E.Taylor" -->
+<!-- email="taylor13" -->
+<!-- subject="[CF-metadata] Re: projections in CF" -->
+<!-- id="3E556DD8.745B1262_at_llnl.gov" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20060319210854.GD10557_at_ucar.edu" -->
+<!-- inreplyto="200302202135.h1KLZbt22033_at_unidata.ucar.edu" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,12 +54,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0076.html" accesskey="d" title="Bert Jagers: &quot;[CF-metadata] CF convention for vector quantities&quot;">Next message</a> ]
-[ <a href="./0074.html" title="Jonathan Gregory: &quot;[CF-metadata] CF convention for vector quantities&quot;">Previous message</a> ]
-[ <a href="./0070.html" title="Brian Eaton: &quot;[CF-metadata] Integerized Sinusoidal Grid&quot;">In reply to</a> ]
+[ <a href="./0076.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Re: projections in CF&quot;">Next message</a> ]
+[ <a href="./0074.html" title="Russ Rew: &quot;[CF-metadata] Re: projections in CF&quot;">Previous message</a> ]
+[ <a href="./0074.html" title="Russ Rew: &quot;[CF-metadata] Re: projections in CF&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0088.html" accesskey="t" title="Brian Eaton: &quot;[CF-metadata] Integerized Sinusoidal Grid&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -72,258 +70,374 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Julien Demaria &lt;<a href="mailto:dem?Subject=Re%3A%20%5BCF-metadata%5D%20Integerized%20Sinusoidal%20Grid">dem</a>&gt;
+<dfn>From</dfn>: Karl E.Taylor &lt;<a href="mailto:taylor13?Subject=Re%3A%20%5BCF-metadata%5D%20Re%3A%20projections%20in%20CF">taylor13</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 20 Mar 2006 10:21:23 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 20 Feb 2003 16:07:52 -0800</span><br />
 </address>
 <br />
-Brian, Jonathan,
+Hi CF geeks (consider this a term of endearment from a fellow CF'er),
 <br />
-<br /><br />Thanks for your answers and help.
+<br />It looks like this one might come down to a vote.  To prepare for
 <br />
-<br />The CDL description you give seems handle well my integerized grid, by
+such a contingency, I've just reviewed the recent emails and arguments
 <br />
-giving all vertexes and area of each point.
+about the various approaches.  I really do think that either the most
 <br />
-The only counterpart is that it uses a lot of disc space, 6 floats for
+recent proposal of Jonathan's, or Brian's alternative of Feb. 11 (stemming
 <br />
-each point...
+from Russ and John's suggestion) would be o.k.  I'm leaning
 <br />
-Using global bins idexes as in my example
+toward favoring Brian's approach, but I'm a little concerned about
 <br />
-int bin_num(Data_Bins) ;
+the proliferation of attributes because this may make it more difficult
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bin_num:long_name = &quot;Index number of each bin in the
+for new users to get started in learning CF (e.g., the length of 
 <br />
-global sinusoidal grid&quot; ;
+Appendix A could grow considerably if enough different projections
 <br />
-uses only an int by point.
+were defined).  
 <br />
-<br />Is it really possible, as said Jonathan, to provide a new entry for
+<br />I do think we should hear Jonathan out, so I don't think we should vote 
 <br />
-Appendix F for the integerized sinusoidal grid ?
+yet. 
 <br />
-I can provide the little algorithm and parameters needed to construct
+<br />Note to Brian: I noticed that &quot;grid_mapping&quot; has yet to be included in
 <br />
-the grid.
+&nbsp;Appendix 1 of the documentation.
 <br />
-<br /><br />Regards,
+<br />cheers,
 <br />
-<br />Julien
+Karl
 <br />
-<br /><br />Brian Eaton a ?crit :
+<br /><br /><br />Russ Rew wrote:
 <br />
-<em class="quotelev1">&gt; Hi Julien,
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Hi Jonathan,
 </em><br />
 <em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; I agree the grid you describe is an example of what CF refers to as a
-</em><br />
-<em class="quotelev1">&gt; reduced grid.  Generally the cells in a given latitude circle of a reduced
-</em><br />
-<em class="quotelev1">&gt; grid are all the same size, so the cell edges will not be aligned with the
-</em><br />
-<em class="quotelev1">&gt; cells in adjacent latitude bands that contain a different number of cells.
+<em class="quotelev1">&gt; Sorry, but I'm not convinced.
 </em><br />
 <em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; In addition to Jonathans suggestion of a bin_area variable, the vertices of
+<em class="quotelev1">&gt; Readability of a CDL file should be secondary to its accuracy and
 </em><br />
-<em class="quotelev1">&gt; the bins can be attached to the lat/lon arrays using the bounds attribute.
+<em class="quotelev1">&gt; maintainability.  And CDL is not really the issue, since the resulting
 </em><br />
-<em class="quotelev1">&gt; That would look like this:
+<em class="quotelev1">&gt; netCDF file could be translated into an XML form such as NcML or any
 </em><br />
-<em class="quotelev1">&gt; 
+<em class="quotelev1">&gt; other lossless representation that would still have a redundant copy
 </em><br />
-<em class="quotelev1">&gt; dimensions:
+<em class="quotelev1">&gt; of the shared grid_mapping information for each variable defined on
 </em><br />
-<em class="quotelev1">&gt;         Data_Bins = 5965 ;
+<em class="quotelev1">&gt; the same grid.  Duplication of information can be beneficial when it
 </em><br />
-<em class="quotelev1">&gt;         nver = 4;
+<em class="quotelev1">&gt; prevents errors, as in declaring variable types even when the type of
 </em><br />
-<em class="quotelev1">&gt; variables:
+<em class="quotelev1">&gt; the variable may be inferred from its usage.  But the minor
 </em><br />
-<em class="quotelev1">&gt;         short mean(Data_Bins) ;
+<em class="quotelev1">&gt; convenience of keeping a copy of the information in text form close to
 </em><br />
-<em class="quotelev1">&gt;           mean:long_name = &quot;Arithmetic mean of the geophysical variable for each bin&quot; ;
+<em class="quotelev1">&gt; each variable is of dubious value compared to the redundancy, identity
 </em><br />
-<em class="quotelev1">&gt; 	  mean:units = &quot;mg m-3&quot; ;
+<em class="quotelev1">&gt; issues, potential inconsistency (update anomalies), insertion
 </em><br />
-<em class="quotelev1">&gt;           mean:coordinates=&quot;lat lon&quot;;
-</em><br />
-<em class="quotelev1">&gt;           mean:cell_measures=&quot;area: bin_area&quot;;
-</em><br />
-<em class="quotelev1">&gt;         float lat(Data_Bins);
-</em><br />
-<em class="quotelev1">&gt;           lat:units=&quot;degrees_north&quot;;
-</em><br />
-<em class="quotelev1">&gt;           lat:bounds=&quot;lat_bnds&quot;;
-</em><br />
-<em class="quotelev1">&gt;         float lon(Data_Bins);
-</em><br />
-<em class="quotelev1">&gt;           lon:units=&quot;degrees_east&quot;;
-</em><br />
-<em class="quotelev1">&gt;           lon:bounds=&quot;lon_bnds&quot;;
-</em><br />
-<em class="quotelev1">&gt;         float bin_area(Data_Bins);
-</em><br />
-<em class="quotelev1">&gt;           bin_area:units=&quot;m2&quot;;
-</em><br />
-<em class="quotelev1">&gt;         float lat_bnds(Data_Bins,nver);
-</em><br />
-<em class="quotelev1">&gt;         float lon_bnds(Data_Bins,nver);
+<em class="quotelev1">&gt; anomalies, and deletion anomalies this design permits.
 </em><br />
 <em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; CF places the restriction that the vertices should be ordered
-</em><br />
-<em class="quotelev1">&gt; anticlockwise when viewed from above, but places no restriction on the
-</em><br />
-<em class="quotelev1">&gt; starting vertex.
+<em class="quotelev1">&gt; Identity issues:  Is the mapping for T given by
 </em><br />
 <em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; Brian
+<em class="quotelev1">&gt;   T:grid_mapping=&quot;rotated_latitude_longitude &quot;,
+</em><br />
+<em class="quotelev1">&gt;           grid_north_pole_latitude: nplat grid_north_pole_longitude: nplon&quot;;
 </em><br />
 <em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; On Sun, Mar 19, 2006 at 08:15:07PM +0000, Jonathan Gregory wrote:
+<em class="quotelev1">&gt; the same as the mapping for S specified with
 </em><br />
 <em class="quotelev1">&gt; 
 </em><br />
-<em class="quotelev2">&gt;&gt;Dear Julien
+<em class="quotelev1">&gt;   S:grid_mapping=&quot;rotated_latitude_longitude &quot;,
 </em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;Its characteristics are that on each row of latitude there is an integer 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;number of longitude bins. Poles always represented as 3 triangular bins. 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;Bins aren't aligned between rows.
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;In SEAWiFS/MODIS Level 3 HDF only bins (pixels) with data are stored, 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;and the geolocation information for each bin is only its indice in the 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;global integerized sinusoidal grid (first bin is on south, last on the 
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;north).
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;The only mecanisms I see in CF to do that are:
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;- &quot;5.3  Reduced horizontal grid&quot;: but:
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;Yes, I think your case is most like this case.
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;      	Are bins always aligned ?
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;You have to specify the latitude and longitude of each bin (grid point).
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;	How can I know/compute the coverage of each pixel (its vertex) ?
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;I am not sure what you mean. Do you mean the area of the grid box? This can
-</em><br />
-<em class="quotelev2">&gt;&gt;be stored using cell_measures (CF 7.2).
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;	Is this mechanism largely used ?
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;	Are there free tools to see this kind of CF files ? (FERRET ?)
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;I don't know whether Ferret will handle it. The intention of the convention
-</em><br />
-<em class="quotelev2">&gt;&gt;is that a generic application will be able to interpret the lat and lon
-</em><br />
-<em class="quotelev2">&gt;&gt;information without understanding the grid itself.
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;dimensions:
-</em><br />
-<em class="quotelev2">&gt;&gt;        Data_Bins = 5965 ;
-</em><br />
-<em class="quotelev2">&gt;&gt;variables:
-</em><br />
-<em class="quotelev2">&gt;&gt;        short mean(Data_Bins) ;
-</em><br />
-<em class="quotelev2">&gt;&gt;          mean:long_name = &quot;Arithmetic mean of the geophysical variable for each bin&quot; ;
-</em><br />
-<em class="quotelev2">&gt;&gt;	  mean:units = &quot;mg m-3&quot; ;
-</em><br />
-<em class="quotelev2">&gt;&gt;          mean:coordinates=&quot;lat lon&quot;;
-</em><br />
-<em class="quotelev2">&gt;&gt;          mean:cell_measures=&quot;area: bin_area&quot;;
-</em><br />
-<em class="quotelev2">&gt;&gt;        float lat(Data_Bins);
-</em><br />
-<em class="quotelev2">&gt;&gt;          lat:units=&quot;degrees_north&quot;;
-</em><br />
-<em class="quotelev2">&gt;&gt;        float lon(Data_Bins);
-</em><br />
-<em class="quotelev2">&gt;&gt;          lon:units=&quot;degrees_east&quot;;
-</em><br />
-<em class="quotelev2">&gt;&gt;        float bin_area(Data_Bins);
-</em><br />
-<em class="quotelev2">&gt;&gt;          bin_area:units=&quot;m2&quot;;
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;You would have to obtain the values of lat and lon by looking them up in the
-</em><br />
-<em class="quotelev2">&gt;&gt;general grid by using the bin number, I imagine.
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;You are right, there is no mechanism for describing your integerised sinusoidal
-</em><br />
-<em class="quotelev2">&gt;&gt;grid at present. If you wish to include a description of the grid construction
-</em><br />
-<em class="quotelev2">&gt;&gt;in the file, maybe it could be done by providing a new entry for Appendix F.
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;Best wishes
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;Jonathan
-</em><br />
-<em class="quotelev2">&gt;&gt;_______________________________________________
-</em><br />
-<em class="quotelev2">&gt;&gt;CF-metadata mailing list
-</em><br />
-<em class="quotelev2">&gt;&gt;CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev2">&gt;&gt;<a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+<em class="quotelev1">&gt;            grid_north_pole_longitude: nplon grid_north_pole_latitude: nplat&quot;;
 </em><br />
 <em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; ?  The only difference is in the order of the (keyword: value) pairs,
+</em><br />
+<em class="quotelev1">&gt; which shouldn't be significant, but it's difficult for a human reader
+</em><br />
+<em class="quotelev1">&gt; to tell these are the same, and the difficulty of comparing them for a
+</em><br />
+<em class="quotelev1">&gt; human increases with the square of the number of keywords.  You could
+</em><br />
+<em class="quotelev1">&gt; define a canonical form for each grid_mapping, perhaps requiring that
+</em><br />
+<em class="quotelev1">&gt; the keywords appear in alphabetical order, but this added complexity
+</em><br />
+<em class="quotelev1">&gt; is not needed when grid_mappings are identified just by having the
+</em><br />
+<em class="quotelev1">&gt; same name for the attribute.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; This also occurs in merging information from two files, where the
+</em><br />
+<em class="quotelev1">&gt; variables may use the same grid mapping represented by keywords in
+</em><br />
+<em class="quotelev1">&gt; different orders.  Using a single variable to represent a grid mapping
+</em><br />
+<em class="quotelev1">&gt; doesn't have this problem, since it is easy to compare two variables
+</em><br />
+<em class="quotelev1">&gt; to see if they have the same attributes.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Potential inconsistency:  If you update a value in some grid_mappings but
+</em><br />
+<em class="quotelev1">&gt; not in others, an inconsistency results which is not possible if the
+</em><br />
+<em class="quotelev1">&gt; information is only stored in one place.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Insertion anomalies: There is no place to store a grid_mapping if it
+</em><br />
+<em class="quotelev1">&gt; does not currently apply to at least one variable in the dataset.  But
+</em><br />
+<em class="quotelev1">&gt; it might be useful to insert a grid_mapping even when there are no
+</em><br />
+<em class="quotelev1">&gt; variables that use it, either for later use or to record alternate
+</em><br />
+<em class="quotelev1">&gt; grid_mappings.  Providing a template dataset with a set of
+</em><br />
+<em class="quotelev1">&gt; grid_mappings but no variables is also not possible if grid_mappings
+</em><br />
+<em class="quotelev1">&gt; cannot exist independent from variables.  The alternative of using a
+</em><br />
+<em class="quotelev1">&gt; variable for a grid_mapping doesn't have this problem.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Deletion anomalies: The inverse of insertion anomalies is that if you
+</em><br />
+<em class="quotelev1">&gt; delete all the variables that use a particular grid_mapping, you may
+</em><br />
+<em class="quotelev1">&gt; lose information about the grid_mapping as well.  This may not be a
+</em><br />
+<em class="quotelev1">&gt; concern, but I can imagine it might be easier to create some new
+</em><br />
+<em class="quotelev1">&gt; variables on a grid by starting with an existing dataset, copying all
+</em><br />
+<em class="quotelev1">&gt; information except the existing variables, and then adding the new
+</em><br />
+<em class="quotelev1">&gt; variables.  This is more difficult if the grid_mappings are only
+</em><br />
+<em class="quotelev1">&gt; associated with the variables.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Finally, the design with a single variable representing a grid_mapping
+</em><br />
+<em class="quotelev1">&gt; is more flexible, because you can later attach more information to the
+</em><br />
+<em class="quotelev1">&gt; grid_mapping without affecting working programs.  For example, if you
+</em><br />
+<em class="quotelev1">&gt; wanted to later associate a &quot;french_name&quot; with each grid_mapping,
+</em><br />
+<em class="quotelev1">&gt; adding it to the string would require changing the string parsers.
+</em><br />
+<em class="quotelev1">&gt; But adding an additional attribute to the variable would require no
+</em><br />
+<em class="quotelev1">&gt; changes to existing programs.  Since they don't know about the extra
+</em><br />
+<em class="quotelev1">&gt; information, they aren't affected by it.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; These arguments are similar to the reasons database designers use
+</em><br />
+<em class="quotelev1">&gt; &quot;normal forms&quot; in designing relational database schema.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; If you have similarly redundant designs for cell_measures,
+</em><br />
+<em class="quotelev1">&gt; cell_methods, and formula_terms, I would argue that these should
+</em><br />
+<em class="quotelev1">&gt; likewise be factored out into a separate named variable, with
+</em><br />
+<em class="quotelev1">&gt; indirection used to eliminate redundancy, for the same reasons as in
+</em><br />
+<em class="quotelev1">&gt; the grid_mapping case.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; --Russ
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; On  Thu, 20 Feb 2003 18:55:41, Jonathan Gregory wrote:
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev2">&gt; &gt; Here's a hopefully clearer restatement of why I prefer a single attribute for
+</em><br />
+<em class="quotelev2">&gt; &gt; the grid_mapping, as currently proposed in CF-beta. If I can't convince you,
+</em><br />
+<em class="quotelev2">&gt; &gt; I'll go along with the majority, of course - perhaps kicking and screaming. :-)
+</em><br />
+<em class="quotelev2">&gt; &gt; But as a result of thinking about this, I have a new proposal - see below.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; (1) Readability of the CDL file. I want to have the projection information in
+</em><br />
+<em class="quotelev2">&gt; &gt; the same place as the variable definition, rather than somewhere else. A single
+</em><br />
+<em class="quotelev2">&gt; &gt; attribute is a string of a few lines at most, and I think that is easy to
+</em><br />
+<em class="quotelev2">&gt; &gt; understand and much more informative than a name for the mapping, which then
+</em><br />
+<em class="quotelev2">&gt; &gt; has to be looked up somewhere else. Brian is right that the names themselves
+</em><br />
+<em class="quotelev2">&gt; &gt; might be meaningful, but if they are generated by models according to their own
+</em><br />
+<em class="quotelev2">&gt; &gt; diverse conventions it is quite likely they won't be. It can't be guaranteed.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; (2) Simplicity and self-consistency of the standard. We have used &quot;keyword:
+</em><br />
+<em class="quotelev2">&gt; &gt; value&quot; type attributes for cell_measures, cell_methods and formula_terms, so it
+</em><br />
+<em class="quotelev2">&gt; &gt; would be consistent to do so for this purpose. We have to be able to parse such
+</em><br />
+<em class="quotelev2">&gt; &gt; attributes already. We can and should provide parsers in, say, Fortran, C and
+</em><br />
+<em class="quotelev2">&gt; &gt; Python at least. I agree there is a problem with parsing numerical values. (See
+</em><br />
+<em class="quotelev2">&gt; &gt; my suggestion below.) I do not like the idea of introducing a new kind of
+</em><br />
+<em class="quotelev2">&gt; &gt; variable and defining a large number of new kinds of attribute that could only
+</em><br />
+<em class="quotelev2">&gt; &gt; be used for this kind of variable. It is a lot of new machinery.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; (3) I prefer per-variable information to global information because it's easier
+</em><br />
+<em class="quotelev2">&gt; &gt; for programs to manipulate when modifying individual variables and combining
+</em><br />
+<em class="quotelev2">&gt; &gt; files. This is also generally the approach we have taken in CF. If you have
+</em><br />
+<em class="quotelev2">&gt; &gt; global information, you have to break the association before you can change an
+</em><br />
+<em class="quotelev2">&gt; &gt; individual variable, and you have to test for identical information on
+</em><br />
+<em class="quotelev2">&gt; &gt; variables from different sources when you combine files. On the other hand,
+</em><br />
+<em class="quotelev2">&gt; &gt; doing a global change to lots of identical per-variable information is
+</em><br />
+<em class="quotelev2">&gt; &gt; generally easy. Duplication per se is not a problem in this case. Duplication
+</em><br />
+<em class="quotelev2">&gt; &gt; is a problem if you require data in different places to remain consistent. We
+</em><br />
+<em class="quotelev2">&gt; &gt; do not require this for variables with grid mappings. You can't modify such a
+</em><br />
+<em class="quotelev2">&gt; &gt; variable just by changing its grid mapping info - you have to produce a
+</em><br />
+<em class="quotelev2">&gt; &gt; completely new variable anyway.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; (4) Telling differences by inspection. I agree with Brian that it would not be
+</em><br />
+<em class="quotelev2">&gt; &gt; easy to tell from inspection of a CDL file whether the coordinates were the
+</em><br />
+<em class="quotelev2">&gt; &gt; same if they were all per-variable, so I admit that space-saving is not the
+</em><br />
+<em class="quotelev2">&gt; &gt; only reason for factoring out coordinates. But coordinates are usually *much*
+</em><br />
+<em class="quotelev2">&gt; &gt; more voluminous than the grid mapping attribute. It *is* easy to compare grid
+</em><br />
+<em class="quotelev2">&gt; &gt; mappings by inspection, just like units, standard_name and all the other
+</em><br />
+<em class="quotelev2">&gt; &gt; metadata we don't factor out.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; Here's my suggestion to avoid parsing numbers. This actually amounts to a
+</em><br />
+<em class="quotelev2">&gt; &gt; half-way house between our proposals so far.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt;   variables:
+</em><br />
+<em class="quotelev2">&gt; &gt;     float nplat;
+</em><br />
+<em class="quotelev2">&gt; &gt;     float nplon;
+</em><br />
+<em class="quotelev2">&gt; &gt;     float T(lev,rlat,rlon);
+</em><br />
+<em class="quotelev2">&gt; &gt;       T:units=&quot;K&quot;;
+</em><br />
+<em class="quotelev2">&gt; &gt;       T:grid_mapping=&quot;rotated_latitude_longitude &quot;,
+</em><br />
+<em class="quotelev2">&gt; &gt;         grid_north_pole_latitude: nplat grid_north_pole_longitude: nplon&quot;;
+</em><br />
+<em class="quotelev2">&gt; &gt;   data:
+</em><br />
+<em class="quotelev2">&gt; &gt;     nplat=32.5;
+</em><br />
+<em class="quotelev2">&gt; &gt;     nplon=170.0;
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; Referring to my points above:
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; (1) Readability. Partially satisfied. The data variable states what kind the
+</em><br />
+<em class="quotelev2">&gt; &gt; mapping is and what parameters it has. Unfortunately you do have to look
+</em><br />
+<em class="quotelev2">&gt; &gt; elsewhere for their values. These values could be grouped together by giving
+</em><br />
+<em class="quotelev2">&gt; &gt; the variables similar names (like nplat and nplon).
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; (2) Simplicity and self-consistency. On these grounds it is better even than
+</em><br />
+<em class="quotelev2">&gt; &gt; CF-beta. The grid_mapping attribute is now text-only and points to other
+</em><br />
+<em class="quotelev2">&gt; &gt; variables, which is exactly like cell_methods, formula_terms, etc. It does not
+</em><br />
+<em class="quotelev2">&gt; &gt; introduce any new attributes. The numerical values are in variables of the
+</em><br />
+<em class="quotelev2">&gt; &gt; right numerical type so there is no problem with conversion.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; (3) Per-variable information. Satisfied. It is easy to modify an individual
+</em><br />
+<em class="quotelev2">&gt; &gt; variable's mapping, but it also easy to modify a mapping's parameter globally,
+</em><br />
+<em class="quotelev2">&gt; &gt; so it seems to have the best of both worlds.
+</em><br />
+<em class="quotelev2">&gt; &gt;
+</em><br />
+<em class="quotelev2">&gt; &gt; (4) Differences by inspection. Partially satisfied - as much as it is in the
+</em><br />
+<em class="quotelev2">&gt; &gt; projection-variable approach. You can't say for sure whether the parameters are
+</em><br />
+<em class="quotelev2">&gt; &gt; different until you look at their values, but you can have a good guess.
 </em><br />
 <em class="quotelev1">&gt; _______________________________________________
 </em><br />
@@ -333,7 +447,7 @@ the grid.
 </em><br />
 <em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
-<span id="received"><dfn>Received on</dfn> Mon Mar 20 2006 - 02:21:23 GMT</span>
+<span id="received"><dfn>Received on</dfn> Thu Feb 20 2003 - 17:07:52 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -341,13 +455,10 @@ the grid.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start75">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0076.html" title="Next message in the list">Bert Jagers: "[CF-metadata] CF convention for vector quantities"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0074.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] CF convention for vector quantities"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0070.html" title="Message to which this message replies">Brian Eaton: "[CF-metadata] Integerized Sinusoidal Grid"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0076.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Re: projections in CF"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0074.html" title="Previous message in the list">Russ Rew: "[CF-metadata] Re: projections in CF"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0074.html" title="Message to which this message replies">Russ Rew: "[CF-metadata] Re: projections in CF"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0088.html" title="Next message in this discussion thread">Brian Eaton: "[CF-metadata] Integerized Sinusoidal Grid"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0088.html" title="Message sent in reply to this message">Brian Eaton: "[CF-metadata] Integerized Sinusoidal Grid"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -358,7 +469,7 @@ the grid.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:44 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0074.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0076.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

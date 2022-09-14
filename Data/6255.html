@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] new standard name proposal: dvorak_tropical_cyclone_cloud_region_scene_type from rhorne at excaliburlabs.com on 2014-04-25 (mailing-list-archive)</title>
-<meta name="Author" content="rhorne at excaliburlabs.com (rhorne)" />
-<meta name="Subject" content="[CF-metadata] new standard name proposal: dvorak_tropical_cyclone_cloud_region_scene_type" />
-<meta name="Date" content="2014-04-25" />
+<title>[CF-metadata] CF-1.6 DSG clarification: time series &amp; lat/lon coordinates from John Caron on 2013-05-29 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] CF-1.6 DSG clarification: time series &amp; lat/lon coordinates" />
+<meta name="Date" content="2013-05-29" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./6254.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6256.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] new standard name proposal: dvorak_tropical_cyclone_cloud_region_scene_type</h1>
-<!-- received="Fri Apr 25 10:06:07 2014" -->
-<!-- isoreceived="20140425090607" -->
-<!-- sent="Fri, 25 Apr 2014 12:06:07 -0400" -->
-<!-- isosent="20140425160607" -->
-<!-- name="rhorne at excaliburlabs.com" -->
-<!-- email="rhorne" -->
-<!-- subject="[CF-metadata] new standard name proposal: dvorak_tropical_cyclone_cloud_region_scene_type" -->
-<!-- id="408433e6$48e946e8$7c5433ff$_at_excaliburlabs.com" -->
+<a style="text-decoration:none" href="./6254.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6256.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF-1.6 DSG clarification: time series &amp; lat/lon coordinates</h1>
+<!-- received="Wed May 29 15:31:41 2013" -->
+<!-- isoreceived="20130529143141" -->
+<!-- sent="Wed, 29 May 2013 15:31:41 -0600" -->
+<!-- isosent="20130529213141" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] CF-1.6 DSG clarification: time series &amp; lat/lon coordinates" -->
+<!-- id="51A673BD.3000707_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="CAEoEVr=sU_AgHxjp9a_NCwB7ap-7aXarj=3ssSzqDnm-JcS8qg_at_mail.gmail.com" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./6256.html" accesskey="d" title="Bob Simons - NOAA Federal: &quot;[CF-metadata] [CF Metadata] #113: Review of CF feature types&quot;">Next message</a> ]
-[ <a href="./6254.html" title="rhorne at excaliburlabs.com: &quot;[CF-metadata] standard_name proposal: dvorak_tropical_cyclone_eye_region_scene_type&quot;">Previous message</a> ]
+[ <a href="./6256.html" accesskey="d" title="Matthias Lankhorst: &quot;[CF-metadata] standard_name for acoustic travel time from echo sounder&quot;">Next message</a> ]
+[ <a href="./6254.html" title="Cameron-smith, Philip: &quot;[CF-metadata] new standard name: lifted_index&quot;">Previous message</a> ]
+[ <a href="./6250.html" title="John Maurer: &quot;[CF-metadata] CF-1.6 DSG clarification: time series &#0038; lat/lon coordinates&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,82 +70,226 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: rhorne at excaliburlabs.com &lt;<a href="mailto:rhorne?Subject=Re%3A%20%5BCF-metadata%5D%20new%20standard%20name%20proposal%3A%20dvorak_tropical_cyclone_cloud_region_scene_type">rhorne</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20CF-1.6%20DSG%20clarification%3A%20time%20series%20%26%20lat%2Flon%20coordinates">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 25 Apr 2014 12:06:07 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 29 May 2013 15:31:41 -0600</span><br />
 </address>
 <br />
-Dear All:
+Hi John:
 <br />
-&nbsp;&nbsp;
+<br />1) The coordinates attribute is not new to DSG, it has been around since 
 <br />
-&nbsp;In concert with an amendment made to a sister tropical cyclone related 
+the beginning of CF. This defines the &quot;auxiliary coordinate variables&quot;, 
 <br />
-standard name based on feedback received 
+that is, coordinate variables that do not follow &quot;lat(lat)&quot; template. I 
 <br />
-(scene_type_of_dvorak_tropical_cyclone_eye_region), I would like to amend 
+think it would be good if Grads et al could be upgraded to use them.
 <br />
-this standard_name in an analogous manner (i.e. start the name with 
+<br />2) DSG data is 1 dimensional. The addition of extra dimensions of length 
 <br />
-&quot;scene_type_of&quot;)
+1 seems harmless when you know you can ignore them, but is wrong when 
 <br />
-&nbsp;&nbsp;
+you want dimensions to represent independent coordinates of the 
 <br />
-&nbsp;Summarizing the amendment:
+sampling. To see that, ask yourself what the data variables would look 
 <br />
-&nbsp;&nbsp;
+like if the dimension had length 2.
 <br />
-&nbsp;standard_name: 
+<br />&nbsp;&nbsp;&nbsp;float humidity(sample) -&gt;  float humidity(sample, alt, lat, lon);
 <br />
-&nbsp;scene_type_of_dvorak_tropical_cyclone_cloud_region
+<br />&nbsp;&nbsp;&nbsp;float humidity(sample, 1, 1, 1); // seems ok
 <br />
-&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;float humidity(sample, 2, 2, 2); // huh??
 <br />
-<br />&nbsp;definition: The variable is a string, taking on one of the following 
+<br />it looks like a grid, and its not. there are not 2 x 2 x 2 independent 
 <br />
-values to indicate the Advanced Dvorak Technique tropical cyclone cloud 
+coordinates. point data is not degenerate grid data. it has a different 
 <br />
-region scene type: uniform_central_dense_overcast, embedded_center, 
+connectedness between the indices, and its this connectedness that makes 
 <br />
-irregular_central_dense_overcast, curved_band, or shear.  For a data 
+multidimensional arrays much faster than, say, an RDBM, so throw that 
 <br />
-variable, it is encoded as an integer using flag_values and flag_meanings.  
+away at your peril.
 <br />
-&nbsp;canonical units: 1   
+<br />Im interested in hearing what Jonathan et al's data model would say 
 <br />
-&nbsp;very respectfully,
+about this. I can tell you that the CDM/TDS feature collection layer 
 <br />
-&nbsp;&nbsp;
+would break if you added the extraneous dimensions.
 <br />
-&nbsp;randy
+<br />John
 <br />
-<br />&nbsp;&nbsp;
+<br /><br />On 5/29/2013 12:35 PM, John Maurer wrote:
 <br />
-<br />----------------------------------------
-<br />
-<br />&nbsp;Dear All:  I would like to propose the following standard_name:  
-<br />
-dvorak_tropical_cyclone_cloud_region_scene_type  definition: The variable 
-<br />
-is a string, taking on one of the following values to indicate the Advanced 
-<br />
-Dvorak Technique tropical cyclone cloud region scene type: 
-<br />
-uniform_central_dense_overcast, embedded_center, 
-<br />
-irregular_central_dense_overcast, curved_band, or shear.  For a data 
-<br />
-variable, it is encoded as an integer using flag_values and flag_meanings.  
-<br />
-&nbsp;canonical units: 1   very respectfully,  randy 
-<br />
-<br />-------------- next part --------------
-<br />
-An HTML attachment was scrubbed...
-<br />
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140425/91e70213/attachment.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20140425/91e70213/attachment.html</a>&gt;
-<br />
-<span id="received"><dfn>Received on</dfn> Fri Apr 25 2014 - 10:06:07 BST</span>
+<em class="quotelev1">&gt; Hi all,
+</em><br />
+<em class="quotelev1">&gt; We ran into a glitch after converting one of our buoys to the new CF-1.6
+</em><br />
+<em class="quotelev1">&gt; discrete sampling geometries (DSG) format, and I'm looking for advice.
+</em><br />
+<em class="quotelev1">&gt; This dataset uses the single time series format, like the one provided
+</em><br />
+<em class="quotelev1">&gt; in the template of the CF document in Example H.4:
+</em><br />
+<em class="quotelev1">&gt; <a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.6/cf-conventions.html#idp8320208">http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.6/cf-conventions.html#idp8320208</a>.
+</em><br />
+<em class="quotelev1">&gt; The problem we discovered is that the dataset is no longer readable in
+</em><br />
+<em class="quotelev1">&gt; software clients like GrADS and Dapper/DChart (likely others) because it
+</em><br />
+<em class="quotelev1">&gt; can't find the latitude and longitude coordinates anymore.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; While the dataset previously included the lat/lon dimensions of the buoy
+</em><br />
+<em class="quotelev1">&gt; in NetCDF coordinate variables, CF-1.6 DSG no longer defines lat/lon as
+</em><br />
+<em class="quotelev1">&gt; coordinate variables. Instead, they are scalar variables which are
+</em><br />
+<em class="quotelev1">&gt; referenced by other variables (temp, salinity, etc.) via a new
+</em><br />
+<em class="quotelev1">&gt; variable-level &quot;coordinates&quot; attribute: e.g.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; temp:coordinates = &quot;time lat lon alt&quot; ;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; In order to allow the DSG datasets to continue working in existing
+</em><br />
+<em class="quotelev1">&gt; software clients that do not know yet to look for this new &quot;coordinates&quot;
+</em><br />
+<em class="quotelev1">&gt; variable attribute, does it break CF-1.6 DSG compliance to *also* change
+</em><br />
+<em class="quotelev1">&gt; the lat/lon scalars to coordinate variables like they used to operate?
+</em><br />
+<em class="quotelev1">&gt; Building on Example H.4, the modified dataset would look like this,
+</em><br />
+<em class="quotelev1">&gt; which is a melding of the old and new ways:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;     dimensions:
+</em><br />
+<em class="quotelev1">&gt;        time = 100233 ;
+</em><br />
+<em class="quotelev1">&gt;        name_strlen = 23 ;
+</em><br />
+<em class="quotelev1">&gt;        alt = 1 ;
+</em><br />
+<em class="quotelev1">&gt;        lat = 1 ;
+</em><br />
+<em class="quotelev1">&gt;        lon = 1 ;
+</em><br />
+<em class="quotelev1">&gt;     variables:
+</em><br />
+<em class="quotelev1">&gt;        float lon(lon) ;
+</em><br />
+<em class="quotelev1">&gt;            lon:standard_name = &quot;longitude&quot;;
+</em><br />
+<em class="quotelev1">&gt;            lon:long_name = &quot;station longitude&quot;;
+</em><br />
+<em class="quotelev1">&gt;            lon:units = &quot;degrees_east&quot;;
+</em><br />
+<em class="quotelev1">&gt;        float lat(lat) ;
+</em><br />
+<em class="quotelev1">&gt;            lat:standard_name = &quot;latitude&quot;;
+</em><br />
+<em class="quotelev1">&gt;            lat:long_name = &quot;station latitude&quot; ;
+</em><br />
+<em class="quotelev1">&gt;            lat:units = &quot;degrees_north&quot; ;
+</em><br />
+<em class="quotelev1">&gt;        float alt(alt) ;
+</em><br />
+<em class="quotelev1">&gt;            alt:long_name = &quot;vertical distance above the surface&quot; ;
+</em><br />
+<em class="quotelev1">&gt;            alt:standard_name = &quot;height&quot; ;
+</em><br />
+<em class="quotelev1">&gt;            alt:units = &quot;m&quot;;
+</em><br />
+<em class="quotelev1">&gt;            alt:positive = &quot;up&quot;;
+</em><br />
+<em class="quotelev1">&gt;            alt:axis = &quot;Z&quot;;
+</em><br />
+<em class="quotelev1">&gt;        char station_name(name_strlen) ;
+</em><br />
+<em class="quotelev1">&gt;            station_name:long_name = &quot;station name&quot; ;
+</em><br />
+<em class="quotelev1">&gt;            station_name:cf_role = &quot;timeseries_id&quot;;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;        double time(time) ;
+</em><br />
+<em class="quotelev1">&gt;            time:standard_name = &quot;time&quot;;
+</em><br />
+<em class="quotelev1">&gt;            time:long_name = &quot;time of measurement&quot; ;
+</em><br />
+<em class="quotelev1">&gt;            time:units = &quot;days since 1970-01-01 00:00:00&quot; ;
+</em><br />
+<em class="quotelev1">&gt;            time:missing_value = -999.9;
+</em><br />
+<em class="quotelev1">&gt;        float humidity(time, alt, lat, lon) ;
+</em><br />
+<em class="quotelev1">&gt;            humidity:standard_name = ?specific_humidity? ;
+</em><br />
+<em class="quotelev1">&gt;            humidity:coordinates = &quot;time lat lon alt&quot; ;
+</em><br />
+<em class="quotelev1">&gt;            humidity:_FillValue = -999.9;
+</em><br />
+<em class="quotelev1">&gt;        float temp(time, alt, lat, lon) ;
+</em><br />
+<em class="quotelev1">&gt;            temp:standard_name = ?air_temperature? ;
+</em><br />
+<em class="quotelev1">&gt;            temp:units = &quot;Celsius&quot; ;
+</em><br />
+<em class="quotelev1">&gt;            temp:coordinates = &quot;time lat lon alt&quot; ;
+</em><br />
+<em class="quotelev1">&gt;            temp:_FillValue = -999.9;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;     attributes:
+</em><br />
+<em class="quotelev1">&gt;            :featureType = &quot;timeSeries&quot;;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Thanks for any insights on this issue!
+</em><br />
+<em class="quotelev1">&gt; Cheers,
+</em><br />
+<em class="quotelev1">&gt; John Maurer
+</em><br />
+<em class="quotelev1">&gt; Pacific Islands Ocean Observing System (PacIOOS)
+</em><br />
+<em class="quotelev1">&gt; University of Hawaii at Manoa
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<span id="received"><dfn>Received on</dfn> Wed May 29 2013 - 15:31:41 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -151,8 +297,9 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start6255">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./6256.html" title="Next message in the list">Bob Simons - NOAA Federal: "[CF-metadata] [CF Metadata] #113: Review of CF feature types"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./6254.html" title="Previous message in the list">rhorne at excaliburlabs.com: "[CF-metadata] standard_name proposal: dvorak_tropical_cyclone_eye_region_scene_type"</a></li>
+<li><dfn>Next message</dfn>: <a href="./6256.html" title="Next message in the list">Matthias Lankhorst: "[CF-metadata] standard_name for acoustic travel time from echo sounder"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./6254.html" title="Previous message in the list">Cameron-smith, Philip: "[CF-metadata] new standard name: lifted_index"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./6250.html" title="Message to which this message replies">John Maurer: "[CF-metadata] CF-1.6 DSG clarification: time series &#0038; lat/lon coordinates"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -164,7 +311,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:41 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./6254.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6256.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

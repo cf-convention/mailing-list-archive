@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF-1.6 Conformance Requirements/Recommendations from Rich Signell on 2012-03-29 (mailing-list-archive)</title>
-<meta name="Author" content="Rich Signell (rsignell)" />
-<meta name="Subject" content="[CF-metadata] CF-1.6 Conformance Requirements/Recommendations" />
-<meta name="Date" content="2012-03-29" />
+<title>[CF-metadata] CF Convention - standard_names from Nan Galbraith on 2011-05-27 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Nan Galbraith (ngalbraith)" />
+<meta name="Subject" content="[CF-metadata] CF Convention - standard_names" />
+<meta name="Date" content="2011-05-27" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4305.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4307.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF-1.6 Conformance Requirements/Recommendations</h1>
-<!-- received="Thu Mar 29 09:47:30 2012" -->
-<!-- isoreceived="20120329084730" -->
-<!-- sent="Thu, 29 Mar 2012 11:47:30 -0400" -->
-<!-- isosent="20120329154730" -->
-<!-- name="Rich Signell" -->
-<!-- email="rsignell" -->
-<!-- subject="[CF-metadata] CF-1.6 Conformance Requirements/Recommendations" -->
-<!-- id="CAO4M2uMuW2DgyCFb0Y7ooQ-CvMBtOytTWqaKx1Sdmjtquz6-sQ_at_mail.gmail.com" -->
+<a style="text-decoration:none" href="./4305.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4307.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF Convention - standard_names</h1>
+<!-- received="Fri May 27 08:34:44 2011" -->
+<!-- isoreceived="20110527073444" -->
+<!-- sent="Fri, 27 May 2011 14:34:44 -0000" -->
+<!-- isosent="20110527143444" -->
+<!-- name="Nan Galbraith" -->
+<!-- email="ngalbraith" -->
+<!-- subject="[CF-metadata] CF Convention - standard_names" -->
+<!-- id="4DDFB683.1040102_at_whoi.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20120329153228.GC10507_at_met.reading.ac.uk" -->
+<!-- inreplyto="BBFDF85BF71AD64FAC2CB716502BA1513F20D9_at_fgwfexch03.geos.co.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4307.html" accesskey="d" title="John Caron: &quot;[CF-metadata] CF-1.6 Conformance Requirements/Recommendations&quot;">Next message</a> ]
-[ <a href="./4305.html" title="Jonathan Gregory: &quot;[CF-metadata] CF-1.6 Conformance Requirements/Recommendations&quot;">Previous message</a> ]
-[ <a href="./4305.html" title="Jonathan Gregory: &quot;[CF-metadata] CF-1.6 Conformance Requirements/Recommendations&quot;">In reply to</a> ]
+[ <a href="./4307.html" accesskey="d" title="Karl Taylor: &quot;[CF-metadata] CF Convention - standard_names&quot;">Next message</a> ]
+[ <a href="./4305.html" title="Comiskey, Glenn: &quot;[CF-metadata] CF Convention - standard_names&quot;">Previous message</a> ]
+[ <a href="./4305.html" title="Comiskey, Glenn: &quot;[CF-metadata] CF Convention - standard_names&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./4307.html" accesskey="t" title="John Caron: &quot;[CF-metadata] CF-1.6 Conformance Requirements/Recommendations&quot;">Next in thread</a> ]
+[ <a href="./4307.html" accesskey="t" title="Karl Taylor: &quot;[CF-metadata] CF Convention - standard_names&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,74 +72,102 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Rich Signell &lt;<a href="mailto:rsignell?Subject=Re%3A%20%5BCF-metadata%5D%20CF-1.6%20Conformance%20Requirements%2FRecommendations">rsignell</a>&gt;
+<dfn>From</dfn>: Nan Galbraith &lt;<a href="mailto:ngalbraith?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20Convention%20-%20standard_names">ngalbraith</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 29 Mar 2012 11:47:30 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 27 May 2011 14:34:44 -0000</span><br />
 </address>
 <br />
-Jonathan,
+Hi Glenn -
 <br />
-<br />+1 on  your idea of only identifying variables as aux coordinate
+<em class="quotelev1">&gt; Given that this would greatly undermine the purpose of the CF Convention,
+</em><br />
+<br />On the contrary, it's very important that variables without standard
 <br />
-variables once they have valid values at valid data locations.
+names be allowed in CF files.
 <br />
-<br />-Rich
+<br />In OceanSITES, we use this &quot;feature&quot; of the convention to
 <br />
-<br />On Thu, Mar 29, 2012 at 11:32 AM, Jonathan Gregory
+allow users to include instrument-specific and provenance-related
 <br />
-&lt;j.m.gregory at reading.ac.uk&gt; wrote:
+variables. These are typically variables that do not need to be
 <br />
-<em class="quotelev1">&gt; Dear Jim
+discoverable, and often don't need to be understood outside the
+<br />
+community in which the data is generated. We require standard
+<br />
+names for  &quot;scientific observables&quot; but encourage people to include
+<br />
+other variables that help describe the data collection, quality, and
+<br />
+processing of those observations.
+<br />
+<br />To require standard names for all variables would make CF untenable,
+<br />
+and would drown this list in requests for new names. Or worse, it would
+<br />
+encourage data providers to omit key metadata that's best expressed
+<br />
+as a variable in NetCDF.
+<br />
+<br />Regards -
+<br />
+Nan Galbraith
+<br />
+<br /><br /><br />On 5/27/11 7:25 AM, Comiskey, Glenn wrote:
+<br />
+<em class="quotelev1">&gt; Hi,
+</em><br />
+<em class="quotelev1">&gt; I note a discrepency between the CF document and the CF conformance 
+</em><br />
+<em class="quotelev1">&gt; requirements and recommendations document, for all versions v1.0 thru 
+</em><br />
+<em class="quotelev1">&gt; v1.5, in that the CF conformance requirements and recommendations 
+</em><br />
+<em class="quotelev1">&gt; document states that the standard_name attribute is a requirement, 
+</em><br />
+<em class="quotelev1">&gt; while the CF document details standard_name as &quot;an optional mechanism&quot; 
+</em><br />
+<em class="quotelev1">&gt; for describing the data being represented. The CF conformance 
+</em><br />
+<em class="quotelev1">&gt; requirements and recommendations document clearly states that in the 
+</em><br />
+<em class="quotelev1">&gt; event of &quot;any discrepancies between the two, the conventions document 
+</em><br />
+<em class="quotelev1">&gt; is the ultimate authority.&quot; This would seem to imply that 
+</em><br />
+<em class="quotelev1">&gt; standard_name is in fact not a requirement for CF conformance.
+</em><br />
+<em class="quotelev1">&gt; Given that this would greatly undermine the purpose of the CF 
+</em><br />
+<em class="quotelev1">&gt; Convention, i.e. &quot;provide a definitive description of what the 
+</em><br />
+<em class="quotelev1">&gt; data...represents&quot;, I am assuming that the authors of the CF 
+</em><br />
+<em class="quotelev1">&gt; Convention intend for standard_name to be mandatory for CF 
+</em><br />
+<em class="quotelev1">&gt; conformance. However, I am hoping if someone is able to definitively 
+</em><br />
+<em class="quotelev1">&gt; state whether the standard_name attribute is a requirement or is 
+</em><br />
+<em class="quotelev1">&gt; optional, i.e. recommended, but not obliqatory.
+</em><br />
+<em class="quotelev1">&gt; I dare say this matter has been raised before, but having only just 
+</em><br />
+<em class="quotelev1">&gt; started working with metorological/oceonographic data sets I'm not 
+</em><br />
+<em class="quotelev1">&gt; aware of what the accepted answer to my query is; and I haven't been 
+</em><br />
+<em class="quotelev1">&gt; able to find anything in the archive relating to this matter.
+</em><br />
+<em class="quotelev1">&gt; Kind regards,
+</em><br />
+<em class="quotelev1">&gt; Glenn Comiskey
+</em><br />
+<em class="quotelev1">&gt; Data System Administrator
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; We are discussing auxiliary coordinate variables. They do not have to be
-</em><br />
-<em class="quotelev1">&gt; 1D or monotonic. Those requirements apply to coordinate variables in the
-</em><br />
-<em class="quotelev1">&gt; Unidata sense. CF distinguishes these two concepts in Sect 1.2.
-</em><br />
 <em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; The point is, the information in the variable *is* coordinate information,
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; I would say, if it's missing, it's not information.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; What if we say something along the lines of, &quot;Applications should treat the
-</em><br />
-<em class="quotelev2">&gt;&gt; data as missing where the auxiliary coordinates are missing when plotting
-</em><br />
-<em class="quotelev2">&gt;&gt; data.&quot;? ?Would that resolve the problem?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Plotting is not the only thing that an application might wish to use it for.
-</em><br />
-<em class="quotelev1">&gt; If we said, more generally, &quot;Applications should treat the data as missing for
-</em><br />
-<em class="quotelev1">&gt; all purposes where the aux coord variables are missing&quot;, it would be almost
-</em><br />
-<em class="quotelev1">&gt; the same as not allowing missing data in aux coord vars, since there would be
-</em><br />
-<em class="quotelev1">&gt; no point in providing a data value if it was not permitted to use it.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Although I am arguing one side, I could be convinced either way. But it does
-</em><br />
-<em class="quotelev1">&gt; feel unsafe to me at present.
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Cheers
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; Jonathan
 </em><br />
 <em class="quotelev1">&gt; _______________________________________________
 </em><br />
@@ -149,13 +177,16 @@ variables once they have valid values at valid data locations.
 </em><br />
 <em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
 </em><br />
-<br /><br /><br /><pre>
+<br /><br /><pre>
 -- 
-Dr. Richard P. Signell?? (508) 457-2229
-USGS, 384 Woods Hole Rd.
-Woods Hole, MA 02543-1598
+*******************************************************
+* Nan Galbraith                        (508) 289-2444 *
+* Upper Ocean Processes Group            Mail Stop 29 *
+* Woods Hole Oceanographic Institution                *
+* Woods Hole, MA 02543                                *
+*******************************************************
 </pre>
-<span id="received"><dfn>Received on</dfn> Thu Mar 29 2012 - 09:47:30 BST</span>
+<span id="received"><dfn>Received on</dfn> Fri May 27 2011 - 08:34:44 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -163,13 +194,13 @@ Woods Hole, MA 02543-1598
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4306">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4307.html" title="Next message in the list">John Caron: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4305.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./4305.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4307.html" title="Next message in the list">Karl Taylor: "[CF-metadata] CF Convention - standard_names"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4305.html" title="Previous message in the list">Comiskey, Glenn: "[CF-metadata] CF Convention - standard_names"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./4305.html" title="Message to which this message replies">Comiskey, Glenn: "[CF-metadata] CF Convention - standard_names"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./4307.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./4307.html" title="Next message in this discussion thread">Karl Taylor: "[CF-metadata] CF Convention - standard_names"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./4307.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] CF-1.6 Conformance Requirements/Recommendations"</a></li>
+<dfn>Reply</dfn>: <a href="./4307.html" title="Message sent in reply to this message">Karl Taylor: "[CF-metadata] CF Convention - standard_names"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -180,7 +211,7 @@ Woods Hole, MA 02543-1598
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:00 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4305.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4307.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

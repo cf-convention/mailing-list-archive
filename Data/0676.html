@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] NMAT from Jonathan Gregory on 2007-01-15 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] NMAT" />
-<meta name="Date" content="2007-01-15" />
+<title>[CF-metadata] stations and trajectories  (the OTS standard) from Luis Bermudez on 2005-06-17 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Luis Bermudez (bermudez)" />
+<meta name="Subject" content="[CF-metadata] stations and trajectories  (the OTS standard)" />
+<meta name="Date" content="2005-06-17" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0675.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0677.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] NMAT</h1>
-<!-- received="Mon Jan 15 01:17:26 2007" -->
-<!-- isoreceived="20070115011726" -->
-<!-- sent="Mon, 15 Jan 2007 08:17:26 +0000" -->
-<!-- isosent="20070115081726" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] NMAT" -->
-<!-- id="20070115081726.GA29600_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0675.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0677.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] stations and trajectories  (the OTS standard)</h1>
+<!-- received="Fri Jun 17 10:33:29 2005" -->
+<!-- isoreceived="20050617093329" -->
+<!-- sent="Fri, 17 Jun 2005 09:33:29 -0700" -->
+<!-- isosent="20050617163329" -->
+<!-- name="Luis Bermudez" -->
+<!-- email="bermudez" -->
+<!-- subject="[CF-metadata] stations and trajectories  (the OTS standard)" -->
+<!-- id="a87233014ce588a89b760a833c0ae006_at_mbari.org" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="s2b28f7f.051_at_wpo.nerc.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0677.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] COARDS name for a time offset&quot;">Next message</a> ]
-[ <a href="./0675.html" title="Roy Lowry: &quot;[CF-metadata] Indicating data lineage or provenance&quot;">Previous message</a> ]
+[ <a href="./0677.html" accesskey="d" title="chelle gentemann: &quot;[CF-metadata] swath data format&quot;">Next message</a> ]
+[ <a href="./0675.html" title="NGalbraith: &quot;[CF-metadata] stations and trajectories  (the OTS standard)&quot;">Previous message</a> ]
+[ <a href="./0673.html" title="Roy Lowry: &quot;[CF-metadata] stations and trajectories  (the OTS standard)&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,68 +70,336 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20NMAT">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Luis Bermudez &lt;<a href="mailto:bermudez?Subject=Re%3A%20%5BCF-metadata%5D%20stations%20and%20trajectories%20%20(the%20OTS%20standard)">bermudez</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Mon, 15 Jan 2007 08:17:26 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 17 Jun 2005 09:33:29 -0700</span><br />
 </address>
 <br />
-Dear all
+Dear All,
 <br />
-<br />Julian Hill and I have further discussed what metadata he needs to describe
+<br />I have followed this discussion and have the following comments:
 <br />
-night marine air temperature anomalies.
+<br />More than one vocabulary will always exist. Hard to say it, but is 
 <br />
-<br />Requirements: (1) To indicate that a statistic for a quantity (specifically
+true. I agree with Roy that what we need is a mechanism to link two or 
 <br />
-temperature) is evaluated from night-time values only. There is no need at
+more vocabularies. Of course with more than an &quot;equivalent&quot; relation.
 <br />
-the moment for a standardised method to record a precise definition of night-
+<br />SKOS is under development but we can learn a lot from them. In SKOS the 
 <br />
-time. (2) To indicate that a quantity is the anomaly from the climatological
+following properties are available: exactMatch, narrowerMatch, 
 <br />
-value of the statistic. Anomalies are computed in various ways. Though the
+broadMatch, mimorMatch, majorMatch and AND and OR. At MMI, we have 
 <br />
-general idea is that it is a difference, various treatments are possible. At
+three relations implemented :narrowerThan, broaderThan and sameAS. 
 <br />
-present there is no need to record the precise method, which is regarded as
+First two from DC and the last one from OWL. For interoperability, we 
 <br />
-a property of the dataset, so it will be sufficient to identify the source of
+need the following:
 <br />
-the data and/or give references using attributes already defined in CF.
+<br />- Unique identifiers for each term in a vocabulary ( which we have most 
 <br />
-<br />Proposal:
+of the times) and I strongly  suggest URN for this purpose.
 <br />
-<br />(1) In cell_methods, allow an entry for a time-axis to take the form
+- Able to match terms from two vocabularies with &quot;sameAs&quot; and this 
 <br />
-&quot;NAME: METHOD where night_time&quot; in which, as usual, NAME identifies the axis
+implies that the units must be the same. What happens if the units are 
 <br />
-and METHOD is the statistical method e.g. &quot;mean&quot;. This use of &quot;where&quot; is
+different (e.g. m vs Inches) ?. Then units should have also a unique 
 <br />
-consistent with my other recent posting on cell_methods
+identifier, or  consistent string representation (in each system) to be 
 <br />
-<a href="http://www.cgd.ucar.edu/pipermail/cf-metadata/2006/001449.html">http://www.cgd.ucar.edu/pipermail/cf-metadata/2006/001449.html</a>
+able to reconcile these differences.
 <br />
-<br />If &quot;night_time&quot; needs further definition, this can be done in a non-
+<br /><br />Cheers,
 <br />
-standardised comment, which a generic application would not interpret e.g.
+<br />Luis
 <br />
-cell_methods=&quot;time: mean where night_time (local sunset + 1hour to local sunrise + 1hour)&quot;
+<br /><br />On Jun 17, 2005, at 12:52 AM, Roy Lowry wrote:
 <br />
-<br />(2) Define a new standard_name qualifier of anomaly_from_climatology, to
+<br /><em class="quotelev1">&gt; Nan/Jonathan,
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Following our discussions at IMDIS/GO-ESSP I think the OTS is an area
+</em><br />
+<em class="quotelev1">&gt; where we need to look carefully at the role of the BODC Parameter Usage
+</em><br />
+<em class="quotelev1">&gt; Vocabulary in the CF standard.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I think Jonathan's suggestion of extending the Standard Names to cover
+</em><br />
+<em class="quotelev1">&gt; the requirements of OTS goes against the idea we had at GO-ESSP to 
+</em><br />
+<em class="quotelev1">&gt; avoid
+</em><br />
+<em class="quotelev1">&gt; increasing the area of overlap between the two vocabularies.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; What I think we need in OTS is a mechanism to link to either vocabulary
+</em><br />
+<em class="quotelev1">&gt; or perferably both.  My suggestion would be for a field somewhere in 
+</em><br />
+<em class="quotelev1">&gt; the
+</em><br />
+<em class="quotelev1">&gt; standard to locate the 8-byte BODC parameter code with an option to use
+</em><br />
+<em class="quotelev1">&gt; the full_title term from the vocabulary for the CF long name.  This
+</em><br />
+<em class="quotelev1">&gt; would allow the data originators - ie those who know their data best -
+</em><br />
+<em class="quotelev1">&gt; to establish the vocabulary mapping.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; The weakness with this is that the structure implies the relationship:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; BODC Parameter Usage Vocabulary term = (ie is exactly the same as) CF
+</em><br />
+<em class="quotelev1">&gt; Standard Name term
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; It is glaringly obvious to anyone who has looked at the vocabularies in
+</em><br />
+<em class="quotelev1">&gt; any detail that this such perfect correspondance is far from universal.
+</em><br />
+<em class="quotelev1">&gt; What we really need if we have terms from the two vocabularies
+</em><br />
+<em class="quotelev1">&gt; describing the same variable is a standardised statement of how these
+</em><br />
+<em class="quotelev1">&gt; descriptions relate to each other based on OWL or something more
+</em><br />
+<em class="quotelev1">&gt; restrictive (but specifically targetted at the problem) like SKOS.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Cheers, Roy.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  Nancy Galbraith &lt;ngalbraith at whoi.edu&gt; 6/16/2005 3:35:12 pm &gt;&gt;&gt;
+</em><br />
+<em class="quotelev1">&gt; Thanks for bringing OTS into the discussion, Steve, and thanks for your
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; comments
+</em><br />
+<em class="quotelev1">&gt; Jonathan.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Our operational data is so much simpler than that of some other CF
+</em><br />
+<em class="quotelev1">&gt; users
+</em><br />
+<em class="quotelev1">&gt; that it
+</em><br />
+<em class="quotelev1">&gt; sometimes seems we don't exactly fit here, but the CF community and
+</em><br />
+<em class="quotelev1">&gt; resources
+</em><br />
+<em class="quotelev1">&gt; have been really helpful,  and your standard was the obvious choice for
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; our data.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; But instead they could be CF-compliant by dimensioning
+</em><br />
+<em class="quotelev2">&gt;&gt; the data variable as (time,depth) and giving it a coordinates
+</em><br />
+<em class="quotelev2">&gt;&gt; attribute to point to auxiliary coordinate variables of lat(time)
+</em><br />
+<em class="quotelev2">&gt;&gt; and lon(time).... These are what CF calls &quot;scalar coordinate
+</em><br />
+<em class="quotelev2">&gt;&gt; variables&quot; and they avoid introducing a size-one dimension
+</em><br />
+<em class="quotelev2">&gt;&gt; just to attach coordinate info.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Maybe I didn't think this through well enough, or I completely missed
+</em><br />
+<em class="quotelev1">&gt; one of
+</em><br />
+<em class="quotelev1">&gt; the basic CF concepts. I somehow missed that CF files should &quot;avoid
+</em><br />
+<em class="quotelev1">&gt; introducing
+</em><br />
+<em class="quotelev1">&gt; a size-one dimension just to attach coordinate info&quot; and thought that 4
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; dimensions was
+</em><br />
+<em class="quotelev1">&gt; a reasonable way to go, as it gives you the overall size of the dataset
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; in one query.
+</em><br />
+<em class="quotelev1">&gt; For mooring data, this seems to make perfect sense, or maybe I just
+</em><br />
+<em class="quotelev1">&gt; expect it because
+</em><br />
+<em class="quotelev1">&gt; it was standard in our old NetCDF implementation, EPIC.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; We have not ruled out files containing data from more than one platform
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; - as we
+</em><br />
+<em class="quotelev1">&gt; sometimes deploy arrays of sensors. Such  a file would have lat/lon
+</em><br />
+<em class="quotelev1">&gt; dimensions &gt; 1,
+</em><br />
+<em class="quotelev1">&gt; in all other files these dimensions would be 1.  This does lead to a
+</em><br />
+<em class="quotelev1">&gt; problem with drifters,
+</em><br />
+<em class="quotelev1">&gt; where the X and Y dimensions of the measured parameters are 1 but lat
+</em><br />
+<em class="quotelev1">&gt; and long are
+</em><br />
+<em class="quotelev1">&gt; of dimension T.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; CF provides a method to attach quality-control info to data
+</em><br />
+<em class="quotelev2">&gt;&gt; variables, which OTS could extend to meet their needs in this
+</em><br />
+<em class="quotelev2">&gt;&gt; area (CF 3.4).
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; The CF scheme for QC might help us give the different data providers
+</em><br />
+<em class="quotelev1">&gt; more flexibility
+</em><br />
+<em class="quotelev1">&gt; than having a defined table as we currently do. The down side is that
+</em><br />
+<em class="quotelev1">&gt; if
+</em><br />
+<em class="quotelev1">&gt; the flag_meanings
+</em><br />
+<em class="quotelev1">&gt; are not defined as part of the standard, they can't be interpreted by
+</em><br />
+<em class="quotelev1">&gt; software; I'm not
+</em><br />
+<em class="quotelev1">&gt; sure how CF users implement this.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; We also have some data sets (mine, for instance) where QC information
+</em><br />
+<em class="quotelev1">&gt; is
+</em><br />
+<em class="quotelev1">&gt; more
+</em><br />
+<em class="quotelev1">&gt; logically supplied as an attribute, because the data is interpolated
+</em><br />
+<em class="quotelev1">&gt; over time to correct
+</em><br />
+<em class="quotelev1">&gt; clock drift after initial QC procedures. The original individual points
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; are gone,
+</em><br />
+<em class="quotelev1">&gt; and point-specific QC becomes meaningless.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; They probably would like some additions to the standard
+</em><br />
+<em class="quotelev2">&gt;&gt; name table.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; I haven't had a problem finding standard names for our parameters yet.
+</em><br />
+<em class="quotelev1">&gt; I'm
+</em><br />
+<em class="quotelev1">&gt; still hoping the udunits system will at some point include conductivity
+</em><br />
+<em class="quotelev1">&gt; and
+</em><br />
+<em class="quotelev1">&gt; salinity units other than 1, though. Meanwhile I'm dealing with this
+</em><br />
+<em class="quotelev1">&gt; by
+</em><br />
+<em class="quotelev1">&gt; specifying CF-compliant &quot;units&quot;  and &quot;text_units&quot; that are useful for
+</em><br />
+<em class="quotelev1">&gt; labels
+</em><br />
+<em class="quotelev1">&gt; and don't have to be accepted by udunits.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Cheers - Nan
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; *************************************************************
+</em><br />
+<em class="quotelev1">&gt; *Nan Galbraith            Upper Ocean Processes Group       *
+</em><br />
+<em class="quotelev1">&gt; *Woods Hole Oceanographic Institution Woods Hole, MA 02540  *
+</em><br />
+<em class="quotelev1">&gt; *************************************************************
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+---------------------------------------
 <br />
-indicate that the data values indicate the departure from the climatological
+Luis Bermudez
 <br />
-values (representative over some years) of the same statistic and quantity e.g.
+Software Engineer
 <br />
-standard_name=&quot;air_temperature anomaly_from_climatology&quot;.
+MMI Liaison - <a href="http://marinemetadata.org">http://marinemetadata.org</a>
 <br />
-<br />Comments welcome.
+bermudez at mbari.org
 <br />
-<br />Cheers
+Tel:  831-775- 1929
 <br />
-<br />Jonathan
+Monterey Bay Aquarium Research Institute
 <br />
-<span id="received"><dfn>Received on</dfn> Mon Jan 15 2007 - 01:17:26 GMT</span>
+<span id="received"><dfn>Received on</dfn> Fri Jun 17 2005 - 10:33:29 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -137,8 +407,9 @@ standard_name=&quot;air_temperature anomaly_from_climatology&quot;.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start676">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0677.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] COARDS name for a time offset"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0675.html" title="Previous message in the list">Roy Lowry: "[CF-metadata] Indicating data lineage or provenance"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0677.html" title="Next message in the list">chelle gentemann: "[CF-metadata] swath data format"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0675.html" title="Previous message in the list">NGalbraith: "[CF-metadata] stations and trajectories  (the OTS standard)"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0673.html" title="Message to which this message replies">Roy Lowry: "[CF-metadata] stations and trajectories  (the OTS standard)"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -150,7 +421,7 @@ standard_name=&quot;air_temperature anomaly_from_climatology&quot;.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:54 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0675.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0677.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] ESRI implementation of ellipsoidal-earth from Heiko Klein on 2011-02-03 (mailing-list-archive)</title>
-<meta name="Author" content="Heiko Klein (Heiko.Klein)" />
-<meta name="Subject" content="[CF-metadata] ESRI implementation of ellipsoidal-earth" />
-<meta name="Date" content="2011-02-03" />
+<title>[CF-metadata] [CF Metadata] #37: Conventions for Point	Observation Data from John Caron on 2009-11-20 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] [CF Metadata] #37: Conventions for Point	Observation Data" />
+<meta name="Date" content="2009-11-20" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./3164.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3166.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] ESRI implementation of ellipsoidal-earth</h1>
-<!-- received="Thu Feb  3 01:54:44 2011" -->
-<!-- isoreceived="20110203015444" -->
-<!-- sent="Thu, 03 Feb 2011 09:54:44 +0100" -->
-<!-- isosent="20110203085444" -->
-<!-- name="Heiko Klein" -->
-<!-- email="Heiko.Klein" -->
-<!-- subject="[CF-metadata] ESRI implementation of ellipsoidal-earth" -->
-<!-- id="4D4A6D54.4020601_at_met.no" -->
+<a style="text-decoration:none" href="./3164.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3166.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] [CF Metadata] #37: Conventions for Point	Observation Data</h1>
+<!-- received="Thu Nov 19 17:54:07 2009" -->
+<!-- isoreceived="20091119175407" -->
+<!-- sent="Thu, 19 Nov 2009 17:54:07 -0700" -->
+<!-- isosent="20091120005407" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] [CF Metadata] #37: Conventions for Point	Observation Data" -->
+<!-- id="4B05E8AF.8030807_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="D7C8F5B0-AF75-41B6-BF8D-F5F2EFA1ABE3_at_usgs.gov" -->
+<!-- inreplyto="4B0556A4.4060306_at_zmaw.de" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./3166.html" accesskey="d" title="plieger: &quot;[CF-metadata] MSG CPP standard name for time_offset_of_observation / pixel_delta_time&quot;">Next message</a> ]
-[ <a href="./3164.html" title="Don Murray: &quot;[CF-metadata] Request for standard_name=&#0034;sea_binary_mask&#0034;&quot;">Previous message</a> ]
-[ <a href="./3158.html" title="David Blodgett: &quot;[CF-metadata] ESRI implementation of ellipsoidal-earth&quot;">In reply to</a> ]
+[ <a href="./3166.html" accesskey="d" title="Bryan Lawrence: &quot;[CF-metadata] Swath observational data&quot;">Next message</a> ]
+[ <a href="./3164.html" title="John Caron: &quot;[CF-metadata] Cell bounds associated with coordinate ... (in situ data)&quot;">Previous message</a> ]
+[ <a href="./3161.html" title="Martina Stockhause: &quot;[CF-metadata] [CF Metadata] #37: Conventions for Point	Observation Data&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./3170.html" accesskey="t" title="John Caron: &quot;[CF-metadata] ESRI implementation of ellipsoidal-earth&quot;">Next in thread</a> ]
+[ <a href="./3168.html" accesskey="t" title="Martina Stockhause: &quot;[CF-metadata] [CF Metadata] #37: Conventions for Point	Observation Data&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -72,221 +72,454 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Heiko Klein &lt;<a href="mailto:Heiko.Klein?Subject=Re%3A%20%5BCF-metadata%5D%20ESRI%20implementation%20of%20ellipsoidal-earth">Heiko.Klein</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20%5BCF%20Metadata%5D%20%2337%3A%20Conventions%20for%20Point%09Observation%20Data">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 03 Feb 2011 09:54:44 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 19 Nov 2009 17:54:07 -0700</span><br />
 </address>
 <br />
-I can confirm Davids observation. The European atmospheric models I'm 
+Hi Martina:
 <br />
-working with use also unchanged WGS84 (geodetic) coordinates with a 
+<br />Martina Stockhause wrote:
 <br />
-spherical earth.
-<br />
-<br />The proj4 projection library (starting with 4.5, I think)  tries to 
-<br />
-solve this in the following way (see 
-<br />
-<a href="http://osgeo-org.1803224.n2.nabble.com/How-to-convert-a-sphere-to-ellipsoid-with-correct-datum-td5486117.html">http://osgeo-org.1803224.n2.nabble.com/How-to-convert-a-sphere-to-ellipsoid-with-correct-datum-td5486117.html</a> 
-<br />
-):
-<br />
-<br />* if input and output projection both have a DATUM set (besides the 
-<br />
-ellipsoid) a geodetic/geocentric conversion is done.
-<br />
-* if the datum is missing on any projection (input or output) no 
-<br />
-geodetic/geocentric conversion is made
-<br />
-<br />As far as I've seen, the netcdf-java library 4.2 has no code for 
-<br />
-geodetic/geocentric conversion, so it follows the models. I don't even 
-<br />
-know if there is a way in newer CF-versions to set the Datum, besides 
-<br />
-the ellipsoid?
-<br />
-<br />Heiko
-<br />
-<br />On 2011-02-02 14:19, David Blodgett wrote:
-<br />
-<em class="quotelev1">&gt; All, I meant to send the following to the list yesterday but I don't think it came through... Hopefully this one makes it through.
+<em class="quotelev1">&gt; Hi John,
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; New to the list, Rich Signell asked me if I'd respond to John's question below. For what its worth:
+<em class="quotelev1">&gt; thanks for your answer. I was half a week out of office and had to read through quite a lot of emails to catch up in this lively discussion. Hopefully, I didn't miss too much. 
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; I've done a fair amount of thinking and asked a lot of questions re:
+<em class="quotelev1">&gt; I'd like to contribute my example to the discussion - much more concrete than before.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; what to use for the default ellipsoid when
-</em><br />
-<em class="quotelev2">&gt;&gt; these are not specified. It seems to me the obvious candidates are 1)
-</em><br />
-<em class="quotelev2">&gt;&gt; spherical earth with a standard radius, or 2) WGS84 ellipsoid.
+<em class="quotelev1">&gt; We came to the decision to write datasets per instrument or sensor. So, e.g. temperature measurements in different height of the same type of measurement instrument or sensor are aggregated in one dataset. For these we have the same time interval (1, 5 or 10 min) and  fixed heights. Even the Micro Rain Radar detects at fixed heights. And most of the applications have to handle data from different sensors, separately. So we have instrument-dependent time and vertical coordinate systems. Examples for instruments on the large 300m mast are:
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; I have come to the conclusion that WGS84 is probably the best default. Although really, without a datum definition a dataset is incomplete (according to geographic information science) and an error should be thrown.
+<em class="quotelev1">&gt; 1. Single instrument measuring in a concrete height z, e.g. VTP - dew
+</em><br />
+<em class="quotelev1">&gt; point mirror in 110 m height measuring air_temperature,
+</em><br />
+<em class="quotelev1">&gt; relative_humidity etc.
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; My reasoning for this is that I have not been able to find an atmospheric scientist who has converted ground based model forcing data locations into the spherical datum used by their model grid. This basically means that the grid's geometry calculations are out of sync with the actual location of the forcings. So the eventual model output or reanalysis or whatever, is actually most similar, location wise, to a geodetic datum (like WGS84)
+<em class="quotelev1">&gt; 2. Multiple instruments of same type in different heights z, e.g.
+</em><br />
+<em class="quotelev1">&gt; MINERVA measuring all basic meteorological parameters, installed in 2 10
+</em><br />
+<em class="quotelev1">&gt; 50 70 110 175 250 m
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; However,
+<em class="quotelev1">&gt; 3. Single instrument measuring vertical profiles (at the moment in fixed
+</em><br />
+<em class="quotelev1">&gt; detection heights) and points, e.g. rain radar MRR measuring in 1050
+</em><br />
+<em class="quotelev1">&gt; heights liquid_water_content(z), atmosphere_number_content_of_droplets
+</em><br />
+<em class="quotelev1">&gt; as total and for size classes A to K of 0.5 to 5.5 mm in diameter, and
+</em><br />
+<em class="quotelev1">&gt; precipitation_amount (daily)
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Things get complicated with projected coordinate systems based on spherical datums. The issue there is that to properly unproject, you need to use the math associated with the spherical datum. You then have lat/lon positions with spherical datum indicated in its metadata. But the original data was likely not converted to the spherical datum but rather reassigned, so you have to change the metadata (hack!) without transforming to the new, correct datum. We deal with this by using 2D axis definitions and indicating that the lat/lon is on whatever datum we think it came from.
+<em class="quotelev1">&gt; Therefore we have not a single station in CF's station concept, but
+</em><br />
+<em class="quotelev1">&gt; several - one for each instrument type. For the general case - all data in one file - I get for
+</em><br />
+<em class="quotelev1">&gt; the 300m mast (the location is 30 cm above MSL and therefore the height
+</em><br />
+<em class="quotelev1">&gt; above ground is usually used as above MSL):
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Hopefully that is helpful,
+<em class="quotelev1">&gt; dimensions:
+</em><br />
+<em class="quotelev1">&gt;  station = 8 ;
+</em><br />
+<em class="quotelev1">&gt;  time = UNLIMITED ;
+</em><br />
+<em class="quotelev1">&gt;  lon = 1;
+</em><br />
+<em class="quotelev1">&gt;  lat = 1;
+</em><br />
+<em class="quotelev1">&gt;  z = 1050 ;
+</em><br />
+<em class="quotelev1">&gt;  
+</em><br />
+<em class="quotelev1">&gt; // global variables:
+</em><br />
+<em class="quotelev1">&gt;  float lon(station);
+</em><br />
+<em class="quotelev1">&gt;    lon:long_name = &quot;station longitude&quot;;
+</em><br />
+<em class="quotelev1">&gt;    lon:units = &quot;degrees_east&quot;;
+</em><br />
+<em class="quotelev1">&gt;  float lat(station);
+</em><br />
+<em class="quotelev1">&gt;    lat:long_name = &quot;station latitude&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    lat:units = &quot;degrees_north&quot; ;
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; p.s. Welcome back John!
+<em class="quotelev1">&gt; // variables:
+</em><br />
+<em class="quotelev1">&gt;  char station_name(station, name_strlen) ;
+</em><br />
+<em class="quotelev1">&gt;    station_name:standard_name = &quot;station_id&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    station_name:long_name =&quot;Instrument on weather mast&quot; ;
+</em><br />
+<em class="quotelev1">&gt;  int station_info(station) ;
+</em><br />
+<em class="quotelev1">&gt;    station_name:long_name = &quot;&quot; ;
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; Dave
+<em class="quotelev1">&gt; float height(station, z) ;
+</em><br />
+<em class="quotelev1">&gt;    height:long_name = &quot;height above ground level&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    height:units = &quot;m&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    height:positive = &quot;up&quot; ;
+</em><br />
+<em class="quotelev1">&gt; //  MINERVA values  &quot;2 10 50 70 110 175 250&quot;
+</em><br />
+<em class="quotelev1">&gt; //  MRR values minimum:35 interval:35 maximum:1085
+</em><br />
+<em class="quotelev1">&gt; // other single instruments in different heights
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; On Feb 2, 2011, at 7:01 AM, Rich Signell wrote:
+<em class="quotelev1">&gt;  double time(station, time) ;
+</em><br />
+<em class="quotelev1">&gt;    time:long_name = &quot;time of measurement&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    time:units = &quot;minutes since 1970-01-01 00:00:00&quot; ;
+</em><br />
+<em class="quotelev1">&gt; //  dep. on instrument/station:
+</em><br />
+<em class="quotelev1">&gt; //   time:interval=1;
+</em><br />
+<em class="quotelev1">&gt; //   time:interval=5;
+</em><br />
+<em class="quotelev1">&gt; //   time:interval=10;
+</em><br />
+<em class="quotelev1">&gt;    time:missing_value = -999.9;
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev2">&gt;&gt; John&amp;  Co,
+<em class="quotelev1">&gt; double dsize(station,time,z);
 </em><br />
-<em class="quotelev2">&gt;&gt;
+<em class="quotelev1">&gt;    dsize:long_name=&quot;droplet size&quot;;
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt; Also, they are wondering what to use for the default ellipsoid when these
+<em class="quotelev1">&gt;    dsize:unit=&quot;mm&quot;;
 </em><br />
-<em class="quotelev3">&gt;&gt;&gt; are not specified. It seems to me the obvious candidates are 1) spherical
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; earth with a standard radius, or 2) WGS84 ellipsoid.
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; I imagine the vast majority of netcdf datasets fall into this camp.  I
-</em><br />
-<em class="quotelev2">&gt;&gt; had an interesting talk yesterday with Dave Blodgett, who pointed out
-</em><br />
-<em class="quotelev2">&gt;&gt; that even though most models are running on a spherical earth, they
-</em><br />
-<em class="quotelev2">&gt;&gt; mostly likely do not transform the initial bathymetry/topography,
-</em><br />
-<em class="quotelev2">&gt;&gt; coastline, and other model inputs into spherical earth coordinates,
-</em><br />
-<em class="quotelev2">&gt;&gt; but just leave them in their original datum, which is usually WGS84.
-</em><br />
-<em class="quotelev2">&gt;&gt; So it seems that your 2) would be more likely to be right.
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; And just to make sure that CFers are on the same page, if the datum is
-</em><br />
-<em class="quotelev2">&gt;&gt; actually known to be different, it can be specified using the CF datum
-</em><br />
-<em class="quotelev2">&gt;&gt; parameters (&quot;inverse_flattening&quot; and &quot;earth_radius&quot;, or
-</em><br />
-<em class="quotelev2">&gt;&gt; &quot;semi_major_axis&quot; and &quot;semi_minor_axis&quot;  in CF 1.5
-</em><br />
-<em class="quotelev2">&gt;&gt; (<a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.5/apf.html">http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.5/apf.html</a>) where
-</em><br />
-<em class="quotelev2">&gt;&gt; the doc now states: &quot;The attributes which describe the ellipsoid and
-</em><br />
-<em class="quotelev2">&gt;&gt; prime meridian may be included, when applicable, with any grid
-</em><br />
-<em class="quotelev2">&gt;&gt; mapping.&quot;
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; -Rich
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; On Tue, Feb 1, 2011 at 2:40 PM, John Caron&lt;caron at unidata.ucar.edu&gt;  wrote:
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Apparently ESRI is willing to add support for CF 1.5 grid_mapping attributes
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; for ellipsoidal-earth/geodetic-datum definitions in the Grid Mappings and
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Projections specification.
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; They are looking for sample data, especially using ellipsoidal parameters
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; (semi_major_axis/semi_minor_axis/inverse_flattening). Does anyone have any?
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Also, they are wondering what to use for the default ellipsoid when these
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; are not specified. It seems to me the obvious candidates are 1) spherical
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; earth with a standard radius, or 2) WGS84 ellipsoid.
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; Opinions?
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; John
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; _______________________________________________
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<em class="quotelev3">&gt;&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; --
-</em><br />
-<em class="quotelev2">&gt;&gt; Dr. Richard P. Signell   (508) 457-2229
-</em><br />
-<em class="quotelev2">&gt;&gt; USGS, 384 Woods Hole Rd.
-</em><br />
-<em class="quotelev2">&gt;&gt; Woods Hole, MA 02543-1598
+<em class="quotelev1">&gt; //   values &quot;0.5 1.0 1.5 2.0 2.5 3.0 3.5 4.0 4.5 5.0 5.5&quot;
 </em><br />
 <em class="quotelev1">&gt;
 </em><br />
-<em class="quotelev1">&gt; _______________________________________________
+<em class="quotelev1">&gt;  float air_temperature(station, time, height) ;
 </em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
+<em class="quotelev1">&gt;    air_temperature:long_name = &quot;air temperature&quot; ;
 </em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+<em class="quotelev1">&gt;    air_temperature:units = &quot;Celsius&quot; ;
 </em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+<em class="quotelev1">&gt;    air_temperature:coordinates = &quot;time lon lat height&quot; ;
 </em><br />
-<br /><pre>
--- 
-Dr. Heiko Klein                              Tel. + 47 22 96 32 58
-Development Section / IT Department          Fax. + 47 22 69 63 55
-Norwegian Meteorological Institute           <a href="http://www.met.no">http://www.met.no</a>
-P.O. Box 43 Blindern  0313 Oslo NORWAY
-</pre>
-<span id="received"><dfn>Received on</dfn> Thu Feb 03 2011 - 01:54:44 GMT</span>
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  float wind_speed(station, time, height) ;
+</em><br />
+<em class="quotelev1">&gt;    wind_speed:long_name = &quot;wind speed&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    wind_speed:units = &quot;m/s&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    wind_speed:coordinates = &quot;time lon lat height&quot; ;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  float total_liquid_water_content(station, time, height) ;
+</em><br />
+<em class="quotelev1">&gt;    total_liquid_water_content:long_name = &quot;liquid water content&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    total_liquid_water_content:units = &quot;g/m3&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    total_liquid_water_content:coordinates = &quot;time lon lat height&quot; ;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  float liquid_water_content(station, time, height, dsize) ;
+</em><br />
+<em class="quotelev1">&gt;    liquid_water_content:long_name = &quot;liquid water content&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    liquid_water_content:units = &quot;g/m3&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    liquid_water_content:coordinates = &quot;time lon lat height dsize&quot; ;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; float precipitation_amount(station, time, height);
+</em><br />
+<em class="quotelev1">&gt;    precipitation_amount:long_name = &quot;liquid water content&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    precipitation_amount:cell_methods=&quot;time: sum over days&quot;;
+</em><br />
+<em class="quotelev1">&gt;    precipitation_amount:units = &quot;g/m3&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    precipitation_amount:coordinates = &quot;time lon lat height&quot; ;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; In our special case of separated datasets for each instrument type the
+</em><br />
+<em class="quotelev1">&gt; station dimension becomes 1 and all gets a bit simpler. And the z dimension can be defined much smaller in most cases. 
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; MINERVA example:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; dimensions:
+</em><br />
+<em class="quotelev1">&gt;  station = 1 ;
+</em><br />
+<em class="quotelev1">&gt;  time = UNLIMITED ;
+</em><br />
+<em class="quotelev1">&gt;  lon = 1;
+</em><br />
+<em class="quotelev1">&gt;  lat = 1;
+</em><br />
+<em class="quotelev1">&gt;  z = 7 ;
+</em><br />
+<em class="quotelev1">&gt;  
+</em><br />
+<em class="quotelev1">&gt;  float lon(station);
+</em><br />
+<em class="quotelev1">&gt;    lon:long_name = &quot;station longitude&quot;;
+</em><br />
+<em class="quotelev1">&gt;    lon:units = &quot;degrees_east&quot;;
+</em><br />
+<em class="quotelev1">&gt;  float lat(station);
+</em><br />
+<em class="quotelev1">&gt;    lat:long_name = &quot;station latitude&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    lat:units = &quot;degrees_north&quot; ;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  char station_name(station, name_strlen) ;
+</em><br />
+<em class="quotelev1">&gt;    station_name:standard_name = &quot;station_id&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    station_name:long_name =&quot;MINERVA instrument on weather mast Hamburg&quot; ;
+</em><br />
+<em class="quotelev1">&gt;  int station_info(station) ;
+</em><br />
+<em class="quotelev1">&gt;    station_name:long_name = &quot;&quot; ;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; float height(station, z) ;
+</em><br />
+<em class="quotelev1">&gt;    height:long_name = &quot;height above ground level&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    height:units = &quot;m&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    height:positive = &quot;up&quot; ;
+</em><br />
+<em class="quotelev1">&gt; //  MINERVA values  &quot;2 10 50 70 110 175 250&quot;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  double time(station, time) ;
+</em><br />
+<em class="quotelev1">&gt;    time:long_name = &quot;time of measurement&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    time:units = &quot;minutes since 1970-01-01 00:00:00&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    time:interval=1;
+</em><br />
+<em class="quotelev1">&gt;    time:missing_value = -999.9;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  float air_temperature(station, time, height) ;
+</em><br />
+<em class="quotelev1">&gt;    air_temperature:long_name = &quot;air temperature&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    air_temperature:units = &quot;Celsius&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    air_temperature:coordinates = &quot;time lon lat height&quot; ;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;  float wind_speed(station, time, height) ;
+</em><br />
+<em class="quotelev1">&gt;    wind_speed:long_name = &quot;wind speed&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    wind_speed:units = &quot;m/s&quot; ;
+</em><br />
+<em class="quotelev1">&gt;    wind_speed:coordinates = &quot;time lon lat height&quot; ;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Are there any comments on the idea of using the CF station for a single instrument type at a weather station?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Best wishes,
+</em><br />
+<em class="quotelev1">&gt; Martina
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;   
+</em><br />
+in the first case, it appears that all of the data appears on 1050 
+<br />
+levels. Im guessing thats not what you want.
+<br />
+<br />one should be able to have multiple z coordinates in the same file:
+<br />
+<br />dimensions:
+<br />
+&nbsp;station = 8 ;
+<br />
+&nbsp;time = UNLIMITED ;
+<br />
+&nbsp;lon = 1;
+<br />
+&nbsp;lat = 1;
+<br />
+&nbsp;z1 = 7;
+<br />
+&nbsp;z2 = 12;
+<br />
+<br />&nbsp;
+<br />
+// global variables:
+<br />
+&nbsp;float lon(station);
+<br />
+&nbsp;&nbsp;&nbsp;lon:long_name = &quot;station longitude&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;lon:units = &quot;degrees_east&quot;;
+<br />
+&nbsp;float lat(station);
+<br />
+&nbsp;&nbsp;&nbsp;lat:long_name = &quot;station latitude&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;lat:units = &quot;degrees_north&quot; ;
+<br />
+<br />// variables:
+<br />
+&nbsp;char station_name(station, name_strlen) ;
+<br />
+&nbsp;&nbsp;&nbsp;station_name:standard_name = &quot;station_id&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;station_name:long_name =&quot;Instrument on weather mast&quot; ;
+<br />
+<br />&nbsp;int station_info(station) ;
+<br />
+&nbsp;&nbsp;&nbsp;station_name:long_name = &quot;&quot; ;
+<br />
+<br />float z1(z1) ;
+<br />
+&nbsp;&nbsp;&nbsp;height:long_name = &quot;height above ground level for MINERVA instrument&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;height:units = &quot;m&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;height:positive = &quot;up&quot; ;
+<br />
+<br />float z2(z2) ;
+<br />
+&nbsp;&nbsp;&nbsp;height:long_name = &quot;height above ground level for APHRODITE instrument&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;height:units = &quot;m&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;height:positive = &quot;up&quot; ;
+<br />
+<br /><br />&nbsp;double time(station, time) ;
+<br />
+&nbsp;&nbsp;&nbsp;time:long_name = &quot;time of measurement&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;time:units = &quot;minutes since 1970-01-01 00:00:00&quot; ;
+<br />
+//  dep. on instrument/station:
+<br />
+//   time:interval=1;
+<br />
+//   time:interval=5;
+<br />
+//   time:interval=10;
+<br />
+&nbsp;&nbsp;&nbsp;time:missing_value = -999.9;
+<br />
+<br />double dsize(station,time,z2);
+<br />
+&nbsp;&nbsp;&nbsp;dsize:long_name=&quot;droplet size&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;dsize:unit=&quot;mm&quot;;
+<br />
+//   values &quot;0.5 1.0 1.5 2.0 2.5 3.0 3.5 4.0 4.5 5.0 5.5&quot;
+<br />
+<br />&nbsp;float air_temperature(station, time, z1) ;
+<br />
+&nbsp;&nbsp;&nbsp;air_temperature:long_name = &quot;air temperature&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;air_temperature:units = &quot;Celsius&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;air_temperature:coordinates = &quot;time lon lat height&quot; ;
+<br />
+<br />&nbsp;float wind_speed(station, time, z1) ;
+<br />
+&nbsp;&nbsp;&nbsp;wind_speed:long_name = &quot;wind speed&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;wind_speed:units = &quot;m/s&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;wind_speed:coordinates = &quot;time lon lat height&quot; ;
+<br />
+<br />&nbsp;float total_liquid_water_content(station, time, z2) ;
+<br />
+&nbsp;&nbsp;&nbsp;total_liquid_water_content:long_name = &quot;liquid water content&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;total_liquid_water_content:units = &quot;g/m3&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;total_liquid_water_content:coordinates = &quot;time lon lat height&quot; ;
+<br />
+<br />&nbsp;float liquid_water_content(station, time, z2, dsize) ;
+<br />
+&nbsp;&nbsp;&nbsp;liquid_water_content:long_name = &quot;liquid water content&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;liquid_water_content:units = &quot;g/m3&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;liquid_water_content:coordinates = &quot;time lon lat height dsize&quot; ;
+<br />
+<br />float precipitation_amount(station, time, z1);
+<br />
+&nbsp;&nbsp;&nbsp;precipitation_amount:long_name = &quot;liquid water content&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;precipitation_amount:cell_methods=&quot;time: sum over days&quot;;
+<br />
+&nbsp;&nbsp;&nbsp;precipitation_amount:units = &quot;g/m3&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;precipitation_amount:coordinates = &quot;time lon lat height&quot; 
+<br />
+<br /><br />obviously just making this up.  What do you think?
+<br />
+<br />Having offered that, I need to see if theres any impossible problems in 
+<br />
+recognizing these files automatically.
+<br />
+<span id="received"><dfn>Received on</dfn> Thu Nov 19 2009 - 17:54:07 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -294,13 +527,13 @@ P.O. Box 43 Blindern  0313 Oslo NORWAY
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start3165">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./3166.html" title="Next message in the list">plieger: "[CF-metadata] MSG CPP standard name for time_offset_of_observation / pixel_delta_time"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./3164.html" title="Previous message in the list">Don Murray: "[CF-metadata] Request for standard_name=&#0034;sea_binary_mask&#0034;"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./3158.html" title="Message to which this message replies">David Blodgett: "[CF-metadata] ESRI implementation of ellipsoidal-earth"</a></li>
+<li><dfn>Next message</dfn>: <a href="./3166.html" title="Next message in the list">Bryan Lawrence: "[CF-metadata] Swath observational data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./3164.html" title="Previous message in the list">John Caron: "[CF-metadata] Cell bounds associated with coordinate ... (in situ data)"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./3161.html" title="Message to which this message replies">Martina Stockhause: "[CF-metadata] [CF Metadata] #37: Conventions for Point	Observation Data"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./3170.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] ESRI implementation of ellipsoidal-earth"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./3168.html" title="Next message in this discussion thread">Martina Stockhause: "[CF-metadata] [CF Metadata] #37: Conventions for Point	Observation Data"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./3170.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] ESRI implementation of ellipsoidal-earth"</a></li>
+<dfn>Reply</dfn>: <a href="./3168.html" title="Message sent in reply to this message">Martina Stockhause: "[CF-metadata] [CF Metadata] #37: Conventions for Point	Observation Data"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -311,7 +544,7 @@ P.O. Box 43 Blindern  0313 Oslo NORWAY
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:39 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./3164.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./3166.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

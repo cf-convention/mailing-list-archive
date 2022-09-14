@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata]  CMIP6 Sea Ice MIP: General variables from Jonathan Gregory on 2016-07-20 (mailing-list-archive)</title>
+<title>[CF-metadata]  How to define time coordinate in GPS? from Jonathan Gregory on 2015-04-27 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata]  CMIP6 Sea Ice MIP: General variables" />
-<meta name="Date" content="2016-07-20" />
+<meta name="Subject" content="[CF-metadata]  How to define time coordinate in GPS?" />
+<meta name="Date" content="2015-04-27" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./7707.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7709.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  CMIP6 Sea Ice MIP: General variables</h1>
-<!-- received="Wed Jul 20 07:48:39 2016" -->
-<!-- isoreceived="20160720064839" -->
-<!-- sent="Wed, 20 Jul 2016 14:48:39 +0100" -->
-<!-- isosent="20160720134839" -->
+<a style="text-decoration:none" href="./7707.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7709.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  How to define time coordinate in GPS?</h1>
+<!-- received="Mon Apr 27 11:07:39 2015" -->
+<!-- isoreceived="20150427100739" -->
+<!-- sent="Mon, 27 Apr 2015 18:07:39 +0100" -->
+<!-- isosent="20150427170739" -->
 <!-- name="Jonathan Gregory" -->
 <!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata]  CMIP6 Sea Ice MIP: General variables" -->
-<!-- id="20160720134838.GB6009_at_met.reading.ac.uk" -->
+<!-- subject="[CF-metadata]  How to define time coordinate in GPS?" -->
+<!-- id="20150427170739.GA7214_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./7709.html" accesskey="d" title="Chris Barker: &quot;[CF-metadata] New standard name for mass_fraction_of_petroleum_in_sea_water&quot;">Next message</a> ]
-[ <a href="./7707.html" title="Jonathan Gregory: &quot;[CF-metadata]  CMIP6 Sea Ice MIP: Ice thickness&quot;">Previous message</a> ]
+[ <a href="./7709.html" accesskey="d" title="Jim Biard: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">Next message</a> ]
+[ <a href="./7707.html" title="Jim Biard: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./7709.html" accesskey="t" title="Jim Biard: &quot;[CF-metadata] How to define time coordinate in GPS?&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,188 +70,50 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20CMIP6%20Sea%20Ice%20MIP%3A%20General%20variables">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20How%20to%20define%20time%20coordinate%20in%20GPS%3F">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 20 Jul 2016 14:48:39 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 27 Apr 2015 18:07:39 +0100</span><br />
 </address>
 <br />
-Dear Dirk
+Dear Jim
 <br />
-<br />Thanks for your proposals. Here are comments on some of them. The others are
+<br /><em class="quotelev1">&gt; I don't think calendars are the right place to encode this. We could
+</em><br />
+<em class="quotelev1">&gt; add a new &quot;time_system&quot; attribute where you would declare whether
+</em><br />
+<em class="quotelev1">&gt; your time stamps and elapsed times were based on UTC, GPS, TAI, etc.
+</em><br />
+<em class="quotelev1">&gt; If we take this route, we should require the elapsed times to encode
+</em><br />
+<em class="quotelev1">&gt; leap seconds if the time system is UTC, and state that the default
+</em><br />
+<em class="quotelev1">&gt; time system is UTC.
+</em><br />
+<br />I think this is a calendar issue because the calendar is the set of rules
 <br />
-new and fit existing patterns, I think.
+which translate between components of time (YMDhms) and elapsed time (in
 <br />
-<br /><em class="quotelev1">&gt; 1. proportion_of_model_time_steps_with_sea_ice_fraction_above_threshold
-</em><br />
-<br />I suggest it would be better to make this less model-specific by calling it
+fixed time units) since the reference time. Your later email seems to me
 <br />
-&nbsp;&nbsp;fraction_of_time_with_with_sea_ice_area_fraction_above_threshold
+to be consistent with that. In the real world, the elapsed interval (expressed
 <br />
-where I have inserted &quot;area&quot; as well for consistency with the existing name
+e.g. as the number of seconds) between the ref YMDhms and the actual YMDhs
 <br />
-sea_ice_area_fraction.
+depends on whether your calendar includes leap seconds (UTC) or not (GPS).
 <br />
-<br /><em class="quotelev1">&gt; 2. sea_ice_mass_content [kg m-2]
-</em><br />
-<em class="quotelev1">&gt; describes the total mass of sea ice divided by grid-cell area.
-</em><br />
-<br />This is the same as the existing sea_ice_amount (the area by which it is
+It seems that GPS is the calendar likely to have been assumed in existing
 <br />
-divided is described by cell_methods, as in my other posting).
+CF datasets, so it would be logical to say that the default is the real-
 <br />
-<br /><em class="quotelev1">&gt; 5. sea_ice_melt_pond_thickness [m]
-</em><br />
-<em class="quotelev1">&gt; the volume of water in meltponds divided by meltpond covered area
-</em><br />
-<br />OK, with a similar cell_methods issue: I think by default this would be
+world calendar without leap seconds. Have I misunderstood something? If we
 <br />
-a local thickness, but it could be described as an area-mean.
-<br />
-<br /><em class="quotelev1">&gt; 6. thickness_of_sea_ice_melt_pond_refrozen_ice [m]
-</em><br />
-<em class="quotelev1">&gt; the volume of refrozen ice in meltponds divided by meltpond covered area
-</em><br />
-<br />Is this ice floating on top of the meltpond?
-<br />
-<br /><em class="quotelev1">&gt; 7. ridged_sea_ice_thickness [m]
-</em><br />
-<em class="quotelev1">&gt; total volume of ridged sea ice divided by area of ridges
-</em><br />
-<br />Instead of a new standard name, could this be described by sea_ice_thickness
-<br />
-and &quot;where&quot; in cell_methods if we define a new area_type of ridged_sea_ice?
-<br />
-<br /><em class="quotelev1">&gt; 11. surface_snow_sublimation_flux [kg m-2 s-1]
-</em><br />
-<em class="quotelev1">&gt; the rate of change of snow mass through sublimation and evaporation
-</em><br />
-<em class="quotelev1">&gt; divided by grid-cell area
-</em><br />
-<br />Unless you specifically want to *exclude* ice, this could use the existing
-<br />
-surface_snow_and_ice_sublimation_flux.
-<br />
-<br /><em class="quotelev1">&gt; 13. tendency_of_surface_snow_amount_due_to_ice_conversion [kg m-2 s-1]
-</em><br />
-<em class="quotelev1">&gt; the rate of change of snow mass due to transformation of snow to sea ice
-</em><br />
-<em class="quotelev1">&gt; divided by grid-cell area
-</em><br />
-<br />I feel that due_to_ice_conversion is not specific enough because it doesn't
-<br />
-give the sense of the change. To be clear, would it be correct to say
-<br />
-&nbsp;&nbsp;due_to_conversion_of_snow_to_sea_ice
-<br />
-?
-<br />
-<br /><em class="quotelev1">&gt; 15. sea_ice_basal_downwelling_shortwave_flux_in_sea_water [W m-2]
-</em><br />
-<em class="quotelev1">&gt; the downwelling shortwave flux underneath sea ice (always positive)
-</em><br />
-<br />I think that
-<br />
-&nbsp;&nbsp;downwelling_shortwave_flux_in_sea_water_at_sea_ice_base
-<br />
-would be more natural because it's not really a property of the sea-ice.
-<br />
-The sea-ice base is a level.
-<br />
-<br /><em class="quotelev1">&gt; 16. sea_ice_basal_net_downward_sensible_heat_flux [W m-2]
-</em><br />
-<em class="quotelev1">&gt; the net sensible heat flux under sea ice from the ocean
-</em><br />
-<br />This has an existing name upward_sea_ice_basal_heat_flux.
-<br />
-<br /><em class="quotelev1">&gt; 17. sea_ice_surface_net_downward_conductive_heat_flux [W m-2]
-</em><br />
-<em class="quotelev1">&gt; the net heat conduction flux at the ice surface
-</em><br />
-<em class="quotelev1">&gt; 18. sea_ice_basal_net_downward_conductive_heat_flux [W m-2]
-</em><br />
-<em class="quotelev1">&gt; the net heat conduction flux at the ice base
-</em><br />
-<br />We have an existing name of downward_heat_flux_in_sea_ice for the conductive
-<br />
-flux within the ice. To be specific about the level, we could prefix surface_
-<br />
-for 17 and suffix basal_ for 18.
-<br />
-<br /><em class="quotelev1">&gt; 19. salt_flux_into_sea_water_from_sea_ice [kg m-2 s-1]
-</em><br />
-<em class="quotelev1">&gt; Total flux of salt from water into sea ice divided by grid-cell area;
-</em><br />
-<em class="quotelev1">&gt; salt flux is upward (negative) during ice growth when salt is embedded
-</em><br />
-<em class="quotelev1">&gt; into the ice and downward (positive) during melt when salt from sea ice
-</em><br />
-<em class="quotelev1">&gt; is again released to the ocean
-</em><br />
-<br />This is like the existing name
-<br />
-&nbsp;&nbsp;virtual_salt_flux_into_sea_water_due_to_sea_ice_thermodynamics
-<br />
-isn't it, except not virtual.
-<br />
-<br /><em class="quotelev1">&gt; 20. water_flux_into_sea_water_from_sea_ice [kg m-2 s-1]
-</em><br />
-<em class="quotelev1">&gt; Total flux of fresh water from water into sea ice divided by grid-cell
-</em><br />
-<em class="quotelev1">&gt; area; This flux is negative during ice growth (liquid water mass
-</em><br />
-<em class="quotelev1">&gt; decreases, hence upward flux of freshwater), positive during ice melt
-</em><br />
-<em class="quotelev1">&gt; (liquid water mass increases, hence downward flux of freshwater)
-</em><br />
-<br />I think this is the same as the existing
-<br />
-&nbsp;&nbsp;water_flux_into_sea_water_due_to_sea_ice_thermodynamics
-<br />
-<br /><em class="quotelev1">&gt; 21. surface_drag_coefficient_for_momentum_in_sea_water [1]
-</em><br />
-<em class="quotelev1">&gt; Oceanic drag coefficient that is used to calculate the oceanic momentum
-</em><br />
-<em class="quotelev1">&gt; drag on sea ice
-</em><br />
-<br />Should that be surface_ (which means the top of the atmosphere) or perhaps
-<br />
-sea_ice_basal_?
-<br />
-<br /><em class="quotelev1">&gt; 22. sea_ice_specific_x_force_due_to_sea_surface_tilt [N m-2]
-</em><br />
-<em class="quotelev1">&gt; 23. sea_ice_specific_y_force_due_to_sea_surface_tilt [N m-2]
-</em><br />
-<em class="quotelev1">&gt; 24. sea_ice_specific_x_force_due_to_coriolis_term [N m-2]
-</em><br />
-<em class="quotelev1">&gt; 25. sea_ice_spcecific_y_force_due_to_coriolis_term [N m-2]
-</em><br />
-<em class="quotelev1">&gt; 26. sea_ice_specific_x_force_due_to_internal_forces [N m-2]
-</em><br />
-<em class="quotelev1">&gt; 27. sea_ice_specific_y_force_due_to_internal_forces [N m-2]
-</em><br />
-<br />In other N m-2 = Pa names, we use &quot;stress&quot; rather than &quot;specific force&quot; but
-<br />
-I suppose this is different because they are not fluxes of momentum, but
-<br />
-divergences of momentum i.e. force per unit mass. Is &quot;specific force&quot; a
-<br />
-usual term for this? Could we say &quot;coriolis_effect&quot; rather than &quot;term&quot;,
-<br />
-which sounds more algorithmic than geophysical?
-<br />
-<br /><em class="quotelev1">&gt; 28. sea_ice_mass_transport_across_line [kg s-1]
-</em><br />
-<em class="quotelev1">&gt; &quot;net (sum of transport in all directions) sea ice mass transport through
-</em><br />
-<em class="quotelev1">&gt; given passages, positive into the Arctic Ocean
-</em><br />
-<br />This exists under the name sea_ice_transport_across_line.
+regard this as a property of the calendar, we don't need a new attribute.
 <br />
 <br />Best wishes
 <br />
 <br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Jul 20 2016 - 07:48:39 BST</span>
+<span id="received"><dfn>Received on</dfn> Mon Apr 27 2015 - 11:07:39 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -257,9 +121,12 @@ which sounds more algorithmic than geophysical?
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start7708">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./7709.html" title="Next message in the list">Chris Barker: "[CF-metadata] New standard name for mass_fraction_of_petroleum_in_sea_water"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./7707.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]  CMIP6 Sea Ice MIP: Ice thickness"</a></li>
+<li><dfn>Next message</dfn>: <a href="./7709.html" title="Next message in the list">Jim Biard: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./7707.html" title="Previous message in the list">Jim Biard: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./7709.html" title="Next message in this discussion thread">Jim Biard: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./7709.html" title="Message sent in reply to this message">Jim Biard: "[CF-metadata] How to define time coordinate in GPS?"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -270,7 +137,7 @@ which sounds more algorithmic than geophysical?
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:59:05 BST
+: Tue Sep 13 2022 - 23:02:42 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./7707.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./7709.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

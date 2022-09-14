@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] file with both run time and forecast (valid) time coordinates from John Caron on 2006-09-05 (mailing-list-archive)</title>
-<meta name="Author" content="John Caron (caron)" />
-<meta name="Subject" content="[CF-metadata] file with both run time and forecast (valid) time coordinates" />
-<meta name="Date" content="2006-09-05" />
+<title>[CF-metadata] Example of forecast data from Jonathan Gregory on 2003-07-04 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
+<meta name="Subject" content="[CF-metadata] Example of forecast data" />
+<meta name="Date" content="2003-07-04" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,16 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0198.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0200.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] file with both run time and forecast (valid) time coordinates</h1>
-<!-- received="Tue Sep  5 16:47:33 2006" -->
-<!-- isoreceived="20060905154733" -->
-<!-- sent="Tue, 05 Sep 2006 16:47:33 -0600" -->
-<!-- isosent="20060905224733" -->
-<!-- name="John Caron" -->
-<!-- email="caron" -->
-<!-- subject="[CF-metadata] file with both run time and forecast (valid) time coordinates" -->
-<!-- id="44FDFE85.4030907_at_unidata.ucar.edu" -->
+<a style="text-decoration:none" href="./0198.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0200.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Example of forecast data</h1>
+<!-- received="Fri Jul  4 10:22:40 2003" -->
+<!-- isoreceived="20030704092240" -->
+<!-- sent="Fri, 4 Jul 2003 17:22:40 +0100" -->
+<!-- isosent="20030704162240" -->
+<!-- name="Jonathan Gregory" -->
+<!-- email="j.m.gregory" -->
+<!-- subject="[CF-metadata] Example of forecast data" -->
+<!-- id="20030704162240.GC14207_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="20060905083810.GB24449_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,9 +53,8 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0200.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] file with both run time and forecast (valid) time coordinates&quot;">Next message</a> ]
-[ <a href="./0198.html" title="Olivier Lauret: &quot;[CF-metadata] Standard names for altimeter data&quot;">Previous message</a> ]
-[ <a href="./0196.html" title="Jonathan Gregory: &quot;[CF-metadata] file with both run time and forecast (valid) time coordinates&quot;">In reply to</a> ]
+[ <a href="./0200.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] size-one axes&quot;">Next message</a> ]
+[ <a href="./0198.html" title="John Caron: &quot;[CF-metadata] 2D latitude, longitude coordinates detection&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -70,264 +68,98 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20file%20with%20both%20run%20time%20and%20forecast%20(valid)%20time%20coordinates">caron</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Example%20of%20forecast%20data">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 05 Sep 2006 16:47:33 -0600</span><br />
+<span id="date"><dfn>Date</dfn>: Fri, 4 Jul 2003 17:22:40 +0100</span><br />
 </address>
 <br />
-Thank you, this is very helpful. 
+Dear Ag
 <br />
-<br />One question on situation (b): You make both one-dimensional auxiliary coordinate variables, but could you make one a coordinate and one an auxiliary coordinate? Eg:
+<br /><em class="quotelev1">&gt; I agree that we should consider this issue as analogous to that of the sigma
+</em><br />
+<em class="quotelev1">&gt; vertical levels. What we have is two new auxiliary coordinate variables,
+</em><br />
+<em class="quotelev1">&gt; forecast_reference_time and forecast_validity_time. They can be identified
+</em><br />
+<em class="quotelev1">&gt; by their standard names and should not cause a problem for software.
+</em><br />
+<em class="quotelev1">&gt; However, if they have standard_names other than &quot;time&quot; then some current
+</em><br />
+<em class="quotelev1">&gt; software will miss assigning the time dimension unless there is an axis=&quot;T&quot;
+</em><br />
+<em class="quotelev1">&gt; attribute.
+</em><br />
+<br />It should be identifiable by its units. The standard (4.4) doesn't require
 <br />
-<br />&nbsp;variables:
+the standard_name to be &quot;time&quot;, just &quot;an appropriate value&quot;. This suggests
 <br />
-&nbsp;&nbsp;&nbsp;double reftime(time);
+that units and axis attribute are easier to use for identification.
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reftime:standard_name = &quot;forecast_reference_time&quot; ;
+<br />If we have 2 time dimensions we may have 5 dimensions in all. That might be
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reftime:units = &quot;hours since 2003-01-01 00:00&quot; ;
+a problem - I don't know. If one of the time dimensions is multi-valued and
 <br />
-<br />&nbsp;&nbsp;&nbsp;double time(time);
+the other single-valued, perhaps the multi-valued one should be &quot;on the right&quot;
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:standard_name = &quot;time&quot; ;
+for the sake of applications which expect time as the 4th dim.
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:units = &quot;hours since 2003-01-01 00:00&quot; ;
+<br /><em class="quotelev1">&gt; For ultimate flexibility, the forecast_validity_time should have a units
+</em><br />
+<em class="quotelev1">&gt; attribute entirely independent of the forecast_reference_time units
+</em><br />
+<em class="quotelev1">&gt; attribute and is therefore a fully fledged time axis in its own right.
+</em><br />
+<br />Yes, I agree. Brian's idea of using the ref time in the udunits string for
 <br />
-<br />&nbsp;&nbsp;&nbsp;float temp(time,level,lat,lon);
+the forecast reference time is neat, but I still would prefer to have them
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp:long_name = &quot;Air temperature on model levels&quot; ;
+separated for robustness and flexibility, as you say.
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp:standard_name = &quot;air_temperature&quot; ;
+<br /><em class="quotelev1">&gt; Do we want to encourage people who have one analysis and 3 forecast steps
+</em><br />
+<em class="quotelev1">&gt; (00,06,12 and 18hr time steps) to use the old system of just one linear time
+</em><br />
+<em class="quotelev1">&gt; dimension (which would lose valuable metadata regarding the relationship
+</em><br />
+<em class="quotelev1">&gt; between the time steps) or should they follow the 2 auxiliary coordinate
+</em><br />
+<em class="quotelev1">&gt; variable approach? I would suggest that in the long run they want to do the
+</em><br />
+<em class="quotelev1">&gt; latter but right now they would have more luck doing the former. 
+</em><br />
+<br />With one analysis and three forecast steps, I think they should use 2 time
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp:units = &quot;K&quot; ;
+axes, one multi-valued, one single-valued. The 2 auxiliary coordinate vars
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp:coordinates = &quot;reftime&quot;
+are necessary when you have various *combinations* of analysis and forecast
 <br />
-<br />that would look quite similar to case (a)
+time. In this case, that would mean replicating the analysis time.
 <br />
-<br />&nbsp;variables:
+<br /><em class="quotelev1">&gt; Another related issue brought up by a colleague the other day is encoding
+</em><br />
+<em class="quotelev1">&gt; ensemble simulations. It's a similar issue to forecasts in that you have
+</em><br />
+<em class="quotelev1">&gt; duplicate variables at the same space/time coordinates. Do you think it is
+</em><br />
+<em class="quotelev1">&gt; effectively the same issue as forecasts or do we need an extraneous
+</em><br />
+<em class="quotelev1">&gt; description for ensemble runs?
+</em><br />
+<br />We discussed this the other day when you visited. I agree with Bryan; ensembles
 <br />
-&nbsp;&nbsp;&nbsp;double reftime;
+are a different &quot;source&quot;. We could regard the intraensemble standard deviation
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reftime:standard_name = &quot;forecast_reference_time&quot; ;
+and other measures of the ensemble spread as &quot;error&quot; terms, with modifiers in
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reftime:units = &quot;hours since 2003-01-01 00:00&quot; ;
+the standard name as we have agreed in the other thread to identify them.
 <br />
-<br />&nbsp;&nbsp;&nbsp;double time(time);
+<br />Back at work in two weeks.
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:standard_name = &quot;time&quot; ;
+<br />Best wishes
 <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:units = &quot;hours since 2003-01-01 00:00&quot; ;
+<br />Jonathan
 <br />
-<br />&nbsp;&nbsp;&nbsp;float temp(time,level,lat,lon);
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp:long_name = &quot;Air temperature on model levels&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp:standard_name = &quot;air_temperature&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp:units = &quot;K&quot; ;
-<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp:coordinates = &quot;reftime&quot;
-<br />
-<br />So i guess that Im unclear why these are structurally different.
-<br />
-<br /><br />Jonathan Gregory wrote:
-<br />
-<em class="quotelev1">&gt; Dear John
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; We had a long discussion, initiated by Ag, on the CF email list in summer 2003
-</em><br />
-<em class="quotelev1">&gt; about forecast time etc. but no-one has ever had time to put the outcome into
-</em><br />
-<em class="quotelev1">&gt; the CF standard. I have just been looking through the emails and below is what
-</em><br />
-<em class="quotelev1">&gt; I have found. Maybe we can find the time to put it in the standard now before
-</em><br />
-<em class="quotelev1">&gt; we forget again! Please have a look yourself at the past emails.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; In a discussion about five years ago in PCMDI, we identified four cases, and
-</em><br />
-<em class="quotelev1">&gt; the discussion in 2003 added a fifth case, in effect. They are:
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; (i) A forecast run with multiple forecast periods (12 h, 24 h, 36 h, etc.)
-</em><br />
-<em class="quotelev1">&gt; from a single analysis. This can be done with a single-valued analysis time
-</em><br />
-<em class="quotelev1">&gt; and a separate validity time axis. If the reference time for the validity time
-</em><br />
-<em class="quotelev1">&gt; units is the analysis time, the values of the validity time coordinates equal
-</em><br />
-<em class="quotelev1">&gt; the forecast period.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; (ii) A set of forecasts for the same validity time, made from different
-</em><br />
-<em class="quotelev1">&gt; analyses. This can be done with a single-valued validity time and a separate
-</em><br />
-<em class="quotelev1">&gt; analysis time axis.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; (iii) Multiple validity and analysis times, where all combinations exist.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; (iv) Multiple forecast periods from various analyses, where all combinations
-</em><br />
-<em class="quotelev1">&gt; exist.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; (v) Multiple validity and analysis times, where not all cases exist.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; The outcome of the discussion on the email list in 2003 was that we identified
-</em><br />
-<em class="quotelev1">&gt; two structurally different situations.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; (a) If validity time and analysis time, or both, are single-valued (cases i
-</em><br />
-<em class="quotelev1">&gt; and ii), we have independent coordinates for them. Single-valued coordinates
-</em><br />
-<em class="quotelev1">&gt; can be supplied either as scalar coordinate variables or as size-one axes.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; (b) If they are both multivalued (cases iii, iv and v), we introduce an index
-</em><br />
-<em class="quotelev1">&gt; dimension and make them both one-dimensional auxiliary coordinate variables
-</em><br />
-<em class="quotelev1">&gt; with this dimension.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; The standard name for the analysis time is &quot;forecast_reference_time&quot;, and for
-</em><br />
-<em class="quotelev1">&gt; validity time is &quot;time&quot;. There is an example in CF 5.7 of structure
-</em><br />
-<em class="quotelev1">&gt; (a) (case i), with a scalar coordinate variable for forecast_reference_time
-</em><br />
-<em class="quotelev1">&gt; and a multivalued time axis for validity time.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; In that example, the &quot;since&quot; date and time in the units string of the validity
-</em><br />
-<em class="quotelev1">&gt; time is the analysis time, which means that the values of the validity time
-</em><br />
-<em class="quotelev1">&gt; coordinates are equal to the forecast periods.  But if that were not so, you
-</em><br />
-<em class="quotelev1">&gt; could have another auxiliary coordinate variable with a standard name
-</em><br />
-<em class="quotelev1">&gt; of forecast_period.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; I think what we need to do is add an example of structure (b), and here is
-</em><br />
-<em class="quotelev1">&gt; one (an instance of case v) from the earlier discussion.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev2">&gt;&gt;20030101 12:00 analysis (at 00hr) and 12hr,36hr forecasts
-</em><br />
-<em class="quotelev2">&gt;&gt;20030101 00:00 analysis 6hr,12hr,18hr,24hr forecasts
-</em><br />
-<em class="quotelev2">&gt;&gt;20030101 06:00 analysis 6hr,18hr forecasts
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; could be expressed as follows (ordering the time samples as they are above)
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; variables:
-</em><br />
-<em class="quotelev1">&gt;   double reftime(record);
-</em><br />
-<em class="quotelev1">&gt;     time1:standard_name = &quot;forecast_reference_time&quot; ;
-</em><br />
-<em class="quotelev1">&gt;     time1:units = &quot;hours since 2003-01-01 00:00&quot; ;
-</em><br />
-<em class="quotelev1">&gt;   double valtime(record);
-</em><br />
-<em class="quotelev1">&gt;     time2:standard_name = &quot;time&quot; ;
-</em><br />
-<em class="quotelev1">&gt;     time2:units = &quot;hours since 2003-01-01 00:00&quot; ;
-</em><br />
-<em class="quotelev1">&gt;   float temp(record,level,lat,lon);
-</em><br />
-<em class="quotelev1">&gt;     temp:long_name = &quot;Air temperature on model levels&quot; ;
-</em><br />
-<em class="quotelev1">&gt;     temp:standard_name = &quot;air_temperature&quot; ;
-</em><br />
-<em class="quotelev1">&gt;     temp:units = &quot;K&quot; ;
-</em><br />
-<em class="quotelev1">&gt;     temp:coordinates = &quot;valtime reftime&quot;
-</em><br />
-<em class="quotelev1">&gt; data:
-</em><br />
-<em class="quotelev1">&gt;   reftime = 12., 12., 12.,  0.,  0.,  0.,  0.,  6.,  6. ; 
-</em><br />
-<em class="quotelev1">&gt;   valtime = 12., 24., 48.,  6., 12., 18., 24., 12., 24. ;
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; In this example, again you could add another auxiliary coordinate of
-</em><br />
-<em class="quotelev1">&gt; forecast_period, which would have values
-</em><br />
-<em class="quotelev1">&gt; 0, 12, 36, 6, 12, 18, 24, 6, 18;
-</em><br />
-<em class="quotelev1">&gt; i.e. it's just the difference valtime-reftime, so it doesn't really seem
-</em><br />
-<em class="quotelev1">&gt; to be necessary.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; In the earlier discussion, we did *not* propose to introduce a structure with
-</em><br />
-<em class="quotelev1">&gt; two multivalued time axes, because those situations can be handled by
-</em><br />
-<em class="quotelev1">&gt; structure (b). It's less efficient, but simpler not to have lots of different
-</em><br />
-<em class="quotelev1">&gt; structures.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Does this cover your needs?
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Best wishes
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Jonathan
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<span id="received"><dfn>Received on</dfn> Tue Sep 05 2006 - 16:47:33 BST</span>
+<span id="received"><dfn>Received on</dfn> Fri Jul 04 2003 - 10:22:40 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -335,9 +167,8 @@ Thank you, this is very helpful.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start199">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0200.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] file with both run time and forecast (valid) time coordinates"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0198.html" title="Previous message in the list">Olivier Lauret: "[CF-metadata] Standard names for altimeter data"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./0196.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] file with both run time and forecast (valid) time coordinates"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0200.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] size-one axes"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0198.html" title="Previous message in the list">John Caron: "[CF-metadata] 2D latitude, longitude coordinates detection"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -349,7 +180,7 @@ Thank you, this is very helpful.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:46 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0198.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0200.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

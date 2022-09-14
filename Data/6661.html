@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Proposal for standard names: radiance and irradiance as measured from satellite from Maarten Sneep on 2014-11-12 (mailing-list-archive)</title>
-<meta name="Author" content="Maarten Sneep (maarten.sneep)" />
-<meta name="Subject" content="[CF-metadata] Proposal for standard names: radiance and irradiance as measured from satellite" />
-<meta name="Date" content="2014-11-12" />
+<title>[CF-metadata] Cell methods when there are no coordinates from Steve Hankin on 2013-11-12 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Steve Hankin (steven.c.hankin)" />
+<meta name="Subject" content="[CF-metadata] Cell methods when there are no coordinates" />
+<meta name="Date" content="2013-11-12" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./6660.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6662.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Proposal for standard names: radiance and irradiance as measured from satellite</h1>
-<!-- received="Wed Nov 12 10:32:34 2014" -->
-<!-- isoreceived="20141112103234" -->
-<!-- sent="Wed, 12 Nov 2014 18:32:34 +0100" -->
-<!-- isosent="20141112173234" -->
-<!-- name="Maarten Sneep" -->
-<!-- email="maarten.sneep" -->
-<!-- subject="[CF-metadata] Proposal for standard names: radiance and irradiance as measured from satellite" -->
-<!-- id="546399B2.4070507_at_knmi.nl" -->
+<a style="text-decoration:none" href="./6660.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6662.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Cell methods when there are no coordinates</h1>
+<!-- received="Tue Nov 12 10:49:11 2013" -->
+<!-- isoreceived="20131112104911" -->
+<!-- sent="Tue, 12 Nov 2013 09:49:11 -0800" -->
+<!-- isosent="20131112174911" -->
+<!-- name="Steve Hankin" -->
+<!-- email="steven.c.hankin" -->
+<!-- subject="[CF-metadata] Cell methods when there are no coordinates" -->
+<!-- id="52826A17.7070604_at_noaa.gov" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20131109210738.GA20131_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./6662.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Proposal for standard names: radiance and irradiance as measured from satellite&quot;">Next message</a> ]
-[ <a href="./6660.html" title="Kettleborough, Jamie: &quot;[CF-metadata] standard_name: &#0039;ensemble&#0039;, was RE:  realization | x of n&quot;">Previous message</a> ]
+[ <a href="./6662.html" accesskey="d" title="Thomas Estilow: &quot;[CF-metadata] Question on use of surface_snow_binary_mask&quot;">Next message</a> ]
+[ <a href="./6660.html" title="alison.pamment at stfc.ac.uk: &quot;[CF-metadata] Standard name table update&quot;">Previous message</a> ]
+[ <a href="./6652.html" title="Jonathan Gregory: &quot;[CF-metadata]  Cell methods when there are no coordinates&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./6663.html" accesskey="t" title="Heiko Klein: &quot;[CF-metadata] Proposal for standard names: radiance and irradiance as measured from satellite&quot;">Next in thread</a> ]
+[ <a href="./6667.html" accesskey="t" title="Hedley, Mark: &quot;[CF-metadata] Cell methods when there are no coordinates&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,135 +72,156 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Maarten Sneep &lt;<a href="mailto:maarten.sneep?Subject=Re%3A%20%5BCF-metadata%5D%20Proposal%20for%20standard%20names%3A%20radiance%20and%20irradiance%20as%20measured%20from%20satellite">maarten.sneep</a>&gt;
+<dfn>From</dfn>: Steve Hankin &lt;<a href="mailto:steven.c.hankin?Subject=Re%3A%20%5BCF-metadata%5D%20Cell%20methods%20when%20there%20are%20no%20coordinates">steven.c.hankin</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 12 Nov 2014 18:32:34 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 12 Nov 2013 09:49:11 -0800</span><br />
 </address>
 <br />
-Hi all,
+Two quick comments:
 <br />
-<br />I hereby propose the addition of the following standard names. All are 
+<br />&nbsp;1. &quot;We could perhaps ... introduce a new standard name such as
 <br />
-commonly used quantities used in passive satellite remote sensing, to be 
+&nbsp;&nbsp;&nbsp;&nbsp;ensemble_member_id (a string) or ...&quot;
 <br />
-specific instruments that use ultra-violet, visible and near infra-red 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Have you hit on a void in CF that needs to be filled? Unless
 <br />
-radiation for remote sensing of atmospheric composition, sometimes 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I've overlooked it CF has not yet standardized the manner in
 <br />
-including wavelengths up to 2.5 micrometer (shortwave radiation).
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;which ensemble axes are to be identified -- a standard_name for
 <br />
-<br />Examples of these instruments include GOME, SCIAMACHY, OMI, GOME-2, 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the ensemble axis, units, etc..  (The string &quot;ensemble&quot; does not
 <br />
-OMPS, and the upcoming TROPOMI on Sentinel 5 precursor, and instruments 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;appear in the CF 1.6 document.)
 <br />
-on Sentinel 4 and Sentinel 5 missions.
+<br />&nbsp;2. I'd like to cast a strong vote *against* the idea of overloading the
 <br />
-<br />Please note the notes at the end.
+&nbsp;&nbsp;&nbsp;&nbsp;cell_methods attribute (trac #108) for the purpose of describing
 <br />
-<br />-------------------------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;collapsed axes.  What may appear as an appealing short cut now,
 <br />
-* toa_incoming_photon_solar_irradiance_per_unit_wavelength
+&nbsp;&nbsp;&nbsp;&nbsp;seems to me destined come back to bite us later.  Cell_methods, as
 <br />
-<br />&quot;toa&quot; means top of atmosphere. &quot;Photon solar irradiance&quot; is the photon 
+&nbsp;&nbsp;&nbsp;&nbsp;the name suggests, is the place to document the transformations that
 <br />
-flux on a surface perpendicular to the incoming solar radiation. The 
+&nbsp;&nbsp;&nbsp;&nbsp;have occurred within grid cells -- beneath the resolution of the grid.
 <br />
-direction is specified as &quot;incoming&quot;. A photon flux is specified in 
+<br />&nbsp;&nbsp;&nbsp;&nbsp;The concept that is under discussion here is how to document an
 <br />
-terms of numbers of photons expressed in moles. The &quot;per unit 
+&nbsp;&nbsp;&nbsp;&nbsp;algorithm that was applied across the entire grid domain when
 <br />
-wavelength&quot; indicates a spectrally resolved quantity. A coordinate 
+&nbsp;&nbsp;&nbsp;&nbsp;collapsing an axis.   The concept is the same that is needed when
 <br />
-variable for radiation wavelength should be given the standard name 
+&nbsp;&nbsp;&nbsp;&nbsp;documenting an axis collapsed by, say,  a long term time average or
 <br />
-radiation_wavelength.
+&nbsp;&nbsp;&nbsp;&nbsp;a vertical integration.  Isn't this the type of content that
 <br />
-<br />Canonical unit: mol m-2 m-1 s-1
+&nbsp;&nbsp;&nbsp;&nbsp;normally gets (partially) documented in the standard_name modifier
 <br />
-<br />-------------------------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;-- &quot;integral of ...&quot;  &quot;change over time of ...&quot;?   Should a starting
 <br />
-* toa_outgoing_photon_radiance_per_unit_wavelength
+&nbsp;&nbsp;&nbsp;&nbsp;point for this discussion be a addition of &quot;ensemble average of ...&quot;
 <br />
-<br />&quot;toa&quot; means top of atmosphere. &quot;Photon radiance&quot; is the photon flux in a 
+&nbsp;&nbsp;&nbsp;&nbsp;to the list of standard_name modifiers?  (The cons of packing
 <br />
-particular direction, per unit of solid angle. The direction is 
+&nbsp;&nbsp;&nbsp;&nbsp;transformation descriptions into standard_name deserve debate as
 <br />
-specified as &quot;outgoing&quot;, i.e. radiation from below. A photon flux is 
+&nbsp;&nbsp;&nbsp;&nbsp;well as the pros, though for reasons that lie outside of the current
 <br />
-specified in terms of numbers of photons expressed in moles. The &quot;per 
+&nbsp;&nbsp;&nbsp;&nbsp;discussion.)
 <br />
-unit wavelength&quot; indicates a spectrally resolved quantity. A coordinate 
+<br />&nbsp;&nbsp;&nbsp;&nbsp;What's needed is a consistent mechanism for documenting the details
 <br />
-variable for radiation wavelength should be given the standard name 
+&nbsp;&nbsp;&nbsp;&nbsp;of how an axis was collapsed.  We should consider how (say) the time
 <br />
-radiation_wavelength.
+&nbsp;&nbsp;&nbsp;&nbsp;limits of an axis that has been collapsed by performing a long term
 <br />
-<br />Canonical unit: mol m-2 m-1 s-1 sr-1
+&nbsp;&nbsp;&nbsp;&nbsp;time average should get documented.  The answer to this question
 <br />
-<br />-------------------------------------------------------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;should guide the manner of documenting the collapse of an ensemble
 <br />
-Note 1: The coordinate variable for radiation wavelength may require a 
+&nbsp;&nbsp;&nbsp;&nbsp;axis.  It is unlikely that cell_methods would be part of this answer.
 <br />
-mapping that is similar to the mapping of geolocation coordinates for 
+<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Steve
 <br />
-satellite observations, i.e. not a dimension, but a multi dimensional 
+<br />========================================
 <br />
-mapping. This is the case for the OMI instrument, where a 2D-dectector 
+<br />On 11/9/2013 1:07 PM, Jonathan Gregory wrote:
 <br />
-is used for wavelength (columns of CCD) and a spatial dimension across 
+<em class="quotelev1">&gt; Dear Mark
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Thanks for the clarifications in your last email. If I have understood this
+</em><br />
+<em class="quotelev1">&gt; correctly now, there are two needs, which might be distinct.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; (1) Indicate that a collapsed (size-one) axis is an ensemble axis, although
+</em><br />
+<em class="quotelev1">&gt; it doesn't have a coord var or any aux coord vars. I can see that it might
+</em><br />
+<em class="quotelev1">&gt; well not have these vars because there might not be anything useful you could
+</em><br />
+<em class="quotelev1">&gt; put in them. In the absence of these vars, the dimension name in the cell
+</em><br />
+<em class="quotelev1">&gt; methods isn't informative. We could perhaps solve this by introducing a new
+</em><br />
+<em class="quotelev1">&gt; standard name such as ensemble_member_id (a string) or ensemble_member_number
+</em><br />
+<em class="quotelev1">&gt; (a number) or perhaps both. These could anyway be useful. These standard names
+</em><br />
+<em class="quotelev1">&gt; could appear in your cell_methods, following section 7.3.4, instead of the name
+</em><br />
+<em class="quotelev1">&gt; of the size-one dimension, indicating that the statistic applied to all the
+</em><br />
+<em class="quotelev1">&gt; available members of an ensemble, without needing any coord information. I
+</em><br />
+<em class="quotelev1">&gt; don't think this change would require an alteration to the convention.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; (2) Point to the coordinate information which applied to the axis before the
+</em><br />
+<em class="quotelev1">&gt; collapse. This could be useful for any sort of collapsed axis, and in fact I
+</em><br />
+<em class="quotelev1">&gt; think we have discussed it before at some point in the last 15 years! I agree
+</em><br />
+<em class="quotelev1">&gt; with your suggestion that it would be logical to record this in cell_methods
+</em><br />
+<em class="quotelev1">&gt; as a standardised comment. An alternative would be to add an attribute to the
+</em><br />
+<em class="quotelev1">&gt; collapsed coord var, but you don't have those (as you say), and also the
+</em><br />
+<em class="quotelev1">&gt; collapse may apply to a combination of axes. You suggest listing all the coord
+</em><br />
+<em class="quotelev1">&gt; or aux coord vars in the cell_methods comment. Would it not be sufficient, and
+</em><br />
+<em class="quotelev1">&gt; more economical, to give the name of the uncollapsed dimension(s)?
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Best wishes
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Jonathan
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<br />-------------- next part --------------
 <br />
-the swath (rows of CCD). The mapping is imperfect, and the wavelength 
+An HTML attachment was scrubbed...
 <br />
-depends on the row-index.
+URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20131112/7336bca4/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20131112/7336bca4/attachment-0001.html</a>&gt;
 <br />
-<br />Note 2: Existing standard names supply aliases for these names: 
-<br />
-&quot;toa_incoming_spectral_photon_solar_irradiance&quot; and 
-<br />
-&quot;toa_outgoing_spectral_photon_radiance&quot; respectively.
-<br />
-<br />Note 3: mole as a unit for counting photons is unconventional within the 
-<br />
-satellite community, photon fluxes are typically expressed in 'photons 
-<br />
-cm-2 nm-1 s-1' and 'photons cm-2 nm-1 s-1 sr-1'. It would be nice to add 
-<br />
-'photon' as an alias to UDUnits, in a way that is similar to the recent 
-<br />
-addition of 'molecule'.
-<br />
-<br />Note 4: Other instruments may use other units, depending on the 
-<br />
-construction of the instrument. These can not be converted easily into 
-<br />
-one another as they require additional knowledge, in particular 
-<br />
-knowledge of the wavelength. I'm unsure if UDUnits is equiped to handle 
-<br />
-these types of conversion. Additional names may be needed for using &quot;W 
-<br />
-m-2 m-1&quot; or &quot;W m-2 m-1 sr-1&quot; respectively (similar name, but leaving out 
-<br />
-the 'photon') Another quantity that is commonly encountered expresses 
-<br />
-the radiation_wavelength as wavenumber or frequency, and therefore also 
-<br />
-alters the (frequency/energy) interval over which the quantity is 
-<br />
-integrated. I'll leave the addition of these quantities to communities 
-<br />
-that actually use them, IASI on MetOp comes to mind.
-<br />
-<br />Kind regards,
-<br />
-<br />Maarten Sneep
-<br />
-<pre>
--- 
-KNMI
-E: maarten.sneep at knmi.nl
-</pre>
-<span id="received"><dfn>Received on</dfn> Wed Nov 12 2014 - 10:32:34 GMT</span>
+<span id="received"><dfn>Received on</dfn> Tue Nov 12 2013 - 10:49:11 GMT</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -206,12 +229,13 @@ E: maarten.sneep at knmi.nl
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start6661">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./6662.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Proposal for standard names: radiance and irradiance as measured from satellite"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./6660.html" title="Previous message in the list">Kettleborough, Jamie: "[CF-metadata] standard_name: &#0039;ensemble&#0039;, was RE:  realization | x of n"</a></li>
+<li><dfn>Next message</dfn>: <a href="./6662.html" title="Next message in the list">Thomas Estilow: "[CF-metadata] Question on use of surface_snow_binary_mask"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./6660.html" title="Previous message in the list">alison.pamment at stfc.ac.uk: "[CF-metadata] Standard name table update"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./6652.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata]  Cell methods when there are no coordinates"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./6663.html" title="Next message in this discussion thread">Heiko Klein: "[CF-metadata] Proposal for standard names: radiance and irradiance as measured from satellite"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./6667.html" title="Next message in this discussion thread">Hedley, Mark: "[CF-metadata] Cell methods when there are no coordinates"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./6663.html" title="Message sent in reply to this message">Heiko Klein: "[CF-metadata] Proposal for standard names: radiance and irradiance as measured from satellite"</a></li>
+<dfn>Reply</dfn>: <a href="./6667.html" title="Message sent in reply to this message">Hedley, Mark: "[CF-metadata] Cell methods when there are no coordinates"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -222,7 +246,7 @@ E: maarten.sneep at knmi.nl
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:49 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./6660.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6662.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

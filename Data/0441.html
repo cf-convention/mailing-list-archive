@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF provisional standards from Jonathan Gregory on 2006-11-15 (mailing-list-archive)</title>
+<title>[CF-metadata] Units: absolute vs difference from Jonathan Gregory on 2004-08-18 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] CF provisional standards" />
-<meta name="Date" content="2006-11-15" />
+<meta name="Subject" content="[CF-metadata] Units: absolute vs difference" />
+<meta name="Date" content="2004-08-18" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0440.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0442.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF provisional standards</h1>
-<!-- received="Wed Nov 15 03:32:51 2006" -->
-<!-- isoreceived="20061115033251" -->
-<!-- sent="Wed, 15 Nov 2006 10:32:51 +0000" -->
-<!-- isosent="20061115103251" -->
+<a style="text-decoration:none" href="./0440.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0442.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Units: absolute vs difference</h1>
+<!-- received="Wed Aug 18 12:36:46 2004" -->
+<!-- isoreceived="20040818113646" -->
+<!-- sent="Wed, 18 Aug 2004 19:36:46 +0100" -->
+<!-- isosent="20040818183646" -->
 <!-- name="Jonathan Gregory" -->
 <!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] CF provisional standards" -->
-<!-- id="20061115103251.GA17161_at_met.reading.ac.uk" -->
+<!-- subject="[CF-metadata] Units: absolute vs difference" -->
+<!-- id="20040818183646.GA3688_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0442.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] CF and multi-forecast system ensemble data&quot;">Next message</a> ]
-[ <a href="./0440.html" title="Kettleborough, Jamie: &quot;[CF-metadata] CF provisional standards&quot;">Previous message</a> ]
+[ <a href="./0442.html" accesskey="d" title="John Caron: &quot;[CF-metadata] CF to ESRI Ascii GRID converter??&quot;">Next message</a> ]
+[ <a href="./0440.html" title="Roy Lowry: &quot;[CF-metadata] Units: absolute vs difference&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0449.html" accesskey="t" title="Bryan Lawrence: &quot;[CF-metadata] CF provisional standards&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,60 +68,76 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20provisional%20standards">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Units%3A%20absolute%20vs%20difference">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Wed, 15 Nov 2006 10:32:51 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 18 Aug 2004 19:36:46 +0100</span><br />
 </address>
 <br />
-Dear Steve and Jamie
+I tend to think that these are two different kinds of problem:
 <br />
-<br />I agree with Jamie. I think we should add new stuff to the standard, just as
+<br />* Calculating anomalies wrt climatology is a &quot;processing&quot; operation that we
 <br />
-we always have. My example is the analysis/forecast time convention. We have
+could describe with attributes, perhaps analogous to computing temporal
 <br />
-had as much discussion already about this on the email list as about many
+standard deviations from a set of time-means. You might well perform the
 <br />
-aspects of CF, it is needed, it is in use, so it should appear in the document.
+same operation on an entire file of quantities. It would be undesirable to
 <br />
-I will try to find some time to draft it properly.
+have &quot;anomaly&quot; standard names for every conceivable quantity. This is the
 <br />
-<br />We could mark new text as provisional or just &quot;new&quot; somehow (like Brian did),
+same kind of reason as the one for using standard name qualifiers for
 <br />
-until some time has elapsed. The rules for this should be debated and
+uncertainties and data quality flags. In this case, I agree with Roy that
 <br />
-then decided by the conventions committee, I suggest. My concern in my last
+factorising or atomising the information is helpful.
 <br />
-posting on this is that unless we follow fairly short timescales for agreeing
+<br />* Grouping quantities which are scientifically related such as
 <br />
-new features and testing them, it is not fair to users to insist on a
+<br /><em class="quotelev1">&gt;   tendency_of_air_temperature_due_to_diabatic_processes
+</em><br />
+<em class="quotelev1">&gt;   tendency_of_air_temperature_due_to_dry_convection
+</em><br />
+<em class="quotelev1">&gt;   tendency_of_air_temperature_due_to_large_scale_precipitation
+</em><br />
+<br />Indeed they do belong together, but the *way* in which they should be grouped
 <br />
-&quot;provisional&quot; status. If the CF process takes a year to decide something,
+is not unique - it depends on the scientific description adopted by the person
 <br />
-it is no use to turn round and say to someone, &quot;Sorry, that was provisional,
+who wrote the data. One model might distinguish large_scale_precipitation from
 <br />
-your data is now deemed to be all wrong.&quot; It's only reasonable to do that if
+convective_precipitation and another lump them together, for instance. There
 <br />
-we decide and test something on a timescale of a month or two, and they could
+will be many ways of grouping the most precisely defined quantities into more
 <br />
-not wait for that short time before going ahead with producing data.
+&quot;inclusive&quot; quantities. I don't really think that the way this is done by a
 <br />
-<br />Also, I would say that experience shows we haven't made large blunders, in
+particular model or observer is something that belongs in the metadata of the
 <br />
-the sense of agreeing something that was actually unworkable. Of course
+data. It is something that ought to be recorded in the metadata of the model
 <br />
-further development may suggesting improvements and we might change our mind
+or observing system. The metadata of the data serves only to describe what the
 <br />
-later, but that is normal evolution, not because it was provisional - unless
+data *is*, not to tell the user what should or could be done with it
 <br />
-we say that everything is provisional until the Ultimate Answer is known at
+scientifically. To take a simpler example, we have standard names of
 <br />
-the end of time. :-)
+convective_precipitation_flux (kg m-2 s-1), convective_rainfall_amount (kg m-2)
 <br />
-<br />Best wishes
+and convective_rainfall_rate (m s-1). These are related quantities, but the
+<br />
+standard names do not indicate the relations (though the help info might give
+<br />
+some guidance). I think that to indicate how they are related as part of the
+<br />
+construction of standard names would be inappropriate and would make the job
+<br />
+an N^2 problem rather than just N (and N is already big enough).
+<br />
+<br />Cheers
 <br />
 <br />Jonathan
 <br />
-<span id="received"><dfn>Received on</dfn> Wed Nov 15 2006 - 03:32:51 GMT</span>
+<span id="received"><dfn>Received on</dfn> Wed Aug 18 2004 - 12:36:46 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -131,12 +145,9 @@ the end of time. :-)
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start441">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0442.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] CF and multi-forecast system ensemble data"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0440.html" title="Previous message in the list">Kettleborough, Jamie: "[CF-metadata] CF provisional standards"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0442.html" title="Next message in the list">John Caron: "[CF-metadata] CF to ESRI Ascii GRID converter??"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0440.html" title="Previous message in the list">Roy Lowry: "[CF-metadata] Units: absolute vs difference"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0449.html" title="Next message in this discussion thread">Bryan Lawrence: "[CF-metadata] CF provisional standards"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0449.html" title="Message sent in reply to this message">Bryan Lawrence: "[CF-metadata] CF provisional standards"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -147,7 +158,7 @@ the end of time. :-)
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:50 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0440.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0442.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

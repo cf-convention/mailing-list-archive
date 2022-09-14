@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] standard names to be added from Jonathan Gregory on 2006-01-15 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] standard names to be added" />
-<meta name="Date" content="2006-01-15" />
+<title>[CF-metadata] Re: CF NetCDF Conventions from Brian Eaton on 2002-04-11 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Brian Eaton (eaton)" />
+<meta name="Subject" content="[CF-metadata] Re: CF NetCDF Conventions" />
+<meta name="Date" content="2002-04-11" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0003.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0005.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard names to be added</h1>
-<!-- received="Sun Jan 15 02:24:10 2006" -->
-<!-- isoreceived="20060115022410" -->
-<!-- sent="Sun, 15 Jan 2006 09:24:10 +0000" -->
-<!-- isosent="20060115092410" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] standard names to be added" -->
-<!-- id="20060115092410.GA2235_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./0003.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0005.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Re: CF NetCDF Conventions</h1>
+<!-- received="Thu Apr 11 10:13:48 2002" -->
+<!-- isoreceived="20020411091348" -->
+<!-- sent="Thu, 11 Apr 2002 10:13:48 -0600 (MDT)" -->
+<!-- isosent="20020411161348" -->
+<!-- name="Brian Eaton" -->
+<!-- email="eaton" -->
+<!-- subject="[CF-metadata] Re: CF NetCDF Conventions" -->
+<!-- id="Pine.GSO.4.30.0204111009380.4627-100000_at_siskiyou.cgd.ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="20020411094224.A6372_at_hc1600.meto.gov.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,8 +54,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0005.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] New standard names proposal for ECPC CEOP data&quot;">Next message</a> ]
-[ <a href="./0003.html" title="Jonathan Gregory: &quot;[CF-metadata] cf2 progress&quot;">Previous message</a> ]
+[ <a href="./0005.html" accesskey="d" title="Burkhardt.Rockel at gkss.de: &quot;[CF-metadata] Three questions&quot;">Next message</a> ]
+[ <a href="./0003.html" title="Jonathan Gregory: &quot;[CF-metadata] Re: CF NetCDF Conventions&quot;">Previous message</a> ]
+[ <a href="./0003.html" title="Jonathan Gregory: &quot;[CF-metadata] Re: CF NetCDF Conventions&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
 <!-- ureply="end" -->
 </li>
@@ -68,50 +70,56 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20standard%20names%20to%20be%20added">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Brian Eaton &lt;<a href="mailto:eaton?Subject=Re%3A%20%5BCF-metadata%5D%20Re%3A%20CF%20NetCDF%20Conventions">eaton</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Sun, 15 Jan 2006 09:24:10 +0000</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 11 Apr 2002 10:13:48 -0600 (MDT)</span><br />
 </address>
 <br />
-Dear all
+Hi Jonathan,
 <br />
-<br />The following proposed standard names result from email threads in November
+<br /><em class="quotelev1">&gt; * It could lead to inappropriate attribution of coordinates, or alternatively
+</em><br />
+<em class="quotelev1">&gt; more effort to avoid such misattribution. For instance, if you have two
+</em><br />
+<em class="quotelev1">&gt; quantities on the same trajectory, say temperature(time) and humidity(time),
+</em><br />
+<em class="quotelev1">&gt; they can share the auxiliary coordinates lat(time) lon(time) height(time),
+</em><br />
+<em class="quotelev1">&gt; which can therefore be named by a coordinates attribute of the time(time)
+</em><br />
+<em class="quotelev1">&gt; coordinate variable. That's fine - it is the point of the proposal. But now
+</em><br />
+<br />Actually, this is not how I interpreted the proposal.  I interpreted it to
 <br />
-and December, initiated by Knut Lisaeter, Tony Jolibois and Keith Dixon. They
+apply only to alternate coordinates, and not to auxilliary coordinates.
 <br />
-will be added next week (Monday 23rd) unless anyone has further comments.
+<br />Alternative coordinates as described in section 6 are really just aliases
 <br />
-<br />Cheers
+for a particular coordinate.  The example in 6.2 uses &quot;model_level&quot; as an
 <br />
-<br />Jonathan
+alternative coordinate (or alias) to &quot;sigma&quot;.  This is very different from
 <br />
-<br /><br />sea_ice_x_velocity:m s-1
+auxilliary coordinates.  In the trajectory example, lat(time) is a
 <br />
-sea_ice_y_velocity:m s-1
+mandatory auxilliary coordinate, it's not an alternative coordinate for
 <br />
-surface_downward_x_stress:Pa
+time.  It's clearly not workable for the reasons you mentioned to attach
 <br />
-surface_downward_y_stress:Pa
+the auxilliary coordinates to the time coordinate.
 <br />
-downward_x_stress_at_sea_ice_base:Pa
+<br /><em class="quotelev2">&gt; &gt; d) I have no objection to adding the &quot;all_leap&quot; calendar.
+</em><br />
+<em class="quotelev1">&gt; Would it be a significant pitfall that all_leap has a _ and noleap doesn't?
+</em><br />
+<br />I agree that consistency is best, but allleap is a horrible name.  Better
 <br />
-downward_y_stress_at_sea_ice_base:Pa
+to be inconsistent and add the &quot;_&quot; (I think).
 <br />
-ocean_mixed_layer_thickness_defined_by_mixing_scheme:m
+<br />Best regards,
 <br />
-ocean_mixed_layer_thickness_defined_by_temperature:m
+Brian
 <br />
-ocean_mixed_layer_thickness_defined_by_sigma_t:m
-<br />
-ocean_mixed_layer_thickness_defined_by_sigma_theta:m
-<br />
-integral_of_air_temperature_excess_wrt_time:K s
-<br />
-integral_of_air_temperature_deficit_wrt_time:K s
-<br />
-air_temperature_threshold:K
-<br />
-<span id="received"><dfn>Received on</dfn> Sun Jan 15 2006 - 02:24:10 GMT</span>
+<span id="received"><dfn>Received on</dfn> Thu Apr 11 2002 - 10:13:48 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -119,8 +127,9 @@ air_temperature_threshold:K
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0005.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] New standard names proposal for ECPC CEOP data"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0003.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] cf2 progress"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0005.html" title="Next message in the list">Burkhardt.Rockel at gkss.de: "[CF-metadata] Three questions"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0003.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Re: CF NetCDF Conventions"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./0003.html" title="Message to which this message replies">Jonathan Gregory: "[CF-metadata] Re: CF NetCDF Conventions"</a></li>
 <!-- lnextthread="start" -->
 <!-- lreply="end" -->
 </ul>
@@ -132,7 +141,7 @@ air_temperature_threshold:K
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:42 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0003.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0005.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

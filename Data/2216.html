@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] standard way to store lookuptables from andrea antonello on 2009-09-29 (mailing-list-archive)</title>
-<meta name="Author" content="andrea antonello (andrea.antonello)" />
-<meta name="Subject" content="[CF-metadata] standard way to store lookuptables" />
-<meta name="Date" content="2009-09-29" />
+<title>[CF-metadata] vocabulary-specific standard names from John Graybeal on 2008-06-23 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Graybeal (graybeal)" />
+<meta name="Subject" content="[CF-metadata] vocabulary-specific standard names" />
+<meta name="Date" content="2008-06-23" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./2215.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2217.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] standard way to store lookuptables</h1>
-<!-- received="Tue Sep 29 03:17:01 2009" -->
-<!-- isoreceived="20090929021701" -->
-<!-- sent="Tue, 29 Sep 2009 11:17:01 +0200" -->
-<!-- isosent="20090929091701" -->
-<!-- name="andrea antonello" -->
-<!-- email="andrea.antonello" -->
-<!-- subject="[CF-metadata] standard way to store lookuptables" -->
-<!-- id="116eb44a0909290217l18694c3aw4b372727c83ae3d9_at_mail.gmail.com" -->
+<a style="text-decoration:none" href="./2215.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2217.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] vocabulary-specific standard names</h1>
+<!-- received="Mon Jun 23 13:54:46 2008" -->
+<!-- isoreceived="20080623125446" -->
+<!-- sent="Mon, 23 Jun 2008 12:54:46 -0700" -->
+<!-- isosent="20080623195446" -->
+<!-- name="John Graybeal" -->
+<!-- email="graybeal" -->
+<!-- subject="[CF-metadata] vocabulary-specific standard names" -->
+<!-- id="p06240867c485ab84060c_at_[192.168.1.101]" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,9 +53,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./2217.html" accesskey="d" title="Bryan Lawrence: &quot;[CF-metadata] Standard names for Glaciology and ice-sheet modeling: land_ice, sea_ice, floating_ice, ice shelves...&quot;">Next message</a> ]
-[ <a href="./2215.html" title="Jonathan Gregory: &quot;[CF-metadata] Standard names for Glaciology and ice-sheet modeling: land_ice, sea_ice, floating_ice, ice shelves...&quot;">Previous message</a> ]
+[ <a href="./2217.html" accesskey="d" title="Heinke H&#0246;ck: &quot;[CF-metadata] statistic indices&quot;">Next message</a> ]
+[ <a href="./2215.html" title="Jon Blower: &quot;[CF-metadata] attributes for min/max data valuesfor visualization&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
+[ <a href="./2222.html" accesskey="t" title="olivier lauret: &quot;[CF-metadata] vocabulary-specific standard names&quot;">Next in thread</a> ]
+ [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -68,46 +70,42 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: andrea antonello &lt;<a href="mailto:andrea.antonello?Subject=Re%3A%20%5BCF-metadata%5D%20standard%20way%20to%20store%20lookuptables">andrea.antonello</a>&gt;
+<dfn>From</dfn>: John Graybeal &lt;<a href="mailto:graybeal?Subject=Re%3A%20%5BCF-metadata%5D%20vocabulary-specific%20standard%20names">graybeal</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Tue, 29 Sep 2009 11:17:01 +0200</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 23 Jun 2008 12:54:46 -0700</span><br />
 </address>
 <br />
-Hi all,
+All,
 <br />
-I have a real big doubt about how to store the following inside a
+<br />MMI will soon make a recommendation to some netCDF users, and perhaps to the community, about storing  their parameter name associations within a CF netCDF file.  And so we'd like advice.
 <br />
-netcdf in a standard way.
+<br />In particular, we face a scenario where the user has a set of local parameter names, which may be mapped to, or even equivalent to, terms in multiple community vocabularies.  Here are 3 use cases, simplest first:
 <br />
-<br />Let's assume I have a raster map of soiltypes, which is a grid in lat, long.
+<br />1. A term is not found in the CF standard names list, and for whatever reason can not be in that list.
 <br />
-I then have several parameters, that depend on the soiltype, so that
+2. Local custom requires association with a different vocabulary than CF.
 <br />
-they are spatially distributed along the lines of the soiltype map.
+3. There are multiple applicable vocabularies, which together fully describe this parameter, but individually are not sufficient.
 <br />
-<br />I could create a raster map for every of these depending parameters,
+<br />In each case each individual name may be associated with a single external vocabulary, but some names have different associated vocabularies than others.  In the third case (and perhaps the second), a single name may be associated with multiple external vocabularies.
 <br />
-but I really would not like to, because of different reason, one of
+<br />It should be assumed that the association can be made by reference to a URI; that is, it is not necessary to specify both a vocabulary AND a term within that vocabulary, the URI can encompass both.  (As opposed to a solution which requires a namespace for each vocabulary, then the term is specified within that namespace -- this has a certain appeal but isn't as important as compatibility with URIs. 
 <br />
-which might be space.
+<br />Is there any particular operational practice or recommendation as to best practice, to enable associating the local parameter with terms in multiple community vocabularies, not just CF vocabularies?  If not, does anyone want to recommend one to me?  (I am willing to recommend it to CF if it makes sense to me, but I'm not skilled enough to try to originate a really good approach all by myself.)
 <br />
-<br />Instead I would highly prefer to keep a kind of lookuptable that
+<br />I have reviewed the trac tickets but do not believe that any of them directly address this concern.  Thank you for any advice.
 <br />
-bounds me the value of any depending variable to the soiltype
+<br />John
 <br />
-category.
-<br />
-<br />I have no idea how that would be stored in a proper way into the
-<br />
-netcdf-cf structure.
-<br />
-<br />Has anyone faced this before and has some documentation to point me to?
-<br />
-<br />Thanks,
-<br />
-Andrea
-<br />
-<span id="received"><dfn>Received on</dfn> Tue Sep 29 2009 - 03:17:01 BST</span>
+<pre>
+-- 
+----------
+John Graybeal   &lt;mailto:graybeal at mbari.org&gt;  -- 831-775-1956 
+Monterey Bay Aquarium Research Institute
+Marine Metadata Interoperability Project: <a href="http://marinemetadata.org">http://marinemetadata.org</a>   
+Shore Side Data System: <a href="http://www.mbari.org/ssds">http://www.mbari.org/ssds</a>
+</pre>
+<span id="received"><dfn>Received on</dfn> Mon Jun 23 2008 - 13:54:46 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -115,9 +113,12 @@ Andrea
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start2216">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./2217.html" title="Next message in the list">Bryan Lawrence: "[CF-metadata] Standard names for Glaciology and ice-sheet modeling: land_ice, sea_ice, floating_ice, ice shelves..."</a></li>
-<li><dfn>Previous message</dfn>: <a href="./2215.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] Standard names for Glaciology and ice-sheet modeling: land_ice, sea_ice, floating_ice, ice shelves..."</a></li>
+<li><dfn>Next message</dfn>: <a href="./2217.html" title="Next message in the list">Heinke H&#0246;ck: "[CF-metadata] statistic indices"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./2215.html" title="Previous message in the list">Jon Blower: "[CF-metadata] attributes for min/max data valuesfor visualization"</a></li>
 <!-- lnextthread="start" -->
+<li><dfn>Next in thread</dfn>: <a href="./2222.html" title="Next message in this discussion thread">olivier lauret: "[CF-metadata] vocabulary-specific standard names"</a></li>
+<li><a name="replies" id="replies"></a>
+<dfn>Reply</dfn>: <a href="./2222.html" title="Message sent in reply to this message">olivier lauret: "[CF-metadata] vocabulary-specific standard names"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -128,7 +129,7 @@ Andrea
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:57:22 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./2215.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./2217.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

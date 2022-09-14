@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] CF and the CDM from Simon Wood on 2006-09-14 (mailing-list-archive)</title>
-<meta name="Author" content="Simon Wood (simon.wood)" />
-<meta name="Subject" content="[CF-metadata] CF and the CDM" />
-<meta name="Date" content="2006-09-14" />
+<title>[CF-metadata] size-one axes from Stephens, A on 2003-07-23 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="Stephens, A (A.Stephens)" />
+<meta name="Subject" content="[CF-metadata] size-one axes" />
+<meta name="Date" content="2003-07-23" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./0209.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0211.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CF and the CDM</h1>
-<!-- received="Wed Sep 13 22:04:47 2006" -->
-<!-- isoreceived="20060913210447" -->
-<!-- sent="Thu, 14 Sep 2006 16:04:47 +1200" -->
-<!-- isosent="20060914040447" -->
-<!-- name="Simon Wood" -->
-<!-- email="simon.wood" -->
-<!-- subject="[CF-metadata] CF and the CDM" -->
-<!-- id="4508D4DF.7000607_at_niwa.co.nz" -->
+<a style="text-decoration:none" href="./0209.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0211.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] size-one axes</h1>
+<!-- received="Wed Jul 23 00:46:04 2003" -->
+<!-- isoreceived="20030722234604" -->
+<!-- sent="Wed, 23 Jul 2003 07:46:04 +0100" -->
+<!-- isosent="20030723064604" -->
+<!-- name="Stephens, A" -->
+<!-- email="A.Stephens" -->
+<!-- subject="[CF-metadata] size-one axes" -->
+<!-- id="49F73BEED865D3119F8700902773C9F902D19174_at_exchange09.rl.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,11 +53,9 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./0211.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] CF and the CDM&quot;">Next message</a> ]
-[ <a href="./0209.html" title="Steve Hankin: &quot;[CF-metadata] The Final Version of the Futures of CF Paper&quot;">Previous message</a> ]
+[ <a href="./0211.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Example of forecast data&quot;">Next message</a> ]
+[ <a href="./0209.html" title="Jonathan Gregory: &quot;[CF-metadata] size-one axes&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./0212.html" accesskey="t" title="John Caron: &quot;[CF-metadata] CF and the CDM&quot;">Next in thread</a> ]
- [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -70,97 +68,128 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Simon Wood &lt;<a href="mailto:simon.wood?Subject=Re%3A%20%5BCF-metadata%5D%20CF%20and%20the%20CDM">simon.wood</a>&gt;
+<dfn>From</dfn>: Stephens, A &lt;<a href="mailto:A.Stephens?Subject=Re%3A%20%5BCF-metadata%5D%20size-one%20axes">A.Stephens</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Thu, 14 Sep 2006 16:04:47 +1200</span><br />
+<span id="date"><dfn>Date</dfn>: Wed, 23 Jul 2003 07:46:04 +0100</span><br />
 </address>
 <br />
-Hi,
+Dear Jonathan,
 <br />
-<br />As part of upgrading our satellite data reception systems we are 
+<br />I am happy with your suggestion below, and it seems sensible to create the
 <br />
-planning to change how we store our remote sensing data.  Currently an 
+terminology to describe scalar coordinates. 
 <br />
-in-house binary file format is used to store remote sensing data at 
+<br />&quot;scalar coordinate variables&quot; seems like a good name.
 <br />
-various levels of processing from raw swaths to composite gridded 
+<br />Ag
 <br />
-datasets.  Some of it comes from locally received HRPT streams, whilst 
-<br />
-some of it comes from indirect sources (mostly in HDF-EOS formats). 
-<br />
-We'd like to store all these internally using a common data format.  In 
-<br />
-some cases we'd like to be able to integrate with forecast model outputs 
-<br />
-too.
-<br />
-<br />Our current thinking tends towards standardising on netCDF (4) with 
-<br />
-something like CF for metadata, though I am aware that CF is based on 
-<br />
-the netCDF-3 data model and I don't see much discussion on how CF is 
-<br />
-expected to evolve to embrace the netCDF-4 data model.
-<br />
-<br />Reading up on netCDF-4 I see lots of references to the Common Data Model 
-<br />
-(CDM) and the prototype implementation in NJ22.  This seems to offer all 
-<br />
-that CF does in the way of coordinate systems etc plus some higher level 
-<br />
-datatypes specifically for things like swaths and grids (I guess 
-<br />
-conceptually similar to the HDF-EOS types of the same name), though I 
-<br />
-note that most of these are either not implemented or tagged 
-<br />
-'experimental'.  I also note that NJ22 includes a CF reader to extract 
-<br />
-coordinate system data from CF files, but no other explicit references 
-<br />
-to CF metadata that I can see.
-<br />
-<br />And so to some specific questions:
-<br />
-<br />- Is there a plan for extending CF to exploit the netCDF-4 data model?
-<br />
-<br />- What advice do people have on the use of netCDF-4 with CF?  (is the 
-<br />
-use of features from the netCDF-4 data model allowed in a CF compliant 
-<br />
-dataset? or should we stick to netCDF-4 *classic*?)
-<br />
-<br />- what exactly is the relationship between CF and the CDM?  Where they 
-<br />
-cover the same functionality (eg coordinate systems) are they 
-<br />
-consistent?  (If not then what happens when netCDF-4.1 includes these 
-<br />
-elements of the CDM as part of the netCDF standard?)
-<br />
-<br />- Is there any intention to include the higher level data types from the 
-<br />
-CDM as part of CF?
-<br />
-<br />Sorry for the long post and list of questions; any insight would be most 
-<br />
-gratefully received.
-<br />
-<br />kind regards
-<br />
-Simon
-<br />
-<br /><pre>
--- 
-Simon Wood
-Scientific Programmer
-Meteorology &amp; Remote Sensing
-National Institute of Water and Atmospheric Research (NIWA)
-Wellington
-New Zealand
-</pre>
-<span id="received"><dfn>Received on</dfn> Wed Sep 13 2006 - 22:04:47 BST</span>
+<br /><em class="quotelev1">&gt; -----Original Message-----
+</em><br />
+<em class="quotelev1">&gt; From: Jonathan Gregory [mailto:j.m.gregory at reading.ac.uk]
+</em><br />
+<em class="quotelev1">&gt; Sent: 22 July 2003 23:25
+</em><br />
+<em class="quotelev1">&gt; To: cf-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; Subject: [CF-metadata] size-one axes
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Dear Brian and Ag
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; I had not thought of allowing the size-one coordinate 
+</em><br />
+<em class="quotelev1">&gt; variables to be scalars.
+</em><br />
+<em class="quotelev1">&gt; I agree, this is even simpler. We may need a new term for 
+</em><br />
+<em class="quotelev1">&gt; them as they would
+</em><br />
+<em class="quotelev1">&gt; no longer be coordinate variables in the Unidata sense. We 
+</em><br />
+<em class="quotelev1">&gt; could call them
+</em><br />
+<em class="quotelev1">&gt; &quot;scalar coordinate variables&quot;.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; If COARDS compliance is not thought to be an issue, I am 
+</em><br />
+<em class="quotelev1">&gt; quite happy to do
+</em><br />
+<em class="quotelev1">&gt; this for xyzt as well. I agree, this is the most common case, 
+</em><br />
+<em class="quotelev1">&gt; and we want to
+</em><br />
+<em class="quotelev1">&gt; encourage data-writers to supply the information. Variables 
+</em><br />
+<em class="quotelev1">&gt; are much better
+</em><br />
+<em class="quotelev1">&gt; than attributes, I think, because they can themselves have essential
+</em><br />
+<em class="quotelev1">&gt; attributes such as units and bounds.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; I agree with Brian that the existing coordinates attribute is 
+</em><br />
+<em class="quotelev1">&gt; OK to use for
+</em><br />
+<em class="quotelev1">&gt; this; I don't think we need a special one.
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; The example becomes:
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; dimensions:
+</em><br />
+<em class="quotelev1">&gt;   lon=96;
+</em><br />
+<em class="quotelev1">&gt;   lat=73;
+</em><br />
+<em class="quotelev1">&gt;   forecast_time=3;
+</em><br />
+<em class="quotelev1">&gt; variables:
+</em><br />
+<em class="quotelev1">&gt;   float LWflux(forecast_time,lat,lon);
+</em><br />
+<em class="quotelev1">&gt;     LWflux:coordinates=&quot;wavelength analysis_time&quot;;
+</em><br />
+<em class="quotelev1">&gt;   float lon(lon);
+</em><br />
+<em class="quotelev1">&gt;   float lat(lat);
+</em><br />
+<em class="quotelev1">&gt;   double forecast_time(forecast_time);
+</em><br />
+<em class="quotelev1">&gt;   double analysis_time;
+</em><br />
+<em class="quotelev1">&gt;   float wavelength;
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Does that look good?
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; Jonathan
+</em><br />
+<em class="quotelev1">&gt; _______________________________________________
+</em><br />
+<em class="quotelev1">&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev1">&gt; <a href="http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://www.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<span id="received"><dfn>Received on</dfn> Wed Jul 23 2003 - 00:46:04 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -168,12 +197,9 @@ New Zealand
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start210">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./0211.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] CF and the CDM"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./0209.html" title="Previous message in the list">Steve Hankin: "[CF-metadata] The Final Version of the Futures of CF Paper"</a></li>
+<li><dfn>Next message</dfn>: <a href="./0211.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Example of forecast data"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./0209.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata] size-one axes"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./0212.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] CF and the CDM"</a></li>
-<li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./0212.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] CF and the CDM"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -184,7 +210,7 @@ New Zealand
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:56:46 BST
+: Tue Sep 13 2022 - 23:02:40 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./0209.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./0211.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

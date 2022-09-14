@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] string valued coordinates from Jim Biard on 2014-10-03 (mailing-list-archive)</title>
-<meta name="Author" content="Jim Biard (jbiard)" />
-<meta name="Subject" content="[CF-metadata] string valued coordinates" />
-<meta name="Date" content="2014-10-03" />
+<title>[CF-metadata] &quot;Conventions&quot; attribute confusion from David Hassell on 2013-10-03 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="David Hassell (d.c.hassell)" />
+<meta name="Subject" content="[CF-metadata] &quot;Conventions&quot; attribute confusion" />
+<meta name="Date" content="2013-10-03" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,17 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./6578.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6580.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] string valued coordinates</h1>
-<!-- received="Fri Oct  3 08:40:30 2014" -->
-<!-- isoreceived="20141003074030" -->
-<!-- sent="Fri, 03 Oct 2014 10:40:30 -0400" -->
-<!-- isosent="20141003144030" -->
-<!-- name="Jim Biard" -->
-<!-- email="jbiard" -->
-<!-- subject="[CF-metadata] string valued coordinates" -->
-<!-- id="542EB55E.4080600_at_cicsnc.org" -->
+<a style="text-decoration:none" href="./6578.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6580.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] &quot;Conventions&quot; attribute confusion</h1>
+<!-- received="Thu Oct  3 03:16:44 2013" -->
+<!-- isoreceived="20131003021644" -->
+<!-- sent="Thu, 3 Oct 2013 10:16:44 +0100" -->
+<!-- isosent="20131003091644" -->
+<!-- name="David Hassell" -->
+<!-- email="d.c.hassell" -->
+<!-- subject="[CF-metadata] &quot;Conventions&quot; attribute confusion" -->
+<!-- id="20131003091644.GA16218_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
-<!-- inreplyto="FB4C9420D0D9A049AEC7557C511B656BCD2337BE_at_SINTEFEXMBX05.sintef.no" -->
+<!-- inreplyto="20130913183905.GA18595_at_met.reading.ac.uk" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -54,11 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./6580.html" accesskey="d" title="Karl Taylor: &quot;[CF-metadata] string valued coordinates&quot;">Next message</a> ]
-[ <a href="./6578.html" title="Jim Biard: &quot;[CF-metadata] realization | x of n&quot;">Previous message</a> ]
-[ <a href="./6577.html" title="Ben Hetland: &quot;[CF-metadata] string valued coordinates&quot;">In reply to</a> ]
+[ <a href="./6580.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] Surface temperatures&quot;">Next message</a> ]
+[ <a href="./6578.html" title="Jonathan Wrotny: &quot;[CF-metadata] Surface temperatures&quot;">Previous message</a> ]
+[ <a href="./6491.html" title="David Hassell: &quot;[CF-metadata] CF trac ticket summary update&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./6580.html" accesskey="t" title="Karl Taylor: &quot;[CF-metadata] string valued coordinates&quot;">Next in thread</a> ]
+[ <a href="./6671.html" accesskey="t" title="David Hassell: &quot;[CF-metadata] CF trac ticket summary update&quot;">Next in thread</a> ]
 <!-- ureply="end" -->
 </li>
 </ul>
@@ -71,96 +71,72 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jim Biard &lt;<a href="mailto:jbiard?Subject=Re%3A%20%5BCF-metadata%5D%20string%20valued%20coordinates">jbiard</a>&gt;
+<dfn>From</dfn>: David Hassell &lt;<a href="mailto:d.c.hassell?Subject=Re%3A%20%5BCF-metadata%5D%20%22Conventions%22%20attribute%20confusion">d.c.hassell</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 03 Oct 2014 10:40:30 -0400</span><br />
+<span id="date"><dfn>Date</dfn>: Thu, 3 Oct 2013 10:16:44 +0100</span><br />
 </address>
 <br />
-Ben,
+Hello everyone,
 <br />
-<br />Section 3.1 of the CF Standard says, &quot; The|units|attribute is required 
+<br />During a recent discussion, it transpired that there are conflicting
 <br />
-for all variables that represent dimensional quantities&quot;. Also, &quot;Units 
+rules regarding the &quot;Conventions&quot; global attribute:
 <br />
-are not required for dimensionless quantities. A variable with no units 
+<br />* The CF conventions state that its use is _recommended_
 <br />
-attribute is assumed to be dimensionless.&quot;
+&nbsp;&nbsp;(<a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.6/cf-conventions.html#identification-of-conventions">http://cf-pcmdi.llnl.gov/documents/cf-conventions/1.6/cf-conventions.html#identification-of-conventions</a>)
 <br />
-<br />A string coordinate is not &quot;dimensional&quot;, and thus a units attribute is 
+<br />* On the other hand, the conformance document states that its use is
 <br />
-not required. Chapter 6 describes label coordinates (the name given to 
+&nbsp;&nbsp;_mandatory_ (2.6.1 in
 <br />
-string valued coordinates).
+&nbsp;&nbsp;<a href="http://cf-pcmdi.llnl.gov/conformance/requirements-and-recommendations/1.6/">http://cf-pcmdi.llnl.gov/conformance/requirements-and-recommendations/1.6/</a>)
 <br />
-<br />Grace and peace,
+<br />We felt that the conformance document ought to be correct, i.e. the
 <br />
-<br />Jim
+&quot;Conventions&quot; global attribute must be set, and the conventions
 <br />
-<br />On 10/3/14, 10:16 AM, Ben Hetland wrote:
+document is wrong.
 <br />
-<em class="quotelev1">&gt; On 2014-10-03, Jim Biard &lt;jbiard at cicsnc.org&gt; wrote:
-</em><br />
-<em class="quotelev2">&gt;&gt; The 'no units' case is covered by leaving off the units attribute.
-</em><br />
-<em class="quotelev1">&gt; Wouldn't that be in violation of the CF convention?
-</em><br />
-<em class="quotelev1">&gt; I was under the impression that _all_ dimensional quantities need that attribute, and a &quot;coordinate&quot; would by its very nature always imply a dimensional aspect, or is there something I've missed?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; If it were a 'dimensionless' value, using just &quot;1&quot; as a udunits string would work fine, but here I suppose the request is more along the lines of an _undefined_ unit (as in &quot;missing&quot;, &quot;unknown&quot; or &quot;not applicable&quot;).
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev2">&gt;&gt; On 10/3/14, 6:59 AM, Hedley, Mark wrote:
-</em><br />
-<em class="quotelev2">&gt;&gt; But I believe that I can create a CF auxiliary coordinate with string values without any concern.
-</em><br />
-<em class="quotelev1">&gt; Perhaps you could provide some concrete examples where you think a string as such (*) may be used as a coordinate or dimension?
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; -+-Ben-+-
-</em><br />
-<em class="quotelev1">&gt;
-</em><br />
-<em class="quotelev1">&gt; [*] i.e., the string is not just an alternative representation of some numeric value or scale, which it could have been converted into by means of a defined process.
-</em><br />
-<em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
+<br />An example of when not setting &quot;Conventions&quot; could cause real
+<br />
+confusion is with the use of attributes that were non standard in
+<br />
+older versions of CF but are standardised in later versions. For
+<br />
+example, the following data variable:
+<br />
+<br />&nbsp;&nbsp;byte sensor_status_qc(time, depth, lat, lon) ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sensor_status_qc:long_name = &quot;Sensor Status&quot; ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sensor_status_qc:valid_range = 1b, 63b ;
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sensor_status_qc:flag_masks = &quot;QWERTY&quot;;
+<br />
+<br />is complaint at CF-1.2, but not at CF-1.6. This is because the
+<br />
+&quot;flag_masks&quot; attribute used not to have any special meaning.
+<br />
+<br /><br />I would like raise a defect trac ticket to fix this (either way), but
+<br />
+would welcome any comments here, first.
+<br />
+<br />All the best,
+<br />
+<br />David
+<br />
 <br /><pre>
--- 
-CICS-NC &lt;<a href="http://www.cicsnc.org/">http://www.cicsnc.org/</a>&gt; Visit us on
-Facebook &lt;<a href="http://www.facebook.com/cicsnc">http://www.facebook.com/cicsnc</a>&gt; 	*Jim Biard*
-*Research Scholar*
-Cooperative Institute for Climate and Satellites NC &lt;<a href="http://cicsnc.org/">http://cicsnc.org/</a>&gt;
-North Carolina State University &lt;<a href="http://ncsu.edu/">http://ncsu.edu/</a>&gt;
-NOAA's National Climatic Data Center &lt;<a href="http://ncdc.noaa.gov/">http://ncdc.noaa.gov/</a>&gt;
-151 Patton Ave, Asheville, NC 28801
-e: jbiard at cicsnc.org
-o: +1 828 271 4900
--------------- next part --------------
-An HTML attachment was scrubbed...
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20141003/36483002/attachment-0001.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20141003/36483002/attachment-0001.html</a>&gt;
--------------- next part --------------
-A non-text attachment was scrubbed...
-Name: cfiiefgh.png
-Type: image/png
-Size: 11847 bytes
-Desc: not available
-URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20141003/36483002/attachment-0001.png">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/20141003/36483002/attachment-0001.png</a>&gt;
+--
+David Hassell
+National Centre for Atmospheric Science (NCAS)
+Department of Meteorology, University of Reading,
+Earley Gate, PO Box 243,
+Reading RG6 6BB, U.K.
+Tel   : +44 118 3785613
+E-mail: d.c.hassell at reading.ac.uk
 </pre>
-<span id="received"><dfn>Received on</dfn> Fri Oct 03 2014 - 08:40:30 BST</span>
+<span id="received"><dfn>Received on</dfn> Thu Oct 03 2013 - 03:16:44 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -168,11 +144,11 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start6579">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./6580.html" title="Next message in the list">Karl Taylor: "[CF-metadata] string valued coordinates"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./6578.html" title="Previous message in the list">Jim Biard: "[CF-metadata] realization | x of n"</a></li>
-<li><dfn>In reply to</dfn>: <a href="./6577.html" title="Message to which this message replies">Ben Hetland: "[CF-metadata] string valued coordinates"</a></li>
+<li><dfn>Next message</dfn>: <a href="./6580.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] Surface temperatures"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./6578.html" title="Previous message in the list">Jonathan Wrotny: "[CF-metadata] Surface temperatures"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./6491.html" title="Message to which this message replies">David Hassell: "[CF-metadata] CF trac ticket summary update"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./6580.html" title="Next message in this discussion thread">Karl Taylor: "[CF-metadata] string valued coordinates"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./6671.html" title="Next message in this discussion thread">David Hassell: "[CF-metadata] CF trac ticket summary update"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -183,7 +159,7 @@ URL: &lt;<a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/attachments/
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:48 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./6578.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./6580.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

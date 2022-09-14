@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] Reverse-time trajectory from Jonathan Gregory on 2012-05-11 (mailing-list-archive)</title>
-<meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] Reverse-time trajectory" />
-<meta name="Date" content="2012-05-11" />
+<title>[CF-metadata] CDM calendar date handling from John Caron on 2011-08-23 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
+<meta name="Author" content="John Caron (caron)" />
+<meta name="Subject" content="[CF-metadata] CDM calendar date handling" />
+<meta name="Date" content="2011-08-23" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,16 +32,17 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./4493.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4495.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] Reverse-time trajectory</h1>
-<!-- received="Fri May 11 10:39:33 2012" -->
-<!-- isoreceived="20120511093933" -->
-<!-- sent="Fri, 11 May 2012 17:39:33 +0100" -->
-<!-- isosent="20120511163933" -->
-<!-- name="Jonathan Gregory" -->
-<!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] Reverse-time trajectory" -->
-<!-- id="20120511163933.GA31242_at_met.reading.ac.uk" -->
+<a style="text-decoration:none" href="./4493.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4495.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] CDM calendar date handling</h1>
+<!-- received="Tue Aug 23 16:25:42 2011" -->
+<!-- isoreceived="20110823152542" -->
+<!-- sent="Tue, 23 Aug 2011 16:25:42 -0600" -->
+<!-- isosent="20110823222542" -->
+<!-- name="John Caron" -->
+<!-- email="caron" -->
+<!-- subject="[CF-metadata] CDM calendar date handling" -->
+<!-- id="4E5428E6.8090101_at_unidata.ucar.edu" -->
 <!-- charset="US-ASCII" -->
+<!-- inreplyto="4E5272D7.3020500_at_noaa.gov" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
 <ul class="links">
@@ -53,10 +54,11 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./4495.html" accesskey="d" title="John Caron: &quot;[CF-metadata] Reverse-time trajectory&quot;">Next message</a> ]
-[ <a href="./4493.html" title="Hattersley, Richard: &quot;[CF-metadata] Reverse-time trajectory&quot;">Previous message</a> ]
+[ <a href="./4495.html" accesskey="d" title="John Caron: &quot;[CF-metadata] CDM calendar date handling&quot;">Next message</a> ]
+[ <a href="./4493.html" title="Lynnes, Christopher S.: &quot;[CF-metadata] CDM calendar date handling&quot;">Previous message</a> ]
+[ <a href="./4488.html" title="Don Murray: &quot;[CF-metadata] CDM calendar date handling&quot;">In reply to</a> ]
 <!-- unextthread="start" -->
-[ <a href="./4495.html" accesskey="t" title="John Caron: &quot;[CF-metadata] Reverse-time trajectory&quot;">Next in thread</a> ]
+[ <a href="./4496.html" accesskey="t" title="Jonathan Gregory: &quot;[CF-metadata]  CDM calendar date handling&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,46 +72,186 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20Reverse-time%20trajectory">j.m.gregory</a>&gt;
+<dfn>From</dfn>: John Caron &lt;<a href="mailto:caron?Subject=Re%3A%20%5BCF-metadata%5D%20CDM%20calendar%20date%20handling">caron</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Fri, 11 May 2012 17:39:33 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Tue, 23 Aug 2011 16:25:42 -0600</span><br />
 </address>
 <br />
-Dear Richard
+Hi Don:
 <br />
-<br />Auxiliary coordinate variables don't have to be monotonic. That's the usual
+<br />Both java date and joda-time use a long to represent millisecs since ref 
 <br />
-rule for them, and the reason for what it says in H.2.1. To require them to
+date.
 <br />
-be monotonic would be a new rule. I think it would be a specific requirement
+<br />so min/max year is:
 <br />
-for sect 9. That is, you could say, if it's a timeseries feature type, the time
+<br />max = 292,278,994
 <br />
-coordinate must be monotonic, even if it's an aux coord var. However, I don't
+min = -292,275,055
 <br />
-think you'd want to require other aux coord vars to be monotonic, such as lat,
+<br />heres what im getting with your example in CDM 4.3 using joda-time:
 <br />
-lon and alt in the same example. So this extra requirement of monotonicity
+<br />50000000 years since 1970-01-01 00:00:00Z == 50001928-10-07T01:30:00.064Z
 <br />
-would be for particular coordinate types in particular feature types.
+<br />50000000 calendar years since 1970-01-01 00:00:00Z == 
 <br />
-<br />Is this necessary? Also, is it desirable? Currently, it is possible for the
+50001970-01-01T00:00:00.000Z
 <br />
-times to be stored disordered in the index ragged array representation, for
+<br />calendar periods are integers, so you are limited to  +/- 2 Gyears.
 <br />
-instance. That might be convenient, since that representation is expected to
+<br />It seems to me it would be better to somehow denote the &quot;epoch&quot; 
 <br />
-be used when data is written as it arrives, and it might not arrive in the
+seperately, because its kind of silly keeping track of # millisecs 
 <br />
-right order. Would you want to prohibit this by requiring time to be monotonic
+between two dates separated by 50 million years. plus its hard.
 <br />
-in H.2.5, for example?
+<br />what about:
 <br />
-<br />Best wishes
+<br />&quot;01-01-01 12:00 epoch 50m BCE&quot;
 <br />
-<br />Jonathan
+<br />where the &quot;epoch 50m BCE&quot; is probably just carried along in the string 
 <br />
-<span id="received"><dfn>Received on</dfn> Fri May 11 2012 - 10:39:33 BST</span>
+representation of the date.
+<br />
+<br />(Im not sure why Myears is even accepted in Stu's example, since its a 
+<br />
+time unit, not a date unit).
+<br />
+<br />john
+<br />
+<br />On 8/22/2011 9:16 AM, Don Murray wrote:
+<br />
+<em class="quotelev1">&gt; John-
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; An example of how this could be handled (provided by Stuart Wier of 
+</em><br />
+<em class="quotelev1">&gt; UNAVCO) is available here:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; <a href="http://geon.unavco.org/unavco/geodynamics/Lithgow-Bertelloni_Richards_Mesozoic_Cenozoic_Plate_Velocities.cdl">http://geon.unavco.org/unavco/geodynamics/Lithgow-Bertelloni_Richards_Mesozoic_Cenozoic_Plate_Velocities.cdl</a> 
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; described on the page:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; <a href="http://geon.unavco.org/unavco/IDV_datasource_plates.html#c">http://geon.unavco.org/unavco/IDV_datasource_plates.html#c</a>
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Here, the time coordinate is listed as:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;         float time(time) ;
+</em><br />
+<em class="quotelev1">&gt;                 time:units = &quot;Myear&quot; ;
+</em><br />
+<em class="quotelev1">&gt;                 time:standard_name = &quot;time&quot; ;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; with values of:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; time = -170.0, -96.0, -94.0, -84.0, -74.0, -64.0, -56.0, -48.0, -43.0, 
+</em><br />
+<em class="quotelev1">&gt; -25.0, -10.0 ;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; The problem is that udunits ends up computing times for -64 Myear as:
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; 63998634-12-14 00:00:00 BCE
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; so you lose precision on the year.
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; Don
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<em class="quotelev1">&gt; On 8/19/11 10:45 AM, John Caron wrote:
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; Regarding paleoclimate, a point I forgot is that some modellers may
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; wish to
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; have years which are very large negative numbers (many more than four
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; digits)
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; if they set up the model with the &quot;true&quot; date for the run. Although 
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; for
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; geological timescales you might say that this isn't necessary and you
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; might
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; as well choose an arbitrary year, there is a good reason for it in
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; Pleistocene
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; when you might be using the dates to relate to orbital forcing or
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; atmospheric
+</em><br />
+<em class="quotelev4">&gt;&gt;&gt;&gt; composition.
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt;
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; so the idea is that you are simulating some year, so you really need
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; time down to the hour or second. but the climate is from 5 million
+</em><br />
+<em class="quotelev3">&gt;&gt;&gt; years ago, so you need the year field to be able to handle that?
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; Im just thinking that fitting this into the ISO date format
+</em><br />
+<em class="quotelev2">&gt;&gt; &quot;5000000-01-01 12:00&quot; seems awkward, esp as it indicates unwarranted
+</em><br />
+<em class="quotelev2">&gt;&gt; precision.
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev2">&gt;&gt; seems something like &quot;01-01 12:00 reference 50m BCE&quot; would be better.
+</em><br />
+<em class="quotelev2">&gt;&gt; What do paleo modellers actually use, eg in the figures that they 
+</em><br />
+<em class="quotelev2">&gt;&gt; publish?
+</em><br />
+<em class="quotelev2">&gt;&gt; _______________________________________________
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata mailing list
+</em><br />
+<em class="quotelev2">&gt;&gt; CF-metadata at cgd.ucar.edu
+</em><br />
+<em class="quotelev2">&gt;&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
+</em><br />
+<em class="quotelev2">&gt;&gt;
+</em><br />
+<em class="quotelev1">&gt;
+</em><br />
+<span id="received"><dfn>Received on</dfn> Tue Aug 23 2011 - 16:25:42 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -117,12 +259,13 @@ in H.2.5, for example?
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start4494">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./4495.html" title="Next message in the list">John Caron: "[CF-metadata] Reverse-time trajectory"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./4493.html" title="Previous message in the list">Hattersley, Richard: "[CF-metadata] Reverse-time trajectory"</a></li>
+<li><dfn>Next message</dfn>: <a href="./4495.html" title="Next message in the list">John Caron: "[CF-metadata] CDM calendar date handling"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./4493.html" title="Previous message in the list">Lynnes, Christopher S.: "[CF-metadata] CDM calendar date handling"</a></li>
+<li><dfn>In reply to</dfn>: <a href="./4488.html" title="Message to which this message replies">Don Murray: "[CF-metadata] CDM calendar date handling"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./4495.html" title="Next message in this discussion thread">John Caron: "[CF-metadata] Reverse-time trajectory"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./4496.html" title="Next message in this discussion thread">Jonathan Gregory: "[CF-metadata]  CDM calendar date handling"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./4495.html" title="Message sent in reply to this message">John Caron: "[CF-metadata] Reverse-time trajectory"</a></li>
+<dfn>Reply</dfn>: <a href="./4496.html" title="Message sent in reply to this message">Jonathan Gregory: "[CF-metadata]  CDM calendar date handling"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -133,7 +276,7 @@ in H.2.5, for example?
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:03 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./4493.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./4495.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>

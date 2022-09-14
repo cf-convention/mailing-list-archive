@@ -5,10 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <meta name="generator" content="hypermail 2.3.0, see http://www.hypermail-project.org/" />
-<title>[CF-metadata] GOES-R generated binary mask products under proposal from Jonathan Gregory on 2013-05-18 (mailing-list-archive)</title>
+<title>[CF-metadata]  how to represent a &quot;pft&quot; dimension from Jonathan Gregory on 2012-06-04 (Archive of CF discussions from 2002 to 2019 on the cf-metadata mailing list)</title>
 <meta name="Author" content="Jonathan Gregory (j.m.gregory)" />
-<meta name="Subject" content="[CF-metadata] GOES-R generated binary mask products under proposal" />
-<meta name="Date" content="2013-05-18" />
+<meta name="Subject" content="[CF-metadata]  how to represent a &quot;pft&quot; dimension" />
+<meta name="Date" content="2012-06-04" />
 <style type="text/css">
 /*<![CDATA[*/
 /* To be incorporated in the main stylesheet, don't code it in hypermail! */
@@ -32,15 +32,15 @@ address { font-style:inherit ;}
 </head>
 <body>
 <div class="head">
-<a style="text-decoration:none" href="./5350.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5352.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata] GOES-R generated binary mask products under proposal</h1>
-<!-- received="Sat May 18 08:19:29 2013" -->
-<!-- isoreceived="20130518071929" -->
-<!-- sent="Sat, 18 May 2013 15:19:29 +0100" -->
-<!-- isosent="20130518141929" -->
+<a style="text-decoration:none" href="./5350.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5352.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a><h1>[CF-metadata]  how to represent a &quot;pft&quot; dimension</h1>
+<!-- received="Mon Jun  4 11:17:43 2012" -->
+<!-- isoreceived="20120604101743" -->
+<!-- sent="Mon, 4 Jun 2012 18:17:43 +0100" -->
+<!-- isosent="20120604171743" -->
 <!-- name="Jonathan Gregory" -->
 <!-- email="j.m.gregory" -->
-<!-- subject="[CF-metadata] GOES-R generated binary mask products under proposal" -->
-<!-- id="20130518141929.GA22159_at_met.reading.ac.uk" -->
+<!-- subject="[CF-metadata]  how to represent a &quot;pft&quot; dimension" -->
+<!-- id="20120604171743.GA5081_at_met.reading.ac.uk" -->
 <!-- charset="US-ASCII" -->
 <!-- expires="-1" -->
 <map id="navbar" name="navbar">
@@ -53,10 +53,10 @@ address { font-style:inherit ;}
 <li>
 <dfn>Related messages</dfn>:
 <!-- unext="start" -->
-[ <a href="./5352.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] New reflectance standard names&quot;">Next message</a> ]
-[ <a href="./5350.html" title="Jonathan Gregory: &quot;[CF-metadata]  new standard name: total_totals_index&quot;">Previous message</a> ]
+[ <a href="./5352.html" accesskey="d" title="Jonathan Gregory: &quot;[CF-metadata] [lc-cci] proposal for new CF standard names for land cover observation and classification&quot;">Next message</a> ]
+[ <a href="./5350.html" title="Etienne Tourigny: &quot;[CF-metadata] how to represent a &#0034;pft&#0034; dimension&quot;">Previous message</a> ]
 <!-- unextthread="start" -->
-[ <a href="./5371.html" accesskey="t" title="Charles Paxson: &quot;[CF-metadata] GOES-R generated binary mask products under proposal&quot;">Next in thread</a> ]
+[ <a href="./5353.html" accesskey="t" title="Karl Taylor: &quot;[CF-metadata] how to represent a &#0034;pft&#0034; dimension&quot;">Next in thread</a> ]
  [ <a href="#replies">Replies</a> ]
 <!-- ureply="end" -->
 </li>
@@ -70,140 +70,70 @@ address { font-style:inherit ;}
 <div class="mail">
 <address class="headers">
 <span id="from">
-<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20GOES-R%20generated%20binary%20mask%20products%20under%20proposal">j.m.gregory</a>&gt;
+<dfn>From</dfn>: Jonathan Gregory &lt;<a href="mailto:j.m.gregory?Subject=Re%3A%20%5BCF-metadata%5D%20%20how%20to%20represent%20a%20%22pft%22%20dimension">j.m.gregory</a>&gt;
 </span><br />
-<span id="date"><dfn>Date</dfn>: Sat, 18 May 2013 15:19:29 +0100</span><br />
+<span id="date"><dfn>Date</dfn>: Mon, 4 Jun 2012 18:17:43 +0100</span><br />
 </address>
 <br />
-Dear Charles
+Dear Etienne
 <br />
-<br />Thank you for these proposals. Following Jim's question and your answer, I
+<br />I think the structure you have adopted for the data is fine.
 <br />
-appreciate that you can't define a threshold value in a particular quantity
-<br />
-for your application of these masks. Perhaps another question to ask is whether
-<br />
-quantities with these standard names are supposed to be comparable across
-<br />
-different datasets. That is the main purpose of standard names, in fact. For
-<br />
-instance, cloud_binary_mask is quite a general-purpose-sounding name. You can
-<br />
-imagine that, if this were in the table with the definition you give it:
-<br />
-<br /><em class="quotelev1">&gt; cloud_binary_mask: X_binary_mask has 1 where condition X is met, 0
+<br /><em class="quotelev1">&gt; 	double pft(pft) ;
 </em><br />
-<em class="quotelev1">&gt; elsewhere.    1 = cloud present, 0 = cloud absent (clear)
+<em class="quotelev1">&gt; 		pft:long_name = &quot;plant functional type&quot; ;
 </em><br />
-<br />it might be used to label quantities with many different definitions of cloud
+<em class="quotelev1">&gt; 		pft:units = &quot;none&quot; ;
+</em><br />
+<em class="quotelev1">&gt; 
+</em><br />
+<em class="quotelev1">&gt; 	double npp(time, pft, latitude, longitude) ;
+</em><br />
+<em class="quotelev1">&gt; 		npp:long_name = &quot;npp of carbon for each pft&quot; ;
+</em><br />
+<em class="quotelev1">&gt; 		npp:units = &quot;kg m-2 year-1&quot; ;
+</em><br />
+<br />The specific problem you raise is concerned with the axis attribute. That
 <br />
-cloud presence/absence. The use of a common standard name would indicate these
+attribute is really intended for identifying spatiotemporal coordinates;
 <br />
-quantities are the same, can be compared, and scientific conclusions can be
+although it may be convenient, it is redundant because they can also be
 <br />
-drawn from the comparison. But that might misleading. Is this acceptable?
+identified in other ways. It has not been extended for non-spatiotemporal
 <br />
-<br />If your intention is to define cloud presence/absence in a specific way, then
+axes like pft. In your CDL, the pft axis is identified by its long_name.
 <br />
-I feel it would be better to have a more specific standard name that identifies
+To make this more reliable, you might want to use a standard_name for this
 <br />
-the algorithm, on the analogy for instance of the existing standard name of
+pft coordinate variable. There isn't such a standard_name at present, but
 <br />
-isccp_cloud_area_fraction. I think it is fine to have application-specific
+area_type is often vegetation type in practice, so you could perhaps use
 <br />
-standard names like that then they identify quantities which might be generated
+that. We could standardise new area_types by proposals to this email list.
 <br />
-by different providers and which should be labelled as comparable.
+<br />Also, there is the new proposal, which I expect will go into the
+<br />
+standard_name table, for UN/FAO land cover types, which in many cases are
+<br />
+also vegetation types.
+<br />
+See <a href="http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2012/033507.html">http://mailman.cgd.ucar.edu/pipermail/cf-metadata/2012/033507.html</a>
+<br />
+<br />The quantities identified by these standard_names are string-valued, whereas
+<br />
+you expect a numeric pft. However, a string-valued one could be encoded as a
+<br />
+number by using the flag_values and flag_meanings attributes.
+<br />
+<br />There is an existing standard name for NPP as well viz
+<br />
+net_primary_productivity_of_carbon (kg m-2 s-1)
 <br />
 <br />Best wishes
 <br />
 <br />Jonathan
 <br />
-<br />----- Forwarded message from Charles Paxson &lt;cpaxson at aer.com&gt; -----
-<br />
-<br /><em class="quotelev1">&gt; Date: Wed, 15 May 2013 15:34:02 -0400
-</em><br />
-<em class="quotelev1">&gt; From: Charles Paxson &lt;cpaxson at aer.com&gt;
-</em><br />
-<em class="quotelev1">&gt; To: CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; Subject: [CF-metadata] GOES-R generated binary mask products under proposal
-</em><br />
-<em class="quotelev1">&gt; User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.28)
-</em><br />
-<em class="quotelev1">&gt; 	Gecko/20120306 Thunderbird/3.1.20
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Dear CF Metadata Users Group,
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Through observations and analysis, GOES-R weather products produce
-</em><br />
-<em class="quotelev1">&gt; binary masks for: aerosols, smoke, dust and clouds.   No coordinate
-</em><br />
-<em class="quotelev1">&gt; value is warranted (i.e. CF Metadata standard
-</em><br />
-<em class="quotelev1">&gt; surface_snow_binary_mask) for any of these four proposed quantities,
-</em><br />
-<em class="quotelev1">&gt; since a complex set of tests for each case, such as using brightness
-</em><br />
-<em class="quotelev1">&gt; temperatures, are used to derive signatures of the four atmospheric
-</em><br />
-<em class="quotelev1">&gt; constituents.  The proposed masks are analogous and defined in a
-</em><br />
-<em class="quotelev1">&gt; similar way as the CF Metadata standard names: land_binary_mask and
-</em><br />
-<em class="quotelev1">&gt; sunlit_binary_mask.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; aerosol_binary_mask: X_binary_mask has 1 where condition X is met, 0
-</em><br />
-<em class="quotelev1">&gt; elsewhere. 1 = aerosols present, 0 = aerosolsabsent
-</em><br />
-<em class="quotelev1">&gt; smoke_binary_mask: X_binary_mask has 1 where condition X is met, 0
-</em><br />
-<em class="quotelev1">&gt; elsewhere.  1 = smoke present, 0 = smoke absent
-</em><br />
-<em class="quotelev1">&gt; dust_binary_mask: X_binary_mask has 1 where condition X is met, 0
-</em><br />
-<em class="quotelev1">&gt; elsewhere.     1 = dust present, 0 = dust absent
-</em><br />
-<em class="quotelev1">&gt; cloud_binary_mask: X_binary_mask has 1 where condition X is met, 0
-</em><br />
-<em class="quotelev1">&gt; elsewhere.    1 = cloud present, 0 = cloud absent (clear)
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Please accept these four mask names for inclusion into the CF
-</em><br />
-<em class="quotelev1">&gt; Metadata standard.
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Sincerely,
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; Charles Paxson
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<em class="quotelev1">&gt; 
-</em><br />
-<br /><em class="quotelev1">&gt; _______________________________________________
-</em><br />
-<em class="quotelev1">&gt; CF-metadata mailing list
-</em><br />
-<em class="quotelev1">&gt; CF-metadata at cgd.ucar.edu
-</em><br />
-<em class="quotelev1">&gt; <a href="http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata">http://mailman.cgd.ucar.edu/mailman/listinfo/cf-metadata</a>
-</em><br />
-<br /><br />----- End forwarded message -----
-<br />
-<span id="received"><dfn>Received on</dfn> Sat May 18 2013 - 08:19:29 BST</span>
+<span id="received"><dfn>Received on</dfn> Mon Jun 04 2012 - 11:17:43 BST</span>
 </div>
 <!-- body="end" -->
 <div class="foot">
@@ -211,12 +141,13 @@ by different providers and which should be labelled as comparable.
 <ul class="links">
 <li><dfn>This message</dfn>: [ <a href="#start5351">Message body</a> ]</li>
 <!-- lnext="start" -->
-<li><dfn>Next message</dfn>: <a href="./5352.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] New reflectance standard names"</a></li>
-<li><dfn>Previous message</dfn>: <a href="./5350.html" title="Previous message in the list">Jonathan Gregory: "[CF-metadata]  new standard name: total_totals_index"</a></li>
+<li><dfn>Next message</dfn>: <a href="./5352.html" title="Next message in the list">Jonathan Gregory: "[CF-metadata] [lc-cci] proposal for new CF standard names for land cover observation and classification"</a></li>
+<li><dfn>Previous message</dfn>: <a href="./5350.html" title="Previous message in the list">Etienne Tourigny: "[CF-metadata] how to represent a &#0034;pft&#0034; dimension"</a></li>
 <!-- lnextthread="start" -->
-<li><dfn>Next in thread</dfn>: <a href="./5371.html" title="Next message in this discussion thread">Charles Paxson: "[CF-metadata] GOES-R generated binary mask products under proposal"</a></li>
+<li><dfn>Next in thread</dfn>: <a href="./5353.html" title="Next message in this discussion thread">Karl Taylor: "[CF-metadata] how to represent a &#0034;pft&#0034; dimension"</a></li>
 <li><a name="replies" id="replies"></a>
-<dfn>Reply</dfn>: <a href="./5371.html" title="Message sent in reply to this message">Charles Paxson: "[CF-metadata] GOES-R generated binary mask products under proposal"</a></li>
+<dfn>Reply</dfn>: <a href="./5353.html" title="Message sent in reply to this message">Karl Taylor: "[CF-metadata] how to represent a &#0034;pft&#0034; dimension"</a></li>
+<li><dfn>Reply</dfn>: <a href="./5354.html" title="Message sent in reply to this message">Etienne Tourigny: "[CF-metadata] how to represent a &#0034;pft&#0034; dimension"</a></li>
 <!-- lreply="end" -->
 </ul>
 <ul class="links">
@@ -227,7 +158,7 @@ by different providers and which should be labelled as comparable.
 <!-- trailer="footer" -->
 <p><small><em>
 This archive was generated by <a href="http://www.hypermail-project.org/">hypermail 2.3.0</a>
-: Wed Jul 27 2022 - 12:58:21 BST
+: Tue Sep 13 2022 - 23:02:41 BST
 </em></small></p>
 </body>
 <p><a style="text-decoration:none" href="./5350.html"><img src="./red-arrow-left.jpg" width="50" alt="&lArr;"></a> <a style="text-decoration:none" href="./5352.html"><img src="./red-arrow-right.jpg" width="50" alt="&rArr;"></a></html>
